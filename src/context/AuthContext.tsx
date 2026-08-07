@@ -28,12 +28,23 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<Profile | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [sessionLoading, setSessionLoading] = useState(true)
+  // Tracks whose profile `profile` currently reflects — starts null (no
+  // fetch has ever completed). Comparing this against session?.user?.id
+  // (rather than a separate boolean flipped inside a useEffect) closes a
+  // real race: a plain "profileLoading" boolean defaults to false on mount
+  // and is only set to true INSIDE the effect that runs after session.user
+  // first becomes non-null — so there is a real render, right after login,
+  // where session.user is set but profileLoading hasn't flipped to true yet
+  // and profile is still null. loading was false and profile was null at
+  // the same time, which sent a legitimate admin straight to
+  // RequireStaffRole's "not staff" redirect immediately after signing in.
+  const [profileForUserId, setProfileForUserId] = useState<string | null>(null)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
-      setLoading(false)
+      setSessionLoading(false)
     })
 
     const { data: subscription } = supabase.auth.onAuthStateChange((_event, newSession) => {
@@ -46,16 +57,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!session?.user) {
       setProfile(null)
+      setProfileForUserId(null)
       return
     }
 
+    const userId = session.user.id
     supabase
       .from('profiles')
       .select('id, role, full_name, phone, avatar_url')
-      .eq('id', session.user.id)
+      .eq('id', userId)
       .single()
-      .then(({ data }) => setProfile(data as Profile | null))
+      .then(({ data }) => {
+        setProfile(data as Profile | null)
+        setProfileForUserId(userId)
+      })
   }, [session?.user])
+
+  // A signed-in user's role isn't known until the profile fetch for THAT
+  // user resolves, so callers that gate on role (e.g. RequireStaffRole)
+  // must not treat profile === null as "not staff" while this is still
+  // true — otherwise a real staff member gets redirected right after
+  // logging in, before their profile has had a chance to load.
+  const profileLoading = !!session?.user && profileForUserId !== session.user.id
+  const loading = sessionLoading || profileLoading
 
   const signUp: AuthContextValue['signUp'] = async (email, password, fullName) => {
     const { error } = await supabase.auth.signUp({

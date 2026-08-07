@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import AuthShell from '../../components/ui/AuthShell'
 import { Button } from '../../components/ui/Button'
@@ -8,6 +8,7 @@ import { inputClasses, labelClasses } from '../../components/ui/Input'
 function LoginPage() {
   const { signIn } = useAuth()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -19,7 +20,12 @@ function LoginPage() {
     setSubmitting(true)
     try {
       await signIn(email, password)
-      navigate('/')
+      // Only honor same-origin relative paths from ?redirect= — reject
+      // protocol-relative ("//evil.com") and absolute URLs, which a query
+      // param attacker could otherwise use to redirect off-site post-login.
+      const redirect = searchParams.get('redirect')
+      const isSafeRedirect = !!redirect && redirect.startsWith('/') && !redirect.startsWith('//')
+      navigate(isSafeRedirect ? redirect : '/')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to sign in.')
     } finally {

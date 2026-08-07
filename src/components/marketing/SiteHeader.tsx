@@ -1,10 +1,13 @@
 import { Link, NavLink } from 'react-router-dom'
-import { LinkButton } from '../ui/Button'
+import { Button } from '../ui/Button'
+import { useBookingModal } from '../../context/BookingModalContext'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `font-mono-label text-[11px] uppercase transition-colors ${isActive ? 'text-ink' : 'text-ink-soft hover:text-ink'}`
 
 function SiteHeader() {
+  const { openBookingModal } = useBookingModal()
+
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-cream/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
@@ -30,9 +33,9 @@ function SiteHeader() {
           </NavLink>
         </nav>
 
-        <LinkButton to="/contact" size="md">
+        <Button size="md" onClick={openBookingModal}>
           Book a Call
-        </LinkButton>
+        </Button>
       </div>
     </header>
   )

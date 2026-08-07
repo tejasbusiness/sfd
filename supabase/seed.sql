@@ -23,6 +23,33 @@ insert into public.services (slug, name, short_description, long_description, ni
   ('whatsapp-business-api', 'WhatsApp Business API', 'WhatsApp CRM and automation for patient/client communication.', null, array['dentist','dermatologist','physio','chiro','pediatrician','eye-clinic','dietitian','fitness-coach','yoga-studio'], false, null, 6, true)
   on conflict (slug) do nothing;
 
+-- ---- availability_rules (Mon-Fri 9am-5pm IST for the bookable service) -----
+-- practitioner_id NULL = applies to the whole team, per migration 0005's design.
+-- Stored in UTC (start_time/end_time columns have no timezone concept of
+-- their own — the whole booking system works in UTC internally, per
+-- docs/logs.md), converted from true IST business hours: IST = UTC+5:30, no
+-- DST, so 09:00-17:00 IST = 03:30-11:30 UTC on the same calendar day (IST
+-- leads UTC, so no day-of-week rollover to account for here).
+
+do $$
+declare
+  v_bookable_service_id uuid;
+  v_day int;
+begin
+  select id into v_bookable_service_id from public.services where slug = 'one-on-one-help';
+
+  if v_bookable_service_id is not null then
+    for v_day in 1..5 loop -- Monday(1) through Friday(5)
+      insert into public.availability_rules (service_id, practitioner_id, day_of_week, start_time, end_time, buffer_minutes, is_active)
+      select v_bookable_service_id, null, v_day, '03:30', '11:30', 15, true
+      where not exists (
+        select 1 from public.availability_rules
+        where service_id = v_bookable_service_id and practitioner_id is null and day_of_week = v_day
+      );
+    end loop;
+  end if;
+end $$;
+
 -- ---- pricing_tiers (values from docs/05, stored in smallest currency unit) --
 
 insert into public.pricing_tiers (slug, name, price_usd_cents, price_inr_paise, billing_period, features, is_most_popular, display_order, is_published) values
@@ -64,8 +91,8 @@ begin
   values ('Test Lead One', 'test-lead-1@example.com', '+10000000001', v_web_design_id, 'contact', 'seed-script', 'new', 'Seed data for local testing.', true)
   returning id into v_lead_id;
 
-  insert into public.bookings (lead_id, service_id, starts_at, ends_at, status, client_full_name, client_email, is_test)
-  values (v_lead_id, v_web_design_id, now() + interval '2 days', now() + interval '2 days' + interval '30 minutes', 'confirmed', 'Test Lead One', 'test-lead-1@example.com', true);
+  insert into public.bookings (lead_id, service_id, starts_at, ends_at, status, client_full_name, client_phone, client_email, is_test)
+  values (v_lead_id, v_web_design_id, now() + interval '2 days', now() + interval '2 days' + interval '30 minutes', 'confirmed', 'Test Lead One', '+10000000001', 'test-lead-1@example.com', true);
 
   insert into public.tickets (lead_id, subject, status, priority, is_test)
   values (v_lead_id, 'Seed ticket: sample support question', 'open', 'normal', true);

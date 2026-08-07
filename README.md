@@ -62,7 +62,20 @@ Seed data includes real starter content (services, pricing tiers) plus a handful
 `is_test = true`-flagged leads/bookings/tickets for exercising the CRM/booking/ticketing UI
 without representing real prospects.
 
-### 5. Run the app
+### 5. Run edge functions (booking, checkout, webhooks, currency detection)
+
+```bash
+cp supabase/functions/.env.example supabase/functions/.env
+npx supabase functions serve --env-file supabase/functions/.env
+```
+
+This is a **separate env file from `.env.local`** — Vite's `.env.local` only reaches the
+browser bundle, but edge functions run server-side in a Deno sandbox and need their own
+secrets (`SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY` are injected automatically; gateway/
+geolocation keys are not). Required for booking, checkout, and currency-detection features to
+work locally — the rest of the site works without it.
+
+### 6. Run the app
 
 ```bash
 npm run dev

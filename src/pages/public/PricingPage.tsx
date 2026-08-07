@@ -1,22 +1,25 @@
-import { useState } from 'react'
 import PublicLayout from '../../components/marketing/PublicLayout'
 import StickyMobileCta from '../../components/marketing/StickyMobileCta'
 import QueryState from '../../components/ui/QueryState'
 import PageHeader from '../../components/ui/PageHeader'
-import { LinkButton } from '../../components/ui/Button'
+import CheckoutButton from '../../components/billing/CheckoutButton'
 import { useFetch } from '../../hooks/useFetch'
+import { useCurrency } from '../../hooks/useCurrency'
 import { fetchPublishedPricingTiers } from '../../lib/supabase/queries'
 import { formatPrice } from '../../lib/currency/formatPrice'
-import type { Currency } from '../../lib/payments'
 
 /**
- * Preview only — manual currency toggle for browsing, no geolocation default
- * and no checkout wiring (both are Phase 3 deliverables, docs/05). Buttons
- * route to /contact rather than a real checkout for now.
+ * Currency defaults from server-side IP geolocation (India -> INR, else USD,
+ * per docs/05) via useCurrency, with a manual toggle that overrides and
+ * persists the visitor's choice. Checkout is real (CheckoutButton ->
+ * processPayment -> create-checkout-session edge function) but gateway API
+ * keys aren't configured yet — see docs/logs.md for the credential gap;
+ * clicking through surfaces a clear "not configured yet" message rather than
+ * a broken/silent failure.
  */
 function PricingPage() {
   const { data: tiers, loading, error } = useFetch(fetchPublishedPricingTiers, [])
-  const [currency, setCurrency] = useState<Currency>('USD')
+  const [currency, setCurrency, currencyLoading] = useCurrency()
 
   return (
     <PublicLayout>
@@ -27,7 +30,8 @@ function PricingPage() {
               key={c}
               type="button"
               onClick={() => setCurrency(c)}
-              className={`font-mono-label rounded-full px-4 py-1.5 text-[11px] uppercase transition-colors ${currency === c ? 'bg-ink text-cream' : 'text-ink-soft'}`}
+              disabled={currencyLoading}
+              className={`font-mono-label rounded-full px-4 py-1.5 text-[11px] uppercase transition-colors disabled:opacity-50 ${currency === c ? 'bg-ink text-cream' : 'text-ink-soft'}`}
             >
               {c}
             </button>
@@ -63,15 +67,13 @@ function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <LinkButton to="/contact" className="mt-7 w-full">
-                  Get Started
-                </LinkButton>
+                <CheckoutButton tierId={tier.id} tierName={tier.name} currency={currency} />
               </div>
             ))}
           </div>
         )}
       </div>
-      <StickyMobileCta label="See Plans" />
+      <StickyMobileCta />
     </PublicLayout>
   )
 }

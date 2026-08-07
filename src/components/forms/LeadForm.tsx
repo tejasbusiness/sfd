@@ -3,6 +3,9 @@ import { submitLead, RateLimitError, SpamDetectedError } from '../../lib/forms/s
 import type { LeadFormType } from '../../lib/supabase/types'
 import { Button } from '../ui/Button'
 import { inputClasses, labelClasses } from '../ui/Input'
+import MobileNumberField, { type MobileNumberValue } from '../ui/MobileNumberField'
+
+const MESSAGE_MAX_LENGTH = 1000
 
 export interface LeadFormConfig {
   formType: LeadFormType
@@ -28,7 +31,7 @@ interface LeadFormProps {
 function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  const [mobile, setMobile] = useState<MobileNumberValue>({ countryCode: '+91', digits: '' })
   const [message, setMessage] = useState('')
   const [honeypot, setHoneypot] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -36,6 +39,13 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+
+    if (mobile.digits.length !== 10) {
+      setErrorMessage('Enter a 10-digit mobile number.')
+      setStatus('error')
+      return
+    }
+
     setStatus('submitting')
     setErrorMessage(null)
 
@@ -43,8 +53,8 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
       await submitLead(
         {
           full_name: fullName,
-          email,
-          phone: phone || undefined,
+          phone: `${mobile.countryCode}${mobile.digits}`,
+          email: email || undefined,
           entry_service_id: entryServiceId,
           form_type: config.formType,
           source,
@@ -120,31 +130,18 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
         />
       </div>
 
+      <MobileNumberField required value={mobile} onChange={setMobile} />
+
       <div>
         <label htmlFor="email" className={labelClasses}>
-          Email
+          Email (optional)
         </label>
         <input
           id="email"
           type="email"
-          required
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={inputClasses}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="phone" className={labelClasses}>
-          Phone (optional)
-        </label>
-        <input
-          id="phone"
-          type="tel"
-          autoComplete="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
           className={inputClasses}
         />
       </div>
@@ -157,11 +154,17 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
           id="message"
           required={config.messageRequired}
           placeholder={config.messagePlaceholder}
+          maxLength={MESSAGE_MAX_LENGTH}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
           className={inputClasses}
         />
+        {config.messageRequired && (
+          <p className="font-mono-label mt-1 text-right text-[10px] uppercase text-ink-soft">
+            {message.length}/{MESSAGE_MAX_LENGTH}
+          </p>
+        )}
       </div>
 
       <Button type="submit" disabled={status === 'submitting'} className="w-full">

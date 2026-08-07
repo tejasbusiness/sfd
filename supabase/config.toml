@@ -124,6 +124,14 @@ file_size_limit = "50MiB"
 # allowed_mime_types = ["image/png", "image/jpeg"]
 # objects_path = "./images"
 
+# Site logo / favicon uploads (Settings > Company > General). Public read
+# (must render on the public site unauthenticated), admin-only write via
+# RLS in 0019_company_assets_storage_bucket.sql.
+[storage.buckets.company-assets]
+public = true
+file_size_limit = "5MiB"
+allowed_mime_types = ["image/png", "image/jpeg", "image/svg+xml", "image/x-icon"]
+
 # Allow connections via S3 compatible clients
 [storage.s3_protocol]
 enabled = true
@@ -412,3 +420,93 @@ enabled = true
 # declarative_schema_path = "./database"
 # JSON string passed through to pg-delta SQL formatting.
 # format_options = "{\"keywordCase\":\"upper\",\"indent\":2,\"maxWidth\":80,\"commaStyle\":\"trailing\"}"
+
+[functions.create-booking]
+enabled = true
+verify_jwt = false
+import_map = "./functions/create-booking/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/create-booking/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/create-booking/*.html" ]
+
+[functions.manage-booking]
+enabled = true
+verify_jwt = false
+import_map = "./functions/manage-booking/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/manage-booking/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/manage-booking/*.html" ]
+
+[functions.detect-currency]
+enabled = true
+verify_jwt = false
+import_map = "./functions/detect-currency/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/detect-currency/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/detect-currency/*.html" ]
+
+[functions.create-checkout-session]
+enabled = true
+verify_jwt = false
+import_map = "./functions/create-checkout-session/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/create-checkout-session/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/create-checkout-session/*.html" ]
+
+[functions.stripe-webhook]
+enabled = true
+verify_jwt = false
+import_map = "./functions/stripe-webhook/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/stripe-webhook/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/stripe-webhook/*.html" ]
+
+[functions.razorpay-webhook]
+enabled = true
+verify_jwt = false
+import_map = "./functions/razorpay-webhook/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/razorpay-webhook/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/razorpay-webhook/*.html" ]
+
+[functions.google-drive-oauth-start]
+enabled = true
+verify_jwt = false
+import_map = "./functions/google-drive-oauth-start/deno.json"
+entrypoint = "./functions/google-drive-oauth-start/index.ts"
+
+[functions.google-drive-oauth-callback]
+enabled = true
+verify_jwt = false
+import_map = "./functions/google-drive-oauth-callback/deno.json"
+entrypoint = "./functions/google-drive-oauth-callback/index.ts"
+
+[functions.github-webhook]
+enabled = true
+verify_jwt = false
+import_map = "./functions/github-webhook/deno.json"
+entrypoint = "./functions/github-webhook/index.ts"
+
+[functions.send-test-email]
+enabled = true
+verify_jwt = false
+import_map = "./functions/send-test-email/deno.json"
+entrypoint = "./functions/send-test-email/index.ts"

@@ -4,6 +4,7 @@ import StickyMobileCta from '../../components/marketing/StickyMobileCta'
 import QueryState from '../../components/ui/QueryState'
 import { LinkButton } from '../../components/ui/Button'
 import LeadForm from '../../components/forms/LeadForm'
+import BookingWidget from '../../components/booking/BookingWidget'
 import { SERVICE_INQUIRY_FORM_CONFIG } from '../../lib/forms/formConfigs'
 import { useFetch } from '../../hooks/useFetch'
 import { fetchServiceBySlug } from '../../lib/supabase/queries'
@@ -55,11 +56,23 @@ function ServiceDetailPage() {
               </div>
             )}
 
-            <div className="mt-10">
-              <LinkButton to="/contact" size="lg">
-                {service.is_bookable ? 'Book This Service' : 'Get Started'}
-              </LinkButton>
-            </div>
+            {!service.is_bookable && (
+              <div className="mt-10">
+                <LinkButton to="/contact" size="lg">
+                  Get Started
+                </LinkButton>
+              </div>
+            )}
+
+            {service.is_bookable && (
+              <div className="mt-10">
+                <BookingWidget
+                  serviceId={service.id}
+                  serviceName={service.name}
+                  durationMinutes={service.default_duration_minutes ?? 30}
+                />
+              </div>
+            )}
 
             <div className="mt-16 border-t border-ink/10 pt-10">
               <LeadForm

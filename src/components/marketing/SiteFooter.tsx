@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
-import { LinkButton } from '../ui/Button'
+import { Button } from '../ui/Button'
+import { useBookingModal } from '../../context/BookingModalContext'
 
 function SiteFooter() {
+  const { openBookingModal } = useBookingModal()
+
   return (
     <footer className="border-t border-ink/10 bg-ink text-cream">
       <div className="mx-auto max-w-6xl px-4 py-20 text-center sm:px-6">
@@ -11,9 +14,9 @@ function SiteFooter() {
           <br className="hidden sm:block" /> <span className="italic">books appointments</span>?
         </h2>
         <div className="mt-8">
-          <LinkButton to="/contact" variant="inverse" size="lg">
+          <Button variant="inverse" size="lg" onClick={openBookingModal}>
             Book a Call
-          </LinkButton>
+          </Button>
         </div>
 
         <div className="mt-20 flex flex-col items-center gap-4 border-t border-cream/15 pt-8 text-xs text-cream/60 sm:flex-row sm:justify-between">

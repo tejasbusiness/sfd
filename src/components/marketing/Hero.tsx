@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion'
-import { LinkButton } from '../ui/Button'
+import { Button, LinkButton } from '../ui/Button'
 import HeroCollage from './HeroCollage'
+import { useBookingModal } from '../../context/BookingModalContext'
 
 const NICHE_TAGS = ['#Dentists', '#Physio', '#Dermatology', '#Pediatrics', '#Yoga Studios']
 
 function Hero() {
+  const { openBookingModal } = useBookingModal()
+
   return (
     <section className="mx-auto max-w-6xl px-4 pb-20 pt-14 sm:px-6 sm:pt-20">
       <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-8">
@@ -48,9 +51,9 @@ function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <LinkButton to="/contact" size="lg">
+            <Button size="lg" onClick={openBookingModal}>
               Book a Call
-            </LinkButton>
+            </Button>
             <LinkButton to="/services" variant="secondary" size="lg">
               Explore Services
             </LinkButton>
