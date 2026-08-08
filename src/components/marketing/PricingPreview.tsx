@@ -24,10 +24,10 @@ function PricingPreview() {
           {tiers.map((tier) => (
             <div
               key={tier.id}
-              className={`rounded-2xl border p-7 ${tier.is_most_popular ? 'border-teal bg-sage' : 'border-ink/10 bg-cream'}`}
+              className={`relative rounded-2xl border p-7 ${tier.is_most_popular ? 'border-teal bg-sage' : 'border-ink/10 bg-cream'}`}
             >
               {tier.is_most_popular && (
-                <span className="font-mono-label text-[10px] uppercase text-teal">
+                <span className="font-mono-label absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal px-3 py-1 text-[10px] uppercase text-cream">
                   Most Popular
                 </span>
               )}
