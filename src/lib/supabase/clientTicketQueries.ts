@@ -36,6 +36,12 @@ export async function createTicket(subject: string, clientId: string, firstMessa
   })
   if (msgError) throw msgError
 
+  // Best-effort — see the comment in lib/forms/submitLead.ts. One push per
+  // new-ticket action (not a second one for its first message insert, which
+  // also fires notify_new_ticket_reply — that's fine as two notification
+  // rows, just not two push pings for a single user action).
+  supabase.functions.invoke('send-push', { body: { title: 'New support ticket', body: subject, url: `/admin/tickets/${ticketId}` } }).catch(() => {})
+
   return ticketId
 }
 
@@ -60,4 +66,7 @@ export async function replyToTicket(ticketId: string, body: string, authorId: st
     body,
   })
   if (error) throw error
+
+  // Best-effort — see the comment in lib/forms/submitLead.ts.
+  supabase.functions.invoke('send-push', { body: { title: 'New ticket reply', body, url: `/admin/tickets/${ticketId}` } }).catch(() => {})
 }

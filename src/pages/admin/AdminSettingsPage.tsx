@@ -11,6 +11,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useFetch } from '../../hooks/useFetch'
 import { fetchAllSettings, updateSetting } from '../../lib/supabase/adminSettingsQueries'
 import { supabase } from '../../lib/supabase/client'
+import EmailTemplatesPanel from '../../components/admin/EmailTemplatesPanel'
 import type {
   AiProviderSettings,
   CompanySettings,
@@ -24,9 +25,17 @@ import type {
   SmtpSettings,
 } from '../../lib/supabase/types'
 
-const TABS: { key: SettingKey; label: string }[] = [
+// 'email_templates' isn't a SettingKey (it's a separate table, not a
+// settings row — see docs/09/06), but lives as a tab here per docs/06's
+// "template editor for automated sequences [belongs] in the admin Email
+// settings panel" instruction, alongside the existing SMTP config it sends
+// through.
+type SettingsTabKey = SettingKey | 'email_templates'
+
+const TABS: { key: SettingsTabKey; label: string }[] = [
   { key: 'company', label: 'Company' },
   { key: 'smtp', label: 'Email / SMTP' },
+  { key: 'email_templates', label: 'Email Templates' },
   { key: 'sms', label: 'SMS' },
   { key: 'integration', label: 'Integration' },
   { key: 'ai_provider', label: 'AI Provider' },
@@ -44,7 +53,7 @@ function settingsByKey(settings: Setting[]): Partial<Record<SettingKey, Setting>
 function AdminSettingsPage() {
   const { profile } = useAuth()
   const isAdmin = profile?.role === 'admin'
-  const [activeTab, setActiveTab] = useState<SettingKey>('company')
+  const [activeTab, setActiveTab] = useState<SettingsTabKey>('company')
 
   const { data, loading, error } = useFetch(() => (isAdmin ? fetchAllSettings() : Promise.resolve([])), [isAdmin])
 
@@ -66,11 +75,12 @@ function AdminSettingsPage() {
 
       {!loading && !error && (
         <div>
-          <TabNav tabs={TABS} activeKey={activeTab} onChange={(k) => setActiveTab(k as SettingKey)} />
+          <TabNav tabs={TABS} activeKey={activeTab} onChange={(k) => setActiveTab(k as SettingsTabKey)} />
 
-          <div className="max-w-xl pt-6">
+          <div className={activeTab === 'email_templates' ? 'max-w-3xl pt-6' : 'max-w-xl pt-6'}>
             {activeTab === 'company' && <CompanyTabContainer settings={byKey} />}
             {activeTab === 'smtp' && <SmtpPanel setting={byKey.smtp} />}
+            {activeTab === 'email_templates' && <EmailTemplatesPanel />}
             {activeTab === 'sms' && <SmsPanel setting={byKey.sms} />}
             {activeTab === 'integration' && <IntegrationPanel setting={byKey.integration} />}
             {activeTab === 'ai_provider' && <AiProviderPanel setting={byKey.ai_provider} />}

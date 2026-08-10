@@ -87,6 +87,39 @@ export interface Lead {
   // Joined, not a real column — present when fetched via fetchLeads()/fetchLeadById().
   entry_service?: { name: string } | null
   assignee?: { full_name: string | null } | null
+  // Attached client-side (not a Supabase embed — subscriptions.client_id has
+  // no FK from leads, only a shared value) by fetchLeads()/fetchLeadById()
+  // for leads whose client_id has an active/past subscription record.
+  subscription?: Subscription | null
+}
+
+export type SubscriptionStatus = 'trialing' | 'active' | 'past_due' | 'canceled' | 'upgraded' | 'downgraded'
+
+export const SUBSCRIPTION_STATUSES: SubscriptionStatus[] = [
+  'trialing',
+  'active',
+  'past_due',
+  'canceled',
+  'upgraded',
+  'downgraded',
+]
+
+export interface Subscription {
+  id: string
+  client_id: string | null
+  lead_id: string | null
+  tier_id: string
+  gateway: 'razorpay' | 'stripe'
+  currency: 'INR' | 'USD'
+  status: SubscriptionStatus
+  current_period_start: string | null
+  current_period_end: string | null
+  canceled_at: string | null
+  is_test: boolean
+  created_at: string
+  updated_at: string
+  // Joined, not a real column — present when fetched via fetchActiveSubscriptionsByClientIds().
+  tier?: { name: string } | null
 }
 
 export type MessageContext = 'ticket' | 'chat' | 'lead_note'
@@ -275,6 +308,55 @@ export interface Ticket {
   // Joined, not a real column — present when fetched via the admin queries.
   client?: { full_name: string | null; phone: string | null } | null
   assignee?: { full_name: string | null } | null
+}
+
+export type EmailTriggerKey =
+  | 'new_lead_welcome'
+  | 'booking_confirmed'
+  | 'booking_reminder_24h'
+  | 'lead_followup_nudge'
+  | 'ticket_resolved_checkin'
+  | 'project_completed_whatsapp_intro'
+
+export interface EmailTemplate {
+  id: string
+  trigger_key: EmailTriggerKey
+  subject: string
+  body_html: string
+  merge_fields: string[]
+  is_active: boolean
+  created_at: string
+  updated_at: string
+}
+
+export type EmailTriggerStatus = 'sent' | 'failed'
+
+export interface EmailTriggerLogEntry {
+  id: string
+  trigger_key: string
+  lead_id: string | null
+  booking_id: string | null
+  ticket_id: string | null
+  recipient_email: string
+  status: EmailTriggerStatus
+  error_message: string | null
+  sent_at: string
+}
+
+export type NotificationType = 'new_lead' | 'new_booking' | 'new_ticket' | 'new_ticket_reply'
+
+export interface AppNotification {
+  id: string
+  type: NotificationType
+  title: string
+  body: string
+  lead_id: string | null
+  booking_id: string | null
+  ticket_id: string | null
+  is_test: boolean
+  created_at: string
+  // Derived client-side from notification_reads, not a real column.
+  is_read?: boolean
 }
 
 export interface BlogPost {

@@ -15,7 +15,7 @@ import {
   addLeadNote,
   fetchStaffProfiles,
 } from '../../lib/supabase/adminQueries'
-import { LEAD_STATUSES, type LeadStatus } from '../../lib/supabase/types'
+import { LEAD_STATUSES, type LeadStatus, type SubscriptionStatus } from '../../lib/supabase/types'
 
 const STATUS_LABELS: Record<LeadStatus, string> = {
   new: 'New',
@@ -24,6 +24,24 @@ const STATUS_LABELS: Record<LeadStatus, string> = {
   proposal_sent: 'Proposal Sent',
   won: 'Won',
   lost: 'Lost',
+}
+
+const SUBSCRIPTION_STATUS_LABELS: Record<SubscriptionStatus, string> = {
+  trialing: 'Trialing',
+  active: 'Active',
+  past_due: 'Past Due',
+  canceled: 'Canceled',
+  upgraded: 'Upgraded',
+  downgraded: 'Downgraded',
+}
+
+const SUBSCRIPTION_STATUS_CLASSES: Record<SubscriptionStatus, string> = {
+  trialing: 'border-gold/40 text-gold',
+  active: 'border-teal/40 text-teal',
+  past_due: 'border-terracotta/40 text-terracotta',
+  canceled: 'border-ink/15 text-ink-soft',
+  upgraded: 'border-teal/40 text-teal',
+  downgraded: 'border-ink/15 text-ink-soft',
 }
 
 function formatDateTime(iso: string): string {
@@ -220,6 +238,39 @@ function AdminLeadDetailPage() {
                   ...(staff ?? []).map((s) => ({ value: s.id, label: s.full_name ?? s.role })),
                 ]}
               />
+            </div>
+
+            <div className="rounded-xl border border-ink/10 p-5">
+              <p className="font-mono-label text-[10px] uppercase text-ink-soft">Subscription</p>
+              {lead.subscription ? (
+                <div className="mt-2 space-y-2">
+                  <span
+                    className={`font-mono-label inline-block rounded-full border px-2.5 py-1 text-[10px] uppercase ${SUBSCRIPTION_STATUS_CLASSES[lead.subscription.status]}`}
+                  >
+                    {SUBSCRIPTION_STATUS_LABELS[lead.subscription.status]}
+                  </span>
+                  <dl className="grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                      <dt className="font-mono-label text-[10px] uppercase text-ink-soft">Tier</dt>
+                      <dd className="mt-0.5 text-ink">{lead.subscription.tier?.name ?? '—'}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-mono-label text-[10px] uppercase text-ink-soft">Currency</dt>
+                      <dd className="mt-0.5 text-ink">{lead.subscription.currency}</dd>
+                    </div>
+                    {lead.subscription.current_period_end && (
+                      <div className="col-span-2">
+                        <dt className="font-mono-label text-[10px] uppercase text-ink-soft">Current period ends</dt>
+                        <dd className="mt-0.5 text-ink">{formatDateTime(lead.subscription.current_period_end)}</dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
+              ) : (
+                <p className="mt-2 text-sm text-ink-soft">
+                  {lead.client_id ? 'No subscription on record.' : 'Lead has not converted to a client account yet.'}
+                </p>
+              )}
             </div>
           </div>
         </div>

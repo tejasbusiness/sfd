@@ -113,7 +113,7 @@ Deno.serve(async (req) => {
   // 1. Load the service to get its duration and confirm it's bookable.
   const { data: service, error: serviceError } = await admin
     .from("services")
-    .select("id, default_duration_minutes, is_bookable, is_published")
+    .select("id, name, default_duration_minutes, is_bookable, is_published")
     .eq("id", serviceId)
     .maybeSingle();
 
@@ -230,6 +230,42 @@ Deno.serve(async (req) => {
       message: notes,
       is_test: body.isTest ?? false,
     });
+  }
+
+  // 7. Best-effort Web Push (docs/07) — Postgres can't call send-push
+  // itself, so the code path that created the notifying row does, same
+  // pattern as the client-side insert points (submitLead, clientTicketQueries).
+  // Never blocks or fails the booking response.
+  fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/send-push`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
+    },
+    body: JSON.stringify({
+      title: "New booking",
+      body: `${clientFullName} booked for ${startDate.toLocaleString()}`,
+      url: "/admin/bookings",
+    }),
+  }).catch((e) => console.error("send-push call failed", e));
+
+  // 8. Best-effort booking_confirmed email (docs/09) — same "server-side
+  // caller fires it directly via its own service-role key" pattern as the
+  // push notification above, since Postgres can't call HTTP itself.
+  if (body.clientEmail) {
+    fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/send-email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
+      },
+      body: JSON.stringify({
+        triggerKey: "booking_confirmed",
+        to: body.clientEmail,
+        mergeFields: { name: clientFullName, service: service.name, date: startDate.toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" }) },
+        bookingId: booking.id,
+      }),
+    }).catch((e) => console.error("send-email call failed", e));
   }
 
   return jsonOk({

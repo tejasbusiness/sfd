@@ -61,11 +61,11 @@ function AdminTicketDetailPage() {
   const [actionError, setActionError] = useState<string | null>(null)
 
   async function handleStatusChange(status: TicketStatus) {
-    if (!id) return
+    if (!id || !ticket) return
     setStatusSaving(true)
     setActionError(null)
     try {
-      await updateTicketStatus(id, status)
+      await updateTicketStatus(id, status, ticket.client_id, ticket.subject, ticket.client?.full_name ?? 'there')
       setRefreshKey((k) => k + 1)
     } catch {
       setActionError('Failed to update status. Please try again.')

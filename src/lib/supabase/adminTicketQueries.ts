@@ -29,9 +29,30 @@ export async function fetchTicketById(id: string): Promise<Ticket> {
   return data as Ticket
 }
 
-export async function updateTicketStatus(id: string, status: TicketStatus): Promise<void> {
+export async function updateTicketStatus(
+  id: string,
+  status: TicketStatus,
+  clientId: string | null,
+  subject: string,
+  clientName: string,
+): Promise<void> {
   const { error } = await supabase.from('tickets').update({ status }).eq('id', id)
   if (error) throw error
+
+  // Best-effort ticket_resolved_checkin email (docs/09) — fired here rather
+  // than a DB trigger since send-email needs an outbound HTTPS call, which
+  // Postgres can't make itself (same pattern as every other automation
+  // trigger in this build). Requires clientId since tickets/profiles carry
+  // no email column (only auth.users does) — send-email resolves it
+  // server-side via the service-role client. Guest/anonymous tickets
+  // (client_id null) have no account to email, so they're skipped.
+  if (status === 'resolved' && clientId) {
+    supabase.functions
+      .invoke('send-email', {
+        body: { triggerKey: 'ticket_resolved_checkin', clientId, mergeFields: { name: clientName, ticket_subject: subject }, ticketId: id },
+      })
+      .catch(() => {})
+  }
 }
 
 export async function updateTicketPriority(id: string, priority: TicketPriority): Promise<void> {

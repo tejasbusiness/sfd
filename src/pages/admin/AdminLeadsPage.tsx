@@ -5,7 +5,7 @@ import QueryState from '../../components/ui/QueryState'
 import { Select } from '../../components/ui/Select'
 import { useFetch } from '../../hooks/useFetch'
 import { fetchLeads } from '../../lib/supabase/adminQueries'
-import { LEAD_STATUSES, type Lead, type LeadStatus } from '../../lib/supabase/types'
+import { LEAD_STATUSES, type Lead, type LeadStatus, type SubscriptionStatus } from '../../lib/supabase/types'
 
 const STATUS_LABELS: Record<LeadStatus, string> = {
   new: 'New',
@@ -14,6 +14,24 @@ const STATUS_LABELS: Record<LeadStatus, string> = {
   proposal_sent: 'Proposal Sent',
   won: 'Won',
   lost: 'Lost',
+}
+
+const SUBSCRIPTION_STATUS_LABELS: Record<SubscriptionStatus, string> = {
+  trialing: 'Trialing',
+  active: 'Active',
+  past_due: 'Past Due',
+  canceled: 'Canceled',
+  upgraded: 'Upgraded',
+  downgraded: 'Downgraded',
+}
+
+const SUBSCRIPTION_STATUS_CLASSES: Record<SubscriptionStatus, string> = {
+  trialing: 'border-gold/40 text-gold',
+  active: 'border-teal/40 text-teal',
+  past_due: 'border-terracotta/40 text-terracotta',
+  canceled: 'border-ink/15 text-ink-soft',
+  upgraded: 'border-teal/40 text-teal',
+  downgraded: 'border-ink/15 text-ink-soft',
 }
 
 function formatDate(iso: string): string {
@@ -85,6 +103,7 @@ function AdminLeadsPage() {
                   <th className="px-4 py-3">Entry Service</th>
                   <th className="px-4 py-3">Source</th>
                   <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">Subscription</th>
                   <th className="px-4 py-3">Assigned</th>
                   <th className="px-4 py-3">Received</th>
                 </tr>
@@ -112,6 +131,17 @@ function AdminLeadsPage() {
                       <span className="font-mono-label rounded-full border border-ink/15 px-2.5 py-1 text-[10px] uppercase text-ink-soft">
                         {STATUS_LABELS[lead.status]}
                       </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      {lead.subscription ? (
+                        <span
+                          className={`font-mono-label rounded-full border px-2.5 py-1 text-[10px] uppercase ${SUBSCRIPTION_STATUS_CLASSES[lead.subscription.status]}`}
+                        >
+                          {SUBSCRIPTION_STATUS_LABELS[lead.subscription.status]}
+                        </span>
+                      ) : (
+                        <span className="text-ink-soft">—</span>
+                      )}
                     </td>
                     <td className="px-4 py-3 text-ink-soft">{lead.assignee?.full_name ?? 'Unassigned'}</td>
                     <td className="px-4 py-3 text-ink-soft">{formatDate(lead.created_at)}</td>

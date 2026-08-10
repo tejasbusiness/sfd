@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import NotificationBell from './NotificationBell'
 
 const NAV_ITEMS = [
   { to: '/admin/leads', label: 'Leads' },
@@ -25,7 +26,7 @@ function navLinkClasses({ isActive }: { isActive: boolean }) {
  * touching individual admin pages.
  */
 function AdminLayout({ title, children }: { title: string; children: ReactNode }) {
-  const { profile, signOut } = useAuth()
+  const { user, profile, signOut } = useAuth()
   const navigate = useNavigate()
 
   async function handleSignOut() {
@@ -51,6 +52,7 @@ function AdminLayout({ title, children }: { title: string; children: ReactNode }
           <header className="flex items-center justify-between border-b border-ink/10 px-4 py-4 sm:px-6">
             <h1 className="font-display text-xl text-ink">{title}</h1>
             <div className="flex items-center gap-3">
+              <NotificationBell userId={user?.id} />
               <span className="font-mono-label hidden text-[10px] uppercase text-ink-soft sm:inline">
                 {profile?.full_name ?? profile?.role}
               </span>
