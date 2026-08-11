@@ -36,13 +36,26 @@ import AdminTestimonialFormPage from './pages/admin/content/AdminTestimonialForm
 import AdminBlogListPage from './pages/admin/content/AdminBlogListPage'
 import AdminBlogFormPage from './pages/admin/content/AdminBlogFormPage'
 
+// This codebase serves both the public marketing site and the admin app
+// from one build (docs/00-INDEX.md's "single admin app, gated client-side"
+// deployment topology) — admin.synergyfirstdigital.com and
+// synergyfirstdigital.com are the same dist/ output, split only by which
+// domain nginx points at it. Without this check, "/" on the admin subdomain
+// rendered the full marketing homepage (no login link anywhere on it, since
+// that page is meant for site visitors) — a staff member landing there with
+// no bookmark had no way to find /auth/login. Local dev (no real subdomain)
+// keeps the marketing homepage at "/" as before; only the real admin
+// hostname redirects into RequireStaffRole, which itself sends signed-out
+// visitors to login and signed-in staff to the leads dashboard.
+const isAdminHost = typeof window !== 'undefined' && window.location.hostname === 'admin.synergyfirstdigital.com'
+
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <BookingModalProvider>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={isAdminHost ? adminRoute(<AdminLeadsPage />) : <HomePage />} />
             <Route path="/services" element={<ServicesIndexPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
