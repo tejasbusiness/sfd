@@ -28,6 +28,16 @@ function RequireStaffRole({ children }: { children: ReactNode }) {
   }
 
   if (!profile || !STAFF_ROLES.includes(profile.role)) {
+    // "/" on the admin subdomain is itself gated by RequireStaffRole (see
+    // App.tsx's isAdminHost routing), so redirecting a rejected user to "/"
+    // here would loop back into this same check forever — no error, no
+    // visible feedback, just a blank page. Send them to the real marketing
+    // site instead, which is a distinct hostname and can't loop.
+    const isAdminHost = typeof window !== 'undefined' && window.location.hostname === 'admin.synergyfirstdigital.com'
+    if (isAdminHost) {
+      window.location.href = 'https://synergyfirstdigital.com/'
+      return null
+    }
     return <Navigate to="/" replace />
   }
 
