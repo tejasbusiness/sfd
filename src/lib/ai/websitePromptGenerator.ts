@@ -8,6 +8,8 @@
 import { supabase } from '../supabase/client'
 import { getOrCreateDeviceId } from '../color/deviceId'
 
+export type WebsiteType = 'single' | 'multi'
+
 export interface PromptGeneratorPalette {
   primary: string
   secondary: string
@@ -25,6 +27,8 @@ export interface PromptGeneratorFormData {
   email?: string
   serviceArea?: string
   websiteUrl?: string
+  websiteType: WebsiteType
+  sectionsOrPages: string
   palette: PromptGeneratorPalette
   referenceImage?: { dataUrl: string; mimeType: string } | null
 }

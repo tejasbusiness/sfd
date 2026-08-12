@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react'
 import { Button } from '../ui/Button'
 import { inputClasses, labelClasses } from '../ui/Input'
+import { Select } from '../ui/Select'
 import ColorPaletteEditor from './ColorPaletteEditor'
 import ReferenceImageUpload from './ReferenceImageUpload'
 import { generatePalette, STRATEGY_ORDER } from '../../lib/color/paletteGenerator'
 import type { Palette } from '../../lib/color/paletteGenerator'
-import type { QuotaStatus } from '../../lib/ai/websitePromptGenerator'
+import type { QuotaStatus, WebsiteType } from '../../lib/ai/websitePromptGenerator'
 
 const DEFAULT_PRIMARY = '#2F6E62'
+const MAX_PAGES = 5
 
 export interface PromptGeneratorFormValues {
   yourName: string
@@ -18,6 +20,8 @@ export interface PromptGeneratorFormValues {
   email: string
   serviceArea: string
   websiteUrl: string
+  websiteType: WebsiteType
+  sectionsOrPages: string
 }
 
 const EMPTY_VALUES: PromptGeneratorFormValues = {
@@ -29,6 +33,15 @@ const EMPTY_VALUES: PromptGeneratorFormValues = {
   email: '',
   serviceArea: '',
   websiteUrl: '',
+  websiteType: 'single',
+  sectionsOrPages: '',
+}
+
+function parseCommaSeparated(value: string): string[] {
+  return value
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length > 0)
 }
 
 interface PromptGeneratorFormProps {
@@ -63,6 +76,21 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
       setValidationError('Business Name, Services You Offer, and Describe Your Business are required.')
       return
     }
+
+    const entries = parseCommaSeparated(values.sectionsOrPages)
+    if (entries.length === 0) {
+      setValidationError(
+        values.websiteType === 'single'
+          ? 'Please list at least one section for your single-page website.'
+          : 'Please list at least one page for your website.',
+      )
+      return
+    }
+    if (values.websiteType === 'multi' && entries.length > MAX_PAGES) {
+      setValidationError(`Maximum ${MAX_PAGES} pages allowed — you listed ${entries.length}. Please trim your list.`)
+      return
+    }
+
     setValidationError(null)
     onSubmit(values, palette, referenceImage)
   }
@@ -142,6 +170,50 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             onChange={(e) => updateField('businessDescription', e.target.value)}
             className={inputClasses}
           />
+        </div>
+
+        <div>
+          <Select
+            id="websiteType"
+            label="Website Type"
+            value={values.websiteType}
+            onChange={(val) => {
+              updateField('websiteType', val as WebsiteType)
+              updateField('sectionsOrPages', '')
+            }}
+            options={[
+              { value: 'single', label: 'Single Page (scrollable sections)' },
+              { value: 'multi', label: `Multiple Pages (up to ${MAX_PAGES})` },
+            ]}
+          />
+          <p className="mt-1.5 text-xs text-ink-soft">
+            {values.websiteType === 'single'
+              ? 'One scrollable page with multiple sections, linked from the header navigation.'
+              : `A traditional multi-page site (up to ${MAX_PAGES} pages), each linked from the header navigation.`}
+          </p>
+        </div>
+
+        <div>
+          <label htmlFor="sectionsOrPages" className={labelClasses}>
+            {values.websiteType === 'single' ? 'Sections You Want (comma separated)' : 'Pages You Want (comma separated)'}
+          </label>
+          <input
+            id="sectionsOrPages"
+            type="text"
+            placeholder={
+              values.websiteType === 'single'
+                ? 'e.g. Home, About, Services, Testimonials, Contact'
+                : 'e.g. Home, About, Services, Pricing, Contact'
+            }
+            value={values.sectionsOrPages}
+            onChange={(e) => updateField('sectionsOrPages', e.target.value)}
+            className={inputClasses}
+          />
+          <p className="mt-1.5 text-xs text-ink-soft">
+            {values.websiteType === 'single'
+              ? 'List the sections you want on your page, in the order you want them to appear. The header navigation will link to each one.'
+              : `List the page names you want (max ${MAX_PAGES}), in the order you want them in the navigation. Each becomes its own page linked from the header.`}
+          </p>
         </div>
 
         <div>

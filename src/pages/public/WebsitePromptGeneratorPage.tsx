@@ -49,6 +49,8 @@ function WebsitePromptGeneratorPage() {
         email: values.email || undefined,
         serviceArea: values.serviceArea || undefined,
         websiteUrl: values.websiteUrl || undefined,
+        websiteType: values.websiteType,
+        sectionsOrPages: values.sectionsOrPages,
         palette,
         referenceImage: referenceImagePayload,
       })

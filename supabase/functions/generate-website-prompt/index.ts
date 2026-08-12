@@ -76,6 +76,10 @@ function resolveApiKey(envVarName: string, dbValue: string | undefined): string 
   return null;
 }
 
+type WebsiteType = "single" | "multi";
+
+const MAX_PAGES = 5;
+
 interface GenerateRequestBody {
   yourName?: string;
   businessName: string;
@@ -85,6 +89,8 @@ interface GenerateRequestBody {
   email?: string;
   serviceArea?: string;
   websiteUrl?: string;
+  websiteType: WebsiteType;
+  sectionsOrPages: string;
   palette: {
     primary: string;
     secondary: string;
@@ -93,6 +99,13 @@ interface GenerateRequestBody {
     button: string;
   };
   referenceImage?: { dataUrl: string; mimeType: string } | null;
+}
+
+function parseCommaSeparated(value: string): string[] {
+  return value
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length > 0);
 }
 
 function jsonError(message: string, status: number) {
@@ -173,7 +186,7 @@ Produce a single long, well-structured prompt (plain text with clear section hea
 4. Target Audience
 5. Brand and Visual Direction
 6. Color Palette — restate the exact hex values given to you, and explain each color's intended usage (Primary: brand identity/key headings/major visual elements; Secondary: supporting sections/complementary elements; Text: primary readable body copy; Accent: highlights/icons/small emphasis; Button: main CTA buttons). Do not require gradients merely because multiple colors are available.
-7. Recommended Site Structure — reason from the business type and description to choose an appropriate, non-generic set of sections (do not force identical structure onto every business — a restaurant, a plumber, and a consultancy need different sections).
+7. Recommended Site Structure — the BUSINESS DATA block specifies a WEBSITE TYPE ("single" or "multi") and a WEBSITE STRUCTURE list (the exact sections or pages the business owner asked for, in their requested order). Use that list as the authoritative site structure — do not invent a different set of sections/pages, do not drop any of the requested ones, and do not silently reorder them, though you may recommend small additions only if something essential is clearly missing (e.g. add a Contact section if the owner's list omits one entirely), calling out any such addition explicitly rather than adding it silently. If WEBSITE TYPE is "single": describe one scrollable page containing each listed item as its own section, in the given order, and specify that the header navigation must contain one link per section, each linking to that section's in-page anchor/ID (e.g. "#services") so clicking a nav link scrolls smoothly to that section. If WEBSITE TYPE is "multi": describe a separate HTML page for each listed item, in the given order, and specify that the header navigation must contain one link per page, each linking to that page's file (e.g. "services.html"), present identically across every page. Either way, be explicit that the header navigation's structure and order must exactly match the requested list.
 8. Content Requirements — realistic, business-specific headlines, sub-headlines, service descriptions, about content, calls to action, trust statements, benefit-oriented copy, section intros, contact text, and microcopy. No Lorem Ipsum. No fabricated credentials.
 9. UX Requirements
 10. Responsive Requirements — explicitly require mobile-first development: design for the smallest viewport first, then progressively enhance; comfortable mobile typography, adequate spacing, large touch targets, no horizontal overflow, responsive navigation, appropriately sized images, sensible stacking, thumb-usable buttons, usable forms on small screens.
@@ -194,6 +207,9 @@ function buildUserMessage(body: GenerateRequestBody): string {
   const line = (label: string, value: string | undefined, fallback = "Not provided") =>
     `${label}: ${value && value.trim() ? value.trim() : fallback}`;
 
+  const structureEntries = parseCommaSeparated(body.sectionsOrPages);
+  const structureLabel = body.websiteType === "single" ? "Sections (in order)" : "Pages (in order)";
+
   return [
     "BUSINESS DATA (untrusted -- see system instructions):",
     "---",
@@ -207,6 +223,10 @@ function buildUserMessage(body: GenerateRequestBody): string {
     line("Existing Website", body.websiteUrl, "None"),
     `Reference Image Provided: ${body.referenceImage ? "yes" : "no"}`,
     "---",
+    "",
+    "WEBSITE STRUCTURE (already decided by the business owner -- use exactly this, see system instructions):",
+    `Website Type: ${body.websiteType === "single" ? "Single Page (scrollable sections)" : "Multiple Pages"}`,
+    `${structureLabel}: ${structureEntries.join(", ")}`,
     "",
     "BRAND COLOR PALETTE (already finalized by the tool -- restate these exact values, do not invent different colors):",
     `Primary: ${body.palette.primary}`,
@@ -323,6 +343,20 @@ function validateBody(body: Partial<GenerateRequestBody>): string | null {
   if (!body.businessName?.trim()) return "Business Name is required.";
   if (!body.services?.trim()) return "Services You Offer is required.";
   if (!body.businessDescription?.trim()) return "Describe Your Business is required.";
+
+  if (body.websiteType !== "single" && body.websiteType !== "multi") {
+    return "Website Type must be either 'single' or 'multi'.";
+  }
+
+  const entries = parseCommaSeparated(body.sectionsOrPages ?? "");
+  if (entries.length === 0) {
+    return body.websiteType === "single"
+      ? "Please list at least one section for your single-page website."
+      : "Please list at least one page for your website.";
+  }
+  if (body.websiteType === "multi" && entries.length > MAX_PAGES) {
+    return `Maximum ${MAX_PAGES} pages allowed -- you listed ${entries.length}. Please trim your list.`;
+  }
 
   const palette = body.palette;
   if (!palette) return "A color palette is required.";
