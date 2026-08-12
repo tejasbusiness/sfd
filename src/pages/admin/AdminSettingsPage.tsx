@@ -598,17 +598,7 @@ function IntegrationPanel({ setting }: { setting?: Setting }) {
                 className={inputClasses}
               />
             </div>
-            <div>
-              <label htmlFor="s-recaptcha-secret" className={labelClasses}>
-                Secret key
-              </label>
-              <input
-                id="s-recaptcha-secret"
-                value={recaptchaSecretKey}
-                onChange={(e) => setRecaptchaSecretKey(e.target.value)}
-                className={inputClasses}
-              />
-            </div>
+            <PasswordField id="s-recaptcha-secret" label="Secret key" value={recaptchaSecretKey} onChange={setRecaptchaSecretKey} />
             <p className="text-sm text-ink-soft">
               Before you logout, please open a new browser and make sure the reCAPTCHA is working.
             </p>

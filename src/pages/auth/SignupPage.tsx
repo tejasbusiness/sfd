@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import AuthShell from '../../components/ui/AuthShell'
 import { Button } from '../../components/ui/Button'
 import { inputClasses, labelClasses } from '../../components/ui/Input'
+import { PasswordField } from '../../components/ui/PasswordField'
 
 function SignupPage() {
   const { signUp } = useAuth()
@@ -76,21 +77,15 @@ function SignupPage() {
           />
         </div>
 
-        <div>
-          <label htmlFor="password" className={labelClasses}>
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            required
-            minLength={8}
-            autoComplete="new-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={inputClasses}
-          />
-        </div>
+        <PasswordField
+          id="password"
+          label="Password"
+          value={password}
+          onChange={setPassword}
+          required
+          minLength={8}
+          autoComplete="new-password"
+        />
 
         <Button type="submit" disabled={submitting} className="w-full">
           {submitting ? 'Creating account…' : 'Create account'}

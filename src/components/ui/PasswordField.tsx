@@ -7,9 +7,18 @@ interface PasswordFieldProps {
   value: string
   onChange: (value: string) => void
   placeholder?: string
+  required?: boolean
+  minLength?: number
+  /** Defaults to 'off' — password-manager-facing fields (login/signup) should pass 'current-password'/'new-password'. */
+  autoComplete?: string
 }
 
-export function PasswordField({ id, label, value, onChange, placeholder }: PasswordFieldProps) {
+/**
+ * Standing rule for this project: every password/secret input must use this
+ * component (or otherwise offer a show/hide toggle) — never a raw
+ * `<input type="password">`. Applies to new fields too, not just existing ones.
+ */
+export function PasswordField({ id, label, value, onChange, placeholder, required, minLength, autoComplete = 'off' }: PasswordFieldProps) {
   const [visible, setVisible] = useState(false)
 
   return (
@@ -24,8 +33,10 @@ export function PasswordField({ id, label, value, onChange, placeholder }: Passw
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
+          required={required}
+          minLength={minLength}
           className={`${inputClasses} mt-0 pr-10`}
-          autoComplete="off"
+          autoComplete={autoComplete}
         />
         <button
           type="button"

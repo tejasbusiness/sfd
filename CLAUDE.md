@@ -106,3 +106,8 @@ without a new auth model.
 - Production-ready code: proper error handling, loading states, and empty states throughout — not prototype-quality.
 - All secrets (Supabase keys, SMTP, Razorpay, Stripe, AI provider keys) environment-variable-driven.
 - README must document Supabase schema migration steps, required environment variables, and how to run locally — write/update this as the project is scaffolded.
+- **Every password/secret input field must use `src/components/ui/PasswordField.tsx`** (has a
+  built-in show/hide toggle) — never a raw `<input type="password">` or an unmasked plain input
+  for a secret value. Applies project-wide: auth pages (login/signup), and every admin Settings
+  field for a password/API key/secret (SMTP, SMS, reCAPTCHA, Google Drive, etc.). This is a
+  standing rule for all future password fields too, not just a one-time fix.
