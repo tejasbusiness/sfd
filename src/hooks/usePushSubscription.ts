@@ -34,7 +34,8 @@ export function usePushSubscription(userId: string | undefined) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const supported = typeof window !== 'undefined' && 'serviceWorker' in navigator && 'PushManager' in window
+  const supported =
+    typeof window !== 'undefined' && 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window
 
   useEffect(() => {
     if (!supported) {
