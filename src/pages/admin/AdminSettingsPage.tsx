@@ -917,12 +917,18 @@ function AiProviderPanel({ setting }: { setting?: Setting }) {
   const [active, setActive] = useState(v.active)
   const [fallback, setFallback] = useState<AiProviderSettings['fallback']>(v.fallback)
   const [tonePrompt, setTonePrompt] = useState(v.tone_prompt)
+  const [geminiKey, setGeminiKey] = useState(v.gemini_api_key ?? '')
+  const [openaiKey, setOpenaiKey] = useState(v.openai_api_key ?? '')
+  const [anthropicKey, setAnthropicKey] = useState(v.anthropic_api_key ?? '')
   const { saving, saveError, saved, save } = useSettingSave('ai_provider')
 
   useEffect(() => {
     setActive(v.active)
     setFallback(v.fallback)
     setTonePrompt(v.tone_prompt)
+    setGeminiKey(v.gemini_api_key ?? '')
+    setOpenaiKey(v.openai_api_key ?? '')
+    setAnthropicKey(v.anthropic_api_key ?? '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setting])
 
@@ -930,14 +936,20 @@ function AiProviderPanel({ setting }: { setting?: Setting }) {
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        save({ active, fallback, tone_prompt: tonePrompt })
+        save({
+          active,
+          fallback,
+          tone_prompt: tonePrompt,
+          gemini_api_key: geminiKey,
+          openai_api_key: openaiKey,
+          anthropic_api_key: anthropicKey,
+        })
       }}
       className="space-y-4"
     >
       <p className="text-sm text-ink-soft">
-        API keys for each provider live in server-side environment variables. This selects which configured provider
-        the chatbot dispatches to via <code>getChatResponse</code>, with an optional fallback if the active provider
-        errors.
+        This selects which configured provider the site chatbot and the Website Prompt Generator dispatch to, with an
+        optional fallback if the active provider errors.
       </p>
       <Select
         id="s-ai-active"
@@ -975,6 +987,27 @@ function AiProviderPanel({ setting }: { setting?: Setting }) {
           className={inputClasses}
         />
       </div>
+
+      <div className="border-t border-ink/10 pt-4">
+        <p className="text-sm text-ink-soft">{SECRETS_WARNING}</p>
+        <p className="mt-2 text-xs text-ink-soft">
+          API keys below are used by the Website Prompt Generator's edge function. A server-side environment variable
+          (<code>GEMINI_API_KEY</code>/<code>OPENAI_API_KEY</code>/<code>ANTHROPIC_API_KEY</code>) takes precedence
+          over the value stored here if both are set. Only the key for whichever provider is Active (or Fallback)
+          above needs to be filled in.
+        </p>
+        <div className="mt-4 space-y-4">
+          <PasswordField id="s-ai-gemini-key" label="Gemini API Key" value={geminiKey} onChange={setGeminiKey} />
+          <PasswordField id="s-ai-openai-key" label="OpenAI API Key" value={openaiKey} onChange={setOpenaiKey} />
+          <PasswordField
+            id="s-ai-anthropic-key"
+            label="Anthropic (Claude) API Key"
+            value={anthropicKey}
+            onChange={setAnthropicKey}
+          />
+        </div>
+      </div>
+
       <SaveRow saving={saving} saveError={saveError} saved={saved} />
     </form>
   )

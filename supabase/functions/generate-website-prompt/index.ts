@@ -10,6 +10,14 @@
 //         Settings (with fallback), record one row on success, return the
 //         generated prompt.
 //
+// API key resolution (resolveApiKey()): a server-side env var
+// (GEMINI_API_KEY/OPENAI_API_KEY/ANTHROPIC_API_KEY) always takes precedence
+// if set; otherwise falls back to the matching *_api_key field on the
+// ai_provider settings row, entered via Admin Settings > AI Provider. This
+// mirrors the SMTP/SMS/Google Drive "secrets in DB" tradeoff already
+// established elsewhere in Settings — env vars remain the stronger option,
+// but this admin panel has no other way to configure a key for this feature.
+//
 // Identity for quota purposes: there is no login on this page, so the
 // caller sends a client-generated UUID via X-Device-Id (localStorage,
 // see src/lib/color/deviceId.ts), and this function also tracks request IP
@@ -53,6 +61,19 @@ interface AiProviderSettings {
   active: AiProvider;
   fallback: AiProvider | null;
   tone_prompt?: string;
+  // Optional DB-stored keys (Admin Settings > AI Provider) — same
+  // secrets-in-DB tradeoff as SMTP/SMS/Google Drive. A server-side env var
+  // of the same name takes precedence when both are set; see resolveApiKey().
+  gemini_api_key?: string;
+  openai_api_key?: string;
+  anthropic_api_key?: string;
+}
+
+function resolveApiKey(envVarName: string, dbValue: string | undefined): string | null {
+  const envValue = Deno.env.get(envVarName);
+  if (envValue) return envValue;
+  if (dbValue && dbValue.trim()) return dbValue.trim();
+  return null;
 }
 
 interface GenerateRequestBody {
@@ -201,8 +222,7 @@ function buildUserMessage(body: GenerateRequestBody): string {
 // other zero-SDK edge functions (e.g. send-email's hand-rolled SMTP client).
 // ---------------------------------------------------------------------------
 
-async function callGemini(system: string, user: string): Promise<string> {
-  const apiKey = Deno.env.get("GEMINI_API_KEY");
+async function callGemini(system: string, user: string, apiKey: string | null): Promise<string> {
   if (!apiKey) throw new Error("GEMINI_API_KEY not configured");
 
   const res = await fetch(
@@ -225,8 +245,7 @@ async function callGemini(system: string, user: string): Promise<string> {
   return text;
 }
 
-async function callOpenAi(system: string, user: string): Promise<string> {
-  const apiKey = Deno.env.get("OPENAI_API_KEY");
+async function callOpenAi(system: string, user: string, apiKey: string | null): Promise<string> {
   if (!apiKey) throw new Error("OPENAI_API_KEY not configured");
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -253,8 +272,7 @@ async function callOpenAi(system: string, user: string): Promise<string> {
   return text;
 }
 
-async function callClaude(system: string, user: string): Promise<string> {
-  const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+async function callClaude(system: string, user: string, apiKey: string | null): Promise<string> {
   if (!apiKey) throw new Error("ANTHROPIC_API_KEY not configured");
 
   const res = await fetch("https://api.anthropic.com/v1/messages", {
@@ -279,14 +297,19 @@ async function callClaude(system: string, user: string): Promise<string> {
   return text;
 }
 
-async function callProvider(provider: AiProvider, system: string, user: string): Promise<string> {
+async function callProvider(
+  provider: AiProvider,
+  system: string,
+  user: string,
+  settings: AiProviderSettings,
+): Promise<string> {
   switch (provider) {
     case "gemini":
-      return callGemini(system, user);
+      return callGemini(system, user, resolveApiKey("GEMINI_API_KEY", settings.gemini_api_key));
     case "openai":
-      return callOpenAi(system, user);
+      return callOpenAi(system, user, resolveApiKey("OPENAI_API_KEY", settings.openai_api_key));
     case "claude":
-      return callClaude(system, user);
+      return callClaude(system, user, resolveApiKey("ANTHROPIC_API_KEY", settings.anthropic_api_key));
   }
 }
 
@@ -408,13 +431,13 @@ Deno.serve(async (req) => {
   let servedBy: AiProvider;
 
   try {
-    generatedPrompt = await callProvider(providerSettings.active, system, user);
+    generatedPrompt = await callProvider(providerSettings.active, system, user, providerSettings);
     servedBy = providerSettings.active;
   } catch (activeErr) {
     console.error(`primary provider (${providerSettings.active}) failed`, activeErr);
     if (providerSettings.fallback && providerSettings.fallback !== providerSettings.active) {
       try {
-        generatedPrompt = await callProvider(providerSettings.fallback, system, user);
+        generatedPrompt = await callProvider(providerSettings.fallback, system, user, providerSettings);
         servedBy = providerSettings.fallback;
       } catch (fallbackErr) {
         console.error(`fallback provider (${providerSettings.fallback}) failed`, fallbackErr);

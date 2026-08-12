@@ -267,6 +267,14 @@ export interface AiProviderSettings {
   active: 'gemini' | 'openai' | 'claude'
   fallback: 'gemini' | 'openai' | 'claude' | null
   tone_prompt: string
+  // Optional DB-stored API keys for the Website Prompt Generator's edge
+  // function, which has no way to read this project's env vars from the
+  // admin UI. Same secrets-in-DB tradeoff as SMTP/SMS/Google Drive
+  // (SECRETS_WARNING) — a server-side GEMINI_API_KEY/OPENAI_API_KEY/
+  // ANTHROPIC_API_KEY env var still takes precedence if set.
+  gemini_api_key?: string
+  openai_api_key?: string
+  anthropic_api_key?: string
 }
 
 export interface PaymentGatewayMapSettings {
