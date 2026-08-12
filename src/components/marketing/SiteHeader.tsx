@@ -25,6 +25,9 @@ function SiteHeader() {
           <NavLink to="/pricing" className={navLinkClass}>
             Pricing
           </NavLink>
+          <NavLink to="/website-prompt-generator" className={navLinkClass}>
+            Prompt Generator
+          </NavLink>
           <NavLink to="/about" className={navLinkClass}>
             About
           </NavLink>

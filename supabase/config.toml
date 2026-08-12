@@ -528,3 +528,9 @@ enabled = true
 verify_jwt = false
 import_map = "./functions/run-email-sweeps/deno.json"
 entrypoint = "./functions/run-email-sweeps/index.ts"
+
+[functions.generate-website-prompt]
+enabled = true
+verify_jwt = false
+import_map = "./functions/generate-website-prompt/deno.json"
+entrypoint = "./functions/generate-website-prompt/index.ts"

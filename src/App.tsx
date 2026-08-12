@@ -9,6 +9,7 @@ import PricingPage from './pages/public/PricingPage'
 import AboutPage from './pages/public/AboutPage'
 import ContactPage from './pages/public/ContactPage'
 import ManageBookingPage from './pages/public/ManageBookingPage'
+import WebsitePromptGeneratorPage from './pages/public/WebsitePromptGeneratorPage'
 import LoginPage from './pages/auth/LoginPage'
 import SignupPage from './pages/auth/SignupPage'
 import ResetPasswordPage from './pages/auth/ResetPasswordPage'
@@ -62,6 +63,7 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/website-prompt-generator" element={<WebsitePromptGeneratorPage />} />
             <Route path="/manage-booking" element={<ManageBookingPage />} />
             <Route path="/auth/login" element={<LoginPage />} />
             <Route path="/auth/signup" element={<SignupPage />} />
