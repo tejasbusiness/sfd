@@ -1,12 +1,14 @@
 import { useState, type FormEvent } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { processPayment, PaymentError, type Currency } from '../../lib/payments'
 import { Button } from '../ui/Button'
-import { inputClasses, labelClasses } from '../ui/Input'
+import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
 
 interface CheckoutButtonProps {
   tierId: string
   tierName: string
   currency: Currency
+  variant?: 'editorial' | 'clinical'
 }
 
 /**
@@ -15,11 +17,16 @@ interface CheckoutButtonProps {
  * low-friction "start small" entry points, not a considered enterprise
  * purchase, so the email-to-redirect path should be as short as possible.
  */
-function CheckoutButton({ tierId, tierName, currency }: CheckoutButtonProps) {
+function CheckoutButton({ tierId, tierName, currency, variant = 'editorial' }: CheckoutButtonProps) {
   const [expanded, setExpanded] = useState(false)
   const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  const isClinical = variant === 'clinical'
+  const fieldClasses = isClinical ? clinicalInputClasses : inputClasses
+  const fieldLabelClasses = isClinical ? clinicalLabelClasses : labelClasses
+  const prefersReducedMotion = useReducedMotion()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -40,15 +47,15 @@ function CheckoutButton({ tierId, tierName, currency }: CheckoutButtonProps) {
 
   if (!expanded) {
     return (
-      <Button onClick={() => setExpanded(true)} className="mt-7 w-full">
+      <Button onClick={() => setExpanded(true)} variant={isClinical ? 'clinical' : 'primary'} className="mt-7 w-full">
         Get Started
       </Button>
     )
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="mt-7 space-y-3">
-      <label htmlFor={`checkout-email-${tierId}`} className={labelClasses}>
+  const formContent = (
+    <>
+      <label htmlFor={`checkout-email-${tierId}`} className={fieldLabelClasses}>
         Email to continue with {tierName}
       </label>
       <input
@@ -58,16 +65,36 @@ function CheckoutButton({ tierId, tierName, currency }: CheckoutButtonProps) {
         autoComplete="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className={inputClasses}
+        className={fieldClasses}
       />
       {error && (
-        <p role="alert" className="text-sm text-terracotta">
+        <p role="alert" className={`text-sm ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
           {error}
         </p>
       )}
-      <Button type="submit" disabled={submitting} className="w-full">
+      <Button type="submit" variant={isClinical ? 'clinical' : 'primary'} disabled={submitting} className="w-full">
         {submitting ? 'Starting checkout…' : 'Continue to Payment'}
       </Button>
+    </>
+  )
+
+  if (isClinical) {
+    return (
+      <motion.form
+        onSubmit={handleSubmit}
+        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: prefersReducedMotion ? 0.01 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="mt-7 space-y-3"
+      >
+        {formContent}
+      </motion.form>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-7 space-y-3">
+      {formContent}
     </form>
   )
 }

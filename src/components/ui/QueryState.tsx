@@ -3,6 +3,7 @@ interface QueryStateProps {
   error: Error | null
   empty?: boolean
   emptyMessage?: string
+  variant?: 'editorial' | 'clinical'
 }
 
 function QueryState({
@@ -10,10 +11,15 @@ function QueryState({
   error,
   empty = false,
   emptyMessage = 'Nothing to show yet.',
+  variant = 'editorial',
 }: QueryStateProps) {
+  const isClinical = variant === 'clinical'
+  const mutedClass = isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'
+  const errorClass = isClinical ? 'text-studio-ink' : 'text-terracotta'
+
   if (loading) {
     return (
-      <div role="status" className="font-mono-label py-16 text-center text-xs uppercase text-ink-soft">
+      <div role="status" className={`font-mono-label py-16 text-center text-xs uppercase ${mutedClass}`}>
         Loading…
       </div>
     )
@@ -21,14 +27,14 @@ function QueryState({
 
   if (error) {
     return (
-      <div role="alert" className="py-16 text-center text-sm text-terracotta">
+      <div role="alert" className={`py-16 text-center text-sm ${errorClass}`}>
         Something went wrong loading this content. Please try again shortly.
       </div>
     )
   }
 
   if (empty) {
-    return <div className="py-16 text-center text-sm text-ink-soft">{emptyMessage}</div>
+    return <div className={`py-16 text-center text-sm ${mutedClass}`}>{emptyMessage}</div>
   }
 
   return null

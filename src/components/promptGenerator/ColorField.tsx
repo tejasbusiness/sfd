@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { labelClasses } from '../ui/Input'
+import { clinicalLabelClasses } from '../ui/Input'
 import { isValidHex, normalizeHex } from '../../lib/color/hsl'
 
 interface ColorFieldProps {
@@ -29,7 +29,7 @@ function ColorField({ id, label, value, onChange, warning }: ColorFieldProps) {
 
   return (
     <div>
-      <label htmlFor={id} className={labelClasses}>
+      <label htmlFor={id} className={clinicalLabelClasses}>
         {label}
       </label>
       <div className="mt-1.5 flex items-center gap-2">
@@ -41,7 +41,7 @@ function ColorField({ id, label, value, onChange, warning }: ColorFieldProps) {
             setDraft(e.target.value)
             onChange(normalizeHex(e.target.value))
           }}
-          className="h-10 w-10 shrink-0 cursor-pointer rounded-lg border border-ink/15 bg-cream p-0.5"
+          className="h-10 w-10 shrink-0 cursor-pointer rounded-lg border border-studio-line bg-white p-0.5"
         />
         <input
           id={id}
@@ -51,13 +51,13 @@ function ColorField({ id, label, value, onChange, warning }: ColorFieldProps) {
           onBlur={(e) => commitIfValid(e.target.value)}
           placeholder="#1E4D3A"
           maxLength={7}
-          className={`w-full rounded-lg border px-3.5 py-2.5 font-mono text-sm text-ink placeholder:text-ink-soft/50 focus:outline-none focus:ring-1 focus:ring-teal ${
-            draftIsInvalid ? 'border-terracotta focus:border-terracotta' : 'border-ink/15 bg-cream focus:border-teal'
+          className={`w-full rounded-lg border px-3.5 py-2.5 font-mono text-sm text-studio-ink placeholder:text-studio-ink-soft/50 focus:outline-none focus:ring-1 focus:ring-studio-ink ${
+            draftIsInvalid ? 'border-studio-ink focus:border-studio-ink' : 'border-studio-line bg-white focus:border-studio-ink'
           }`}
         />
       </div>
-      {draftIsInvalid && <p className="mt-1 text-xs text-terracotta">Enter a valid 6-digit hex color.</p>}
-      {!draftIsInvalid && warning && <p className="mt-1 text-xs text-terracotta">{warning}</p>}
+      {draftIsInvalid && <p className="mt-1 text-xs text-studio-ink">Enter a valid 6-digit hex color.</p>}
+      {!draftIsInvalid && warning && <p className="mt-1 text-xs text-studio-ink">{warning}</p>}
     </div>
   )
 }

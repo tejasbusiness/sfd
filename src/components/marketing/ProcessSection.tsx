@@ -1,4 +1,7 @@
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import SectionHeading from '../ui/SectionHeading'
+import Reveal from '../motion/Reveal'
 
 const STEPS = [
   { title: 'Discovery call', description: 'We learn about your practice, patients, and goals.' },
@@ -7,21 +10,38 @@ const STEPS = [
 ]
 
 function ProcessSection() {
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const prefersReducedMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll({ target: timelineRef, offset: ['start 0.85', 'start 0.4'] })
+  const lineWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
   return (
     <section className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading eyebrow="How It Works" title="Three steps, start to launch." />
-        <ol className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-6">
-          {STEPS.map((step, index) => (
-            <li key={step.title} className="relative border-t border-ink/15 pt-6">
-              <span className="font-display absolute -top-6 left-0 text-4xl text-teal/30">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="font-display text-xl text-ink">{step.title}</h3>
-              <p className="mt-2 text-sm text-ink-soft">{step.description}</p>
-            </li>
-          ))}
-        </ol>
+        <SectionHeading eyebrow="How it works" title="Three steps. No guesswork." variant="clinical" />
+
+        <div ref={timelineRef} className="relative mt-20">
+          <div className="absolute top-0 left-0 h-[2px] w-full bg-studio-line" />
+          <motion.div
+            className="absolute top-0 left-0 h-[2px] bg-studio-ink"
+            style={{ width: prefersReducedMotion ? '100%' : lineWidth }}
+          />
+
+          <ol className="relative grid gap-9 sm:grid-cols-3">
+            {STEPS.map((step, index) => (
+              <Reveal key={step.title} as="li" index={index} className="relative pt-8">
+                <span className="absolute left-0 top-0 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-sm bg-studio-ink" />
+                <span className="font-mono absolute -top-16 right-0 text-6xl font-bold text-studio-line">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-xl font-bold tracking-[-0.02em] text-studio-ink">{step.title}</h3>
+                <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-studio-ink-soft">
+                  {step.description}
+                </p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   )

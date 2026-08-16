@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
-import { labelClasses } from '../ui/Input'
+import { clinicalLabelClasses } from '../ui/Input'
 import ColorField from './ColorField'
 import {
   generatePalette,
@@ -67,8 +68,8 @@ function ColorPaletteEditor({ palette, onChange }: ColorPaletteEditorProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <p className={labelClasses}>Brand Color Palette</p>
-        <Button type="button" variant="secondary" size="md" onClick={handleRegenerate}>
+        <p className={clinicalLabelClasses}>Brand Color Palette</p>
+        <Button type="button" variant="clinical-ghost" size="md" onClick={handleRegenerate}>
           Regenerate Palette
         </Button>
       </div>
@@ -90,23 +91,28 @@ function ColorPaletteEditor({ palette, onChange }: ColorPaletteEditorProps) {
 
       {/* Palette preview -- five adjoining swatches so all colors are seen
           together at a glance, updates immediately on any change. */}
-      <div className="overflow-hidden rounded-lg border border-ink/10">
+      <div className="overflow-hidden rounded-lg border border-studio-line">
         <div className="flex h-16">
           {FIELD_KEYS.map((key) => (
-            <div key={key} className="flex flex-1 items-end p-2" style={{ backgroundColor: palette[key] }}>
+            <motion.div
+              key={key}
+              className="flex flex-1 items-end p-2"
+              animate={{ backgroundColor: palette[key] }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
               <span
                 className="font-mono-label truncate text-[9px] uppercase"
                 style={{ color: key === 'text' ? palette.primary : '#ffffff', mixBlendMode: 'difference' }}
               >
                 {palette[key]}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="flex bg-cream-dim">
+        <div className="flex bg-studio-bg-card-soft">
           {FIELD_KEYS.map((key) => (
             <div key={key} className="flex-1 px-2 py-1.5 text-center">
-              <span className="font-mono-label text-[9px] uppercase text-ink-soft">{FIELD_LABELS[key]}</span>
+              <span className="font-mono-label text-[9px] uppercase text-studio-ink-soft">{FIELD_LABELS[key]}</span>
             </div>
           ))}
         </div>

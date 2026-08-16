@@ -74,6 +74,7 @@ function WebsitePromptGeneratorPage() {
         eyebrow="Free Tool"
         title="Website Prompt Generator"
         description="Answer a few questions about your business and get a ready-to-use AI prompt for building your website."
+        variant="clinical"
       />
       <div className="mx-auto grid max-w-6xl gap-8 px-4 pb-20 pt-6 sm:px-6 lg:grid-cols-2 lg:items-start">
         <PromptGeneratorForm isGenerating={isGenerating} quota={quota} onSubmit={handleSubmit} />

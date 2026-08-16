@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400..700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@300..800&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -15,6 +15,18 @@
   --color-terracotta: #c9603d;
   --color-sage: #e3e8dc;
   --color-gold: #d8a34e;
+
+  /* "Studio Neutral" system — scoped to the public-site redesign (replaces
+     the retired "Clinical Signal" system). Kept alongside the editorial
+     tokens above (still used by admin/client pages) rather than replacing
+     them. */
+  --color-studio-bg: #eaeae7;
+  --color-studio-bg-card-soft: #e0e0dc;
+  --color-studio-ink: #141414;
+  --color-studio-ink-soft: #6b6b6b;
+  --color-studio-ink-faint: #9a9a9a;
+  --color-studio-line: rgba(20, 20, 20, 0.08);
+  --color-studio-line-dashed: rgba(20, 20, 20, 0.18);
 }
 
 :root {
@@ -58,3 +70,4 @@ body {
   background-image: radial-gradient(circle, rgba(23, 35, 30, 0.06) 1px, transparent 1px);
   background-size: 14px 14px;
 }
+

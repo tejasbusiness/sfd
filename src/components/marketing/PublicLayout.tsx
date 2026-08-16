@@ -8,7 +8,7 @@ interface PublicLayoutProps {
 
 function PublicLayout({ children }: PublicLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-studio-bg">
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />

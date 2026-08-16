@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
+import type { ReactNode } from 'react'
 
 interface BaseProps {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse' | 'clinical' | 'clinical-ghost'
   size?: 'md' | 'lg'
 }
 
@@ -11,6 +12,10 @@ const variantClasses: Record<NonNullable<BaseProps['variant']>, string> = {
   secondary: 'bg-transparent text-ink border border-ink/25 hover:border-ink',
   ghost: 'text-ink hover:bg-sage',
   inverse: 'bg-cream text-ink hover:bg-sage',
+  // "Studio Neutral" variants — used by the redesigned public site.
+  clinical: 'rounded-full bg-studio-ink text-white hover:brightness-110 focus-visible:outline-studio-ink',
+  'clinical-ghost':
+    'rounded-full border border-studio-ink/20 bg-transparent text-studio-ink hover:bg-studio-bg-card-soft focus-visible:outline-studio-ink',
 }
 
 const sizeClasses: Record<NonNullable<BaseProps['size']>, string> = {
@@ -19,18 +24,27 @@ const sizeClasses: Record<NonNullable<BaseProps['size']>, string> = {
 }
 
 function classes(variant: BaseProps['variant'] = 'primary', size: BaseProps['size'] = 'md') {
-  return `inline-flex items-center justify-center gap-2 rounded-full font-mono-label text-xs uppercase transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${variantClasses[variant]} ${sizeClasses[size]}`
+  const isClinical = variant === 'clinical' || variant === 'clinical-ghost'
+  const type = isClinical ? 'font-sans font-medium normal-case' : 'font-mono-label uppercase text-xs'
+  return `inline-flex items-center justify-center gap-2 rounded-full ${type} transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${variantClasses[variant]} ${sizeClasses[size]}`
 }
 
-interface ButtonProps extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends BaseProps, HTMLMotionProps<'button'> {
   children: ReactNode
 }
 
 export function Button({ variant, size, children, className = '', ...rest }: ButtonProps) {
+  const prefersReducedMotion = useReducedMotion()
   return (
-    <button className={`${classes(variant, size)} ${className}`} {...rest}>
+    <motion.button
+      whileHover={prefersReducedMotion ? undefined : { scale: 1.03, y: -1 }}
+      whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+      transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
+      className={`${classes(variant, size)} ${className}`}
+      {...rest}
+    >
       {children}
-    </button>
+    </motion.button>
   )
 }
 
@@ -41,9 +55,17 @@ interface LinkButtonProps extends BaseProps {
 }
 
 export function LinkButton({ to, variant, size, children, className = '' }: LinkButtonProps) {
+  const prefersReducedMotion = useReducedMotion()
   return (
-    <Link to={to} className={`${classes(variant, size)} ${className}`}>
-      {children}
-    </Link>
+    <motion.div
+      whileHover={prefersReducedMotion ? undefined : { scale: 1.03, y: -1 }}
+      whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+      transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
+      className="inline-block"
+    >
+      <Link to={to} className={`${classes(variant, size)} ${className}`}>
+        {children}
+      </Link>
+    </motion.div>
   )
 }

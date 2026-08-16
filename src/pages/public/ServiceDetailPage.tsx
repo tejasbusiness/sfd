@@ -5,6 +5,7 @@ import QueryState from '../../components/ui/QueryState'
 import { LinkButton } from '../../components/ui/Button'
 import LeadForm from '../../components/forms/LeadForm'
 import BookingWidget from '../../components/booking/BookingWidget'
+import Reveal from '../../components/motion/Reveal'
 import { SERVICE_INQUIRY_FORM_CONFIG } from '../../lib/forms/formConfigs'
 import { useFetch } from '../../hooks/useFetch'
 import { fetchServiceBySlug } from '../../lib/supabase/queries'
@@ -25,22 +26,34 @@ function ServiceDetailPage() {
         error={error}
         empty={!loading && !error && !service}
         emptyMessage="This service couldn't be found."
+        variant="clinical"
       />
 
       {!loading && !error && service && (
         <>
           <div className="mx-auto max-w-3xl px-4 pb-16 pt-20 sm:px-6">
-            <p className="font-mono-label text-xs uppercase text-teal">Service</p>
-            <h1 className="font-display mt-3 text-4xl font-light leading-tight text-ink sm:text-5xl">
-              {service.name}
-            </h1>
+            <Reveal variant="mask">
+              <p className="font-mono-label flex items-center gap-2 text-xs text-studio-ink">
+                <span className="h-[2px] w-5 bg-studio-ink" />
+                Service
+              </p>
+            </Reveal>
+            <Reveal variant="mask" delay={0.08}>
+              <h1 className="mt-3 text-4xl font-bold leading-tight tracking-[-0.02em] text-studio-ink sm:text-5xl">
+                {service.name}
+              </h1>
+            </Reveal>
             {service.short_description && (
-              <p className="mt-5 text-lg text-ink-soft">{service.short_description}</p>
+              <Reveal delay={0.16}>
+                <p className="mt-5 text-lg text-studio-ink-soft">{service.short_description}</p>
+              </Reveal>
             )}
             {service.long_description && (
-              <div className="mt-8 whitespace-pre-line leading-relaxed text-ink-soft">
-                {service.long_description}
-              </div>
+              <Reveal delay={0.2}>
+                <div className="mt-8 whitespace-pre-line leading-relaxed text-studio-ink-soft">
+                  {service.long_description}
+                </div>
+              </Reveal>
             )}
 
             {service.niche_tags.length > 0 && (
@@ -48,7 +61,7 @@ function ServiceDetailPage() {
                 {service.niche_tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono-label rounded-full bg-sage px-3 py-1 text-[10px] uppercase text-ink-soft"
+                    className="font-mono-label rounded-full bg-studio-bg-card-soft px-3 py-1 text-[10px] uppercase text-studio-ink-soft"
                   >
                     {tag}
                   </span>
@@ -58,7 +71,7 @@ function ServiceDetailPage() {
 
             {!service.is_bookable && (
               <div className="mt-10">
-                <LinkButton to="/contact" size="lg">
+                <LinkButton to="/contact" variant="clinical" size="lg">
                   Get Started
                 </LinkButton>
               </div>
@@ -74,11 +87,12 @@ function ServiceDetailPage() {
               </div>
             )}
 
-            <div className="mt-16 border-t border-ink/10 pt-10">
+            <div className="mt-16 border-t border-studio-line pt-10">
               <LeadForm
                 config={SERVICE_INQUIRY_FORM_CONFIG}
                 source={`service_page:${service.slug}`}
                 entryServiceId={service.id}
+                variant="clinical"
               />
             </div>
           </div>

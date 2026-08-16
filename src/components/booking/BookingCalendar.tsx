@@ -6,6 +6,51 @@ interface BookingCalendarProps {
   maxDaysAhead?: number
   /** Dates without any open slot are disabled too, not just past/out-of-window ones. */
   dayHasAvailability?: (date: Date) => boolean
+  variant?: 'editorial' | 'clinical'
+}
+
+const EDITORIAL_CLASS_NAMES = {
+  root: 'font-sans',
+  months: 'flex flex-col',
+  month_caption: 'flex items-center justify-center pb-1.5',
+  caption_label: 'font-display text-base text-ink',
+  nav: 'flex items-center justify-between',
+  button_previous:
+    'inline-flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-sage hover:text-ink disabled:opacity-30 disabled:pointer-events-none',
+  button_next:
+    'inline-flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-sage hover:text-ink disabled:opacity-30 disabled:pointer-events-none',
+  month_grid: 'w-full border-collapse',
+  weekdays: 'flex w-full',
+  weekday: 'font-mono-label flex-1 pb-1 text-center text-[9px] uppercase text-ink-soft',
+  week: 'flex w-full',
+  day: 'aspect-square flex-1 p-0.5',
+  day_button:
+    'flex h-full w-full items-center justify-center rounded-full text-xs text-ink transition-colors hover:bg-sage disabled:text-ink-soft/30 disabled:hover:bg-transparent sm:text-sm',
+  selected: '[&>button]:bg-ink [&>button]:text-cream [&>button]:hover:bg-teal-dark',
+  today: '[&>button]:font-semibold [&>button]:text-teal',
+  outside: 'invisible',
+}
+
+const CLINICAL_CLASS_NAMES = {
+  root: 'font-sans',
+  months: 'flex flex-col',
+  month_caption: 'flex items-center justify-center pb-1.5',
+  caption_label: 'font-sans text-base font-bold text-studio-ink',
+  nav: 'flex items-center justify-between',
+  button_previous:
+    'inline-flex h-7 w-7 items-center justify-center rounded-full text-studio-ink-soft transition-colors hover:bg-studio-bg-card-soft hover:text-studio-ink disabled:opacity-30 disabled:pointer-events-none',
+  button_next:
+    'inline-flex h-7 w-7 items-center justify-center rounded-full text-studio-ink-soft transition-colors hover:bg-studio-bg-card-soft hover:text-studio-ink disabled:opacity-30 disabled:pointer-events-none',
+  month_grid: 'w-full border-collapse',
+  weekdays: 'flex w-full',
+  weekday: 'font-mono-label flex-1 pb-1 text-center text-[9px] uppercase text-studio-ink-soft',
+  week: 'flex w-full',
+  day: 'aspect-square flex-1 p-0.5',
+  day_button:
+    'flex h-full w-full items-center justify-center rounded-full text-xs text-studio-ink transition-colors hover:bg-studio-bg-card-soft disabled:text-studio-ink-soft/30 disabled:hover:bg-transparent sm:text-sm',
+  selected: '[&>button]:bg-studio-ink [&>button]:text-white [&>button]:hover:bg-studio-ink',
+  today: '[&>button]:font-semibold [&>button]:text-studio-ink',
+  outside: 'invisible',
 }
 
 /**
@@ -21,7 +66,7 @@ interface BookingCalendarProps {
  * midnight boundary, so the UTC-anchored calendar date and the IST date
  * visitors see always agree — no separate IST-anchoring needed here.
  */
-function BookingCalendar({ selected, onSelect, maxDaysAhead = 15, dayHasAvailability }: BookingCalendarProps) {
+function BookingCalendar({ selected, onSelect, maxDaysAhead = 15, dayHasAvailability, variant = 'editorial' }: BookingCalendarProps) {
   const now = new Date()
   const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()))
 
@@ -42,27 +87,7 @@ function BookingCalendar({ selected, onSelect, maxDaysAhead = 15, dayHasAvailabi
       startMonth={today}
       endMonth={maxDate}
       className="sfd-calendar"
-      classNames={{
-        root: 'font-sans',
-        months: 'flex flex-col',
-        month_caption: 'flex items-center justify-center pb-1.5',
-        caption_label: 'font-display text-base text-ink',
-        nav: 'flex items-center justify-between',
-        button_previous:
-          'inline-flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-sage hover:text-ink disabled:opacity-30 disabled:pointer-events-none',
-        button_next:
-          'inline-flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-sage hover:text-ink disabled:opacity-30 disabled:pointer-events-none',
-        month_grid: 'w-full border-collapse',
-        weekdays: 'flex w-full',
-        weekday: 'font-mono-label flex-1 pb-1 text-center text-[9px] uppercase text-ink-soft',
-        week: 'flex w-full',
-        day: 'aspect-square flex-1 p-0.5',
-        day_button:
-          'flex h-full w-full items-center justify-center rounded-full text-xs text-ink transition-colors hover:bg-sage disabled:text-ink-soft/30 disabled:hover:bg-transparent sm:text-sm',
-        selected: '[&>button]:bg-ink [&>button]:text-cream [&>button]:hover:bg-teal-dark',
-        today: '[&>button]:font-semibold [&>button]:text-teal',
-        outside: 'invisible',
-      }}
+      classNames={variant === 'clinical' ? CLINICAL_CLASS_NAMES : EDITORIAL_CLASS_NAMES}
     />
   )
 }

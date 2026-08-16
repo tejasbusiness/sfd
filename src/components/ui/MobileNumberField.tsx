@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { inputClasses, labelClasses } from './Input'
+import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from './Input'
 import { Select } from './Select'
 
 const COUNTRY_CODES = [
@@ -20,6 +20,7 @@ interface MobileNumberFieldProps {
   onChange: (value: MobileNumberValue) => void
   id?: string
   required?: boolean
+  variant?: 'editorial' | 'clinical'
 }
 
 /** "9123456789" -> "91234-56789" */
@@ -36,8 +37,9 @@ function formatForDisplay(digits: string): string {
  * (e.g. "+919123456789") — a single string, compatible with the existing
  * phone/client_phone text columns.
  */
-function MobileNumberField({ value, onChange, id = 'mobile-number', required }: MobileNumberFieldProps) {
+function MobileNumberField({ value, onChange, id = 'mobile-number', required, variant = 'editorial' }: MobileNumberFieldProps) {
   const [focused, setFocused] = useState(false)
+  const isClinical = variant === 'clinical'
 
   function handleDigitsChange(raw: string) {
     const digitsOnly = raw.replace(/\D/g, '').slice(0, 10)
@@ -48,7 +50,7 @@ function MobileNumberField({ value, onChange, id = 'mobile-number', required }: 
 
   return (
     <div>
-      <label htmlFor={id} className={labelClasses}>
+      <label htmlFor={id} className={isClinical ? clinicalLabelClasses : labelClasses}>
         Mobile
       </label>
       <div className="mt-1.5 flex gap-2">
@@ -56,6 +58,7 @@ function MobileNumberField({ value, onChange, id = 'mobile-number', required }: 
           id={`${id}-country-code`}
           ariaLabel="Country code"
           size="compact"
+          variant={variant}
           value={value.countryCode}
           onChange={(v) => onChange({ ...value, countryCode: v })}
           options={COUNTRY_CODES.map((c) => ({ value: c.code, label: c.label }))}
@@ -71,10 +74,14 @@ function MobileNumberField({ value, onChange, id = 'mobile-number', required }: 
           onBlur={() => setFocused(false)}
           onChange={(e) => handleDigitsChange(e.target.value)}
           placeholder="9123456789"
-          className={`${inputClasses} mt-0 flex-1`}
+          className={`${isClinical ? clinicalInputClasses : inputClasses} mt-0 flex-1`}
         />
       </div>
-      {incomplete && <p className="mt-1 text-[11px] text-terracotta">Enter a 10-digit mobile number.</p>}
+      {incomplete && (
+        <p className={`mt-1 text-[11px] ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
+          Enter a 10-digit mobile number.
+        </p>
+      )}
     </div>
   )
 }

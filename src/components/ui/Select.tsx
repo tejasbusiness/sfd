@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { labelClasses } from './Input'
+import { labelClasses, clinicalLabelClasses } from './Input'
 
 interface SelectOption {
   value: string
@@ -21,6 +21,8 @@ interface SelectProps {
   className?: string
   /** Shows a search box above the option list — for long lists (e.g. timezones). */
   searchable?: boolean
+  /** 'editorial' (default) preserves current behavior for every existing consumer (incl. admin pages). 'clinical' opts into the public-site "Studio Neutral" restyle. */
+  variant?: 'editorial' | 'clinical'
 }
 
 /**
@@ -40,7 +42,9 @@ export function Select({
   size = 'field',
   className = '',
   searchable = false,
+  variant = 'editorial',
 }: SelectProps) {
+  const isClinical = variant === 'clinical'
   const [open, setOpen] = useState(false)
   const [highlightedIndex, setHighlightedIndex] = useState(0)
   const [query, setQuery] = useState('')
@@ -112,15 +116,23 @@ export function Select({
     }
   }
 
-  const triggerClasses =
-    size === 'compact'
+  const triggerClasses = isClinical
+    ? size === 'compact'
+      ? 'rounded-lg border border-studio-line bg-white px-3 py-2 text-sm text-studio-ink'
+      : 'mt-1.5 w-full rounded-lg border border-studio-line bg-white px-3.5 py-2.5 text-studio-ink'
+    : size === 'compact'
       ? 'rounded-lg border border-ink/15 bg-cream px-3 py-2 text-sm text-ink'
       : 'mt-1.5 w-full rounded-lg border border-ink/15 bg-cream px-3.5 py-2.5 text-ink'
+
+  const focusRing = isClinical
+    ? 'focus:border-studio-ink focus:outline-none focus:ring-1 focus:ring-studio-ink'
+    : 'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal'
+  const openRing = isClinical ? 'border-studio-ink ring-1 ring-studio-ink' : 'border-teal ring-1 ring-teal'
 
   return (
     <div ref={rootRef} className={`relative ${size === 'field' ? '' : 'inline-block'} ${className}`}>
       {label && (
-        <label htmlFor={id} className={labelClasses}>
+        <label htmlFor={id} className={isClinical ? clinicalLabelClasses : labelClasses}>
           {label}
         </label>
       )}
@@ -133,11 +145,13 @@ export function Select({
         aria-label={ariaLabel}
         onClick={() => setOpen((o) => !o)}
         onKeyDown={handleTriggerKeyDown}
-        className={`${triggerClasses} flex w-full items-center justify-between gap-2 text-left transition-colors focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal disabled:opacity-50 ${
-          open ? 'border-teal ring-1 ring-teal' : ''
+        className={`${triggerClasses} flex w-full items-center justify-between gap-2 text-left transition-colors ${focusRing} disabled:opacity-50 ${
+          open ? openRing : ''
         }`}
       >
-        <span className={selected ? '' : 'text-ink-soft/50'}>{selected ? selected.label : (placeholder ?? 'Select…')}</span>
+        <span className={selected ? '' : isClinical ? 'text-studio-ink-soft/50' : 'text-ink-soft/50'}>
+          {selected ? selected.label : (placeholder ?? 'Select…')}
+        </span>
         <svg
           width="14"
           height="14"
@@ -145,16 +159,20 @@ export function Select({
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className={`shrink-0 text-ink-soft transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`shrink-0 transition-transform ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'} ${open ? 'rotate-180' : ''}`}
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
 
       {open && (
-        <div className="absolute z-20 mt-1.5 w-full min-w-max overflow-hidden rounded-lg border border-ink/15 bg-cream shadow-lg">
+        <div
+          className={`absolute z-20 mt-1.5 w-full min-w-max overflow-hidden rounded-lg border shadow-lg ${
+            isClinical ? 'border-studio-line bg-white' : 'border-ink/15 bg-cream'
+          }`}
+        >
           {searchable && (
-            <div className="relative border-b border-ink/10 p-2">
+            <div className={`relative border-b p-2 ${isClinical ? 'border-studio-line' : 'border-ink/10'}`}>
               <input
                 ref={searchRef}
                 type="text"
@@ -162,7 +180,11 @@ export function Select({
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleListKeyDown}
                 placeholder="Search…"
-                className="w-full rounded-md border border-ink/15 bg-cream py-1.5 pl-3 pr-8 text-sm text-ink focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal"
+                className={`w-full rounded-md py-1.5 pl-3 pr-8 text-sm transition-colors ${focusRing} ${
+                  isClinical
+                    ? 'border border-studio-line bg-white text-studio-ink'
+                    : 'border border-ink/15 bg-cream text-ink'
+                }`}
               />
               <svg
                 width="14"
@@ -171,7 +193,7 @@ export function Select({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink-soft/60"
+                className={`pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 ${isClinical ? 'text-studio-ink-soft/60' : 'text-ink-soft/60'}`}
               >
                 <circle cx="11" cy="11" r="7" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -185,7 +207,11 @@ export function Select({
             onKeyDown={searchable ? undefined : handleListKeyDown}
             className="max-h-60 overflow-auto py-1 focus:outline-none"
           >
-            {filteredOptions.length === 0 && <li className="px-3.5 py-2 text-sm text-ink-soft">No matches</li>}
+            {filteredOptions.length === 0 && (
+              <li className={`px-3.5 py-2 text-sm ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
+                No matches
+              </li>
+            )}
             {filteredOptions.map((o, i) => (
               <li
                 key={o.value}
@@ -197,7 +223,17 @@ export function Select({
                   setOpen(false)
                 }}
                 className={`cursor-pointer px-3.5 py-2 text-sm transition-colors ${
-                  o.value === value ? 'bg-ink text-cream' : i === highlightedIndex ? 'bg-sage text-ink' : 'text-ink'
+                  isClinical
+                    ? o.value === value
+                      ? 'bg-studio-ink text-white'
+                      : i === highlightedIndex
+                        ? 'bg-studio-bg-card-soft text-studio-ink'
+                        : 'text-studio-ink'
+                    : o.value === value
+                      ? 'bg-ink text-cream'
+                      : i === highlightedIndex
+                        ? 'bg-sage text-ink'
+                        : 'text-ink'
                 }`}
               >
                 {o.label}

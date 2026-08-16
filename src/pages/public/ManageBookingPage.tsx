@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import PublicLayout from '../../components/marketing/PublicLayout'
 import PageHeader from '../../components/ui/PageHeader'
 import QueryState from '../../components/ui/QueryState'
@@ -48,6 +49,7 @@ function ManageBookingPage() {
           eyebrow="Manage Booking"
           title="Link missing"
           description="This page needs a booking link — please use the link from your confirmation email."
+          variant="clinical"
         />
       </PublicLayout>
     )
@@ -55,9 +57,9 @@ function ManageBookingPage() {
 
   return (
     <PublicLayout>
-      <PageHeader eyebrow="Manage Booking" title="Your appointment" />
+      <PageHeader eyebrow="Manage Booking" title="Your appointment" variant="clinical" />
       <div className="mx-auto max-w-lg px-4 pb-20 pt-6 sm:px-6">
-        <QueryState loading={loading} error={error} />
+        <QueryState loading={loading} error={error} variant="clinical" />
         {!loading && !error && booking && (
           <BookingManagePanel booking={booking} token={token} />
         )}
@@ -67,6 +69,7 @@ function ManageBookingPage() {
 }
 
 function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token: string }) {
+  const prefersReducedMotion = useReducedMotion()
   const [mode, setMode] = useState<'view' | 'reschedule'>('view')
   const [status, setStatus] = useState(booking.status)
   const [startsAt, setStartsAt] = useState(booking.startsAt)
@@ -122,73 +125,102 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
     }
   }
 
+  const fadeTransition = { duration: prefersReducedMotion ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] as const }
+
   if (status === 'canceled') {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-cream p-7 text-center">
-        <p className="font-display text-xl text-ink">This booking has been canceled.</p>
-        <p className="mt-2 text-sm text-ink-soft">
+      <motion.div
+        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={fadeTransition}
+        className="rounded-2xl border border-studio-line bg-white p-7 text-center"
+      >
+        <p className="font-sans text-xl font-bold text-studio-ink">This booking has been canceled.</p>
+        <p className="mt-2 text-sm text-studio-ink-soft">
           If this was a mistake, please contact us to book a new time.
         </p>
-      </div>
+      </motion.div>
     )
   }
 
   return (
-    <div className="rounded-2xl border border-ink/10 bg-cream p-7">
-      <p className="font-mono-label text-xs uppercase text-teal">{status}</p>
-      <p className="font-display mt-2 text-xl text-ink">{formatDateTime(startsAt)}</p>
-      <p className="mt-1 text-sm text-ink-soft">{booking.clientFullName}</p>
+    <div className="rounded-2xl border border-studio-line bg-white p-7">
+      <p className="font-mono-label text-xs uppercase text-studio-ink">{status}</p>
+      <p className="font-sans mt-2 text-xl font-bold text-studio-ink">{formatDateTime(startsAt)}</p>
+      <p className="mt-1 text-sm text-studio-ink-soft">{booking.clientFullName}</p>
 
       {actionError && (
-        <p role="alert" className="mt-4 text-sm text-terracotta">
+        <p role="alert" className="mt-4 text-sm text-studio-ink">
           {actionError}
         </p>
       )}
 
-      {mode === 'view' && (
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Button variant="secondary" onClick={() => setMode('reschedule')} disabled={submitting}>
-            Reschedule
-          </Button>
-          <Button variant="secondary" onClick={handleCancel} disabled={submitting}>
-            {submitting ? 'Canceling…' : 'Cancel Booking'}
-          </Button>
-        </div>
-      )}
-
-      {mode === 'reschedule' && (
-        <div className="mt-6">
-          <p className="font-mono-label text-[10px] uppercase text-ink-soft">Choose a new time</p>
-          <QueryState
-            loading={slotsLoading}
-            error={slotsError}
-            empty={!slotsLoading && !slotsError && (slots?.length ?? 0) === 0}
-            emptyMessage="No other slots available in the next two weeks."
-          />
-          {!slotsLoading && !slotsError && slots && slots.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {slots.map((slot) => (
-                <button
-                  key={slot.startsAt}
-                  type="button"
-                  disabled={submitting}
-                  onClick={() => handleReschedule(slot)}
-                  className="font-mono-label rounded-full border border-ink/15 px-3.5 py-1.5 text-[11px] uppercase text-ink-soft transition-colors hover:border-teal hover:text-teal disabled:opacity-50"
-                >
-                  {formatDateTime(slot.startsAt)}
-                </button>
-              ))}
-            </div>
-          )}
-          <button
-            type="button"
-            onClick={() => setMode('view')}
-            className="font-mono-label mt-4 text-[10px] uppercase text-teal underline"
+      <AnimatePresence mode="wait">
+        {mode === 'view' && (
+          <motion.div
+            key="view"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={fadeTransition}
+            className="mt-6 flex flex-wrap gap-3"
           >
-            Cancel change
-          </button>
-        </div>
-      )}
+            <Button variant="clinical-ghost" onClick={() => setMode('reschedule')} disabled={submitting}>
+              Reschedule
+            </Button>
+            <Button variant="clinical-ghost" onClick={handleCancel} disabled={submitting}>
+              {submitting ? 'Canceling…' : 'Cancel Booking'}
+            </Button>
+          </motion.div>
+        )}
+
+        {mode === 'reschedule' && (
+          <motion.div
+            key="reschedule"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={fadeTransition}
+            className="mt-6"
+          >
+            <p className="font-mono-label text-[10px] uppercase text-studio-ink-soft">Choose a new time</p>
+            <QueryState
+              loading={slotsLoading}
+              error={slotsError}
+              empty={!slotsLoading && !slotsError && (slots?.length ?? 0) === 0}
+              emptyMessage="No other slots available in the next two weeks."
+              variant="clinical"
+            />
+            {!slotsLoading && !slotsError && slots && slots.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {slots.map((slot, index) => (
+                  <motion.button
+                    key={slot.startsAt}
+                    type="button"
+                    disabled={submitting}
+                    onClick={() => handleReschedule(slot)}
+                    initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: prefersReducedMotion ? 0 : index * 0.03 }}
+                    whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
+                    whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
+                    className="font-mono-label rounded-full border border-studio-line px-3.5 py-1.5 text-[11px] uppercase text-studio-ink-soft transition-colors hover:border-studio-ink hover:text-studio-ink disabled:opacity-50"
+                  >
+                    {formatDateTime(slot.startsAt)}
+                  </motion.button>
+                ))}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setMode('view')}
+              className="font-mono-label mt-4 text-[10px] uppercase text-studio-ink underline"
+            >
+              Cancel change
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

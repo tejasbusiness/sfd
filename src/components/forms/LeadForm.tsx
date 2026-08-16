@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { submitLead, RateLimitError, SpamDetectedError } from '../../lib/forms/submitLead'
 import type { LeadFormType } from '../../lib/supabase/types'
 import { Button } from '../ui/Button'
-import { inputClasses, labelClasses } from '../ui/Input'
+import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
 import MobileNumberField, { type MobileNumberValue } from '../ui/MobileNumberField'
 
 const MESSAGE_MAX_LENGTH = 1000
@@ -21,6 +22,7 @@ interface LeadFormProps {
   config: LeadFormConfig
   source: string
   entryServiceId?: string
+  variant?: 'editorial' | 'clinical'
 }
 
 /**
@@ -28,7 +30,7 @@ interface LeadFormProps {
  * variants differ only by the config object passed in, not by separate
  * components per form type.
  */
-function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
+function LeadForm({ config, source, entryServiceId, variant = 'editorial' }: LeadFormProps) {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [mobile, setMobile] = useState<MobileNumberValue>({ countryCode: '+91', digits: '' })
@@ -36,6 +38,11 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
   const [honeypot, setHoneypot] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+  const isClinical = variant === 'clinical'
+  const fieldClasses = isClinical ? clinicalInputClasses : inputClasses
+  const fieldLabelClasses = isClinical ? clinicalLabelClasses : labelClasses
+  const prefersReducedMotion = useReducedMotion()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -80,6 +87,20 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
   }
 
   if (status === 'success') {
+    if (isClinical) {
+      return (
+        <motion.div
+          role="status"
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 10, scale: prefersReducedMotion ? 1 : 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-2xl border border-studio-ink/30 bg-studio-bg-card-soft p-7 text-center"
+        >
+          <p className="font-sans text-xl font-bold text-studio-ink">Thanks — we've received your request.</p>
+          <p className="mt-1 text-sm text-studio-ink-soft">We'll be in touch shortly.</p>
+        </motion.div>
+      )
+    }
     return (
       <div role="status" className="rounded-2xl border border-teal/30 bg-sage p-7 text-center">
         <p className="font-display text-xl text-ink">Thanks — we've received your request.</p>
@@ -91,12 +112,18 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <h2 className="font-display text-xl text-ink">{config.title}</h2>
-        {config.description && <p className="mt-1 text-sm text-ink-soft">{config.description}</p>}
+        <h2 className={isClinical ? 'font-sans text-xl font-bold text-studio-ink' : 'font-display text-xl text-ink'}>
+          {config.title}
+        </h2>
+        {config.description && (
+          <p className={`mt-1 text-sm ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
+            {config.description}
+          </p>
+        )}
       </div>
 
       {errorMessage && (
-        <p role="alert" className="text-sm text-terracotta">
+        <p role="alert" className={`text-sm ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
           {errorMessage}
         </p>
       )}
@@ -116,7 +143,7 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
       </div>
 
       <div>
-        <label htmlFor="fullName" className={labelClasses}>
+        <label htmlFor="fullName" className={fieldLabelClasses}>
           Name
         </label>
         <input
@@ -126,14 +153,14 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
           autoComplete="name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          className={inputClasses}
+          className={fieldClasses}
         />
       </div>
 
-      <MobileNumberField required value={mobile} onChange={setMobile} />
+      <MobileNumberField required value={mobile} onChange={setMobile} variant={variant} />
 
       <div>
-        <label htmlFor="email" className={labelClasses}>
+        <label htmlFor="email" className={fieldLabelClasses}>
           Email (optional)
         </label>
         <input
@@ -142,12 +169,12 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={inputClasses}
+          className={fieldClasses}
         />
       </div>
 
       <div>
-        <label htmlFor="message" className={labelClasses}>
+        <label htmlFor="message" className={fieldLabelClasses}>
           {config.messageLabel}
         </label>
         <textarea
@@ -158,16 +185,18 @@ function LeadForm({ config, source, entryServiceId }: LeadFormProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
-          className={inputClasses}
+          className={fieldClasses}
         />
         {config.messageRequired && (
-          <p className="font-mono-label mt-1 text-right text-[10px] uppercase text-ink-soft">
+          <p
+            className={`font-mono-label mt-1 text-right text-[10px] uppercase ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}
+          >
             {message.length}/{MESSAGE_MAX_LENGTH}
           </p>
         )}
       </div>
 
-      <Button type="submit" disabled={status === 'submitting'} className="w-full">
+      <Button type="submit" variant={isClinical ? 'clinical' : 'primary'} disabled={status === 'submitting'} className="w-full">
         {status === 'submitting' ? 'Sending…' : config.submitLabel}
       </Button>
     </form>

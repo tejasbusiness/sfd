@@ -47,6 +47,7 @@ docs/
 *.bmp
 *.ico
 !public/favicon.svg
+!src/assets/office-hero.jpg
 
 # Archives
 *.zip

@@ -42,8 +42,8 @@ function BookingModalContent({ onBooked }: BookingModalContentProps) {
     <div>
       {!active && (
         <>
-          <p className="font-mono-label text-xs uppercase text-teal">Book a Call</p>
-          <h2 className="font-display mt-1.5 text-xl text-ink">Choose a call type</h2>
+          <p className="font-mono-label text-xs uppercase text-studio-ink">Book a Call</p>
+          <h2 className="font-sans mt-1.5 text-xl font-bold text-studio-ink">Choose a call type</h2>
         </>
       )}
 
@@ -53,6 +53,7 @@ function BookingModalContent({ onBooked }: BookingModalContentProps) {
           error={error}
           empty={!loading && !error && (services?.length ?? 0) === 0}
           emptyMessage="No bookable calls are available right now — please reach out via the contact form instead."
+          variant="clinical"
         />
 
         {!loading && !error && services && services.length > 1 && !active && (
@@ -62,11 +63,11 @@ function BookingModalContent({ onBooked }: BookingModalContentProps) {
                 key={service.id}
                 type="button"
                 onClick={() => setSelected(service)}
-                className="w-full rounded-lg border border-ink/10 p-4 text-left transition-colors hover:border-teal"
+                className="w-full rounded-lg border border-studio-line p-4 text-left transition-colors hover:border-studio-ink"
               >
-                <p className="font-display text-lg text-ink">{service.name}</p>
+                <p className="font-sans text-lg font-bold text-studio-ink">{service.name}</p>
                 {service.short_description && (
-                  <p className="mt-1 text-sm text-ink-soft">{service.short_description}</p>
+                  <p className="mt-1 text-sm text-studio-ink-soft">{service.short_description}</p>
                 )}
               </button>
             ))}

@@ -10,7 +10,7 @@ function QuotaBadge({ quota }: QuotaBadgeProps) {
   const exhausted = quota.remaining <= 0
 
   return (
-    <p className={`font-mono-label text-[10px] uppercase ${exhausted ? 'text-terracotta' : 'text-ink-soft'}`}>
+    <p className={`font-mono-label text-[10px] uppercase ${exhausted ? 'text-studio-ink' : 'text-studio-ink-soft'}`}>
       {exhausted
         ? `0 of ${quota.limit} prompts remaining — resets ${new Date(quota.resetsAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
         : `${quota.remaining} of ${quota.limit} prompts remaining this month`}

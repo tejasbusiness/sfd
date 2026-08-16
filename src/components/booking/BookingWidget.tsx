@@ -1,9 +1,10 @@
 import { useMemo, useState, type FormEvent } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useFetch } from '../../hooks/useFetch'
 import { fetchAvailableSlots, type TimeSlot } from '../../lib/booking/availability'
 import { createBooking, BookingApiError, type CreateBookingResult } from '../../lib/booking/api'
 import { Button } from '../ui/Button'
-import { inputClasses, labelClasses } from '../ui/Input'
+import { clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
 import MobileNumberField, { type MobileNumberValue } from '../ui/MobileNumberField'
 import QueryState from '../ui/QueryState'
 import BookingCalendar from './BookingCalendar'
@@ -64,7 +65,7 @@ function StepProgress({ step }: { step: WizardStep }) {
       {STEP_ORDER.map((s, i) => (
         <div
           key={s}
-          className={`h-1 flex-1 rounded-full transition-colors ${i <= currentIndex ? 'bg-teal' : 'bg-ink/10'}`}
+          className={`h-1 flex-1 rounded-full transition-colors ${i <= currentIndex ? 'bg-studio-ink' : 'bg-studio-line'}`}
         />
       ))}
     </div>
@@ -76,7 +77,7 @@ function BackButton({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className="font-mono-label mb-2.5 inline-flex items-center gap-1 text-[11px] uppercase text-ink-soft transition-colors hover:text-teal"
+      className="font-mono-label mb-2.5 inline-flex items-center gap-1 text-[11px] uppercase text-studio-ink-soft transition-colors hover:text-studio-ink"
     >
       <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3" aria-hidden="true">
         <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -87,6 +88,8 @@ function BackButton({ onClick }: { onClick: () => void }) {
 }
 
 function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: BookingWidgetProps) {
+  const prefersReducedMotion = useReducedMotion()
+  const stepTransition = { duration: prefersReducedMotion ? 0.01 : 0.3, ease: [0.16, 1, 0.3, 1] as const }
   const {
     data: slots,
     loading,
@@ -177,24 +180,32 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
 
   if (result) {
     return (
-      <div role="status" className="rounded-2xl border border-teal/30 bg-sage p-7 text-center">
-        <p className="font-mono-label text-xs uppercase text-teal">Confirmed</p>
-        <p className="font-display mt-2 text-2xl text-ink">
+      <motion.div
+        role="status"
+        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 10, scale: prefersReducedMotion ? 1 : 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="rounded-2xl border border-studio-ink/30 bg-studio-bg-card-soft p-7 text-center"
+      >
+        <p className="font-mono-label text-xs uppercase text-studio-ink">Confirmed</p>
+        <p className="font-sans mt-2 text-2xl font-bold text-studio-ink">
           {formatDateLabel(new Date(result.startsAt))} at {formatTimeLabel(result.startsAt)}
         </p>
-        <p className="mt-2 text-sm text-ink-soft">
+        <p className="mt-2 text-sm text-studio-ink-soft">
           {email.trim()
             ? 'A confirmation has been sent to your email. You can reschedule or cancel from the link in that email at any time.'
             : "We've got your booking. Our team will reach out on the phone number you provided to confirm."}
         </p>
-      </div>
+      </motion.div>
     )
   }
 
   return (
-    <div className="rounded-2xl border border-ink/10 bg-cream p-4 sm:p-5">
-      <h2 className="font-display text-lg text-ink">Book {serviceName}</h2>
-      <p className="mt-0.5 text-xs text-ink-soft">{durationMinutes} minutes · {STEP_LABELS[step]}</p>
+    <div className="rounded-2xl border border-studio-line bg-white p-4 sm:p-5">
+      <h2 className="font-sans text-lg font-bold text-studio-ink">Book {serviceName}</h2>
+      <p className="mt-0.5 text-xs text-studio-ink-soft">
+        {durationMinutes} minutes · {STEP_LABELS[step]}
+      </p>
 
       <div className="mt-3">
         <StepProgress step={step} />
@@ -204,57 +215,85 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
           error={error}
           empty={!loading && !error && availableDates.size === 0}
           emptyMessage="No slots available in the next two weeks — please check back soon or contact us directly."
+          variant="clinical"
         />
 
         {!loading && !error && availableDates.size > 0 && (
-          <>
+          <AnimatePresence mode="wait">
             {step === 'date' && (
-              <BookingCalendar
-                selected={selectedDate}
-                onSelect={handleDateSelect}
-                dayHasAvailability={(date) => availableDates.has(dateKey(date))}
-              />
+              <motion.div
+                key="date"
+                initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -12 }}
+                transition={stepTransition}
+              >
+                <BookingCalendar
+                  selected={selectedDate}
+                  onSelect={handleDateSelect}
+                  dayHasAvailability={(date) => availableDates.has(dateKey(date))}
+                  variant="clinical"
+                />
+              </motion.div>
             )}
 
             {step === 'time' && selectedDate && (
-              <div>
+              <motion.div
+                key="time"
+                initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -12 }}
+                transition={stepTransition}
+              >
                 <BackButton onClick={() => setStep('date')} />
-                <p className="font-mono-label text-[10px] uppercase text-ink-soft">
+                <p className="font-mono-label text-[10px] uppercase text-studio-ink-soft">
                   {formatDateLabel(selectedDate)}
                 </p>
                 {slotsForSelectedDate.length === 0 ? (
-                  <p className="mt-4 text-sm text-ink-soft">No times left on this date. Please choose another.</p>
+                  <p className="mt-4 text-sm text-studio-ink-soft">No times left on this date. Please choose another.</p>
                 ) : (
                   <div className="mt-3 grid grid-cols-2 gap-2">
-                    {slotsForSelectedDate.map((slot) => (
-                      <button
+                    {slotsForSelectedDate.map((slot, index) => (
+                      <motion.button
                         key={slot.startsAt}
                         type="button"
                         disabled={slot.isBooked}
                         onClick={() => handleSlotSelect(slot)}
-                        className="font-mono-label rounded-full border border-ink/15 px-3 py-1.5 text-[11px] uppercase text-ink-soft transition-colors hover:border-teal hover:text-teal disabled:cursor-not-allowed disabled:border-ink/5 disabled:text-ink-soft/35 disabled:line-through disabled:hover:border-ink/5"
+                        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25, delay: prefersReducedMotion ? 0 : index * 0.025 }}
+                        whileHover={slot.isBooked || prefersReducedMotion ? undefined : { scale: 1.04 }}
+                        whileTap={slot.isBooked || prefersReducedMotion ? undefined : { scale: 0.96 }}
+                        className="font-mono-label rounded-full border border-studio-line px-3 py-1.5 text-[11px] uppercase text-studio-ink-soft transition-colors hover:border-studio-ink hover:text-studio-ink disabled:cursor-not-allowed disabled:border-studio-line/50 disabled:text-studio-ink-soft/35 disabled:line-through disabled:hover:border-studio-line/50"
                       >
                         {formatTimeLabel(slot.startsAt)}
-                      </button>
+                      </motion.button>
                     ))}
                   </div>
                 )}
-              </div>
+              </motion.div>
             )}
 
             {step === 'details' && selectedSlot && (
-              <form onSubmit={handleDetailsContinue}>
+              <motion.form
+                key="details"
+                onSubmit={handleDetailsContinue}
+                initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -12 }}
+                transition={stepTransition}
+              >
                 <BackButton onClick={() => setStep('time')} />
 
-                <div className="flex items-center justify-between rounded-lg bg-sage px-3 py-2">
-                  <p className="text-sm text-ink">
+                <div className="flex items-center justify-between rounded-lg bg-studio-bg-card-soft px-3 py-2">
+                  <p className="text-sm text-studio-ink">
                     {formatDateLabel(new Date(selectedSlot.startsAt))} at {formatTimeLabel(selectedSlot.startsAt)}
                   </p>
                 </div>
 
                 <div className="mt-3 space-y-2.5">
                   <div>
-                    <label htmlFor="booking-name" className={labelClasses}>
+                    <label htmlFor="booking-name" className={clinicalLabelClasses}>
                       Name
                     </label>
                     <input
@@ -264,14 +303,14 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
                       autoComplete="name"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className={inputClasses}
+                      className={clinicalInputClasses}
                     />
                   </div>
 
-                  <MobileNumberField id="booking-mobile" required value={mobile} onChange={setMobile} />
+                  <MobileNumberField id="booking-mobile" required value={mobile} onChange={setMobile} variant="clinical" />
 
                   <div>
-                    <label htmlFor="booking-email" className={labelClasses}>
+                    <label htmlFor="booking-email" className={clinicalLabelClasses}>
                       Email (optional)
                     </label>
                     <input
@@ -280,12 +319,12 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
                       autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className={inputClasses}
+                      className={clinicalInputClasses}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="booking-notes" className={labelClasses}>
+                    <label htmlFor="booking-notes" className={clinicalLabelClasses}>
                       What would you like to talk about?
                     </label>
                     <textarea
@@ -295,67 +334,73 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
                       maxLength={MESSAGE_MAX_LENGTH}
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
-                      className={inputClasses}
+                      className={clinicalInputClasses}
                     />
                     <p
-                      className={`font-mono-label mt-0.5 text-right text-[10px] uppercase ${messageTooLong ? 'text-terracotta' : 'text-ink-soft'}`}
+                      className={`font-mono-label mt-0.5 text-right text-[10px] uppercase ${messageTooLong ? 'text-studio-ink' : 'text-studio-ink-soft'}`}
                     >
                       {notes.length}/{MESSAGE_MAX_LENGTH}
                     </p>
                   </div>
                 </div>
 
-                <Button type="submit" disabled={!detailsValid} className="mt-3 w-full">
+                <Button type="submit" variant="clinical" disabled={!detailsValid} className="mt-3 w-full">
                   Continue
                 </Button>
-              </form>
+              </motion.form>
             )}
 
             {step === 'review' && selectedSlot && (
-              <div>
+              <motion.div
+                key="review"
+                initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -12 }}
+                transition={stepTransition}
+              >
                 <BackButton onClick={() => setStep('details')} />
 
-                <dl className="space-y-2 rounded-lg border border-ink/10 p-3 text-sm">
+                <dl className="space-y-2 rounded-lg border border-studio-line p-3 text-sm">
                   <div className="flex justify-between gap-4">
-                    <dt className="text-ink-soft">When</dt>
-                    <dd className="text-right text-ink">
+                    <dt className="text-studio-ink-soft">When</dt>
+                    <dd className="text-right text-studio-ink">
                       {formatDateLabel(new Date(selectedSlot.startsAt))} at {formatTimeLabel(selectedSlot.startsAt)}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <dt className="text-ink-soft">Name</dt>
-                    <dd className="text-right text-ink">{fullName}</dd>
+                    <dt className="text-studio-ink-soft">Name</dt>
+                    <dd className="text-right text-studio-ink">{fullName}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <dt className="text-ink-soft">Mobile</dt>
-                    <dd className="text-right text-ink">
+                    <dt className="text-studio-ink-soft">Mobile</dt>
+                    <dd className="text-right text-studio-ink">
                       {mobile.countryCode} {mobile.digits}
                     </dd>
                   </div>
                   {email.trim() && (
                     <div className="flex justify-between gap-4">
-                      <dt className="text-ink-soft">Email</dt>
-                      <dd className="text-right text-ink">{email}</dd>
+                      <dt className="text-studio-ink-soft">Email</dt>
+                      <dd className="text-right text-studio-ink">{email}</dd>
                     </div>
                   )}
                   <div className="flex justify-between gap-4">
-                    <dt className="text-ink-soft">Message</dt>
-                    <dd className="max-w-[70%] text-right text-ink">{notes}</dd>
+                    <dt className="text-studio-ink-soft">Message</dt>
+                    <dd className="max-w-[70%] text-right text-studio-ink">{notes}</dd>
                   </div>
                 </dl>
 
                 {submitError && (
-                  <p role="alert" className="mt-3 text-sm text-terracotta">
+                  <p role="alert" className="mt-3 text-sm text-studio-ink">
                     {submitError}
                   </p>
                 )}
 
-                <Button onClick={handleConfirm} disabled={submitting} className="mt-3 w-full">
+                <Button onClick={handleConfirm} variant="clinical" disabled={submitting} className="mt-3 w-full">
                   {submitting ? 'Booking…' : 'Book Now'}
                 </Button>
-              </div>
+              </motion.div>
             )}
-          </>
+          </AnimatePresence>
         )}
       </div>
     </div>
