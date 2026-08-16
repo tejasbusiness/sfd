@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useBookingModal } from '../../context/BookingModalContext'
+import ServicesNavMenu from './ServicesNavMenu'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${isActive ? 'text-studio-ink' : 'text-studio-ink-soft hover:text-studio-ink'}`
@@ -18,9 +19,7 @@ function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          <NavLink to="/services" className={navLinkClass}>
-            Services
-          </NavLink>
+          <ServicesNavMenu navLinkClassName="text-sm text-studio-ink-soft transition-colors hover:text-studio-ink" />
           <NavLink to="/portfolio" className={navLinkClass}>
             Portfolio
           </NavLink>

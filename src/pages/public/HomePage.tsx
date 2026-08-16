@@ -6,7 +6,6 @@ import WhyChooseUsSection from '../../components/marketing/WhyChooseUsSection'
 import WorkShowcase from '../../components/marketing/WorkShowcase'
 import ProcessSection from '../../components/marketing/ProcessSection'
 import TestimonialsSection from '../../components/marketing/TestimonialsSection'
-import PricingPreview from '../../components/marketing/PricingPreview'
 import FaqSection from '../../components/marketing/FaqSection'
 import StickyMobileCta from '../../components/marketing/StickyMobileCta'
 
@@ -20,7 +19,6 @@ function HomePage() {
       <WorkShowcase />
       <ProcessSection />
       <TestimonialsSection />
-      <PricingPreview />
       <FaqSection />
       <StickyMobileCta />
     </PublicLayout>
