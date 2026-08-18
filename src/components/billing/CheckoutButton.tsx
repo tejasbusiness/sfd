@@ -2,13 +2,20 @@ import { useState, type FormEvent } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { processPayment, PaymentError, type Currency } from '../../lib/payments'
 import { Button } from '../ui/Button'
-import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
+import {
+  inputClasses,
+  labelClasses,
+  clinicalInputClasses,
+  clinicalLabelClasses,
+  supahubInputClasses,
+  supahubLabelClasses,
+} from '../ui/Input'
 
 interface CheckoutButtonProps {
   tierId: string
   tierName: string
   currency: Currency
-  variant?: 'editorial' | 'clinical'
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 /**
@@ -24,8 +31,9 @@ function CheckoutButton({ tierId, tierName, currency, variant = 'editorial' }: C
   const [error, setError] = useState<string | null>(null)
 
   const isClinical = variant === 'clinical'
-  const fieldClasses = isClinical ? clinicalInputClasses : inputClasses
-  const fieldLabelClasses = isClinical ? clinicalLabelClasses : labelClasses
+  const isSupahub = variant === 'supahub'
+  const fieldClasses = isSupahub ? supahubInputClasses : isClinical ? clinicalInputClasses : inputClasses
+  const fieldLabelClasses = isSupahub ? supahubLabelClasses : isClinical ? clinicalLabelClasses : labelClasses
   const prefersReducedMotion = useReducedMotion()
 
   async function handleSubmit(e: FormEvent) {
@@ -47,7 +55,11 @@ function CheckoutButton({ tierId, tierName, currency, variant = 'editorial' }: C
 
   if (!expanded) {
     return (
-      <Button onClick={() => setExpanded(true)} variant={isClinical ? 'clinical' : 'primary'} className="mt-7 w-full">
+      <Button
+        onClick={() => setExpanded(true)}
+        variant={isSupahub ? 'supahub' : isClinical ? 'clinical' : 'primary'}
+        className="mt-7 w-full"
+      >
         Get Started
       </Button>
     )
@@ -68,17 +80,22 @@ function CheckoutButton({ tierId, tierName, currency, variant = 'editorial' }: C
         className={fieldClasses}
       />
       {error && (
-        <p role="alert" className={`text-sm ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
+        <p role="alert" className={`text-sm ${isSupahub ? 'text-supahub-ink' : isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
           {error}
         </p>
       )}
-      <Button type="submit" variant={isClinical ? 'clinical' : 'primary'} disabled={submitting} className="w-full">
+      <Button
+        type="submit"
+        variant={isSupahub ? 'supahub' : isClinical ? 'clinical' : 'primary'}
+        disabled={submitting}
+        className="w-full"
+      >
         {submitting ? 'Starting checkout…' : 'Continue to Payment'}
       </Button>
     </>
   )
 
-  if (isClinical) {
+  if (isClinical || isSupahub) {
     return (
       <motion.form
         onSubmit={handleSubmit}

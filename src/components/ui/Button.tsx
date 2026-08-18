@@ -3,7 +3,7 @@ import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 interface BaseProps {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse' | 'clinical' | 'clinical-ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse' | 'clinical' | 'clinical-ghost' | 'supahub' | 'supahub-ghost'
   size?: 'md' | 'lg'
 }
 
@@ -16,6 +16,11 @@ const variantClasses: Record<NonNullable<BaseProps['variant']>, string> = {
   clinical: 'rounded-full bg-studio-ink text-white hover:brightness-110 focus-visible:outline-studio-ink',
   'clinical-ghost':
     'rounded-full border border-studio-ink/20 bg-transparent text-studio-ink hover:bg-studio-bg-card-soft focus-visible:outline-studio-ink',
+  // "Supahub" variants — match the approved artifact's .btn-primary/.btn-dark
+  // (dark-ink fill, 12px radius, Inter font) and .btn-ghost (outlined).
+  supahub: 'rounded-xl bg-supahub-ink text-white hover:brightness-110 focus-visible:outline-supahub-violet',
+  'supahub-ghost':
+    'rounded-xl border border-supahub-ink bg-transparent text-supahub-ink hover:bg-supahub-fog focus-visible:outline-supahub-violet',
 }
 
 const sizeClasses: Record<NonNullable<BaseProps['size']>, string> = {
@@ -25,8 +30,10 @@ const sizeClasses: Record<NonNullable<BaseProps['size']>, string> = {
 
 function classes(variant: BaseProps['variant'] = 'primary', size: BaseProps['size'] = 'md') {
   const isClinical = variant === 'clinical' || variant === 'clinical-ghost'
-  const type = isClinical ? 'font-sans font-medium normal-case' : 'font-mono-label uppercase text-xs'
-  return `inline-flex items-center justify-center gap-2 rounded-full ${type} transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${variantClasses[variant]} ${sizeClasses[size]}`
+  const isSupahub = variant === 'supahub' || variant === 'supahub-ghost'
+  const type = isClinical || isSupahub ? 'font-sans font-medium normal-case' : 'font-mono-label uppercase text-xs'
+  const radius = isSupahub ? '' : 'rounded-full'
+  return `inline-flex items-center justify-center gap-2 ${radius} ${type} transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${variantClasses[variant]} ${sizeClasses[size]}`
 }
 
 interface ButtonProps extends BaseProps, HTMLMotionProps<'button'> {

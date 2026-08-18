@@ -9,7 +9,7 @@ function ServicesIndexPage() {
         eyebrow="Services"
         title="Everything a practice needs to grow."
         description="Built specifically for healthcare and wellness — not adapted from a generic template."
-        variant="clinical"
+        variant="supahub"
       />
       <ServicesGrid />
     </PublicLayout>

@@ -1,57 +1,72 @@
 import { Link } from 'react-router-dom'
-import { motion, useReducedMotion } from 'framer-motion'
-import { useBookingModal } from '../../context/BookingModalContext'
-import Reveal from '../motion/Reveal'
+
+const SPARK_PATH = 'M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z'
+
+// "WhatsApp API" mirrors the WhatsApp Business API service; "Prompt
+// Generator" and "Book a Call" columns match the artifact's Tools footer
+// group exactly.
+const FOOTER_COLUMNS: { heading: string; links: { label: string; to: string }[] }[] = [
+  {
+    heading: 'Services',
+    links: [
+      { label: 'Web Design', to: '/services/web-design' },
+      { label: 'SEO', to: '/services/seo' },
+      { label: 'AI Solutions', to: '/services/ai-solutions' },
+      { label: 'WhatsApp API', to: '/services/whatsapp-business-api' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Portfolio', to: '/portfolio' },
+      { label: 'Pricing', to: '/pricing' },
+      { label: 'Contact', to: '/contact' },
+    ],
+  },
+  {
+    heading: 'Tools',
+    links: [{ label: 'Prompt Generator', to: '/website-prompt-generator' }],
+  },
+]
 
 function SiteFooter() {
-  const { openBookingModal } = useBookingModal()
-  const prefersReducedMotion = useReducedMotion()
-
   return (
-    <footer className="mx-3 rounded-t-[32px] bg-studio-ink text-white sm:mx-6">
-      <div className="mx-auto max-w-6xl px-4 py-20 text-center sm:px-6">
-        <p className="font-mono-label text-xs uppercase text-white/50">Let's talk</p>
-        <Reveal variant="mask">
-          <h2 className="mt-3 text-3xl font-bold leading-tight tracking-[-0.02em] sm:text-5xl">
-            Ready for a site that works <span className="text-white/40">as hard as you do?</span>
-          </h2>
-        </Reveal>
-        <Reveal className="mt-8">
-          <motion.button
-            type="button"
-            onClick={openBookingModal}
-            whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
-            whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
-            transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto flex items-center gap-2 rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-medium text-studio-ink transition-colors hover:brightness-95"
-          >
-            Book a Call
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-studio-ink text-white" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5">
-                <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <footer className="border-t border-supahub-mist">
+      <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6">
+        <div className="flex flex-wrap items-start justify-between gap-8">
+          <div>
+            <Link to="/" className="flex items-center gap-2 text-[17px] font-bold text-supahub-ink">
+              <svg viewBox="0 0 24 24" fill="none" className="h-[22px] w-[22px] text-supahub-violet">
+                <path d={SPARK_PATH} fill="currentColor" />
               </svg>
-            </span>
-          </motion.button>
-        </Reveal>
+              SynergyFirst
+            </Link>
+            <p className="mt-3.5 max-w-[220px] text-sm leading-relaxed text-supahub-slate">
+              Websites &amp; automation for healthcare and wellness practices.
+            </p>
+          </div>
 
-        <div className="mt-20 flex flex-col items-center gap-4 border-t border-white/15 pt-8 text-xs text-white/50 sm:flex-row sm:justify-between">
-          <span className="font-mono-label uppercase">
-            © {new Date().getFullYear()} SynergyFirst Digital
-          </span>
-          <nav className="flex gap-5 font-mono-label uppercase">
-            <Link to="/services" className="hover:text-white">
-              Services
-            </Link>
-            <Link to="/portfolio" className="hover:text-white">
-              Portfolio
-            </Link>
-            <Link to="/pricing" className="hover:text-white">
-              Pricing
-            </Link>
-            <Link to="/contact" className="hover:text-white">
-              Contact
-            </Link>
-          </nav>
+          <div className="flex flex-wrap gap-16">
+            {FOOTER_COLUMNS.map((col) => (
+              <div key={col.heading}>
+                <h4 className="mb-3.5 text-xs font-bold uppercase tracking-[0.08em] text-supahub-slate">{col.heading}</h4>
+                {col.links.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="block py-1 text-sm text-supahub-graphite transition-colors hover:text-supahub-violet"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-supahub-mist pt-6 text-center text-[13px] text-supahub-slate">
+          © {new Date().getFullYear()} SynergyFirst Digital. All rights reserved.
         </div>
       </div>
     </footer>

@@ -15,23 +15,23 @@ function WorkShowcase() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-studio-bg-card-soft py-20">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading eyebrow="Selected work" title="Real practices. Real results." variant="clinical" />
+    <section className="relative overflow-hidden bg-supahub-fog py-20">
+      <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6">
+        <SectionHeading eyebrow="Selected work" title="Real practices. Real results." variant="supahub" />
 
-        <QueryState loading={loading} error={error} />
+        <QueryState loading={loading} error={error} variant="supahub" />
 
         {!loading && !error && preview.length > 0 && (
           <>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {preview.map((item, index) => (
                 <Reveal key={item.id} index={index}>
-                  <CaseStudyCard item={item} variant="clinical" />
+                  <CaseStudyCard item={item} variant="supahub" />
                 </Reveal>
               ))}
             </div>
             <div className="mt-10 text-center">
-              <LinkButton to="/portfolio" variant="clinical-ghost" size="lg">
+              <LinkButton to="/portfolio" variant="supahub-ghost" size="lg">
                 See All Work
               </LinkButton>
             </div>

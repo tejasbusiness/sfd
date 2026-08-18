@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
-import { clinicalLabelClasses } from '../ui/Input'
+import { supahubLabelClasses } from '../ui/Input'
 import ColorField from './ColorField'
 import {
   generatePalette,
@@ -68,8 +68,8 @@ function ColorPaletteEditor({ palette, onChange }: ColorPaletteEditorProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <p className={clinicalLabelClasses}>Brand Color Palette</p>
-        <Button type="button" variant="clinical-ghost" size="md" onClick={handleRegenerate}>
+        <p className={supahubLabelClasses}>Brand Color Palette</p>
+        <Button type="button" variant="supahub-ghost" size="md" onClick={handleRegenerate}>
           Regenerate Palette
         </Button>
       </div>
@@ -91,7 +91,7 @@ function ColorPaletteEditor({ palette, onChange }: ColorPaletteEditorProps) {
 
       {/* Palette preview -- five adjoining swatches so all colors are seen
           together at a glance, updates immediately on any change. */}
-      <div className="overflow-hidden rounded-lg border border-studio-line">
+      <div className="overflow-hidden rounded-lg border border-supahub-mist">
         <div className="flex h-16">
           {FIELD_KEYS.map((key) => (
             <motion.div
@@ -109,10 +109,10 @@ function ColorPaletteEditor({ palette, onChange }: ColorPaletteEditorProps) {
             </motion.div>
           ))}
         </div>
-        <div className="flex bg-studio-bg-card-soft">
+        <div className="flex bg-supahub-fog">
           {FIELD_KEYS.map((key) => (
             <div key={key} className="flex-1 px-2 py-1.5 text-center">
-              <span className="font-mono-label text-[9px] uppercase text-studio-ink-soft">{FIELD_LABELS[key]}</span>
+              <span className="font-mono-label text-[9px] uppercase text-supahub-slate">{FIELD_LABELS[key]}</span>
             </div>
           ))}
         </div>

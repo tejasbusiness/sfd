@@ -16,9 +16,16 @@ const FALLBACK_NICHES = [
   'Fitness & Wellness',
 ]
 
-// Rotating accent per pill, purely decorative — cycles through a small
+// Rotating accent per pill, purely decorative — cycles through the Supahub
 // palette so the row reads as lively/varied rather than one flat color.
-const ACCENTS = ['#1c4ed8', '#ff5a4e', '#22a35a', '#a855f7', '#f59e0b', '#0ea5e9']
+const ACCENTS = [
+  '#862fe7',
+  '#e22ba4',
+  '#dc5f05',
+  '#5f259e',
+  '#0f9e85',
+  '#2563eb',
+]
 
 // niche_tags are stored as slugs (e.g. "eye-clinic") — this is presentation
 // formatting only, not new content, so it stays Rule C-compliant.
@@ -47,7 +54,7 @@ function NicheStrip({ className = '' }: NicheStripProps) {
 
   return (
     <div className={`flex flex-wrap items-center gap-1.5 ${className}`}>
-      <span className="font-mono-label mr-0.5 text-[10px] uppercase text-studio-ink-faint">Built for</span>
+      <span className="mr-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-supahub-slate">Built for</span>
       {niches.map((niche, index) => {
         const accent = ACCENTS[index % ACCENTS.length]
         return (
@@ -74,14 +81,14 @@ function NicheStrip({ className = '' }: NicheStripProps) {
                 : {
                     y: -4,
                     scale: 1.08,
-                    backgroundColor: '#141414',
+                    backgroundColor: '#111827',
                     color: '#ffffff',
-                    borderColor: '#141414',
+                    borderColor: '#111827',
                     boxShadow: `0 10px 22px -10px ${accent}80`,
                     transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
                   }
             }
-            className="group flex cursor-default items-center gap-1 rounded-full border border-studio-line bg-white px-2.5 py-1 text-[11px] font-semibold text-studio-ink-soft shadow-[0_1px_4px_rgba(20,20,20,0.05)]"
+            className="group flex cursor-default items-center gap-1 rounded-full border border-supahub-mist bg-white px-2.5 py-1 text-[11px] font-semibold text-supahub-slate shadow-[0_1px_4px_rgba(17,24,39,0.05)]"
           >
             <span
               className="h-1 w-1 shrink-0 rounded-full transition-transform duration-300 group-hover:scale-125"

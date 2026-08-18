@@ -2,7 +2,7 @@ import type { PortfolioItem } from '../../lib/supabase/types'
 
 interface CaseStudyCardProps {
   item: PortfolioItem
-  variant?: 'editorial' | 'clinical'
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 /**
@@ -10,10 +10,45 @@ interface CaseStudyCardProps {
  * Niche framing comes entirely from item.niche_tags/summary — this
  * component never branches on a specific practice type.
  *
- * variant="clinical" opts into the public-site "Studio Neutral" chrome
- * (used by WorkShowcase); PortfolioPage keeps the default editorial style.
+ * variant="clinical" opts into the retired public-site "Studio Neutral"
+ * chrome; variant="supahub" opts into the current public redesign (used by
+ * WorkShowcase/PortfolioPage); PortfolioPage's default stays editorial for
+ * any caller that hasn't opted in.
  */
 function CaseStudyCard({ item, variant = 'editorial' }: CaseStudyCardProps) {
+  if (variant === 'supahub') {
+    return (
+      <article className="group overflow-hidden rounded-[20px] border border-supahub-mist bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(134,47,231,0.25)]">
+        <div className="aspect-video overflow-hidden bg-supahub-ink">
+          {item.cover_image_url && (
+            <img
+              src={item.cover_image_url}
+              alt=""
+              loading="lazy"
+              className="h-full w-full object-cover opacity-90 transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.06]"
+            />
+          )}
+        </div>
+        <div className="p-6">
+          {item.niche_tags[0] && (
+            <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-supahub-violet">
+              {item.niche_tags[0]}
+            </span>
+          )}
+          <h3 className="font-bricolage mt-2 text-lg font-semibold tracking-[-0.02em] text-supahub-ink">{item.title}</h3>
+          {item.summary && <p className="mt-2 text-sm leading-relaxed text-supahub-slate">{item.summary}</p>}
+          {item.outcome_metrics.length > 0 && (
+            <div className="mt-4 translate-y-1 border-t border-supahub-mist pt-3 text-xs opacity-70 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <span>
+                <b className="text-supahub-ink">{item.outcome_metrics[0].value}</b> {item.outcome_metrics[0].label}
+              </span>
+            </div>
+          )}
+        </div>
+      </article>
+    )
+  }
+
   if (variant === 'clinical') {
     return (
       <article className="group overflow-hidden rounded-2xl border border-studio-line bg-white">

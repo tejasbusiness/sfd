@@ -17,27 +17,25 @@ function ProcessSection() {
 
   return (
     <section className="py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading eyebrow="How it works" title="Three steps. No guesswork." variant="clinical" />
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+        <SectionHeading eyebrow="How it works" title="Three steps. No guesswork." variant="supahub" />
 
         <div ref={timelineRef} className="relative mt-20">
-          <div className="absolute top-0 left-0 h-[2px] w-full bg-studio-line" />
+          <div className="absolute top-0 left-0 h-[2px] w-full bg-supahub-mist" />
           <motion.div
-            className="absolute top-0 left-0 h-[2px] bg-studio-ink"
+            className="absolute top-0 left-0 h-[2px] bg-supahub-violet"
             style={{ width: prefersReducedMotion ? '100%' : lineWidth }}
           />
 
           <ol className="relative grid gap-9 sm:grid-cols-3">
             {STEPS.map((step, index) => (
               <Reveal key={step.title} as="li" index={index} className="relative pt-8">
-                <span className="absolute left-0 top-0 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-sm bg-studio-ink" />
-                <span className="font-mono absolute -top-16 right-0 text-6xl font-bold text-studio-line">
+                <span className="absolute left-0 top-0 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-sm bg-supahub-violet" />
+                <span className="font-bricolage absolute -top-16 right-0 text-6xl font-bold text-supahub-mist">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-xl font-bold tracking-[-0.02em] text-studio-ink">{step.title}</h3>
-                <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-studio-ink-soft">
-                  {step.description}
-                </p>
+                <h3 className="font-bricolage text-xl font-semibold tracking-[-0.02em] text-supahub-ink">{step.title}</h3>
+                <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-supahub-slate">{step.description}</p>
               </Reveal>
             ))}
           </ol>

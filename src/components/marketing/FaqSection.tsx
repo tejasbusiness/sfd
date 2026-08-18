@@ -41,24 +41,24 @@ function FaqSection() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6">
-      <SectionHeading eyebrow="FAQ" title="Questions, answered." variant="clinical" />
+    <section className="mx-auto max-w-[720px] px-4 py-20 sm:px-6">
+      <SectionHeading eyebrow="FAQ" title="Questions, answered." variant="supahub" />
 
       <div className="mt-10 flex flex-col gap-3">
         {FAQS.map((faq, index) => {
           const isOpen = openIndex === index
           return (
             <Reveal key={faq.question} index={index}>
-              <div className="rounded-2xl border border-studio-line bg-white">
+              <div className="rounded-2xl border border-supahub-mist bg-white">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-[22px]"
                 >
-                  <span className="font-bold tracking-[-0.02em] text-studio-ink">{faq.question}</span>
+                  <span className="text-base font-semibold text-supahub-ink">{faq.question}</span>
                   <motion.span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-studio-bg-card-soft text-studio-ink"
+                    className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-supahub-fog text-supahub-ink"
                     animate={prefersReducedMotion ? undefined : { rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     aria-hidden="true"
@@ -77,7 +77,7 @@ function FaqSection() {
                       transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-5 text-sm leading-relaxed text-studio-ink-soft sm:px-6 sm:pb-6">
+                      <p className="px-5 pb-5 text-sm leading-relaxed text-supahub-slate sm:px-[22px] sm:pb-5">
                         {faq.answer}
                       </p>
                     </motion.div>

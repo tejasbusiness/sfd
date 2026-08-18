@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Button } from '../ui/Button'
-import { clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
+import { supahubInputClasses, supahubLabelClasses } from '../ui/Input'
 import { Select } from '../ui/Select'
 import ColorPaletteEditor from './ColorPaletteEditor'
 import ReferenceImageUpload from './ReferenceImageUpload'
@@ -98,23 +98,23 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
   const quotaExhausted = quota !== null && quota.remaining <= 0
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-studio-line bg-white p-7 sm:p-8">
+    <form onSubmit={handleSubmit} className="rounded-2xl border border-supahub-mist bg-white p-7 sm:p-8">
       <div>
-        <h2 className="font-sans text-xl font-bold text-studio-ink">Tell Us About Your Project</h2>
-        <p className="mt-1 text-sm text-studio-ink-soft">
+        <h2 className="font-bricolage text-xl font-semibold text-supahub-ink">Tell Us About Your Project</h2>
+        <p className="mt-1 text-sm text-supahub-slate">
           The more detail you provide, the better your website will turn out.
         </p>
       </div>
 
       {validationError && (
-        <p role="alert" className="mt-4 text-sm text-studio-ink">
+        <p role="alert" className="mt-4 text-sm text-supahub-ink">
           {validationError}
         </p>
       )}
 
       <div className="mt-6 space-y-5">
         <div>
-          <label htmlFor="yourName" className={clinicalLabelClasses}>
+          <label htmlFor="yourName" className={supahubLabelClasses}>
             Your Name
           </label>
           <input
@@ -123,12 +123,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="e.g. John Doe"
             value={values.yourName}
             onChange={(e) => updateField('yourName', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="businessName" className={clinicalLabelClasses}>
+          <label htmlFor="businessName" className={supahubLabelClasses}>
             Business Name
           </label>
           <input
@@ -138,12 +138,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="e.g. Miami Grill House"
             value={values.businessName}
             onChange={(e) => updateField('businessName', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="services" className={clinicalLabelClasses}>
+          <label htmlFor="services" className={supahubLabelClasses}>
             Services You Offer
           </label>
           <input
@@ -153,12 +153,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="e.g. Residential plumbing, drain cleaning, water heater repair"
             value={values.services}
             onChange={(e) => updateField('services', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="businessDescription" className={clinicalLabelClasses}>
+          <label htmlFor="businessDescription" className={supahubLabelClasses}>
             Describe Your Business
           </label>
           <textarea
@@ -168,7 +168,7 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="What does your business do? Who are your customers? What makes you different?"
             value={values.businessDescription}
             onChange={(e) => updateField('businessDescription', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
@@ -176,7 +176,7 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
           <Select
             id="websiteType"
             label="Website Type"
-            variant="clinical"
+            variant="supahub"
             value={values.websiteType}
             onChange={(val) => {
               updateField('websiteType', val as WebsiteType)
@@ -187,7 +187,7 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
               { value: 'multi', label: `Multiple Pages (up to ${MAX_PAGES})` },
             ]}
           />
-          <p className="mt-1.5 text-xs text-studio-ink-soft">
+          <p className="mt-1.5 text-xs text-supahub-slate">
             {values.websiteType === 'single'
               ? 'One scrollable page with multiple sections, linked from the header navigation.'
               : `A traditional multi-page site (up to ${MAX_PAGES} pages), each linked from the header navigation.`}
@@ -195,7 +195,7 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
         </div>
 
         <div>
-          <label htmlFor="sectionsOrPages" className={clinicalLabelClasses}>
+          <label htmlFor="sectionsOrPages" className={supahubLabelClasses}>
             {values.websiteType === 'single' ? 'Sections You Want (comma separated)' : 'Pages You Want (comma separated)'}
           </label>
           <input
@@ -208,9 +208,9 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             }
             value={values.sectionsOrPages}
             onChange={(e) => updateField('sectionsOrPages', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
-          <p className="mt-1.5 text-xs text-studio-ink-soft">
+          <p className="mt-1.5 text-xs text-supahub-slate">
             {values.websiteType === 'single'
               ? 'List the sections you want on your page, in the order you want them to appear. The header navigation will link to each one.'
               : `List the page names you want (max ${MAX_PAGES}), in the order you want them in the navigation. Each becomes its own page linked from the header.`}
@@ -218,7 +218,7 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
         </div>
 
         <div>
-          <label htmlFor="phone" className={clinicalLabelClasses}>
+          <label htmlFor="phone" className={supahubLabelClasses}>
             Phone Number
           </label>
           <input
@@ -227,12 +227,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="e.g. (305) 555-1234"
             value={values.phone}
             onChange={(e) => updateField('phone', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="email" className={clinicalLabelClasses}>
+          <label htmlFor="email" className={supahubLabelClasses}>
             Your Email (Not required)
           </label>
           <input
@@ -241,12 +241,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="Put a real email if you have one — leave blank otherwise."
             value={values.email}
             onChange={(e) => updateField('email', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="serviceArea" className={clinicalLabelClasses}>
+          <label htmlFor="serviceArea" className={supahubLabelClasses}>
             Service Area or Storefront Address
           </label>
           <input
@@ -255,12 +255,12 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="e.g. Serving all of Miami-Dade County, or 123 Main St Miami FL"
             value={values.serviceArea}
             onChange={(e) => updateField('serviceArea', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
         <div>
-          <label htmlFor="websiteUrl" className={clinicalLabelClasses}>
+          <label htmlFor="websiteUrl" className={supahubLabelClasses}>
             Your Website URL (if you have one)
           </label>
           <input
@@ -269,27 +269,27 @@ function PromptGeneratorForm({ isGenerating, quota, onSubmit }: PromptGeneratorF
             placeholder="mybusiness.com or just type your business name"
             value={values.websiteUrl}
             onChange={(e) => updateField('websiteUrl', e.target.value)}
-            className={clinicalInputClasses}
+            className={supahubInputClasses}
           />
         </div>
 
-        <div className="border-t border-studio-line pt-5">
+        <div className="border-t border-supahub-mist pt-5">
           <ColorPaletteEditor palette={palette} onChange={setPalette} />
         </div>
 
-        <div className="border-t border-studio-line pt-5">
+        <div className="border-t border-supahub-mist pt-5">
           <ReferenceImageUpload file={referenceImage} onChange={setReferenceImage} />
         </div>
       </div>
 
       {quotaExhausted && (
-        <p className="mt-5 text-sm text-studio-ink">
+        <p className="mt-5 text-sm text-supahub-ink">
           You've used all {quota?.limit ?? 15} website prompt generations for this month. Your allowance will reset
           next month.
         </p>
       )}
 
-      <Button type="submit" variant="clinical" size="lg" disabled={isGenerating || quotaExhausted} className="mt-6 w-full">
+      <Button type="submit" variant="supahub" size="lg" disabled={isGenerating || quotaExhausted} className="mt-6 w-full">
         {isGenerating ? 'Generating Your Prompt…' : 'Generate My Website Prompt'}
       </Button>
     </form>

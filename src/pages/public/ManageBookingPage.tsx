@@ -5,6 +5,7 @@ import PublicLayout from '../../components/marketing/PublicLayout'
 import PageHeader from '../../components/ui/PageHeader'
 import QueryState from '../../components/ui/QueryState'
 import { Button } from '../../components/ui/Button'
+import Reveal from '../../components/motion/Reveal'
 import { useFetch } from '../../hooks/useFetch'
 import {
   fetchBookingByToken,
@@ -49,7 +50,7 @@ function ManageBookingPage() {
           eyebrow="Manage Booking"
           title="Link missing"
           description="This page needs a booking link — please use the link from your confirmation email."
-          variant="clinical"
+          variant="supahub"
         />
       </PublicLayout>
     )
@@ -57,11 +58,13 @@ function ManageBookingPage() {
 
   return (
     <PublicLayout>
-      <PageHeader eyebrow="Manage Booking" title="Your appointment" variant="clinical" />
+      <PageHeader eyebrow="Manage Booking" title="Your appointment" variant="supahub" />
       <div className="mx-auto max-w-lg px-4 pb-20 pt-6 sm:px-6">
-        <QueryState loading={loading} error={error} variant="clinical" />
+        <QueryState loading={loading} error={error} variant="supahub" />
         {!loading && !error && booking && (
-          <BookingManagePanel booking={booking} token={token} />
+          <Reveal>
+            <BookingManagePanel booking={booking} token={token} />
+          </Reveal>
         )}
       </div>
     </PublicLayout>
@@ -133,10 +136,10 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
         initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={fadeTransition}
-        className="rounded-2xl border border-studio-line bg-white p-7 text-center"
+        className="rounded-2xl border border-supahub-mist bg-white p-7 text-center"
       >
-        <p className="font-sans text-xl font-bold text-studio-ink">This booking has been canceled.</p>
-        <p className="mt-2 text-sm text-studio-ink-soft">
+        <p className="font-bricolage text-xl font-semibold text-supahub-ink">This booking has been canceled.</p>
+        <p className="mt-2 text-sm text-supahub-slate">
           If this was a mistake, please contact us to book a new time.
         </p>
       </motion.div>
@@ -144,13 +147,13 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
   }
 
   return (
-    <div className="rounded-2xl border border-studio-line bg-white p-7">
-      <p className="font-mono-label text-xs uppercase text-studio-ink">{status}</p>
-      <p className="font-sans mt-2 text-xl font-bold text-studio-ink">{formatDateTime(startsAt)}</p>
-      <p className="mt-1 text-sm text-studio-ink-soft">{booking.clientFullName}</p>
+    <div className="rounded-2xl border border-supahub-mist bg-white p-7">
+      <p className="text-xs font-bold uppercase tracking-[0.08em] text-supahub-violet">{status}</p>
+      <p className="font-bricolage mt-2 text-xl font-semibold text-supahub-ink">{formatDateTime(startsAt)}</p>
+      <p className="mt-1 text-sm text-supahub-slate">{booking.clientFullName}</p>
 
       {actionError && (
-        <p role="alert" className="mt-4 text-sm text-studio-ink">
+        <p role="alert" className="mt-4 text-sm text-supahub-ink">
           {actionError}
         </p>
       )}
@@ -165,10 +168,10 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
             transition={fadeTransition}
             className="mt-6 flex flex-wrap gap-3"
           >
-            <Button variant="clinical-ghost" onClick={() => setMode('reschedule')} disabled={submitting}>
+            <Button variant="supahub-ghost" onClick={() => setMode('reschedule')} disabled={submitting}>
               Reschedule
             </Button>
-            <Button variant="clinical-ghost" onClick={handleCancel} disabled={submitting}>
+            <Button variant="supahub-ghost" onClick={handleCancel} disabled={submitting}>
               {submitting ? 'Canceling…' : 'Cancel Booking'}
             </Button>
           </motion.div>
@@ -183,13 +186,13 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
             transition={fadeTransition}
             className="mt-6"
           >
-            <p className="font-mono-label text-[10px] uppercase text-studio-ink-soft">Choose a new time</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.05em] text-supahub-slate">Choose a new time</p>
             <QueryState
               loading={slotsLoading}
               error={slotsError}
               empty={!slotsLoading && !slotsError && (slots?.length ?? 0) === 0}
               emptyMessage="No other slots available in the next two weeks."
-              variant="clinical"
+              variant="supahub"
             />
             {!slotsLoading && !slotsError && slots && slots.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-2">
@@ -204,7 +207,7 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
                     transition={{ duration: 0.3, delay: prefersReducedMotion ? 0 : index * 0.03 }}
                     whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
                     whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
-                    className="font-mono-label rounded-full border border-studio-line px-3.5 py-1.5 text-[11px] uppercase text-studio-ink-soft transition-colors hover:border-studio-ink hover:text-studio-ink disabled:opacity-50"
+                    className="rounded-full border border-supahub-mist px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] text-supahub-slate transition-colors hover:border-supahub-violet hover:text-supahub-violet disabled:opacity-50"
                   >
                     {formatDateTime(slot.startsAt)}
                   </motion.button>
@@ -214,7 +217,7 @@ function BookingManagePanel({ booking, token }: { booking: ManagedBooking; token
             <button
               type="button"
               onClick={() => setMode('view')}
-              className="font-mono-label mt-4 text-[10px] uppercase text-studio-ink underline"
+              className="mt-4 text-[11px] font-semibold uppercase tracking-[0.05em] text-supahub-violet underline"
             >
               Cancel change
             </button>

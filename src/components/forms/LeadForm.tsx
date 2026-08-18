@@ -3,7 +3,14 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { submitLead, RateLimitError, SpamDetectedError } from '../../lib/forms/submitLead'
 import type { LeadFormType } from '../../lib/supabase/types'
 import { Button } from '../ui/Button'
-import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from '../ui/Input'
+import {
+  inputClasses,
+  labelClasses,
+  clinicalInputClasses,
+  clinicalLabelClasses,
+  supahubInputClasses,
+  supahubLabelClasses,
+} from '../ui/Input'
 import MobileNumberField, { type MobileNumberValue } from '../ui/MobileNumberField'
 
 const MESSAGE_MAX_LENGTH = 1000
@@ -22,7 +29,7 @@ interface LeadFormProps {
   config: LeadFormConfig
   source: string
   entryServiceId?: string
-  variant?: 'editorial' | 'clinical'
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 /**
@@ -40,8 +47,9 @@ function LeadForm({ config, source, entryServiceId, variant = 'editorial' }: Lea
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const isClinical = variant === 'clinical'
-  const fieldClasses = isClinical ? clinicalInputClasses : inputClasses
-  const fieldLabelClasses = isClinical ? clinicalLabelClasses : labelClasses
+  const isSupahub = variant === 'supahub'
+  const fieldClasses = isSupahub ? supahubInputClasses : isClinical ? clinicalInputClasses : inputClasses
+  const fieldLabelClasses = isSupahub ? supahubLabelClasses : isClinical ? clinicalLabelClasses : labelClasses
   const prefersReducedMotion = useReducedMotion()
 
   async function handleSubmit(e: FormEvent) {
@@ -87,6 +95,20 @@ function LeadForm({ config, source, entryServiceId, variant = 'editorial' }: Lea
   }
 
   if (status === 'success') {
+    if (isSupahub) {
+      return (
+        <motion.div
+          role="status"
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 10, scale: prefersReducedMotion ? 1 : 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-2xl border border-supahub-violet/30 bg-supahub-lavender-field p-7 text-center"
+        >
+          <p className="font-bricolage text-xl font-semibold text-supahub-ink">Thanks — we've received your request.</p>
+          <p className="mt-1 text-sm text-supahub-graphite">We'll be in touch shortly.</p>
+        </motion.div>
+      )
+    }
     if (isClinical) {
       return (
         <motion.div
@@ -112,18 +134,26 @@ function LeadForm({ config, source, entryServiceId, variant = 'editorial' }: Lea
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <h2 className={isClinical ? 'font-sans text-xl font-bold text-studio-ink' : 'font-display text-xl text-ink'}>
+        <h2
+          className={
+            isSupahub
+              ? 'font-bricolage text-xl font-semibold text-supahub-ink'
+              : isClinical
+                ? 'font-sans text-xl font-bold text-studio-ink'
+                : 'font-display text-xl text-ink'
+          }
+        >
           {config.title}
         </h2>
         {config.description && (
-          <p className={`mt-1 text-sm ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
+          <p className={`mt-1 text-sm ${isSupahub ? 'text-supahub-slate' : isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
             {config.description}
           </p>
         )}
       </div>
 
       {errorMessage && (
-        <p role="alert" className={`text-sm ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
+        <p role="alert" className={`text-sm ${isSupahub ? 'text-supahub-ink' : isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
           {errorMessage}
         </p>
       )}
@@ -189,14 +219,21 @@ function LeadForm({ config, source, entryServiceId, variant = 'editorial' }: Lea
         />
         {config.messageRequired && (
           <p
-            className={`font-mono-label mt-1 text-right text-[10px] uppercase ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}
+            className={`mt-1 text-right text-[11px] ${
+              isSupahub ? 'text-supahub-slate' : isClinical ? 'font-mono-label uppercase text-studio-ink-soft' : 'font-mono-label uppercase text-ink-soft'
+            }`}
           >
             {message.length}/{MESSAGE_MAX_LENGTH}
           </p>
         )}
       </div>
 
-      <Button type="submit" variant={isClinical ? 'clinical' : 'primary'} disabled={status === 'submitting'} className="w-full">
+      <Button
+        type="submit"
+        variant={isSupahub ? 'supahub' : isClinical ? 'clinical' : 'primary'}
+        disabled={status === 'submitting'}
+        className="w-full"
+      >
         {status === 'submitting' ? 'Sending…' : config.submitLabel}
       </Button>
     </form>

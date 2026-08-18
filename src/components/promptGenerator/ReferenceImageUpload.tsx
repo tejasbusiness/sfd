@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Button } from '../ui/Button'
-import { clinicalLabelClasses } from '../ui/Input'
+import { supahubLabelClasses } from '../ui/Input'
 
 const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
 const MAX_BYTES = 512 * 1024
@@ -60,8 +60,8 @@ function ReferenceImageUpload({ file, onChange }: ReferenceImageUploadProps) {
 
   return (
     <div>
-      <label className={clinicalLabelClasses}>Upload reference web page/website design as inspiration (optional)</label>
-      <p className="mt-1 text-xs text-studio-ink-soft">JPG, JPEG, PNG or WEBP — up to 0.5 MB.</p>
+      <label className={supahubLabelClasses}>Upload reference web page/website design as inspiration (optional)</label>
+      <p className="mt-1 text-xs text-supahub-slate">JPG, JPEG, PNG or WEBP — up to 0.5 MB.</p>
 
       <input
         ref={inputRef}
@@ -73,7 +73,7 @@ function ReferenceImageUpload({ file, onChange }: ReferenceImageUploadProps) {
       />
 
       {!file && (
-        <Button type="button" variant="clinical-ghost" size="md" className="mt-2" onClick={() => inputRef.current?.click()}>
+        <Button type="button" variant="supahub-ghost" size="md" className="mt-2" onClick={() => inputRef.current?.click()}>
           Choose Image
         </Button>
       )}
@@ -85,7 +85,7 @@ function ReferenceImageUpload({ file, onChange }: ReferenceImageUploadProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: prefersReducedMotion ? 0.01 : 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-2 flex items-center gap-3 rounded-lg border border-studio-line bg-studio-bg-card-soft p-3"
+            className="mt-2 flex items-center gap-3 rounded-lg border border-supahub-mist bg-supahub-fog p-3"
           >
             <img
               src={previewUrl}
@@ -93,14 +93,14 @@ function ReferenceImageUpload({ file, onChange }: ReferenceImageUploadProps) {
               className="h-16 w-16 shrink-0 rounded-md object-contain"
             />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm text-studio-ink">{file.name}</p>
-              <p className="text-xs text-studio-ink-soft">{(file.size / 1024).toFixed(0)} KB</p>
+              <p className="truncate text-sm text-supahub-ink">{file.name}</p>
+              <p className="text-xs text-supahub-slate">{(file.size / 1024).toFixed(0)} KB</p>
             </div>
             <div className="flex shrink-0 gap-2">
-              <Button type="button" variant="clinical-ghost" size="md" onClick={() => inputRef.current?.click()}>
+              <Button type="button" variant="supahub-ghost" size="md" onClick={() => inputRef.current?.click()}>
                 Replace
               </Button>
-              <Button type="button" variant="clinical-ghost" size="md" onClick={handleRemove}>
+              <Button type="button" variant="supahub-ghost" size="md" onClick={handleRemove}>
                 Remove
               </Button>
             </div>
@@ -109,7 +109,7 @@ function ReferenceImageUpload({ file, onChange }: ReferenceImageUploadProps) {
       </AnimatePresence>
 
       {error && (
-        <p role="alert" className="mt-1.5 text-xs text-studio-ink">
+        <p role="alert" className="mt-1.5 text-xs text-supahub-ink">
           {error}
         </p>
       )}

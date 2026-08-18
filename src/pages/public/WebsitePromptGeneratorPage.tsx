@@ -6,6 +6,7 @@ import PromptGeneratorForm, {
   type PromptGeneratorFormValues,
 } from '../../components/promptGenerator/PromptGeneratorForm'
 import PromptOutputPanel from '../../components/promptGenerator/PromptOutputPanel'
+import Reveal from '../../components/motion/Reveal'
 import {
   fetchQuotaStatus,
   generateWebsitePrompt,
@@ -74,13 +75,15 @@ function WebsitePromptGeneratorPage() {
         eyebrow="Free Tool"
         title="Website Prompt Generator"
         description="Answer a few questions about your business and get a ready-to-use AI prompt for building your website."
-        variant="clinical"
+        variant="supahub"
       />
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 pb-20 pt-6 sm:px-6 lg:grid-cols-2 lg:items-start">
-        <PromptGeneratorForm isGenerating={isGenerating} quota={quota} onSubmit={handleSubmit} />
-        <div className="lg:sticky lg:top-24">
+      <div className="mx-auto grid max-w-[1200px] gap-8 px-4 pb-20 pt-6 sm:px-6 lg:grid-cols-2 lg:items-start">
+        <Reveal>
+          <PromptGeneratorForm isGenerating={isGenerating} quota={quota} onSubmit={handleSubmit} />
+        </Reveal>
+        <Reveal delay={0.1} className="lg:sticky lg:top-24">
           <PromptOutputPanel prompt={prompt} isGenerating={isGenerating} error={error} quota={quota} />
-        </div>
+        </Reveal>
       </div>
     </PublicLayout>
   )

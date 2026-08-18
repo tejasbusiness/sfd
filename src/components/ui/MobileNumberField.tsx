@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { inputClasses, labelClasses, clinicalInputClasses, clinicalLabelClasses } from './Input'
+import {
+  inputClasses,
+  labelClasses,
+  clinicalInputClasses,
+  clinicalLabelClasses,
+  supahubInputClasses,
+  supahubLabelClasses,
+} from './Input'
 import { Select } from './Select'
 
 const COUNTRY_CODES = [
@@ -20,7 +27,7 @@ interface MobileNumberFieldProps {
   onChange: (value: MobileNumberValue) => void
   id?: string
   required?: boolean
-  variant?: 'editorial' | 'clinical'
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 /** "9123456789" -> "91234-56789" */
@@ -40,6 +47,7 @@ function formatForDisplay(digits: string): string {
 function MobileNumberField({ value, onChange, id = 'mobile-number', required, variant = 'editorial' }: MobileNumberFieldProps) {
   const [focused, setFocused] = useState(false)
   const isClinical = variant === 'clinical'
+  const isSupahub = variant === 'supahub'
 
   function handleDigitsChange(raw: string) {
     const digitsOnly = raw.replace(/\D/g, '').slice(0, 10)
@@ -50,7 +58,7 @@ function MobileNumberField({ value, onChange, id = 'mobile-number', required, va
 
   return (
     <div>
-      <label htmlFor={id} className={isClinical ? clinicalLabelClasses : labelClasses}>
+      <label htmlFor={id} className={isSupahub ? supahubLabelClasses : isClinical ? clinicalLabelClasses : labelClasses}>
         Mobile
       </label>
       <div className="mt-1.5 flex gap-2">
@@ -74,11 +82,11 @@ function MobileNumberField({ value, onChange, id = 'mobile-number', required, va
           onBlur={() => setFocused(false)}
           onChange={(e) => handleDigitsChange(e.target.value)}
           placeholder="9123456789"
-          className={`${isClinical ? clinicalInputClasses : inputClasses} mt-0 flex-1`}
+          className={`${isSupahub ? supahubInputClasses : isClinical ? clinicalInputClasses : inputClasses} mt-0 flex-1`}
         />
       </div>
       {incomplete && (
-        <p className={`mt-1 text-[11px] ${isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
+        <p className={`mt-1 text-[11px] ${isSupahub ? 'text-supahub-ink' : isClinical ? 'text-studio-ink' : 'text-terracotta'}`}>
           Enter a 10-digit mobile number.
         </p>
       )}

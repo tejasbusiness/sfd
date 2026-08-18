@@ -28,16 +28,16 @@ function PortfolioPage() {
         eyebrow="Portfolio"
         title="Case studies from real practices."
         description="Filter by specialty to see work closest to yours."
-        variant="clinical"
+        variant="supahub"
       />
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
         {niches.length > 0 && (
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <Reveal delay={0.1} className="mt-6 flex flex-wrap justify-center gap-2">
             <button
               type="button"
               onClick={() => setActiveNiche(null)}
-              className={`font-mono-label rounded-full px-3.5 py-1.5 text-[10px] uppercase transition-colors ${!activeNiche ? 'bg-studio-ink text-white' : 'bg-studio-bg-card-soft text-studio-ink-soft hover:bg-studio-line'}`}
+              className={`rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] transition-colors ${!activeNiche ? 'bg-supahub-ink text-white' : 'bg-supahub-fog text-supahub-slate hover:bg-supahub-mist'}`}
             >
               All
             </button>
@@ -46,12 +46,12 @@ function PortfolioPage() {
                 key={niche}
                 type="button"
                 onClick={() => setActiveNiche(niche)}
-                className={`font-mono-label rounded-full px-3.5 py-1.5 text-[10px] uppercase transition-colors ${activeNiche === niche ? 'bg-studio-ink text-white' : 'bg-studio-bg-card-soft text-studio-ink-soft hover:bg-studio-line'}`}
+                className={`rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] transition-colors ${activeNiche === niche ? 'bg-supahub-ink text-white' : 'bg-supahub-fog text-supahub-slate hover:bg-supahub-mist'}`}
               >
                 {niche}
               </button>
             ))}
-          </div>
+          </Reveal>
         )}
 
         <QueryState
@@ -59,14 +59,14 @@ function PortfolioPage() {
           error={error}
           empty={!loading && !error && filtered.length === 0}
           emptyMessage="No case studies match this filter yet."
-          variant="clinical"
+          variant="supahub"
         />
 
         {!loading && !error && filtered.length > 0 && (
           <div className="mt-10 grid gap-6 pb-20 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((item, index) => (
               <Reveal key={item.id} index={index}>
-                <CaseStudyCard item={item} variant="clinical" />
+                <CaseStudyCard item={item} variant="supahub" />
               </Reveal>
             ))}
           </div>

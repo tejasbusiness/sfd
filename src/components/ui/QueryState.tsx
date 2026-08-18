@@ -3,7 +3,7 @@ interface QueryStateProps {
   error: Error | null
   empty?: boolean
   emptyMessage?: string
-  variant?: 'editorial' | 'clinical'
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 function QueryState({
@@ -14,8 +14,9 @@ function QueryState({
   variant = 'editorial',
 }: QueryStateProps) {
   const isClinical = variant === 'clinical'
-  const mutedClass = isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'
-  const errorClass = isClinical ? 'text-studio-ink' : 'text-terracotta'
+  const isSupahub = variant === 'supahub'
+  const mutedClass = isSupahub ? 'text-supahub-slate' : isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'
+  const errorClass = isSupahub ? 'text-supahub-ink' : isClinical ? 'text-studio-ink' : 'text-terracotta'
 
   if (loading) {
     return (

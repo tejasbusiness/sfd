@@ -344,7 +344,7 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
                   </div>
                 </div>
 
-                <Button type="submit" variant="clinical" disabled={!detailsValid} className="mt-3 w-full">
+                <Button type="submit" variant="supahub" disabled={!detailsValid} className="mt-3 w-full">
                   Continue
                 </Button>
               </motion.form>
@@ -395,7 +395,7 @@ function BookingWidget({ serviceId, serviceName, durationMinutes, onBooked }: Bo
                   </p>
                 )}
 
-                <Button onClick={handleConfirm} variant="clinical" disabled={submitting} className="mt-3 w-full">
+                <Button onClick={handleConfirm} variant="supahub" disabled={submitting} className="mt-3 w-full">
                   {submitting ? 'Booking…' : 'Book Now'}
                 </Button>
               </motion.div>

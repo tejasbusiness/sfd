@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { labelClasses, clinicalLabelClasses } from './Input'
+import { labelClasses, clinicalLabelClasses, supahubLabelClasses } from './Input'
 
 interface SelectOption {
   value: string
@@ -21,8 +21,8 @@ interface SelectProps {
   className?: string
   /** Shows a search box above the option list — for long lists (e.g. timezones). */
   searchable?: boolean
-  /** 'editorial' (default) preserves current behavior for every existing consumer (incl. admin pages). 'clinical' opts into the public-site "Studio Neutral" restyle. */
-  variant?: 'editorial' | 'clinical'
+  /** 'editorial' (default) preserves current behavior for every existing consumer (incl. admin pages). 'clinical' opts into the public-site "Studio Neutral" restyle. 'supahub' opts into the current public redesign. */
+  variant?: 'editorial' | 'clinical' | 'supahub'
 }
 
 /**
@@ -45,6 +45,7 @@ export function Select({
   variant = 'editorial',
 }: SelectProps) {
   const isClinical = variant === 'clinical'
+  const isSupahub = variant === 'supahub'
   const [open, setOpen] = useState(false)
   const [highlightedIndex, setHighlightedIndex] = useState(0)
   const [query, setQuery] = useState('')
@@ -116,23 +117,33 @@ export function Select({
     }
   }
 
-  const triggerClasses = isClinical
+  const triggerClasses = isSupahub
     ? size === 'compact'
-      ? 'rounded-lg border border-studio-line bg-white px-3 py-2 text-sm text-studio-ink'
-      : 'mt-1.5 w-full rounded-lg border border-studio-line bg-white px-3.5 py-2.5 text-studio-ink'
-    : size === 'compact'
-      ? 'rounded-lg border border-ink/15 bg-cream px-3 py-2 text-sm text-ink'
-      : 'mt-1.5 w-full rounded-lg border border-ink/15 bg-cream px-3.5 py-2.5 text-ink'
+      ? 'rounded-lg border border-supahub-mist bg-white px-3 py-2 text-sm text-supahub-ink'
+      : 'mt-1.5 w-full rounded-lg border border-supahub-mist bg-white px-3.5 py-2.5 text-supahub-ink'
+    : isClinical
+      ? size === 'compact'
+        ? 'rounded-lg border border-studio-line bg-white px-3 py-2 text-sm text-studio-ink'
+        : 'mt-1.5 w-full rounded-lg border border-studio-line bg-white px-3.5 py-2.5 text-studio-ink'
+      : size === 'compact'
+        ? 'rounded-lg border border-ink/15 bg-cream px-3 py-2 text-sm text-ink'
+        : 'mt-1.5 w-full rounded-lg border border-ink/15 bg-cream px-3.5 py-2.5 text-ink'
 
-  const focusRing = isClinical
-    ? 'focus:border-studio-ink focus:outline-none focus:ring-1 focus:ring-studio-ink'
-    : 'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal'
-  const openRing = isClinical ? 'border-studio-ink ring-1 ring-studio-ink' : 'border-teal ring-1 ring-teal'
+  const focusRing = isSupahub
+    ? 'focus:border-supahub-violet focus:outline-none focus:ring-1 focus:ring-supahub-violet'
+    : isClinical
+      ? 'focus:border-studio-ink focus:outline-none focus:ring-1 focus:ring-studio-ink'
+      : 'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal'
+  const openRing = isSupahub
+    ? 'border-supahub-violet ring-1 ring-supahub-violet'
+    : isClinical
+      ? 'border-studio-ink ring-1 ring-studio-ink'
+      : 'border-teal ring-1 ring-teal'
 
   return (
     <div ref={rootRef} className={`relative ${size === 'field' ? '' : 'inline-block'} ${className}`}>
       {label && (
-        <label htmlFor={id} className={isClinical ? clinicalLabelClasses : labelClasses}>
+        <label htmlFor={id} className={isSupahub ? supahubLabelClasses : isClinical ? clinicalLabelClasses : labelClasses}>
           {label}
         </label>
       )}
@@ -149,7 +160,7 @@ export function Select({
           open ? openRing : ''
         }`}
       >
-        <span className={selected ? '' : isClinical ? 'text-studio-ink-soft/50' : 'text-ink-soft/50'}>
+        <span className={selected ? '' : isSupahub ? 'text-supahub-slate/60' : isClinical ? 'text-studio-ink-soft/50' : 'text-ink-soft/50'}>
           {selected ? selected.label : (placeholder ?? 'Select…')}
         </span>
         <svg
@@ -159,7 +170,7 @@ export function Select({
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className={`shrink-0 transition-transform ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'} ${open ? 'rotate-180' : ''}`}
+          className={`shrink-0 transition-transform ${isSupahub ? 'text-supahub-slate' : isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'} ${open ? 'rotate-180' : ''}`}
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
@@ -168,11 +179,11 @@ export function Select({
       {open && (
         <div
           className={`absolute z-20 mt-1.5 w-full min-w-max overflow-hidden rounded-lg border shadow-lg ${
-            isClinical ? 'border-studio-line bg-white' : 'border-ink/15 bg-cream'
+            isSupahub ? 'border-supahub-mist bg-white' : isClinical ? 'border-studio-line bg-white' : 'border-ink/15 bg-cream'
           }`}
         >
           {searchable && (
-            <div className={`relative border-b p-2 ${isClinical ? 'border-studio-line' : 'border-ink/10'}`}>
+            <div className={`relative border-b p-2 ${isSupahub ? 'border-supahub-mist' : isClinical ? 'border-studio-line' : 'border-ink/10'}`}>
               <input
                 ref={searchRef}
                 type="text"
@@ -181,9 +192,11 @@ export function Select({
                 onKeyDown={handleListKeyDown}
                 placeholder="Search…"
                 className={`w-full rounded-md py-1.5 pl-3 pr-8 text-sm transition-colors ${focusRing} ${
-                  isClinical
-                    ? 'border border-studio-line bg-white text-studio-ink'
-                    : 'border border-ink/15 bg-cream text-ink'
+                  isSupahub
+                    ? 'border border-supahub-mist bg-white text-supahub-ink'
+                    : isClinical
+                      ? 'border border-studio-line bg-white text-studio-ink'
+                      : 'border border-ink/15 bg-cream text-ink'
                 }`}
               />
               <svg
@@ -193,7 +206,7 @@ export function Select({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className={`pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 ${isClinical ? 'text-studio-ink-soft/60' : 'text-ink-soft/60'}`}
+                className={`pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 ${isSupahub ? 'text-supahub-slate/60' : isClinical ? 'text-studio-ink-soft/60' : 'text-ink-soft/60'}`}
               >
                 <circle cx="11" cy="11" r="7" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -208,7 +221,7 @@ export function Select({
             className="max-h-60 overflow-auto py-1 focus:outline-none"
           >
             {filteredOptions.length === 0 && (
-              <li className={`px-3.5 py-2 text-sm ${isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
+              <li className={`px-3.5 py-2 text-sm ${isSupahub ? 'text-supahub-slate' : isClinical ? 'text-studio-ink-soft' : 'text-ink-soft'}`}>
                 No matches
               </li>
             )}
@@ -223,17 +236,23 @@ export function Select({
                   setOpen(false)
                 }}
                 className={`cursor-pointer px-3.5 py-2 text-sm transition-colors ${
-                  isClinical
+                  isSupahub
                     ? o.value === value
-                      ? 'bg-studio-ink text-white'
+                      ? 'bg-supahub-ink text-white'
                       : i === highlightedIndex
-                        ? 'bg-studio-bg-card-soft text-studio-ink'
-                        : 'text-studio-ink'
-                    : o.value === value
-                      ? 'bg-ink text-cream'
-                      : i === highlightedIndex
-                        ? 'bg-sage text-ink'
-                        : 'text-ink'
+                        ? 'bg-supahub-fog text-supahub-ink'
+                        : 'text-supahub-ink'
+                    : isClinical
+                      ? o.value === value
+                        ? 'bg-studio-ink text-white'
+                        : i === highlightedIndex
+                          ? 'bg-studio-bg-card-soft text-studio-ink'
+                          : 'text-studio-ink'
+                      : o.value === value
+                        ? 'bg-ink text-cream'
+                        : i === highlightedIndex
+                          ? 'bg-sage text-ink'
+                          : 'text-ink'
                 }`}
               >
                 {o.label}

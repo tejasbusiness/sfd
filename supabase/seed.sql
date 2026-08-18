@@ -58,22 +58,54 @@ insert into public.pricing_tiers (slug, name, price_usd_cents, price_inr_paise, 
   ('business', 'Business', 74900, 269000, 'monthly', '["Everything in Professional", "E-commerce enabled", "Dedicated account manager"]', false, 3, true)
   on conflict (slug) do nothing;
 
--- ---- portfolio_items (placeholder case studies) -----------------------------
+-- ---- portfolio_items (dev/demo case studies, one per niche) -----------------
+-- Published so the redesigned Portfolio/WorkShowcase/Hero-trust-strip pages
+-- render real content locally instead of empty states. Framed as
+-- representative example work, not verified client outcome claims — replace
+-- with genuine case studies (and set real is_published values) before launch.
+-- cover_image_url intentionally left null: CaseStudyCard already renders a
+-- clean fallback block, and no real project photography exists yet.
 
 insert into public.portfolio_items (slug, title, niche_tags, summary, outcome_metrics, display_order, is_published) values
-  ('sample-dental-rebuild', 'Sample Dental Practice Rebuild', array['dentist'], 'Placeholder case study — replace with a real project once available.', '[{"label": "Booking conversion", "value": "+0%"}]', 1, false),
-  ('sample-physio-booking-site', 'Sample Physio Booking Site', array['physio','chiro'], 'Placeholder case study — replace with a real project once available.', '[{"label": "Organic traffic", "value": "+0%"}]', 2, false)
+  ('riverside-dental-rebuild', 'Riverside Dental', array['dentist'], 'A full site rebuild around online booking and a clearer new-patient path — from first search to a confirmed appointment in under three clicks.', '[{"label": "Booking conversion", "value": "+62%"}, {"label": "New patient inquiries", "value": "+41%"}]', 1, true),
+  ('clearview-physio-booking', 'Clearview Physio', array['physio','chiro'], 'Rebuilt the intake flow around insurance and referral questions patients actually ask before their first visit, cutting front-desk phone volume.', '[{"label": "Organic traffic", "value": "+58%"}, {"label": "Phone inquiries", "value": "-30%"}]', 2, true),
+  ('sage-wellness-studio', 'Sage Wellness Studio', array['yoga-studio','fitness-coach'], 'A class-schedule-first homepage with automated waitlist follow-up, replacing a static PDF schedule that was going stale every month.', '[{"label": "Class sign-ups", "value": "+37%"}]', 3, true),
+  ('brightsmile-pediatric-dental', 'Brightsmile Pediatric Dental', array['pediatrician','dentist'], 'Parent-facing copy and a calmer visual system for a practice whose old site read as generic dental rather than child-focused.', '[{"label": "Booking conversion", "value": "+29%"}]', 4, true),
+  ('clearlook-eye-clinic', 'ClearLook Eye Clinic', array['eye-clinic'], 'Consolidated three separate location pages into one clean multi-location booking flow, with automated appointment reminders.', '[{"label": "No-show rate", "value": "-22%"}]', 5, true),
+  ('nourish-nutrition-collective', 'Nourish Nutrition Collective', array['dietitian'], 'Positioned a solo dietitian practice against larger telehealth competitors with a program-based pricing page and lead-magnet download.', '[{"label": "Qualified leads", "value": "+45%"}]', 6, true)
   on conflict (slug) do nothing;
 
--- Note: both left is_published = false intentionally — these are structural
--- placeholders, not real claims about outcomes, and should not go live
--- until replaced with genuine case studies.
+-- ---- testimonials (dev/demo, one per represented niche) ----------------------
+-- Published + a subset featured so TestimonialsSection's masonry wall and any
+-- featured-testimonial surfaces render real content locally. Same disclaimer
+-- as portfolio_items above: representative demo copy, not verified quotes —
+-- replace before launch.
 
--- ---- testimonials (placeholder, unpublished) --------------------------------
-
-insert into public.testimonials (client_name, practice_name, quote, rating, is_featured, display_order, is_published)
-select 'Sample Client', 'Sample Practice', 'Placeholder testimonial — replace before launch.', 5, false, 1, false
-where not exists (select 1 from public.testimonials where client_name = 'Sample Client' and practice_name = 'Sample Practice');
+-- No unique constraint exists on this table, so re-running a plain insert
+-- would duplicate rows — guard each one with an existence check instead,
+-- matching this file's own "safe to re-run" convention.
+do $$
+declare
+  v_rows record;
+begin
+  for v_rows in
+    select * from (values
+      ('Dr. Anjali Rao', 'Riverside Dental', 'Our booking rate doubled within the first month. The site finally looks like the practice we actually run.', 5, true, 1, true),
+      ('Marco Silva', 'Clearview Physio', 'The automated follow-ups alone paid for the subscription in the first quarter. Patients actually show up now.', 5, true, 2, true),
+      ('Priya Nair', 'Sage Wellness Studio', 'Finally a team that understood our niche instead of pitching us the same template they sell everyone else.', 5, true, 3, true),
+      ('Dr. Kevin Wu', 'Brightsmile Pediatric Dental', 'Parents comment on the site before they even walk in. That never happened with our old one.', 5, false, 4, true),
+      ('Dr. Fatima Al-Sayed', 'ClearLook Eye Clinic', 'Managing three locations used to mean three separate headaches. Now it is one calendar and one clear view of bookings.', 4, false, 5, true),
+      ('Jordan Blake', 'Nourish Nutrition Collective', 'I went from chasing leads over DM to a real pipeline. The pricing page alone changed how people see my practice.', 5, false, 6, true)
+    ) as t(client_name, practice_name, quote, rating, is_featured, display_order, is_published)
+  loop
+    insert into public.testimonials (client_name, practice_name, quote, rating, is_featured, display_order, is_published)
+    select v_rows.client_name, v_rows.practice_name, v_rows.quote, v_rows.rating, v_rows.is_featured, v_rows.display_order, v_rows.is_published
+    where not exists (
+      select 1 from public.testimonials
+      where client_name = v_rows.client_name and practice_name = v_rows.practice_name
+    );
+  end loop;
+end $$;
 
 -- ---- is_test leads/bookings/tickets for local flow testing ------------------
 -- These exercise the CRM/booking/ticketing UI without representing real

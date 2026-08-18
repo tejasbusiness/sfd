@@ -10,3 +10,10 @@ export const clinicalInputClasses =
   'mt-1.5 w-full rounded-lg border border-studio-line bg-white px-3.5 py-2.5 text-studio-ink placeholder:text-studio-ink-soft/50 focus:border-studio-ink focus:outline-none focus:ring-1 focus:ring-studio-ink'
 
 export const clinicalLabelClasses = 'font-mono-label block text-[10px] uppercase text-studio-ink-soft'
+
+// "Supahub" equivalents — used by the current public-site redesign. Additive:
+// the exports above are unchanged for any consumer that hasn't opted in.
+export const supahubInputClasses =
+  'mt-1.5 w-full rounded-lg border border-supahub-mist bg-white px-3.5 py-2.5 text-supahub-ink placeholder:text-supahub-slate/50 focus:border-supahub-violet focus:outline-none focus:ring-1 focus:ring-supahub-violet'
+
+export const supahubLabelClasses = 'block text-xs font-medium text-supahub-graphite'

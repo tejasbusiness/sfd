@@ -16,8 +16,8 @@ function StickyMobileCta({ label = 'Book a Call', onClick }: StickyMobileCtaProp
   const { openBookingModal } = useBookingModal()
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-studio-line bg-white p-3 md:hidden">
-      <Button variant="clinical" size="lg" className="w-full" onClick={onClick ?? openBookingModal}>
+    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-supahub-mist bg-white p-3 md:hidden">
+      <Button variant="supahub" size="lg" className="w-full" onClick={onClick ?? openBookingModal}>
         {label}
       </Button>
     </div>

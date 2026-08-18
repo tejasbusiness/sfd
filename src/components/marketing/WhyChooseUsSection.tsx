@@ -58,25 +58,25 @@ function WhyChooseUsSection() {
   const practiceCount = useMemo(() => items?.length ?? 0, [items])
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <section className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6">
       <SectionHeading
         eyebrow="Why choose us"
         title="Why Healthcare Professionals Choose SynergyFirst Digital"
         align="left"
-        variant="clinical"
+        variant="supahub"
       />
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <Reveal delay={0.08}>
-            <p className="max-w-lg text-studio-ink-soft">
+            <p className="max-w-lg text-supahub-slate">
               Having a great website matters. At SynergyFirst Digital, we believe every practice
               deserves a site that actually brings in patients — without the generic templates or
               guesswork.
             </p>
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="mt-4 max-w-lg text-studio-ink-soft">
+            <p className="mt-4 max-w-lg text-supahub-slate">
               Our team focuses exclusively on healthcare and wellness practices, so we understand
               what makes a visitor pick up the phone or book online.
             </p>
@@ -86,21 +86,25 @@ function WhyChooseUsSection() {
             {REASONS.map((reason, index) => (
               <Reveal key={reason.title} as="li" index={index}>
                 <motion.div
-                  className="flex items-start gap-4 rounded-2xl p-3 -m-3 transition-colors duration-300 hover:bg-white"
+                  className="flex items-start gap-4 rounded-2xl p-3 -m-3 transition-colors duration-300 hover:bg-supahub-fog"
                   whileHover={prefersReducedMotion ? undefined : { y: -3 }}
                   transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <motion.span
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-studio-bg-card-soft text-studio-ink shadow-[0_1px_2px_rgba(20,20,20,0.06)]"
-                    whileHover={prefersReducedMotion ? undefined : { scale: 1.12, rotate: -6, backgroundColor: '#141414', color: '#ffffff' }}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-supahub-lavender-field text-supahub-violet shadow-[0_1px_2px_rgba(20,20,20,0.06)]"
+                    whileHover={
+                      prefersReducedMotion
+                        ? undefined
+                        : { scale: 1.12, rotate: -6, backgroundColor: '#862fe7', color: '#ffffff' }
+                    }
                     transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     aria-hidden="true"
                   >
                     {reason.icon}
                   </motion.span>
                   <div>
-                    <p className="font-bold tracking-[-0.02em] text-studio-ink">{reason.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-studio-ink-soft">{reason.description}</p>
+                    <p className="font-bricolage font-semibold tracking-[-0.02em] text-supahub-ink">{reason.title}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-supahub-slate">{reason.description}</p>
                   </div>
                 </motion.div>
               </Reveal>
@@ -110,22 +114,22 @@ function WhyChooseUsSection() {
 
         <Reveal variant="fade" delay={0.1} className="lg:pt-2">
           <motion.div
-            className="group relative overflow-hidden rounded-[20px] bg-studio-ink p-8 text-white sm:p-10"
-            initial={{ boxShadow: '0 8px 24px -12px rgba(20,20,20,0.35)' }}
+            className="group relative overflow-hidden rounded-[20px] bg-supahub-ink p-8 text-white sm:p-10"
+            initial={{ boxShadow: '0 8px 24px -12px rgba(17,24,39,0.35)' }}
             whileHover={
               prefersReducedMotion
                 ? undefined
-                : { y: -6, scale: 1.015, boxShadow: '0 28px 56px -16px rgba(20,20,20,0.55)' }
+                : { y: -6, scale: 1.015, boxShadow: '0 28px 56px -16px rgba(17,24,39,0.55)' }
             }
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.span
-              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#1c4ed8] opacity-0 blur-[60px]"
+              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-supahub-violet opacity-0 blur-[60px]"
               aria-hidden="true"
               whileHover={prefersReducedMotion ? undefined : { opacity: 0.3, scale: 1.2 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
-            <p className="relative text-5xl font-bold tracking-[-0.02em] sm:text-6xl">
+            <p className="font-bricolage relative text-5xl font-semibold tracking-[-0.02em] sm:text-6xl">
               {loading ? (
                 <span className="inline-block h-[1em] w-24 animate-pulse rounded bg-white/10 align-middle" />
               ) : practiceCount > 0 ? (
@@ -134,7 +138,7 @@ function WhyChooseUsSection() {
                 'Coming soon'
               )}
             </p>
-            <p className="relative mt-3 font-bold text-[#9fc0ff]">Automation for Healthcare Professionals!</p>
+            <p className="relative mt-3 font-bold text-supahub-lavender-mist">Automation for Healthcare Professionals!</p>
             <p className="relative mt-3 max-w-sm text-sm leading-relaxed text-white/65">
               From booking to follow-up, we build the automation that puts your clinic on auto-pilot!
               — that's the SynergyFirst Digital difference.

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@300..800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -27,6 +28,30 @@
   --color-studio-ink-faint: #9a9a9a;
   --color-studio-line: rgba(20, 20, 20, 0.08);
   --color-studio-line-dashed: rgba(20, 20, 20, 0.18);
+
+  /* "Supahub" system — the current public-site redesign target, built from
+     the approved DESIGN.md-derived artifact mockup. Kept alongside the
+     editorial + Studio Neutral tokens above (still used by admin/client
+     pages and any not-yet-migrated public component) rather than replacing
+     them. Values copied verbatim from the artifact's :root custom
+     properties. */
+  --font-bricolage: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+
+  --color-supahub-violet: #862fe7;
+  --color-supahub-ultra-violet: #5f259e;
+  --color-supahub-lavender-mist: #ad6df4;
+  --color-supahub-orchid-wash: #bd8ff0;
+  --color-supahub-magenta-spark: #ff5fe4;
+  --color-supahub-hot-pink: #e22ba4;
+  --color-supahub-amber: #dc5f05;
+  --color-supahub-ink: #111827;
+  --color-supahub-graphite: #3f4654;
+  --color-supahub-slate: #6b7589;
+  --color-supahub-white: #ffffff;
+  --color-supahub-fog: #f1f5f9;
+  --color-supahub-mist: #d8e0ea;
+  --color-supahub-mint: #d6fcf4;
+  --color-supahub-lavender-field: #ebdafd;
 }
 
 :root {
@@ -61,6 +86,10 @@ body {
   font-family: var(--font-display);
 }
 
+.font-bricolage {
+  font-family: var(--font-bricolage);
+}
+
 .font-mono-label {
   font-family: var(--font-mono);
   letter-spacing: 0.14em;
@@ -69,5 +98,340 @@ body {
 .grain-texture {
   background-image: radial-gradient(circle, rgba(23, 35, 30, 0.06) 1px, transparent 1px);
   background-size: 14px 14px;
+}
+
+/* ---------------------------------------------------------------------
+   Supahub hero glass-dome orb system
+   Scoped under .supahub-hero (Hero.tsx only) so it never leaks into other
+   pages. Values copied verbatim from the approved artifact mockup — pure
+   decorative gradients, deliberately NOT driven by Framer Motion (no
+   per-frame cost). Four stacked layers:
+     1. .supahub-orb-fill      — the dome body (violet, right-weighted)
+     2. .supahub-orb-rim       — a true circular ring: thin bright edge,
+                                  conic-masked so the crest catches more
+                                  light than the flanks
+     3. .supahub-orb-pink      — magenta bloom on the left flank
+     4. .supahub-orb-hotspot   — soft white specular glow, low-left
+     5. .supahub-orb-edge-glow — white glow riding the left arc
+     6. .supahub-orb-amber     — faint warm counterpoint, low-right
+   --------------------------------------------------------------------- */
+.supahub-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.supahub-orb {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.supahub-orb-fill {
+  width: 1340px;
+  height: 1340px;
+  top: 234px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(178, 104, 248, 0.58) 0%,
+      rgba(172, 96, 247, 0.54) 32%,
+      rgba(180, 110, 248, 0.47) 43%,
+      rgba(198, 145, 251, 0.26) 46.5%,
+      rgba(226, 200, 255, 0.07) 48.3%,
+      rgba(255, 255, 255, 0) 49.4%
+    );
+  filter: blur(16px);
+}
+
+.supahub-orb-rim {
+  width: 1340px;
+  height: 1340px;
+  top: 234px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(196, 150, 250, 0) 49.15%,
+      rgba(205, 168, 251, 0.14) 49.42%,
+      rgba(228, 206, 254, 0.34) 49.6%,
+      rgba(240, 228, 255, 0.4) 49.72%,
+      rgba(218, 188, 253, 0.26) 49.86%,
+      rgba(198, 156, 250, 0.1) 50.1%,
+      rgba(190, 140, 248, 0) 50.5%
+    );
+  -webkit-mask-image: conic-gradient(
+    from 270deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.55) 22deg,
+    rgba(0, 0, 0, 1) 62deg,
+    rgba(0, 0, 0, 1) 105deg,
+    rgba(0, 0, 0, 0.6) 145deg,
+    rgba(0, 0, 0, 0.12) 185deg,
+    rgba(0, 0, 0, 0) 220deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  mask-image: conic-gradient(
+    from 270deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.55) 22deg,
+    rgba(0, 0, 0, 1) 62deg,
+    rgba(0, 0, 0, 1) 105deg,
+    rgba(0, 0, 0, 0.6) 145deg,
+    rgba(0, 0, 0, 0.12) 185deg,
+    rgba(0, 0, 0, 0) 220deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  filter: blur(0.4px);
+}
+
+.supahub-orb-pink {
+  width: 1180px;
+  height: 1020px;
+  top: 282px;
+  left: 50%;
+  transform: translateX(-74%);
+  background:
+    radial-gradient(
+      ellipse at 58% 40%,
+      rgba(255, 120, 235, 0.62) 0%,
+      rgba(246, 92, 214, 0.44) 26%,
+      rgba(230, 60, 180, 0.22) 48%,
+      rgba(255, 95, 228, 0.06) 66%,
+      rgba(255, 95, 228, 0) 78%
+    );
+  filter: blur(62px);
+}
+
+.supahub-orb-amber {
+  width: 500px;
+  height: 420px;
+  top: 542px;
+  left: 55%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(220, 95, 5, 0.1) 0%, rgba(220, 95, 5, 0) 62%);
+  filter: blur(60px);
+}
+
+.supahub-orb-hotspot {
+  width: 700px;
+  height: 520px;
+  top: 418px;
+  left: 50%;
+  transform: translateX(-150%);
+  background: radial-gradient(
+    ellipse at 46% 48%,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 252, 255, 0.62) 22%,
+    rgba(255, 246, 255, 0.32) 44%,
+    rgba(255, 255, 255, 0.1) 64%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  filter: blur(58px);
+}
+
+.supahub-orb-edge-glow {
+  width: 1340px;
+  height: 1340px;
+  top: 234px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0) 45.6%,
+      rgba(255, 255, 255, 0.16) 47.6%,
+      rgba(255, 255, 255, 0.52) 49.2%,
+      rgba(255, 255, 255, 0.62) 49.8%,
+      rgba(255, 255, 255, 0.38) 50.6%,
+      rgba(255, 255, 255, 0.12) 51.8%,
+      rgba(255, 255, 255, 0) 53.4%
+    );
+  -webkit-mask-image: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.35) 26deg,
+    rgba(0, 0, 0, 0.9) 58deg,
+    rgba(0, 0, 0, 1) 84deg,
+    rgba(0, 0, 0, 0.8) 112deg,
+    rgba(0, 0, 0, 0.3) 146deg,
+    rgba(0, 0, 0, 0) 178deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  mask-image: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.35) 26deg,
+    rgba(0, 0, 0, 0.9) 58deg,
+    rgba(0, 0, 0, 1) 84deg,
+    rgba(0, 0, 0, 0.8) 112deg,
+    rgba(0, 0, 0, 0.3) 146deg,
+    rgba(0, 0, 0, 0) 178deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  filter: blur(26px);
+}
+
+/* Floating niche icons: CSS-positioned scatter points. Bob animation itself
+   is driven by Framer Motion in Hero.tsx (per-icon independent duration),
+   not CSS @keyframes — these classes only set position/color/size. */
+.supahub-floating-icon {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 8px 24px -8px rgba(88, 28, 135, 0.18),
+    rgba(11, 61, 121, 0.1) 0 0 0 1px inset;
+  color: var(--color-supahub-violet);
+}
+.supahub-floating-icon svg {
+  width: 44%;
+  height: 44%;
+}
+.supahub-floating-icon--sm {
+  width: 40px;
+  height: 40px;
+}
+.supahub-floating-icon--md {
+  width: 52px;
+  height: 52px;
+}
+
+.supahub-fi-calendar {
+  top: 122px;
+  left: 4%;
+}
+.supahub-fi-chat {
+  top: 306px;
+  left: 9.5%;
+  color: var(--color-supahub-hot-pink);
+}
+.supahub-fi-automate {
+  top: 392px;
+  right: 3%;
+  color: var(--color-supahub-amber);
+}
+.supahub-fi-heart {
+  top: 60px;
+  right: 15%;
+  color: var(--color-supahub-hot-pink);
+}
+.supahub-fi-pulse {
+  top: 176px;
+  right: 13%;
+}
+.supahub-fi-browser {
+  top: 30px;
+  left: 18.5%;
+  color: var(--color-supahub-ultra-violet);
+}
+.supahub-fi-bell {
+  top: 452px;
+  left: 13%;
+  color: var(--color-supahub-lavender-mist);
+}
+.supahub-fi-check {
+  top: 452px;
+  right: 15%;
+}
+
+@media (max-width: 1000px) {
+  .supahub-floating-icon {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Supahub page-header glow
+   The same fill/rim/pink-bloom layer technique as the Hero's dome, scaled
+   down and repositioned for a compact PageHeader section instead of a full
+   700px+ hero — reused proportions would either crop oddly or overflow a
+   header this short. No floating icons here: those are Home's specific
+   signature, not a generic page motif. Scoped under .supahub-page-header so
+   it never leaks into the Hero or any other section.
+   --------------------------------------------------------------------- */
+.supahub-page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.supahub-ph-orb {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.supahub-ph-fill {
+  width: 720px;
+  height: 720px;
+  top: -420px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(178, 104, 248, 0.5) 0%,
+      rgba(172, 96, 247, 0.44) 34%,
+      rgba(198, 145, 251, 0.24) 47%,
+      rgba(226, 200, 255, 0.06) 49%,
+      rgba(255, 255, 255, 0) 51%
+    );
+  filter: blur(14px);
+}
+
+.supahub-ph-rim {
+  width: 720px;
+  height: 720px;
+  top: -420px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(196, 150, 250, 0) 48.9%,
+      rgba(228, 206, 254, 0.3) 49.6%,
+      rgba(240, 228, 255, 0.36) 49.75%,
+      rgba(198, 156, 250, 0.1) 50.3%,
+      rgba(190, 140, 248, 0) 51%
+    );
+  -webkit-mask-image: conic-gradient(
+    from 270deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.5) 30deg,
+    rgba(0, 0, 0, 1) 75deg,
+    rgba(0, 0, 0, 0.5) 120deg,
+    rgba(0, 0, 0, 0) 165deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  mask-image: conic-gradient(
+    from 270deg at 50% 50%,
+    rgba(0, 0, 0, 0) 0deg,
+    rgba(0, 0, 0, 0.5) 30deg,
+    rgba(0, 0, 0, 1) 75deg,
+    rgba(0, 0, 0, 0.5) 120deg,
+    rgba(0, 0, 0, 0) 165deg,
+    rgba(0, 0, 0, 0) 360deg
+  );
+  filter: blur(0.4px);
+}
+
+.supahub-ph-pink {
+  width: 620px;
+  height: 460px;
+  top: -320px;
+  left: 50%;
+  transform: translateX(-74%);
+  background: radial-gradient(
+    ellipse at 58% 40%,
+    rgba(255, 120, 235, 0.42) 0%,
+    rgba(246, 92, 214, 0.26) 34%,
+    rgba(255, 95, 228, 0) 68%
+  );
+  filter: blur(48px);
 }
 
