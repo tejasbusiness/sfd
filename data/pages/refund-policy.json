@@ -1,0 +1,25 @@
+{
+  "slug": "refund-policy",
+  "title": "Refund Policy",
+  "description": "These are provisional refund notes for the current preview. Final refund terms require review before public launch.",
+  "seo": {
+    "title": "Refund Policy | SynergyFirst Digital",
+    "description": "These are provisional refund notes for the current preview. Final refund terms require review before public launch."
+  },
+  "type": "content",
+  "heading": "How refunds work.",
+  "sections": [
+    {
+      "title": "Project work",
+      "body": "Refund eligibility for paid project work is agreed per engagement in the proposal, based on work completed and milestones delivered."
+    },
+    {
+      "title": "Free tools",
+      "body": "The free tools on this site have no associated charge, so no refund applies to their use."
+    },
+    {
+      "title": "Questions",
+      "body": "If you have a billing question about a specific engagement, contact us and we'll review it with you directly."
+    }
+  ]
+}

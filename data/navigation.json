@@ -10,72 +10,118 @@
   {
     "label": "Services",
     "href": "/services",
+    "megaHeading": "What we help you build",
+    "promo": {
+      "eyebrow": "Not sure where to start?",
+      "title": "Talk it through with us.",
+      "description": "A free 20-minute call to map your priorities and the right first step.",
+      "cta": "Book a Call",
+      "href": "/book-a-call"
+    },
     "children": [
       {
-        "label": "All services",
-        "href": "/services"
-      },
-      {
         "label": "Web Design",
-        "href": "/services/web-design"
+        "href": "/services/web-design",
+        "description": "A website that feels like your business and makes the next step clear.",
+        "icon": "monitor"
       },
       {
         "label": "Local SEO",
-        "href": "/services/local-seo"
+        "href": "/services/local-seo",
+        "description": "Help nearby customers discover what you do and where to find you.",
+        "icon": "map-pin"
       },
       {
         "label": "AI Automation",
-        "href": "/services/ai-automation"
+        "href": "/services/ai-automation",
+        "description": "Give repetitive tasks a better process and your team more room to work.",
+        "icon": "workflow"
       },
       {
         "label": "1-on-1 Website Consultation",
-        "href": "/services/website-consultation"
+        "href": "/services/website-consultation",
+        "description": "An expert perspective on your site, with priorities you can act on.",
+        "icon": "video"
       },
       {
         "label": "Social Media Marketing",
-        "href": "/services/social-media-marketing"
+        "href": "/services/social-media-marketing",
+        "description": "Build a consistent presence with content that gives people a reason to care.",
+        "icon": "megaphone"
       },
       {
         "label": "WhatsApp Business API",
-        "href": "/services/whatsapp-business-api"
+        "href": "/services/whatsapp-business-api",
+        "description": "Connect customer conversations, useful follow-up, and your team.",
+        "icon": "messages-square"
       }
-    ]
+    ],
+    "footerLink": {
+      "label": "View all services",
+      "href": "/services"
+    }
   },
   {
     "label": "Our Work",
     "href": "/our-work/portfolio",
+    "megaHeading": "See it in context",
+    "promo": {
+      "eyebrow": "Considering us?",
+      "title": "Start with a proposal.",
+      "description": "Tell us about the project and we'll scope it together.",
+      "cta": "Book a Call",
+      "href": "/book-a-call"
+    },
     "children": [
       {
         "label": "Portfolio",
-        "href": "/our-work/portfolio"
+        "href": "/our-work/portfolio",
+        "description": "A look at recent builds, from first draft to launch.",
+        "icon": "layout-grid"
       },
       {
         "label": "Case Studies",
-        "href": "/our-work/case-studies"
+        "href": "/our-work/case-studies",
+        "description": "The context, scope, and decisions behind the work.",
+        "icon": "book-open"
       }
     ]
   },
   {
     "label": "Free Tools",
     "href": "/free-tools",
+    "megaHeading": "Try it before you talk to us",
+    "promo": {
+      "eyebrow": "Need something custom?",
+      "title": "We can build it for you.",
+      "description": "These tools are a starting point. We can tailor the real thing to your business.",
+      "cta": "Book a Call",
+      "href": "/book-a-call"
+    },
     "children": [
       {
-        "label": "All tools",
-        "href": "/free-tools"
-      },
-      {
         "label": "Website Prompt Generator",
-        "href": "/free-tools/website-prompt-generator"
+        "href": "/free-tools/website-prompt-generator",
+        "description": "Turn business details into a structured prompt.",
+        "icon": "sparkles"
       },
       {
         "label": "Image Resizer",
-        "href": "/free-tools/image-resizer"
+        "href": "/free-tools/image-resizer",
+        "description": "Resize images locally and download the result.",
+        "icon": "image"
       },
       {
         "label": "Invoice Generator",
-        "href": "/free-tools/invoice-generator"
+        "href": "/free-tools/invoice-generator",
+        "description": "Prepare a clear invoice and print or save it as PDF.",
+        "icon": "receipt"
       }
-    ]
+    ],
+    "footerLink": {
+      "label": "View all free tools",
+      "href": "/free-tools"
+    }
   },
   {
     "label": "Pricing",

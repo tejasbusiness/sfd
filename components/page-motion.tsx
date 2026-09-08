@@ -18,7 +18,7 @@ export default function PageMotion() {
         const { desktop, mobile } = context.conditions;
         gsap.utils.toArray<HTMLElement>('[data-card-spread]').forEach(grid => {
           const cards = Array.from(grid.children) as HTMLElement[];
-          const columns = mobile ? 1 : desktop || grid.classList.contains('process-grid') ? 3 : 2;
+          const columns = mobile ? 1 : desktop ? 3 : grid.classList.contains('tools-grid') ? 3 : 2;
           for (let row = 0; row < cards.length; row += columns) {
             const group = cards.slice(row, row + columns);
             group.forEach((card, column) => {

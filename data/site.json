@@ -7,6 +7,13 @@
   "phone": "",
   "bookingUrl": "",
   "productionReady": false,
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "twitter": "",
+    "linkedin": "",
+    "youtube": ""
+  },
   "tagline": "Web design, marketing & automation.",
   "copyright": "SynergyFirst Digital",
   "bookLabel": "Book a Call",
