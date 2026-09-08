@@ -13,8 +13,8 @@
     "megaHeading": "What we help you build",
     "promo": {
       "eyebrow": "Not sure where to start?",
-      "title": "Talk it through with us.",
-      "description": "A free 20-minute call to map your priorities and the right first step.",
+      "title": "Let's figure out the right next move.",
+      "description": "A focused 20-minute conversation about your priorities and the smartest next step.",
       "cta": "Book a Call",
       "href": "/book-a-call"
     },
@@ -38,22 +38,21 @@
         "icon": "workflow"
       },
       {
-        "label": "1-on-1 Website Consultation",
-        "href": "/services/website-consultation",
-        "description": "An expert perspective on your site, with priorities you can act on.",
-        "icon": "video"
-      },
-      {
-        "label": "Social Media Marketing",
-        "href": "/services/social-media-marketing",
-        "description": "Build a consistent presence with content that gives people a reason to care.",
-        "icon": "megaphone"
-      },
-      {
         "label": "WhatsApp Business API",
         "href": "/services/whatsapp-business-api",
         "description": "Connect customer conversations, useful follow-up, and your team.",
         "icon": "messages-square"
+      }
+    ],
+    "secondaryLabel": "More services",
+    "secondaryChildren": [
+      {
+        "label": "Social Media Marketing",
+        "href": "/services/social-media-marketing"
+      },
+      {
+        "label": "1-on-1 Website Consultation",
+        "href": "/services/website-consultation"
       }
     ],
     "footerLink": {
