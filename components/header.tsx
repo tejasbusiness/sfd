@@ -1,10 +1,20 @@
 'use client';
-import {useEffect,useRef,useState} from 'react';
+import {Fragment,useEffect,useRef,useState} from 'react';
+import type {CSSProperties} from 'react';
 import {usePathname} from 'next/navigation';
-import {Menu,ChevronDown,ArrowUpRight,Monitor,MapPin,Workflow,Video,Megaphone,MessagesSquare,LayoutGrid,BookOpen,Sparkles,Image as ImageIcon,Receipt} from 'lucide-react';
+import {Menu,ChevronDown,ArrowUpRight,Home,Calendar,Users,Tag,Mail,Monitor,MapPin,Workflow,Video,Megaphone,MessagesSquare,LayoutGrid,BookOpen,Sparkles,Image as ImageIcon,Receipt} from 'lucide-react';
 import {Sheet,SheetTrigger,SheetContent,SheetTitle,SheetDescription} from '@/components/ui/sheet';
+import {InstagramIcon,FacebookIcon,XIcon,LinkedinIcon,YoutubeIcon} from '@/components/social-icons';
 import site from '@/data/site.json';
 import navigation from '@/data/navigation.json';
+
+const socialLinks=[
+  {key:'instagram',label:'Instagram',Icon:InstagramIcon,color:'#E1306C'},
+  {key:'facebook',label:'Facebook',Icon:FacebookIcon,color:'#1877F2'},
+  {key:'twitter',label:'X',Icon:XIcon,color:'#18181B'},
+  {key:'linkedin',label:'LinkedIn',Icon:LinkedinIcon,color:'#0A66C2'},
+  {key:'youtube',label:'YouTube',Icon:YoutubeIcon,color:'#FF0000'},
+] as const;
 
 const megaIcons:Record<string,typeof Monitor> = {
   monitor:Monitor,
@@ -19,6 +29,14 @@ const megaIcons:Record<string,typeof Monitor> = {
   image:ImageIcon,
   receipt:Receipt,
 };
+
+const drawerLinks=[
+  {label:'About Us',href:'/about',icon:Users},
+  {label:'Portfolio',href:'/our-work/portfolio',icon:LayoutGrid},
+  {label:'Case Studies',href:'/our-work/case-studies',icon:BookOpen},
+  {label:'Pricing',href:'/pricing',icon:Tag},
+  {label:'Contact Us',href:'/contact',icon:Mail},
+];
 
 export function Brand(){return <a className="brand" href="/" aria-label={site.name}><svg viewBox="0 0 32 36" width="26" height="30" aria-hidden="true"><path d="M7 1h24L19 13H8L1 20V7zM25 35H1l12-12h11l7-7v13z" fill="currentColor"/></svg><span>{site.shortName}</span></a>}
 
@@ -38,7 +56,7 @@ export default function Header(){
     return ()=>document.removeEventListener('keydown',onKey);
   },[openMega]);
 
-  return <header className="site-header"><Brand/><nav className="desktop-nav" aria-label="Main navigation">{navigation.map(item=>{if(!item.children)return <a key={item.href} className={path===item.href?'active':''} href={item.href}>{item.label}</a>;
+  return <Fragment><header className="site-header"><Brand/><nav className="desktop-nav" aria-label="Main navigation">{navigation.map(item=>{if(!item.children)return <a key={item.href} className={path===item.href?'active':''} href={item.href}>{item.label}</a>;
     const megaSlug=item.label.toLowerCase().replace(/\s+/g,'-');
     const isServices=item.label==='Services';
     return <div className={`nav-item-mega nav-item-mega--${megaSlug}`} key={item.label} onMouseEnter={()=>openNow(item.label)} onMouseLeave={closeSoon} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setOpenMega(null);}}>
@@ -64,5 +82,5 @@ export default function Header(){
           <a className="primary-button" href={item.promo.href} onClick={()=>setOpenMega(null)}>{item.promo.cta}<ArrowUpRight size={16}/></a>
         </div>}
       </div>
-    </div>;})}</nav><a href="/book-a-call" className="header-cta">{site.bookLabel}<ArrowUpRight size={14}/></a><div className="mobile-nav"><Sheet open={open} onOpenChange={setOpen}><SheetTrigger className="menu-button" aria-label={site.menuLabel}><Menu size={27}/></SheetTrigger><SheetContent className="mobile-sheet"><SheetTitle className="sr-only">{site.menuLabel}</SheetTitle><SheetDescription className="sr-only">Explore SynergyFirst Digital</SheetDescription><Brand/><nav aria-label="Mobile navigation">{navigation.map(item=><div key={item.label}>{item.children?<details><summary>{item.label}<ChevronDown size={16}/></summary><div>{item.label==='Free Tools'&&item.megaHeading&&<p className="mobile-mega-heading">{item.megaHeading}</p>}{item.children.map(child=><a href={child.href} onClick={()=>setOpen(false)} key={child.href}>{child.label}</a>)}{(item as {secondaryChildren?:{label:string;href:string}[]}).secondaryChildren?.map(child=><a href={child.href} onClick={()=>setOpen(false)} key={child.href}>{child.label}</a>)}{item.footerLink&&<a href={item.footerLink.href} onClick={()=>setOpen(false)} key={item.footerLink.href}>{item.footerLink.label}</a>}{item.label==='Free Tools'&&item.promo&&<a className="mobile-mega-promo" href={item.promo.href} onClick={()=>setOpen(false)}><span className="mobile-mega-promo-eyebrow">{item.promo.eyebrow}</span><span className="mobile-mega-promo-title">{item.promo.title}</span><span className="mobile-mega-promo-desc">{item.promo.description}</span><span className="mobile-mega-promo-cta">{item.promo.cta}<ArrowUpRight size={14}/></span></a>}</div></details>:<a href={item.href} onClick={()=>setOpen(false)}>{item.label}</a>}</div>)}<a className="primary-button" href="/book-a-call" onClick={()=>setOpen(false)}>{site.bookLabel}<ArrowUpRight size={16}/></a></nav></SheetContent></Sheet></div></header>;
+    </div>;})}</nav><a href="/book-a-call" className="header-cta">{site.bookLabel}<ArrowUpRight size={14}/></a></header><Sheet open={open} onOpenChange={setOpen}><nav className="bottom-nav-bar" aria-label="Mobile bottom navigation"><a href="/" className={path==='/'?'bottom-nav-item active':'bottom-nav-item'}><Home size={20}/><span>Home</span></a><a href="/services" className={path==='/services'||path?.startsWith('/services/')?'bottom-nav-item active':'bottom-nav-item'}><LayoutGrid size={20}/><span>Services</span></a><a href="/book-a-call" className="bottom-nav-cta" aria-label={site.bookLabel}><Calendar size={20}/></a><a href="/free-tools" className={path==='/free-tools'||path?.startsWith('/free-tools/')?'bottom-nav-item active':'bottom-nav-item'}><Sparkles size={20}/><span>Tools</span></a><SheetTrigger className={open?'bottom-nav-item bottom-nav-menu is-open':'bottom-nav-item bottom-nav-menu'} aria-label={site.menuLabel}><Menu size={20}/><span>Menu</span></SheetTrigger></nav><SheetContent className="mobile-sheet" side="right"><SheetTitle className="sr-only">{site.menuLabel}</SheetTitle><SheetDescription className="sr-only">Explore SynergyFirst Digital</SheetDescription><Brand/><nav className="mobile-drawer-grid" aria-label="Mobile navigation">{drawerLinks.map(item=>{const Icon=item.icon;return <a href={item.href} className="mobile-drawer-item" onClick={()=>setOpen(false)} key={item.href}><Icon size={24} strokeWidth={1.6}/><span>{item.label}</span></a>;})}</nav><div className="mobile-drawer-divider"/><div className="mobile-drawer-social">{socialLinks.map(s=>{const href=(site.social as Record<string,string>)[s.key];return <a key={s.key} href={href||'#'} aria-label={s.label} target={href?'_blank':undefined} rel={href?'noopener noreferrer':undefined} style={{'--social-color':s.color} as CSSProperties}><s.Icon size={17}/></a>;})}</div></SheetContent></Sheet></Fragment>;
 }
