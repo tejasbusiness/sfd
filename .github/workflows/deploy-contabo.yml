@@ -42,8 +42,7 @@ jobs:
           chmod 700 ~/.ssh
           printf '%s\n' "${{ secrets.SFD_ACTION_SECRET }}" > ~/.ssh/contabo_deploy_key
           chmod 600 ~/.ssh/contabo_deploy_key
-          ssh-keyscan -p "${{ secrets.CONTABO_PORT || '22' }}" "${{ secrets.CONTABO_HOST }}" >> ~/.ssh/known_hosts
-
+          ssh-keyscan -p "22" "${{ secrets.SFD_HOST }}" >> ~/.ssh/known_hosts
       - name: Prepare remote folders
         shell: bash
         run: |
