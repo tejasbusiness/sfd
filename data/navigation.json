@@ -103,19 +103,25 @@
         "label": "Website Prompt Generator",
         "href": "/free-tools/website-prompt-generator",
         "description": "Turn business details into a structured prompt.",
-        "icon": "sparkles"
+        "icon": "sparkles",
+        "category": "AI",
+        "action": "Open tool"
       },
       {
         "label": "Image Resizer",
         "href": "/free-tools/image-resizer",
         "description": "Resize images locally and download the result.",
-        "icon": "image"
+        "icon": "image",
+        "category": "Utility",
+        "action": "Open tool"
       },
       {
         "label": "Invoice Generator",
         "href": "/free-tools/invoice-generator",
         "description": "Prepare a clear invoice and print or save it as PDF.",
-        "icon": "receipt"
+        "icon": "receipt",
+        "category": "Business",
+        "action": "Open tool"
       }
     ],
     "footerLink": {
