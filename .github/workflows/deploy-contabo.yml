@@ -1,0 +1,79 @@
+name: Deploy to Contabo CloudPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: contabo-production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate static export
+        run: npm run check
+
+      - name: Prepare SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.CONTABO_SSH_KEY }}" > ~/.ssh/contabo_deploy_key
+          chmod 600 ~/.ssh/contabo_deploy_key
+          ssh-keyscan -p "${{ secrets.CONTABO_PORT || '22' }}" "${{ secrets.CONTABO_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Prepare remote folders
+        shell: bash
+        run: |
+          set -euo pipefail
+          REMOTE_PATH="/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com"
+          REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
+          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
+          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}" \
+            "set -euo pipefail
+             test \"$REMOTE_PATH\" = \"/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com\"
+             mkdir -p \"$REMOTE_RELEASE\" \"$REMOTE_PATH\""
+
+      - name: Upload build output
+        shell: bash
+        run: |
+          set -euo pipefail
+          REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
+          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/contabo_deploy_key -p $SSH_PORT" \
+            dist/client/ "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}:$REMOTE_RELEASE/"
+
+      - name: Publish to CloudPanel document root
+        shell: bash
+        run: |
+          set -euo pipefail
+          REMOTE_PATH="/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com"
+          REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
+          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
+          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}" \
+            "set -euo pipefail
+             test \"$REMOTE_PATH\" = \"/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com\"
+             rsync -a --delete \"$REMOTE_RELEASE/\" \"$REMOTE_PATH/\""
