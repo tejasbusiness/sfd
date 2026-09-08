@@ -1,0 +1,56 @@
+{
+  "slug": "services/social-media-marketing",
+  "title": "Social Media Marketing",
+  "description": "Build a consistent social presence with a practical content plan and a voice that belongs to your business.",
+  "seo": {
+    "title": "Social Media Marketing | SynergyFirst Digital",
+    "description": "Build a consistent social presence with a practical content plan and a voice that belongs to your business."
+  },
+  "type": "service",
+  "heading": "Give people a reason to pay attention.",
+  "audience": [
+    "Businesses posting without a clear plan",
+    "Teams needing consistent creative support",
+    "Brands refining their social presence"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Set the direction",
+      "body": "Clarify the audience, channels, and role social media plays in the business."
+    },
+    {
+      "title": "Plan and create",
+      "body": "Develop an agreed content approach, creative formats, and review process."
+    },
+    {
+      "title": "Publish and learn",
+      "body": "Use feedback and relevant performance measures to inform future content."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Channel planning",
+    "Content direction",
+    "Creative production scope",
+    "Review and reporting"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "Which platforms do you support?",
+      "answer": "We select platforms based on your audience and scope rather than assuming every channel needs the same content."
+    },
+    {
+      "question": "Who approves the content?",
+      "answer": "We agree on an approval process before publishing work. Your team stays involved in brand and factual review."
+    },
+    {
+      "question": "Is advertising spend included?",
+      "answer": "Paid media work and advertising spend, if needed, are specified separately in the proposal."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

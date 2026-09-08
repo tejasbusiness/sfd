@@ -1,0 +1,34 @@
+{
+  "slug": "free-tools/image-resizer",
+  "title": "Image Resizer",
+  "description": "Resize a JPG, PNG, or WebP image locally in your browser. Set the dimensions, choose a format, and download your image.",
+  "seo": {
+    "title": "Image Resizer | SynergyFirst Digital",
+    "description": "Resize a JPG, PNG, or WebP image locally in your browser. Set the dimensions, choose a format, and download your image."
+  },
+  "type": "image",
+  "heading": "The right size. Without the upload.",
+  "ui": {
+    "upload": "Choose an image",
+    "width": "Width (px)",
+    "height": "Height (px)",
+    "lock": "Keep original aspect ratio",
+    "format": "Output format",
+    "quality": "Quality",
+    "mode": "Fit",
+    "contain": "Fit inside (contain)",
+    "cover": "Fill and crop (cover)",
+    "resize": "Resize image",
+    "download": "Download image",
+    "preview": "Resized image preview",
+    "empty": "Your image preview appears here.",
+    "note": "Maximum input: 20 MB. Maximum output: 12,000 px per side and 40 megapixels. Transparent areas become white in JPEG.",
+    "invalid": "Choose a JPG, PNG, or WebP image under 20 MB.",
+    "decodeError": "This image could not be read. Try another file.",
+    "dimensionsError": "Enter positive whole dimensions up to 12,000 px and no more than 40 megapixels.",
+    "ready": "Image ready to download.",
+    "working": "Processing image…",
+    "original": "Original image",
+    "size": "Output size"
+  }
+}

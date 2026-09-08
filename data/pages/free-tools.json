@@ -1,0 +1,28 @@
+{
+  "slug": "free-tools",
+  "title": "Free Tools",
+  "description": "Practical tools for your next website brief, image, or invoice. Everything runs in your browser.",
+  "seo": {
+    "title": "Free Tools | SynergyFirst Digital",
+    "description": "Practical tools for your next website brief, image, or invoice. Everything runs in your browser."
+  },
+  "type": "index",
+  "heading": "A little help. No account needed.",
+  "links": [
+    {
+      "title": "Website Prompt Generator",
+      "description": "Turn business details into a structured prompt.",
+      "href": "/free-tools/website-prompt-generator"
+    },
+    {
+      "title": "Image Resizer",
+      "description": "Resize images locally and download the result.",
+      "href": "/free-tools/image-resizer"
+    },
+    {
+      "title": "Invoice Generator",
+      "description": "Prepare a clear invoice and print or save it as PDF.",
+      "href": "/free-tools/invoice-generator"
+    }
+  ]
+}

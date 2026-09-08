@@ -1,0 +1,88 @@
+[
+  {
+    "label": "Home",
+    "href": "/"
+  },
+  {
+    "label": "About Us",
+    "href": "/about"
+  },
+  {
+    "label": "Services",
+    "href": "/services",
+    "children": [
+      {
+        "label": "All services",
+        "href": "/services"
+      },
+      {
+        "label": "Web Design",
+        "href": "/services/web-design"
+      },
+      {
+        "label": "Local SEO",
+        "href": "/services/local-seo"
+      },
+      {
+        "label": "AI Automation",
+        "href": "/services/ai-automation"
+      },
+      {
+        "label": "1-on-1 Website Consultation",
+        "href": "/services/website-consultation"
+      },
+      {
+        "label": "Social Media Marketing",
+        "href": "/services/social-media-marketing"
+      },
+      {
+        "label": "WhatsApp Business API",
+        "href": "/services/whatsapp-business-api"
+      }
+    ]
+  },
+  {
+    "label": "Our Work",
+    "href": "/our-work/portfolio",
+    "children": [
+      {
+        "label": "Portfolio",
+        "href": "/our-work/portfolio"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/our-work/case-studies"
+      }
+    ]
+  },
+  {
+    "label": "Free Tools",
+    "href": "/free-tools",
+    "children": [
+      {
+        "label": "All tools",
+        "href": "/free-tools"
+      },
+      {
+        "label": "Website Prompt Generator",
+        "href": "/free-tools/website-prompt-generator"
+      },
+      {
+        "label": "Image Resizer",
+        "href": "/free-tools/image-resizer"
+      },
+      {
+        "label": "Invoice Generator",
+        "href": "/free-tools/invoice-generator"
+      }
+    ]
+  },
+  {
+    "label": "Pricing",
+    "href": "/pricing"
+  },
+  {
+    "label": "Contact Us",
+    "href": "/contact"
+  }
+]

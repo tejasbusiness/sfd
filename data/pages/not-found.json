@@ -1,0 +1,12 @@
+{
+  "slug": "not-found",
+  "title": "Page not found",
+  "description": "The address may have changed. Return home or explore our services to find your next step.",
+  "seo": {
+    "title": "Page not found | SynergyFirst Digital",
+    "description": "The address may have changed. Return home or explore our services to find your next step."
+  },
+  "type": "error",
+  "heading": "This page has moved out of frame.",
+  "cta": "Back to home"
+}

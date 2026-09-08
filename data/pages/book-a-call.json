@@ -1,0 +1,38 @@
+{
+  "slug": "book-a-call",
+  "title": "Book a Call",
+  "description": "Choose a time for a conversation about your business and what you would like to improve.",
+  "seo": {
+    "title": "Book a Call | SynergyFirst Digital",
+    "description": "Choose a time for a conversation about your business and what you would like to improve."
+  },
+  "type": "booking",
+  "heading": "Let’s explore your next move.",
+  "booking": {
+    "title": "Your first conversation",
+    "duration": "30-minute discovery call · Preview",
+    "note": "Scheduling preview — the live calendar has not been connected yet. Selecting a date below does not book an appointment.",
+    "dateLabel": "Select a date to preview the layout",
+    "timeLabel": "Example times",
+    "timezone": "Asia/Kolkata",
+    "timezoneLabel": "Time zone",
+    "disabledLabel": "Live booking not connected",
+    "fallback": "Open the booking calendar",
+    "selectedLabel": "Selected date",
+    "datePrompt": "Choose an example date",
+    "dayNames": [
+      "S",
+      "M",
+      "T",
+      "W",
+      "T",
+      "F",
+      "S"
+    ],
+    "times": [
+      "10:00 AM",
+      "12:30 PM",
+      "3:00 PM"
+    ]
+  }
+}

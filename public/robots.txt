@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://synergyfirst-digital-2026.daring-grove-1085.chatgpt.site/sitemap.xml

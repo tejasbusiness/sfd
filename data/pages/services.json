@@ -1,0 +1,43 @@
+{
+  "slug": "services",
+  "title": "Our Services",
+  "description": "Choose a service around the challenge you want to solve, then connect the pieces as your business grows.",
+  "seo": {
+    "title": "Our Services | SynergyFirst Digital",
+    "description": "Choose a service around the challenge you want to solve, then connect the pieces as your business grows."
+  },
+  "type": "index",
+  "heading": "The right expertise. Working together.",
+  "links": [
+    {
+      "title": "Web Design",
+      "description": "A clear, fast website that represents your business, answers questions, and gives visitors a straightforward next step.",
+      "href": "/services/web-design"
+    },
+    {
+      "title": "Local SEO",
+      "description": "Help nearby customers understand your services and find a reliable way to contact your business.",
+      "href": "/services/local-seo"
+    },
+    {
+      "title": "AI Automation",
+      "description": "Connect everyday tools and create practical workflows, with clear handoffs when human judgment is needed.",
+      "href": "/services/ai-automation"
+    },
+    {
+      "title": "1-on-1 Website Consultation",
+      "description": "Review your website with us and prioritize the changes that make sense for your business.",
+      "href": "/services/website-consultation"
+    },
+    {
+      "title": "Social Media Marketing",
+      "description": "Build a consistent social presence with a practical content plan and a voice that belongs to your business.",
+      "href": "/services/social-media-marketing"
+    },
+    {
+      "title": "WhatsApp Business API",
+      "description": "Plan connected WhatsApp workflows with useful follow-up, clear team ownership, and personal handoffs.",
+      "href": "/services/whatsapp-business-api"
+    }
+  ]
+}

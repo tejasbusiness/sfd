@@ -1,0 +1,56 @@
+{
+  "slug": "services/whatsapp-business-api",
+  "title": "WhatsApp Business API",
+  "description": "Plan connected WhatsApp workflows with useful follow-up, clear team ownership, and personal handoffs.",
+  "seo": {
+    "title": "WhatsApp Business API | SynergyFirst Digital",
+    "description": "Plan connected WhatsApp workflows with useful follow-up, clear team ownership, and personal handoffs."
+  },
+  "type": "service",
+  "heading": "Make customer conversations easier to manage.",
+  "audience": [
+    "Teams handling recurring customer inquiries",
+    "Businesses needing conversation routing",
+    "Teams connecting WhatsApp to existing tools"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Map the conversation",
+      "body": "Understand typical inquiries, follow-up needs, and team responsibilities."
+    },
+    {
+      "title": "Plan the connection",
+      "body": "Assess the provider, account setup, and integrations required by the workflow."
+    },
+    {
+      "title": "Review and launch",
+      "body": "Test the agreed journeys and document how people take over conversations."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Provider and setup planning",
+    "Conversation workflows",
+    "Integration scope",
+    "Team handoff process"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "How does this differ from the WhatsApp Business app?",
+      "answer": "The API supports platform integrations and managed messaging workflows. Suitability depends on your requirements, provider, and current platform rules."
+    },
+    {
+      "question": "What external costs apply?",
+      "answer": "Provider and messaging charges vary. These need to be confirmed using current provider pricing when your project is scoped."
+    },
+    {
+      "question": "Can a person take over?",
+      "answer": "Human handoff is part of the workflow design when supported by the selected platform. We identify the team process during planning."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

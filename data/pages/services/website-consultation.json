@@ -1,0 +1,56 @@
+{
+  "slug": "services/website-consultation",
+  "title": "1-on-1 Website Consultation",
+  "description": "Review your website with us and prioritize the changes that make sense for your business.",
+  "seo": {
+    "title": "1-on-1 Website Consultation | SynergyFirst Digital",
+    "description": "Review your website with us and prioritize the changes that make sense for your business."
+  },
+  "type": "service",
+  "heading": "A fresh perspective. A clearer next step.",
+  "audience": [
+    "Owners considering a redesign",
+    "Businesses unsure why their site feels confusing",
+    "Teams looking for a second opinion"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Prepare",
+      "body": "Share your website, goals, and the questions you want to resolve."
+    },
+    {
+      "title": "Review together",
+      "body": "Walk through content, navigation, mobile usability, and the customer journey."
+    },
+    {
+      "title": "Prioritize",
+      "body": "Identify the most useful next actions and discuss any implementation needs."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Focused 1-on-1 conversation",
+    "Website experience review",
+    "Prioritized recommendations",
+    "Implementation discussion"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "Do I need an existing website?",
+      "answer": "An existing site helps, but you can also discuss a planned website and the decisions you need to make before building it."
+    },
+    {
+      "question": "Will you make changes during the call?",
+      "answer": "The consultation focuses on review and recommendations. Any implementation is scoped separately unless explicitly agreed."
+    },
+    {
+      "question": "How long is the session?",
+      "answer": "The duration and scope are confirmed when booking."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

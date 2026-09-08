@@ -1,0 +1,56 @@
+{
+  "slug": "services/ai-automation",
+  "title": "AI Automation",
+  "description": "Connect everyday tools and create practical workflows, with clear handoffs when human judgment is needed.",
+  "seo": {
+    "title": "AI Automation | SynergyFirst Digital",
+    "description": "Connect everyday tools and create practical workflows, with clear handoffs when human judgment is needed."
+  },
+  "type": "service",
+  "heading": "Less repetition. More useful work.",
+  "audience": [
+    "Teams repeating the same administrative tasks",
+    "Inquiries scattered across several tools",
+    "Businesses exploring a first automation"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Find a useful starting point",
+      "body": "Map one workflow and identify the repetitive steps and review requirements."
+    },
+    {
+      "title": "Connect and configure",
+      "body": "Implement an agreed integration with clear inputs, outputs, and failure handling."
+    },
+    {
+      "title": "Test and hand over",
+      "body": "Check representative scenarios and document how the team manages exceptions."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Workflow discovery",
+    "Integration planning",
+    "Human review steps",
+    "Operational handover"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "What can be automated?",
+      "answer": "Common candidates include moving information between tools, routing inquiries, and preparing routine follow-up. We assess feasibility using your actual tools and requirements."
+    },
+    {
+      "question": "Does every workflow need AI?",
+      "answer": "No. Simple rules are often more predictable for routine tasks. AI is considered when language or interpretation adds useful capability."
+    },
+    {
+      "question": "Are third-party fees included?",
+      "answer": "We separate implementation work from any external platform or usage charges in the proposal."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

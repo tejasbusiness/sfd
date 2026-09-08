@@ -1,0 +1,56 @@
+{
+  "slug": "services/local-seo",
+  "title": "Local SEO",
+  "description": "Help nearby customers understand your services and find a reliable way to contact your business.",
+  "seo": {
+    "title": "Local SEO | SynergyFirst Digital",
+    "description": "Help nearby customers understand your services and find a reliable way to contact your business."
+  },
+  "type": "service",
+  "heading": "Be easier to find, closer to home.",
+  "audience": [
+    "Businesses serving a defined area",
+    "Local businesses with inconsistent information online",
+    "Teams wanting a clearer search strategy"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Understand your area",
+      "body": "Review your services, operating area, and current local presence."
+    },
+    {
+      "title": "Improve the essentials",
+      "body": "Work on relevant pages, business information, and profile opportunities."
+    },
+    {
+      "title": "Review progress",
+      "body": "Agree on meaningful indicators and use them to guide the next improvements."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Local content planning",
+    "Business information review",
+    "Business profile support",
+    "Search visibility reporting"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "Do you work with service-area businesses?",
+      "answer": "Yes. The plan should reflect the areas you actually serve and how customers access your services."
+    },
+    {
+      "question": "Can you guarantee a top ranking?",
+      "answer": "No. Search positions depend on many factors. We focus on useful content, accurate information, and a technically sound presence."
+    },
+    {
+      "question": "What access will you need?",
+      "answer": "This depends on scope. Website access and relevant business-profile or search reporting access may be needed; we identify those requirements before work begins."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

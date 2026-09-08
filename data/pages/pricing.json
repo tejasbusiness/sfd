@@ -1,0 +1,59 @@
+{
+  "slug": "pricing",
+  "title": "Pricing",
+  "description": "We prepare a proposal around the work your business needs. Each service has its own scope, responsibilities, and any external costs.",
+  "seo": {
+    "title": "Pricing | SynergyFirst Digital",
+    "description": "We prepare a proposal around the work your business needs. Each service has its own scope, responsibilities, and any external costs."
+  },
+  "type": "pricing",
+  "heading": "A clear scope. A considered investment.",
+  "links": [
+    {
+      "title": "Web Design",
+      "description": "A clear, fast website that represents your business, answers questions, and gives visitors a straightforward next step.",
+      "href": "/services/web-design"
+    },
+    {
+      "title": "Local SEO",
+      "description": "Help nearby customers understand your services and find a reliable way to contact your business.",
+      "href": "/services/local-seo"
+    },
+    {
+      "title": "AI Automation",
+      "description": "Connect everyday tools and create practical workflows, with clear handoffs when human judgment is needed.",
+      "href": "/services/ai-automation"
+    },
+    {
+      "title": "1-on-1 Website Consultation",
+      "description": "Review your website with us and prioritize the changes that make sense for your business.",
+      "href": "/services/website-consultation"
+    },
+    {
+      "title": "Social Media Marketing",
+      "description": "Build a consistent social presence with a practical content plan and a voice that belongs to your business.",
+      "href": "/services/social-media-marketing"
+    },
+    {
+      "title": "WhatsApp Business API",
+      "description": "Plan connected WhatsApp workflows with useful follow-up, clear team ownership, and personal handoffs.",
+      "href": "/services/whatsapp-business-api"
+    }
+  ],
+  "priceLabel": "Request a tailored quote",
+  "sections": [
+    {
+      "title": "What shapes a website quote?",
+      "body": "The number and complexity of pages, content preparation, integrations, animations, and handover requirements all affect the scope."
+    },
+    {
+      "title": "One-off and ongoing work",
+      "body": "Website projects and consultation can have a defined scope. Marketing, support, and platform usage may involve recurring costs, which are identified separately."
+    },
+    {
+      "title": "Before the project starts",
+      "body": "We confirm the deliverables, exclusions, payment terms, and estimated schedule in your proposal."
+    }
+  ],
+  "cta": "Discuss your scope"
+}

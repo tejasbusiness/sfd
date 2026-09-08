@@ -1,0 +1,25 @@
+{
+  "slug": "privacy",
+  "title": "Privacy",
+  "description": "This page describes the current preview. It must be reviewed with the final contact, booking, and analytics configuration before public launch.",
+  "seo": {
+    "title": "Privacy | SynergyFirst Digital",
+    "description": "This page describes the current preview. It must be reviewed with the final contact, booking, and analytics configuration before public launch."
+  },
+  "type": "content",
+  "heading": "Your information, handled with care.",
+  "sections": [
+    {
+      "title": "Browser tools",
+      "body": "The prompt generator, image resizer, and invoice generator process input in your browser. This implementation does not upload tool inputs or save them to a database."
+    },
+    {
+      "title": "Booking and external links",
+      "body": "When a scheduling provider is connected, its own privacy policy and data handling apply. External websites linked from this site may have different practices."
+    },
+    {
+      "title": "Hosting and contact",
+      "body": "The hosting platform may process technical request information to deliver the site. Business contact details and any final inquiry provider must be added before public launch."
+    }
+  ]
+}

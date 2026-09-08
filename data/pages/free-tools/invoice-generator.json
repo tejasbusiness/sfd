@@ -1,0 +1,40 @@
+{
+  "slug": "free-tools/invoice-generator",
+  "title": "Invoice Generator",
+  "description": "Add your business details and line items. Review the total, then print or save the invoice as a PDF using your browser.",
+  "seo": {
+    "title": "Invoice Generator | SynergyFirst Digital",
+    "description": "Add your business details and line items. Review the total, then print or save the invoice as a PDF using your browser."
+  },
+  "type": "invoice",
+  "heading": "A clear invoice, ready to send.",
+  "ui": {
+    "from": "Your business details",
+    "to": "Client details",
+    "number": "Invoice number",
+    "date": "Invoice date",
+    "due": "Due date",
+    "currency": "Currency",
+    "description": "Description",
+    "quantity": "Quantity",
+    "rate": "Unit price",
+    "amount": "Amount",
+    "add": "Add line item",
+    "remove": "Remove item",
+    "tax": "Tax (%)",
+    "discount": "Discount (%)",
+    "notes": "Notes / payment details",
+    "print": "Print / Save PDF",
+    "invoice": "INVOICE",
+    "subtotal": "Subtotal",
+    "total": "Total due",
+    "preview": "Invoice preview",
+    "note": "Your invoice is processed locally. Nothing is submitted or stored on a server. Check the details before sending.",
+    "error": "Add business and client details, a description for every item, and valid quantities and prices.",
+    "defaultNotes": "Thank you for your business.",
+    "billTo": "Bill to",
+    "fromLabel": "From",
+    "discountAmount": "Discount",
+    "taxAmount": "Tax"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "services/web-design",
+  "title": "Web Design",
+  "description": "A clear, fast website that represents your business, answers questions, and gives visitors a straightforward next step.",
+  "seo": {
+    "title": "Web Design | SynergyFirst Digital",
+    "description": "A clear, fast website that represents your business, answers questions, and gives visitors a straightforward next step."
+  },
+  "type": "service",
+  "heading": "A website that does your business justice.",
+  "audience": [
+    "A first website for your business",
+    "A redesign of an outdated site",
+    "A stronger service or product presentation"
+  ],
+  "audienceTitle": "Is this what you need?",
+  "sections": [
+    {
+      "title": "Structure & content",
+      "body": "Organize your pages around the questions customers actually ask."
+    },
+    {
+      "title": "Design & development",
+      "body": "Create a responsive experience with a consistent identity and clear navigation."
+    },
+    {
+      "title": "Launch & handover",
+      "body": "Review the site, prepare essential SEO settings, and explain how content updates work."
+    }
+  ],
+  "sectionTitle": "How we approach it",
+  "deliverables": [
+    "Responsive page design",
+    "Content structure",
+    "Technical SEO foundations",
+    "Inquiry and booking pathways"
+  ],
+  "deliverablesTitle": "Possible scope",
+  "scopeNote": "Your final deliverables, timeline, and any external costs are confirmed in a tailored proposal.",
+  "faqs": [
+    {
+      "question": "Can you redesign my existing website?",
+      "answer": "Yes. We can review your current website, identify what is worth retaining, and scope the redesign around what needs to improve."
+    },
+    {
+      "question": "Who supplies the content?",
+      "answer": "We agree on content responsibilities during scoping. Existing copy and images are a useful starting point; any additional content work is included explicitly in the proposal."
+    },
+    {
+      "question": "Can I update the website later?",
+      "answer": "Yes. The handover approach depends on the agreed build. For a static JSON-driven site, content changes are made in its data files and then rebuilt and deployed."
+    }
+  ],
+  "faqTitle": "Your questions, answered.",
+  "cta": "Discuss this service"
+}

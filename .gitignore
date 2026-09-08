@@ -1,57 +1,40 @@
-# Logs
-logs
-*.log
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+.pnpm-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# local environment
+.env*
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# deployment and generated files
+.vercel
+next-env.d.ts
+/dist/
+/.wrangler/
+/outputs/
+/work/
+*.tsbuildinfo
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Supabase local dev
-.supabase/
-
-# Claude Code local state
-.claude/
-
-# Docs (spec kept local, not tracked in GitHub)
-docs/
-
-# Images
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.webp
-*.bmp
-*.ico
-!public/favicon.svg
-!src/assets/office-hero.jpg
-
-# Archives
-*.zip
-*.rar
-*.7z
-*.tar
-*.gz

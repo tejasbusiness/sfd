@@ -1,0 +1,26 @@
+{
+  "slug": "about",
+  "title": "About Us",
+  "description": "SynergyFirst Digital brings websites, local search, social media, and automation together around your business.",
+  "seo": {
+    "title": "About Us | SynergyFirst Digital",
+    "description": "SynergyFirst Digital brings websites, local search, social media, and automation together around your business."
+  },
+  "type": "content",
+  "heading": "A connected approach to your digital presence.",
+  "sections": [
+    {
+      "title": "Start with the business",
+      "body": "Before discussing pages or platforms, we look at the people you serve and the problem you want to solve."
+    },
+    {
+      "title": "Make the scope clear",
+      "body": "A useful proposal explains what is included, who is responsible, and what decisions need to be made along the way."
+    },
+    {
+      "title": "Consider what happens next",
+      "body": "A website is one part of the customer journey. We also consider discovery, conversations, and the handoffs that follow."
+    }
+  ],
+  "cta": "Let’s talk about your business"
+}

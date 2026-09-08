@@ -1,0 +1,144 @@
+{
+  "seo": {
+    "title": "Web Design, Local SEO & Automation | SynergyFirst Digital",
+    "description": "Web design, local SEO, AI automation, social media marketing and WhatsApp solutions. Build a stronger digital presence with SynergyFirst Digital."
+  },
+  "hero": {
+    "eyebrow": "Designed for your next chapter",
+    "title": "Your business deserves",
+    "accent": "a stronger digital presence.",
+    "description": "Thoughtful websites. Meaningful visibility. Connected workflows.\nDigital services built around your business.",
+    "cta": "Book a Call",
+    "scroll": "Scroll to explore",
+    "footnote": "Web design · Marketing · Automation"
+  },
+  "services": {
+    "eyebrow": "The right expertise, together",
+    "title": "More than a website.",
+    "description": "From the first impression to the next conversation. Choose the support your business needs, and connect it all as you grow.",
+    "link": "Explore service",
+    "items": [
+      {
+        "slug": "web-design",
+        "title": "Web Design",
+        "description": "A website that feels like your business and makes the next step clear."
+      },
+      {
+        "slug": "local-seo",
+        "title": "Local SEO",
+        "description": "Help nearby customers discover what you do and where to find you."
+      },
+      {
+        "slug": "ai-automation",
+        "title": "AI Automation",
+        "description": "Give repetitive tasks a better process and your team more room to work."
+      },
+      {
+        "slug": "website-consultation",
+        "title": "1-on-1 Website Consultation",
+        "description": "An expert perspective on your site, with priorities you can act on."
+      },
+      {
+        "slug": "social-media-marketing",
+        "title": "Social Media Marketing",
+        "description": "Build a consistent presence with content that gives people a reason to care."
+      },
+      {
+        "slug": "whatsapp-business-api",
+        "title": "WhatsApp Business API",
+        "description": "Connect customer conversations, useful follow-up, and your team."
+      }
+    ]
+  },
+  "statement": {
+    "eyebrow": "SynergyFirst Digital",
+    "line1": "Good ideas deserve",
+    "line2": "a thoughtful execution.",
+    "description": "Your website, marketing, and everyday tools should work together. We look at the whole customer journey, then help you focus on the changes that make sense for your business.",
+    "link": "Get to know us"
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "A clear path from the start.",
+    "items": [
+      {
+        "title": "Understand",
+        "description": "We start with your business, your customers, and what you want to improve."
+      },
+      {
+        "title": "Define",
+        "description": "Together, we agree on the priorities, scope, and responsibilities."
+      },
+      {
+        "title": "Create",
+        "description": "We build, review the details with you, and prepare for a considered handover."
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "A scope that makes sense",
+    "title": "Your priorities.\nA clear proposal.",
+    "description": "Every business starts somewhere different. We shape the work around your needs and make the inclusions clear before the project begins.",
+    "link": "Explore pricing",
+    "priceLabel": "Scoped to your project",
+    "items": [
+      {
+        "title": "Build your presence",
+        "description": "Web design and website consultation"
+      },
+      {
+        "title": "Grow your visibility",
+        "description": "Local SEO and social media marketing"
+      },
+      {
+        "title": "Connect your operations",
+        "description": "AI automation and WhatsApp workflows"
+      }
+    ]
+  },
+  "tools": {
+    "eyebrow": "A little help, on us",
+    "title": "Useful tools. Ready when you are.",
+    "description": "Make a clearer brief, resize an image, or prepare your next invoice. No account needed.",
+    "link": "Open tool",
+    "items": [
+      {
+        "slug": "website-prompt-generator",
+        "title": "Website Prompt Generator",
+        "description": "Turn your business details into a structured website brief."
+      },
+      {
+        "slug": "image-resizer",
+        "title": "Image Resizer",
+        "description": "Get the right dimensions, right in your browser."
+      },
+      {
+        "slug": "invoice-generator",
+        "title": "Invoice Generator",
+        "description": "Create a clear invoice and save a printable copy."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Ready for the next step?",
+    "title": "Tell us what you have in mind.",
+    "description": "A new website, a specific challenge, or an idea you want to explore. Let's find the right place to start."
+  },
+  "faq": {
+    "title": "Your questions, answered.",
+    "items": [
+      {
+        "question": "Can we start with just one service?",
+        "answer": "Yes. We can scope one service around a specific need and consider other services when they become useful."
+      },
+      {
+        "question": "How do you price a project?",
+        "answer": "We look at the agreed deliverables, complexity, integrations, and support needs. Your proposal separates our work from any external platform charges."
+      },
+      {
+        "question": "What should I bring to the first call?",
+        "answer": "Your business goals, your current website if you have one, and the main challenge you want to discuss are a useful starting point."
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "free-tools/website-prompt-generator",
+  "title": "Website Prompt Generator",
+  "description": "Describe your business and goals. Get a structured prompt to use with a website builder, designer, or AI assistant.",
+  "seo": {
+    "title": "Website Prompt Generator | SynergyFirst Digital",
+    "description": "Describe your business and goals. Get a structured prompt to use with a website builder, designer, or AI assistant."
+  },
+  "type": "prompt",
+  "heading": "Give your website idea a clearer brief.",
+  "ui": {
+    "business": "Business name",
+    "industry": "What does your business do?",
+    "audience": "Who is your audience?",
+    "goal": "What should the website achieve?",
+    "style": "Visual direction",
+    "pages": "Pages to include",
+    "features": "Features and integrations",
+    "generate": "Generate prompt",
+    "copy": "Copy prompt",
+    "download": "Download prompt",
+    "result": "Your website prompt",
+    "empty": "Complete the brief to generate your prompt.",
+    "copied": "Prompt copied.",
+    "copyError": "Copy was unavailable. Select and copy the prompt manually.",
+    "defaultStyle": "Modern, clear, and distinctive",
+    "defaultPages": "Home, About, Services, Pricing, Contact",
+    "note": "Template-based generation. Your brief stays in this browser.",
+    "promptIntro": "Create a responsive website for",
+    "promptFields": [
+      "Business",
+      "Audience",
+      "Primary goal",
+      "Visual direction",
+      "Pages",
+      "Features"
+    ],
+    "promptRules": "Use clear headings, accessible contrast, responsive images, useful metadata, and straightforward navigation. Write specific copy for the audience. Do not invent testimonials, results, prices, or credentials. Include a clear primary call to action and a mobile-friendly layout."
+  }
+}

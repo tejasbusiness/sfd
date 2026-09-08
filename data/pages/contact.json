@@ -1,0 +1,18 @@
+{
+  "slug": "contact",
+  "title": "Contact Us",
+  "description": "A new website, a specific challenge, or an idea you want to explore. Let’s find the right place to start.",
+  "seo": {
+    "title": "Contact Us | SynergyFirst Digital",
+    "description": "A new website, a specific challenge, or an idea you want to explore. Let’s find the right place to start."
+  },
+  "type": "contact",
+  "heading": "Tell us what you have in mind.",
+  "sections": [
+    {
+      "title": "A useful first conversation",
+      "body": "Tell us about your business, share your existing website if you have one, and describe what you would like to improve."
+    }
+  ],
+  "cta": "Book a Call"
+}

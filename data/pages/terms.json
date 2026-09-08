@@ -1,0 +1,25 @@
+{
+  "slug": "terms",
+  "title": "Terms",
+  "description": "These are provisional website-use notes for the current preview. Final business terms require review before public launch.",
+  "seo": {
+    "title": "Terms | SynergyFirst Digital",
+    "description": "These are provisional website-use notes for the current preview. Final business terms require review before public launch."
+  },
+  "type": "content",
+  "heading": "Using this website and its tools.",
+  "sections": [
+    {
+      "title": "Information and proposals",
+      "body": "Website content describes possible service scope. Deliverables, costs, timelines, and contractual terms are agreed in a specific proposal."
+    },
+    {
+      "title": "Free tools",
+      "body": "Review generated prompts, images, and invoices before using them. You remain responsible for the information you enter and the suitability of the output."
+    },
+    {
+      "title": "Project content",
+      "body": "Published project materials and brand assets belong to their respective owners. Permission should be obtained for uses beyond ordinary viewing."
+    }
+  ]
+}

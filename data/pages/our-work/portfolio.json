@@ -1,0 +1,15 @@
+{
+  "slug": "our-work/portfolio",
+  "title": "Portfolio",
+  "description": "Our work is presented with the context, scope, and decisions that shaped it.",
+  "seo": {
+    "title": "Portfolio | SynergyFirst Digital",
+    "description": "Our work is presented with the context, scope, and decisions that shaped it."
+  },
+  "type": "work",
+  "heading": "A closer look at the work.",
+  "emptyTitle": "Projects are being prepared for publication.",
+  "emptyDescription": "We share client work with permission. Tell us about your project and we can discuss the experience most relevant to you.",
+  "cta": "Discuss your project",
+  "projects": []
+}
