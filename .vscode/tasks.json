@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Website: Start local preview",
+      "type": "npm",
+      "script": "dev",
+      "args": ["--", "--port", "3000"],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Website: Build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Website: Validate",
+      "type": "npm",
+      "script": "check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Website: Test tools",
+      "type": "npm",
+      "script": "test:tools",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -2,6 +2,10 @@
 
 Static agency website inspired by the user-selected Obermann reference. It includes a custom scroll-linked 3D SFD mark, shared navigation, six service pages, browser tools, a booking component, and supporting pages.
 
+## Continue with Codex or Claude in VS Code
+
+Open `..\SynergyFirst-Digital.code-workspace`. Both assistants should read `AGENTS.md`, `CLAUDE.md`, and `docs/AI-HANDOFF.md` before changing the project. Work with only one assistant at a time, and update the active handoff before switching. `docs/ROADMAP.md` tracks future outcomes, `docs/DECISIONS.md` records durable choices, and Git commits provide the chronological progress log. Reusable startup, recovery, and end-task prompts are in `docs/SESSION-PROMPTS.md`.
+
 ## Run and build
 
 - `npm install`
