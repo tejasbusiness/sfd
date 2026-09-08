@@ -136,7 +136,7 @@ If credits or context end unexpectedly, open a fresh chat with the other assista
 
 ### Next action
 
-Get user sign-off on the scroll-jerk/hero-line/hero-node fixes; then continue with `docs/ROADMAP.md`'s "Next: production content and indexing" items.
+This entire homepage art-direction/navigation pass (5th pass and its many follow-ups, plus the fragment-URL cleanup and header mega-menus) is committed and pushed to `origin/main` (commit `e3818e0`, "Redesign homepage art direction and header navigation"), which triggers the Contabo deployment workflow. Get user sign-off on the deployed result, then continue with `docs/ROADMAP.md`'s "Next: production content and indexing" items — nothing from this pass is pending or half-finished.
 
 - Last assistant: Claude
 - Last updated: 2026-09-08
