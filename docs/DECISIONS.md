@@ -31,3 +31,10 @@ This file records durable project decisions so a fresh assistant does not reopen
 - Status: Accepted
 - Decision: Use `docs/AI-HANDOFF.md` for current state, `docs/ROADMAP.md` for future outcomes, `docs/DECISIONS.md` for durable choices, and Git commits for chronological history. Do not maintain a separate progress or activity log.
 - Reason: Separate overlapping logs become stale, increase reading cost, and can contradict the repository.
+
+## D-006 — App-style bottom nav bar replaces the hamburger menu on tablet/mobile
+
+- Status: Accepted
+- Decision: At `max-width:980px`, navigation is a fixed bottom bar (Home, Services, a raised Book a Call button, Free Tools, Menu) instead of a header hamburger. "Menu" opens a right-side drawer styled like the desktop mega menus (light surface, violet accents) containing only About Us, Portfolio, Case Studies, Pricing, and Contact Us as a 2-column icon grid, plus a social icon row — not the full site nav, since Home/Services/Free Tools/Book a Call already live in the bottom bar.
+- Reason: Requested to match common mobile-app navigation conventions. Implemented in `components/header.tsx` and `app/globals.css`.
+- Note for future CSS work near `.site-header`: `.site-header` uses `backdrop-filter`, which per the CSS spec makes it a containing block for any `position:fixed` descendant. A fixed-position element nested inside the header will position itself relative to the header's box, not the viewport. Any new fixed UI related to the header must be a sibling of `<header>`, not a child (see the `<Fragment>` wrapper in `components/header.tsx`).
