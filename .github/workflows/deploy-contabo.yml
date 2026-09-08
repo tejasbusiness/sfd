@@ -69,7 +69,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          REMOTE_PATH="/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com"
+          REMOTE_PATH="${{ secrets.SFD_PATH }}"
           REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
           SSH_PORT="22"
           ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.SFD_USER }}@${{ secrets.SFD_HOST }}" \
