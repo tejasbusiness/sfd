@@ -40,7 +40,7 @@ jobs:
           set -euo pipefail
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "${{ secrets.CONTABO_SSH_KEY }}" > ~/.ssh/contabo_deploy_key
+          printf '%s\n' "${{ secrets.SFD_ACTION_SECRET }}" > ~/.ssh/contabo_deploy_key
           chmod 600 ~/.ssh/contabo_deploy_key
           ssh-keyscan -p "${{ secrets.CONTABO_PORT || '22' }}" "${{ secrets.CONTABO_HOST }}" >> ~/.ssh/known_hosts
 
