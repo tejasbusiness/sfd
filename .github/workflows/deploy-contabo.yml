@@ -47,10 +47,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          REMOTE_PATH="/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com"
+          REMOTE_PATH="${{ secrets.SFD_PATH }}"
           REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
-          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
-          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}" \
+          SSH_PORT="22"
+          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.SFD_USER }}@${{ secrets.SFD_HOST }}" \
             "set -euo pipefail
              test \"$REMOTE_PATH\" = \"/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com\"
              mkdir -p \"$REMOTE_RELEASE\" \"$REMOTE_PATH\""
@@ -60,10 +60,10 @@ jobs:
         run: |
           set -euo pipefail
           REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
-          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
+          SSH_PORT="22"
           rsync -az --delete \
             -e "ssh -i ~/.ssh/contabo_deploy_key -p $SSH_PORT" \
-            dist/client/ "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}:$REMOTE_RELEASE/"
+            dist/client/ "${{ secrets.SFD_USER }}@${{ secrets.SFD_HOST }}:$REMOTE_RELEASE/"
 
       - name: Publish to CloudPanel document root
         shell: bash
@@ -71,8 +71,8 @@ jobs:
           set -euo pipefail
           REMOTE_PATH="/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com"
           REMOTE_RELEASE="/home/synergyfirstdigital-com/deployments/synergyfirstdigital.com-current"
-          SSH_PORT="${{ secrets.CONTABO_PORT || '22' }}"
-          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.CONTABO_USER }}@${{ secrets.CONTABO_HOST }}" \
+          SSH_PORT="22"
+          ssh -i ~/.ssh/contabo_deploy_key -p "$SSH_PORT" "${{ secrets.SFD_USER }}@${{ secrets.SFD_HOST }}" \
             "set -euo pipefail
              test \"$REMOTE_PATH\" = \"/home/synergyfirstdigital-com/htdocs/synergyfirstdigital.com\"
              rsync -a --delete \"$REMOTE_RELEASE/\" \"$REMOTE_PATH/\""
