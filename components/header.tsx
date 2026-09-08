@@ -46,7 +46,7 @@ export default function Header(){
       <div className={`mega-panel mega-panel--${megaSlug}${openMega===item.label?' is-open':''}`}>
         <div className="mega-body">
           {item.megaHeading&&<p className="mega-heading">{item.megaHeading}</p>}
-          <div className="mega-items" style={{gridTemplateColumns:`repeat(${item.children.length===3?3:2},1fr)`}}>{item.children.map(child=>{const Icon=child.icon?megaIcons[child.icon]:undefined;const category=(child as {category?:string}).category;const action=(child as {action?:string}).action;return <a href={child.href} className="mega-item" key={child.href} onClick={()=>setOpenMega(null)}>
+          <div className="mega-items" style={{gridTemplateColumns:`repeat(${item.children.length===4?2:item.children.length===3?1:2},1fr)`}}>{item.children.map(child=>{const Icon=child.icon?megaIcons[child.icon]:undefined;const category=(child as {category?:string}).category;const action=(child as {action?:string}).action;return <a href={child.href} className="mega-item" key={child.href} onClick={()=>setOpenMega(null)}>
             <span className="mega-item-icon">{Icon&&<Icon size={18} strokeWidth={1.6}/>}</span>
             <span className="mega-item-text">{category&&<span className="mega-item-category">{category}</span>}<span className="mega-item-title">{child.label}</span>{child.description&&<span className="mega-item-desc">{child.description}</span>}{action&&<span className="mega-item-action">{action}<ArrowUpRight size={12}/></span>}</span>
             {isServices&&<ArrowUpRight className="mega-item-arrow" size={14}/>}
