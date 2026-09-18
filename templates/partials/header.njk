@@ -1,13 +1,33 @@
+{% macro navItems(items, page) %}
+{% for item in items %}
+{% set isActive = item.path == page.canonicalPath or (item.path != "/" and page.canonicalPath.indexOf(item.path) == 0) %}
+<li class="site-header__nav-item{{ ' has-dropdown' if item.children }}">
+  <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>
+    {{ item.label }}
+    {% if item.children %}
+    <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    {% endif %}
+  </a>
+  {% if item.children %}
+  <div class="site-header__dropdown">
+    <ul>
+      {% for child in item.children %}
+      <li><a href="{{ child.path }}">{{ child.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</li>
+{% endfor %}
+{% endmacro %}
+
 <header class="site-header" data-site-header>
   <div class="container site-header__inner">
     <nav class="site-header__nav-left" aria-label="Primary">
       <ul class="site-header__nav-list">
-        {% for item in navigation.primaryLeft %}
-        {% set isActive = item.path == page.canonicalPath %}
-        <li>
-          <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>{{ item.label }}</a>
-        </li>
-        {% endfor %}
+        {{ navItems(navigation.primaryLeft, page) }}
       </ul>
     </nav>
 
@@ -24,28 +44,7 @@
     <div class="site-header__right">
       <nav class="site-header__nav-right" aria-label="Secondary">
         <ul class="site-header__nav-list">
-          {% for item in navigation.primaryRight %}
-          {% set isActive = item.path == page.canonicalPath or (item.path != "/" and page.canonicalPath.indexOf(item.path) == 0) %}
-          <li class="site-header__nav-item{{ ' has-dropdown' if item.children }}">
-            <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>
-              {{ item.label }}
-              {% if item.children %}
-              <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              {% endif %}
-            </a>
-            {% if item.children %}
-            <div class="site-header__dropdown">
-              <ul>
-                {% for child in item.children %}
-                <li><a href="{{ child.path }}">{{ child.label }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-            {% endif %}
-          </li>
-          {% endfor %}
+          {{ navItems(navigation.primaryRight, page) }}
         </ul>
       </nav>
 
@@ -116,30 +115,38 @@
       </button>
     </div>
     <nav aria-label="More">
-      <ul class="more-drawer__list">
+      <ul class="more-drawer__grid">
         {% for item in navigation.more %}
-        <li>
+        <li class="more-drawer__cell{{ ' more-drawer__cell--expandable' if item.children }}">
           {% if item.children %}
           <details class="more-drawer__details">
-            <summary class="more-drawer__summary">
-              {{ item.label }}
+            <summary class="more-drawer__tile">
+              <span class="more-drawer__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+              <span class="more-drawer__label">{{ item.label }}</span>
               <svg class="more-drawer__caret" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
                 <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </summary>
-            <ul class="more-drawer__sublist">
-              <li><a href="{{ item.path }}">All {{ item.label }}</a></li>
+            <ul class="more-drawer__subgrid">
               {% for child in item.children %}
-              <li><a href="{{ child.path }}">{{ child.label }}</a></li>
+              <li>
+                <a class="more-drawer__subtile" href="{{ child.path }}">
+                  <span class="more-drawer__icon more-drawer__icon--sm" aria-hidden="true">{{ child.icon | safe }}</span>
+                  <span class="more-drawer__label">{{ child.label }}</span>
+                </a>
+              </li>
               {% endfor %}
             </ul>
           </details>
           {% else %}
           <a
-            class="more-drawer__link"
+            class="more-drawer__tile"
             href="{{ item.path }}"
             {% if item.dialogTarget %}data-dialog-target="{{ item.dialogTarget }}"{% endif %}
-          >{{ item.label }}</a>
+          >
+            <span class="more-drawer__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+            <span class="more-drawer__label">{{ item.label }}</span>
+          </a>
           {% endif %}
         </li>
         {% endfor %}

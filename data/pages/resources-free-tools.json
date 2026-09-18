@@ -1,0 +1,32 @@
+{
+  "_scaffold": "Phase 8 stub (2026-09-18): docs/02-sitemap-and-navigation.md plans three tools under this hub (website prompt generator, image resizer, invoice generator), none built yet. This is a holding page only.",
+  "id": "resources-free-tools",
+  "type": "static",
+  "slug": "free-tools",
+  "canonicalPath": "/resources/free-tools/",
+  "seo": {
+    "title": "Free Tools for Local Businesses | SynergyFirst Digital",
+    "metaDescription": "Free tools for local businesses from SynergyFirst Digital — coming soon.",
+    "ogTitle": "Free Tools",
+    "ogDescription": "Free tools for local businesses from SynergyFirst Digital — coming soon.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Free tools for local businesses",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "Coming soon",
+      "body": "We're building a small set of free tools for local businesses. In the meantime, apply for a free website preview or book a 15-minute call."
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we'd build for you?",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

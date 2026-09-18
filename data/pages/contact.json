@@ -1,0 +1,32 @@
+{
+  "_scaffold": "Phase 8 stub (2026-09-18): docs/04-page-blueprints.md calls for a real support email and response-time expectations here, but those are unverified/BLOCKING (docs/10 — supportEmail is a TBD placeholder in company.json). Add them once confirmed instead of guessing.",
+  "id": "contact",
+  "type": "static",
+  "slug": "contact",
+  "canonicalPath": "/contact/",
+  "seo": {
+    "title": "Contact Us | SynergyFirst Digital",
+    "metaDescription": "Get in touch with SynergyFirst Digital — book a 15-minute call or apply for a free website preview.",
+    "ogTitle": "Contact SynergyFirst Digital",
+    "ogDescription": "Book a 15-minute call or apply for a free website preview.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Get in touch",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "The fastest ways to reach us",
+      "body": "Book a short call to talk through your website, or apply for a free preview and we'll be in touch about next steps."
+    },
+    {
+      "type": "booking-cta",
+      "heading": "Ready when you are",
+      "primaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "secondaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

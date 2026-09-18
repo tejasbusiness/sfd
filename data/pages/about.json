@@ -1,0 +1,33 @@
+{
+  "_scaffold": "Phase 8 stub (2026-09-18): docs/04-page-blueprints.md calls for founder credibility and operating-principle detail here, but those specifics are unverified/BLOCKING (docs/10). This page stays deliberately generic and factual until that copy is confirmed — do not add unverified claims.",
+  "id": "about",
+  "type": "static",
+  "slug": "about",
+  "canonicalPath": "/about/",
+  "seo": {
+    "title": "About Us | SynergyFirst Digital",
+    "metaDescription": "SynergyFirst Digital is a remote team designing, building and managing websites for local businesses on a monthly subscription.",
+    "ogTitle": "About SynergyFirst Digital",
+    "ogDescription": "A remote team designing, building and managing websites for local businesses on a monthly subscription.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "A remote team, focused on one thing",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "What we do",
+      "body": "SynergyFirst Digital designs, builds and manages websites for local businesses on a monthly subscription — so you get a professional site, hosting, updates and support without a large upfront project fee."
+    },
+    {
+      "type": "booking-cta",
+      "heading": "Want to talk to us directly?",
+      "body": "A 15-minute call is the fastest way to ask questions and see if we're a fit.",
+      "primaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "secondaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

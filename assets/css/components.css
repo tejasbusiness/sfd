@@ -202,34 +202,78 @@ dialog.more-drawer[open] {
   font-family: var(--font-heading);
   font-weight: 700;
 }
-.more-drawer__list {
+/* Icon-tile grid (docs/13 header restructure, 2026-09-18): the drawer's
+   top-level items render as square icon tiles rather than a text list with
+   nested dropdowns — the flat items (Industries, Free Tools, Contact Us,
+   Blog, Book a Call) link straight through, since Industries already has
+   its own dedicated hub page and doesn't need a duplicate submenu here.
+   Only "Our Work" keeps an expandable submenu (Portfolio, Case Studies). */
+.more-drawer__grid {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.more-drawer__cell--expandable {
+  grid-column: 1 / -1;
+}
+.more-drawer__tile {
+  min-height: 96px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-}
-.more-drawer__link,
-.more-drawer__summary {
-  min-height: 48px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  font-weight: 600;
+  padding: var(--space-3) var(--space-2);
+  background: var(--color-tint);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text);
-  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: center;
   cursor: pointer;
   list-style: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
-.more-drawer__summary::-webkit-details-marker {
+.more-drawer__tile:hover,
+.more-drawer__tile:focus-visible {
+  background: var(--color-surface);
+  border-color: var(--color-accent-warm);
+}
+.more-drawer__details > .more-drawer__tile {
+  position: relative;
+}
+.more-drawer__details summary::-webkit-details-marker {
   display: none;
 }
+.more-drawer__details summary {
+  list-style: none;
+}
+.more-drawer__details summary::marker {
+  content: "";
+}
+.more-drawer__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.more-drawer__icon--sm {
+  transform: scale(0.9);
+}
+.more-drawer__label {
+  line-height: 1.2;
+}
 .more-drawer__caret {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
   flex-shrink: 0;
   color: var(--color-text-secondary);
   transition: transform 0.15s ease;
@@ -237,27 +281,41 @@ dialog.more-drawer[open] {
 .more-drawer__details[open] .more-drawer__caret {
   transform: rotate(180deg);
 }
-.more-drawer__sublist {
+.more-drawer__subgrid {
+  grid-column: 1 / -1;
   list-style: none;
-  margin: 0;
-  padding: var(--space-2) 0 var(--space-3) var(--space-3);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+.more-drawer__subtile {
+  min-height: 76px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-}
-.more-drawer__sublist a {
-  min-height: 40px;
-  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text-secondary);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: center;
 }
-.more-drawer__sublist a:hover {
+.more-drawer__subtile:hover,
+.more-drawer__subtile:focus-visible {
   color: var(--color-primary);
+  border-color: var(--color-accent-warm);
 }
 @media (prefers-reduced-motion: reduce) {
+  .more-drawer__tile,
+  .more-drawer__subtile,
   .more-drawer__caret {
     transition: none;
   }
@@ -287,16 +345,14 @@ dialog.more-drawer[open] {
   box-shadow: 0 8px 24px -18px rgba(18, 19, 24, 0.35);
 }
 
-/* Desktop: centered logo with nav flanking it on both sides. The left and
-   right groups carry very different weight (2 links vs. 3 links + 2 CTAs),
-   so each flanking column reserves its own full content width via
-   minmax(max-content, 1fr) rather than being forced to an equal share —
-   that avoids both squeezing the heavier side's CTA button and the logo
-   overlapping nav text, at the cost of the logo sitting slightly left of
-   true viewport-center rather than pixel-perfect centered. */
+/* Desktop: centered logo with nav flanking it on both sides. Both flanking
+   columns are equal 1fr tracks so the logo sits at true viewport-center;
+   item counts are balanced (4 links left, 4 links + 2 CTAs right) at the
+   data level (data/navigation.json) rather than in CSS, since the CTAs add
+   visual weight the left side doesn't carry. */
 .site-header__inner {
   display: grid;
-  grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr);
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 80px;
   gap: var(--space-4);
@@ -436,21 +492,21 @@ dialog.more-drawer[open] {
   font-weight: 700;
 }
 
-/* 1249px, not 767px: the nav (now with two flanking groups + dropdowns) +
-   "Book a Call" link + "Get a Free Preview" button don't fit in the header
-   until ~1080px, so tablet and small-laptop widths get the simplified
-   logo + single-CTA row instead, with the bottom tab bar taking over
-   navigation (docs/13 header restructure, 2026-09-18). */
+/* 1249px, not 767px: the nav (two flanking groups + dropdowns) + CTAs don't
+   fit in the header until ~1080px, so tablet and small-laptop widths drop
+   the nav AND both header CTAs entirely — the fixed bottom tab bar (with
+   its own "Free Preview" tab) and its "More" drawer (with "Book a Call")
+   carry navigation and conversion instead, so the header is just a centered
+   logo (docs/13 header restructure, 2026-09-18; CTAs removed 2026-09-18). */
 @media (max-width: 1249px) {
   .site-header__inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 68px;
   }
   .site-header__nav-left,
-  .site-header__nav-right,
-  .site-header__book {
+  .site-header__right {
     display: none;
   }
   .site-header__logo-image {

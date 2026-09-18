@@ -1,0 +1,32 @@
+{
+  "_scaffold": "Phase 8 stub (2026-09-18): docs/02-sitemap-and-navigation.md plans an /resources/insights/{article-slug}/ series, no articles written yet. This is a holding page only. Nav label is \"Blog\" (data/navigation.json); the page itself uses the sitemap's \"Insights\" naming.",
+  "id": "resources-insights",
+  "type": "static",
+  "slug": "insights",
+  "canonicalPath": "/resources/insights/",
+  "seo": {
+    "title": "Insights | SynergyFirst Digital",
+    "metaDescription": "Articles on websites, SEO and local marketing for small businesses from SynergyFirst Digital — coming soon.",
+    "ogTitle": "Insights",
+    "ogDescription": "Articles on websites, SEO and local marketing for small businesses — coming soon.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Insights",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "Coming soon",
+      "body": "We're preparing articles on websites, SEO and local marketing for small businesses. Check back soon, or apply for a free website preview in the meantime."
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we'd build for you?",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}
