@@ -1,3 +1,4 @@
+{% from "partials/country-code-options.njk" import options as countryCodeOptions %}
 <section class="section free-preview-form">
   <div class="container" data-reveal>
     <h2>{{ section.heading }}</h2>
@@ -15,10 +16,16 @@
           <input class="field__control" id="fp-email" name="email" type="email" required autocomplete="email">
           <p class="field__error" data-error-for="email" role="alert" hidden></p>
         </div>
-        <div class="field">
-          <label class="field__label" for="fp-phone">Mobile number (with country code) *</label>
-          <input class="field__control" id="fp-phone" name="phone" type="tel" required autocomplete="tel">
-          <p class="field__error" data-error-for="phone" role="alert" hidden></p>
+        <div class="field phone-field field--wide">
+          <label class="field__label" for="fp-phone">Mobile number *</label>
+          <div class="phone-field__row">
+            <select class="field__control phone-field__code" id="fp-country-code" name="countryCode" data-enhance="country-select" data-default-iso2="{{ countryCodes.defaultIso2 }}">
+              {{ countryCodeOptions(countryCodes) }}
+            </select>
+            <input class="field__control phone-field__number" id="fp-phone" name="mobileNumber" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel-national">
+          </div>
+          <p class="field__error" data-error-for="mobileNumber" role="alert" hidden></p>
+          <p class="field__error" data-error-for="countryCode" role="alert" hidden></p>
         </div>
         <div class="field">
           <label class="field__label" for="fp-business">Business name *</label>
@@ -45,7 +52,7 @@
         </div>
         <div class="field">
           <label class="field__label" for="fp-category">Business category *</label>
-          <select class="field__control" id="fp-category" name="category" required>
+          <select class="field__control" id="fp-category" name="category" required data-enhance="select">
             <option value="">Select a category</option>
             <option value="home-services">Home services</option>
             <option value="restaurants-hospitality">Restaurants &amp; hospitality</option>

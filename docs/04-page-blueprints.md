@@ -82,7 +82,7 @@ Explain eligibility and collect only the information needed to evaluate and crea
 
 - Full name.
 - Work email.
-- Mobile number with country code.
+- Mobile number (country code and 10-digit number as separate fields).
 - Business name.
 - Existing website.
 - Google Business Profile URL.

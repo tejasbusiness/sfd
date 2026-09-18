@@ -3,6 +3,8 @@ import { initBookingModal } from './booking.js';
 import { initFreePreviewForm } from './free-preview-form.js';
 import { initHeaderScroll } from './header-scroll.js';
 import { initScrollReveal } from './scroll-reveal.js';
+import { initCustomSelects } from './custom-select.js';
+import { initCountrySelects } from './country-select.js';
 
 // Several triggers (header button, mobile-nav button, page CTAs) can all open the
 // same sitewide dialog (e.g. #booking-modal) — one controller per dialog, shared.
@@ -24,7 +26,7 @@ function initDialogTriggers() {
     const controller = controllers.get(targetId);
 
     trigger.addEventListener('click', (event) => {
-      // Triggers that are real links (e.g. "Book a 15-Minute Call" -> /book-a-call/)
+      // Triggers that are real links (e.g. "Book a Free 30-Minute Discovery Call" -> /book-a-call/)
       // work as plain navigation without JS; with JS, open the modal instead.
       event.preventDefault();
       // A trigger living inside another open dialog (e.g. "Book a 15-Minute
@@ -54,4 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initFreePreviewForm(document.querySelector('[data-free-preview-form]'));
   initHeaderScroll();
   initScrollReveal();
+  initCustomSelects();
+  initCountrySelects();
 });

@@ -34,6 +34,7 @@ function renderPages({ templatesDir, outDir, mode, sharedData, pages }) {
   const plans = sharedData['plans.json'] || { plans: [] };
   const faqs = sharedData['faqs.json'] || { items: [] };
   const testimonials = sharedData['testimonials.json'] || { items: [] };
+  const countryCodes = sharedData['country-codes.json'] || { defaultIso2: '', countries: [] };
   const buildYear = new Date().getFullYear();
 
   const written = [];
@@ -47,6 +48,7 @@ function renderPages({ templatesDir, outDir, mode, sharedData, pages }) {
       plans,
       faqs,
       testimonials,
+      countryCodes,
       page,
       mode,
       buildYear,

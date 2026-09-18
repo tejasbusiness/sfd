@@ -1,6 +1,6 @@
 {
   "_note": "Per docs/13-visual-art-direction.md §8.13: link.path === null renders as a plain, non-linked label, never a broken link. Columns fill in with real paths as their pages are built in later phases.",
-  "brandStatement": "A remote digital team helping local businesses across the United States, Canada, Australia, New Zealand and Europe.",
+  "brandStatement": "We build and manage conversion-focused websites for local businesses—starting with a free preview website, you can review before you commit.",
   "groups": [
     {
       "title": "Websites",
@@ -24,15 +24,15 @@
     {
       "title": "Resources",
       "links": [
-        { "label": "Free Tools", "path": null },
-        { "label": "Insights", "path": null }
+        { "label": "Free Tools", "path": "/resources/free-tools/" },
+        { "label": "Insights", "path": "/resources/insights/" }
       ]
     },
     {
       "title": "Company",
       "links": [
-        { "label": "About", "path": null },
-        { "label": "Contact", "path": null },
+        { "label": "About", "path": "/about/" },
+        { "label": "Contact", "path": "/contact/" },
         { "label": "Book a Call", "path": "/book-a-call/" }
       ]
     },

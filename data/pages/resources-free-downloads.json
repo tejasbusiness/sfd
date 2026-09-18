@@ -1,0 +1,32 @@
+{
+  "_scaffold": "Phase 8 stub (2026-09-18): new nav destination requested to replace \"Contact Us\" inside the Resources mega menu. No downloadable assets exist yet — this is a holding page only, following the same honest 'coming soon' pattern as resources-free-tools.json and resources-insights.json.",
+  "id": "resources-free-downloads",
+  "type": "static",
+  "slug": "free-downloads",
+  "canonicalPath": "/resources/free-downloads/",
+  "seo": {
+    "title": "Free Downloads for Local Businesses | SynergyFirst Digital",
+    "metaDescription": "Free guides and templates for local businesses from SynergyFirst Digital — coming soon.",
+    "ogTitle": "Free Downloads",
+    "ogDescription": "Free guides and templates for local businesses from SynergyFirst Digital — coming soon.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Free downloads for local businesses",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "Coming soon",
+      "body": "We're preparing a set of free guides and templates for local businesses. In the meantime, apply for a Free Preview Website or Book a Free 30-Minute Discovery Call."
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we'd build for you?",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

@@ -18,8 +18,8 @@
       "type": "hero",
       "eyebrow": "For Healthcare & Wellness Practices",
       "subheading": "Patients research before they book. Your website is often the first — and most scrutinized — impression of your practice.",
-      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
       "type": "feature-grid",
@@ -56,14 +56,14 @@
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
       "itemIds": ["cost", "term", "timing", "cancellation"]
     },
     {
       "type": "free-preview-cta",
       "heading": "See what a healthcare website preview looks like.",
       "body": "Apply for a complimentary preview — we'll confirm which plan is the right fit for your practice once we understand your services and patient volume.",
-      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage", "FAQPage", "Service"],

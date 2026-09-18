@@ -18,13 +18,13 @@
     {
       "type": "intro",
       "heading": "Coming soon",
-      "body": "We're building a small set of free tools for local businesses. In the meantime, apply for a free website preview or book a 15-minute call."
+      "body": "We're building a small set of free tools for local businesses. In the meantime, apply for a Free Preview Website or Book a Free 30-Minute Discovery Call."
     },
     {
       "type": "free-preview-cta",
       "heading": "Want to see what we'd build for you?",
       "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
-      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage"],

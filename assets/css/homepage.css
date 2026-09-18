@@ -81,51 +81,83 @@
   color: var(--color-bg);
 }
 
+/* Trust-strip stat card: a raised, bordered group rather than plain text in
+   a row — this is the hero's primary trust signal, so it's designed to read
+   as a small credential/badge cluster, not an afterthought under the CTAs.
+   The 1px gap + var(--color-border) background is a hairline-divider trick:
+   each stat's own opaque surface background covers the gap everywhere
+   except the 1px seam between items, so dividers need no extra markup. */
 .hero-split__stats {
   display: flex;
-  gap: var(--space-3);
+  gap: 1px;
   margin-top: var(--space-6);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(22, 2, 36, 0.04);
 }
 .hero-split__stat {
   flex: 1 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-right: var(--space-3);
-  border-right: 1px solid var(--color-border);
+  gap: 6px;
+  padding: var(--space-3) var(--space-2);
+  background: var(--color-surface);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-.hero-split__stat:last-child {
-  border-right: none;
-  padding-right: 0;
+.hero-split__stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(22, 2, 36, 0.1);
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-split__stat {
+    transition: none;
+  }
+  .hero-split__stat:hover {
+    transform: none;
+  }
 }
 .hero-split__stat-value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-size: clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
   line-height: 1;
-  color: var(--color-text);
+  color: var(--color-primary);
+}
+.hero-split__stat-value::after {
+  content: "";
+  width: 24px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: var(--color-accent);
 }
 .hero-split__stat-label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   line-height: 1.3;
   color: var(--color-text-secondary);
-  margin-top: 4px;
 }
 @media (min-width: 480px) {
-  .hero-split__stats {
-    gap: var(--space-4);
-  }
   .hero-split__stat {
-    padding-right: var(--space-4);
+    align-items: flex-start;
+    padding: var(--space-4) var(--space-3);
+    text-align: left;
+  }
+  .hero-split__stat-value {
+    align-items: flex-start;
   }
   .hero-split__stat-label {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
   }
 }
 

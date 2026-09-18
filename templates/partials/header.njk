@@ -1,16 +1,46 @@
 {% macro navItems(items, page) %}
 {% for item in items %}
 {% set isActive = item.path == page.canonicalPath or (item.path != "/" and page.canonicalPath.indexOf(item.path) == 0) %}
-<li class="site-header__nav-item{{ ' has-dropdown' if item.children }}">
+<li class="site-header__nav-item{{ ' has-dropdown' if item.children }}{{ ' site-header__nav-item--mega' if item.megaMenu }}">
   <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>
     {{ item.label }}
-    {% if item.children %}
+    {% if item.children or item.megaMenu %}
     <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
       <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
     {% endif %}
   </a>
-  {% if item.children %}
+  {% if item.megaMenu %}
+  <div class="site-header__dropdown site-header__dropdown--mega">
+    <div class="site-header__mega-tools">
+      <ul class="site-header__mega-list">
+        {% for entry in item.megaItems %}
+        <li>
+          <a class="site-header__mega-tool" href="{{ entry.href }}">
+            <span class="site-header__mega-tool-icon" aria-hidden="true">{{ entry.icon | safe }}</span>
+            {% if entry.category %}<span class="site-header__mega-tool-category">{{ entry.category }}</span>{% endif %}
+            <span class="site-header__mega-tool-title">{{ entry.label }}</span>
+            {% if entry.description %}<span class="site-header__mega-tool-desc">{{ entry.description }}</span>{% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="site-header__mega-viewall" href="{{ item.path }}">{{ item.viewAllLabel or ("View all " + item.label) }} <span aria-hidden="true">&#8599;</span></a>
+    </div>
+    {% if item.promo %}
+    <div class="site-header__mega-promo">
+      <p class="site-header__mega-promo-eyebrow">{{ item.promo.eyebrow }}</p>
+      <h3 class="site-header__mega-promo-heading">{{ item.promo.heading }}</h3>
+      <p class="site-header__mega-promo-body">{{ item.promo.body }}</p>
+      <a
+        class="button button--accent site-header__mega-promo-cta"
+        href="{{ item.promo.cta.href }}"
+        {% if item.promo.cta.dialogTarget %}data-dialog-target="{{ item.promo.cta.dialogTarget }}"{% endif %}
+      >{{ item.promo.cta.label }} <span aria-hidden="true">&#8599;</span></a>
+    </div>
+    {% endif %}
+  </div>
+  {% elif item.children %}
   <div class="site-header__dropdown">
     <ul>
       {% for child in item.children %}
@@ -25,12 +55,6 @@
 
 <header class="site-header" data-site-header>
   <div class="container site-header__inner">
-    <nav class="site-header__nav-left" aria-label="Primary">
-      <ul class="site-header__nav-list">
-        {{ navItems(navigation.primaryLeft, page) }}
-      </ul>
-    </nav>
-
     <a class="site-header__logo" href="/">
       <img
         class="site-header__logo-image"
@@ -41,28 +65,26 @@
       >
     </a>
 
-    <div class="site-header__right">
-      <nav class="site-header__nav-right" aria-label="Secondary">
-        <ul class="site-header__nav-list">
-          {{ navItems(navigation.primaryRight, page) }}
-        </ul>
-      </nav>
+    <nav class="site-header__nav" aria-label="Primary">
+      <ul class="site-header__nav-list">
+        {{ navItems(navigation.primary, page) }}
+      </ul>
+    </nav>
 
-      <div class="site-header__actions">
-        {# Real href for no-JS/direct-share fallback (docs/07); JS opens the shared
-           #booking-modal dialog instead of navigating. /free-preview/ is a plain link. #}
-        <a
-          class="site-header__book"
-          href="/book-a-call/"
-          data-dialog-target="booking-modal"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Book a 15-Minute Call
-        </a>
-        <a class="button button--primary site-header__preview" href="/free-preview/">Get a Free Preview</a>
-      </div>
+    <div class="site-header__actions">
+      {# Real href for no-JS/direct-share fallback (docs/07); JS opens the shared
+         #booking-modal dialog instead of navigating. /free-preview/ is a plain link. #}
+      <a
+        class="site-header__book"
+        href="/book-a-call/"
+        data-dialog-target="booking-modal"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Book a Free Call
+      </a>
+      <a class="button button--primary site-header__preview" href="/free-preview/">Get a Free Preview Website</a>
     </div>
   </div>
 </header>

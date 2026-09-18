@@ -15,7 +15,7 @@
   border-radius: 999px;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.675rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
@@ -100,12 +100,27 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
+  font-size: 0.775rem;
   color: var(--color-text);
   background: var(--color-surface);
   transition: border-color 0.15s ease;
 }
 .field__control:focus-visible {
   border-color: var(--color-primary);
+}
+/* Browser autofill (name/address/saved-login suggestions) paints its own
+   background color (usually a pale blue/yellow) that ignores `background`.
+   The only reliable override is an inset box-shadow the size of the field,
+   combined with a long `transition-delay` on background-color so Chrome's
+   internal autofill animation can't repaint over it. */
+.field__control:-webkit-autofill,
+.field__control:-webkit-autofill:hover,
+.field__control:-webkit-autofill:focus,
+.field__control:-webkit-autofill:active {
+  box-shadow: 0 0 0 1000px var(--color-surface) inset;
+  -webkit-text-fill-color: var(--color-text);
+  caret-color: var(--color-text);
+  transition: background-color 600000s ease-in-out 0s, box-shadow 5000s ease-in-out 0s;
 }
 .field__hint {
   color: var(--color-text-secondary);
@@ -119,6 +134,293 @@
 }
 .field--invalid .field__control {
   border-color: var(--color-error);
+}
+
+/* Custom select (assets/js/custom-select.js) — replaces the browser's native
+   <select> popup, which can't be restyled with CSS, with a themed
+   listbox-button widget (WAI-ARIA "select-only combobox" pattern). The
+   trigger button inherits whatever class the original <select> had
+   (.field__control for a full-width form field, .booking-modal__timezone-select
+   for the compact inline picker) so it picks up that context's sizing for
+   free — only the button/listbox-specific chrome is defined here. */
+.custom-select {
+  /* No explicit width: a flex item (e.g. inside .field's column, or the
+     compact .booking-modal__timezone-override row) already gets the right
+     sizing from its parent's own layout — stretch to fill a full-width
+     field, or shrink to content in an inline row — without fighting it. */
+  display: block;
+  position: relative;
+}
+.custom-select__native {
+  /* Visually hidden but not display:none — stays a real, submittable form
+     field (FormData, form.reset()) while the custom widget carries all
+     visual and assistive-tech interaction (aria-hidden, tabindex="-1"). */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.custom-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  appearance: none;
+}
+.custom-select__trigger:hover {
+  border-color: var(--color-accent-warm);
+}
+.custom-select--open > .custom-select__trigger {
+  border-color: var(--color-primary);
+}
+.custom-select__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.custom-select__value--placeholder {
+  color: var(--color-text-secondary);
+}
+.custom-select__chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  transition: transform 0.15s ease;
+}
+.custom-select--open .custom-select__chevron {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-select__chevron {
+    transition: none;
+  }
+}
+.custom-select__listbox {
+  position: fixed;
+  z-index: 80;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 32px rgba(22, 2, 36, 0.16);
+  overflow-y: auto;
+}
+.custom-select__option {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+.custom-select__option--active {
+  background: var(--color-tint);
+}
+.custom-select__option--selected {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.custom-select__option[aria-disabled="true"] {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Phone field: country-code picker + 10-digit mobile number, side by side.
+   Used by the booking modal and the Free Preview form. */
+.phone-field__row {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+.phone-field__code {
+  flex: 0 0 7.5rem;
+  width: 7.5rem;
+}
+.phone-field__number {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+@media (max-width: 420px) {
+  .phone-field__code {
+    flex-basis: 6.5rem;
+    width: 6.5rem;
+  }
+}
+
+/* Country-select (assets/js/country-select.js) — a searchable variant of the
+   custom select above: flag + dial code trigger, with a search box inside
+   the popup panel to filter ~195 countries. Kept as its own component
+   (rather than a custom-select.js option) because it needs a real text
+   input for search, not just a listbox. */
+.country-select {
+  display: block;
+  position: relative;
+}
+.country-select__native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.country-select__trigger {
+  /* position: relative + z-index: 0 forces this native <button> into the
+     normal CSS paint order. Without it, Chromium was rendering it in a
+     layer above the phone field's absolutely-positioned floating label
+     regardless of DOM/stacking order — a known quirk with native form
+     controls (most commonly seen on <select>) — clipping the label's text
+     wherever the button's box happened to overlap it. */
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+  appearance: none;
+}
+.country-select__trigger:hover {
+  border-color: var(--color-accent-warm);
+}
+.country-select--open > .country-select__trigger {
+  border-color: var(--color-primary);
+}
+.country-select__flag {
+  font-size: 1.05em;
+  line-height: 1;
+}
+.country-select__code {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+.country-select__chevron {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: auto;
+  color: var(--color-text-secondary);
+  transition: transform 0.15s ease;
+}
+.country-select--open .country-select__chevron {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .country-select__chevron {
+    transition: none;
+  }
+}
+
+.country-select__panel {
+  position: fixed;
+  z-index: 80;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 32px rgba(22, 2, 36, 0.16);
+  overflow: hidden;
+}
+/* Not a plain `display: flex` on the base rule: that would tie in
+   specificity with the UA stylesheet's `[hidden] { display: none }" and,
+   since an author stylesheet wins that tie, the panel would render even
+   while `hidden` — it must only lay out flex when actually shown. */
+.country-select__panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+.country-select__search {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+.country-select__search:focus {
+  outline: none;
+  background: var(--color-tint);
+}
+.country-select__listbox {
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  overflow-y: auto;
+}
+.country-select__option {
+  /* No `display` here — see the identical note on .country-select__panel
+     above. A filtered-out option is hidden via the `hidden` attribute
+     (assets/js/country-select.js's filterOptions()); an unconditional
+     `display: flex` here would win the cascade tie against the UA
+     stylesheet's `[hidden] { display: none }` and render it anyway. */
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  cursor: pointer;
+}
+.country-select__option:not([hidden]) {
+  display: flex;
+}
+.country-select__option-flag {
+  flex-shrink: 0;
+  font-size: 1.05em;
+  line-height: 1;
+}
+.country-select__option-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.country-select__option-code {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+}
+.country-select__option--active {
+  background: var(--color-tint);
+}
+.country-select__option[aria-selected="true"] {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.country-select__option[aria-selected="true"] .country-select__option-code {
+  color: inherit;
+}
+.country-select__empty {
+  margin: 0;
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 
 /* Dialog — shared accessible primitive (native <dialog>, top-layer rendering).
@@ -345,27 +647,21 @@ dialog.more-drawer[open] {
   box-shadow: 0 8px 24px -18px rgba(18, 19, 24, 0.35);
 }
 
-/* Desktop: centered logo with nav flanking it on both sides. Both flanking
-   columns are equal 1fr tracks so the logo sits at true viewport-center;
-   item counts are balanced (4 links left, 4 links + 2 CTAs right) at the
-   data level (data/navigation.json) rather than in CSS, since the CTAs add
-   visual weight the left side doesn't carry. */
+/* Desktop: a single row — logo, then one inline nav, then Book a Call + the
+   CTA button pinned to the right (decluttered 2026-09-18 from an earlier
+   centered-logo/split-nav layout). The nav is a flex-1 item so it simply
+   claims the space between the logo and the actions; nothing needs to be
+   forced to an equal width, which is what caused the earlier wrapping bug. */
 .site-header__inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  height: 80px;
-  gap: var(--space-4);
-}
-
-.site-header__nav-left {
-  justify-self: start;
-}
-.site-header__right {
-  justify-self: end;
   display: flex;
   align-items: center;
+  height: 80px;
   gap: var(--space-5);
+}
+
+.site-header__nav {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .site-header__logo {
@@ -384,7 +680,7 @@ dialog.more-drawer[open] {
 .site-header__nav-list {
   list-style: none;
   display: flex;
-  gap: var(--space-5);
+  gap: var(--space-4);
   margin: 0;
   padding: 0;
 }
@@ -398,9 +694,10 @@ dialog.more-drawer[open] {
   text-decoration: none;
   color: var(--color-text);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.8375rem;
   padding-block: var(--space-2);
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 .site-header__nav-link:hover,
@@ -469,9 +766,171 @@ dialog.more-drawer[open] {
   }
 }
 
+/* Mega menu (Free Tools) — a wider two-pane flyout instead of the plain
+   link-list dropdown. The li itself goes back to `position: static` so the
+   panel positions off `.site-header` (sticky, the nearest positioned
+   ancestor, same as the plain dropdown) so the panel stays centred under
+   its own trigger rather than jumping to the header's right edge. */
+.site-header__dropdown--mega {
+  display: flex;
+  align-items: stretch;
+  width: min(44rem, calc(100vw - 2 * var(--container-padding)));
+  min-width: auto;
+  padding: 0;
+  overflow: hidden;
+}
+.site-header__nav-item--mega:hover .site-header__dropdown--mega,
+.site-header__nav-item--mega:focus-within .site-header__dropdown--mega {
+  transform: translate(-50%, 0);
+}
+
+.site-header__mega-tools {
+  flex: 1 1 60%;
+  padding: var(--space-3);
+  min-width: 0;
+}
+/* Compact 2-column tile grid (2026-09-18: the old vertical list of
+   icon+title+description+link rows ran to 5 dividers for Industries and
+   pushed the panel below the viewport fold). Each whole tile is now the
+   link — no separate "Learn more" line — and the description is clamped
+   to 2 lines so a card's height never depends on copy length. */
+ul.site-header__mega-list {
+  /* ul. prefix: needed to out-specificity the generic .site-header__dropdown
+     ul { display: flex } rule used by the plain link-list dropdowns, which
+     was otherwise silently winning over this class-only selector and
+     collapsing the grid back to a single column. */
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  display: grid;
+  /* minmax(0, 1fr), not plain 1fr: a bare 1fr track's automatic minimum is
+     its content's min-content, so a track can grow past its fair share
+     (and overflow the panel) rather than wrapping text — same overflow
+     class as the footer grid fix earlier in this project. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+a.site-header__mega-tool {
+  /* a. prefix: .site-header__dropdown a { white-space: nowrap } (for the
+     plain link-list dropdowns) out-specifies a class-only selector and was
+     inherited by this tile's title/description, clipping them to one
+     unwrapped line instead of wrapping within the tile. */
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  /* Not align-items: flex-start — a non-stretched flex item in a column
+     flex container hugs its own text's intrinsic width instead of
+     wrapping within the tile, which clipped descriptions mid-word. The
+     default (stretch) forces the title/description to the tile's full
+     width; the icon keeps its own fixed 1.75rem size regardless. */
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+a.site-header__mega-tool:hover,
+a.site-header__mega-tool:focus-visible {
+  background: var(--color-tint);
+  border-color: var(--color-border);
+  color: inherit;
+}
+.site-header__mega-tool-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  border-radius: var(--radius-sm);
+  background: var(--color-tint);
+  color: var(--color-primary);
+}
+.site-header__mega-tool-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent-warm);
+}
+.site-header__mega-tool-title {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+.site-header__mega-tool-desc {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--color-text-secondary);
+  /* Clamp, not truncate-with-ellipsis-only-at-1-line: 2 lines is enough to
+     read as a description while guaranteeing a fixed card height. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.site-header__mega-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-2);
+  width: 100%;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.site-header__mega-viewall:hover {
+  color: var(--color-accent-warm);
+}
+
+/* Promo panel: the reference's purple card, recoloured to our own ink/gold
+   system — --color-primary is already a deep violet-black, so this is a
+   token swap rather than a new colour. Accent gold as running text on this
+   dark panel clears AA (docs/tokens.css); the CTA keeps the sitewide
+   dark-ink-on-accent-gold button treatment. */
+.site-header__mega-promo {
+  flex: 1 1 40%;
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.site-header__mega-promo-eyebrow {
+  margin: 0 0 var(--space-2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.site-header__mega-promo-heading {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  color: #fff;
+}
+.site-header__mega-promo-body {
+  margin: 0 0 var(--space-4);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--text-sm);
+}
+.site-header__mega-promo-cta {
+  align-self: flex-start;
+}
+
 .site-header__actions {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: var(--space-4);
 }
 .site-header__book {
@@ -490,23 +949,23 @@ dialog.more-drawer[open] {
 .site-header__preview {
   padding-inline: var(--space-4);
   font-weight: 700;
+  white-space: nowrap;
 }
 
-/* 1249px, not 767px: the nav (two flanking groups + dropdowns) + CTAs don't
-   fit in the header until ~1080px, so tablet and small-laptop widths drop
-   the nav AND both header CTAs entirely — the fixed bottom tab bar (with
-   its own "Free Preview" tab) and its "More" drawer (with "Book a Call")
-   carry navigation and conversion instead, so the header is just a centered
-   logo (docs/13 header restructure, 2026-09-18; CTAs removed 2026-09-18). */
-@media (max-width: 1249px) {
+/* 1399px, not 767px: the single-row nav (5 items, 2 of them mega menus)
+   plus Book a Call + the CTA button don't fit until ~1400px, so tablet and
+   small-laptop widths drop the nav AND both header CTAs entirely — the
+   fixed bottom tab bar (with its own "Free Preview" tab) and its "More"
+   drawer (with "Book a Call") carry navigation and conversion instead, so
+   the header is just a centered logo (docs/13 header restructure,
+   2026-09-18; single-row declutter 2026-09-18). */
+@media (max-width: 1399px) {
   .site-header__inner {
-    display: flex;
     justify-content: center;
-    align-items: center;
     height: 68px;
   }
-  .site-header__nav-left,
-  .site-header__right {
+  .site-header__nav,
+  .site-header__actions {
     display: none;
   }
   .site-header__logo-image {
@@ -521,7 +980,7 @@ dialog.more-drawer[open] {
 .tab-bar {
   display: none;
 }
-@media (max-width: 1249px) {
+@media (max-width: 1399px) {
   .tab-bar {
     display: block;
     position: fixed;
@@ -605,10 +1064,8 @@ dialog.more-drawer[open] {
 }
 .site-footer__wordmark {
   display: block;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: var(--text-h4);
-  color: #fff;
+  height: 50px;
+  width: auto;
   margin-bottom: var(--space-3);
 }
 .site-footer__statement {
@@ -1043,6 +1500,9 @@ a.portfolio-grid__item:hover {
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   margin-bottom: var(--space-4);
 }
+.free-preview-form__grid .field--wide {
+  grid-column: span 2;
+}
 .free-preview-form__submit-error {
   margin-top: var(--space-3);
 }
@@ -1066,36 +1526,129 @@ a.portfolio-grid__item:hover {
   padding: var(--space-4);
 }
 
-/* Booking modal (untouched this pass — visual refresh documented for later, docs/13 §11) */
+/* Booking modal — elegant, single-glance layout: wide enough that every
+   step's content (steps 1–4) fits without an internal scrollbar on typical
+   viewports. overflow-y stays as a safety net only for very short viewports
+   (e.g. landscape mobile), not as the intended fit strategy. */
 dialog.booking-modal {
-  max-width: 40rem;
-  width: 92vw;
-  max-height: 88vh;
+  max-width: 46rem;
+  width: 94vw;
+  max-height: min(90vh, 44rem);
+  border-radius: var(--radius-md);
 }
 .booking-modal__panel {
-  max-height: 88vh;
+  max-height: min(92vh, 44rem);
   overflow-y: auto;
+  padding: var(--space-3) var(--space-5) var(--space-3);
+}
+.booking-modal__header {
+  align-items: flex-start;
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.booking-modal__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.booking-modal__title {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  margin: 0;
 }
 .booking-modal__demo-notice {
-  background: var(--color-tint);
-  border-radius: var(--radius-sm);
-  padding: var(--space-3);
-  font-size: var(--text-sm);
-  color: var(--color-text);
-}
-.booking-modal__steps {
   display: flex;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  list-style: none;
-  margin: var(--space-3) 0;
-  padding: 0;
-  font-size: var(--text-sm);
+  gap: 6px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
   color: var(--color-text-secondary);
 }
-.booking-modal__steps li[aria-current="step"] {
-  color: var(--color-primary);
+.booking-modal__demo-badge {
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--color-tint);
+  color: var(--color-accent-warm);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Stepper: numbered circles joined by a connecting line, current step
+   filled solid so progress reads at a glance without needing "completed"
+   state tracking. */
+.booking-modal__steps {
+  display: flex;
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+}
+.booking-modal__steps li {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.booking-modal__steps li::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: calc(50% + 20px);
+  width: calc(100% - 40px);
+  height: 1px;
+  background: var(--color-border);
+}
+.booking-modal__steps li:last-child::after {
+  display: none;
+}
+.booking-modal__step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 12.5px;
+  font-weight: 700;
+  z-index: 1;
+}
+.booking-modal__step-label {
+  font-size: 12px;
   font-weight: 600;
+  color: var(--color-text-secondary);
+}
+.booking-modal__steps li[aria-current="step"] .booking-modal__step-num {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+.booking-modal__steps li[aria-current="step"] .booking-modal__step-label {
+  color: var(--color-primary);
+}
+
+.booking-modal__step-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.booking-modal__step-head h3 {
+  margin: 0;
 }
 .booking-modal__timezone {
   font-size: var(--text-sm);
@@ -1103,30 +1656,282 @@ dialog.booking-modal {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-2) var(--space-3);
+  margin: 0;
 }
+.booking-modal__timezone strong {
+  color: var(--color-text);
+}
+.booking-modal__timezone-override {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.booking-modal__timezone-select {
+  min-height: 32px;
+  padding: 2px var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 12.5px;
+}
+.booking-modal__selected-date {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
 .booking-modal__options {
   display: grid;
   gap: var(--space-2);
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  margin: var(--space-3) 0;
+  margin: 0 0 var(--space-4);
+}
+.booking-modal__options--dates {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.booking-modal__options--slots {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .booking-modal__option {
-  min-height: 44px;
+  min-height: 48px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
   font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 .booking-modal__option:hover {
+  border-color: var(--color-accent-warm);
+  background: var(--color-tint);
+}
+.booking-modal__option[aria-selected="true"] {
   border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+.booking-modal__step-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Details step: two-column grid so seven fields fit without scrolling;
+   .field's default max-width: 28rem (sized for single-column page forms)
+   is dropped here so each field can fill its grid cell. */
+.booking-modal__form {
+  display: grid;
+  /* minmax(0, 1fr), not plain 1fr: a bare 1fr track's automatic minimum is
+     its content's min-content (e.g. the unbroken "Mobile number (with
+     country code) *" label), which was forcing the grid — and the dialog
+     itself — wider than the viewport on narrow phones. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px var(--space-3);
+}
+.booking-modal__form h3 {
+  margin-bottom: 6px;
+}
+.booking-modal__form .field {
+  max-width: none;
+  gap: 4px;
+}
+.booking-modal__form .field__control {
+  min-height: 40px;
+  padding: var(--space-1) var(--space-2);
+}
+.booking-modal__form textarea.field__control {
+  min-height: auto;
+}
+
+/* Floating labels: label sits inside the field until the field is focused
+   or holds a value, then slides up onto the border — Material-style, no JS.
+   Uses :has() (not a label-after-input + sibling selector) so the label can
+   stay first in the DOM, ahead of the input, for screen readers.
+   :placeholder-shown (with placeholder=" " on every control) is the
+   "is this field empty" check. */
+.booking-modal__form .field--floating {
+  position: relative;
+  padding-top: 6px;
+}
+.booking-modal__form .field--floating .field__label {
+  position: absolute;
+  /* Without an explicit z-index, this (position:absolute, z-index:auto)
+     ties with the phone field's row — a flex container, whose items paint
+     as though positioned even though they're position:static — and the
+     later-in-DOM row wins that tie, so its "IN +91" trigger button painted
+     over the label. An explicit z-index above 0 settles it. */
+  z-index: 1;
+  left: 8px;
+  top: calc(50% + 3px);
+  transform: translateY(-50%);
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.775rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  background: transparent;
+  padding: 0 4px;
+  pointer-events: none;
+  transition: top 0.15s ease, transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.booking-modal__form .field--floating:has(.field__control:focus) .field__label,
+.booking-modal__form .field--floating:has(.field__control:not(:placeholder-shown)) .field__label {
+  top: 6px;
+  transform: translateY(-50%);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+.booking-modal__form .field--floating .field__control {
+  padding-left: 10px;
+}
+.booking-modal__form .field--floating textarea.field__control {
+  padding-top: var(--space-2);
+}
+.booking-modal__form .field--full,
+.booking-modal__form .field__hint,
+.booking-modal__form .booking-modal__form-actions,
+.booking-modal__form .booking-modal__submit-error {
+  grid-column: 1 / -1;
+}
+
+/* The phone field's label lives inside a wrapper around just the number
+   input (.phone-field__number-wrap), not the whole row — earlier this sat
+   over the row's country-code control too, but that control's value is
+   never "empty" the way a blank text input is (a default country is
+   always pre-selected), so the shared floating-label rule's :has(...
+   :not(:placeholder-shown)) was always true for it and the label was
+   permanently stuck in its floated position instead of resting inside the
+   empty field like every other label does. Scoping the label — and the
+   :has() check — to the number input alone fixes both: it now rests inside
+   the empty input exactly like "Full name" etc., and only floats
+   transiently on focus/fill. */
+.booking-modal__form .phone-field__number-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 6px;
+}
+.booking-modal__form .phone-field__number-wrap .field__label {
+  position: absolute;
+  z-index: 1;
+  left: 8px;
+  top: calc(50% + 3px);
+  transform: translateY(-50%);
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.775rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  background: transparent;
+  padding: 0 4px;
+  pointer-events: none;
+  transition: top 0.15s ease, transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.booking-modal__form .phone-field__number-wrap:has(.field__control:focus) .field__label,
+.booking-modal__form .phone-field__number-wrap:has(.field__control:not(:placeholder-shown)) .field__label {
+  top: 6px;
+  transform: translateY(-50%);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+.booking-modal__form .phone-field__number-wrap .field__control {
+  padding-left: 10px;
+}
+/* The wrap's own padding-top (reserved for the label's floated overhang,
+   like every other field) makes it 6px taller than the country-code
+   control beside it — align them to the bottom instead of stretching, so
+   the two boxes still read as one continuous row. */
+.booking-modal__form .phone-field__row {
+  align-items: flex-end;
 }
 .booking-modal__form-actions {
   display: flex;
   gap: var(--space-3);
-  margin-top: var(--space-3);
+  margin-top: 2px;
+}
+.booking-modal__form .field__hint {
+  margin-top: -4px;
+}
+
+.booking-modal__confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 26rem;
+  margin: var(--space-3) auto;
+  padding: var(--space-4) 0;
+  text-align: center;
+}
+.booking-modal__confirmation-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-tint);
+  color: var(--color-accent-warm);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.booking-modal__confirmation h3 {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .booking-modal__options--dates,
+  .booking-modal__options--slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* The phone field (country code + 10-digit number, side by side) needs
+     more room than a half-width grid column gives it below tablet width —
+     span the full row rather than squeeze next to "Country" there. */
+  .booking-modal__form .phone-field {
+    grid-column: 1 / -1;
+  }
+  .booking-modal__title {
+    font-size: 1.1rem;
+  }
+  .booking-modal__demo-notice {
+    font-size: 11.5px;
+  }
+  .booking-modal__header {
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  .booking-modal__steps {
+    margin-bottom: var(--space-3);
+  }
+  .booking-modal__form {
+    gap: 4px var(--space-2);
+  }
+  .booking-modal__form textarea.field__control {
+    min-height: 36px;
+  }
+  .booking-modal__demo-notice {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  .booking-modal__demo-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+@media (max-width: 340px) {
+  .booking-modal__form {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Component gallery — Phase 2 diagnostic only, not production UI */

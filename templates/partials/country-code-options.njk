@@ -1,0 +1,10 @@
+{# Shared <option> list for the country-code half of the phone field (booking
+   modal + Free Preview form), sourced from data/country-codes.json so the
+   ~195-country list is written once. Flags are added client-side from the
+   iso2 code by assets/js/country-select.js — a native <option> can't render
+   an emoji flag reliably, so this stays plain text for the no-JS fallback. #}
+{% macro options(countryCodes) %}
+{% for c in countryCodes.countries %}
+<option value="{{ c.dialCode }}" data-iso2="{{ c.iso2 }}" data-name="{{ c.name }}"{% if c.iso2 == countryCodes.defaultIso2 %} selected{% endif %}>{{ c.name }} ({{ c.dialCode }})</option>
+{% endfor %}
+{% endmacro %}

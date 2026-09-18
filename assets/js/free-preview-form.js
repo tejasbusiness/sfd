@@ -3,10 +3,13 @@
 // exists yet — wiring this to a secure backend is a later phase — and per
 // docs/04-page-blueprints.md it must never claim to guarantee a preview.
 
+import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
+
 const REQUIRED_FIELDS = [
   'fullName',
   'email',
-  'phone',
+  'countryCode',
+  'mobileNumber',
   'businessName',
   'country',
   'city',
@@ -21,8 +24,8 @@ function validate(data) {
     if (!String(data[field] || '').trim()) errors[field] = 'This field is required.';
   });
   if (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) errors.email = 'Enter a valid email address.';
-  if (data.phone && !/^\+?[0-9()\-\s]{7,}$/.test(data.phone)) {
-    errors.phone = 'Enter a valid phone number with country code.';
+  if (data.mobileNumber && !isValidMobileNumber(data.mobileNumber)) {
+    errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
   }
   if (!data.consent) errors.consent = 'Please confirm before submitting.';
   return errors;
@@ -35,6 +38,8 @@ async function mockSubmitApplication() {
 
 export function initFreePreviewForm(form) {
   if (!form) return;
+
+  initPhoneInputs(form);
 
   const submitButton = form.querySelector('[data-free-preview-submit]');
   const submitError = form.querySelector('[data-submit-error]');

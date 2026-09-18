@@ -2,7 +2,7 @@
 
 ## CTA label
 
-Use exactly: **Book a 15-Minute Call**.
+Use exactly: **Book a Free 30-Minute Discovery Call**.
 
 Every sitewide booking CTA opens the same accessible modal. `/book-a-call/` provides a direct, shareable fallback using the same booking component.
 
@@ -65,7 +65,7 @@ No Google or n8n secret may appear in frontend code.
 - Created timestamp.
 - Call date, start and end.
 - Visitor timezone and SFD timezone.
-- Full name, email and phone.
+- Full name, email, country code and mobile number (two separate columns, not one combined phone column).
 - Business name, website, country and message.
 - Source page and campaign/UTM values.
 - Google Event ID.

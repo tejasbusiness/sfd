@@ -15,8 +15,8 @@
 - USA, Canada, Australia, New Zealand, Germany and other European markets.
 - USD-only pricing.
 - Public monthly pricing.
-- Primary CTA: Request Your Free Website Preview.
-- Immediate CTA: Book a 15-Minute Call.
+- Primary CTA: Request Your Free Preview Website.
+- Immediate CTA: Book a Free 30-Minute Discovery Call.
 - Google Meet booking, Calendar event and Google Sheets record.
 - SEO/AI/WhatsApp/automation presented as upgrades.
 

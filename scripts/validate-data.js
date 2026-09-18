@@ -12,7 +12,7 @@ const REQUIRED_SEO_FIELDS = ['title', 'metaDescription', 'ogTitle', 'ogDescripti
 const REQUIRED_SHARED_FILES = ['site.json', 'company.json', 'navigation.json', 'footer.json', 'theme.json'];
 // Loaded and TBD-scanned when present, but a build doesn't need every page type
 // (e.g. the build-check diagnostic page needs none of these), so they're optional.
-const OPTIONAL_SHARED_FILES = ['plans.json', 'faqs.json', 'testimonials.json'];
+const OPTIONAL_SHARED_FILES = ['plans.json', 'faqs.json', 'testimonials.json', 'country-codes.json'];
 
 function loadJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');

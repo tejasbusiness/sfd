@@ -5,6 +5,8 @@
 // via the secure n8n workflow documented in docs/12-booking-integration-contract.md.
 // This file never calls Google APIs and never holds a credential (CLAUDE.md rule 11).
 
+import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
+
 const STEPS = ['date', 'slot', 'details', 'confirmation'];
 const MOCK_SLOT_TIMES = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00'];
 
@@ -93,6 +95,7 @@ export function initBookingModal(dialogEl) {
       button.textContent = formatDate(date);
       button.addEventListener('click', () => {
         state.selectedDate = date;
+        [...datesEl.children].forEach((el) => el.setAttribute('aria-selected', el === button ? 'true' : 'false'));
         selectedDateEl.textContent = `${formatDate(date)} — ${state.timezone}`;
         renderSlots();
         showStep('slot');
@@ -111,6 +114,7 @@ export function initBookingModal(dialogEl) {
       button.textContent = time;
       button.addEventListener('click', () => {
         state.selectedTime = time;
+        [...slotsEl.children].forEach((el) => el.setAttribute('aria-selected', el === button ? 'true' : 'false'));
         state.idempotencyKey = crypto.randomUUID();
         showStep('details');
       });
@@ -122,8 +126,10 @@ export function initBookingModal(dialogEl) {
     const errors = {};
     if (!data.fullName.trim()) errors.fullName = 'Full name is required.';
     if (!/^\S+@\S+\.\S+$/.test(data.email)) errors.email = 'Enter a valid email address.';
-    if (!/^\+?[0-9()\-\s]{7,}$/.test(data.phone)) errors.phone = 'Enter a valid phone number with country code.';
+    if (!data.countryCode) errors.countryCode = 'Select a country code.';
+    if (!isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
     if (!data.businessName.trim()) errors.businessName = 'Business name is required.';
+    if (!data.message.trim()) errors.message = 'Tell us a bit about what you need — it helps us prepare for the call.';
     return errors;
   }
 
@@ -185,7 +191,7 @@ export function initBookingModal(dialogEl) {
 
         confirmationSummary.textContent =
           `${formatDate(state.selectedDate)} at ${state.selectedTime} (${state.timezone}) — ` +
-          `confirmation will be sent to ${data.email}.`;
+          `confirmation will be sent to ${data.email} and ${data.countryCode} ${data.mobileNumber}.`;
         showStep('confirmation');
       } catch (err) {
         // Safe retry: idempotencyKey is unchanged, so resubmitting reuses the same
@@ -208,6 +214,7 @@ export function initBookingModal(dialogEl) {
     showStep('date');
   });
 
+  initPhoneInputs(dialogEl);
   renderTimezone();
   renderDates();
   showStep('date');

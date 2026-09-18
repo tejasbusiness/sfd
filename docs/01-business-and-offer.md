@@ -24,7 +24,7 @@ SFD serves non-Indian businesses, initially focusing on the USA, Canada, Austral
 
 Do not imply that SFD is physically located in the prospect's country. Company and legal information must be transparent. Recommended public wording:
 
-> A remote digital team helping local businesses across the United States, Canada, Australia, New Zealand and Europe.
+> We build and manage conversion-focused websites for local businesses—starting with a free preview website, you can review before you commit.
 
 ## Core promise
 
@@ -40,8 +40,8 @@ Final marketing copy may improve this wording but must preserve the promise.
 
 ## Conversion hierarchy
 
-1. **Request Your Free Website Preview** — primary CTA.
-2. **Book a 15-Minute Call** — immediate human-contact CTA.
+1. **Request Your Free Preview Website** — primary CTA.
+2. **Book a Free 30-Minute Discovery Call** — immediate human-contact CTA.
 3. **See How It Works** — education CTA.
 4. **View Websites** — proof CTA.
 

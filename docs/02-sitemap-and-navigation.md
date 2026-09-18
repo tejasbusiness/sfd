@@ -12,7 +12,7 @@
 - Contact
 - CTA: Get a Free Preview
 
-The persistent header also exposes **Book a 15-Minute Call** without overwhelming the primary CTA. On smaller screens, both actions must remain easy to find.
+The persistent header also exposes **Book a Free 30-Minute Discovery Call** without overwhelming the primary CTA. On smaller screens, both actions must remain easy to find.
 
 ## Canonical URL map
 
@@ -71,7 +71,7 @@ Desktop recommendation:
 
 - Logo on left.
 - Main navigation in the center or right.
-- Text or secondary button: Book a 15-Minute Call.
+- Text or secondary button: Book a Free 30-Minute Discovery Call.
 - Primary filled button: Get a Free Preview.
 
 Mobile recommendation:

@@ -38,7 +38,8 @@ Request body:
   "timezone": "America/New_York",
   "fullName": "Jane Doe",
   "email": "jane@example.com",
-  "phone": "+1 555 0100",
+  "countryCode": "+1",
+  "mobileNumber": "5550100",
   "businessName": "Doe Plumbing",
   "website": "",
   "country": "",
@@ -64,7 +65,7 @@ Slot-taken response (`409`, not an HTTP error the frontend treats as a hard fail
 { "ok": false, "reason": "slot_unavailable" }
 ```
 
-Backend responsibilities on this endpoint: recheck the specific slot immediately before creating anything; if free, create the 15-minute Calendar event with a unique Google Meet conference, add the visitor as an attendee, append a row to Google Sheets (see column list in `docs/07-booking-engine.md`), and return the confirmation. Server-side validation of email/phone and rate limiting happen here too — the frontend's validation in `booking.js` is a UX convenience, not the security boundary.
+Backend responsibilities on this endpoint: recheck the specific slot immediately before creating anything; if free, create the 15-minute Calendar event with a unique Google Meet conference, add the visitor as an attendee, append a row to Google Sheets (see column list in `docs/07-booking-engine.md`), and return the confirmation. Server-side validation of email/country code/mobile number and rate limiting happen here too — the frontend's validation in `booking.js` is a UX convenience, not the security boundary.
 
 ## Not yet defined here (still BLOCKING per docs/10)
 

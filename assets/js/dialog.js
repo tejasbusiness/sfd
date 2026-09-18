@@ -7,6 +7,10 @@ export function setupDialog(dialogEl) {
 
   function open(trigger) {
     triggerEl = trigger || document.activeElement;
+    // showModal() does not stop the page behind it from scrolling in most
+    // browsers — without this, a tall dialog shows both its own scrollbar
+    // and the document's, stacked side by side.
+    document.body.classList.add('has-open-dialog');
     dialogEl.showModal();
   }
 
@@ -15,6 +19,7 @@ export function setupDialog(dialogEl) {
   }
 
   dialogEl.addEventListener('close', () => {
+    document.body.classList.remove('has-open-dialog');
     if (triggerEl && typeof triggerEl.focus === 'function') {
       triggerEl.focus();
     }

@@ -17,10 +17,16 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
 }
+/* Locks the page's own scrollbar while a <dialog> is open (assets/js/dialog.js)
+   — native showModal() doesn't do this on its own, so without it a tall
+   dialog shows two scrollbars: the page's and the dialog panel's. */
+body.has-open-dialog {
+  overflow: hidden;
+}
 
 /* Reserve space for the fixed bottom tab bar (components.css .tab-bar) so
    it never overlaps the footer or a page's last section content. */
-@media (max-width: 1249px) {
+@media (max-width: 1399px) {
   body {
     padding-bottom: calc(58px + env(safe-area-inset-bottom));
   }

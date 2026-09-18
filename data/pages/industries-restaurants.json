@@ -18,8 +18,8 @@
       "type": "hero",
       "eyebrow": "For Restaurants & Hospitality",
       "subheading": "Most diners decide where to eat from their phone, in under a minute. Your website needs to answer the three questions that matter — what, when and how to book — instantly.",
-      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
       "type": "feature-grid",
@@ -56,14 +56,14 @@
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
       "itemIds": ["cost", "term", "timing", "cancellation"]
     },
     {
       "type": "free-preview-cta",
       "heading": "See what a restaurant website preview looks like.",
       "body": "Apply for a complimentary preview — most restaurants start on our Website Essential or Website Growth plan depending on whether ongoing marketing support is needed, and we'll confirm the right fit for you.",
-      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage", "FAQPage", "Service"],
