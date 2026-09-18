@@ -28,12 +28,12 @@ Required:
 - Email address.
 - Mobile number with international country code.
 - Business name.
+- Message (used as context for the Google Meet call).
 
 Optional:
 
 - Existing website.
 - Country.
-- Message.
 - Service interest.
 
 ### Step 4: Confirmation
