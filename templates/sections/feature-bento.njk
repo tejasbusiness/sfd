@@ -1,0 +1,50 @@
+{# Homepage-only "what's included" bento (docs/13 §8.5). feature-grid.njk stays
+   untouched for How It Works' use of the plain "feature-grid" type. #}
+<section class="section feature-bento">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="feature-bento__grid">
+      <div class="card feature-bento__large" data-reveal>
+        <h3>{{ section.large.title }}</h3>
+        <p>{{ section.large.body }}</p>
+      </div>
+      {% for item in section.items %}
+      <div class="card feature-bento__item" data-reveal>
+        <div class="feature-bento__visual" aria-hidden="true">
+          {% if loop.index == 1 %}
+          <span class="micro-status"><span class="micro-status__dot"></span>Live &middot; SSL Secured</span>
+          {% elif loop.index == 2 %}
+          <span class="micro-chart">
+            <span class="micro-chart__bar" style="height: 40%"></span>
+            <span class="micro-chart__bar" style="height: 65%"></span>
+            <span class="micro-chart__bar" style="height: 50%"></span>
+            <span class="micro-chart__bar" style="height: 85%"></span>
+          </span>
+          {% elif loop.index == 3 %}
+          <span class="micro-calendar">
+            <span class="micro-calendar__header">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 2.1l4 4-4 4M3 12.7v-2a4 4 0 014-4h14M7 21.9l-4-4 4-4M21 11.3v2a4 4 0 01-4 4H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="micro-calendar__date">15</span>
+          </span>
+          {% elif loop.index == 4 %}
+          <span class="micro-search">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+            <span class="micro-search__bar"></span>
+            <span class="micro-search__rank">#1</span>
+          </span>
+          {% else %}
+          <span class="micro-devices">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="15" height="11" rx="1"/><path d="M8 19h6" stroke-linecap="round"/></svg>
+            <svg width="12" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="2"/></svg>
+          </span>
+          {% endif %}
+        </div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

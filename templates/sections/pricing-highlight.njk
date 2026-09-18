@@ -1,0 +1,39 @@
+{# Homepage-only redesigned pricing summary (docs/13 §8.8). pricing-summary.njk
+   stays the template for the actual Pricing page (only a minimal, non-visual
+   null-price fix was applied there, shared via plans.json). #}
+<section class="section pricing-highlight">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="pricing-highlight__plans">
+      {% for plan in plans.plans %}
+      <div class="card pricing-highlight__plan {{ 'pricing-highlight__plan--recommended' if plan.recommended else '' }}" data-reveal>
+        {% if plan.recommended %}<p class="pricing-highlight__tag">★ Most Popular</p>{% endif %}
+        <h3>{{ plan.name }}</h3>
+        {% if plan.idealFor %}<p class="pricing-highlight__ideal-for">{{ plan.idealFor }}</p>{% endif %}
+        {% if plan.priceMonthly %}
+        <p class="pricing-highlight__price">{{ plan.priceMonthly }}<span>/mo</span></p>
+        {% endif %}
+        <p>{{ plan.summary }}</p>
+        <ul class="pricing-highlight__includes">
+          {% for item in plan.includes %}
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+        <a
+          class="button {{ 'button--accent' if plan.recommended else 'button--secondary' }} pricing-highlight__plan-cta"
+          href="/free-preview/"
+        >Get Started Now!</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% if section.cta %}
+    <p class="pricing-highlight__more"><a href="{{ section.cta.href }}">{{ section.cta.label }} <span class="pricing-highlight__more-arrow" aria-hidden="true">&rarr;</span></a></p>
+    {% endif %}
+  </div>
+</section>

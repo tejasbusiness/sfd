@@ -1,0 +1,119 @@
+{# Homepage-only redesigned hero (docs/13 §8.1). The "hero" type/template used by
+   How It Works and Pricing is untouched — this is a separate type on purpose. #}
+<section class="section hero-split">
+  <div class="container grid-12 hero-split__grid">
+    <div class="hero-split__content col-span-7" data-reveal>
+      <p class="eyebrow">{{ section.eyebrow }}</p>
+      <h1>{{ page.h1 | safe }}</h1>
+      <p class="hero-split__subheading">{{ section.subheading }}</p>
+      {% if section.qualificationNote %}<p class="hero-split__note">{{ section.qualificationNote }}</p>{% endif %}
+      <div class="hero-split__actions">
+        <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+        {% if section.secondaryCta %}
+        <a
+          class="button button--secondary"
+          href="{{ section.secondaryCta.href }}"
+          {% if section.secondaryCta.dialogTarget %}data-dialog-target="{{ section.secondaryCta.dialogTarget }}"{% endif %}
+        >{{ section.secondaryCta.label }}</a>
+        {% endif %}
+      </div>
+      {% if section.stats %}
+      <div class="hero-split__stats">
+        {% for stat in section.stats %}
+        <div class="hero-split__stat">
+          <span class="hero-split__stat-value">{{ stat.value }}</span>
+          <span class="hero-split__stat-label">{{ stat.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="hero-split__visual col-span-5 col-start-8" data-reveal>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual__before">
+          <p class="hero-visual__tag hero-visual__tag--before">Before</p>
+          <div class="browser-frame browser-frame--muted">
+            <div class="browser-frame__bar">
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+            </div>
+            <div class="browser-frame__body browser-frame__body--before">
+              <div class="mock-before__nav">HOME&nbsp;&nbsp;ABOUT&nbsp;&nbsp;SERVICES&nbsp;&nbsp;CONTACT</div>
+              <p class="mock-before__heading">Welcome To Our Company</p>
+              <div class="hero-visual__line"></div>
+              <div class="hero-visual__line hero-visual__line--short"></div>
+              <span class="mock-before__button">Contact Us</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual__arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="hero-visual__after">
+          <p class="hero-visual__tag hero-visual__tag--after">After</p>
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__address">yourbusiness.com</span>
+            </div>
+            <div class="browser-frame__body">
+              <div class="mock-site__nav">
+                <span class="mock-site__logo">Your Business</span>
+                <span class="mock-site__nav-links">Services&nbsp;&nbsp;Reviews&nbsp;&nbsp;Contact</span>
+                <span class="mock-site__cta">Call Now</span>
+              </div>
+              <div class="mock-site__hero">
+                <div class="mock-site__hero-text">
+                  <p class="mock-site__hero-heading">Reliable Service,<br>Done Right</p>
+                  <p class="mock-site__hero-sub">Fast quotes. Friendly local team.</p>
+                  <span class="mock-site__hero-button">Get a Free Quote</span>
+                </div>
+                <div class="mock-site__hero-image">
+                  <img src="/assets/images/hero-photo.jpg" alt="" width="1400" height="1700" loading="eager">
+                </div>
+              </div>
+              <div class="mock-site__trust">
+                <span>✓ Licensed &amp; Insured</span>
+                <span>✓ Free Quotes</span>
+                <span>✓ Same-Day Service</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-frame">
+            <div class="phone-frame__notch"></div>
+            <div class="phone-frame__body">
+              <div class="mock-site__nav mock-site__nav--mobile">
+                <span class="mock-site__logo mock-site__logo--sm">Your Business</span>
+                <span class="phone-frame__menu-icon"></span>
+              </div>
+              <div class="mock-site__hero-image mock-site__hero-image--mobile">
+                <img src="/assets/images/hero-photo.jpg" alt="" width="1400" height="1700" loading="eager">
+              </div>
+              <p class="mock-site__hero-heading mock-site__hero-heading--sm">Reliable Service, Done Right</p>
+              <span class="mock-site__hero-button mock-site__hero-button--sm">Get a Free Quote</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual__chip">
+          <svg class="hero-visual__chip-ring" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+            <circle cx="13" cy="13" r="10" fill="none" stroke="var(--color-border)" stroke-width="3" />
+            <circle cx="13" cy="13" r="10" fill="none" stroke="var(--color-accent)" stroke-width="3"
+              stroke-dasharray="62.8" stroke-dashoffset="35.9" stroke-linecap="round"
+              transform="rotate(-90 13 13)" />
+          </svg>
+          <span class="hero-visual__chip-text">Day 3 of 7 — private preview</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

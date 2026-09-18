@@ -1,0 +1,14 @@
+<section class="section {{ 'section--tinted' if section.tinted else '' }} feature-grid">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="feature-grid__items">
+      {% for item in section.items %}
+      <div class="card feature-grid__item" data-reveal>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

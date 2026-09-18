@@ -1,0 +1,19 @@
+{# Homepage industries bento (docs/13 §8.4). Only used by the homepage today.
+   Tiles are deliberately not links yet — none of the five industry pages exist
+   until Phase 4, and docs/13 §amendment-6 forbids shipping links that 404.
+   `item.href` is kept in the data as the documented future destination. #}
+<section class="section industry-links">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="industry-links__grid">
+      {% for item in section.items %}
+      <div class="card industry-links__item industry-links__item--{{ item.size }}" data-reveal>
+        <span class="industry-links__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+        <h3>{{ item.label }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

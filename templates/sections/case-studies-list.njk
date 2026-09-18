@@ -1,0 +1,26 @@
+{# Same honest-empty-state approach as portfolio-grid.njk — CLAUDE.md rule 13
+   forbids inventing case-study results, and docs/04 §Websites/Portfolio warns
+   against publishing thin near-duplicate pages, so no detail pages exist
+   until section.items has real, verified case studies to link to. #}
+<section class="section">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    {% if section.items and section.items.length %}
+    <div class="portfolio-grid__items">
+      {% for item in section.items %}
+      <a class="card portfolio-grid__item" href="{{ item.href }}" data-reveal>
+        {% if item.industryLabel %}<p class="eyebrow">{{ item.industryLabel }}</p>{% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card portfolio-grid__empty" data-reveal>
+      <p>{{ section.emptyMessage or "Full case studies — starting situation, strategy and verified outcome — are published here once a client authorizes sharing their results. None are ready to publish yet." }}</p>
+      <a class="button button--primary" href="/free-preview/">Request Your Free Website Preview</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

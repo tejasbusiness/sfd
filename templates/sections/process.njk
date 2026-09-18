@@ -1,0 +1,17 @@
+<section class="section {{ 'section--tinted' if section.tinted else '' }} process">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <ol class="process__list">
+      {% for step in section.steps %}
+      <li class="process__step" data-reveal>
+        <span class="process__index" aria-hidden="true">{{ loop.index }}</span>
+        <div class="process__content">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.body }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,75 @@
+{
+  "_scaffold": "Real docs/02-sitemap-and-navigation.md nav items are added as their pages are built. About, Resources and Contact are still missing (Phase 8), so they're intentionally left out rather than linking to pages that don't exist yet. The build-check diagnostic page is deliberately excluded from real navigation.",
+  "_structure": "Desktop header (docs/13 header restructure, 2026-09-18): centered logo with primaryLeft/primaryRight flanking it; items with a `children` array render as a hover/click dropdown. Tablet/mobile (<1080px) replaces the horizontal nav with a fixed bottom tab bar (`tabBar`) plus a right-side \"More\" drawer (`more`) reached via the tab bar's last slot.",
+  "primaryLeft": [
+    { "label": "Home", "path": "/" },
+    { "label": "How It Works", "path": "/how-it-works/" }
+  ],
+  "primaryRight": [
+    {
+      "label": "Industries",
+      "path": "/industries/",
+      "children": [
+        { "label": "Home Services", "path": "/industries/home-services/" },
+        { "label": "Restaurants", "path": "/industries/restaurants/" },
+        { "label": "Healthcare", "path": "/industries/healthcare/" },
+        { "label": "Financial Services", "path": "/industries/financial-services/" },
+        { "label": "Professional Services", "path": "/industries/professional-services/" }
+      ]
+    },
+    {
+      "label": "Websites",
+      "path": "/websites/",
+      "children": [
+        { "label": "Portfolio", "path": "/websites/portfolio/" },
+        { "label": "Case Studies", "path": "/websites/case-studies/" }
+      ]
+    },
+    { "label": "Pricing", "path": "/pricing/" }
+  ],
+  "tabBar": [
+    {
+      "label": "Home",
+      "path": "/",
+      "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+    },
+    {
+      "label": "How It Works",
+      "path": "/how-it-works/",
+      "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9.5 9.2a2.5 2.5 0 014.9.8c0 1.7-2.4 2-2.4 3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"12\" cy=\"17\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/></svg>"
+    },
+    {
+      "label": "Free Preview",
+      "path": "/free-preview/",
+      "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z\" stroke-linejoin=\"round\"/><path d=\"M19 15l0.8 2.2L22 18l-2.2 0.8L19 21l-0.8-2.2L16 18l2.2-0.8L19 15z\" stroke-linejoin=\"round\"/></svg>",
+      "emphasis": true
+    },
+    {
+      "label": "Pricing",
+      "path": "/pricing/",
+      "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M20.6 12.3L12.7 20.2a1 1 0 01-1.4 0l-7.5-7.5a1 1 0 01-.3-.7V4.5a1 1 0 011-1H12a1 1 0 01.7.3l7.9 7.9a1 1 0 010 1.6z\" stroke-linejoin=\"round\"/><circle cx=\"8\" cy=\"8\" r=\"1.4\"/></svg>"
+    }
+  ],
+  "more": [
+    {
+      "label": "Industries",
+      "path": "/industries/",
+      "children": [
+        { "label": "Home Services", "path": "/industries/home-services/" },
+        { "label": "Restaurants", "path": "/industries/restaurants/" },
+        { "label": "Healthcare", "path": "/industries/healthcare/" },
+        { "label": "Financial Services", "path": "/industries/financial-services/" },
+        { "label": "Professional Services", "path": "/industries/professional-services/" }
+      ]
+    },
+    {
+      "label": "Websites",
+      "path": "/websites/",
+      "children": [
+        { "label": "Portfolio", "path": "/websites/portfolio/" },
+        { "label": "Case Studies", "path": "/websites/case-studies/" }
+      ]
+    },
+    { "label": "Book a 15-Minute Call", "path": "/book-a-call/", "dialogTarget": "booking-modal" }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "build-check",
+  "type": "internal-diagnostic",
+  "slug": "build-check",
+  "canonicalPath": "/build-check/",
+  "seo": {
+    "title": "Build Pipeline Check — Internal",
+    "metaDescription": "Internal diagnostic page confirming the JSON and Nunjucks build pipeline renders static HTML correctly. Not part of the public site.",
+    "ogTitle": "Build Pipeline Check",
+    "ogDescription": "Internal diagnostic page for the SFD static build pipeline.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "noindex, nofollow"
+  },
+  "h1": "Build Pipeline Check",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "This page proves the pipeline works",
+      "body": "If you can read this, JSON content was validated and rendered into complete static HTML by Nunjucks, with no client-side fetching of page content."
+    },
+    {
+      "type": "component-gallery",
+      "heading": "Component gallery",
+      "intro": "Phase 2 shared components rendered from CSS classes and JSON section data. This section and its copy are diagnostic-only, not production content.",
+      "buttons": [
+        { "variant": "primary", "label": "Primary button" },
+        { "variant": "secondary", "label": "Secondary button" }
+      ],
+      "card": {
+        "title": "Sample card",
+        "body": "Reusable surface for grids such as industries or testimonials in later phases."
+      },
+      "field": {
+        "label": "Sample field with an error state",
+        "hint": "Demonstrates the shared form-field pattern.",
+        "errorMessage": "This is a demo error message, not a real validation failure."
+      },
+      "dialogDemo": {
+        "triggerLabel": "Open sample dialog",
+        "dialogTitle": "Sample dialog",
+        "dialogBody": "This proves the shared accessible dialog primitive: focus trap, Escape to close, and focus returns to the button that opened it."
+      }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

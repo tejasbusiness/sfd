@@ -1,0 +1,51 @@
+{
+  "id": "websites",
+  "type": "static",
+  "slug": "websites",
+  "canonicalPath": "/websites/",
+  "seo": {
+    "title": "Websites We Build | SynergyFirst Digital",
+    "metaDescription": "See the kind of websites SynergyFirst Digital builds for local businesses — browse our portfolio and detailed case studies.",
+    "ogTitle": "Websites We Build",
+    "ogDescription": "Browse the portfolio and case studies behind SynergyFirst Digital's managed websites.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "See the kind of websites we build.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "Websites",
+      "subheading": "Every website we build is managed end to end — hosting, updates and support included — and shaped around the industry it serves.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "link-cards",
+      "heading": "Explore our work",
+      "items": [
+        {
+          "label": "Portfolio",
+          "description": "A look at the sites we've built, by industry.",
+          "href": "/websites/portfolio/",
+          "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M3 9h18\" stroke-linecap=\"round\"/></svg>"
+        },
+        {
+          "label": "Case Studies",
+          "description": "The problem, the strategy and the verified outcome, in full.",
+          "href": "/websites/case-studies/",
+          "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2\" /><rect x=\"9\" y=\"3\" width=\"6\" height=\"4\" rx=\"1\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we'd build for you?",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "fixture-dup-b",
+  "type": "static",
+  "slug": "fixture-dup-b",
+  "canonicalPath": "/duplicate/",
+  "seo": {
+    "title": "Fixture Duplicate B",
+    "metaDescription": "A validation fixture used only by the automated test suite.",
+    "ogTitle": "Fixture Duplicate B",
+    "ogDescription": "A validation fixture used only by the automated test suite.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Fixture Duplicate B",
+  "breadcrumbs": null,
+  "sections": [
+    { "type": "intro", "heading": "Fixture", "body": "Fixture content." }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

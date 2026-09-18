@@ -1,0 +1,70 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <article class="page">
+    {% if page.sections[0].type != "hero" and page.sections[0].type != "hero-split" %}
+    <div class="container">
+      <h1>{{ page.h1 | safe }}</h1>
+    </div>
+    {% endif %}
+
+    {% for section in page.sections %}
+      {% if section.type == "hero" %}
+        {% include "sections/hero.njk" %}
+      {% elif section.type == "hero-split" %}
+        {% include "sections/hero-split.njk" %}
+      {% elif section.type == "intro" %}
+      <section class="section section--intro">
+        <div class="container">
+          <h2>{{ section.heading }}</h2>
+          <p>{{ section.body }}</p>
+        </div>
+      </section>
+      {% elif section.type == "component-gallery" %}
+        {% include "sections/component-gallery.njk" %}
+      {% elif section.type == "proof-strip" %}
+        {% include "sections/proof-strip.njk" %}
+      {% elif section.type == "trust-signals" %}
+        {% include "sections/trust-signals.njk" %}
+      {% elif section.type == "process" %}
+        {% include "sections/process.njk" %}
+      {% elif section.type == "process-narrative" %}
+        {% include "sections/process-narrative.njk" %}
+      {% elif section.type == "feature-grid" %}
+        {% include "sections/feature-grid.njk" %}
+      {% elif section.type == "feature-bento" %}
+        {% include "sections/feature-bento.njk" %}
+      {% elif section.type == "industry-links" %}
+        {% include "sections/industry-links.njk" %}
+      {% elif section.type == "link-cards" %}
+        {% include "sections/link-cards.njk" %}
+      {% elif section.type == "portfolio-grid" %}
+        {% include "sections/portfolio-grid.njk" %}
+      {% elif section.type == "case-studies-list" %}
+        {% include "sections/case-studies-list.njk" %}
+      {% elif section.type == "statement" %}
+        {% include "sections/statement.njk" %}
+      {% elif section.type == "preview-concepts" %}
+        {% include "sections/preview-concepts.njk" %}
+      {% elif section.type == "pricing-summary" %}
+        {% include "sections/pricing-summary.njk" %}
+      {% elif section.type == "pricing-highlight" %}
+        {% include "sections/pricing-highlight.njk" %}
+      {% elif section.type == "growth-modules" %}
+        {% include "sections/growth-modules.njk" %}
+      {% elif section.type == "testimonials" %}
+        {% include "sections/testimonials.njk" %}
+      {% elif section.type == "faq" %}
+        {% include "sections/faq.njk" %}
+      {% elif section.type == "faq-split" %}
+        {% include "sections/faq-split.njk" %}
+      {% elif section.type == "free-preview-cta" or section.type == "booking-cta" %}
+        {% include "sections/cta.njk" %}
+      {% elif section.type == "cta-editorial" %}
+        {% include "sections/cta-editorial.njk" %}
+      {% elif section.type == "free-preview-form" %}
+        {% include "sections/free-preview-form.njk" %}
+      {% endif %}
+    {% endfor %}
+  </article>
+{% endblock %}

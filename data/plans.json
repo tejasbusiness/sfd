@@ -1,0 +1,72 @@
+{
+  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. buyoutPolicy stays TBD — the source pricing page didn't cover source-code/content transfer terms, so that decision is still open (docs/10 BLOCKING).",
+  "currency": "USD",
+  "plans": [
+    {
+      "id": "lite",
+      "name": "Lite",
+      "idealFor": "Best for a new business that needs a professional website live fast — no e-commerce needed.",
+      "priceMonthly": "$249",
+      "verified": true,
+      "summary": "A custom-designed, professional website with everything needed to keep it running.",
+      "includes": [
+        "Custom-designed, responsive website — no templates",
+        "Domain, hosting, SSL and security included",
+        "1 Google Workspace email address (additional addresses available)",
+        "Accessibility-conscious build",
+        "10 content updates per month",
+        "Speed-optimized pages",
+        "Basic SEO setup",
+        "Basic analytics",
+        "Monthly uptime monitoring"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "idealFor": "Best for a business actively trying to win more local customers.",
+      "priceMonthly": "$449",
+      "verified": true,
+      "recommended": true,
+      "summary": "Everything in Lite, built out with premium design, SEO and marketing support.",
+      "includes": [
+        "Everything in Lite",
+        "Premium custom design",
+        "3 Google Workspace email addresses",
+        "Google Business Profile management — reviews and customer replies",
+        "On-page SEO optimization",
+        "1–2 SEO blog posts per month",
+        "Google Business Profile optimization",
+        "Unlimited content updates",
+        "Booking and CRM systems",
+        "Monthly analytics reporting",
+        "Fully customized e-commerce",
+        "Priority support"
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "name": "E-Commerce",
+      "idealFor": "Best for a growing business that needs custom software, multi-location support or e-commerce.",
+      "priceMonthly": "$749+",
+      "verified": true,
+      "summary": "Everything in Business, plus custom software, multi-location management and e-commerce.",
+      "includes": [
+        "Everything in Business",
+        "Complete e-commerce website",
+        "Custom software development — internal tools, dashboards, CRMs",
+        "Multi-location management across websites and listings",
+        "5 Google Workspace email addresses",
+        "Google Business Profile management for up to 4 locations",
+        "Custom SEO strategy and execution",
+        "AI chatbot or automation",
+        "Advanced analytics dashboard",
+        "Dedicated account manager",
+        "Same-day support",
+        "On-demand AI-assisted website edits"
+      ]
+    }
+  ],
+  "commitmentTerms": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime.",
+  "buyoutPolicy": "TBD"
+}

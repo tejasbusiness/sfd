@@ -1,0 +1,11 @@
+{# Renders nothing until real, verified proof exists in section.items — CLAUDE.md rule 13
+   forbids inventing logos, stats or results, so an empty strip must stay invisible, not fake. #}
+{% if section.items and section.items.length %}
+<section class="section section--tinted proof-strip">
+  <div class="container proof-strip__inner" data-reveal>
+    {% for item in section.items %}
+    <p class="proof-strip__item">{{ item.label }}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

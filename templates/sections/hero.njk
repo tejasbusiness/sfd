@@ -1,0 +1,22 @@
+<section class="section hero">
+  <div class="container hero__inner" data-reveal>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero__subheading">{{ section.subheading }}</p>
+    {% if section.qualificationNote %}<p class="hero__note">{{ section.qualificationNote }}</p>{% endif %}
+    <div class="hero__actions">
+      <a
+        class="button button--primary"
+        href="{{ section.primaryCta.href }}"
+        {% if section.primaryCta.dialogTarget %}data-dialog-target="{{ section.primaryCta.dialogTarget }}"{% endif %}
+      >{{ section.primaryCta.label }}</a>
+      {% if section.secondaryCta %}
+      <a
+        class="button button--secondary"
+        href="{{ section.secondaryCta.href }}"
+        {% if section.secondaryCta.dialogTarget %}data-dialog-target="{{ section.secondaryCta.dialogTarget }}"{% endif %}
+      >{{ section.secondaryCta.label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

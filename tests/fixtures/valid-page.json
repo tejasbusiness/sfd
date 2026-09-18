@@ -1,0 +1,21 @@
+{
+  "id": "fixture-valid",
+  "type": "static",
+  "slug": "fixture-valid",
+  "canonicalPath": "/fixture-valid/",
+  "seo": {
+    "title": "Fixture Valid Page",
+    "metaDescription": "A validation fixture used only by the automated test suite.",
+    "ogTitle": "Fixture Valid Page",
+    "ogDescription": "A validation fixture used only by the automated test suite.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Fixture Valid Page",
+  "breadcrumbs": null,
+  "sections": [
+    { "type": "intro", "heading": "Fixture", "body": "Fixture content." }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

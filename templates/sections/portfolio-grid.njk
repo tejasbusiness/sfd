@@ -1,0 +1,29 @@
+{# CLAUDE.md rule 13 forbids inventing project results — until section.items
+   has real, client-approved entries (docs/04 §Websites/Portfolio: business
+   type, problem, work completed, real result), this shows an honest
+   "not published yet" state instead of fabricated or blank content. #}
+<section class="section">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    {% if section.items and section.items.length %}
+    <div class="portfolio-grid__items">
+      {% for item in section.items %}
+      <div class="card portfolio-grid__item" data-reveal>
+        {% if item.industryLabel %}<p class="eyebrow">{{ item.industryLabel }}</p>{% endif %}
+        <h3>{{ item.title }}</h3>
+        {% if item.problem %}<p class="portfolio-grid__label">Problem</p><p>{{ item.problem }}</p>{% endif %}
+        {% if item.workCompleted %}<p class="portfolio-grid__label">Work completed</p><p>{{ item.workCompleted }}</p>{% endif %}
+        {% if item.result %}<p class="portfolio-grid__label">Result</p><p>{{ item.result }}</p>{% endif %}
+        {% if item.url %}<a class="button button--secondary" href="{{ item.url }}">View project</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card portfolio-grid__empty" data-reveal>
+      <p>{{ section.emptyMessage or "We're building our public portfolio gallery and only publish projects with the client's permission. In the meantime, apply for a free preview to see an example built for your own business." }}</p>
+      <a class="button button--primary" href="/free-preview/">Request Your Free Website Preview</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

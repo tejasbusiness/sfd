@@ -1,0 +1,14 @@
+<section class="section faq">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="faq__items">
+      {% for item in faqs.items | selectByIds(section.itemIds) %}
+      <details class="faq__item" data-reveal>
+        <summary>{{ item.question }}</summary>
+        <p>{{ item.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

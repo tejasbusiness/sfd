@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "cost",
+      "question": "How much does a managed website cost?",
+      "answer": "Plans start at $249/month for Lite, $449/month for Business and $749+/month for E-Commerce, billed monthly in USD with no activation fee. See our Pricing page for the full comparison."
+    },
+    {
+      "id": "term",
+      "question": "Is there a minimum commitment?",
+      "answer": "No. Every plan is month-to-month with no long-term contract and no activation fee — cancel anytime."
+    },
+    {
+      "id": "ownership",
+      "question": "Who owns the website and domain?",
+      "answer": "You always own your domain. Source-code and content ownership and buyout/transfer terms will be set out in our Subscription Terms, which are being finalized (TBD)."
+    },
+    {
+      "id": "updates",
+      "question": "What if I need something updated?",
+      "answer": "Lite includes 10 content updates a month; Business and E-Commerce include unlimited content updates. Larger requests outside a normal update are quoted separately."
+    },
+    {
+      "id": "cancellation",
+      "question": "Can I cancel?",
+      "answer": "Yes — every plan is month-to-month with no long-term contract, so you can cancel anytime. Our content-export and buyout process is being finalized (TBD) and will be published in full in our Subscription Terms before launch."
+    },
+    {
+      "id": "timing",
+      "question": "How long does it take to see my preview website?",
+      "answer": "Timelines depend on your business and the information you provide. We confirm an expected timeframe when we review your application."
+    },
+    {
+      "id": "preview-guarantee",
+      "question": "Am I guaranteed a free preview?",
+      "answer": "Not automatically. We review every application to make sure we can create something genuinely useful for your business before building a preview."
+    },
+    {
+      "id": "add-pages",
+      "question": "Can I add pages to my website later?",
+      "answer": "Yes. New pages and page changes are covered by your plan's monthly content-update allowance — 10 updates a month on Lite, unlimited on Business and E-Commerce — at no extra cost within that allowance."
+    },
+    {
+      "id": "unlimited-updates-scope",
+      "question": "What does \"unlimited content updates\" actually include?",
+      "answer": "On Business and E-Commerce, it covers text, images, sections and layout changes to your existing site. It doesn't include full custom redesigns or new third-party integrations, which are scoped and quoted separately."
+    },
+    {
+      "id": "plan-upgrade",
+      "question": "Can I upgrade my plan later?",
+      "answer": "Yes, at any time. We move your site to the new plan's features without rebuilding it from scratch or any downtime."
+    }
+  ]
+}

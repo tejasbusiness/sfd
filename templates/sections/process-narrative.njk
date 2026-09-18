@@ -1,0 +1,52 @@
+{# Homepage-only redesigned process section (docs/13 §8.3). The plain "process"
+   type/template used by How It Works is untouched — separate type on purpose. #}
+<section class="section process-narrative">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <ol class="process-narrative__list">
+      {% for step in section.steps %}
+      <li class="process-narrative__step" data-reveal>
+        <span class="process-narrative__index" aria-hidden="true">{{ "0" + loop.index|string }}</span>
+        <div class="process-narrative__content">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.body }}</p>
+          <div class="process-narrative__visual" aria-hidden="true">
+            {% if loop.index == 1 %}
+            <div class="mini-form">
+              <span class="mini-form__field"><span class="mini-form__label">Business name</span></span>
+              <span class="mini-form__field"><span class="mini-form__label">Website (optional)</span></span>
+              <span class="mini-form__submit">Apply for preview</span>
+            </div>
+            {% elif loop.index == 2 %}
+            <div class="mini-browser">
+              <div class="mini-browser__bar"><span></span><span></span><span></span></div>
+              <div class="mini-browser__body">
+                <span class="mini-browser__nav"></span>
+                <span class="mini-browser__hero"></span>
+                <span class="mini-browser__cta">Book Now</span>
+              </div>
+            </div>
+            {% elif loop.index == 3 %}
+            <div class="mini-countdown">
+              <svg width="44" height="44" viewBox="0 0 44 44">
+                <circle cx="22" cy="22" r="18" fill="none" stroke="var(--color-border)" stroke-width="4" />
+                <circle cx="22" cy="22" r="18" fill="none" stroke="var(--color-accent)" stroke-width="4"
+                  stroke-dasharray="113.1" stroke-dashoffset="64.6" stroke-linecap="round"
+                  transform="rotate(-90 22 22)" />
+              </svg>
+              <span class="mini-countdown__label">Day 3<br>of 7</span>
+            </div>
+            {% else %}
+            <div class="mini-live">
+              <span class="mini-live__dot"></span>
+              <span>Live &amp; approved</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

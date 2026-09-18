@@ -1,0 +1,20 @@
+{
+  "id": "fixture-missing-seo",
+  "type": "static",
+  "slug": "fixture-missing-seo",
+  "canonicalPath": "/fixture-missing-seo/",
+  "seo": {
+    "title": "Fixture Missing SEO Field",
+    "ogTitle": "Fixture Missing SEO Field",
+    "ogDescription": "A validation fixture used only by the automated test suite.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Fixture Missing SEO Field",
+  "breadcrumbs": null,
+  "sections": [
+    { "type": "intro", "heading": "Fixture", "body": "Fixture content." }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "industries-home-services",
+  "type": "static",
+  "slug": "home-services",
+  "canonicalPath": "/industries/home-services/",
+  "seo": {
+    "title": "Websites for Home Services Businesses | SynergyFirst Digital",
+    "metaDescription": "Managed websites for plumbers, electricians, HVAC, cleaning and landscaping companies — built for fast calls, clear service areas and mobile-first trust.",
+    "ogTitle": "Websites for Home Services Businesses",
+    "ogDescription": "Turn more calls into booked jobs with a website built for how home services customers actually search and decide.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Turn more calls into booked jobs.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "For Home Services Businesses",
+      "subheading": "Plumbers, electricians, HVAC, cleaning, landscaping and other home services companies searched for on a phone, often mid-emergency. Your website needs to answer fast.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Problems we see most often",
+      "intro": "Common reasons a home services website loses jobs it should be winning.",
+      "items": [
+        { "title": "No visible trust signals", "body": "Prospects can't quickly tell if you're licensed, insured, or genuinely local to their area." },
+        { "title": "Hidden contact info", "body": "A phone number buried in a menu costs you emergency and same-day jobs." },
+        { "title": "Not built for mobile", "body": "Most home services searches happen on a phone — often while standing in front of the problem." },
+        { "title": "Outdated design", "body": "A dated, DIY-looking site undercuts the quality of the work you actually do." }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How we build your preview",
+      "intro": "The same free-preview process, shaped around a home services business.",
+      "steps": [
+        { "title": "Apply", "body": "Tell us your trade, service area and what's not working on your current site (or that you don't have one)." },
+        { "title": "We build your preview", "body": "A private concept site with emergency-ready calls-to-action, service-area clarity and trust badges." },
+        { "title": "Review for 7 days", "body": "Explore it privately and tell us what to change. No cost, no obligation." },
+        { "title": "Activate and launch", "body": "Like it? Choose a plan and we finish, connect your domain, and launch it." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Built for how customers choose a home services company",
+      "items": [
+        { "title": "Click-to-call, everywhere", "body": "Your number is never more than one tap away, on every page." },
+        { "title": "Service-area clarity", "body": "Prospects can immediately see whether you cover their location." },
+        { "title": "Trust badges", "body": "Licensed, insured and years-in-business signals shown where it matters most." },
+        { "title": "Mobile-first design", "body": "Fast-loading and easy to use from a phone, on any connection." }
+      ]
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "itemIds": ["cost", "term", "timing", "cancellation"]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See what a home services website preview looks like.",
+      "body": "Apply for a complimentary preview — most home services businesses start on our Website Growth plan for the added local-visibility tools, but we'll confirm the right fit for you.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage", "FAQPage", "Service"],
+  "lastUpdated": "2026-09-18"
+}

@@ -1,0 +1,50 @@
+{
+  "_note": "Per docs/13-visual-art-direction.md §8.13: link.path === null renders as a plain, non-linked label, never a broken link. Columns fill in with real paths as their pages are built in later phases.",
+  "brandStatement": "A remote digital team helping local businesses across the United States, Canada, Australia, New Zealand and Europe.",
+  "groups": [
+    {
+      "title": "Websites",
+      "links": [
+        { "label": "How It Works", "path": "/how-it-works/" },
+        { "label": "Pricing", "path": "/pricing/" },
+        { "label": "Portfolio", "path": "/websites/portfolio/" },
+        { "label": "Case Studies", "path": "/websites/case-studies/" }
+      ]
+    },
+    {
+      "title": "Industries",
+      "links": [
+        { "label": "Home Services", "path": "/industries/home-services/" },
+        { "label": "Restaurants", "path": "/industries/restaurants/" },
+        { "label": "Healthcare", "path": "/industries/healthcare/" },
+        { "label": "Financial Services", "path": "/industries/financial-services/" },
+        { "label": "Professional Services", "path": "/industries/professional-services/" }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        { "label": "Free Tools", "path": null },
+        { "label": "Insights", "path": null }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        { "label": "About", "path": null },
+        { "label": "Contact", "path": null },
+        { "label": "Book a Call", "path": "/book-a-call/" }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        { "label": "Privacy Policy", "path": null },
+        { "label": "Terms and Conditions", "path": null },
+        { "label": "Subscription Terms", "path": null },
+        { "label": "Refund Policy", "path": null }
+      ]
+    }
+  ],
+  "social": []
+}

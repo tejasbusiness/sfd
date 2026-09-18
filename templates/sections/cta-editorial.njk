@@ -1,0 +1,29 @@
+{# Homepage-only final CTA (docs/13 §8.12). Tone decided during build: lavender,
+   not dark — the page already spends its one dark section on the monthly-model
+   statement, so this stays light to keep the homepage recognizably light-theme.
+   cta.njk (used elsewhere for free-preview-cta/booking-cta) is untouched. #}
+<section class="section section--lavender cta-editorial">
+  <div class="container cta-editorial__inner" data-reveal>
+    <span class="cta-editorial__icon" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="M2 8h20" />
+        <circle cx="5" cy="6" r="0.6" fill="currentColor" />
+        <circle cx="7.5" cy="6" r="0.6" fill="currentColor" />
+      </svg>
+    </span>
+    <h2>{{ section.heading }}</h2>
+    {% if section.body %}<p>{{ section.body }}</p>{% endif %}
+    <div class="cta-editorial__actions">
+      <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+      {% if section.secondaryCta %}
+      <a
+        class="button button--secondary"
+        href="{{ section.secondaryCta.href }}"
+        {% if section.secondaryCta.dialogTarget %}data-dialog-target="{{ section.secondaryCta.dialogTarget }}"{% endif %}
+      >{{ section.secondaryCta.label }}</a>
+      {% endif %}
+    </div>
+    {% if section.trustNote %}<p class="cta-editorial__trust">{{ section.trustNote }}</p>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,22 @@
+{
+  "name": "sfd-2026-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static-site build pipeline for the SynergyFirst Digital (SFD) website. JSON content plus Nunjucks templates compiled to plain static HTML; no Node.js runtime required in production.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.js",
+    "validate": "node scripts/validate-data.js --mode=development",
+    "validate:production": "node scripts/validate-data.js --mode=production",
+    "build": "node scripts/build.js --mode=development",
+    "build:production": "node scripts/build.js --mode=production",
+    "rebuild": "npm run clean && npm run build",
+    "test:validation": "node --test tests/validate-data.test.js",
+    "serve": "node scripts/serve.js"
+  },
+  "devDependencies": {
+    "nunjucks": "^3.2.4"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "websites-portfolio",
+  "type": "static",
+  "slug": "portfolio",
+  "canonicalPath": "/websites/portfolio/",
+  "seo": {
+    "title": "Portfolio | SynergyFirst Digital",
+    "metaDescription": "A look at the websites SynergyFirst Digital has built for local businesses, published with client permission.",
+    "ogTitle": "Portfolio",
+    "ogDescription": "The websites SynergyFirst Digital has built for local businesses.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Portfolio",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "Websites",
+      "subheading": "Real projects, published only with each client's permission — business type, the problem we solved, and the work completed.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "portfolio-grid",
+      "heading": "Recent work",
+      "items": []
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we'd build for your business?",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-18"
+}

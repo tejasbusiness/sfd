@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.env
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.avif
+*.bmp
+*.tiff
+
+# Videos
+*.mp4
+*.mov
+*.webm
+*.avi
+*.mkv
+
+# Archives
+*.zip
+*.rar

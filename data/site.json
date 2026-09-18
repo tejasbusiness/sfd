@@ -1,0 +1,6 @@
+{
+  "productionDomain": "https://synergyfirstdigital.com",
+  "defaultLocale": "en",
+  "defaultCurrency": "USD",
+  "defaultBuildMode": "development"
+}

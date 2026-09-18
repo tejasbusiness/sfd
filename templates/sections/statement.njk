@@ -1,0 +1,28 @@
+{# The one full-bleed dark section (docs/13 §8.6, §5). Comparison is qualitative
+   only — no invented dollar figures. #}
+<section class="section section--dark statement">
+  <div class="container statement__inner">
+    <h2 class="statement__heading" data-reveal>
+      {{ section.headingPrefix }}<span class="statement__highlight">{{ section.headingHighlight }}</span>{{ section.headingSuffix }}
+    </h2>
+    <div class="statement__comparison" data-reveal>
+      <div class="statement__column">
+        <p class="statement__column-label">Traditional project pricing</p>
+        <ul>
+          {% for point in section.traditional %}
+          <li><span class="statement__icon statement__icon--no" aria-hidden="true">✕</span>{{ point }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="statement__column statement__column--sfd">
+        <p class="statement__column-label">The SFD monthly model</p>
+        <ul>
+          {% for point in section.sfd %}
+          <li><span class="statement__icon statement__icon--yes" aria-hidden="true">✓</span>{{ point }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <a class="button button--accent" href="{{ section.cta.href }}">{{ section.cta.label }}</a>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section class="section free-preview-form">
+  <div class="container" data-reveal>
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+
+    <form data-free-preview-form novalidate>
+      <div class="free-preview-form__grid">
+        <div class="field">
+          <label class="field__label" for="fp-name">Full name *</label>
+          <input class="field__control" id="fp-name" name="fullName" type="text" required autocomplete="name">
+          <p class="field__error" data-error-for="fullName" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-email">Work email *</label>
+          <input class="field__control" id="fp-email" name="email" type="email" required autocomplete="email">
+          <p class="field__error" data-error-for="email" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-phone">Mobile number (with country code) *</label>
+          <input class="field__control" id="fp-phone" name="phone" type="tel" required autocomplete="tel">
+          <p class="field__error" data-error-for="phone" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-business">Business name *</label>
+          <input class="field__control" id="fp-business" name="businessName" type="text" required autocomplete="organization">
+          <p class="field__error" data-error-for="businessName" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-website">Existing website (optional)</label>
+          <input class="field__control" id="fp-website" name="website" type="text">
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-gbp">Google Business Profile URL (optional)</label>
+          <input class="field__control" id="fp-gbp" name="gbpUrl" type="text">
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-country">Country *</label>
+          <input class="field__control" id="fp-country" name="country" type="text" required autocomplete="country-name">
+          <p class="field__error" data-error-for="country" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-city">City *</label>
+          <input class="field__control" id="fp-city" name="city" type="text" required autocomplete="address-level2">
+          <p class="field__error" data-error-for="city" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-category">Business category *</label>
+          <select class="field__control" id="fp-category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="home-services">Home services</option>
+            <option value="restaurants-hospitality">Restaurants &amp; hospitality</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="financial-services">Financial services</option>
+            <option value="professional-services">Professional services</option>
+            <option value="other">Other</option>
+          </select>
+          <p class="field__error" data-error-for="category" role="alert" hidden></p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="fp-service">Primary service *</label>
+          <input class="field__control" id="fp-service" name="primaryService" type="text" required>
+          <p class="field__error" data-error-for="primaryService" role="alert" hidden></p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="fp-problem">What's the main problem with your current website (or lack of one)? *</label>
+        <textarea class="field__control" id="fp-problem" name="problem" rows="4" required></textarea>
+        <p class="field__error" data-error-for="problem" role="alert" hidden></p>
+      </div>
+
+      <div class="field free-preview-form__consent">
+        <label>
+          <input type="checkbox" name="consent" aria-describedby="fp-consent-error">
+          I confirm I have the right to share this information and any materials I provide, and I understand this application does not guarantee a preview. *
+        </label>
+        <p class="field__error" id="fp-consent-error" data-error-for="consent" role="alert" hidden></p>
+      </div>
+
+      <button type="submit" class="button button--primary" data-free-preview-submit>Submit application</button>
+      <p class="field__error free-preview-form__submit-error" data-submit-error role="alert" hidden></p>
+    </form>
+
+    <div class="card free-preview-form__success" data-free-preview-success hidden>
+      <h3>Application received</h3>
+      <p>
+        Thank you. We review every application to make sure we can create something genuinely
+        useful for your business, and we'll be in touch if we can build you a free preview.
+      </p>
+    </div>
+  </div>
+</section>

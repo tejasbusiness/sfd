@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <span class="site-footer__wordmark">{{ company.tradingName }}</span>
+        {% if footer.brandStatement %}<p class="site-footer__statement">{{ footer.brandStatement }}</p>{% endif %}
+      </div>
+
+      {% if footer.groups and footer.groups.length %}
+      <div class="site-footer__groups">
+        {% for group in footer.groups %}
+        <div class="site-footer__group">
+          <h2 class="site-footer__group-title">{{ group.title }}</h2>
+          <ul class="site-footer__group-list">
+            {% for link in group.links %}
+            {# link.path === null renders a plain label, never a broken link (docs/13 §8.13). #}
+            <li>
+              {% if link.path %}
+              <a href="{{ link.path }}">{{ link.label }}</a>
+              {% else %}
+              <span class="site-footer__group-label">{{ link.label }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
+      {% if footer.social and footer.social.length %}
+      <ul class="site-footer__social">
+        {% for item in footer.social %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</footer>

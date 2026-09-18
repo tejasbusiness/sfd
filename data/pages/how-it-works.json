@@ -1,0 +1,70 @@
+{
+  "id": "how-it-works",
+  "type": "static",
+  "slug": "how-it-works",
+  "canonicalPath": "/how-it-works/",
+  "seo": {
+    "title": "How It Works — Free Website Preview to Launch | SynergyFirst Digital",
+    "metaDescription": "From application to a private 7-day preview to activation and launch — see exactly how SynergyFirst Digital's free website preview and managed subscription work.",
+    "ogTitle": "How It Works",
+    "ogDescription": "From application to a private 7-day preview to activation and launch.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "From application to a live website you actually approved",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "subheading": "Here's exactly what happens between applying for a free preview and having your website live and managed.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "process",
+      "heading": "The full process",
+      "steps": [
+        { "title": "Apply", "body": "You tell us about your business. We review every application to confirm we can create something genuinely useful." },
+        { "title": "We build your preview website", "body": "If you qualify, we create a private concept website from a clean niche starter — no cost, no obligation." },
+        { "title": "Seven-day review", "body": "You get a private link with a live countdown to a fixed expiry. It's not public and isn't accepting customer enquiries yet." },
+        { "title": "Activate", "body": "Like what you see? Choose a monthly plan to move forward. Terms, ownership and pricing are confirmed before you commit." },
+        { "title": "We complete it", "body": "We finish the approved pages and content based on your feedback." },
+        { "title": "Connect your domain", "body": "We connect your own domain — you always retain ownership of it." },
+        { "title": "Launch", "body": "Production metadata, analytics, forms and indexing are switched on and your site goes live." },
+        { "title": "Ongoing management", "body": "Hosting, maintenance and your plan's monthly update allowance continue for as long as you're subscribed." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "What your preview does (and doesn't) include",
+      "items": [
+        { "title": "A real, working concept site", "body": "Built on our niche starter so you can see real pages, not a static mockup." },
+        { "title": "Private and unpublished", "body": "Not indexed, not linked publicly, and not currently taking customer enquiries." },
+        { "title": "A fixed 7-day window", "body": "A live countdown to a set expiry — it never resets on refresh or a new device." },
+        { "title": "Completion happens after activation", "body": "Your own content, final approved pages and domain connection are finished once you activate a plan." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "heading": "What we need from you",
+      "items": [
+        { "title": "Basic business details", "body": "The information collected in the free preview application." },
+        { "title": "Sign-off on your preview", "body": "Feedback on what to keep, change or finish once you activate." },
+        { "title": "Access to your domain", "body": "So we can connect it once your plan is active." }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Common questions about the process",
+      "itemIds": ["timing", "preview-guarantee", "term"]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Ready to Preview your website before you commit to anything?",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage", "FAQPage"],
+  "lastUpdated": "2026-09-17"
+}

@@ -1,0 +1,16 @@
+{# Renders nothing until data/testimonials.json has real, sourced entries — CLAUDE.md rule 13. #}
+{% if testimonials.items and testimonials.items.length %}
+<section class="section testimonials">
+  <div class="container">
+    <h2>{{ section.heading }}</h2>
+    <div class="testimonials__items">
+      {% for item in testimonials.items %}
+      <blockquote class="card testimonials__item" data-reveal>
+        <p>&ldquo;{{ item.quote }}&rdquo;</p>
+        <footer>{{ item.author }}{% if item.business %}, {{ item.business }}{% endif %}</footer>
+      </blockquote>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

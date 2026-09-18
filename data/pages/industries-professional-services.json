@@ -1,0 +1,71 @@
+{
+  "id": "industries-professional-services",
+  "type": "static",
+  "slug": "professional-services",
+  "canonicalPath": "/industries/professional-services/",
+  "seo": {
+    "title": "Websites for Professional Services Firms | SynergyFirst Digital",
+    "metaDescription": "Managed websites for professional services firms — clear expertise positioning, a simple enquiry flow, and ongoing updates included.",
+    "ogTitle": "Websites for Professional Services Firms",
+    "ogDescription": "Position your expertise clearly, from the first visit, with a managed website built to stay current.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Position your expertise clearly, from the first visit.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "For Professional Services Firms",
+      "subheading": "Consultants, agencies and other professional services firms win work by being clearly understood. Your website is often the first test of that.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Problems we see most often",
+      "intro": "Common reasons a professional services website loses enquiries it should be winning.",
+      "items": [
+        { "title": "Services aren't clearly described", "body": "A prospect can't quickly tell whether you're the right fit for their problem." },
+        { "title": "No obvious enquiry path", "body": "Getting in touch takes more effort than it should." },
+        { "title": "Outdated design", "body": "A dated site undercuts the expertise you're trying to demonstrate." },
+        { "title": "Hard to keep current", "body": "No easy way to update the site as the firm and its services grow." }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How we build your preview",
+      "intro": "The same free-preview process, shaped around a professional services firm.",
+      "steps": [
+        { "title": "Apply", "body": "Tell us about your firm, services and what's not working on your current site (or that you don't have one)." },
+        { "title": "We build your preview", "body": "A private concept site with clear service positioning and a simple enquiry path." },
+        { "title": "Review for 7 days", "body": "Explore it privately and tell us what to change. No cost, no obligation." },
+        { "title": "Activate and launch", "body": "Like it? Choose a plan and we finish, connect your domain, and launch it." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Built for how clients choose a firm",
+      "items": [
+        { "title": "Clear expertise positioning", "body": "Services and specialties broken down so a prospect can self-qualify." },
+        { "title": "Simple enquiry flow", "body": "One clear, low-friction way to get in touch." },
+        { "title": "Credibility-first design", "body": "Professional, up-to-date, and reflective of your firm's actual standard of work." },
+        { "title": "Ongoing updates included", "body": "A defined monthly content-update allowance keeps the site current as your firm grows." }
+      ]
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "itemIds": ["cost", "term", "timing", "cancellation"]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See what a professional services website preview looks like.",
+      "body": "Apply for a complimentary preview — we'll confirm which plan is the right fit once we understand your services.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage", "FAQPage", "Service"],
+  "lastUpdated": "2026-09-18"
+}

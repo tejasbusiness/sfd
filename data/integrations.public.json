@@ -1,0 +1,9 @@
+{
+  "_note": "Public, non-secret configuration only. No credentials, calendar IDs, sheet IDs or webhook secrets belong in this file (CLAUDE.md rule 11).",
+  "booking": {
+    "webhookUrl": null
+  },
+  "payment": {
+    "provider": null
+  }
+}

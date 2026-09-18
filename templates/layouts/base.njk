@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ site.defaultLocale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.seo.title }}</title>
+  <meta name="description" content="{{ page.seo.metaDescription }}">
+  <link rel="canonical" href="{{ site.productionDomain }}{{ page.canonicalPath }}">
+  <meta name="robots" content="{{ page.seo.robots }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.seo.ogTitle }}">
+  <meta property="og:description" content="{{ page.seo.ogDescription }}">
+  <meta property="og:image" content="{{ site.productionDomain }}{{ page.seo.ogImage }}">
+  <meta property="og:url" content="{{ site.productionDomain }}{{ page.canonicalPath }}">
+  {# Google Fonts CDN for this visual-review pass; docs/03 prefers self-hosted
+     subsetted font files before production launch — not done yet, flagged. #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  {% if page.id == "home" %}
+  <link rel="stylesheet" href="/assets/css/homepage.css">
+  {% endif %}
+</head>
+<body{% if page.id == "home" %} class="page-home"{% endif %}>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  {% include "partials/header.njk" %}
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

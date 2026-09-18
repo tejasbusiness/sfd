@@ -1,0 +1,71 @@
+{
+  "id": "industries-restaurants",
+  "type": "static",
+  "slug": "restaurants",
+  "canonicalPath": "/industries/restaurants/",
+  "seo": {
+    "title": "Websites for Restaurants | SynergyFirst Digital",
+    "metaDescription": "Managed websites for restaurants and hospitality businesses — menus, hours and reservations front and center, built mobile-first.",
+    "ogTitle": "Websites for Restaurants",
+    "ogDescription": "Make it effortless for hungry customers to find your menu, hours and table.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Make it effortless to find your menu, hours and table.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "For Restaurants & Hospitality",
+      "subheading": "Most diners decide where to eat from their phone, in under a minute. Your website needs to answer the three questions that matter — what, when and how to book — instantly.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Problems we see most often",
+      "intro": "Common reasons a restaurant website loses diners it should be winning.",
+      "items": [
+        { "title": "Menu buried in a PDF", "body": "Or missing entirely — a hungry customer won't dig for it and will move on." },
+        { "title": "Hours and location hard to find", "body": "Especially on mobile, where most restaurant searches happen." },
+        { "title": "No clear path to book or order", "body": "Reservation and ordering links aren't obvious or aren't linked at all." },
+        { "title": "Photos that undersell the experience", "body": "Low-quality or outdated photography doesn't reflect the food or atmosphere." }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How we build your preview",
+      "intro": "The same free-preview process, shaped around a restaurant.",
+      "steps": [
+        { "title": "Apply", "body": "Tell us about your restaurant, cuisine and what's not working on your current site (or that you don't have one)." },
+        { "title": "We build your preview", "body": "A private concept site with your menu, hours and booking links front and center." },
+        { "title": "Review for 7 days", "body": "Explore it privately and tell us what to change. No cost, no obligation." },
+        { "title": "Activate and launch", "body": "Like it? Choose a plan and we finish, connect your domain, and launch it." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Built for how diners choose a restaurant",
+      "items": [
+        { "title": "Menu front and center", "body": "Easy to browse, and easy for you to update when dishes or prices change." },
+        { "title": "Hours, location and map", "body": "Clearly displayed, with directions one tap away." },
+        { "title": "Reservation & ordering links", "body": "Integrated with the booking and delivery platforms you already use." },
+        { "title": "Photography-led, mobile-first design", "body": "Fast-loading pages that do your food justice on any device." }
+      ]
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "itemIds": ["cost", "term", "timing", "cancellation"]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See what a restaurant website preview looks like.",
+      "body": "Apply for a complimentary preview — most restaurants start on our Website Essential or Website Growth plan depending on whether ongoing marketing support is needed, and we'll confirm the right fit for you.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage", "FAQPage", "Service"],
+  "lastUpdated": "2026-09-18"
+}

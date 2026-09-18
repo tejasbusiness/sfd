@@ -1,0 +1,30 @@
+{
+  "id": "book-a-call",
+  "type": "static",
+  "slug": "book-a-call",
+  "canonicalPath": "/book-a-call/",
+  "seo": {
+    "title": "Book a 15-Minute Call | SynergyFirst Digital",
+    "metaDescription": "Book a free 15-minute video call with SynergyFirst Digital to talk through your website. Pick a time that works for you.",
+    "ogTitle": "Book a 15-Minute Call",
+    "ogDescription": "Pick a time for a free 15-minute video call.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Book a 15-minute call",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "A quick, no-pressure conversation",
+      "body": "Fifteen minutes over Google Meet to talk about your business and whether a free preview makes sense. This scheduler requires JavaScript — if you can't use it, please reach out once our contact details are published."
+    },
+    {
+      "type": "booking-cta",
+      "heading": "Choose a time that works for you",
+      "primaryCta": { "label": "Open the scheduler", "href": "/book-a-call/" }
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

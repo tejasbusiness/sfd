@@ -1,0 +1,29 @@
+{
+  "id": "free-preview",
+  "type": "static",
+  "slug": "free-preview",
+  "canonicalPath": "/free-preview/",
+  "seo": {
+    "title": "Request Your Free Website Preview | SynergyFirst Digital",
+    "metaDescription": "Apply for a complimentary, private website preview from SynergyFirst Digital. We review every application to confirm we can create something genuinely useful for your business.",
+    "ogTitle": "Request Your Free Website Preview",
+    "ogDescription": "Apply for a complimentary, private website preview.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Request your free website preview",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "intro",
+      "heading": "Tell us about your business",
+      "body": "We review every application to make sure we can create something genuinely useful for you — submitting this form does not guarantee a preview. It takes a few minutes."
+    },
+    {
+      "type": "free-preview-form",
+      "heading": "Your details"
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

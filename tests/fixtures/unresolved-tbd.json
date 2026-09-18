@@ -1,0 +1,21 @@
+{
+  "id": "fixture-tbd",
+  "type": "static",
+  "slug": "fixture-tbd",
+  "canonicalPath": "/fixture-tbd/",
+  "seo": {
+    "title": "Fixture Unresolved TBD",
+    "metaDescription": "TBD",
+    "ogTitle": "Fixture Unresolved TBD",
+    "ogDescription": "A validation fixture used only by the automated test suite.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Fixture Unresolved TBD",
+  "breadcrumbs": null,
+  "sections": [
+    { "type": "intro", "heading": "Fixture", "body": "Fixture content." }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-17"
+}

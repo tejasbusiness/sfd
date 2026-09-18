@@ -1,0 +1,151 @@
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <nav class="site-header__nav-left" aria-label="Primary">
+      <ul class="site-header__nav-list">
+        {% for item in navigation.primaryLeft %}
+        {% set isActive = item.path == page.canonicalPath %}
+        <li>
+          <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>{{ item.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <a class="site-header__logo" href="/">
+      <img
+        class="site-header__logo-image"
+        src="/assets/images/sfd-logo-2026.png"
+        alt="SynergyFirst Digital"
+        width="2170"
+        height="390"
+      >
+    </a>
+
+    <div class="site-header__right">
+      <nav class="site-header__nav-right" aria-label="Secondary">
+        <ul class="site-header__nav-list">
+          {% for item in navigation.primaryRight %}
+          {% set isActive = item.path == page.canonicalPath or (item.path != "/" and page.canonicalPath.indexOf(item.path) == 0) %}
+          <li class="site-header__nav-item{{ ' has-dropdown' if item.children }}">
+            <a class="site-header__nav-link" href="{{ item.path }}" {% if isActive %}aria-current="page"{% endif %}>
+              {{ item.label }}
+              {% if item.children %}
+              <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {% endif %}
+            </a>
+            {% if item.children %}
+            <div class="site-header__dropdown">
+              <ul>
+                {% for child in item.children %}
+                <li><a href="{{ child.path }}">{{ child.label }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        {# Real href for no-JS/direct-share fallback (docs/07); JS opens the shared
+           #booking-modal dialog instead of navigating. /free-preview/ is a plain link. #}
+        <a
+          class="site-header__book"
+          href="/book-a-call/"
+          data-dialog-target="booking-modal"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Book a 15-Minute Call
+        </a>
+        <a class="button button--primary site-header__preview" href="/free-preview/">Get a Free Preview</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+{# Tablet/mobile only (<1080px): a fixed, native-app-style bottom tab bar
+   replaces the hamburger + full-screen nav. The last slot opens the
+   "More" drawer below for the items that don't fit as a tab. #}
+<nav class="tab-bar" aria-label="Primary">
+  <ul class="tab-bar__list">
+    {% for item in navigation.tabBar %}
+    {% set isActive = item.path == page.canonicalPath %}
+    <li>
+      <a
+        class="tab-bar__item{{ ' tab-bar__item--emphasis' if item.emphasis }}"
+        href="{{ item.path }}"
+        {% if isActive %}aria-current="page"{% endif %}
+      >
+        <span class="tab-bar__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+        <span class="tab-bar__label">{{ item.label }}</span>
+      </a>
+    </li>
+    {% endfor %}
+    <li>
+      <button
+        type="button"
+        class="tab-bar__item tab-bar__more"
+        aria-controls="more-drawer"
+        aria-expanded="false"
+        data-dialog-target="more-drawer"
+      >
+        <span class="tab-bar__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none" />
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+            <circle cx="19" cy="12" r="1.6" fill="currentColor" stroke="none" />
+          </svg>
+        </span>
+        <span class="tab-bar__label">More</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<dialog id="more-drawer" class="more-drawer" aria-label="More menu">
+  <div class="more-drawer__panel">
+    <div class="more-drawer__header">
+      <span class="more-drawer__title">More</span>
+      <button type="button" class="more-drawer__close" data-dialog-close aria-label="Close menu">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <nav aria-label="More">
+      <ul class="more-drawer__list">
+        {% for item in navigation.more %}
+        <li>
+          {% if item.children %}
+          <details class="more-drawer__details">
+            <summary class="more-drawer__summary">
+              {{ item.label }}
+              <svg class="more-drawer__caret" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <ul class="more-drawer__sublist">
+              <li><a href="{{ item.path }}">All {{ item.label }}</a></li>
+              {% for child in item.children %}
+              <li><a href="{{ child.path }}">{{ child.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </details>
+          {% else %}
+          <a
+            class="more-drawer__link"
+            href="{{ item.path }}"
+            {% if item.dialogTarget %}data-dialog-target="{{ item.dialogTarget }}"{% endif %}
+          >{{ item.label }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</dialog>
+
+{% include "partials/booking-dialog.njk" %}

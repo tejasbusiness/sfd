@@ -1,0 +1,71 @@
+{
+  "id": "industries-healthcare",
+  "type": "static",
+  "slug": "healthcare",
+  "canonicalPath": "/industries/healthcare/",
+  "seo": {
+    "title": "Websites for Healthcare Practices | SynergyFirst Digital",
+    "metaDescription": "Managed, accessible websites for healthcare and wellness practices — clear credentials, simple appointment paths, patient-friendly design.",
+    "ogTitle": "Websites for Healthcare Practices",
+    "ogDescription": "Build trust before a patient ever calls, with a clear, accessible, appointment-ready website.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Build trust before a patient ever calls.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "For Healthcare & Wellness Practices",
+      "subheading": "Patients research before they book. Your website is often the first — and most scrutinized — impression of your practice.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Problems we see most often",
+      "intro": "Common reasons a healthcare website loses patients it should be winning.",
+      "items": [
+        { "title": "Missing credibility signals", "body": "Credentials, accepted insurance and provider information aren't easy to find." },
+        { "title": "No clear way to book", "body": "Appointment requests require a phone call during business hours, with no online option." },
+        { "title": "Not accessible", "body": "Small text, low contrast or unlabeled forms shut out patients who need it most." },
+        { "title": "Generic, templated design", "body": "A site that doesn't reflect the professionalism of the practice." }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "How we build your preview",
+      "intro": "The same free-preview process, shaped around a healthcare practice.",
+      "steps": [
+        { "title": "Apply", "body": "Tell us about your practice, specialty and what's not working on your current site (or that you don't have one)." },
+        { "title": "We build your preview", "body": "A private concept site with clear credentials, services and an appointment path." },
+        { "title": "Review for 7 days", "body": "Explore it privately and tell us what to change. No cost, no obligation." },
+        { "title": "Activate and launch", "body": "Like it? Choose a plan and we finish, connect your domain, and launch it." }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Built for how patients choose a practice",
+      "items": [
+        { "title": "Simple appointment path", "body": "A clear, low-friction way to request an appointment online." },
+        { "title": "Clear provider & service info", "body": "Credentials, specialties and accepted insurance shown up front." },
+        { "title": "Accessibility built in", "body": "WCAG 2.2 AA colour contrast and keyboard-friendly navigation as standard, on every site we build." },
+        { "title": "Patient-friendly, mobile-first design", "body": "Easy to read and use on any device, for patients of any age." }
+      ]
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "itemIds": ["cost", "term", "timing", "cancellation"]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See what a healthcare website preview looks like.",
+      "body": "Apply for a complimentary preview — we'll confirm which plan is the right fit for your practice once we understand your services and patient volume.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    }
+  ],
+  "schemaTypes": ["WebPage", "FAQPage", "Service"],
+  "lastUpdated": "2026-09-18"
+}

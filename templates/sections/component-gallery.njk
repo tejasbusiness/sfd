@@ -1,0 +1,46 @@
+<section class="section section--component-gallery">
+  <div class="container">
+  <h2>{{ section.heading }}</h2>
+  <p>{{ section.intro }}</p>
+
+  <div class="component-gallery__buttons">
+    {% for btn in section.buttons %}
+    <button type="button" class="button button--{{ btn.variant }}">{{ btn.label }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="card component-gallery__card">
+    <h3>{{ section.card.title }}</h3>
+    <p>{{ section.card.body }}</p>
+  </div>
+
+  <div class="field field--invalid component-gallery__field">
+    <label class="field__label" for="gallery-field">{{ section.field.label }}</label>
+    <input
+      class="field__control"
+      id="gallery-field"
+      type="text"
+      aria-describedby="gallery-field-hint gallery-field-error"
+      aria-invalid="true"
+    >
+    <p class="field__hint" id="gallery-field-hint">{{ section.field.hint }}</p>
+    <p class="field__error" id="gallery-field-error" role="alert">{{ section.field.errorMessage }}</p>
+  </div>
+
+  <button type="button" class="button button--secondary" data-dialog-target="gallery-dialog">
+    {{ section.dialogDemo.triggerLabel }}
+  </button>
+
+  <dialog id="gallery-dialog" class="dialog" aria-labelledby="gallery-dialog-title">
+    <div class="dialog__panel">
+      <div class="dialog__header">
+        <h2 id="gallery-dialog-title">{{ section.dialogDemo.dialogTitle }}</h2>
+        <button type="button" class="dialog__close" data-dialog-close aria-label="Close dialog">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p>{{ section.dialogDemo.dialogBody }}</p>
+    </div>
+  </dialog>
+  </div>
+</section>

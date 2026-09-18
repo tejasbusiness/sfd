@@ -1,0 +1,173 @@
+{
+  "id": "home",
+  "type": "static",
+  "slug": "home",
+  "canonicalPath": "/",
+  "seo": {
+    "title": "SynergyFirst Digital — Preview your New Website Before You Pay For It",
+    "metaDescription": "SynergyFirst Digital builds and manages professional websites for local businesses in the US, Canada, Australia, New Zealand and Europe, for one predictable monthly fee. Apply for a free preview.",
+    "ogTitle": "Preview your New Website Before You Pay For It",
+    "ogDescription": "A remote digital team building and managing local-business websites for one predictable monthly fee.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Preview your <span class=\"text-highlight\">new website</span><br>before you pay for it.",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero-split",
+      "eyebrow": "Website-as-a-Service",
+      "subheading": "We build and manage professional websites for local businesses for one predictable monthly fee — no large upfront bill, no technical headaches.",
+      "qualificationNote": "Apply for a complimentary website preview. We review every request to make sure we can create something genuinely useful for your business.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "stats": [
+        { "value": "300+", "label": "Websites Delivered" },
+        { "value": "4.8★", "label": "Ratings on Google" },
+        { "value": "8+", "label": "Years in Business" }
+      ]
+    },
+    {
+      "type": "trust-signals",
+      "items": [
+        "Preview your website before you pay",
+        "No obligation to continue after the preview",
+        "Hosting and maintenance included with every active plan",
+        "Serving businesses across the USA, Canada, Australia, New Zealand and Europe"
+      ]
+    },
+    {
+      "type": "process-narrative",
+      "heading": "How your free preview works",
+      "steps": [
+        { "title": "Apply", "body": "Tell us about your business so we can check we're a good fit." },
+        { "title": "We build your preview website", "body": "If you qualify, we create a private concept website for your business, at no cost." },
+        { "title": "Review for 7 days", "body": "Explore the preview privately. It's not public and isn't your live website yet." },
+        { "title": "Activate or let it expire", "body": "Like it? Activate a monthly plan and we complete and launch it. If not, it simply expires." }
+      ]
+    },
+    {
+      "type": "industry-links",
+      "heading": "Built around how your customers choose you",
+      "intro": "Every website is structured around how people actually search for and choose a business in your industry.",
+      "items": [
+        { "label": "Home Services", "description": "Emergency-ready calls-to-action and service-area clarity.", "href": "/industries/home-services/", "size": "dominant", "icon": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>" },
+        { "label": "Restaurants", "description": "Menus, hours and reservations front and center.", "href": "/industries/restaurants/", "size": "medium", "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 8v8M9 8v3a3 3 0 003 3\" stroke-linecap=\"round\"/></svg>" },
+        { "label": "Healthcare", "description": "Trust signals and simple appointment paths.", "href": "/industries/healthcare/", "size": "medium", "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 4v16M4 12h16\" stroke-linecap=\"round\"/></svg>" },
+        { "label": "Financial Services", "description": "Credibility-first layouts for high-consideration decisions.", "href": "/industries/financial-services/", "size": "supporting", "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 20V10M12 20V4M20 20v-7\" stroke-linecap=\"round\"/></svg>" },
+        { "label": "Professional Services", "description": "Clear expertise positioning and enquiry flow.", "href": "/industries/professional-services/", "size": "supporting", "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"7\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2\" stroke-linecap=\"round\"/></svg>" }
+      ]
+    },
+    {
+      "type": "feature-bento",
+      "heading": "What every managed website includes",
+      "large": {
+        "title": "Everything handled",
+        "body": "Hosting, security, backups, updates and support are all part of your plan — one team, start to finish, so nothing falls through the cracks."
+      },
+      "items": [
+        { "title": "Hosting & security", "body": "Fast, secure hosting with SSL included by default." },
+        { "title": "Analytics", "body": "Visibility into how your site is performing." },
+        { "title": "Monthly updates", "body": "A defined content-update allowance every month." },
+        { "title": "SEO foundation", "body": "Built to be found from day one." },
+        { "title": "Mobile optimization", "body": "Looks and works right on every device." }
+      ]
+    },
+    {
+      "type": "statement",
+      "headingPrefix": "Stop paying for a website ",
+      "headingHighlight": "once and abandoning it.",
+      "headingSuffix": "",
+      "traditional": [
+        "One large upfront project bill",
+        "You're on your own after launch",
+        "Redesigned every few years, at another big cost"
+      ],
+      "sfd": [
+        "One predictable monthly fee",
+        "Ongoing management included",
+        "Continuously maintained and improved"
+      ],
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" }
+    },
+    {
+      "type": "preview-concepts",
+      "heading": "See the kind of website we build",
+      "intro": "Illustrative concepts showing how we approach different industries — not real client projects.",
+      "items": [
+        {
+          "industryLabel": "Home Services",
+          "headline": "A modern home services concept",
+          "description": "Emergency-ready CTAs, service-area clarity and a mobile-first layout.",
+          "mockBusinessName": "Your Business",
+          "mockCta": "Call Now",
+          "mockNavLinks": "Services  Areas  Contact",
+          "mockHeroHeading": "Fast, Reliable Home Repairs",
+          "mockHeroSub": "Serving your local area, 7 days a week.",
+          "mockTrustCue": "Licensed &amp; insured"
+        },
+        {
+          "industryLabel": "Restaurant",
+          "headline": "A modern restaurant concept",
+          "description": "Menu, hours and reservations front and center.",
+          "mockBusinessName": "Your Restaurant",
+          "mockCta": "Reserve",
+          "mockNavLinks": "Menu  Hours  Reserve",
+          "mockHeroHeading": "Fresh, Local, Made Daily",
+          "mockHeroSub": "Dine in, takeout or delivery.",
+          "mockTrustCue": "Fresh, local ingredients"
+        },
+        {
+          "industryLabel": "Healthcare / Professional Services",
+          "headline": "A modern professional services concept",
+          "description": "Credibility-first layout with a simple enquiry path.",
+          "mockBusinessName": "Your Practice",
+          "mockCta": "Book Now",
+          "mockNavLinks": "About  Services  Contact",
+          "mockHeroHeading": "Trusted, Attentive Care",
+          "mockHeroSub": "Now accepting new patients.",
+          "mockTrustCue": "Accepting new patients"
+        }
+      ]
+    },
+    {
+      "type": "pricing-highlight",
+      "heading": "Plans built to grow with you",
+      "intro": "Three monthly plans, no long-term contract — see the full comparison for what's included.",
+      "cta": { "label": "See full pricing", "href": "/pricing/" }
+    },
+    {
+      "type": "growth-modules",
+      "heading": "Grow beyond your website",
+      "intro": "Optional upgrades connected to your website foundation, once your subscription is active.",
+      "core": "Your website",
+      "items": [
+        { "title": "SEO & Google Business Profile", "body": "Get found first when local customers search for what you do." },
+        { "title": "AI & automation", "body": "Never miss an enquiry — replies go out automatically, day or night." },
+        { "title": "WhatsApp", "body": "Meet customers on the app they already use every day." },
+        { "title": "CRM", "body": "Every lead tracked and followed up — none slip through the cracks." }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "heading": "What clients say"
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "intro": "Everything you need to know before applying.",
+      "cta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "itemIds": ["cost", "term", "ownership", "updates", "cancellation", "timing"]
+    },
+    {
+      "type": "cta-editorial",
+      "heading": "Preview your new website before you pay for it.",
+      "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
+      "primaryCta": { "label": "Request Your Free Website Preview", "href": "/free-preview/" },
+      "secondaryCta": { "label": "Book a 15-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "trustNote": "No obligation. Free to apply."
+    }
+  ],
+  "schemaTypes": ["WebPage", "Organization", "WebSite"],
+  "lastUpdated": "2026-09-17"
+}
