@@ -49,4 +49,4 @@ Migration 009 seeds values the owner has **not** decided: timezone `Asia/Kolkata
 
 ## Status
 
-Migrations and the runner exist. The runner has been syntax-checked and the statement splitter tested, but not yet run against MySQL because `.env-local` has no credentials yet. The API endpoints and form wiring are the next step.
+All nine migrations were applied to the live database `sfd-2026-db` on 2026-09-20 through the SSH tunnel (SSH user `sfd-deploy`, key login; the server firewall has no rule for port 3306). Re-running is a no-op. The API endpoints and form wiring are the next step, and need SMTP and Google Calendar details.

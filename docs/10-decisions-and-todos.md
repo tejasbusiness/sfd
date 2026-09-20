@@ -312,3 +312,5 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 - Added `migrations/001` to `009`, the forward-only runner `api/bin/migrate.php`, `npm run tunnel`, `.env` and `.env-local` (placeholders only, gitignored) and `docs/14-database-and-api.md`.
 - Not yet run against the real database: needs DB name, user, password and the SSH host/user in `.env-local`.
 - Placeholder booking defaults in migration 009 need the owner's confirmation. Call length is inconsistent across the site (30 vs 15 minutes).
+
+- 2026-09-20: migrations 001 to 009 applied to the live database; tunnel and migration runner verified. Server created as a CloudPanel PHP site (PHP 8.3), SSH user `sfd-deploy`. Still open: deploy permissions for `sfd-deploy` on the site folder, SMTP and Google details, booking-default confirmation.
