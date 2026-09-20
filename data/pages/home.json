@@ -221,9 +221,9 @@
     {
       "type": "pricing-highlight",
       "heading": "Plans built to grow with you",
-      "intro": "Three monthly plans, no long-term contract — see the full comparison for what's included.",
+      "intro": "Three monthly plans, no long-term contract — the highlights are below, with every feature on the pricing page.",
       "cta": {
-        "label": "See full pricing",
+        "label": "Compare every feature",
         "href": "/pricing/"
       }
     },

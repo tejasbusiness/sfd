@@ -1013,79 +1013,9 @@ $0
 }
 
 /* ---------------------------------------------------------------------- */
-/* Pricing highlight — matches the Pricing page's .pricing-summary card    */
-/* styling exactly (grid, borders, price size, recommended treatment);     */
-/* only the per-plan "idealFor" line and CTA button are homepage-only      */
-/* additions, kept but styled plainly so they don't stand out.             */
+/* Pricing highlight — plan cards use the shared .pricing-summary__*      */
+/* rules in components.css; only the "See full pricing" link lives here. */
 /* ---------------------------------------------------------------------- */
-.pricing-highlight__plans {
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  margin-block: var(--space-4);
-  align-items: start;
-}
-.pricing-highlight__plan {
-  position: relative;
-}
-.pricing-highlight__plan--recommended {
-  border-color: var(--color-accent);
-  border-width: 2px;
-}
-.pricing-highlight__tag {
-  position: absolute;
-  top: -14px;
-  left: var(--space-4);
-  background: var(--color-accent);
-  color: var(--color-primary-deep);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 5px var(--space-3);
-  border-radius: 999px;
-}
-.pricing-highlight__ideal-for {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  margin: 4px 0 0;
-}
-.pricing-highlight__price {
-  font-family: var(--font-heading);
-  font-size: var(--text-h3);
-  color: var(--color-primary);
-  margin: 0 0 var(--space-2);
-}
-.pricing-highlight__price span {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text-secondary);
-}
-.pricing-highlight__includes {
-  list-style: none;
-  margin: var(--space-3) 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-.pricing-highlight__includes li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-  font-size: 15px;
-  line-height: 1.4;
-}
-.pricing-highlight__includes svg {
-  color: var(--color-accent-warm);
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-.pricing-highlight__plan-cta {
-  display: flex;
-  margin-top: var(--space-4);
-  width: 100%;
-}
 .pricing-highlight__more {
   text-align: center;
   margin: 0;

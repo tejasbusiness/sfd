@@ -9,6 +9,13 @@
       "priceMonthly": "$249",
       "verified": true,
       "summary": "A custom-designed, professional website with everything needed to keep it running.",
+      "homeHighlights": [
+        "Custom-designed, responsive website",
+        "Up to 5 pages",
+        "Domain, hosting, SSL and security included",
+        "10 content updates per month",
+        "Basic SEO setup"
+      ],
       "includes": [
         "Custom-designed, responsive website — no templates",
         "Up to 5 pages",
@@ -18,7 +25,7 @@
         "10 content updates per month",
         "Speed-optimized pages",
         "Basic SEO setup",
-        "Google Business Profile optimization (One-time)",
+        "Google Business Profile optimization (One‑time)",
         "Basic analytics",
         "Monthly uptime monitoring"
       ]
@@ -31,6 +38,13 @@
       "verified": true,
       "recommended": true,
       "summary": "Everything in Lite, built out with premium design, SEO and marketing support.",
+      "homeHighlights": [
+        "Everything in Lite",
+        "Up to 10 pages",
+        "Premium custom design",
+        "Google Business Profile management",
+        "20 content updates per month, with priority support"
+      ],
       "includes": [
         "Everything in Lite",
         "Up to 10 pages",
@@ -51,6 +65,13 @@
       "priceMonthly": "$749+",
       "verified": true,
       "summary": "Everything in Business, plus custom software, multi-location management and e-commerce.",
+      "homeHighlights": [
+        "Everything in Business",
+        "Up to 20 pages, plus product listings",
+        "Complete e-commerce website with checkout and payments",
+        "Custom software development",
+        "40 content updates per month, with same-day support"
+      ],
       "includes": [
         "Everything in Business",
         "Up to 20 pages, plus product listings scoped when we build",

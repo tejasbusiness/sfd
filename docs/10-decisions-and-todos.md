@@ -266,3 +266,11 @@
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.
 
+
+### Pricing layout and company details (2026-09-20)
+
+- `company.json`: `legalName` = "SynergyFirst Digital"; `responseTime` = "We reply to every enquiry within 1 business day." Both confirmed by the owner. `validate:production` now passes with no TBD placeholders.
+- Pricing plan cards are equal height: the include list grows and the CTA button is pinned to the bottom. Summary and "best for" blocks share a minimum height (desktop) so the include lists start on one line; list text tightened to 14px.
+- Pricing hero-to-cards gap reduced; "(One-time)" no longer splits across lines.
+- No separate comparison table was built: the three cards already show the plan differences side by side, so a table would repeat the same information.
+- Homepage plan cards now reuse the Pricing page's `.pricing-summary__*` classes and show a concise `homeHighlights` list per plan (data/plans.json); the Pricing page keeps the full `includes` list. Link relabelled "Compare every feature".
