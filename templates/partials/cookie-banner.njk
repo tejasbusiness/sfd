@@ -1,0 +1,24 @@
+{# Cookie consent banner (non-modal). Copy lives in data/footer.json ("cookieConsent");
+   behaviour in assets/js/cookie-consent.js. Hidden until the script decides the
+   visitor has no valid saved choice, so it never flashes for returning visitors. #}
+{% set cc = footer.cookieConsent %}
+<section class="cookie-banner card" id="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-banner-title" data-cookie-banner data-consent-version="{{ cc.version }}" hidden>
+  <h2 class="cookie-banner__title" id="cookie-banner-title" tabindex="-1">{{ cc.heading }}</h2>
+  <p class="cookie-banner__text">{{ cc.body }} <a href="{{ cc.policyPath }}">{{ cc.policyLinkLabel }}</a>.</p>
+  <div class="cookie-banner__prefs" data-cookie-prefs hidden>
+    {% for cat in cc.categories %}
+    <div class="sfd-form__consent cookie-banner__pref">
+      <label>
+        <input type="checkbox" name="{{ cat.id }}" data-cookie-category="{{ cat.id }}"{% if cat.locked %} checked disabled{% endif %}>
+        <span><strong>{{ cat.label }}</strong><br>{{ cat.description }}</span>
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="cookie-banner__actions">
+    <button type="button" class="button button--primary" data-cookie-reject>{{ cc.rejectLabel }}</button>
+    <button type="button" class="button button--primary" data-cookie-accept>{{ cc.acceptLabel }}</button>
+    <button type="button" class="button button--secondary" data-cookie-customise aria-expanded="false">{{ cc.customiseLabel }}</button>
+    <button type="button" class="button button--secondary" data-cookie-save hidden>{{ cc.saveLabel }}</button>
+  </div>
+</section>

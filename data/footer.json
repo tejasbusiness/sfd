@@ -9,6 +9,23 @@
     "successHeading": "Thank you!",
     "successBody": "Your AI Prompts Playbook is on its way to your inbox."
   },
+  "cookieConsent": {
+    "version": 1,
+    "heading": "Your cookie choices",
+    "body": "We use essential cookies to make this site work. With your permission we would also use analytics and marketing cookies. You can accept, reject or choose, and change your mind at any time.",
+    "policyLinkLabel": "Cookie Policy",
+    "policyPath": "/cookie-policy/",
+    "acceptLabel": "Accept all",
+    "rejectLabel": "Reject all",
+    "customiseLabel": "Customise",
+    "saveLabel": "Save my choices",
+    "settingsLinkLabel": "Cookie settings",
+    "categories": [
+      { "id": "necessary", "label": "Necessary", "description": "Keep the site secure and remember your cookie choice. Always on.", "locked": true },
+      { "id": "analytics", "label": "Analytics", "description": "Help us understand how visitors use the site. We do not use any analytics yet." },
+      { "id": "marketing", "label": "Marketing", "description": "Used to measure and personalise advertising. We do not use any marketing cookies yet." }
+    ]
+  },
   "brandStatement": "We build and manage conversion-focused websites for local businesses—starting with a free preview website, you can review before you commit.",
   "groups": [
     {

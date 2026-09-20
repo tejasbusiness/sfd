@@ -69,3 +69,10 @@ Target WCAG 2.2 AA:
 - `dist/robots.txt` is `Allow: /` plus the production `Sitemap:` line. Preview builds (docs/06) must ship their own disallow-all robots file plus the `X-Robots-Tag` header.
 - Build-time checks (fail the build): `site.productionDomain` must be a bare `https` origin on a non-temporary host; unique `seo.title` and `seo.metaDescription` per page (duplicate H1 is a warning); valid `seo.robots`; `seo.ogImage` root-relative and existing on disk (warning in development, error in production); redirect rules valid. After rendering, `scripts/check-output.js` audits `dist/`: canonical and `og:url` equal the production URL, `og:image` and every JSON-LD URL are on the production domain (except the `schema.org` context), JSON-LD parses, an `<h1>` exists, no `noindex` in production, sitemap and robots correct.
 - **Launch blocker found:** `/assets/images/og-default.jpg` is referenced by every page but the file does not exist, so `npm run build:production` fails until a real 1200x630 image is added (not invented by Claude).
+
+## Cookie consent (2026-09-20)
+
+- Non-modal banner (`templates/partials/cookie-banner.njk`, copy in `data/footer.json` `cookieConsent`, behaviour `assets/js/cookie-consent.js`). Categories: Necessary (always on), Analytics, Marketing. Reject all and Accept all have equal prominence; Customise reveals per-category checkboxes.
+- The choice is one first-party cookie, `sfd_consent` (JSON with version and timestamp), 180 days, `SameSite=Lax`, `Secure` on https. Bumping `cookieConsent.version` in `footer.json` asks every visitor again. The footer "Cookie settings" button reopens it; Escape closes it only once a choice exists.
+- No analytics or marketing scripts exist yet. Any future script must check `window.sfdConsent.has('analytics')` or listen for the `sfd:consent` event before loading.
+- Server-side consent proof (`consents` table) arrives with the API (see the plan in docs/10).

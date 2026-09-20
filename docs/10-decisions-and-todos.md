@@ -296,3 +296,8 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 - New BLOCKING before launch: add the real `assets/images/og-default.jpg` (1200x630). Production validation fails until it exists.
 - Deployment to-do: paste `deploy/nginx-redirects.conf` into the CloudPanel vhost; confirm CloudPanel's default static-site config does not already define a conflicting `location /` or `error_page`.
 - Open: security headers and `X-Robots-Tag` for the preview host are not yet defined.
+
+### Cookie consent, backend plan (2026-09-20)
+
+- Built the cookie banner and footer "Cookie settings" trigger (docs/08).
+- Decided with the owner: MySQL database, `migrations/` folder, PHP API under `/api/` on a CloudPanel PHP site (Contabo VPS), local preview reaches the live DB through an SSH tunnel, Google Calendar/Meet plus SMTP email, `.env` and `.env-local` gitignored. This supersedes the n8n plan in docs/07 and docs/12 and amends the "no Node in production" wording (PHP is allowed; Node is still not needed). Still to do in order: Cookie Policy page, migrations, working forms. Legal review and pending content stay open.

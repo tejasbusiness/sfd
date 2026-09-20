@@ -36,6 +36,7 @@
           {% for link in footer.legalLinks %}
           <li><a href="{{ link.path }}">{{ link.label }}</a></li>
           {% endfor %}
+          <li><button type="button" class="site-footer__link-button" data-cookie-settings>{{ footer.cookieConsent.settingsLinkLabel }}</button></li>
         </ul>
       </nav>
       {% endif %}

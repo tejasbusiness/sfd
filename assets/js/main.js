@@ -8,6 +8,7 @@ import { initScrollReveal } from './scroll-reveal.js';
 import { initCustomSelects } from './custom-select.js';
 import { initCountrySelects } from './country-select.js';
 import { initLegalToc } from './legal-toc.js';
+import { initCookieConsent } from './cookie-consent.js';
 
 // Several triggers (header button, mobile-nav button, page CTAs) can all open the
 // same sitewide dialog (e.g. #booking-modal) — one controller per dialog, shared.
@@ -64,4 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomSelects();
   initCountrySelects();
   initLegalToc();
+  initCookieConsent();
 });
