@@ -3033,21 +3033,41 @@ a.testimonials__rating:hover {
    framed in CSS, no image editing needed). Sizes use container units so the frames and
    bezels scale with the stage. Screens are real screenshots, so alt text lives on the
    wrapper (role="img"). */
+/* One column on phones, two on tablets, three on desktop. */
 .portfolio-showcase__list {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5) var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
   margin-top: var(--space-5);
+}
+@media (min-width: 40rem) {
+  .portfolio-showcase__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Two-column layout: centre a lone last project instead of leaving it on the left. */
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  .portfolio-showcase__item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - var(--space-2));
+    justify-self: center;
+  }
+}
+@media (min-width: 64rem) {
+  .portfolio-showcase__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 .portfolio-showcase__item {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  align-content: start;
   justify-items: center;
   text-align: center;
 }
 .device-mockup {
   container-type: inline-size;
   width: 100%;
-  max-width: 62rem;
 }
 .device-mockup__stage {
   position: relative;
@@ -3129,6 +3149,9 @@ a.testimonials__rating:hover {
 .portfolio-showcase__meta h3,
 .portfolio-showcase__meta .eyebrow {
   margin: 0;
+}
+.portfolio-showcase__meta h3 {
+  font-size: 1.25rem;
 }
 
 .portfolio-showcase__meta .button {
