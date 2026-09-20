@@ -227,8 +227,10 @@
   Pricing page and the ownership/cancellation FAQs (all "TBD" removed).
 - Unlimited updates replaced by defined allowances (Lite 10, Business 20,
   E-Commerce 40). "Most Popular" is now "Best Value".
-- Clarified by the owner: the 3 months are a continuous paying period, so a client who pays briefly, cancels and returns later does not qualify. Open: what a client gets if they cancel before 3 months (content export?),
-  page allowance per plan, Business vs E-Commerce e-commerce wording.
+- Clarified by the owner: the 3 months are a continuous paying period, so a client who pays briefly, cancels and returns later does not qualify. Resolved 2026-09-20: cancel before 3 months = keep the domain and receive all
+  own content (code and design stay with SFD); page allowances 5/10/20 (blog
+  posts, legal and thank-you pages excluded; E-Commerce product listings scoped
+  separately); e-commerce removed from Business and owned by the E-Commerce plan.
 
 ## Claude instruction
 

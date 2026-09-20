@@ -13,7 +13,7 @@
     {
       "id": "ownership",
       "question": "Who owns the website and domain?",
-      "answer": "You always own your domain. After 3 continuous months as a paying subscriber on any plan, you can also take your complete website with you: we transfer it at no charge, with no hidden fees."
+      "answer": "You always own your domain, and if you cancel before 3 months you receive all of your own content. After 3 continuous months as a paying subscriber on any plan, you can also take your complete website with you: we transfer it at no charge, with no hidden fees."
     },
     {
       "id": "updates",
@@ -23,7 +23,7 @@
     {
       "id": "cancellation",
       "question": "Can I cancel?",
-      "answer": "Yes — every plan is month-to-month with no long-term contract, so you can cancel anytime. After 3 continuous months as a paying subscriber on any plan, you can transfer your complete website to your own hosting at no charge."
+      "answer": "Yes — every plan is month-to-month with no long-term contract, so you can cancel anytime. If you cancel before 3 months, you keep your domain and receive all of your own content. After 3 continuous months as a paying subscriber on any plan, you can transfer your complete website to your own hosting at no charge."
     },
     {
       "id": "timing",
@@ -36,9 +36,14 @@
       "answer": "Not automatically. We review every application to make sure we can create something genuinely useful for your business before building a preview."
     },
     {
+      "id": "page-allowance",
+      "question": "How many pages does each plan include?",
+      "answer": "Lite includes up to 5 pages, Business up to 10 and E-Commerce up to 20. Blog posts, legal pages and thank-you pages don't count towards the limit, and E-Commerce product listings are scoped separately when we build your store. Pages beyond your allowance are quoted separately, or you can move up a plan."
+    },
+    {
       "id": "add-pages",
       "question": "Can I add pages to my website later?",
-      "answer": "Yes. New pages and page changes are covered by your plan's monthly content-update allowance — 10 updates a month on Lite, 20 on Business and 40 on E-Commerce — at no extra cost within that allowance."
+      "answer": "Yes. Your plan includes a page allowance — up to 5 pages on Lite, 10 on Business and 20 on E-Commerce — and you can add pages within it at no extra cost. Pages beyond your allowance are quoted separately, or you can move up a plan."
     },
     {
       "id": "update-definition",
