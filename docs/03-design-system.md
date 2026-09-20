@@ -126,3 +126,5 @@ All FAQ / Common-questions sections (`faq` and `faq-split`) render through `temp
 - **Dark brand band** (trust strip, hero band, testimonials, credentials strip): `linear-gradient(135deg, --color-primary, --color-primary-deep)` with a faint gold radial glow and gold hairlines. Gold (`--color-accent`) is used for eyebrows, icons and accents on dark only.
 - **Footer:** four link columns; column headings gold with a gold gradient hairline; legal links are a centred row with gold dot separators above the centred copyright.
 - **Trust strip:** centred items, heading font, gold-ringed check icons, vertical dividers on desktop.
+
+- **Footer link type (2026-09-20):** all footer links (columns, legal row, social) and the plain group labels use 13px (`0.8125rem`) at weight 300. Montserrat 300 is loaded in `base.njk`.

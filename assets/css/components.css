@@ -1207,7 +1207,8 @@ a.site-header__mega-tool:focus-visible {
 }
 .site-footer__group-label {
   color: rgba(255, 255, 255, 0.35);
-  font-size: var(--text-sm);
+  font-size: 0.8125rem;
+  font-weight: 300;
 }
 .site-footer__bottom {
   display: flex;
@@ -1246,7 +1247,8 @@ a.site-header__mega-tool:focus-visible {
   display: inline-block;
   padding-block: 4px;
   color: rgba(255, 255, 255, 0.75);
-  font-size: var(--text-sm);
+  font-size: 0.8125rem;
+  font-weight: 300;
   letter-spacing: 0.03em;
   text-decoration: none;
   transition: color 0.25s ease;
@@ -1300,7 +1302,8 @@ a.site-header__mega-tool:focus-visible {
 }
 .site-footer__social a {
   color: rgba(255, 255, 255, 0.6);
-  font-size: var(--text-sm);
+  font-size: 0.8125rem;
+  font-weight: 300;
   text-decoration: none;
 }
 
