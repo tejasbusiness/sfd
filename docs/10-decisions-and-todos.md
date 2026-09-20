@@ -25,7 +25,7 @@
 - Exact monthly plan names and USD prices.
 - Activation fee, minimum term, annual option or month-to-month policy.
 - Page and update allowance for each plan.
-- Website buyout/source-transfer policy.
+- Website buyout/source-transfer policy. **Resolved 2026-09-20:** free full-site transfer after 3 continuous months (reduced from 6 on 2026-09-20) of paid subscription on any plan, no hidden charges (the 6 months are paying months; cancelling and returning later does not count).
 - Add-on pricing.
 - Tax wording and third-party charges.
 
@@ -218,6 +218,17 @@
   higher). Free Preview: compact band so the form stays near the top.
 - Open ideas: star ratings per review (not supplied), more reviews for
   Restaurants/Home Services/Financial Services, Case Studies once real.
+
+### 2026-09-20 — Pricing decisions
+
+- Buyout/transfer policy decided by the owner: after 3 continuous months of paid subscription on any plan the
+  complete website can be transferred to the client's own hosting at no
+  charge, with no exit fees or hidden charges. Applied to plans.json, the
+  Pricing page and the ownership/cancellation FAQs (all "TBD" removed).
+- Unlimited updates replaced by defined allowances (Lite 10, Business 20,
+  E-Commerce 40). "Most Popular" is now "Best Value".
+- Clarified by the owner: the 3 months are a continuous paying period, so a client who pays briefly, cancels and returns later does not qualify. Open: what a client gets if they cancel before 3 months (content export?),
+  page allowance per plan, Business vs E-Commerce e-commerce wording.
 
 ## Claude instruction
 
