@@ -85,8 +85,8 @@
           "id": "cookies-analytics",
           "heading": "Cookies and analytics",
           "body": [
-            "Cookies are small files stored on your device. We use those that are necessary to make this website work and, where you allow it or the law permits, analytics cookies that show us how visitors use the site. You can control or delete cookies in your browser settings, and blocking some cookies may affect how parts of the site work.",
-            "Where local law requires your consent for non-essential cookies, we will ask for it and you can withdraw it at any time."
+            "Cookies are small files stored on your device. We use those that are necessary to make this website work and, only if you accept them, analytics or marketing cookies. When you first visit, a banner lets you accept all, reject all or choose by category, and the \"Cookie settings\" link at the bottom of every page lets you change or withdraw your choice at any time. You can also control or delete cookies in your browser settings.",
+            "At present we set only one necessary cookie, which remembers your choice. See our <a href=\"/cookie-policy/\">Cookie Policy</a> for the full list and details."
           ]
         },
         {
@@ -150,7 +150,7 @@
           "id": "related-policies",
           "heading": "Related policies",
           "body": [
-            "See also our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a>."
+            "See also our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/subscription-terms/\">Subscription Terms</a>, <a href=\"/cookie-policy/\">Cookie Policy</a> and <a href=\"/refund-policy/\">Refund Policy</a>."
           ]
         }
       ]

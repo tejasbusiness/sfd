@@ -67,7 +67,8 @@
     { "label": "Privacy Policy", "path": "/privacy-policy/" },
     { "label": "Terms and Conditions", "path": "/terms-and-conditions/" },
     { "label": "Subscription Terms", "path": "/subscription-terms/" },
-    { "label": "Refund Policy", "path": "/refund-policy/" }
+    { "label": "Refund Policy", "path": "/refund-policy/" },
+    { "label": "Cookie Policy", "path": "/cookie-policy/" }
   ],
   "social": []
 }

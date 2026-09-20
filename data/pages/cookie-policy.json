@@ -1,0 +1,91 @@
+{
+  "id": "cookie-policy",
+  "type": "legal",
+  "slug": "cookie-policy",
+  "canonicalPath": "/cookie-policy/",
+  "seo": {
+    "title": "Cookie Policy | SynergyFirst Digital",
+    "metaDescription": "Which cookies SynergyFirst Digital uses, why, and how you can accept, reject or change your cookie choices at any time.",
+    "ogTitle": "Cookie Policy | SynergyFirst Digital",
+    "ogDescription": "The cookies we use, why we use them and how to control them.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Cookie Policy",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "legal-document",
+      "eyebrow": "LEGAL",
+      "subheading": "What cookies are, which ones this website uses, and how you stay in control of them. We keep it in plain language.",
+      "updated": "20 September 2026",
+      "contactHeading": "Cookie questions",
+      "contactBody": "If you have a question about how we use cookies or about your choices, email us and we will reply.",
+      "clauses": [
+        {
+          "id": "what-are-cookies",
+          "heading": "What cookies are",
+          "body": [
+            "Cookies are small text files that a website stores on your device. They let a website remember your choices and, if you allow it, measure how the site is used. This policy covers cookies and similar technologies such as local storage on the SynergyFirst Digital (\"SFD\", \"we\", \"us\") website. It should be read with our <a href=\"/privacy-policy/\">Privacy Policy</a>."
+          ]
+        },
+        {
+          "id": "how-we-use-cookies",
+          "heading": "How we use cookies",
+          "body": [
+            "We group cookies into three categories:",
+            [
+              "<strong>Necessary:</strong> needed for the website to work and to remember your cookie choice. These are always on and do not need your consent.",
+              "<strong>Analytics:</strong> would help us understand how visitors use the site so we can improve it. Off unless you accept them.",
+              "<strong>Marketing:</strong> would be used to measure and personalise advertising. Off unless you accept them."
+            ],
+            "At the date above we do not run any analytics or marketing tools, so no analytics or marketing cookies are set. If we add them, we will update this policy, ask for your choice again and only load them if you accept."
+          ]
+        },
+        {
+          "id": "cookies-we-use",
+          "heading": "Cookies we use",
+          "body": [
+            [
+              "<strong>sfd_consent</strong> (Necessary, first-party): stores your cookie choices and the version of our banner so we do not ask you again on every page. Kept for up to 180 days."
+            ],
+            "We do not set any other cookies at present."
+          ]
+        },
+        {
+          "id": "third-parties",
+          "heading": "Third-party services",
+          "body": [
+            "Our pages load fonts from Google Fonts. When your browser requests them, Google receives technical information such as your IP address. Google Fonts does not set cookies for this purpose. We plan to host the fonts ourselves so this request is no longer needed.",
+            "If you choose to book a call, the details you give are processed by us and by our service providers as described in the Privacy Policy. Google Meet, Google Calendar and Razorpay set their own cookies only on their own pages."
+          ]
+        },
+        {
+          "id": "your-choices",
+          "heading": "Your choices",
+          "body": [
+            "When you first visit, a banner lets you accept all, reject all or choose by category. Rejecting is as easy as accepting, and the website works the same either way.",
+            "You can change or withdraw your choice at any time using the \"Cookie settings\" link at the bottom of every page. Withdrawing consent does not affect what we did before you withdrew it.",
+            "You can also block or delete cookies in your browser settings. Blocking necessary cookies may mean we cannot remember your choice, so the banner may appear again."
+          ]
+        },
+        {
+          "id": "changes",
+          "heading": "Changes to this policy",
+          "body": [
+            "We may update this policy from time to time. The \"Last updated\" date at the top shows when it last changed. If we add new kinds of cookies, we will ask for your choice again."
+          ]
+        },
+        {
+          "id": "related-policies",
+          "heading": "Related policies",
+          "body": [
+            "See also our <a href=\"/privacy-policy/\">Privacy Policy</a>, <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a>."
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-20"
+}

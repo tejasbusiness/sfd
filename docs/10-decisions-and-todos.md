@@ -301,3 +301,8 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 
 - Built the cookie banner and footer "Cookie settings" trigger (docs/08).
 - Decided with the owner: MySQL database, `migrations/` folder, PHP API under `/api/` on a CloudPanel PHP site (Contabo VPS), local preview reaches the live DB through an SSH tunnel, Google Calendar/Meet plus SMTP email, `.env` and `.env-local` gitignored. This supersedes the n8n plan in docs/07 and docs/12 and amends the "no Node in production" wording (PHP is allowed; Node is still not needed). Still to do in order: Cookie Policy page, migrations, working forms. Legal review and pending content stay open.
+
+### Cookie Policy page (2026-09-20)
+
+- Added `/cookie-policy/` on the shared `legal-document` section (same structure as the Privacy Policy), linked from the footer legal row, the banner, the Privacy Policy cookie clause and the "related policies" line of all legal pages. It lists the one cookie actually set (`sfd_consent`) and notes that Google Fonts are loaded from Google until fonts are self-hosted.
+- Needs lawyer review with the other legal pages. When analytics or marketing tools are added, update the page and bump `cookieConsent.version` in `data/footer.json`. When the MySQL backend ships, the Privacy Policy must name the database and email providers (it currently names Google Sheets for records).

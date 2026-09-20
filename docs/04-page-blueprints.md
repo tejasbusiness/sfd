@@ -112,3 +112,7 @@ Privacy, general terms, subscription terms and refund policy require professiona
 
 All four are built (`/privacy-policy/`, `/terms-and-conditions/`, `/subscription-terms/`, `/refund-policy/`) on the shared `legal-document` section, with the Privacy Policy as the approved reference for structure and styling: dark hero band with a "Last updated" pill, sticky "On this page" list (no `#` in the URL), numbered clauses, and a contact card. Drafting assumptions awaiting owner confirmation are recorded in `docs/10-decisions-and-todos.md`.
 
+
+## Cookie Policy (2026-09-20)
+
+`/cookie-policy/` uses the same `legal-document` blueprint as the other legal pages: what cookies are, categories, cookies used, third parties, your choices, changes, related policies.
