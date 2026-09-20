@@ -79,6 +79,26 @@
       "id": "about-get-started",
       "question": "How do we get started?",
       "answer": "Book a free 30-minute discovery call. We will discuss your business, current digital presence, immediate priorities and whether SynergyFirst Digital is the right fit for the work."
+    },
+    {
+      "id": "contact-which-option",
+      "question": "Should I book a call or request a free preview?",
+      "answer": "Book a Free 30-Minute Discovery Call if you would like to talk through your goals with us directly. Request a Free Preview Website if you would rather see how your business could look first. If you are unsure, start with the call and we will point you to the right next step."
+    },
+    {
+      "id": "contact-preview-guarantee",
+      "question": "Does applying for a free preview guarantee I will get one?",
+      "answer": "No. Submitting an application does not guarantee a preview. We review each application and follow up on the next steps."
+    },
+    {
+      "id": "contact-time-zones",
+      "question": "Can you work with me if I am in another time zone?",
+      "answer": "Yes. We work remotely with businesses across the USA, Canada, Australia, New Zealand and Europe, and the booking tool lets you choose a time in your own time zone."
+    },
+    {
+      "id": "contact-call-prep",
+      "question": "How should I prepare for the discovery call?",
+      "answer": "Have your business name, your current website or Google Business Profile (if you have one) and the main problem you want solved to hand. The call is a conversation about fit and priorities, with no obligation."
     }
   ]
 }

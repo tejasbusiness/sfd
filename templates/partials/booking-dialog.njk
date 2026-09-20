@@ -2,6 +2,7 @@
    15-Minute Call" trigger opens this same dialog. Dates/times shown are DEMO data —
    see docs/12-booking-integration-contract.md for the real n8n contract this stands in for. #}
 {% from "partials/country-code-options.njk" import options as countryCodeOptions %}
+{% import "partials/form-fields.njk" as fields %}
 <dialog id="booking-modal" class="dialog booking-modal" aria-labelledby="booking-modal-title">
   <div class="dialog__panel booking-modal__panel">
     <div class="dialog__header booking-modal__header">
@@ -64,54 +65,20 @@
 
       <section data-booking-step="details" hidden>
         <h3>Your details</h3>
-        <form class="booking-modal__form" data-booking-form novalidate>
-          <div class="field field--floating">
-            <label class="field__label" for="booking-name">Full name *</label>
-            <input class="field__control" id="booking-name" name="fullName" type="text" placeholder=" " required autocomplete="name">
-            <p class="field__error" data-booking-error-for="fullName" role="alert" hidden></p>
-          </div>
-          <div class="field field--floating">
-            <label class="field__label" for="booking-email">Email address *</label>
-            <input class="field__control" id="booking-email" name="email" type="email" placeholder=" " required autocomplete="email">
-            <p class="field__error" data-booking-error-for="email" role="alert" hidden></p>
-          </div>
-          <div class="field phone-field">
-            <div class="phone-field__row">
-              <select class="field__control phone-field__code" id="booking-country-code" name="countryCode" data-enhance="country-select" data-default-iso2="{{ countryCodes.defaultIso2 }}">
-                {{ countryCodeOptions(countryCodes) }}
-              </select>
-              <div class="phone-field__number-wrap">
-                <label class="field__label" for="booking-phone">Mobile number *</label>
-                <input class="field__control phone-field__number" id="booking-phone" name="mobileNumber" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder=" " required autocomplete="tel-national">
-              </div>
-            </div>
-            <p class="field__error" data-booking-error-for="mobileNumber" role="alert" hidden></p>
-            <p class="field__error" data-booking-error-for="countryCode" role="alert" hidden></p>
-          </div>
-          <div class="field field--floating">
-            <label class="field__label" for="booking-country">Country (optional)</label>
-            <input class="field__control" id="booking-country" name="country" type="text" placeholder=" ">
-          </div>
-          <div class="field field--floating">
-            <label class="field__label" for="booking-business">Business name *</label>
-            <input class="field__control" id="booking-business" name="businessName" type="text" placeholder=" " required autocomplete="organization">
-            <p class="field__error" data-booking-error-for="businessName" role="alert" hidden></p>
-          </div>
-          <div class="field field--floating">
-            <label class="field__label" for="booking-website">Existing website (optional)</label>
-            <input class="field__control" id="booking-website" name="website" type="text" placeholder=" ">
-          </div>
-          <div class="field field--floating field--full">
-            <label class="field__label" for="booking-message">Message *</label>
-            <textarea class="field__control" id="booking-message" name="message" rows="2" placeholder=" " required></textarea>
-            <p class="field__error" data-booking-error-for="message" role="alert" hidden></p>
-          </div>
+        <form class="sfd-form" data-booking-form novalidate>
+          {{ fields.input("booking-name", "fullName", "Full name *", required=true, autocomplete="name") }}
+          {{ fields.input("booking-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+          {{ fields.phone("booking", countryCodes, countryCodeOptions) }}
+          {{ fields.input("booking-country", "country", "Country (optional)") }}
+          {{ fields.input("booking-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
+          {{ fields.input("booking-website", "website", "Existing website (optional)", inputmode="url", autocomplete="url", website=true) }}
+          {{ fields.textarea("booking-message", "message", "Message *", required=true) }}
           <p class="field__hint field--full">By booking, you agree to our <a href="/privacy-policy/">Privacy Policy</a>.</p>
-          <div class="booking-modal__form-actions field--full">
+          <div class="sfd-form__actions field--full">
             <button type="button" class="button button--secondary" data-booking-back="slot">Back</button>
             <button type="submit" class="button button--primary" data-booking-submit>Confirm booking</button>
           </div>
-          <p class="booking-modal__submit-error field__error field--full" data-booking-submit-error role="alert" hidden></p>
+          <p class="sfd-form__submit-error field__error field--full" data-booking-submit-error role="alert" hidden></p>
         </form>
       </section>
 

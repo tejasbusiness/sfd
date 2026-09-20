@@ -14,17 +14,21 @@
     <p>{{ section.card.body }}</p>
   </div>
 
-  <div class="field field--invalid component-gallery__field">
-    <label class="field__label" for="gallery-field">{{ section.field.label }}</label>
-    <input
-      class="field__control"
-      id="gallery-field"
-      type="text"
-      aria-describedby="gallery-field-hint gallery-field-error"
-      aria-invalid="true"
-    >
-    <p class="field__hint" id="gallery-field-hint">{{ section.field.hint }}</p>
-    <p class="field__error" id="gallery-field-error" role="alert">{{ section.field.errorMessage }}</p>
+  {# Shows the shared form field (floating label, invalid state) — same system as every form. #}
+  <div class="sfd-form sfd-form--page component-gallery__field">
+    <div class="field field--floating field--invalid">
+      <label class="field__label" for="gallery-field">{{ section.field.label }}</label>
+      <input
+        class="field__control"
+        id="gallery-field"
+        type="text"
+        placeholder=" "
+        aria-describedby="gallery-field-hint gallery-field-error"
+        aria-invalid="true"
+      >
+      <p class="field__hint" id="gallery-field-hint">{{ section.field.hint }}</p>
+      <p class="field__error" id="gallery-field-error" role="alert">{{ section.field.errorMessage }}</p>
+    </div>
   </div>
 
   <button type="button" class="button button--secondary" data-dialog-target="gallery-dialog">

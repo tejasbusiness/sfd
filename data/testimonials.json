@@ -1,4 +1,54 @@
 {
-  "_note": "No verified testimonials exist yet (docs/10 BLOCKING). CLAUDE.md rule 13 forbids inventing them, so this stays empty — the testimonials section simply does not render — until real, sourced testimonials are supplied.",
-  "items": []
+  "_note": "Real client reviews supplied and approved by the business owner (2026-09-20), from the Google Business listing. Quotes are verbatim; … marks a trimmed passage. Do not add or edit quotes without the owner approval (CLAUDE.md rule 13).",
+  "items": [
+    {
+      "id": "aseem-trivedi",
+      "quote": "They are thorough professionals and arguably best in their field. Tejas throughout the process was very patient and gave us honest and constructive ideas. … We are based out in New York, and he made himself available when it was convenient for us. We couldn’t be happier.",
+      "author": "Aseem Trivedi",
+      "role": "Business Owner, New Jersey, USA",
+      "source": "Google review"
+    },
+    {
+      "id": "aseem-trivedi-availability",
+      "quote": "We are based out in New York, and he made himself available when it was convenient for us. We couldn’t be happier.",
+      "author": "Aseem Trivedi",
+      "role": "Business Owner, New Jersey, USA",
+      "source": "Google review"
+    },
+    {
+      "id": "mamata-desai",
+      "quote": "Creating a website for our company was uncharted territory. Tejas was so patient and completely transparent in everything. He is such a nice and extremely efficient guy. Throughout the year, any issue I can reach out and the matter is sorted without any delay. We have been his clients for several years now and will continue to be so.",
+      "author": "Mamata Desai",
+      "role": "Partner, The BrandBook Company",
+      "source": "Google review"
+    },
+    {
+      "id": "sumita-shah",
+      "quote": "Thorough professionals and very meticulous is what we felt as far as their work is concerned. Also punctuality is their strength. … We are Extremely satisfied.",
+      "author": "Sumita Shah",
+      "role": "Co-founder, AbilityTQM Consultants",
+      "source": "Google review"
+    },
+    {
+      "id": "manu-sharma",
+      "quote": "Thoroughly professional, always available for service, gives genuine advice, makes design as suits u, you can bother them any number of times till your best job is done. … Very economical … u will get the best deal with best work.",
+      "author": "Dr. Manu Sharma",
+      "role": "Orthopedic Surgeon (Knee Replacement)",
+      "source": "Google review"
+    },
+    {
+      "id": "sanjay-bhatia",
+      "quote": "Excellent service provider and best company to work with.",
+      "author": "Sanjay Bhatia",
+      "role": "Actor, Director, Former EC member, CINTAA",
+      "source": "Google review"
+    },
+    {
+      "id": "rahul-sharma",
+      "quote": "Excellent and quick services provided by Web vectors. I appreciate them for their outstanding job! I highly recommend them for complete web development services.",
+      "author": "Rahul Sharma",
+      "role": "Local Business Owner, Surat, Gujarat",
+      "source": "Google review"
+    }
+  ]
 }

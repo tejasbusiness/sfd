@@ -17,8 +17,15 @@
     {
       "type": "hero",
       "subheading": "Every plan includes hosting, maintenance and a defined content-update allowance — nothing hidden behind vague wording.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     },
     {
       "type": "pricing-summary",
@@ -31,18 +38,42 @@
       "customPlan": {
         "heading": "Need something different?",
         "body": "One-time project, SEO-only, AI integration, or something we haven't thought of yet — apply and tell us what you need, and we'll confirm whether we can build a plan that fits.",
-        "cta": { "label": "Get Started", "href": "/free-preview/" }
+        "cta": {
+          "label": "Get Started",
+          "href": "/free-preview/"
+        }
       }
+    },
+    {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEWS",
+      "heading": "Support and value, in our clients’ words",
+      "itemIds": [
+        "manu-sharma",
+        "mamata-desai"
+      ]
     },
     {
       "type": "feature-grid",
       "heading": "Included on every plan",
       "intro": "Regardless of which plan you choose, these are never an upsell.",
       "items": [
-        { "title": "Custom design", "body": "Every site is designed for your business — no drag-and-drop templates." },
-        { "title": "Domain, hosting & security", "body": "Domain connection, managed hosting, SSL and monthly uptime monitoring, included." },
-        { "title": "Mobile-responsive by default", "body": "Every page is built to work correctly on phones, tablets and desktops." },
-        { "title": "Ongoing content-update support", "body": "A defined monthly update allowance keeps your site current, without a separate maintenance contract." }
+        {
+          "title": "Custom design",
+          "body": "Every site is designed for your business — no drag-and-drop templates."
+        },
+        {
+          "title": "Domain, hosting & security",
+          "body": "Domain connection, managed hosting, SSL and monthly uptime monitoring, included."
+        },
+        {
+          "title": "Mobile-responsive by default",
+          "body": "Every page is built to work correctly on phones, tablets and desktops."
+        },
+        {
+          "title": "Ongoing content-update support",
+          "body": "A defined monthly update allowance keeps your site current, without a separate maintenance contract."
+        }
       ]
     },
     {
@@ -50,26 +81,57 @@
       "tinted": true,
       "heading": "Commitment and ownership",
       "items": [
-        { "title": "Domain ownership", "body": "You always own your domain, regardless of plan or how long you subscribe." },
-        { "title": "Minimum term", "body": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime." },
-        { "title": "Buyout / transfer policy", "body": "Our source-code and content buyout or transfer policy is being finalized (TBD) and will be published before launch." },
-        { "title": "Add-ons & third-party charges", "body": "Additional Google Workspace email addresses are $15/month each beyond your plan's included allowance; other third-party charges are passed through at cost." }
+        {
+          "title": "Domain ownership",
+          "body": "You always own your domain, regardless of plan or how long you subscribe."
+        },
+        {
+          "title": "Minimum term",
+          "body": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime."
+        },
+        {
+          "title": "Buyout / transfer policy",
+          "body": "Our source-code and content buyout or transfer policy is being finalized (TBD) and will be published before launch."
+        },
+        {
+          "title": "Add-ons & third-party charges",
+          "body": "Additional Google Workspace email addresses are $15/month each beyond your plan's included allowance; other third-party charges are passed through at cost."
+        }
       ]
     },
     {
       "type": "faq",
       "heading": "Pricing questions",
-      "itemIds": ["cost", "term", "ownership", "updates", "add-pages", "unlimited-updates-scope", "plan-upgrade", "cancellation"]
+      "itemIds": [
+        "cost",
+        "term",
+        "ownership",
+        "updates",
+        "add-pages",
+        "unlimited-updates-scope",
+        "plan-upgrade",
+        "cancellation"
+      ]
     },
     {
       "type": "free-preview-cta",
       "tone": "brand",
       "heading": "Not sure which plan fits?",
       "body": "Apply for a free preview or Book a Free 30-Minute Discovery Call — we'll help you figure out what you actually need.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     }
   ],
-  "schemaTypes": ["WebPage", "FAQPage"],
+  "schemaTypes": [
+    "WebPage",
+    "FAQPage"
+  ],
   "lastUpdated": "2026-09-17"
 }

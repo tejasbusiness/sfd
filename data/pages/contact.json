@@ -1,32 +1,182 @@
 {
-  "_scaffold": "Phase 8 stub (2026-09-18): docs/04-page-blueprints.md calls for a real support email and response-time expectations here, but those are unverified/BLOCKING (docs/10 — supportEmail is a TBD placeholder in company.json). Add them once confirmed instead of guessing.",
   "id": "contact",
   "type": "static",
   "slug": "contact",
   "canonicalPath": "/contact/",
   "seo": {
     "title": "Contact Us | SynergyFirst Digital",
-    "metaDescription": "Get in touch with SynergyFirst Digital — Book a Free 30-Minute Discovery Call or apply for a Free Preview Website.",
+    "metaDescription": "Talk to SynergyFirst Digital. Book a Free 30-Minute Discovery Call or apply for a Free Preview Website to get your local business moving online.",
     "ogTitle": "Contact SynergyFirst Digital",
     "ogDescription": "Book a Free 30-Minute Discovery Call or apply for a Free Preview Website.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Get in touch",
+  "h1": "Let's talk about your website",
   "breadcrumbs": null,
   "sections": [
     {
-      "type": "intro",
-      "heading": "The fastest ways to reach us",
-      "body": "Book a short call to talk through your website, or apply for a free preview and we'll be in touch about next steps."
+      "type": "hero",
+      "eyebrow": "CONTACT US",
+      "subheading": "Tell us about your business and where you want it to go. Pick the route that suits you: a live conversation, or a free preview of what your new website could look like.",
+      "primaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "secondaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
     },
     {
-      "type": "booking-cta",
-      "heading": "Ready when you are",
-      "primaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
-      "secondaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "type": "proof-strip",
+      "items": [
+        {
+          "label": "300+ Websites Delivered"
+        },
+        {
+          "label": "4.8★ Ratings on Google"
+        },
+        {
+          "label": "8+ Years in Business"
+        }
+      ]
+    },
+    {
+      "type": "link-cards",
+      "eyebrow": "WAYS TO GET IN TOUCH",
+      "heading": "Choose the path that fits where you are",
+      "items": [
+        {
+          "label": "Book a Free 30-Minute Discovery Call",
+          "description": "Talk to us live over Google Meet about your business, your website and your priorities.",
+          "href": "/book-a-call/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18M8 3v4M16 3v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Request Your Free Preview Website",
+          "description": "Share a few details about your business and apply for a concept of your new website.",
+          "href": "/free-preview/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M8 21h8M12 18v3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "See How It Works",
+          "description": "Prefer to read first? Walk through the process from preview to launch.",
+          "href": "/how-it-works/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8v4l3 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "eyebrow": "WORKING WITH US",
+      "heading": "What it is like to work with us",
+      "itemIds": [
+        "rahul-sharma",
+        "aseem-trivedi-availability"
+      ]
+    },
+    {
+      "type": "contact-form",
+      "eyebrow": "SEND A MESSAGE",
+      "heading": "Prefer to write? Tell us what you need",
+      "intro": "Share a few details about your business and what you would like help with, and we will reply by email.",
+      "topics": [
+        {
+          "value": "new-website",
+          "label": "A new website"
+        },
+        {
+          "value": "existing-website",
+          "label": "Improving my existing website"
+        },
+        {
+          "value": "seo-google",
+          "label": "Local SEO or Google Business Profile"
+        },
+        {
+          "value": "automation",
+          "label": "Automation, AI or WhatsApp"
+        },
+        {
+          "value": "other",
+          "label": "Something else"
+        }
+      ],
+      "sources": [
+        {
+          "value": "google",
+          "label": "Google"
+        },
+        {
+          "value": "social-media",
+          "label": "Social Media (Instagram / Facebook / YouTube / LinkedIn)"
+        },
+        {
+          "value": "word-of-mouth",
+          "label": "Word of mouth / friend"
+        },
+        {
+          "value": "whatsapp",
+          "label": "WhatsApp"
+        },
+        {
+          "value": "meta-ads",
+          "label": "Meta Ads"
+        },
+        {
+          "value": "partner-affiliate",
+          "label": "Partner / Affiliate"
+        },
+        {
+          "value": "blog",
+          "label": "Blog"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "card": {
+        "heading": "Contact details",
+        "intro": "Prefer to reach us directly? You can find us here.",
+        "cta": {
+          "label": "Book a Free 30-Minute Discovery Call",
+          "href": "/book-a-call/"
+        }
+      }
+    },
+    {
+      "type": "faq",
+      "eyebrow": "BEFORE YOU REACH OUT",
+      "heading": "Quick answers",
+      "itemIds": [
+        "contact-which-option",
+        "contact-call-prep",
+        "contact-preview-guarantee",
+        "contact-time-zones"
+      ]
+    },
+    {
+      "type": "cta-editorial",
+      "eyebrow": "NEXT STEP",
+      "heading": "Not sure where to start? Start with a conversation.",
+      "body": "A focused 30 minutes to talk through your business and the smartest next step. No obligation and no pressure.",
+      "primaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "secondaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
     }
   ],
-  "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-09-18"
+  "schemaTypes": [
+    "WebPage",
+    "ContactPage",
+    "FAQPage"
+  ],
+  "lastUpdated": "2026-09-20"
 }

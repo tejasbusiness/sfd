@@ -10,9 +10,9 @@
 </script>
 {% endif %}
 
-{% if "AboutPage" in page.schemaTypes or "WebPage" in page.schemaTypes %}
+{% if "AboutPage" in page.schemaTypes or "ContactPage" in page.schemaTypes or "WebPage" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":{{ ("AboutPage" if "AboutPage" in page.schemaTypes else "WebPage") | dump | safe }},"name":{{ page.seo.title | dump | safe }},"description":{{ page.seo.metaDescription | dump | safe }},"url":{{ canonicalUrl | dump | safe }}}
+{"@context":"https://schema.org","@type":{{ ("AboutPage" if "AboutPage" in page.schemaTypes else ("ContactPage" if "ContactPage" in page.schemaTypes else "WebPage")) | dump | safe }},"name":{{ page.seo.title | dump | safe }},"description":{{ page.seo.metaDescription | dump | safe }},"url":{{ canonicalUrl | dump | safe }}}
 </script>
 {% endif %}
 

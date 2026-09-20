@@ -32,9 +32,9 @@ All heading sizes are fluid (`clamp()`), scaling continuously between mobile and
 | Token | clamp() | ~Mobile | ~Desktop (≥1440px) | Weight | Line-height |
 |---|---|---|---|---|---|
 | `--text-display` (H1) | `clamp(2.75rem, 1.8rem + 4.2vw, 5.5rem)` | ~44px | ~88px | 800 | 1.05 |
-| `--text-h2` | `clamp(2rem, 1.5rem + 2vw, 3.5rem)` | ~32px | ~56px | 700 | 1.1 |
-| `--text-h3` | `clamp(1.375rem, 1.2rem + 0.7vw, 1.875rem)` | ~22px | ~30px | 600 | 1.2 |
-| `--text-h4` | `clamp(1.125rem, 1rem + 0.4vw, 1.375rem)` | ~18px | ~22px | 600 | 1.25 |
+| `--text-h2` | `clamp(1.625rem, 1.3rem + 1.3vw, 2.25rem)` | 26px | 36px | 500 | 1.25 |
+| `--text-h3` | `clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem)` | 20px | 26px | 400 | 1.25 |
+| `--text-h4` | `clamp(1.0625rem, 1rem + 0.3vw, 1.25rem)` | 17px | 20px | 400 | 1.25 |
 | `--text-stat` (large numerals, if/when used) | `clamp(2.5rem, 1.8rem + 3vw, 4.5rem)` | ~40px | ~72px | 700, tabular-nums | 1 |
 | `--text-body-lg` (hero/intro copy) | `clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem)` | ~17px | ~19px | 400 | 1.6 |
 | `--text-body` (default paragraph) | `1rem` (fixed) | 16px | 16px | 400 | 1.6 |

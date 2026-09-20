@@ -6,6 +6,7 @@
 // This file never calls Google APIs and never holds a credential (CLAUDE.md rule 11).
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
+import { isValidEmail, isValidWebsite, normalizeWebsite, readForm, showFormErrors, initWebsiteInputs, WEBSITE_ERROR_MESSAGE } from './form-utils.js';
 
 const STEPS = ['date', 'slot', 'details', 'confirmation'];
 const MOCK_SLOT_TIMES = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00'];
@@ -124,21 +125,14 @@ export function initBookingModal(dialogEl) {
 
   function validateForm(data) {
     const errors = {};
-    if (!data.fullName.trim()) errors.fullName = 'Full name is required.';
-    if (!/^\S+@\S+\.\S+$/.test(data.email)) errors.email = 'Enter a valid email address.';
+    if (!data.fullName) errors.fullName = 'Full name is required.';
+    if (!isValidEmail(data.email)) errors.email = 'Enter a valid email address.';
     if (!data.countryCode) errors.countryCode = 'Select a country code.';
     if (!isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
-    if (!data.businessName.trim()) errors.businessName = 'Business name is required.';
-    if (!data.message.trim()) errors.message = 'Tell us a bit about what you need — it helps us prepare for the call.';
+    if (!data.businessName) errors.businessName = 'Business name is required.';
+    if (data.website && !isValidWebsite(data.website)) errors.website = WEBSITE_ERROR_MESSAGE;
+    if (!data.message) errors.message = 'Tell us a bit about what you need — it helps us prepare for the call.';
     return errors;
-  }
-
-  function showFormErrors(errors) {
-    form.querySelectorAll('[data-booking-error-for]').forEach((el) => {
-      const field = el.getAttribute('data-booking-error-for');
-      el.textContent = errors[field] || '';
-      el.hidden = !errors[field];
-    });
   }
 
   dialogEl.querySelectorAll('[data-booking-back]').forEach((button) => {
@@ -160,9 +154,9 @@ export function initBookingModal(dialogEl) {
       event.preventDefault();
       if (state.submitting) return; // duplicate-submission guard
 
-      const data = Object.fromEntries(new FormData(form).entries());
+      const data = readForm(form);
       const errors = validateForm(data);
-      showFormErrors(errors);
+      showFormErrors(form, errors);
       if (Object.keys(errors).length > 0) return;
 
       state.submitting = true;
@@ -173,6 +167,7 @@ export function initBookingModal(dialogEl) {
         const result = await mockSubmitBooking(
           {
             ...data,
+            website: normalizeWebsite(data.website),
             date: state.selectedDate ? state.selectedDate.toISOString() : null,
             time: state.selectedTime,
             timezone: state.timezone,
@@ -210,11 +205,12 @@ export function initBookingModal(dialogEl) {
     state.selectedTime = null;
     state.idempotencyKey = null;
     if (form) form.reset();
-    showFormErrors({});
+    showFormErrors(form, {});
     showStep('date');
   });
 
   initPhoneInputs(dialogEl);
+  if (form) initWebsiteInputs(form);
   renderTimezone();
   renderDates();
   showStep('date');

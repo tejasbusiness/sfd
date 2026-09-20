@@ -1,0 +1,63 @@
+{# The one form-field system for every SFD form (booking modal, Free Preview,
+   Contact, and any future form). Wrap fields in <form class="sfd-form"> (add
+   sfd-form--page outside modals). Labels float via CSS; errors use
+   data-error-for="<name>" and are driven by assets/js/form-utils.js.
+   Pass the label with its own marker: "Full name *" or "Country (optional)". #}
+
+{% macro input(id, name, label, type="text", required=false, autocomplete="", inputmode="", full=false, hidden=false, website=false) %}
+<div class="field field--floating{{ ' field--full' if full }}"{{ ' hidden' if hidden }}>
+  <label class="field__label" for="{{ id }}">{{ label }}</label>
+  <input class="field__control" id="{{ id }}" name="{{ name }}" type="{{ type }}" placeholder=" "
+    {{- ' required' if required }}
+    {{- (' autocomplete="' + autocomplete + '"') | safe if autocomplete }}
+    {{- (' inputmode="' + inputmode + '"') | safe if inputmode }}
+    {{- ' data-website-input' if website }}>
+  <p class="field__error" data-error-for="{{ name }}" role="alert" hidden></p>
+</div>
+{% endmacro %}
+
+{% macro textarea(id, name, label, required=false, rows=2) %}
+<div class="field field--floating field--full">
+  <label class="field__label" for="{{ id }}">{{ label }}</label>
+  <textarea class="field__control" id="{{ id }}" name="{{ name }}" rows="{{ rows }}" placeholder=" "{{ ' required' if required }}></textarea>
+  <p class="field__error" data-error-for="{{ name }}" role="alert" hidden></p>
+</div>
+{% endmacro %}
+
+{# options: [{ value, label }] #}
+{% macro select(id, name, label, options, placeholder="Select an option", required=false) %}
+<div class="field field--floating field--select">
+  <label class="field__label" for="{{ id }}">{{ label }}</label>
+  <select class="field__control" id="{{ id }}" name="{{ name }}" data-enhance="select"{{ ' required' if required }}>
+    <option value="">{{ placeholder }}</option>
+    {% for o in options %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}
+  </select>
+  <p class="field__error" data-error-for="{{ name }}" role="alert" hidden></p>
+</div>
+{% endmacro %}
+
+{% macro phone(id, countryCodes, countryCodeOptions, label="Mobile number *") %}
+<div class="field phone-field">
+  <div class="phone-field__row">
+    <select class="field__control phone-field__code" id="{{ id }}-country-code" name="countryCode" data-enhance="country-select" data-default-iso2="{{ countryCodes.defaultIso2 }}">
+      {{ countryCodeOptions(countryCodes) }}
+    </select>
+    <div class="phone-field__number-wrap">
+      <label class="field__label" for="{{ id }}-phone">{{ label }}</label>
+      <input class="field__control phone-field__number" id="{{ id }}-phone" name="mobileNumber" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder=" " required autocomplete="tel-national">
+    </div>
+  </div>
+  <p class="field__error" data-error-for="mobileNumber" role="alert" hidden></p>
+  <p class="field__error" data-error-for="countryCode" role="alert" hidden></p>
+</div>
+{% endmacro %}
+
+{% macro consent(id, name, label) %}
+<div class="field field--full sfd-form__consent">
+  <label>
+    <input type="checkbox" name="{{ name }}" aria-describedby="{{ id }}-error">
+    {{ label }}
+  </label>
+  <p class="field__error" id="{{ id }}-error" data-error-for="{{ name }}" role="alert" hidden></p>
+</div>
+{% endmacro %}

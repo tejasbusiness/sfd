@@ -1,0 +1,94 @@
+{# General enquiry form, built on the shared form system (partials/form-fields.njk,
+   .sfd-form) so it matches the booking modal exactly. The response-time line
+   renders only once company.responseTime is confirmed (BLOCKING in docs/10). #}
+{% from "partials/country-code-options.njk" import options as countryCodeOptions %}
+{% import "partials/form-fields.njk" as fields %}
+<section class="section contact-form">
+  <div class="container" data-reveal>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+
+    <div class="contact-form__layout">
+    <form class="sfd-form sfd-form--page" data-contact-form novalidate>
+      {{ fields.input("ct-name", "fullName", "Full name *", required=true, autocomplete="name") }}
+      {{ fields.input("ct-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+      {{ fields.phone("ct", countryCodes, countryCodeOptions) }}
+      {{ fields.input("ct-business", "businessName", "Business name (optional)", autocomplete="organization") }}
+      {{ fields.input("ct-website", "website", "Existing website (optional)", inputmode="url", autocomplete="url", website=true) }}
+      {{ fields.select("ct-topic", "topic", "What can we help with? *", section.topics, placeholder="Select a topic", required=true) }}
+      {{ fields.select("ct-source", "source", "How did you hear about us? *", section.sources, placeholder="Select an option", required=true) }}
+      {{ fields.input("ct-source-other", "sourceOther", "Please tell us where *", hidden=true) }}
+      {{ fields.textarea("ct-message", "message", "Message *", required=true, rows=3) }}
+      <p class="field__hint field--full">By sending this message, you agree to our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+      <div class="sfd-form__actions field--full">
+        <button type="submit" class="button button--primary" data-contact-submit>Send message</button>
+      </div>
+      {% if company.responseTime and company.responseTime != "TBD" %}
+      <p class="field__hint field--full">{{ company.responseTime }}</p>
+      {% endif %}
+      <p class="sfd-form__submit-error field__error field--full" data-submit-error role="alert" hidden></p>
+    </form>
+
+    <div class="card form-success" data-contact-success hidden>
+      <h3>Message received</h3>
+      <p>Thank you for getting in touch. We'll read your message and reply by email.</p>
+    </div>
+
+    {# Company details card, driven by company.json. Rows appear only for confirmed
+       values (never TBD), so nothing is invented. #}
+    {% set icons = {
+      email: "<path d=\"M3 6h18v12H3z\"/><path d=\"M3 7l9 6 9-6\"/>",
+      phone: "<path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z\"/>",
+      address: "<path d=\"M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.5\"/>",
+      portal: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"M8 21h8M12 17v4\"/>"
+    } %}
+    <aside class="contact-card" aria-labelledby="contact-card-title">
+      <h3 id="contact-card-title" class="contact-card__title">{{ section.card.heading }}</h3>
+      {% if section.card.intro %}<p class="contact-card__intro">{{ section.card.intro }}</p>{% endif %}
+      <ul class="contact-card__list">
+        {% if company.address and company.address != "TBD" %}
+        <li class="contact-card__item">
+          <span class="contact-card__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ icons.address | safe }}</svg></span>
+          <div>
+            <p class="contact-card__label">Address</p>
+            <address class="contact-card__value contact-card__address">{{ company.address }}</address>
+          </div>
+        </li>
+        {% endif %}
+        {% if company.phones and company.phones.length %}
+        <li class="contact-card__item">
+          <span class="contact-card__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ icons.phone | safe }}</svg></span>
+          <div>
+            <p class="contact-card__label">Phone</p>
+            {% for phone in company.phones %}
+            <p class="contact-card__value contact-card__phone"><span class="contact-card__phone-label">{{ phone.label }}</span> <a href="tel:{{ phone.value | replace("-", "") }}">{{ phone.value }}</a></p>
+            {% endfor %}
+          </div>
+        </li>
+        {% endif %}
+        {% if company.supportEmail and company.supportEmail != "TBD" %}
+        <li class="contact-card__item">
+          <span class="contact-card__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ icons.email | safe }}</svg></span>
+          <div>
+            <p class="contact-card__label">Email</p>
+            <a class="contact-card__value" href="mailto:{{ company.supportEmail }}">{{ company.supportEmail }}</a>
+          </div>
+        </li>
+        {% endif %}
+        {% if company.customerPortal %}
+        <li class="contact-card__item">
+          <span class="contact-card__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ icons.portal | safe }}</svg></span>
+          <div>
+            <p class="contact-card__label">Customer Portal</p>
+            <a class="contact-card__value" href="https://{{ company.customerPortal }}" rel="noopener">{{ company.customerPortal }}</a>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+      {% if company.legalName and company.legalName != "TBD" %}<p class="contact-card__legal">{{ company.legalName }}</p>{% endif %}
+      {% if section.card.cta %}<a class="button button--accent contact-card__cta" href="{{ section.card.cta.href }}" data-dialog-target="booking-modal">{{ section.card.cta.label }}</a>{% endif %}
+    </aside>
+    </div>
+  </div>
+</section>

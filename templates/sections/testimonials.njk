@@ -1,16 +1,36 @@
-{# Renders nothing until data/testimonials.json has real, sourced entries — CLAUDE.md rule 13. #}
-{% if testimonials.items and testimonials.items.length %}
+{# Client reviews from data/testimonials.json (real, owner-approved — CLAUDE.md
+   rule 13). A section picks reviews by id: optional featuredId (large quote)
+   plus itemIds (card grid). Renders nothing if none resolve. #}
+{% set featured = testimonials.items | selectByIds([section.featuredId]) if section.featuredId else [] %}
+{% set others = testimonials.items | selectByIds(section.itemIds) if section.itemIds else testimonials.items %}
+{% if featured.length or others.length %}
 <section class="section testimonials">
   <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
+    {% macro attribution(item) %}
+    <footer class="testimonials__footer">
+      <span class="testimonials__author">{{ item.author }}</span>
+      <span class="testimonials__role">{{ item.role }}</span>
+      {% if item.source %}<span class="testimonials__source">{{ item.source }}</span>{% endif %}
+    </footer>
+    {% endmacro %}
+    {% for item in featured %}
+    <blockquote class="card card--tinted testimonials__item testimonials__item--featured" data-reveal>
+      <p>&ldquo;{{ item.quote }}&rdquo;</p>
+      {{ attribution(item) }}
+    </blockquote>
+    {% endfor %}
+    {% if others.length %}
     <div class="testimonials__items">
-      {% for item in testimonials.items %}
+      {% for item in others %}
       <blockquote class="card testimonials__item" data-reveal>
         <p>&ldquo;{{ item.quote }}&rdquo;</p>
-        <footer>{{ item.author }}{% if item.business %}, {{ item.business }}{% endif %}</footer>
+        {{ attribution(item) }}
       </blockquote>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
 </section>
 {% endif %}

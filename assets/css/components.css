@@ -77,11 +77,41 @@
 
 /* Cards: flatter, editorial — a hairline border reads as intentional
    structure, not a shadow trying to fake depth. */
+/* THE card. Every card-like surface on the site is this: surface fill, 1px
+   border, 8px radius, 1.5rem padding. Variants only change fill or emphasis
+   (.card--tinted, .card--dark, recommended plans) — never radius, border width
+   or padding. Only clickable cards (a.card / .card--interactive) get a hover. */
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   padding: var(--space-4);
+}
+.card--tinted {
+  background: var(--color-tint);
+}
+a.card,
+.card--interactive {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+a.card:hover,
+.card--interactive:hover {
+  box-shadow: 0 20px 40px -24px rgba(22, 2, 36, 0.18);
+  border-color: var(--color-field-border);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  a.card,
+  .card--interactive {
+    transition: none;
+  }
+  a.card:hover,
+  .card--interactive:hover {
+    transform: none;
+  }
 }
 
 /* Form fields (shared by the booking modal, Free Preview form, component gallery) */
@@ -97,7 +127,7 @@
 .field__control {
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-field-border);
   border-radius: var(--radius-sm);
   font: inherit;
   font-size: 0.775rem;
@@ -105,8 +135,12 @@
   background: var(--color-surface);
   transition: border-color 0.15s ease;
 }
+/* Focus keeps the normal border colour and drops the sitewide dark outline
+   (base.css) on form fields, per design direction. The floating label
+   turning brand-purple is the remaining focus cue. */
 .field__control:focus-visible {
-  border-color: var(--color-primary);
+  border-color: var(--color-field-border);
+  outline: none;
 }
 /* Browser autofill (name/address/saved-login suggestions) paints its own
    background color (usually a pale blue/yellow) that ignores `background`.
@@ -132,7 +166,8 @@
   font-size: var(--text-sm);
   margin: 0;
 }
-.field--invalid .field__control {
+.field--invalid .field__control,
+.field--invalid .field__control:focus-visible {
   border-color: var(--color-error);
 }
 
@@ -179,8 +214,11 @@
 .custom-select__trigger:hover {
   border-color: var(--color-accent-warm);
 }
-.custom-select--open > .custom-select__trigger {
-  border-color: var(--color-primary);
+/* Every form control keeps the shared field border when open or focused. */
+.custom-select--open > .custom-select__trigger,
+.custom-select__trigger:focus-visible {
+  border-color: var(--color-field-border);
+  outline: none;
 }
 .custom-select__value {
   overflow: hidden;
@@ -303,7 +341,7 @@
   border-color: var(--color-accent-warm);
 }
 .country-select--open > .country-select__trigger {
-  border-color: var(--color-primary);
+  border-color: var(--color-field-border);
 }
 .country-select__flag {
   font-size: 1.05em;
@@ -1210,7 +1248,7 @@ a.site-header__mega-tool:focus-visible {
 .process__index {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: var(--text-h2);
+  font-size: var(--text-numeral);
   font-weight: 500;
   color: var(--color-border);
   width: 3.8rem;
@@ -1267,17 +1305,9 @@ a.site-header__mega-tool:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   margin-top: var(--space-4);
 }
-.link-cards__item {
+a.link-cards__item {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
-}
-.link-cards__item:hover {
-  box-shadow: 0 20px 40px -24px rgba(22, 2, 36, 0.18);
-  border-color: var(--color-text-secondary);
-  transform: translateY(-2px);
 }
 .link-cards__icon {
   display: inline-flex;
@@ -1308,18 +1338,6 @@ a.site-header__mega-tool:focus-visible {
   gap: var(--space-4);
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   margin-top: var(--space-4);
-}
-.portfolio-grid__item {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-a.portfolio-grid__item {
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
-}
-a.portfolio-grid__item:hover {
-  box-shadow: 0 20px 40px -24px rgba(22, 2, 36, 0.18);
-  border-color: var(--color-text-secondary);
 }
 .portfolio-grid__label {
   font-size: var(--text-eyebrow);
@@ -1448,12 +1466,42 @@ a.portfolio-grid__item:hover {
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   margin-top: var(--space-4);
 }
+.testimonials__item {
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-4) 0 0;
+}
+.testimonials__items .testimonials__item {
+  margin: 0;
+}
 .testimonials__item p {
+  flex: 1;
+  color: var(--color-text);
   font-size: var(--text-body-lg);
 }
-.testimonials__item footer {
-  color: var(--color-text-secondary);
+.testimonials__item--featured p {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  line-height: 1.4;
+}
+.testimonials__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px var(--space-2);
   font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.testimonials__author {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.testimonials__source {
+  flex-basis: 100%;
+  margin-top: 2px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .faq__items {
@@ -1464,8 +1512,8 @@ a.portfolio-grid__item:hover {
 }
 .faq__item {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
   background: var(--color-surface);
 }
 .faq__item summary {
@@ -1490,40 +1538,23 @@ a.portfolio-grid__item:hover {
   margin-top: var(--space-3);
 }
 
-/* Free preview form (untouched this pass) */
-.free-preview-form .field {
-  max-width: none;
-}
-.free-preview-form__grid {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  margin-bottom: var(--space-4);
-}
-.free-preview-form__grid .field--wide {
-  grid-column: span 2;
-}
-.free-preview-form__submit-error {
-  margin-top: var(--space-3);
-}
-.free-preview-form__consent label {
+/* Page forms (Free Preview, Contact) use the shared .sfd-form system further
+   down — the same layout, floating labels and validation as the booking modal. */
+.sfd-form__consent label {
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
-  min-height: 44px;
   font-weight: 400;
+  font-size: var(--text-sm);
 }
-.free-preview-form__consent input {
-  margin-top: 0.3em;
+.sfd-form__consent input {
+  margin-top: 0.2em;
   width: 1.1rem;
   height: 1.1rem;
   flex-shrink: 0;
 }
-.free-preview-form__success {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+.form-success {
   background: var(--color-tint);
-  padding: var(--space-4);
 }
 
 /* Booking modal — elegant, single-glance layout: wide enough that every
@@ -1670,7 +1701,7 @@ dialog.booking-modal {
 .booking-modal__timezone-select {
   min-height: 32px;
   padding: 2px var(--space-2);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-field-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-text);
@@ -1723,7 +1754,7 @@ dialog.booking-modal {
 /* Details step: two-column grid so seven fields fit without scrolling;
    .field's default max-width: 28rem (sized for single-column page forms)
    is dropped here so each field can fill its grid cell. */
-.booking-modal__form {
+.sfd-form {
   display: grid;
   /* minmax(0, 1fr), not plain 1fr: a bare 1fr track's automatic minimum is
      its content's min-content (e.g. the unbroken "Mobile number (with
@@ -1732,18 +1763,18 @@ dialog.booking-modal {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px var(--space-3);
 }
-.booking-modal__form h3 {
+.sfd-form h3 {
   margin-bottom: 6px;
 }
-.booking-modal__form .field {
+.sfd-form .field {
   max-width: none;
   gap: 4px;
 }
-.booking-modal__form .field__control {
+.sfd-form .field__control {
   min-height: 40px;
   padding: var(--space-1) var(--space-2);
 }
-.booking-modal__form textarea.field__control {
+.sfd-form textarea.field__control {
   min-height: auto;
 }
 
@@ -1753,11 +1784,11 @@ dialog.booking-modal {
    stay first in the DOM, ahead of the input, for screen readers.
    :placeholder-shown (with placeholder=" " on every control) is the
    "is this field empty" check. */
-.booking-modal__form .field--floating {
+.sfd-form .field--floating {
   position: relative;
   padding-top: 6px;
 }
-.booking-modal__form .field--floating .field__label {
+.sfd-form .field--floating .field__label {
   position: absolute;
   /* Without an explicit z-index, this (position:absolute, z-index:auto)
      ties with the phone field's row — a flex container, whose items paint
@@ -1780,23 +1811,23 @@ dialog.booking-modal {
   pointer-events: none;
   transition: top 0.15s ease, transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-.booking-modal__form .field--floating:has(.field__control:focus) .field__label,
-.booking-modal__form .field--floating:has(.field__control:not(:placeholder-shown)) .field__label {
+.sfd-form .field--floating:has(.field__control:focus) .field__label,
+.sfd-form .field--floating:has(.field__control:not(:placeholder-shown)) .field__label {
   top: 6px;
   transform: translateY(-50%);
-  background: var(--color-surface);
+  background: var(--float-label-bg, var(--color-surface));
   color: var(--color-primary);
 }
-.booking-modal__form .field--floating .field__control {
+.sfd-form .field--floating .field__control {
   padding-left: 10px;
 }
-.booking-modal__form .field--floating textarea.field__control {
+.sfd-form .field--floating textarea.field__control {
   padding-top: var(--space-2);
 }
-.booking-modal__form .field--full,
-.booking-modal__form .field__hint,
-.booking-modal__form .booking-modal__form-actions,
-.booking-modal__form .booking-modal__submit-error {
+.sfd-form .field--full,
+.sfd-form .field__hint,
+.sfd-form .sfd-form__actions,
+.sfd-form .sfd-form__submit-error {
   grid-column: 1 / -1;
 }
 
@@ -1811,13 +1842,13 @@ dialog.booking-modal {
    :has() check — to the number input alone fixes both: it now rests inside
    the empty input exactly like "Full name" etc., and only floats
    transiently on focus/fill. */
-.booking-modal__form .phone-field__number-wrap {
+.sfd-form .phone-field__number-wrap {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
   padding-top: 6px;
 }
-.booking-modal__form .phone-field__number-wrap .field__label {
+.sfd-form .phone-field__number-wrap .field__label {
   position: absolute;
   z-index: 1;
   left: 8px;
@@ -1835,29 +1866,29 @@ dialog.booking-modal {
   pointer-events: none;
   transition: top 0.15s ease, transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-.booking-modal__form .phone-field__number-wrap:has(.field__control:focus) .field__label,
-.booking-modal__form .phone-field__number-wrap:has(.field__control:not(:placeholder-shown)) .field__label {
+.sfd-form .phone-field__number-wrap:has(.field__control:focus) .field__label,
+.sfd-form .phone-field__number-wrap:has(.field__control:not(:placeholder-shown)) .field__label {
   top: 6px;
   transform: translateY(-50%);
-  background: var(--color-surface);
+  background: var(--float-label-bg, var(--color-surface));
   color: var(--color-primary);
 }
-.booking-modal__form .phone-field__number-wrap .field__control {
+.sfd-form .phone-field__number-wrap .field__control {
   padding-left: 10px;
 }
 /* The wrap's own padding-top (reserved for the label's floated overhang,
    like every other field) makes it 6px taller than the country-code
    control beside it — align them to the bottom instead of stretching, so
    the two boxes still read as one continuous row. */
-.booking-modal__form .phone-field__row {
+.sfd-form .phone-field__row {
   align-items: flex-end;
 }
-.booking-modal__form-actions {
+.sfd-form__actions {
   display: flex;
   gap: var(--space-3);
   margin-top: 2px;
 }
-.booking-modal__form .field__hint {
+.sfd-form .field__hint {
   margin-top: -4px;
 }
 
@@ -1895,7 +1926,7 @@ dialog.booking-modal {
   /* The phone field (country code + 10-digit number, side by side) needs
      more room than a half-width grid column gives it below tablet width —
      span the full row rather than squeeze next to "Country" there. */
-  .booking-modal__form .phone-field {
+  .sfd-form .phone-field {
     grid-column: 1 / -1;
   }
   .booking-modal__title {
@@ -1911,10 +1942,10 @@ dialog.booking-modal {
   .booking-modal__steps {
     margin-bottom: var(--space-3);
   }
-  .booking-modal__form {
+  .sfd-form {
     gap: 4px var(--space-2);
   }
-  .booking-modal__form textarea.field__control {
+  .sfd-form textarea.field__control {
     min-height: 36px;
   }
   .booking-modal__demo-notice {
@@ -1929,7 +1960,7 @@ dialog.booking-modal {
   }
 }
 @media (max-width: 340px) {
-  .booking-modal__form {
+  .sfd-form {
     grid-template-columns: 1fr;
   }
 }
@@ -2035,4 +2066,177 @@ dialog.booking-modal {
 .portfolio-grid__cta {
   margin-top: var(--space-4);
   margin-bottom: 0;
+}
+
+/* Shared form system additions (.sfd-form is the one form layout for the
+   booking modal and every page form — see docs/03-design-system.md). */
+.field[hidden] {
+  display: none;
+}
+/* Page (non-modal) variant: same compact fields, width capped like the modal,
+   and the floated label matches the page background rather than the modal's. */
+.sfd-form--page {
+  --float-label-bg: var(--color-bg);
+  max-width: 46rem;
+  margin-top: var(--space-4);
+  row-gap: var(--space-4);
+}
+/* Breathing room above the privacy line and the action row on page forms. */
+.sfd-form--page .field__hint {
+  margin-top: var(--space-3);
+}
+.sfd-form--page .sfd-form__actions {
+  margin-top: var(--space-2);
+}
+/* Selects have no empty state to rest a label in, so the label stays floated. */
+.sfd-form .field--select .field__label {
+  top: 6px;
+  transform: translateY(-50%);
+  background: var(--float-label-bg, var(--color-surface));
+  color: var(--color-primary);
+}
+.sfd-form .field--select .field__control {
+  padding-left: 10px;
+}
+/* The number input sits in a block wrapper (not a flex/column parent), so it
+   needs an explicit width to fill it; custom-select/country-select triggers
+   reset `font: inherit`, so restate the shared field font size here. */
+.sfd-form .phone-field__number-wrap .field__control {
+  width: 100%;
+  box-sizing: border-box;
+}
+.sfd-form .custom-select__trigger,
+.sfd-form .country-select__trigger {
+  font-size: 0.775rem;
+}
+
+/* Contact page: form on the left, company-details card on the right. */
+.contact-form__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+.contact-form__layout .sfd-form--page {
+  max-width: none;
+}
+@media (min-width: 61em) {
+  .contact-form__layout {
+    grid-template-columns: minmax(0, 1fr) 25rem;
+    gap: var(--space-6, 4rem);
+  }
+}
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  margin-top: calc(var(--space-4) + 6px); /* align with the first field, which has 6px of label room above it */
+  padding: var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-md);
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+  color: #fff;
+  box-shadow: 0 24px 48px -24px rgba(15, 1, 24, 0.55);
+}
+.contact-card::after {
+  content: "";
+  position: absolute;
+  right: -3rem;
+  top: -3rem;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 149, 0, 0.35), rgba(214, 149, 0, 0) 70%);
+  pointer-events: none;
+}
+.contact-card__title {
+  margin: 0 0 var(--space-2);
+  color: #fff;
+}
+.contact-card__intro {
+  margin: 0 0 var(--space-4);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--text-sm);
+}
+.contact-card__list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+.contact-card__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.contact-card__item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.contact-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-accent);
+}
+.contact-card__label {
+  margin: 0 0 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.contact-card__value {
+  margin: 0;
+  color: #fff;
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+a.contact-card__value {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+}
+a.contact-card__value:hover {
+  text-decoration-color: var(--color-accent);
+}
+.contact-card__value--pending {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+.contact-card__legal {
+  margin: 0 0 var(--space-4);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+}
+.contact-card__cta {
+  width: 100%;
+}
+.contact-card__address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 1.55;
+}
+.contact-card__phone + .contact-card__phone {
+  margin-top: 6px;
+}
+.contact-card__phone-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+}
+.contact-card__value a,
+.contact-card__phone a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
 }

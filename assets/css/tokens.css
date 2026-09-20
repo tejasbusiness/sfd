@@ -21,6 +21,8 @@
   --color-accent-warm: #8F6400;
   --color-neutral-surface: #F4F4F4;
   --color-border: #F2F2F2;
+  /* Form-field border: --color-border darkened 20% so fields read clearly on the page. */
+  --color-field-border: #C2C2C2;
   /* Fixed always-dark ink, independent of --color-text/--color-bg theming —
      used only where a component intentionally needs a dark chrome background
      (footer, the one contrast section) regardless of the active page theme. */
@@ -37,10 +39,11 @@
   --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Fluid heading scale (docs/13 §2) */
-  --text-display: clamp(3rem, 1.7rem + 5.4vw, 4.25rem);
-  --text-h2: clamp(2.1rem, 1.5rem + 2.4vw, 3.75rem);
-  --text-h3: clamp(1.375rem, 1.2rem + 0.7vw, 1.875rem);
-  --text-h4: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  --text-display: clamp(2.25rem, 1.6rem + 2.8vw, 3.25rem);
+  --text-h2: clamp(1.625rem, 1.3rem + 1.3vw, 2.25rem);
+  --text-numeral: clamp(2.1rem, 1.5rem + 2.4vw, 3.75rem); /* decorative step numbers; was the old --text-h2 */
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-h4: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
   --text-stat: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
   --text-body-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
 
@@ -71,4 +74,11 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 20px;
+}
+
+/* Slightly smaller H1 on phones only; tablet and desktop keep the fluid size above. */
+@media (max-width: 640px) {
+  :root {
+    --text-display: 2rem;
+  }
 }

@@ -86,3 +86,24 @@ Forbidden:
 
 Respect `prefers-reduced-motion`; the site must remain complete and understandable with animation disabled.
 
+
+## Forms (one system for every form)
+
+Every form on the site — the booking modal, Free Preview, Contact and any future form — uses the same system as the booking modal. Do not hand-write field markup or a new validation style.
+
+- **Markup:** `<form class="sfd-form">` (add `sfd-form--page` outside modals) with fields from the macros in `templates/partials/form-fields.njk` (`input`, `textarea`, `select`, `phone`, `consent`). Labels float inside the field (CSS only); selects keep the label floated.
+- **Layout:** compact two-column grid; long fields and the privacy hint span both columns (`field--full`); a primary button sits in `.sfd-form__actions`.
+- **Validation:** `assets/js/form-utils.js` (`readForm`, `showFormErrors`, `isValidEmail`, `isValidWebsite`, `normalizeWebsite`). Errors render into `<p data-error-for="<name>">` and mark the field `.field--invalid`. Validate on submit; phone and website also validate on blur.
+- **Phone:** always country-code picker plus 10-digit mobile number (`countryCode`, `mobileNumber`).
+- **Website fields:** optional, typed without `http(s)://` or `www`; `normalizeWebsite` adds `https://` before submission.
+- **Conditional fields:** use the `hidden` attribute on the `.field` and toggle it from JS (e.g. "Other" source on Contact).
+- **Consent:** a "By … you agree to our Privacy Policy" hint, as in the modal; use the `consent` checkbox macro only for a genuine legal acknowledgement (Free Preview).
+- **Border and focus (mandatory):** every control uses `--color-field-border` (#C2C2C2). The border does not change on focus or when a dropdown is open, and the dark focus outline is removed on form controls; the floating label turning brand purple is the focus cue. Only the invalid state changes the border (to the error colour). This covers the timezone picker, country picker, and the component-gallery demo field too.
+
+## Cards (one card style)
+
+Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px radius (`--radius-md`), 1.5rem padding. Card titles are H3.
+
+- **Variants** may change fill or emphasis only: `.card--tinted`, the dark feature card (Home Services tile, contact card), and the 2px accent border on the recommended plan. Never change radius, border width or padding per component.
+- **Hover:** only clickable cards (`a.card` or `.card--interactive`) react: 2px lift, soft shadow, and a subtle border (`--color-field-border`, #C2C2C2). Non-clickable cards have no hover.
+- New card-like components must extend `.card` rather than restyle a box from scratch.

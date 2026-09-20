@@ -115,6 +115,89 @@
   and `docs/04-page-blueprints.md` to reflect the country-code/mobile-number
   split and the now-required Message field.
 
+### 2026-09-20 — Contact page
+
+- Built `/contact/` from `data/pages/contact.json`: hero, three "ways to get
+  in touch" cards (discovery call, Free Preview, How It Works), FAQ (four new
+  `contact-*` items in `faqs.json`), closing CTA. `ContactPage` + `FAQPage`
+  JSON-LD via `schema.njk`.
+- New `contact-details` section renders legal name, email and address only
+  when `company.json` holds a non-`TBD` value, so the section stays hidden
+  until those BLOCKING decisions (legal name/address, public email) are made.
+- Deliberately no contact form (no backend/endpoint exists yet) and no
+  response-time or phone/WhatsApp copy — all still BLOCKING. When decided,
+  fill `company.json`; add a response-time line to `contact.json`.
+
+### 2026-09-20 — Contact page, second pass (inspired by icreateyoursite.com/contact/)
+
+- Principles taken (no copy/layout reused): several contact channels up front,
+  an on-page enquiry form, a stated response expectation, trust proof near the
+  top.
+- Added a proof strip (the client-confirmed 300+ / 4.8★ / 8+ figures, same as
+  the homepage) and a `contact-form` section (`assets/js/contact-form.js`).
+- The contact form is frontend-only, like the Free Preview form: it validates
+  and shows a mock success, but delivers nothing until a secure endpoint is
+  wired (`integrations.public.json` webhookUrl is null). Do not launch
+  publicly with it in this state.
+- `company.json` gained `phone` and `responseTime` (both `TBD`, BLOCKING).
+  Phone shows in the details section, and the response line under the form,
+  only once real values replace `TBD`.
+
+### 2026-09-20 — Unified form system
+
+- Every form now uses the booking modal design (floating labels, two-column
+  compact grid, shared validation): new `templates/partials/form-fields.njk`
+  macros, `assets/js/form-utils.js`, and `.sfd-form` CSS (renamed from
+  `.booking-modal__form`). Booking modal, Free Preview and Contact all
+  converted; rule recorded in `docs/03-design-system.md`.
+- Contact form fields: name, email, mobile (required), business (optional),
+  existing website (optional, no protocol needed), topic, how-did-you-hear
+  (Other reveals a required text field), message.
+- Website fields are validated and normalised to `https://` everywhere;
+  error attribute is now `data-error-for` everywhere (was `data-booking-error-for`
+  in the modal).
+- Fixed: phone number input now fills its cell; custom-select triggers use the
+  shared field font size.
+
+### 2026-09-20 — Contact form layout
+
+- Contact form now sits beside a dark "Contact details" card (email, phone,
+  address, plus a discovery-call button) on desktop; the card stacks below the
+  form on narrow screens. Values come from `company.json`; while they are
+  `TBD` the card shows a muted "To be confirmed" (production builds still
+  fail on `TBD`, so this cannot ship). Replaces the old `contact-details`
+  section, which was removed.
+- Page forms get more vertical spacing between fields and above the privacy line.
+
+### 2026-09-20 — Contact details supplied
+
+- `company.json` now holds the public address, two phone numbers (support and
+  business inquiry), `hello@synergyfirstdigital.com` and the customer portal
+  (`crm.synergyfirstdigital.com`), shown in the Contact card. Still open:
+  final legal name and confirmed response time.
+- Form-field border is now `--color-field-border` (#C2C2C2, 20% darker than
+  `--color-border`) and stays the same on focus; the sitewide focus outline
+  remains the visible focus indicator.
+
+### 2026-09-20 — Card consistency audit
+
+- Unified all cards on `.card` (8px radius, 1px border, 1.5rem padding, H3
+  titles). Fixed: base radius 4px→8px; FAQ items, Growth Modules, form success
+  and the contact card now follow it; one shared hover for clickable cards
+  (link cards, portfolio/case-study links); removed the hover lift from
+  non-clickable Industry tiles and the grey "supporting" fill on the homepage
+  industry bento. Rule recorded in docs/03 and CLAUDE.md.
+
+### 2026-09-20 — Client testimonials added
+
+- Seven real Google reviews supplied by the owner are stored in
+  `data/testimonials.json` (verbatim; … marks trims; source "Google review").
+  Owner approved the selection and trims. Owner confirmed (2026-09-20) that
+  reviewer names and roles may be shown.
+- `testimonials` section now picks reviews by id (`featuredId`, `itemIds`).
+  Placed on Home (before pricing), Pricing (after plan cards) and Contact
+  (above the form). Reviews mention "Web Vectors" (former name); wording kept.
+
 ## Claude instruction
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.

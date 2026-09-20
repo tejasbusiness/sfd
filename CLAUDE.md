@@ -21,6 +21,8 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 13. Do not invent testimonials, project results, client logos, awards, addresses, pricing, response times or statistics.
 14. Do not copy layouts, writing or branded assets from inspiration sites. Extract principles and create an original SFD system.
 15. Do not start large implementation changes if a required decision is marked `BLOCKING` in `docs/10-decisions-and-todos.md`.
+16. Every form and form control (inputs, textareas, selects, phone, the booking modal, and any future form) must use the shared form system: `templates/partials/form-fields.njk` macros inside `.sfd-form`, `assets/js/form-utils.js` validation, and the `--color-field-border` border that stays unchanged on focus. Do not write custom field markup or styling. See "Forms" in `docs/03-design-system.md`.
+17. Every card-like surface must be built on the shared `.card` (same radius, border, padding and hover rules). Variants may change fill or emphasis only. See "Cards" in `docs/03-design-system.md`.
 
 ## Product hierarchy
 
