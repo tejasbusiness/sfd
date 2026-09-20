@@ -51,6 +51,7 @@ The persistent header also exposes **Book a Free 30-Minute Discovery Call** with
 /terms-and-conditions/
 /subscription-terms/
 /refund-policy/
+/cookie-policy/
 ```
 
 ## Navigation principles
