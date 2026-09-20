@@ -2,6 +2,7 @@ import { setupDialog } from './dialog.js';
 import { initBookingModal } from './booking.js';
 import { initFreePreviewForm } from './free-preview-form.js';
 import { initContactForm } from './contact-form.js';
+import { initLeadForm } from './lead-form.js';
 import { initHeaderScroll } from './header-scroll.js';
 import { initScrollReveal } from './scroll-reveal.js';
 import { initCustomSelects } from './custom-select.js';
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingModal(document.getElementById('booking-modal'));
   initFreePreviewForm(document.querySelector('[data-free-preview-form]'));
   initContactForm(document.querySelector('[data-contact-form]'));
+  initLeadForm(document.querySelector('[data-lead-form]'));
   initHeaderScroll();
   initScrollReveal();
   initCustomSelects();

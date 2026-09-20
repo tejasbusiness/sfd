@@ -134,7 +134,7 @@ a.card:hover,
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-field-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font: inherit;
   font-size: 0.775rem;
   color: var(--color-text);
@@ -251,13 +251,13 @@ a.card:hover,
 }
 .custom-select__listbox {
   position: fixed;
-  z-index: 80;
+  z-index: 150; /* above the sticky header (100) */
   margin: 0;
   padding: 4px;
   list-style: none;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   box-shadow: 0 12px 32px rgba(22, 2, 36, 0.16);
   overflow-y: auto;
 }
@@ -268,6 +268,20 @@ a.card:hover,
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 0.1s ease;
+}
+.custom-select__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.custom-select__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.custom-select__value .custom-select__icon {
+  margin-right: var(--space-3);
 }
 .custom-select__option--active {
   background: var(--color-tint);
@@ -349,9 +363,20 @@ a.card:hover,
 .country-select--open > .country-select__trigger {
   border-color: var(--color-field-border);
 }
-.country-select__flag {
-  font-size: 1.05em;
-  line-height: 1;
+.country-select__flag,
+.country-select__option-flag {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.country-select__flag img,
+.country-select__option-flag img {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(22, 2, 36, 0.14);
 }
 .country-select__code {
   flex: 1 1 auto;
@@ -380,10 +405,10 @@ a.card:hover,
 
 .country-select__panel {
   position: fixed;
-  z-index: 80;
+  z-index: 150; /* above the sticky header (100) */
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   box-shadow: 0 12px 32px rgba(22, 2, 36, 0.16);
   overflow: hidden;
 }
@@ -432,11 +457,6 @@ a.card:hover,
 }
 .country-select__option:not([hidden]) {
   display: flex;
-}
-.country-select__option-flag {
-  flex-shrink: 0;
-  font-size: 1.05em;
-  line-height: 1;
 }
 .country-select__option-name {
   flex: 1 1 auto;
@@ -1213,15 +1233,57 @@ a.site-header__mega-tool:focus-visible {
   margin-top: var(--space-4);
 }
 
+/* Compact credentials band: one dark rounded card, three stats with hairline dividers. */
+.proof-strip {
+  padding-block: var(--space-5);
+}
 .proof-strip__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px rgba(22, 2, 36, 0.14);
 }
 .proof-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   margin: 0;
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+}
+.proof-strip__value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  line-height: 1;
+}
+.proof-strip__value::after {
+  content: "";
+  width: 28px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+.proof-strip__label {
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* Vertical editorial timeline — a connecting line behind large outlined
@@ -1624,11 +1686,56 @@ a.link-cards__item {
   font-weight: 400;
   font-size: var(--text-sm);
 }
-.sfd-form__consent input {
-  margin-top: 0.2em;
-  width: 1.1rem;
-  height: 1.1rem;
+/* Themed checkbox — used by every checkbox in the project. */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
+  margin: 0;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-field-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input[type="checkbox"]::after {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.500' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: scale(0);
+  transition: transform 0.12s ease;
+}
+input[type="checkbox"]:hover {
+  border-color: var(--color-primary);
+}
+input[type="checkbox"]:checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+input[type="checkbox"]:checked::after {
+  transform: scale(1);
+}
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+input[type="checkbox"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  input[type="checkbox"],
+  input[type="checkbox"]::after {
+    transition: none;
+  }
+}
+.sfd-form__consent input {
+  margin-top: 0.1em;
 }
 .form-success {
   background: var(--color-tint);
@@ -1779,7 +1886,7 @@ dialog.booking-modal {
   min-height: 32px;
   padding: 2px var(--space-2);
   border: 1px solid var(--color-field-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
   font: inherit;
@@ -2407,4 +2514,100 @@ a.testimonials__rating:hover {
 }
 .testimonials--compact .testimonials__items {
   margin-top: var(--space-3);
+}
+
+/* "Best for…" line on the Pricing page plan cards (mirrors the homepage cards). */
+.pricing-summary__ideal {
+  margin: 4px 0 var(--space-2);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Free AI Prompts Playbook signup — sits above the footer on every page.
+   Soft lavender (distinct from the neutral light sections) so it stands out. */
+.playbook {
+  --float-label-bg: var(--color-lavender-soft);
+  padding-block: var(--space-5);
+  background: var(--color-lavender-soft);
+  border-top: 1px solid rgba(22, 2, 36, 0.06);
+}
+.playbook__inner {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 61em) {
+  .playbook__inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}
+.playbook__copy {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.playbook__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  box-shadow: 0 10px 22px -10px rgba(22, 2, 36, 0.55);
+}
+.playbook .eyebrow {
+  margin-bottom: var(--space-1);
+}
+.playbook__title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-h3);
+}
+.playbook__body {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.playbook__panel .sfd-form {
+  row-gap: var(--space-2);
+}
+.sfd-form--inline {
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 40em) {
+  .sfd-form--inline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 61em) {
+  .sfd-form--inline {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+.playbook__submit {
+  padding-inline: var(--space-4);
+  align-self: end;
+  white-space: nowrap;
+}
+@media (max-width: 39.99em) {
+  .playbook__submit {
+    width: 100%;
+  }
+}
+.playbook__success {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid rgba(22, 2, 36, 0.1);
+}
+.playbook__success h3 {
+  margin-bottom: var(--space-1);
+}
+.playbook__success p {
+  margin: 0;
 }

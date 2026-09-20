@@ -28,7 +28,8 @@
         <a
           class="button {{ 'button--accent' if plan.recommended else 'button--secondary' }} pricing-highlight__plan-cta"
           href="/free-preview/"
-        >Get Started Now!</a>
+          aria-label="Start with {{ plan.name }}: request your free preview website"
+        >Start with {{ plan.name }}</a>
       </div>
       {% endfor %}
     </div>

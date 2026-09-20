@@ -11,10 +11,22 @@
 
 let uidCounter = 0;
 
-function flagEmoji(iso2) {
-  if (!iso2 || iso2.length !== 2) return '';
-  const codePoints = [...iso2.toUpperCase()].map((char) => 0x1f1e6 + char.charCodeAt(0) - 65);
-  return String.fromCodePoint(...codePoints);
+// Flags are self-hosted SVG images (assets/images/flags/<iso2>.svg, from the MIT-licensed
+// flag-icons set). Unicode flag emoji are not used: Windows browsers render them as plain
+// two-letter codes ("IN") instead of flags.
+const PANEL_MAX_HEIGHT = 360; // keeps the search box and a comfortable list on screen
+
+function setFlag(container, iso2, lazy) {
+  container.replaceChildren();
+  if (!iso2 || iso2.length !== 2) return;
+  const img = document.createElement('img');
+  img.src = `/assets/images/flags/${iso2.toLowerCase()}.svg`;
+  img.alt = '';
+  img.width = 20;
+  img.height = 15;
+  img.decoding = 'async';
+  if (lazy) img.loading = 'lazy';
+  container.append(img);
 }
 
 function buildOptionEl(option, listboxId) {
@@ -29,7 +41,7 @@ function buildOptionEl(option, listboxId) {
   const flag = document.createElement('span');
   flag.className = 'country-select__option-flag';
   flag.setAttribute('aria-hidden', 'true');
-  flag.textContent = flagEmoji(iso2);
+  setFlag(flag, iso2, true);
 
   const label = document.createElement('span');
   label.className = 'country-select__option-name';
@@ -124,7 +136,7 @@ function enhanceSelect(select) {
     const idx = select.selectedIndex;
     const selectedOption = select.options[idx];
     options.forEach((li, i) => li.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
-    flagEl.textContent = selectedOption ? flagEmoji(selectedOption.dataset.iso2) : '';
+    setFlag(flagEl, selectedOption ? selectedOption.dataset.iso2 : '', false);
     codeEl.textContent = selectedOption ? selectedOption.value : '';
     trigger.setAttribute(
       'aria-label',
@@ -167,11 +179,11 @@ function enhanceSelect(select) {
     if (openUpward) {
       panel.style.top = 'auto';
       panel.style.bottom = `${window.innerHeight - rect.top + 4}px`;
-      panel.style.maxHeight = `${Math.max(rect.top - 12, 160)}px`;
+      panel.style.maxHeight = `${Math.min(Math.max(rect.top - 12, 160), PANEL_MAX_HEIGHT)}px`;
     } else {
       panel.style.bottom = 'auto';
       panel.style.top = `${rect.bottom + 4}px`;
-      panel.style.maxHeight = `${Math.max(spaceBelow - 12, 160)}px`;
+      panel.style.maxHeight = `${Math.min(Math.max(spaceBelow - 12, 160), PANEL_MAX_HEIGHT)}px`;
     }
   }
 

@@ -16,6 +16,7 @@
   "sections": [
     {
       "type": "hero",
+      "eyebrow": "PRICING",
       "subheading": "Every plan includes hosting, maintenance and a defined content-update allowance — nothing hidden behind vague wording.",
       "primaryCta": {
         "label": "Request Your Free Preview Website",
@@ -39,7 +40,7 @@
         "heading": "Need something different?",
         "body": "One-time project, SEO-only, AI integration, or something we haven't thought of yet — apply and tell us what you need, and we'll confirm whether we can build a plan that fits.",
         "cta": {
-          "label": "Get Started",
+          "label": "Tell Us What You Need",
           "href": "/free-preview/"
         }
       }

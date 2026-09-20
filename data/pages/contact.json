@@ -32,13 +32,16 @@
       "type": "proof-strip",
       "items": [
         {
-          "label": "300+ Websites Delivered"
+          "value": "300+",
+          "label": "Websites Delivered"
         },
         {
-          "label": "4.8★ Ratings on Google"
+          "value": "4.8★",
+          "label": "Ratings on Google"
         },
         {
-          "label": "8+ Years in Business"
+          "value": "8+",
+          "label": "Years in Business"
         }
       ]
     },
@@ -97,35 +100,43 @@
       "sources": [
         {
           "value": "google",
-          "label": "Google"
+          "label": "Google",
+          "icon": "google"
         },
         {
           "value": "social-media",
-          "label": "Social Media (Instagram / Facebook / YouTube / LinkedIn)"
+          "label": "Social Media (Instagram / Facebook / YouTube / LinkedIn)",
+          "icon": "social-media"
         },
         {
           "value": "word-of-mouth",
-          "label": "Word of mouth / friend"
+          "label": "Word of mouth / friend",
+          "icon": "word-of-mouth"
         },
         {
           "value": "whatsapp",
-          "label": "WhatsApp"
+          "label": "WhatsApp",
+          "icon": "whatsapp"
         },
         {
           "value": "meta-ads",
-          "label": "Meta Ads"
+          "label": "Meta Ads",
+          "icon": "meta-ads"
         },
         {
           "value": "partner-affiliate",
-          "label": "Partner / Affiliate"
+          "label": "Partner / Affiliate",
+          "icon": "partner-affiliate"
         },
         {
           "value": "blog",
-          "label": "Blog"
+          "label": "Blog",
+          "icon": "blog"
         },
         {
           "value": "other",
-          "label": "Other"
+          "label": "Other",
+          "icon": "other"
         }
       ],
       "card": {

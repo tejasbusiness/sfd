@@ -232,6 +232,36 @@
   posts, legal and thank-you pages excluded; E-Commerce product listings scoped
   separately); e-commerce removed from Business and owned by the E-Commerce plan.
 
+### 2026-09-20 — Pricing page copy pass
+
+- Pricing plan cards now show each plan's "Best for…" line; plan buttons read
+  "Start with Lite / Business / E-Commerce" (unique accessible names) on the
+  Pricing and Home pages; custom-plan button reads "Tell Us What You Need";
+  Pricing hero gets a "PRICING" eyebrow. Layout pass (equal-height cards,
+  comparison table) is next.
+
+### 2026-09-20 — AI Prompts Playbook signup band
+
+- New lavender signup band above the footer on every page ("Get Your AI
+  Prompts Playbook for Free!"): name and email only, built on the shared form
+  system (.sfd-form--inline). Copy is in data/footer.json ("playbook").
+- Frontend-only demo like the other forms: nothing is stored or sent and no
+  playbook is delivered until a secure endpoint (and the playbook file) exist.
+  Marketing-consent wording still needs legal review (docs/10 legal list).
+
+### 2026-09-20 — Consent checkbox on every form
+
+- Added a required consent checkbox (with Privacy Policy link) to the booking
+  modal, Contact and playbook forms; Free Preview already had one. Wording is
+  tailored per form and needs legal review with the privacy policy.
+
+### 2026-09-20 — Country flag images
+
+- The country picker (booking modal, Free Preview, Contact) now shows real flag
+  images instead of flag emoji, which Windows browsers render as plain letters
+  such as "IN". Flags are 194 self-hosted SVGs in assets/images/flags/ (about
+  1.3 MB, lazy loaded, MIT-licensed flag-icons; licence file included).
+
 ## Claude instruction
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.

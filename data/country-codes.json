@@ -1,5 +1,5 @@
 {
-  "_scaffold": "Shared reference data (2026-09-18) for the country-code + mobile-number split field used by the booking modal and Free Preview form (assets/js/country-select.js). ISO 3166-1 alpha-2 codes and ITU-T E.164 calling codes are public standards data, not invented content. Flags are rendered from the iso2 code at runtime (Unicode regional-indicator symbols), not stored here.",
+  "_scaffold": "Shared reference data (2026-09-18) for the country-code + mobile-number split field used by the booking modal and Free Preview form (assets/js/country-select.js). ISO 3166-1 alpha-2 codes and ITU-T E.164 calling codes are public standards data, not invented content. Flags are self-hosted SVG images at assets/images/flags/<iso2>.svg (MIT-licensed flag-icons set, licence file alongside), chosen by the iso2 code; Unicode flag emoji are not used because Windows browsers show them as two letters.",
   "defaultIso2": "US",
   "countries": [
     { "name": "Afghanistan", "iso2": "AF", "dialCode": "+93" },

@@ -26,6 +26,7 @@ function validate(data) {
   if (!data.topic) errors.topic = 'Choose what we can help with.';
   if (!data.source) errors.source = 'Let us know how you heard about us.';
   if (data.source === OTHER_SOURCE_VALUE && !data.sourceOther) errors.sourceOther = 'Please tell us where you heard about us.';
+  if (!data.consent) errors.consent = 'Please confirm before sending.';
   if (!data.message) errors.message = 'Tell us a bit about what you need.';
   return errors;
 }

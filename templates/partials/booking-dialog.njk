@@ -73,7 +73,7 @@
           {{ fields.input("booking-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
           {{ fields.input("booking-website", "website", "Existing website (optional)", inputmode="url", autocomplete="url", website=true) }}
           {{ fields.textarea("booking-message", "message", "Message *", required=true) }}
-          <p class="field__hint field--full">By booking, you agree to our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+          {{ fields.consent("booking-consent", "consent", 'I confirm the information I have provided is accurate and I agree to SynergyFirst Digital using it to arrange this call. See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
           <div class="sfd-form__actions field--full">
             <button type="button" class="button button--secondary" data-booking-back="slot">Back</button>
             <button type="submit" class="button button--primary" data-booking-submit>Confirm booking</button>

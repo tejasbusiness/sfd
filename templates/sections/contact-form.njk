@@ -20,7 +20,7 @@
       {{ fields.select("ct-source", "source", "How did you hear about us? *", section.sources, placeholder="Select an option", required=true) }}
       {{ fields.input("ct-source-other", "sourceOther", "Please tell us where *", hidden=true) }}
       {{ fields.textarea("ct-message", "message", "Message *", required=true, rows=3) }}
-      <p class="field__hint field--full">By sending this message, you agree to our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+      {{ fields.consent("ct-consent", "consent", 'I confirm I have the right to share this information and I agree to SynergyFirst Digital using it to reply to my enquiry. See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
       <div class="sfd-form__actions field--full">
         <button type="submit" class="button button--primary" data-contact-submit>Send message</button>
       </div>

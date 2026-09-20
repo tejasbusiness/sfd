@@ -97,7 +97,7 @@ Every form on the site — the booking modal, Free Preview, Contact and any futu
 - **Phone:** always country-code picker plus 10-digit mobile number (`countryCode`, `mobileNumber`).
 - **Website fields:** optional, typed without `http(s)://` or `www`; `normalizeWebsite` adds `https://` before submission.
 - **Conditional fields:** use the `hidden` attribute on the `.field` and toggle it from JS (e.g. "Other" source on Contact).
-- **Consent:** a "By … you agree to our Privacy Policy" hint, as in the modal; use the `consent` checkbox macro only for a genuine legal acknowledgement (Free Preview).
+- **Consent (mandatory):** every form ends with a required consent checkbox (`fields.consent` macro) with wording tailored to that form and a Privacy Policy link, validated with the message "Please confirm before …". Booking: accuracy plus permission to arrange the call; Contact: right to share plus permission to reply; Free Preview: right to share plus no-guarantee acknowledgement; Playbook: permission to send the playbook.
 - **Border and focus (mandatory):** every control uses `--color-field-border` (#C2C2C2). The border does not change on focus or when a dropdown is open, and the dark focus outline is removed on form controls; the floating label turning brand purple is the focus cue. Only the invalid state changes the border (to the error colour). This covers the timezone picker, country picker, and the component-gallery demo field too.
 
 ## Cards (one card style)
@@ -113,3 +113,4 @@ Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px ra
 ## FAQ (one accordion)
 
 All FAQ / Common-questions sections (`faq` and `faq-split`) render through `templates/sections/faq.njk` with the shared `.faq` styles: divided rows with hairline rules, plus/minus icon, native `<details>`/`<summary>`, compact spacing. `faq-split` only changes the layout (sticky heading on the left). Do not add page-specific FAQ styling.
+- **Shape:** form controls (fields, dropdown triggers and popups, timezone picker) use the 8px `--radius-md`, the same as cards; buttons stay fully rounded (pill). Containers and inputs are 8px, actions are pills.

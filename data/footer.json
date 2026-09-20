@@ -1,5 +1,14 @@
 {
   "_note": "Per docs/13-visual-art-direction.md §8.13: link.path === null renders as a plain, non-linked label, never a broken link. Columns fill in with real paths as their pages are built in later phases.",
+  "playbook": {
+    "eyebrow": "FREE DOWNLOAD",
+    "heading": "Get Your AI Prompts Playbook for Free!",
+    "body": "A practical collection of ready-to-use AI prompts for your business. Enter your name and email and we will send it straight to your inbox.",
+    "buttonLabel": "Send Me the Playbook",
+    "consentLabel": "I agree to SynergyFirst Digital using my name and email to send me the playbook.",
+    "successHeading": "Thank you!",
+    "successBody": "Your AI Prompts Playbook is on its way to your inbox."
+  },
   "brandStatement": "We build and manage conversion-focused websites for local businesses—starting with a free preview website, you can review before you commit.",
   "groups": [
     {

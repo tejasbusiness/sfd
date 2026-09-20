@@ -11,12 +11,27 @@
 
 let uidCounter = 0;
 
+// Optional per-option icon (data-icon = image URL), shown before the label.
+function setLabel(el, text, iconUrl) {
+  el.replaceChildren();
+  if (iconUrl) {
+    const img = document.createElement('img');
+    img.src = iconUrl;
+    img.alt = '';
+    img.width = 20;
+    img.height = 20;
+    img.className = 'custom-select__icon';
+    el.append(img);
+  }
+  el.append(document.createTextNode(text));
+}
+
 function buildOptionEl(option, listboxId) {
   const li = document.createElement('li');
   li.setAttribute('role', 'option');
   li.id = `${listboxId}-opt-${uidCounter++}`;
   li.dataset.value = option.value;
-  li.textContent = option.textContent;
+  setLabel(li, option.textContent, option.dataset.icon);
   li.className = 'custom-select__option';
   if (option.disabled) li.setAttribute('aria-disabled', 'true');
   return li;
@@ -96,7 +111,8 @@ function enhanceSelect(select) {
       li.setAttribute('aria-selected', isSelected ? 'true' : 'false');
       li.classList.toggle('custom-select__option--selected', isSelected);
     });
-    valueEl.textContent = select.options[selected] ? select.options[selected].textContent : '';
+    const current = select.options[selected];
+    setLabel(valueEl, current ? current.textContent : '', current && current.value ? current.dataset.icon : '');
     valueEl.classList.toggle('custom-select__value--placeholder', select.value === '');
     activeIndex = selected;
   }

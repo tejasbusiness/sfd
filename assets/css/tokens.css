@@ -23,6 +23,8 @@
   --color-border: #F2F2F2;
   /* Form-field border: --color-border darkened 20% so fields read clearly on the page. */
   --color-field-border: #C2C2C2;
+  /* Soft lavender used only for the footer playbook signup band, so it stands out from the site's neutral light backgrounds. */
+  --color-lavender-soft: #EEE8F8;
   /* Fixed always-dark ink, independent of --color-text/--color-bg theming —
      used only where a component intentionally needs a dark chrome background
      (footer, the one contrast section) regardless of the active page theme. */

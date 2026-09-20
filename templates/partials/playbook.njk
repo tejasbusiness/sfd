@@ -1,0 +1,35 @@
+{# Free AI Prompts Playbook signup, shown above the footer on every page.
+   Copy lives in data/footer.json ("playbook"). Fields come from the shared form
+   system (form-fields.njk / .sfd-form); submission is a frontend-only demo until a
+   secure endpoint exists (see assets/js/lead-form.js). #}
+{% import "partials/form-fields.njk" as fields %}
+{% if footer.playbook %}
+<section class="playbook" aria-labelledby="playbook-title">
+  <div class="container playbook__inner">
+    <div class="playbook__copy">
+      <span class="playbook__icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v16H6.5A2.5 2.5 0 004 21.5v-16z"/><path d="M4 21.5A2.5 2.5 0 006.5 19H20"/><path d="M12 7l.9 2.1L15 10l-2.1.9L12 13l-.9-2.1L9 10l2.1-.9L12 7z"/></svg>
+      </span>
+      <div>
+        <p class="eyebrow">{{ footer.playbook.eyebrow }}</p>
+        <h2 id="playbook-title" class="playbook__title">{{ footer.playbook.heading }}</h2>
+        <p class="playbook__body">{{ footer.playbook.body }}</p>
+      </div>
+    </div>
+
+    <div class="playbook__panel">
+      <form class="sfd-form sfd-form--inline" data-lead-form novalidate>
+        {{ fields.input("pb-name", "fullName", "Full name *", required=true, autocomplete="name") }}
+        {{ fields.input("pb-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+        <button type="submit" class="button button--primary playbook__submit" data-lead-submit>{{ footer.playbook.buttonLabel }}</button>
+        {{ fields.consent("pb-consent", "consent", footer.playbook.consentLabel + ' See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
+        <p class="sfd-form__submit-error field__error field--full" data-submit-error role="alert" hidden></p>
+      </form>
+      <div class="playbook__success" data-lead-success hidden>
+        <h3>{{ footer.playbook.successHeading }}</h3>
+        <p>{{ footer.playbook.successBody }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

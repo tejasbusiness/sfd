@@ -1,11 +1,16 @@
 {# Renders nothing until real, verified proof exists in section.items — CLAUDE.md rule 13
    forbids inventing logos, stats or results, so an empty strip must stay invisible, not fake. #}
 {% if section.items and section.items.length %}
-<section class="section section--tinted proof-strip">
-  <div class="container proof-strip__inner" data-reveal>
-    {% for item in section.items %}
-    <p class="proof-strip__item">{{ item.label }}</p>
-    {% endfor %}
+<section class="proof-strip" aria-label="SynergyFirst Digital at a glance">
+  <div class="container">
+    <ul class="proof-strip__inner" data-reveal>
+      {% for item in section.items %}
+      <li class="proof-strip__item">
+        <span class="proof-strip__value">{{ item.value }}</span>
+        <span class="proof-strip__label">{{ item.label }}</span>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 {% endif %}

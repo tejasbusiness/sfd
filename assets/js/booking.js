@@ -131,6 +131,7 @@ export function initBookingModal(dialogEl) {
     if (!isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
     if (!data.businessName) errors.businessName = 'Business name is required.';
     if (data.website && !isValidWebsite(data.website)) errors.website = WEBSITE_ERROR_MESSAGE;
+    if (!data.consent) errors.consent = 'Please confirm before booking.';
     if (!data.message) errors.message = 'Tell us a bit about what you need — it helps us prepare for the call.';
     return errors;
   }
