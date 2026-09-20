@@ -1,0 +1,161 @@
+{
+  "id": "privacy-policy",
+  "type": "legal",
+  "slug": "privacy-policy",
+  "canonicalPath": "/privacy-policy/",
+  "seo": {
+    "title": "Privacy Policy | SynergyFirst Digital",
+    "metaDescription": "How SynergyFirst Digital collects, uses, shares and protects personal information, and the choices and rights you have over your data.",
+    "ogTitle": "Privacy Policy | SynergyFirst Digital",
+    "ogDescription": "How SynergyFirst Digital collects, uses and protects your personal information.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Privacy Policy",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "legal-document",
+      "eyebrow": "LEGAL",
+      "subheading": "What personal information we collect, why we collect it, who we share it with and the rights you have. We keep it in plain language.",
+      "updated": "20 September 2026",
+      "contactHeading": "Privacy questions or requests",
+      "contactBody": "To ask about your data, or to exercise any of the rights above, email us. We may need to confirm who you are before acting on a request.",
+      "clauses": [
+        {
+          "id": "who-we-are",
+          "heading": "Who we are",
+          "body": [
+            "SynergyFirst Digital (\"SFD\", \"we\", \"us\") builds and manages websites for local businesses. We are based in Surat, Gujarat, India, and we work with businesses in the USA, Canada, Australia, New Zealand, Europe and other countries.",
+            "For the personal information described in this policy, SynergyFirst Digital is the controller (the party that decides how and why the information is used). Our contact details are at the end of this page."
+          ]
+        },
+        {
+          "id": "information-we-collect",
+          "heading": "Information we collect",
+          "body": [
+            "We collect only what we need to respond to you, provide our services and run this website.",
+            [
+              "<strong>Information you give us:</strong> your name, email address, phone or WhatsApp number, business name, current website address, the category of your business, how you heard about us and the message you write, when you use our contact form, Free Preview application, discovery-call booking or Free AI Prompts Playbook sign-up.",
+              "<strong>Booking details:</strong> your chosen date and time, your time zone and the call-preparation notes you provide.",
+              "<strong>Customer and billing information:</strong> if you subscribe, your billing name and contact details, the plan you choose and records of payments. Payments are processed by Razorpay; we do not see or store your full card details.",
+              "<strong>Website content you supply:</strong> text, images, logos, business details and other materials you send us to build or update your website.",
+              "<strong>Technical information:</strong> when you visit this website we may collect your IP address, browser and device type, pages viewed, referring page and approximate location, through cookies and similar technologies (see \"Cookies and analytics\")."
+            ]
+          ]
+        },
+        {
+          "id": "how-we-use-it",
+          "heading": "How we use your information",
+          "body": [
+            [
+              "To reply to your enquiries and arrange discovery calls.",
+              "To review Free Preview requests and, where we can help, prepare and share a private preview website.",
+              "To provide, host, maintain and support your website subscription, and to take payment.",
+              "To send you the Free AI Prompts Playbook and related emails if you ask for it. You can unsubscribe at any time.",
+              "To understand how the website is used and improve it.",
+              "To keep the website and our systems secure, prevent misuse and meet legal obligations."
+            ],
+            "Where the law requires a legal basis for using your information, we rely on: your consent (for example, sign-ups and optional cookies); performing a contract with you or taking steps you request before a contract; our legitimate interests in running and improving our business, which we balance against your rights; and compliance with legal obligations."
+          ]
+        },
+        {
+          "id": "sharing",
+          "heading": "Who we share information with",
+          "body": [
+            "We do not sell your personal information. We share it only with service providers that help us operate, and only as needed for the purpose:",
+            [
+              "<strong>Google Workspace</strong> (Calendar, Meet, Sheets and Gmail) for booking calls, holding enquiry and booking records and sending email.",
+              "<strong>Razorpay</strong> to process subscription payments.",
+              "<strong>Workflow and customer-portal tools</strong>, including our automation platform and the customer portal at crm.synergyfirstdigital.com, to handle leads and customer records.",
+              "<strong>Analytics providers</strong>, such as Google Analytics or similar, to measure website use.",
+              "<strong>Professional advisers, authorities and successors</strong> where the law requires it, to protect our rights, or if our business is sold or reorganised."
+            ],
+            "Service providers may only use your information to provide services to us and must protect it appropriately."
+          ]
+        },
+        {
+          "id": "international-transfers",
+          "heading": "International transfers",
+          "body": [
+            "We operate from India, and our service providers process information in several countries, including the United States. This means your information is likely to be transferred outside your own country. Where the law requires it, we use appropriate safeguards, such as contractual protections, so your information stays protected wherever it is handled."
+          ]
+        },
+        {
+          "id": "cookies-analytics",
+          "heading": "Cookies and analytics",
+          "body": [
+            "Cookies are small files stored on your device. We use those that are necessary to make this website work and, where you allow it or the law permits, analytics cookies that show us how visitors use the site. You can control or delete cookies in your browser settings, and blocking some cookies may affect how parts of the site work.",
+            "Where local law requires your consent for non-essential cookies, we will ask for it and you can withdraw it at any time."
+          ]
+        },
+        {
+          "id": "retention",
+          "heading": "How long we keep information",
+          "body": [
+            [
+              "Enquiries, bookings and Free Preview applications: up to 24 months after our last contact with you, then deleted or anonymised.",
+              "Customer, contract and payment records: for as long as your subscription runs and afterwards for as long as tax, accounting and other laws require.",
+              "Playbook and marketing sign-ups: until you unsubscribe or ask us to delete your details."
+            ],
+            "We may keep information for longer where it is needed to resolve a dispute or to comply with a legal obligation."
+          ]
+        },
+        {
+          "id": "security",
+          "heading": "How we protect information",
+          "body": [
+            "We use reasonable technical and organisational measures to protect personal information, including access controls and encrypted connections (HTTPS). No system is completely secure, so we cannot guarantee absolute security. If a breach affecting your information occurs, we will notify you and the relevant authorities where the law requires."
+          ]
+        },
+        {
+          "id": "your-rights",
+          "heading": "Your rights",
+          "body": [
+            "Depending on where you live (for example under the GDPR in the EU and UK, the CCPA/CPRA in California, PIPEDA in Canada, the Australian Privacy Act, the New Zealand Privacy Act and India's Digital Personal Data Protection Act), you may have the right to:",
+            [
+              "ask what personal information we hold about you and receive a copy;",
+              "have inaccurate information corrected;",
+              "have your information deleted, or restrict or object to how we use it;",
+              "receive your information in a portable format;",
+              "withdraw consent at any time, without affecting what we did before you withdrew it;",
+              "opt out of marketing emails using the unsubscribe link or by contacting us; and",
+              "complain to your local data protection authority."
+            ],
+            "We will not treat you differently for exercising your rights. Contact us using the details below and we will reply within 30 days."
+          ]
+        },
+        {
+          "id": "children",
+          "heading": "Children",
+          "body": [
+            "Our website and services are for businesses and are not directed at children under 18. We do not knowingly collect personal information from children. If you believe a child has given us information, contact us and we will delete it."
+          ]
+        },
+        {
+          "id": "third-party-links",
+          "heading": "Links to other websites",
+          "body": [
+            "This website may link to other websites, including websites we build for clients. We do not control them and are not responsible for their privacy practices. Please read their policies."
+          ]
+        },
+        {
+          "id": "changes",
+          "heading": "Changes to this policy",
+          "body": [
+            "We may update this policy from time to time. The \"Last updated\" date at the top shows when it last changed. If a change is significant, we will take reasonable steps to tell you. Continued use of the website after a change means you accept the updated policy."
+          ]
+        },
+        {
+          "id": "related-policies",
+          "heading": "Related policies",
+          "body": [
+            "See also our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a>."
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-20"
+}

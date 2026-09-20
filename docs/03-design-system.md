@@ -114,3 +114,8 @@ Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px ra
 
 All FAQ / Common-questions sections (`faq` and `faq-split`) render through `templates/sections/faq.njk` with the shared `.faq` styles: divided rows with hairline rules, plus/minus icon, native `<details>`/`<summary>`, compact spacing. `faq-split` only changes the layout (sticky heading on the left). Do not add page-specific FAQ styling.
 - **Shape:** form controls (fields, dropdown triggers and popups, timezone picker) use the 8px `--radius-md`, the same as cards; buttons stay fully rounded (pill). Containers and inputs are 8px, actions are pills.
+
+## Hero band and legal pages
+
+- Every internal page hero (all pages except the homepage) is the dark `hero--band`: purple-to-deep-ink gradient, gold glow and hairline, white title, gold eyebrow, gold primary button and white-outline secondary button. Pages with no hero section get the same band with only the H1.
+- Legal pages (`legal-document` section) copy the Privacy Policy exactly: hero band with "Last updated" pill, sticky "On this page" list, numbered clauses with gold numerals, gold bullets, and the contact card. Do not restyle per page.

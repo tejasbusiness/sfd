@@ -274,3 +274,11 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 - Pricing hero-to-cards gap reduced; "(One-time)" no longer splits across lines.
 - No separate comparison table was built: the three cards already show the plan differences side by side, so a table would repeat the same information.
 - Homepage plan cards now reuse the Pricing page's `.pricing-summary__*` classes and show a concise `homeHighlights` list per plan (data/plans.json); the Pricing page keeps the full `includes` list. Link relabelled "Compare every feature".
+
+### Legal pages and hero band (2026-09-20)
+
+- Built `/privacy-policy/`, `/terms-and-conditions/`, `/subscription-terms/` and `/refund-policy/` on one shared `legal-document` section (`templates/sections/legal-document.njk`; copy in each page JSON). The Privacy Policy is the approved reference: every legal page keeps its structure, styling and tone. Footer links are live.
+- Owner decisions: governing law India with Surat courts; generic entity ("SynergyFirst Digital"); Razorpay, paid in advance from the sign-up day; cancel before the next renewal, no refunds for a started month; failed payment suspends the site immediately; data retained 24 months after last contact; Google Workspace, Razorpay, n8n/CRM and analytics named as processors.
+- Drafting assumptions still to confirm: automatic monthly renewal (vs payment link); 30-day window to request content or transfer after cancelling; 30 days' notice of price changes; downgrades apply at next billing date; refund requests within 30 days of the charge; liability capped at 12 months' fees; taxes shown before payment; privacy requests answered within 30 days.
+- All four pages still need review by a qualified lawyer before launch (BLOCKING before legal launch). The cookie/analytics wording must be revisited once analytics and a consent banner exist.
+- Every internal page hero (not the homepage) now uses the dark `hero--band` style; the contents list on legal pages uses `assets/js/legal-toc.js` so the URL never shows `#section-id`.

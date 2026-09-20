@@ -752,6 +752,7 @@ dialog.more-drawer[open] {
   position: relative;
 }
 .site-header__nav-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -760,15 +761,38 @@ dialog.more-drawer[open] {
   font-weight: 600;
   font-size: 0.8375rem;
   padding-block: var(--space-2);
-  border-bottom: 2px solid transparent;
   white-space: nowrap;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.25s ease;
+}
+/* Gold underline that grows from the centre on hover / focus, same effect as
+   the footer links. Applies to top-level links only, not the sub-menus. */
+.site-header__nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 .site-header__nav-link:hover,
 .site-header__nav-item:hover .site-header__nav-link,
 .site-header__nav-item:focus-within .site-header__nav-link {
   color: var(--color-primary);
-  border-bottom-color: var(--color-accent-warm);
+}
+.site-header__nav-link:hover::after,
+.site-header__nav-item:hover .site-header__nav-link::after,
+.site-header__nav-item:focus-within .site-header__nav-link::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header__nav-link,
+  .site-header__nav-link::after {
+    transition: none;
+  }
 }
 .site-header__caret {
   transition: transform 0.15s ease;
@@ -1142,14 +1166,9 @@ a.site-header__mega-tool:focus-visible {
   gap: var(--space-5);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-@media (min-width: 640px) {
-  .site-footer__groups {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
 @media (min-width: 768px) {
   .site-footer__groups {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 .site-footer__group-title {
@@ -1158,8 +1177,21 @@ a.site-header__mega-tool:focus-visible {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--color-accent);
+  position: relative;
   margin: 0 0 var(--space-3);
+  padding-bottom: var(--space-2);
+}
+/* Gold-to-transparent hairline under each footer column heading. */
+.site-footer__group-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(214, 149, 0, 0.35) 55%, transparent 100%);
 }
 .site-footer__group-list {
   list-style: none;
@@ -1173,14 +1205,6 @@ a.site-header__mega-tool:focus-visible {
 .site-footer__group-list li {
   overflow-wrap: break-word;
 }
-.site-footer__group-list a {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  font-size: var(--text-sm);
-}
-.site-footer__group-list a:hover {
-  color: var(--color-accent);
-}
 .site-footer__group-label {
   color: rgba(255, 255, 255, 0.35);
   font-size: var(--text-sm);
@@ -1188,10 +1212,78 @@ a.site-header__mega-tool:focus-visible {
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-3);
   padding-top: var(--space-5);
+  text-align: center;
+}
+.site-footer__legal ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2) 0;
+  margin: 0;
+  padding: 0;
+}
+/* Small gold dot between links (not before the first). */
+.site-footer__legal li + li::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-inline: var(--space-3);
+  vertical-align: middle;
+  border-radius: 50%;
+  background: rgba(214, 149, 0, 0.6);
+}
+.site-footer__legal a,
+.site-footer__group-list a {
+  position: relative;
+  display: inline-block;
+  padding-block: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--text-sm);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+/* Gold underline that grows from the centre on hover / keyboard focus. */
+.site-footer__legal a::after,
+.site-footer__group-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.site-footer__legal a:hover,
+.site-footer__legal a:focus-visible,
+.site-footer__group-list a:hover,
+.site-footer__group-list a:focus-visible {
+  color: var(--color-accent);
+}
+.site-footer__legal a:hover::after,
+.site-footer__legal a:focus-visible::after,
+.site-footer__group-list a:hover::after,
+.site-footer__group-list a:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__legal a,
+  .site-footer__legal a::after,
+  .site-footer__group-list a,
+  .site-footer__group-list a::after {
+    transition: none;
+  }
 }
 .site-footer__copyright {
   color: rgba(255, 255, 255, 0.5);
@@ -1201,6 +1293,7 @@ a.site-header__mega-tool:focus-visible {
 .site-footer__social {
   list-style: none;
   display: flex;
+  justify-content: center;
   gap: var(--space-3);
   margin: 0;
   padding: 0;
@@ -2637,4 +2730,183 @@ a.testimonials__rating:hover {
 }
 .playbook__success p {
   margin: 0;
+}
+
+/* Dark hero band: shared by every internal page hero (and the legal pages).
+   Legal documents (Privacy, Terms, Subscription Terms, Refund): compact hero,
+   sticky table of contents on desktop, and a readable-measure body. */
+.hero--band {
+  position: relative;
+  padding-bottom: var(--space-6);
+  /* Dark brand band with a soft gold glow, matching the trust strip and
+     testimonials so the legal pages feel part of the same system. */
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(214, 149, 0, 0.18) 0%, transparent 70%),
+    linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+}
+.hero--band::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(214, 149, 0, 0.6) 50%, transparent);
+}
+.hero--band .eyebrow {
+  color: var(--color-accent);
+}
+.hero--band h1 {
+  color: #fff;
+}
+.hero--band .hero__subheading {
+  max-width: 44rem;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.85);
+}
+.legal-hero__meta {
+  display: inline-block;
+  margin: var(--space-4) 0 0;
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(214, 149, 0, 0.5);
+  border-radius: 999px;
+  background: rgba(214, 149, 0, 0.12);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.hero--band + .legal-doc {
+  padding-top: var(--space-6);
+}
+.legal-doc__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 900px) {
+  .legal-doc__grid {
+    grid-template-columns: 16rem minmax(0, 44rem);
+    justify-content: center;
+    align-items: start;
+  }
+  .legal-doc__toc {
+    position: sticky;
+    top: 96px; /* clears the sticky site header, same offset as the split FAQ */
+  }
+}
+.legal-doc__toc-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+.legal-doc__toc ol {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.legal-doc__toc li {
+  margin-bottom: 0.4rem;
+}
+.legal-doc__clause {
+  margin-bottom: var(--space-5);
+  scroll-margin-top: 96px;
+}
+.legal-doc__clause h2 {
+  font-size: var(--text-h3);
+  margin-bottom: var(--space-2);
+}
+.legal-doc__clause ul {
+  margin: 0 0 var(--space-3);
+  padding-left: 1.25rem;
+}
+.legal-doc__clause li {
+  margin-bottom: 0.4rem;
+}
+.legal-doc__contact address {
+  font-style: normal;
+  margin: 0 0 var(--space-2);
+}
+
+/* Legal document body: numbered clauses with gold numerals and hairline rules,
+   gold bullet markers, and a refined contact card. Sidebar rules are separate. */
+.legal-doc__body {
+  counter-reset: clause;
+}
+.legal-doc__clause {
+  counter-increment: clause;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+.legal-doc__clause:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.legal-doc__clause h2::before {
+  content: counter(clause, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-warm, var(--color-accent));
+}
+.legal-doc__clause ul {
+  list-style: none;
+  padding-left: 0;
+}
+.legal-doc__clause li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.legal-doc__clause li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.legal-doc__clause a {
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+.legal-doc__contact {
+  border-inline-start: 4px solid var(--color-accent);
+}
+
+/* Hero band extras for pages whose hero carries buttons or notes. */
+.hero--band .hero__note {
+  color: rgba(255, 255, 255, 0.75);
+}
+.hero--band .button--primary {
+  background: var(--color-accent);
+  color: var(--color-primary-deep);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
+}
+.hero--band .button--primary:hover {
+  background: #B37D00;
+}
+.hero--band .button--secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.hero--band .button--secondary:hover {
+  background: #fff;
+  color: var(--color-primary-deep);
+  border-color: #fff;
+}
+.hero--band :focus-visible {
+  outline-color: var(--color-accent);
+}
+/* The old tight hero-to-cards gap on Pricing is replaced by the band's own spacing. */
+.hero.hero--band:has(+ .pricing-summary) {
+  padding-bottom: var(--space-6);
+}
+.hero--band + .pricing-summary {
+  padding-top: var(--space-6);
 }

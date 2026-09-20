@@ -1,0 +1,127 @@
+{
+  "id": "refund-policy",
+  "type": "legal",
+  "slug": "refund-policy",
+  "canonicalPath": "/refund-policy/",
+  "seo": {
+    "title": "Refund Policy | SynergyFirst Digital",
+    "metaDescription": "When SynergyFirst Digital refunds payments, how cancelling works and how to ask for a refund on a website subscription.",
+    "ogTitle": "Refund Policy | SynergyFirst Digital",
+    "ogDescription": "When we refund payments, how cancelling works and how to request a refund.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Refund Policy",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "legal-document",
+      "eyebrow": "LEGAL",
+      "subheading": "When we refund a payment, when we do not, and how to ask. We keep it in plain language.",
+      "updated": "20 September 2026",
+      "contactHeading": "Need to ask about a payment?",
+      "contactBody": "Email us with the details of the charge and we will look into it as soon as we can.",
+      "clauses": [
+        {
+          "id": "overview",
+          "heading": "Overview",
+          "body": [
+            "This Refund Policy applies to payments made to SynergyFirst Digital (\"SFD\", \"we\", \"us\") for website subscriptions and related services. It works together with our <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/terms-and-conditions/\">Terms and Conditions</a>.",
+            "The short version: you can see a free preview before you pay, you can cancel at any time, and we do not refund a month that has already started, except in the cases set out below."
+          ]
+        },
+        {
+          "id": "free-previews-and-calls",
+          "heading": "Free previews and calls",
+          "body": [
+            "Free Preview Websites and discovery calls are free. You are not charged for them, so there is nothing to refund, and you are under no obligation to subscribe afterwards."
+          ]
+        },
+        {
+          "id": "subscription-payments",
+          "heading": "Subscription payments",
+          "body": [
+            "Subscriptions are billed monthly in advance, starting on the day you sign up. Because we start work on and host your website for the month as soon as you pay, we do not refund or pro-rate a month that has already started, including where you cancel partway through it or do not use all of your allowance."
+          ]
+        },
+        {
+          "id": "cancelling",
+          "heading": "Cancelling",
+          "body": [
+            "You can cancel at any time. To avoid being charged for the next month, cancel before your next billing date. Cancelling stops future charges, and your website stays live until the end of the month you have already paid for.",
+            "There are no cancellation or exit fees. What happens to your domain, content and website after you cancel is explained in the <a href=\"/subscription-terms/\">Subscription Terms</a>."
+          ]
+        },
+        {
+          "id": "when-we-refund",
+          "heading": "When we will refund",
+          "body": [
+            "We will refund you in these cases:",
+            [
+              "<strong>Duplicate or incorrect charge:</strong> you were charged twice, or charged an amount you did not agree to.",
+              "<strong>Billing error on our side:</strong> we charged you after you cancelled in time, or applied the wrong plan or price.",
+              "<strong>Service we could not deliver:</strong> a paid service you were charged for was not delivered, and we could not put it right within a reasonable time after you told us. We will refund the part of the charge that relates to it."
+            ],
+            "Where a refund is due, we refund the amount charged in error, not the whole subscription."
+          ]
+        },
+        {
+          "id": "not-refundable",
+          "heading": "What is not refundable",
+          "body": [
+            [
+              "A subscription month that has already started (see above).",
+              "Third-party costs we have paid on your behalf and cannot recover, such as domain registration, premium tools or additional email addresses.",
+              "Additional work you asked for and we have already completed, such as extra pages or projects quoted outside your plan.",
+              "Taxes and payment-provider fees that we cannot recover, to the extent the law allows."
+            ]
+          ]
+        },
+        {
+          "id": "how-to-request",
+          "heading": "How to ask for a refund",
+          "body": [
+            "Email us at the address below with your name, the email used to sign up, the date and amount of the payment, and a short explanation. Please contact us within 30 days of the charge so we can check it properly. We will reply within 1 business day, and we will tell you whether a refund is due and why."
+          ]
+        },
+        {
+          "id": "how-refunds-are-paid",
+          "heading": "How refunds are paid",
+          "body": [
+            "Refunds are paid back to the original payment method through our payment provider, Razorpay. Once we approve a refund, it usually takes several business days to show in your account, depending on your bank or card issuer. We cannot refund to a different account or method."
+          ]
+        },
+        {
+          "id": "chargebacks",
+          "heading": "Chargebacks",
+          "body": [
+            "If you think a charge is wrong, please contact us first so we can fix it quickly. Disputing a valid charge with your bank instead of contacting us can delay a resolution, and we may suspend services while a dispute is open."
+          ]
+        },
+        {
+          "id": "your-legal-rights",
+          "heading": "Your legal rights",
+          "body": [
+            "This policy does not take away any rights you have under the mandatory consumer-protection laws of your country, such as statutory guarantees or cooling-off rights that cannot be excluded. Where such a right applies, it takes priority over this policy."
+          ]
+        },
+        {
+          "id": "changes",
+          "heading": "Changes to this policy",
+          "body": [
+            "We may update this policy from time to time. The \"Last updated\" date at the top shows when it last changed. A change applies to payments made after it is published."
+          ]
+        },
+        {
+          "id": "related-policies",
+          "heading": "Related policies",
+          "body": [
+            "See also our <a href=\"/subscription-terms/\">Subscription Terms</a>, <a href=\"/terms-and-conditions/\">Terms and Conditions</a> and <a href=\"/privacy-policy/\">Privacy Policy</a>."
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-20"
+}

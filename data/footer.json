@@ -44,16 +44,13 @@
         { "label": "Contact", "path": "/contact/" },
         { "label": "Book a Call", "path": "/book-a-call/" }
       ]
-    },
-    {
-      "title": "Legal",
-      "links": [
-        { "label": "Privacy Policy", "path": null },
-        { "label": "Terms and Conditions", "path": null },
-        { "label": "Subscription Terms", "path": null },
-        { "label": "Refund Policy", "path": null }
-      ]
     }
+  ],
+  "legalLinks": [
+    { "label": "Privacy Policy", "path": "/privacy-policy/" },
+    { "label": "Terms and Conditions", "path": "/terms-and-conditions/" },
+    { "label": "Subscription Terms", "path": "/subscription-terms/" },
+    { "label": "Refund Policy", "path": "/refund-policy/" }
   ],
   "social": []
 }

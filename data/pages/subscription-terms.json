@@ -1,0 +1,199 @@
+{
+  "id": "subscription-terms",
+  "type": "legal",
+  "slug": "subscription-terms",
+  "canonicalPath": "/subscription-terms/",
+  "seo": {
+    "title": "Subscription Terms | SynergyFirst Digital",
+    "metaDescription": "The terms of a SynergyFirst Digital website subscription: plans, billing, allowances, cancellation, website ownership and transfer.",
+    "ogTitle": "Subscription Terms | SynergyFirst Digital",
+    "ogDescription": "Plans, billing, cancellation and website ownership for SynergyFirst Digital subscriptions.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Subscription Terms",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "legal-document",
+      "eyebrow": "LEGAL",
+      "subheading": "How your monthly website subscription works: what you pay, what is included, how to cancel and who owns what. We keep it in plain language.",
+      "updated": "20 September 2026",
+      "contactHeading": "Questions about your subscription",
+      "contactBody": "Not sure how a term applies to you? Email us and we will explain it before you sign up.",
+      "clauses": [
+        {
+          "id": "about-these-terms",
+          "heading": "About these terms",
+          "body": [
+            "These Subscription Terms apply when you sign up for a managed website plan with SynergyFirst Digital (\"SFD\", \"we\", \"us\"). They work together with our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/refund-policy/\">Refund Policy</a> and <a href=\"/privacy-policy/\">Privacy Policy</a>. If there is a conflict about a paid subscription, these Subscription Terms take priority.",
+            "\"You\" means the person or business that signs up. If you sign up for a business, you confirm you have authority to bind it. A subscription starts on the day you sign up and pay, not when you view a free preview."
+          ]
+        },
+        {
+          "id": "plans-and-fees",
+          "heading": "Plans and fees",
+          "body": [
+            "We offer three plans, described in full on our <a href=\"/pricing/\">Pricing</a> page: Lite, Business and E-Commerce. Prices are in US dollars per month. The E-Commerce plan starts from the price shown and is confirmed with you before you sign up, because it depends on the scope of your store.",
+            "There is no activation fee. What each plan includes, such as the page allowance, monthly content updates, hosting, email addresses and support level, is as shown on the Pricing page when you sign up."
+          ]
+        },
+        {
+          "id": "billing-and-payment",
+          "heading": "Billing and payment",
+          "body": [
+            [
+              "You pay in advance for each month. Your first payment is due when you sign up, and your billing date is the same day of each month after that.",
+              "Payments are processed by Razorpay. We do not see or store your full card details.",
+              "You agree to keep your payment details up to date and to pay all amounts when due.",
+              "If a payment is refused or fails, we may retry it and ask you for a working payment method."
+            ]
+          ]
+        },
+        {
+          "id": "taxes-and-third-party-charges",
+          "heading": "Taxes and third-party charges",
+          "body": [
+            "Unless we say otherwise, prices do not include taxes that the law of your country requires. If a tax applies to you, we will show it before you pay.",
+            "Some services are provided by third parties. Extra Google Workspace email addresses beyond your plan's allowance are charged at $15 per month each, and other third-party charges, such as domain registration or premium tools you ask for, are passed on at cost. We tell you the amount before we add any of these."
+          ]
+        },
+        {
+          "id": "term-and-renewal",
+          "heading": "Month-to-month term",
+          "body": [
+            "Every plan is month-to-month, with no long-term contract. Your subscription renews automatically each month on your billing date until you cancel."
+          ]
+        },
+        {
+          "id": "changing-plan",
+          "heading": "Changing your plan",
+          "body": [
+            "You can move to a higher plan at any time, and we move your site to the new plan's features without rebuilding it or taking it offline. We will confirm the new price in writing before it applies.",
+            "You can ask to move to a lower plan at any time. It takes effect from your next billing date, and features or pages that exceed the lower plan's allowance may need to be removed."
+          ]
+        },
+        {
+          "id": "cancelling",
+          "heading": "Cancelling",
+          "body": [
+            "You can cancel at any time. To avoid being charged for the next month, tell us before your next billing date by emailing us or using the customer portal.",
+            [
+              "Your website stays live until the end of the month you have already paid for.",
+              "We do not give refunds for a month that has started (see the <a href=\"/refund-policy/\">Refund Policy</a>).",
+              "Cancelling stops future charges but does not cancel amounts already due."
+            ]
+          ]
+        },
+        {
+          "id": "late-payment",
+          "heading": "Failed or late payments",
+          "body": [
+            "If a payment fails or is not made when due, we may suspend your website and services immediately, which can take your website offline. We will tell you by email. Services resume once the overdue amount is paid.",
+            "If the payment problem is not resolved, we may end your subscription. Months in which payment was not made do not count towards the three-month transfer period below."
+          ]
+        },
+        {
+          "id": "whats-included",
+          "heading": "Allowances and fair use",
+          "body": [
+            "Each plan includes a defined allowance, not unlimited work:",
+            [
+              "<strong>Pages:</strong> up to 5 pages on Lite, 10 on Business and 20 on E-Commerce. Blog posts, legal pages and thank-you pages do not count. E-Commerce product listings are scoped separately when we build your store.",
+              "<strong>Content updates:</strong> 10 per month on Lite, 20 on Business and 40 on E-Commerce. One update is a small change to text, an image or a section on your existing site, usually 20 to 30 minutes of work. Unused updates do not roll over to the next month.",
+              "<strong>Not counted as updates:</strong> full custom redesigns and new third-party integrations. We scope and quote these separately."
+            ],
+            "Requests beyond your allowance, or larger than a normal update, are quoted and agreed with you before we start, or you can move to a higher plan. We may ask you to reduce use that is unreasonably heavy compared with the plan."
+          ]
+        },
+        {
+          "id": "your-responsibilities",
+          "heading": "Your responsibilities",
+          "body": [
+            [
+              "Give us the content, images, access and feedback we reasonably need, on time. Delays on your side can delay your website.",
+              "Make sure you own or have the right to use everything you give us, as set out in our Terms and Conditions.",
+              "Keep your account, login and portal details secure, and tell us promptly if you think they have been compromised.",
+              "Check that your website and its content follow the laws and professional rules that apply to your business.",
+              "Use the website lawfully, and do not ask us to publish unlawful, misleading or infringing material."
+            ]
+          ]
+        },
+        {
+          "id": "hosting-and-support",
+          "heading": "Hosting, maintenance and support",
+          "body": [
+            "Your plan includes hosting, SSL, security and technical maintenance. We work to keep your website available and secure, but we cannot promise it will always be uninterrupted or error-free. We may carry out maintenance that briefly affects availability and will try to schedule it at quiet times.",
+            "Support is provided through the channels and at the level shown for your plan."
+          ]
+        },
+        {
+          "id": "ownership-and-transfer",
+          "heading": "Ownership and transfer",
+          "body": [
+            [
+              "<strong>Your domain:</strong> the domain name belongs to you. If we register it for you, we do so in your name or hand it over when you ask.",
+              "<strong>Your content:</strong> you keep ownership of everything you provided, such as your text, photos and logo, and you can have it back at any time, including if you cancel.",
+              "<strong>Code and design before 3 months:</strong> if you cancel before completing 3 continuous months of paid subscription, the website's code and design remain ours. You keep your domain and receive all of your own content.",
+              "<strong>Free transfer after 3 months:</strong> once you have paid for 3 continuous months on any plan, you can ask us to transfer your complete website to your own hosting at no charge, with no exit or hidden fees. The three months must be paying months in a row, so pausing, cancelling and returning later does not count.",
+              "<strong>After transfer:</strong> you may use the transferred website files for your business. Third-party software, fonts, images and tools included in the site remain under their own licences, and we keep the right to our own tools, methods and general know-how."
+            ],
+            "Ongoing services, such as hosting, updates, SEO and support, end when you leave."
+          ]
+        },
+        {
+          "id": "after-you-leave",
+          "heading": "After you leave",
+          "body": [
+            "When your paid period ends, we take your website offline unless you have arranged a transfer. Please ask for your content or a transfer before you cancel or within 30 days after. We may delete your website files once that period has passed.",
+            "Your Google Workspace email addresses, if any, are separate third-party services that end or move according to the provider's terms, so please export any email you want to keep."
+          ]
+        },
+        {
+          "id": "third-party-services",
+          "heading": "Third-party services",
+          "body": [
+            "Parts of your service rely on third parties, such as Google, Razorpay, domain registrars and other tools. Their services follow their own terms and we are not responsible for their outages or changes. We will work with you to fix problems where we reasonably can."
+          ]
+        },
+        {
+          "id": "our-right-to-end",
+          "heading": "When we may end the subscription",
+          "body": [
+            "We may suspend or end your subscription, with notice where reasonable, if you seriously or repeatedly break these terms, use the website for unlawful or harmful purposes, or do not pay. If we end your subscription for a reason other than your breach, we will give you reasonable notice and the same ownership and transfer rights described above."
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Our liability",
+          "body": [
+            "We do not guarantee results such as rankings, traffic or sales. Our liability is limited as set out in our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, including a cap of the fees you paid in the 12 months before a claim, to the extent the law allows."
+          ]
+        },
+        {
+          "id": "changes",
+          "heading": "Changes to these terms and prices",
+          "body": [
+            "We may update these terms from time to time. If we change your price or a change materially affects your subscription, we will give you at least 30 days' notice by email, and you can cancel before it takes effect. The \"Last updated\" date at the top shows when the terms last changed."
+          ]
+        },
+        {
+          "id": "governing-law",
+          "heading": "Governing law",
+          "body": [
+            "These Subscription Terms are governed by the laws of India, and the courts of Surat, Gujarat, India have jurisdiction, subject to any mandatory consumer rights you have in your own country. Please contact us first so we can try to resolve any issue informally."
+          ]
+        },
+        {
+          "id": "related-policies",
+          "heading": "Related policies",
+          "body": [
+            "See also our <a href=\"/terms-and-conditions/\">Terms and Conditions</a>, <a href=\"/refund-policy/\">Refund Policy</a> and <a href=\"/privacy-policy/\">Privacy Policy</a>."
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-20"
+}

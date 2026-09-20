@@ -1,0 +1,49 @@
+{# Legal page body (Privacy, Terms, Subscription Terms, Refund). Copy lives in the
+   page JSON: section.clauses = [{ id, heading, body: [string | [bullet strings]] }].
+   Body strings are trusted first-party JSON, so they may contain <a> links.
+   The H1 and intro band are rendered here (page.njk skips its default H1). #}
+<section class="section hero hero--band">
+  <div class="container hero__inner" data-reveal>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero__subheading">{{ section.subheading }}</p>
+    <p class="legal-hero__meta">Last updated: {{ section.updated }}</p>
+  </div>
+</section>
+<section class="section legal-doc">
+  <div class="container legal-doc__grid">
+    <nav class="legal-doc__toc" aria-label="On this page">
+      <p class="legal-doc__toc-title">On this page</p>
+      <ol>
+        {% for clause in section.clauses %}
+        <li><a href="#{{ clause.id }}">{{ clause.heading }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+    <div class="legal-doc__body">
+      {% for clause in section.clauses %}
+      <section class="legal-doc__clause" id="{{ clause.id }}" aria-labelledby="{{ clause.id }}-h">
+        <h2 id="{{ clause.id }}-h">{{ clause.heading }}</h2>
+        {% for entry in clause.body %}
+          {% if entry is string %}
+          <p>{{ entry | safe }}</p>
+          {% else %}
+          <ul>
+            {% for item in entry %}<li>{{ item | safe }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        {% endfor %}
+      </section>
+      {% endfor %}
+      <aside class="card card--tinted legal-doc__contact" aria-labelledby="legal-contact-h">
+        <h3 id="legal-contact-h">{{ section.contactHeading or "Questions about this page?" }}</h3>
+        <p>{{ section.contactBody or "Email us and we will reply as soon as we can." }}</p>
+        <p>
+          <strong>{{ company.legalName }}</strong><br>
+          {% if company.address %}<address>{{ company.address | replace("\n", "<br>") | safe }}</address>{% endif %}
+          <a href="mailto:{{ company.supportEmail }}">{{ company.supportEmail }}</a>
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>

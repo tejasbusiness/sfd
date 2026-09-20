@@ -1,0 +1,178 @@
+{
+  "id": "terms-and-conditions",
+  "type": "legal",
+  "slug": "terms-and-conditions",
+  "canonicalPath": "/terms-and-conditions/",
+  "seo": {
+    "title": "Terms and Conditions | SynergyFirst Digital",
+    "metaDescription": "The terms that apply when you use the SynergyFirst Digital website, request a Free Preview Website, book a discovery call or become a customer.",
+    "ogTitle": "Terms and Conditions | SynergyFirst Digital",
+    "ogDescription": "The terms that apply when you use the SynergyFirst Digital website and services.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Terms and Conditions",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "legal-document",
+      "eyebrow": "LEGAL",
+      "subheading": "The ground rules for using our website, requesting a free preview, booking a call and working with us. We keep it in plain language.",
+      "updated": "20 September 2026",
+      "contactHeading": "Questions about these terms",
+      "contactBody": "If anything here is unclear, email us before you rely on it. We are happy to explain.",
+      "clauses": [
+        {
+          "id": "about-these-terms",
+          "heading": "About these terms",
+          "body": [
+            "These Terms and Conditions (\"Terms\") apply when you use the SynergyFirst Digital website, request a Free Preview Website, book a discovery call or otherwise deal with us. \"SynergyFirst Digital\", \"SFD\", \"we\" and \"us\" mean the business that operates this website from Surat, Gujarat, India. \"You\" means you and, where you act for a business, that business.",
+            "By using this website or our services you agree to these Terms. If you do not agree, please do not use them.",
+            "If you become a paying customer, our <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a> also apply. If they conflict with these Terms on a paid subscription, the Subscription Terms take priority."
+          ]
+        },
+        {
+          "id": "using-the-website",
+          "heading": "Using this website",
+          "body": [
+            "You may use this website for lawful purposes and in line with these Terms. You agree not to:",
+            [
+              "use it in a way that breaks any law or the rights of others;",
+              "try to gain unauthorised access to the website, our systems or other users' information;",
+              "introduce viruses, or send automated requests that overload or disrupt the website;",
+              "copy, scrape or resell the content of the website without our written permission; or",
+              "submit false, misleading or someone else's information in any form."
+            ],
+            "We may update, suspend or remove any part of the website at any time without notice."
+          ]
+        },
+        {
+          "id": "free-preview",
+          "heading": "Free Preview Websites",
+          "body": [
+            "You can apply for a complimentary private preview of a website for your business. Please note:",
+            [
+              "We review every request and may decline or ask for more information. Applying does not guarantee that you will receive a preview.",
+              "A preview is free, comes with no obligation and does not commit you to becoming a customer.",
+              "Previews are private and available for a limited time, currently seven days from the date we share it. After that the preview may be removed.",
+              "A preview is a demonstration of what we could build for you. It is prepared from the information you and public sources provide, so it may not be complete or fully accurate.",
+              "A preview is our property until you activate a subscription. You must not publish it, copy it or use it on another website, and you must not share the private link with people outside your business."
+            ]
+          ]
+        },
+        {
+          "id": "discovery-calls",
+          "heading": "Discovery calls",
+          "body": [
+            "You can book a free 30-minute discovery call through this website. Calls take place over Google Meet at the time you choose, shown in your time zone. If you need to change or cancel, please tell us as early as you can. We may reschedule a call if we need to and will let you know by email.",
+            "A call is a conversation only. It does not create a contract, and nothing we say on a call is a guarantee of a particular result."
+          ]
+        },
+        {
+          "id": "paid-services",
+          "heading": "Paid services",
+          "body": [
+            "Our website subscriptions, their prices, what is included, billing, cancellation and ownership of the website are set out in the <a href=\"/subscription-terms/\">Subscription Terms</a> and on our <a href=\"/pricing/\">Pricing</a> page. A subscription begins only when you sign up and pay, not when you view a preview or book a call.",
+            "Prices are shown in US dollars. Any extra work outside your plan is quoted and agreed with you before we start."
+          ]
+        },
+        {
+          "id": "your-content",
+          "heading": "Your content and information",
+          "body": [
+            "You keep the ownership of the text, images, logos and other material you give us (\"Your Content\"). You give us permission to use, copy, adapt and display Your Content as needed to prepare previews and to build, host, maintain and promote your website.",
+            "You confirm that you have the right to give us Your Content and that it does not infringe anyone's rights, is not unlawful or misleading and does not contain harmful material. You are responsible for Your Content and for checking that your website is accurate and meets any rules that apply to your business, such as advertising, licensing and professional regulations."
+          ]
+        },
+        {
+          "id": "intellectual-property",
+          "heading": "Our intellectual property",
+          "body": [
+            "The design, text, graphics, code, tools, templates and other material on this website, and the design and code of previews and websites we build, are owned by SFD or its licensors and protected by copyright and other laws. Except as the Subscription Terms provide for a customer's own website, these Terms give you no ownership of, or licence to, them.",
+            "Names and logos that appear on this website may belong to other people and are used only to identify them. We will not use a client's name or logo publicly without their permission."
+          ]
+        },
+        {
+          "id": "third-party-services",
+          "heading": "Third-party services",
+          "body": [
+            "Our services and website rely on third parties such as Google (including Workspace, Meet and Analytics), Razorpay for payments, domain registrars and hosting infrastructure. Their services are governed by their own terms and privacy policies. We are not responsible for their availability, changes or actions, although we will work with you to resolve problems where we reasonably can.",
+            "This website may contain links to other websites. We do not control or endorse them."
+          ]
+        },
+        {
+          "id": "no-guarantees",
+          "heading": "No guarantee of results",
+          "body": [
+            "We work to build effective websites and support your online presence, but we cannot guarantee particular results such as search rankings, website traffic, enquiries, sales or revenue. These depend on many factors outside our control, including your market, competitors, budget and search-engine or platform decisions.",
+            "The information on this website is general and is provided \"as is\". It is not legal, tax, financial or other professional advice."
+          ]
+        },
+        {
+          "id": "liability",
+          "heading": "Our liability",
+          "body": [
+            "Nothing in these Terms limits or excludes liability that cannot be limited or excluded by law, including for fraud or for death or personal injury caused by negligence. If you are a consumer with rights under the law where you live, these Terms do not take those rights away.",
+            "Subject to that, and as far as the law allows:",
+            [
+              "we are not liable for indirect or consequential loss, or for loss of profit, revenue, business, data or goodwill;",
+              "we are not liable for loss caused by events outside our reasonable control, or by third-party services; and",
+              "our total liability to you arising out of or connected with our services is limited to the fees you paid us in the 12 months before the event that gave rise to the claim."
+            ],
+            "Free services, such as previews, calls and this website, are provided without charge and without any warranty beyond what the law requires."
+          ]
+        },
+        {
+          "id": "indemnity",
+          "heading": "Claims arising from your content or use",
+          "body": [
+            "If a third party makes a claim against us because Your Content or your use of our services broke the law or someone else's rights, you agree to cover our reasonable losses and costs from that claim, to the extent the law allows. We will tell you promptly about the claim and give you a fair chance to help resolve it."
+          ]
+        },
+        {
+          "id": "privacy",
+          "heading": "Privacy",
+          "body": [
+            "We handle personal information as described in our <a href=\"/privacy-policy/\">Privacy Policy</a>."
+          ]
+        },
+        {
+          "id": "changes",
+          "heading": "Changes to these terms",
+          "body": [
+            "We may update these Terms from time to time. The \"Last updated\" date at the top shows when they last changed. A change applies from the date it is published. If a change is significant and affects a subscription you already have, we will give you reasonable notice by email."
+          ]
+        },
+        {
+          "id": "governing-law",
+          "heading": "Governing law and disputes",
+          "body": [
+            "These Terms are governed by the laws of India. If a dispute arises, please contact us first so we can try to resolve it informally. If we cannot, the courts of Surat, Gujarat, India have jurisdiction, except that if you are a consumer, this does not remove any right you have under mandatory consumer laws in your own country."
+          ]
+        },
+        {
+          "id": "general",
+          "heading": "General",
+          "body": [
+            [
+              "These Terms, together with the policies they refer to, are the whole agreement between you and us about their subject matter.",
+              "If any part of these Terms is found to be unenforceable, the rest continues to apply.",
+              "If we do not enforce a right straight away, we have not given it up.",
+              "You may not transfer your rights under these Terms without our written consent. We may transfer ours as part of a sale or reorganisation of our business.",
+              "We may give you notices by email to the address you provided or by posting them on this website."
+            ]
+          ]
+        },
+        {
+          "id": "related-policies",
+          "heading": "Related policies",
+          "body": [
+            "See also our <a href=\"/privacy-policy/\">Privacy Policy</a>, <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a>."
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaTypes": ["WebPage"],
+  "lastUpdated": "2026-09-20"
+}
