@@ -36,6 +36,42 @@
         "tablet": "/assets/images/portfolio/cintaa-casting-portal-tablet.jpg",
         "mobile": "/assets/images/portfolio/cintaa-casting-portal-mobile.jpg"
       }
+    },
+    {
+      "id": "brandbook-company",
+      "title": "The BrandBook Company",
+      "industryLabel": "Publishing / Custom Books",
+      "workCompleted": "Website design and development for a company that creates custom books for brands, individuals and organisations, including a showcase of its books and clients.",
+      "url": "https://brandbookcompany.in/",
+      "images": {
+        "desktop": "/assets/images/portfolio/brandbook-company-desktop.jpg",
+        "tablet": "/assets/images/portfolio/brandbook-company-tablet.jpg",
+        "mobile": "/assets/images/portfolio/brandbook-company-mobile.jpg"
+      }
+    },
+    {
+      "id": "siddhant-cinevision",
+      "title": "Siddhant Cinevision Pvt. Ltd.",
+      "industryLabel": "Television & Film Production",
+      "workCompleted": "Website design and development for a Mumbai-based television and film production company, presenting its projects, its story and its contact details.",
+      "url": "https://siddhantcinevision.in/",
+      "images": {
+        "desktop": "/assets/images/portfolio/siddhant-cinevision-desktop.jpg",
+        "tablet": "/assets/images/portfolio/siddhant-cinevision-tablet.jpg",
+        "mobile": "/assets/images/portfolio/siddhant-cinevision-mobile.jpg"
+      }
+    },
+    {
+      "id": "ev-world360",
+      "title": "EV WORLD360",
+      "industryLabel": "Electric Vehicle Charging",
+      "workCompleted": "Website design and development for an EV charging solutions provider, with pages for home, commercial and DC fast chargers, software, partnership programs and an FAQ.",
+      "url": "https://evworld360.com/",
+      "images": {
+        "desktop": "/assets/images/portfolio/ev-world360-desktop.jpg",
+        "tablet": "/assets/images/portfolio/ev-world360-tablet.jpg",
+        "mobile": "/assets/images/portfolio/ev-world360-mobile.jpg"
+      }
     }
   ]
 }

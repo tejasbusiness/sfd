@@ -351,3 +351,7 @@ Then, from the roadmap and earlier open items:
 ### Portfolio mockups (2026-09-20)
 
 - Replaced the Recent work cards with responsive device mockups built from real screenshots of the three live client sites (already listed with permission). Details in docs/04. The Google-hosted client sites can change, so refresh the images with `scripts/capture-portfolio.js` when they do.
+
+### Portfolio: three more projects (2026-09-20)
+
+- Added The BrandBook Company, Siddhant Cinevision Pvt. Ltd. and EV WORLD360 to `data/projects.json` and the portfolio page (six projects, two rows of three). Descriptions only state what each live site visibly shows. Note: the live EV WORLD360 site still shows placeholder contact details (address "99 Roving St., Big City", phone "123-456-789"), which appear in its screenshot; refresh the screenshot with `node scripts/capture-portfolio.js ev-world360` once the client fixes them.
