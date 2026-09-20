@@ -3,6 +3,7 @@
    Studies). Not homepage-only: styled sitewide in components.css. #}
 <section class="section {{ 'section--tinted' if section.tinted else '' }} link-cards">
   <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <div class="link-cards__grid">
@@ -15,5 +16,11 @@
       </a>
       {% endfor %}
     </div>
+    {% if section.closing %}<p class="link-cards__closing">{{ section.closing }}</p>{% endif %}
+    {% if section.cta %}
+    <p class="link-cards__cta">
+      <a class="button button--secondary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>
+    </p>
+    {% endif %}
   </div>
 </section>

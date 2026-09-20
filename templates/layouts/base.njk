@@ -24,6 +24,9 @@
   {% if page.id == "home" %}
   <link rel="stylesheet" href="/assets/css/homepage.css">
   {% endif %}
+  {% if page.schemaTypes and page.schemaTypes.length %}
+  {% include "partials/schema.njk" %}
+  {% endif %}
 </head>
 <body{% if page.id == "home" %} class="page-home"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>

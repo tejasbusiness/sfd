@@ -1,0 +1,15 @@
+{# Editorial body-copy section with an optional pull quote — used where a
+   section needs narrative paragraphs plus an emphasized line (e.g. About's
+   "Why We Exist" and "Our Story"), which no existing section partial covers. #}
+<section class="section {{ 'section--tinted' if section.tinted else '' }} content-block">
+  <div class="container" data-reveal>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h2>{{ section.heading }}</h2>
+    {% for paragraph in section.body %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+    {% if section.pullQuote %}
+    <p class="content-block__pull-quote">{{ section.pullQuote }}</p>
+    {% endif %}
+  </div>
+</section>

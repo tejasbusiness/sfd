@@ -26,3 +26,9 @@ Thumbs.db
 # Archives
 *.zip
 *.rar
+
+# This is a static site — its own image assets belong in the repo, not just
+# on the machine that built it. Un-ignore assets/images/ despite the blanket
+# image-extension rules above (2026-09-20: no file under it was ever tracked).
+!assets/images/
+!assets/images/**

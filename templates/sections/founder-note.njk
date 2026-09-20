@@ -1,0 +1,32 @@
+{# Editorial founder quote block. Uses a real photo (section.avatarImage) once
+   one is approved; falls back to a decorative initials monogram
+   (section.avatarInitials) when no photo is set, rather than inventing or
+   placeholder-faking one — the founder's name is conveyed in visible text
+   regardless. #}
+<section class="section founder-note">
+  <div class="container founder-note__inner" data-reveal>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h2>{{ section.heading }}</h2>
+    <div class="founder-note__body">
+      {% if section.avatarImage %}
+      <img
+        class="founder-note__avatar founder-note__avatar--photo"
+        src="{{ section.avatarImage }}"
+        alt="{{ section.avatarAlt or section.attribution.name }}"
+        width="112"
+        height="112"
+        loading="lazy"
+      >
+      {% elif section.avatarInitials %}
+      <span class="founder-note__avatar" aria-hidden="true">{{ section.avatarInitials }}</span>
+      {% endif %}
+      <blockquote class="founder-note__quote">
+        <p>&ldquo;{{ section.quote }}&rdquo;</p>
+        <footer>
+          <span class="founder-note__name">{{ section.attribution.name }}</span>{% if section.attribution.title %},
+          <span class="founder-note__title">{{ section.attribution.title }}</span>{% endif %}
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>

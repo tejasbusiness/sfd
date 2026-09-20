@@ -1,5 +1,6 @@
 <section class="section faq">
   <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <div class="faq__items">

@@ -20,6 +20,10 @@
           <p>{{ section.body }}</p>
         </div>
       </section>
+      {% elif section.type == "content-block" %}
+        {% include "sections/content-block.njk" %}
+      {% elif section.type == "founder-note" %}
+        {% include "sections/founder-note.njk" %}
       {% elif section.type == "component-gallery" %}
         {% include "sections/component-gallery.njk" %}
       {% elif section.type == "proof-strip" %}

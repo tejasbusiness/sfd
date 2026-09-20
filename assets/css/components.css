@@ -1945,3 +1945,94 @@ dialog.booking-modal {
 .component-gallery__field {
   margin-bottom: var(--space-4);
 }
+
+/* Content block — editorial body copy + optional pull quote (About: Why We
+   Exist, Our Story). Kept to a readable measure rather than the full
+   container width, matching the page's editorial direction. */
+.content-block .container {
+  max-width: 42rem;
+}
+.content-block__pull-quote {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: var(--space-4) 0 0;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-accent);
+}
+
+/* Founder note — editorial quote block with a CSS-only initials monogram in
+   place of a photo (no approved photograph exists yet). */
+.founder-note .container {
+  max-width: 46rem;
+}
+.founder-note__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+  margin-top: var(--space-4);
+}
+.founder-note__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.founder-note__avatar--photo {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+  background: var(--color-tint);
+  border: 1px solid var(--color-border);
+}
+.founder-note__quote p {
+    font-family: var(--font-heading);
+    font-size: var(--font-body);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0 0 var(--space-3);
+}
+.founder-note__quote footer {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.founder-note__name {
+  font-weight: 700;
+  color: var(--color-text);
+}
+@media (min-width: 640px) {
+  .founder-note__body {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Trailing closing line / CTA shared across link-cards, process and
+   portfolio-grid sections — additive, only rendered when the section JSON
+   sets `closing` or `cta`. */
+.link-cards__closing {
+  margin-top: var(--space-5);
+  font-weight: 600;
+}
+.link-cards__cta,
+.process__cta,
+.portfolio-grid__cta {
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+}

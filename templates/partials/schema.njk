@@ -1,0 +1,34 @@
+{# Structured data driven by each page's `schemaTypes` field (already a
+   required field per docs/05, previously unused). Only verified data is
+   emitted — no legal name, address, phone or social profile URLs, all of
+   which remain BLOCKING/TBD per docs/10 and CLAUDE.md rule 13. #}
+{% set canonicalUrl = site.productionDomain + page.canonicalPath %}
+
+{% if "Organization" in page.schemaTypes %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }}}
+</script>
+{% endif %}
+
+{% if "AboutPage" in page.schemaTypes or "WebPage" in page.schemaTypes %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":{{ ("AboutPage" if "AboutPage" in page.schemaTypes else "WebPage") | dump | safe }},"name":{{ page.seo.title | dump | safe }},"description":{{ page.seo.metaDescription | dump | safe }},"url":{{ canonicalUrl | dump | safe }}}
+</script>
+{% endif %}
+
+{% if "FAQPage" in page.schemaTypes %}
+  {% set faqSection = null %}
+  {% for s in page.sections %}
+    {% if not faqSection and (s.type == "faq" or s.type == "faq-split") %}
+      {% set faqSection = s %}
+    {% endif %}
+  {% endfor %}
+  {% if faqSection %}
+    {% set resolvedFaqItems = faqs.items | selectByIds(faqSection.itemIds) %}
+    {% if resolvedFaqItems and resolvedFaqItems.length %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in resolvedFaqItems %}{"@type":"Question","name":{{ item.question | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ item.answer | dump | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}
+</script>
+    {% endif %}
+  {% endif %}
+{% endif %}

@@ -24,7 +24,7 @@
     {
       "type": "portfolio-grid",
       "heading": "Recent work",
-      "items": []
+      "itemIds": ["budget-opticals", "cawt", "cintaa-casting-portal"]
     },
     {
       "type": "free-preview-cta",
@@ -34,5 +34,5 @@
     }
   ],
   "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-09-18"
+  "lastUpdated": "2026-09-20"
 }

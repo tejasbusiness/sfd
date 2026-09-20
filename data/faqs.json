@@ -49,6 +49,36 @@
       "id": "plan-upgrade",
       "question": "Can I upgrade my plan later?",
       "answer": "Yes, at any time. We move your site to the new plan's features without rebuilding it from scratch or any downtime."
+    },
+    {
+      "id": "about-what-we-do",
+      "question": "What does SynergyFirst Digital do?",
+      "answer": "SynergyFirst Digital helps local businesses improve their online presence through website strategy, web design and development, local SEO, WordPress maintenance, digital marketing and practical automation solutions."
+    },
+    {
+      "id": "about-who-we-work-with",
+      "question": "What types of businesses do you work with?",
+      "answer": "We primarily work with local and service-based businesses, including restaurants, home-service companies, clinics, doctors, financial and professional services, retailers and other businesses that depend on local customers."
+    },
+    {
+      "id": "about-international",
+      "question": "Do you work with businesses outside India?",
+      "answer": "Yes. We work remotely with businesses in the USA, Canada, Australia, New Zealand, Germany and other European markets. Our process is designed for clear collaboration across locations and time zones."
+    },
+    {
+      "id": "about-existing-or-new",
+      "question": "Can you improve an existing website, or do you only build new ones?",
+      "answer": "Both. We can audit and improve an existing website, rebuild an outdated one or create a new digital presence from the ground up. The right approach depends on what is currently limiting performance."
+    },
+    {
+      "id": "about-post-launch-support",
+      "question": "Do you provide support after the website goes live?",
+      "answer": "Yes. We offer ongoing website care, maintenance and digital support based on what your business needs. You are not left alone after launch."
+    },
+    {
+      "id": "about-get-started",
+      "question": "How do we get started?",
+      "answer": "Book a free 30-minute discovery call. We will discuss your business, current digital presence, immediate priorities and whether SynergyFirst Digital is the right fit for the work."
     }
   ]
 }

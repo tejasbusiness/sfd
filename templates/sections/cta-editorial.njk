@@ -1,6 +1,6 @@
-{# Homepage-only final CTA (docs/13 §8.12). Tone decided during build: lavender,
-   not dark — the page already spends its one dark section on the monthly-model
-   statement, so this stays light to keep the homepage recognizably light-theme.
+{# Editorial final-CTA block, originally built for the homepage (docs/13 §8.12)
+   and now reused sitewide wherever a lighter, icon-led closing CTA fits better
+   than the plain cta.njk banner. Tone stays lavender/light by default.
    cta.njk (used elsewhere for free-preview-cta/booking-cta) is untouched. #}
 <section class="section section--lavender cta-editorial">
   <div class="container cta-editorial__inner" data-reveal>
@@ -12,10 +12,15 @@
         <circle cx="7.5" cy="6" r="0.6" fill="currentColor" />
       </svg>
     </span>
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
     {% if section.body %}<p>{{ section.body }}</p>{% endif %}
     <div class="cta-editorial__actions">
-      <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+      <a
+        class="button button--primary"
+        href="{{ section.primaryCta.href }}"
+        {% if section.primaryCta.dialogTarget %}data-dialog-target="{{ section.primaryCta.dialogTarget }}"{% endif %}
+      >{{ section.primaryCta.label }}</a>
       {% if section.secondaryCta %}
       <a
         class="button button--secondary"

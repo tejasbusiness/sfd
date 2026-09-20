@@ -1,5 +1,6 @@
 <section class="section {{ 'section--tinted' if section.tinted else '' }} process">
   <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <ol class="process__list">
@@ -13,5 +14,10 @@
       </li>
       {% endfor %}
     </ol>
+    {% if section.cta %}
+    <p class="process__cta">
+      <a class="button button--secondary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>
+    </p>
+    {% endif %}
   </div>
 </section>

@@ -1,14 +1,18 @@
-{# CLAUDE.md rule 13 forbids inventing project results — until section.items
-   has real, client-approved entries (docs/04 §Websites/Portfolio: business
-   type, problem, work completed, real result), this shows an honest
-   "not published yet" state instead of fabricated or blank content. #}
+{# CLAUDE.md rule 13 forbids inventing project results — until items resolved
+   from section.items (inline) or section.itemIds (against the shared
+   projects.json collection, docs/05 §Shared versus page data) have real,
+   client-approved entries (docs/04 §Websites/Portfolio: business type,
+   problem, work completed, real result), this shows an honest "not published
+   yet" state instead of fabricated or blank content. #}
+{% set resolvedItems = (projects.items | selectByIds(section.itemIds)) if section.itemIds else section.items %}
 <section class="section">
   <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
-    {% if section.items and section.items.length %}
+    {% if resolvedItems and resolvedItems.length %}
     <div class="portfolio-grid__items">
-      {% for item in section.items %}
+      {% for item in resolvedItems %}
       <div class="card portfolio-grid__item" data-reveal>
         {% if item.industryLabel %}<p class="eyebrow">{{ item.industryLabel }}</p>{% endif %}
         <h3>{{ item.title }}</h3>
@@ -19,6 +23,11 @@
       </div>
       {% endfor %}
     </div>
+    {% if section.cta %}
+    <p class="portfolio-grid__cta">
+      <a class="button button--primary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>
+    </p>
+    {% endif %}
     {% else %}
     <div class="card portfolio-grid__empty" data-reveal>
       <p>{{ section.emptyMessage or "We're building our public portfolio gallery and only publish projects with the client's permission. In the meantime, apply for a free preview to see an example built for your own business." }}</p>
