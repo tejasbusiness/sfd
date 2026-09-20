@@ -90,3 +90,11 @@ Mobile recommendation:
 - Legal: Privacy, Terms, Subscription Terms, Refund Policy. These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns.
 - Verified social links only. Do not use `#` placeholders.
 
+
+## 404 and redirects (implemented 2026-09-20)
+
+- Hosting is a Contabo VPS running CloudPanel (nginx). The build writes `deploy/nginx-redirects.conf` (gitignored, never inside `dist/`), to be pasted into the site's vhost in CloudPanel.
+- The 404 page is `data/pages/not-found.json` (type `not-found`), rendered to `dist/404.html`. It has no canonical, `og:url` or schema, is never in the sitemap, and is served by nginx (`error_page 404 /404.html`) with a real 404 status. There is no homepage fallback anywhere.
+- Legacy or renamed URLs go in `data/redirects.json` as `[{ "from": "/old/", "to": "/new/" }]`. The build rejects a `to` that is not a live page, a `from` that is a live page, and duplicates, so redirects are always a single permanent (301) hop. Both `/old/` and `/old` are emitted.
+- Non-trailing-slash to trailing-slash is handled by nginx (`try_files $uri $uri/`, 301, relative `Location`). `/path/index.html` is redirected to `/path/`.
+- `scripts/serve.js` reproduces all of this locally.

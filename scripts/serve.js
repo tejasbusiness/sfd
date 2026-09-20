@@ -1,14 +1,19 @@
 'use strict';
 
-// Local-only static preview server for dist/. Not a deployment target —
-// convenient for previewing generated output and for later QA of direct
-// navigation / refresh behaviour on nested routes (docs/09-build-and-qa.md).
+// Local-only static preview server for dist/. Not a deployment target. It mimics
+// the production nginx rules in deploy/nginx-redirects.conf so redirects and the
+// genuine 404 can be checked locally (docs/09-build-and-qa.md):
+//   - directory URLs without a trailing slash -> 301 to the slash version
+//   - /path/index.html -> 301 to /path/
+//   - data/redirects.json entries -> 301 (single hop)
+//   - anything missing -> 404.html with a real 404 status, never the homepage
 
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..', 'dist');
+const redirectsFile = path.join(__dirname, '..', 'data', 'redirects.json');
 const port = Number(process.env.PORT) || 8080;
 
 const MIME_TYPES = {
@@ -16,40 +21,77 @@ const MIME_TYPES = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8',
+  '.txt': 'text/plain; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.woff2': 'font/woff2',
   '.ico': 'image/x-icon',
 };
 
-function resolveFilePath(urlPath) {
-  const safePath = path.normalize(decodeURIComponent(urlPath)).replace(/^(\.\.[/\\])+/, '');
-  let filePath = path.join(rootDir, safePath);
-
-  if (filePath.endsWith(path.sep) || !path.extname(filePath)) {
-    filePath = path.join(filePath, 'index.html');
+function loadRedirects() {
+  try {
+    return JSON.parse(fs.readFileSync(redirectsFile, 'utf8'));
+  } catch (err) {
+    return [];
   }
-  return filePath;
+}
+
+function redirect(res, location) {
+  res.writeHead(301, { Location: location });
+  res.end();
+}
+
+function sendNotFound(req, res) {
+  fs.readFile(path.join(rootDir, '404.html'), (err, content) => {
+    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(req.method === 'HEAD' ? undefined : err ? 'Not found (run npm run build to generate 404.html)' : content);
+  });
 }
 
 const server = http.createServer((req, res) => {
-  const urlPath = req.url.split('?')[0];
-  const filePath = resolveFilePath(urlPath);
+  const [rawPath, query] = req.url.split('?');
+  const search = query ? `?${query}` : '';
 
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      const notFoundPath = path.join(rootDir, '404.html');
-      fs.readFile(notFoundPath, (err404, notFoundContent) => {
-        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(err404 ? 'Not found (404.html does not exist yet — Phase 5)' : notFoundContent);
-      });
-      return;
+  let urlPath;
+  try {
+    urlPath = decodeURIComponent(rawPath);
+  } catch (err) {
+    return sendNotFound(req, res);
+  }
+
+  if (/\/index\.html$/.test(urlPath)) return redirect(res, urlPath.slice(0, -'index.html'.length) + search);
+
+  const match = loadRedirects().find(({ from }) => urlPath === from || `${urlPath}/` === from);
+  if (match) return redirect(res, match.to + search);
+
+  const target = path.join(rootDir, path.normalize(urlPath));
+  if (target !== rootDir && !target.startsWith(rootDir + path.sep)) return sendNotFound(req, res);
+  // 404.html is only reachable through the error handler, as in nginx (`internal`).
+  if (urlPath === '/404.html') return sendNotFound(req, res);
+
+  fs.stat(target, (err, stats) => {
+    if (!err && stats.isDirectory()) {
+      if (!urlPath.endsWith('/')) return redirect(res, `${urlPath}/${search}`);
+      return sendFile(req, res, path.join(target, 'index.html'));
     }
-    const ext = path.extname(filePath);
-    res.writeHead(200, { 'Content-Type': MIME_TYPES[ext] || 'application/octet-stream' });
-    res.end(content);
+    if (!err && stats.isFile()) return sendFile(req, res, target);
+    return sendNotFound(req, res);
   });
 });
+
+function sendFile(req, res, filePath) {
+  fs.readFile(filePath, (err, content) => {
+    if (err) return sendNotFound(req, res);
+    res.writeHead(200, { 'Content-Type': MIME_TYPES[path.extname(filePath)] || 'application/octet-stream' });
+    res.end(req.method === 'HEAD' ? undefined : content);
+  });
+}
 
 server.listen(port, () => {
   console.log(`Local preview server running at http://localhost:${port}/ (serving dist/)`);

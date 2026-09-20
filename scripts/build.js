@@ -4,6 +4,8 @@ const path = require('path');
 const { getMode } = require('./lib/mode');
 const { validateAll } = require('./validate-data');
 const { renderPages, copyIfExists } = require('./generate-pages');
+const { writeSeoFiles } = require('./generate-seo');
+const { checkOutput } = require('./check-output');
 
 function main() {
   const mode = getMode();
@@ -38,9 +40,19 @@ function main() {
   const written = renderPages({ templatesDir, outDir, mode, sharedData, pages });
   copyIfExists(assetsDir, path.join(outDir, 'assets'));
   copyIfExists(publicDir, outDir);
+  const seoFiles = writeSeoFiles({ rootDir, outDir, sharedData, pages });
+
+  const audit = checkOutput({ outDir, site: sharedData['site.json'], pages, mode });
+  if (audit.errors.length > 0) {
+    console.error(`\nBuild failed SEO output checks (${audit.errors.length} error(s)):`);
+    audit.errors.forEach((e) => console.error(`  - ${e}`));
+    process.exit(1);
+  }
 
   console.log(`\nBuild succeeded (mode=${mode}). ${written.length} page(s) written to dist/:`);
   written.forEach((f) => console.log(`  - dist/${f.replace(/\\/g, '/')}`));
+  console.log('SEO files:');
+  seoFiles.forEach((f) => console.log(`  - ${f}`));
 }
 
 main();

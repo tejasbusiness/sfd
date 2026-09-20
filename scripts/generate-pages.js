@@ -56,7 +56,12 @@ function renderPages({ templatesDir, outDir, mode, sharedData, pages }) {
       buildYear,
     });
 
-    const outPath = path.join(outDir, page.canonicalPath, 'index.html');
+    // The 404 page is served by the web server for missing URLs (with a real
+    // 404 status), so it is written to /404.html, not to a directory URL.
+    const outPath =
+      page.type === 'not-found'
+        ? path.join(outDir, '404.html')
+        : path.join(outDir, page.canonicalPath, 'index.html');
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, html, 'utf8');
     written.push(path.relative(outDir, outPath));

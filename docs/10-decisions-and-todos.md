@@ -289,3 +289,10 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 - Drafting assumptions still to confirm: automatic monthly renewal (vs payment link); 30-day window to request content or transfer after cancelling; 30 days' notice of price changes; downgrades apply at next billing date; refund requests within 30 days of the charge; liability capped at 12 months' fees; taxes shown before payment; privacy requests answered within 30 days.
 - All four pages still need review by a qualified lawyer before launch (BLOCKING before legal launch). The cookie/analytics wording must be revisited once analytics and a consent banner exist.
 - Every internal page hero (not the homepage) now uses the dark `hero--band` style; the contents list on legal pages uses `assets/js/legal-toc.js` so the URL never shows `#section-id`.
+
+### SEO infrastructure (2026-09-20)
+
+- Hosting confirmed: Contabo VPS with CloudPanel (nginx). Built: real 404 page (`dist/404.html`), `sitemap.xml`, `robots.txt`, `deploy/nginx-redirects.conf` from `data/redirects.json` (currently empty: no legacy URLs yet), SEO build checks and output audit, and a local server that mirrors the nginx behaviour. Details in docs/02, 08, 09 and 11.
+- New BLOCKING before launch: add the real `assets/images/og-default.jpg` (1200x630). Production validation fails until it exists.
+- Deployment to-do: paste `deploy/nginx-redirects.conf` into the CloudPanel vhost; confirm CloudPanel's default static-site config does not already define a conflicting `location /` or `error_page`.
+- Open: security headers and `X-Robots-Tag` for the preview host are not yet defined.

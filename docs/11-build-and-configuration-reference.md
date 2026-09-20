@@ -49,3 +49,10 @@ The build fails (non-zero exit) on any validation error, per CLAUDE.md's "fail t
 - Fonts (Manrope/Inter) are referenced by name in `tokens.css` with system-font fallbacks; no font files are self-hosted yet — licensing/selection is still open per `docs/03-design-system.md`.
 - The `build-check` diagnostic page is not real site content and is excluded from the "no noindex" rule via its `internal-diagnostic` type. It must be deleted (or the exception removed) before Phase 6 launch QA.
 - `integrations.public.json` contains `payment.provider: null` as a documented extension point only — no payment provider is integrated or implied.
+
+## SEO scripts (added 2026-09-20)
+
+- `scripts/generate-seo.js` writes `dist/sitemap.xml`, `dist/robots.txt` and `deploy/nginx-redirects.conf` (outside `dist/` so it is never public). `scripts/check-output.js` audits the rendered `dist/` (see docs/08). Both run inside `scripts/build.js`. `npm run clean` removes `dist/` and `deploy/`.
+- `validate-data.js` gained `validateSite`, `validateSeoAcrossPages` and `validateRedirects`; `redirects.json` is now a loaded shared file. This supersedes the "deferred" note above for sitemap and robots; a separate `validate-links.js` is still deferred.
+- Page type `not-found` renders to `dist/404.html` (no canonical, `og:url` or schema).
+- `npm run build:production` currently fails only because `/assets/images/og-default.jpg` is missing.

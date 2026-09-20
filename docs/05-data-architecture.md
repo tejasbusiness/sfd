@@ -110,3 +110,7 @@ Never store OAuth credentials, service-account keys, Calendar IDs intended to be
 ## Page-level scripts
 
 `assets/js/main.js` initialises page behaviours; `legal-toc.js` handles the legal contents list (no `#` in the URL). New behaviours are added as their own module and initialised from `main.js`.
+
+## SEO files (2026-09-20)
+
+`data/redirects.json` is an array of `{ "from", "to" }`. `generate-sitemap.js` and `generate-robots.js` were merged into `scripts/generate-seo.js`. The `not-found` page type writes `dist/404.html`.

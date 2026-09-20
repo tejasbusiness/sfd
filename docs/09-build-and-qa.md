@@ -101,3 +101,9 @@ The website is complete only when content, conversions, direct URLs, metadata, a
 - Cookie/analytics clause of the Privacy Policy matches the analytics and consent banner actually shipped.
 - Footer legal links, form consent-checkbox links and cross-links between legal pages resolve.
 - Legal contents list works with keyboard and without JavaScript, and the URL never shows `#section-id` after a click.
+
+## SEO infrastructure QA (2026-09-20)
+
+- `npm run build` runs the SEO output audit automatically; `npm run test:validation` covers domain, uniqueness, redirect and sitemap rules.
+- Manual, with `npm run serve`: `/pricing` returns 301 to `/pricing/`; `/pricing/index.html` returns 301; `/nope/` returns 404 with the branded page; `/404.html` returns 404; `/sitemap.xml` and `/robots.txt` load.
+- On the VPS after deploy: repeat the same checks against the real domain with `curl -I`, and confirm the vhost snippet from `deploy/nginx-redirects.conf` is installed.

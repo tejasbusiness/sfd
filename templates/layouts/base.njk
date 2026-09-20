@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.seo.title }}</title>
   <meta name="description" content="{{ page.seo.metaDescription }}">
+  {% if page.type != "not-found" %}
   <link rel="canonical" href="{{ site.productionDomain }}{{ page.canonicalPath }}">
+  {% endif %}
   <link rel="icon" type="image/jpeg" href="/assets/images/sfd-512-black.jpeg">
   <meta name="robots" content="{{ page.seo.robots }}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.seo.ogTitle }}">
   <meta property="og:description" content="{{ page.seo.ogDescription }}">
   <meta property="og:image" content="{{ site.productionDomain }}{{ page.seo.ogImage }}">
+  {% if page.type != "not-found" %}
   <meta property="og:url" content="{{ site.productionDomain }}{{ page.canonicalPath }}">
+  {% endif %}
   {# Google Fonts CDN for this visual-review pass; docs/03 prefers self-hosted
      subsetted font files before production launch — not done yet, flagged. #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +28,7 @@
   {% if page.id == "home" %}
   <link rel="stylesheet" href="/assets/css/homepage.css">
   {% endif %}
-  {% if page.schemaTypes and page.schemaTypes.length %}
+  {% if page.type != "not-found" and page.schemaTypes and page.schemaTypes.length %}
   {% include "partials/schema.njk" %}
   {% endif %}
 </head>

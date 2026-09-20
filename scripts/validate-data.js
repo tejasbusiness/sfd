@@ -12,7 +12,7 @@ const REQUIRED_SEO_FIELDS = ['title', 'metaDescription', 'ogTitle', 'ogDescripti
 const REQUIRED_SHARED_FILES = ['site.json', 'company.json', 'navigation.json', 'footer.json', 'theme.json'];
 // Loaded and TBD-scanned when present, but a build doesn't need every page type
 // (e.g. the build-check diagnostic page needs none of these), so they're optional.
-const OPTIONAL_SHARED_FILES = ['plans.json', 'faqs.json', 'testimonials.json', 'projects.json', 'country-codes.json'];
+const OPTIONAL_SHARED_FILES = ['plans.json', 'faqs.json', 'testimonials.json', 'projects.json', 'country-codes.json', 'redirects.json'];
 
 function loadJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
@@ -225,7 +225,123 @@ function validateFooter(footer, pages) {
   return { errors };
 }
 
+// Hosts that must never appear in canonicals, Open Graph URLs, schema or the
+// sitemap (CLAUDE.md rule 9). The production domain itself is checked separately.
+const TEMPORARY_HOST_PATTERN =
+  /(^|\.)(localhost|local|test|invalid|example|vercel\.app|netlify\.app|pages\.dev|github\.io|herokuapp\.com|nip\.io|sslip\.io|contaboserver\.net)$|^\d{1,3}(\.\d{1,3}){3}$|^(staging|preview|dev|stage|temp)\./i;
+const ROBOTS_PATTERN = /^(index|noindex)(\s*,\s*(follow|nofollow))?$|^(follow|nofollow)$/i;
+
+function validateSite(site) {
+  const errors = [];
+  const domain = site && site.productionDomain;
+  if (!domain) return { errors: ['site.json: missing "productionDomain"'] };
+  let url;
+  try {
+    url = new URL(domain);
+  } catch (err) {
+    return { errors: [`site.json: productionDomain "${domain}" is not a valid URL`] };
+  }
+  if (url.protocol !== 'https:') errors.push(`site.json: productionDomain "${domain}" must use https`);
+  if (domain !== url.origin) {
+    errors.push(`site.json: productionDomain "${domain}" must be a bare origin with no path or trailing slash`);
+  }
+  if (TEMPORARY_HOST_PATTERN.test(url.hostname)) {
+    errors.push(`site.json: productionDomain host "${url.hostname}" looks temporary (CLAUDE.md rule 9)`);
+  }
+  return { errors };
+}
+
+/** SEO checks that need every page at once: unique title, description and H1
+ *  (docs/08), valid robots values and social-image paths that exist. */
+function validateSeoAcrossPages(pages, { mode, rootDir }) {
+  const errors = [];
+  const warnings = [];
+  const seen = { title: new Map(), metaDescription: new Map(), h1: new Map() };
+  const missingImages = new Map();
+
+  for (const { file, data } of pages) {
+    const label = path.basename(file);
+    if (!data.seo) continue;
+
+    if (data.seo.title) push(seen.title, data.seo.title, label);
+    if (data.seo.metaDescription) push(seen.metaDescription, data.seo.metaDescription, label);
+    if (data.h1 && data.type !== 'not-found') push(seen.h1, stripTags(data.h1), label);
+
+    if (data.seo.robots && !ROBOTS_PATTERN.test(data.seo.robots.trim())) {
+      errors.push(`${label}: invalid seo.robots value "${data.seo.robots}"`);
+    }
+
+    const image = data.seo.ogImage;
+    if (image) {
+      if (!image.startsWith('/') || image.startsWith('//')) {
+        errors.push(`${label}: seo.ogImage "${image}" must be a root-relative path (the build adds the production domain)`);
+      } else if (rootDir && !fileExists(rootDir, image)) {
+        push(missingImages, image, label);
+      }
+    }
+  }
+
+  for (const [image, files] of missingImages) {
+    const message = `seo.ogImage "${image}" does not exist in the project (used by ${files.length} page(s): ${files.join(', ')})`;
+    (mode === 'production' ? errors : warnings).push(message);
+  }
+
+  for (const [field, map] of Object.entries(seen)) {
+    for (const [value, files] of map) {
+      if (files.length > 1) {
+        const message = `Duplicate ${field === 'h1' ? 'H1' : `seo.${field}`} "${value}" used by: ${files.join(', ')}`;
+        (field === 'h1' ? warnings : errors).push(message);
+      }
+    }
+  }
+  return { errors, warnings };
+}
+
+function push(map, key, label) {
+  const list = map.get(key) || [];
+  list.push(label);
+  map.set(key, list);
+}
+
+function stripTags(html) {
+  return String(html).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function fileExists(rootDir, urlPath) {
+  return [rootDir, path.join(rootDir, 'public')].some((base) => fs.existsSync(path.join(base, urlPath)));
+}
+
+/** Redirects must be single-hop and permanent: every target is a live page,
+ *  no target is itself redirected, and no source is a live page or repeated. */
+function validateRedirects(redirects, pages) {
+  const errors = [];
+  if (redirects === undefined) return { errors };
+  if (!Array.isArray(redirects)) return { errors: ['redirects.json: must be an array of { "from", "to" }'] };
+
+  const live = new Set(pages.filter((p) => p.data.type !== 'not-found').map((p) => p.data.canonicalPath));
+  const sources = new Set();
+
+  redirects.forEach((entry, i) => {
+    const at = `redirects.json[${i}]`;
+    if (!entry || typeof entry.from !== 'string' || typeof entry.to !== 'string') {
+      errors.push(`${at}: needs string "from" and "to"`);
+      return;
+    }
+    if (!CANONICAL_PATTERN.test(entry.from) || entry.from === '/') {
+      errors.push(`${at}: "from" "${entry.from}" must be a lowercase path starting and ending with "/" (not the homepage)`);
+    }
+    if (!live.has(entry.to)) errors.push(`${at}: "to" "${entry.to}" is not an existing page`);
+    if (live.has(entry.from)) errors.push(`${at}: "from" "${entry.from}" is a live page and cannot be redirected`);
+    if (sources.has(entry.from)) errors.push(`${at}: duplicate "from" "${entry.from}"`);
+    sources.add(entry.from);
+  });
+  // "to" must be a live page (checked above), and live pages are never sources,
+  // so chains and loops are impossible once those rules pass.
+  return { errors };
+}
+
 function validateAll({ dataDir, mode }) {
+  const rootDir = path.join(dataDir, '..');
   const errors = [];
   const warnings = [];
   const sharedData = {};
@@ -266,6 +382,12 @@ function validateAll({ dataDir, mode }) {
 
   errors.push(...validateCrossPage(pages).errors);
 
+  if (sharedData['site.json']) errors.push(...validateSite(sharedData['site.json']).errors);
+  const seoResult = validateSeoAcrossPages(pages, { mode, rootDir });
+  errors.push(...seoResult.errors);
+  warnings.push(...seoResult.warnings);
+  errors.push(...validateRedirects(sharedData['redirects.json'], pages).errors);
+
   if (sharedData['navigation.json']) {
     errors.push(...validateNavigation(sharedData['navigation.json'], pages).errors);
   }
@@ -287,6 +409,9 @@ module.exports = {
   validateCrossPage,
   validateNavigation,
   validateFooter,
+  validateSite,
+  validateSeoAcrossPages,
+  validateRedirects,
   validateAll,
   SLUG_PATTERN,
   CANONICAL_PATTERN,
