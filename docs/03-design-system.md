@@ -107,3 +107,5 @@ Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px ra
 - **Variants** may change fill or emphasis only: `.card--tinted`, the dark feature card (Home Services tile, contact card), and the 2px accent border on the recommended plan. Never change radius, border width or padding per component.
 - **Hover:** only clickable cards (`a.card` or `.card--interactive`) react: 2px lift, soft shadow, and a subtle border (`--color-field-border`, #C2C2C2). Non-clickable cards have no hover.
 - New card-like components must extend `.card` rather than restyle a box from scratch.
+
+- **Testimonials band:** the client-review section (`testimonials`) is the one brand-purple gradient band with dark cards (`.card--dark`), a gold glow and a Google-rating pill, identical on every page so social proof always stands out. Do not restyle it per page.

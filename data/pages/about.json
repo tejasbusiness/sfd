@@ -30,6 +30,13 @@
       ]
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEWS",
+      "heading": "What our clients say about working with us",
+      "featuredId": "mamata-desai",
+      "itemIds": ["aseem-trivedi", "manu-sharma", "sanjay-bhatia"]
+    },
+    {
       "type": "content-block",
       "eyebrow": "WHY WE EXIST",
       "heading": "Your business does not need “just another website.”",
@@ -67,7 +74,7 @@
     {
       "type": "feature-grid",
       "tinted": true,
-      "eyebrow": "WHY SYNERGYFIRST",
+      "eyebrow": "WHY SYNERGYFIRST DIGITAL",
       "heading": "Senior thinking without the traditional agency overhead",
       "intro": "You should not have to manage five different vendors to make one digital strategy work. We keep the process focused, transparent and accountable from the first conversation to ongoing support.",
       "items": [
@@ -144,7 +151,7 @@
       "type": "founder-note",
       "eyebrow": "A NOTE FROM OUR CHIEF TECHNICAL OFFICER",
       "heading": "The best digital work starts with understanding the business",
-      "quote": "After more than 25 years in web development, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.",
+      "quote": "After spending more than 20 years in the technical field, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.",
       "attribution": { "name": "Tejas G.", "title": "CTO, SynergyFirst Digital" },
       "avatarImage": "/assets/images/tejas-gandhi-dp.png",
       "avatarAlt": "Tejas G.",

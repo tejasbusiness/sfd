@@ -35,6 +35,12 @@
       ]
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEWS",
+      "heading": "What the process feels like, in clients’ words",
+      "itemIds": ["mamata-desai","sumita-shah"]
+    },
+    {
       "type": "feature-grid",
       "heading": "What your preview does (and doesn't) include",
       "items": [

@@ -54,6 +54,12 @@
       ]
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEWS",
+      "heading": "From professional-services firms we have worked with",
+      "itemIds": ["sumita-shah","mamata-desai"]
+    },
+    {
       "type": "faq-split",
       "heading": "Common questions",
       "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },

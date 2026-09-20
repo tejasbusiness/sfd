@@ -198,6 +198,16 @@
   Placed on Home (before pricing), Pricing (after plan cards) and Contact
   (above the form). Reviews mention "Web Vectors" (former name); wording kept.
 
+### 2026-09-20 — Testimonials band restyled and extended
+
+- Testimonials are now one brand-purple band (dark cards, gold glow, linked
+  "4.8★ Ratings on Google" pill) used identically on every page.
+- Added to About (right after the credibility strip), Free Preview, How It
+  Works, Healthcare, Professional Services and Portfolio, in addition to Home,
+  Pricing and Contact. Case Studies waits until real case studies exist.
+- Restaurants, Home Services and Financial Services pages have no matching
+  reviews yet, so they intentionally have none.
+
 ## Claude instruction
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.

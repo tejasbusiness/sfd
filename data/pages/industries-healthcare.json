@@ -54,6 +54,12 @@
       ]
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEW",
+      "heading": "From a doctor who has worked with us",
+      "featuredId": "manu-sharma"
+    },
+    {
       "type": "faq-split",
       "heading": "Common questions",
       "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },

@@ -20,6 +20,12 @@
       "body": "We review every application to make sure we can create something genuinely useful for you — submitting this form does not guarantee a preview. It takes a few minutes."
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEWS",
+      "heading": "Businesses that trusted us with their website",
+      "itemIds": ["aseem-trivedi","sumita-shah"]
+    },
+    {
       "type": "free-preview-form",
       "heading": "Your details"
     }

@@ -90,6 +90,12 @@
 .card--tinted {
   background: var(--color-tint);
 }
+/* Dark variant for cards on brand/dark bands: translucent fill, light border. */
+.card--dark {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
 a.card,
 .card--interactive {
   display: block;
@@ -1476,7 +1482,6 @@ a.link-cards__item {
 }
 .testimonials__item p {
   flex: 1;
-  color: var(--color-text);
   font-size: var(--text-body-lg);
 }
 .testimonials__item--featured p {
@@ -1494,13 +1499,12 @@ a.link-cards__item {
 }
 .testimonials__author {
   font-weight: 600;
-  color: var(--color-text);
 }
 .testimonials__source {
   flex-basis: 100%;
   margin-top: 2px;
   font-size: var(--text-xs);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -2239,4 +2243,81 @@ a.contact-card__value:hover {
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.4);
   text-underline-offset: 3px;
+}
+
+/* Testimonials band — the one brand-purple section, identical on every page so
+   client proof always stands out from the light sections around it. */
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+}
+.testimonials::before {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  top: -8rem;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 149, 0, 0.28), rgba(214, 149, 0, 0) 68%);
+  pointer-events: none;
+}
+.testimonials .container {
+  position: relative;
+}
+.testimonials .eyebrow {
+  color: var(--color-accent);
+}
+.testimonials h2 {
+  color: #fff;
+  margin-bottom: 0;
+}
+.testimonials__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+}
+.testimonials__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--text-sm);
+}
+.testimonials__rating-value {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+}
+.testimonials__item p {
+  color: #fff;
+}
+.testimonials__item--featured {
+  position: relative;
+  padding: var(--space-5) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+}
+.testimonials__author {
+  color: #fff;
+}
+.testimonials__role {
+  color: rgba(255, 255, 255, 0.78);
+}
+.testimonials__source {
+  color: var(--color-accent);
+}
+a.testimonials__rating {
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+a.testimonials__rating:hover {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.08);
 }

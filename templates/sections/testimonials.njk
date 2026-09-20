@@ -2,12 +2,25 @@
    rule 13). A section picks reviews by id: optional featuredId (large quote)
    plus itemIds (card grid). Renders nothing if none resolve. #}
 {% set featured = testimonials.items | selectByIds([section.featuredId]) if section.featuredId else [] %}
-{% set others = testimonials.items | selectByIds(section.itemIds) if section.itemIds else testimonials.items %}
+{% set others = testimonials.items | selectByIds(section.itemIds) if section.itemIds else ([] if section.featuredId else testimonials.items) %}
 {% if featured.length or others.length %}
-<section class="section testimonials">
+<section class="section section--brand testimonials">
   <div class="container">
-    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
-    <h2>{{ section.heading }}</h2>
+    <div class="testimonials__head">
+      <div>
+        {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+        <h2>{{ section.heading }}</h2>
+      </div>
+      {% if testimonials.summary %}
+      {% if testimonials.summary.href %}
+      <a class="testimonials__rating" href="{{ testimonials.summary.href }}" target="_blank" rel="noopener" aria-label="{{ testimonials.summary.rating }} {{ testimonials.summary.label }} — {{ testimonials.summary.linkLabel }} (opens in a new tab)">
+        <span class="testimonials__rating-value">{{ testimonials.summary.rating }}</span> {{ testimonials.summary.label }} <span aria-hidden="true">&rarr;</span>
+      </a>
+      {% else %}
+      <p class="testimonials__rating"><span class="testimonials__rating-value">{{ testimonials.summary.rating }}</span> {{ testimonials.summary.label }}</p>
+      {% endif %}
+      {% endif %}
+    </div>
     {% macro attribution(item) %}
     <footer class="testimonials__footer">
       <span class="testimonials__author">{{ item.author }}</span>
@@ -16,7 +29,7 @@
     </footer>
     {% endmacro %}
     {% for item in featured %}
-    <blockquote class="card card--tinted testimonials__item testimonials__item--featured" data-reveal>
+    <blockquote class="card card--dark testimonials__item testimonials__item--featured" data-reveal>
       <p>&ldquo;{{ item.quote }}&rdquo;</p>
       {{ attribution(item) }}
     </blockquote>
@@ -24,7 +37,7 @@
     {% if others.length %}
     <div class="testimonials__items">
       {% for item in others %}
-      <blockquote class="card testimonials__item" data-reveal>
+      <blockquote class="card card--dark testimonials__item" data-reveal>
         <p>&ldquo;{{ item.quote }}&rdquo;</p>
         {{ attribution(item) }}
       </blockquote>

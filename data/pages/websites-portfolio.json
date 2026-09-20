@@ -27,6 +27,12 @@
       "itemIds": ["budget-opticals", "cawt", "cintaa-casting-portal"]
     },
     {
+      "type": "testimonials",
+      "eyebrow": "CLIENT REVIEW",
+      "heading": "A client on working with us",
+      "featuredId": "sanjay-bhatia"
+    },
+    {
       "type": "free-preview-cta",
       "heading": "Want to see what we'd build for your business?",
       "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
