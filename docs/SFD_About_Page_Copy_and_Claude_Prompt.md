@@ -107,7 +107,7 @@ Explore All Services →
 ### 5. What Makes Us Different
 
 **Eyebrow**  
-WHY SYNERGYFIRST
+WHY SYNERGYFIRST DIGITAL
 
 **H2**  
 Senior thinking without the traditional agency overhead
@@ -215,7 +215,7 @@ A NOTE FROM OUR FOUNDER
 The best digital work starts with understanding the business
 
 **Quote**  
-“After more than 25 years in web development, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.”
+“After spending more than 20 years in the technical field, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.”
 
 **Attribution**  
 Tejas G.
