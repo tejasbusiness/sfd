@@ -57,7 +57,8 @@
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEWS",
       "heading": "From professional-services firms we have worked with",
-      "itemIds": ["sumita-shah","mamata-desai"]
+      "itemIds": ["sumita-shah","mamata-desai"],
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "faq-split",

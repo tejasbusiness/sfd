@@ -68,15 +68,6 @@
       ]
     },
     {
-      "type": "testimonials",
-      "eyebrow": "WORKING WITH US",
-      "heading": "What it is like to work with us",
-      "itemIds": [
-        "rahul-sharma",
-        "aseem-trivedi-availability"
-      ]
-    },
-    {
       "type": "contact-form",
       "eyebrow": "SEND A MESSAGE",
       "heading": "Prefer to write? Tell us what you need",
@@ -145,6 +136,15 @@
           "href": "/book-a-call/"
         }
       }
+    },
+    {
+      "type": "testimonials",
+      "eyebrow": "WORKING WITH US",
+      "heading": "What it is like to work with us",
+      "itemIds": [
+        "rahul-sharma",
+        "aseem-trivedi-availability"
+      ]
     },
     {
       "type": "faq",

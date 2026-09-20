@@ -51,7 +51,8 @@
       "itemIds": [
         "manu-sharma",
         "mamata-desai"
-      ]
+      ],
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "feature-grid",

@@ -109,3 +109,7 @@ Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px ra
 - New card-like components must extend `.card` rather than restyle a box from scratch.
 
 - **Testimonials band:** the client-review section (`testimonials`) is the one brand-purple gradient band with dark cards (`.card--dark`), a gold glow and a Google-rating pill, identical on every page so social proof always stands out. Do not restyle it per page.
+
+## FAQ (one accordion)
+
+All FAQ / Common-questions sections (`faq` and `faq-split`) render through `templates/sections/faq.njk` with the shared `.faq` styles: divided rows with hairline rules, plus/minus icon, native `<details>`/`<summary>`, compact spacing. `faq-split` only changes the layout (sticky heading on the left). Do not add page-specific FAQ styling.

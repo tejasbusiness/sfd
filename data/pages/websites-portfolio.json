@@ -30,7 +30,8 @@
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEW",
       "heading": "A client on working with us",
-      "featuredId": "sanjay-bhatia"
+      "featuredId": "sanjay-bhatia",
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "free-preview-cta",

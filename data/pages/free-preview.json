@@ -23,7 +23,8 @@
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEWS",
       "heading": "Businesses that trusted us with their website",
-      "itemIds": ["aseem-trivedi","sumita-shah"]
+      "itemIds": ["aseem-trivedi","sumita-shah"],
+      "compact": true
     },
     {
       "type": "free-preview-form",

@@ -4,7 +4,7 @@
 {% set featured = testimonials.items | selectByIds([section.featuredId]) if section.featuredId else [] %}
 {% set others = testimonials.items | selectByIds(section.itemIds) if section.itemIds else ([] if section.featuredId else testimonials.items) %}
 {% if featured.length or others.length %}
-<section class="section section--brand testimonials">
+<section class="section section--brand testimonials{{ ' testimonials--compact' if section.compact }}">
   <div class="container">
     <div class="testimonials__head">
       <div>
@@ -43,6 +43,11 @@
       </blockquote>
       {% endfor %}
     </div>
+    {% endif %}
+    {% if section.cta %}
+    <p class="testimonials__cta" data-reveal>
+      <a class="button button--accent" href="{{ section.cta.href }}"{% if section.cta.dialogTarget %} data-dialog-target="{{ section.cta.dialogTarget }}"{% endif %}>{{ section.cta.label }}</a>
+    </p>
     {% endif %}
   </div>
 </section>

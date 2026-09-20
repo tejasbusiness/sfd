@@ -1,12 +1,22 @@
-<section class="section faq">
-  <div class="container">
-    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
-    <h2>{{ section.heading }}</h2>
-    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
-    <div class="faq__items">
+{# The one FAQ component. "faq" stacks heading over list; "faq-split" puts a
+   sticky heading/intro/CTA beside the list. Both share identical, compact
+   native <details>/<summary> rows (no custom disclosure JS). #}
+{% set split = section.type == "faq-split" %}
+<section class="section faq{{ ' faq--split' if split }}">
+  <div class="container faq__grid">
+    <div class="faq__intro" data-reveal>
+      {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+      <h2>{{ section.heading }}</h2>
+      {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+      {% if section.cta %}<a class="button button--secondary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>{% endif %}
+    </div>
+    <div class="faq__items" data-reveal>
       {% for item in faqs.items | selectByIds(section.itemIds) %}
-      <details class="faq__item" data-reveal>
-        <summary>{{ item.question }}</summary>
+      <details class="faq__item">
+        <summary>
+          <span class="faq__question">{{ item.question }}</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
         <p>{{ item.answer }}</p>
       </details>
       {% endfor %}

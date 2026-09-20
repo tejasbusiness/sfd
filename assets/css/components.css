@@ -1508,27 +1508,100 @@ a.link-cards__item {
   text-transform: uppercase;
 }
 
+/* FAQ — one compact accordion for every page (faq and faq-split share it).
+   Divided rows, not boxes: hairline rules, plus/minus icon, small answer text. */
+.faq__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
+}
+.faq:not(.faq--split) .faq__items {
+  max-width: 52rem;
+}
+@media (min-width: 900px) {
+  .faq--split .faq__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: var(--space-6);
+  }
+  .faq--split .faq__intro {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+}
+.faq__intro .button {
+  margin-top: var(--space-2);
+}
 .faq__items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  border-top: 1px solid var(--faq-rule, rgba(22, 2, 36, 0.12));
 }
 .faq__item {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-surface);
+  border-bottom: 1px solid var(--faq-rule, rgba(22, 2, 36, 0.12));
 }
 .faq__item summary {
-  cursor: pointer;
-  font-weight: 600;
-  min-height: 44px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  transition: color 0.15s ease;
+}
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.faq__item summary::marker {
+  content: "";
+}
+.faq__item summary:hover {
+  color: var(--color-primary);
+}
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-primary);
+  transform: translate(-50%, -50%);
+}
+.faq__icon::before {
+  width: 12px;
+  height: 2px;
+}
+.faq__icon::after {
+  width: 2px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+.faq__item[open] .faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
 }
 .faq__item p {
-  margin-top: var(--space-2);
+  max-width: 60ch;
+  margin: 0 0 var(--space-3);
+  padding-right: var(--space-5);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq__item summary,
+  .faq__icon::after {
+    transition: none;
+  }
 }
 
 .cta-banner__inner {
@@ -2320,4 +2393,18 @@ a.testimonials__rating {
 a.testimonials__rating:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.08);
+}
+.testimonials__cta {
+  margin: var(--space-5) 0 0;
+  text-align: center;
+}
+/* Compact band for pages where the form must stay near the top (Free Preview). */
+.testimonials--compact {
+  padding-block: var(--space-5);
+}
+.testimonials--compact .testimonials__item p {
+  font-size: var(--text-base);
+}
+.testimonials--compact .testimonials__items {
+  margin-top: var(--space-3);
 }

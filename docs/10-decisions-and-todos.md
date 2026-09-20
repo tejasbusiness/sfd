@@ -208,6 +208,17 @@
 - Restaurants, Home Services and Financial Services pages have no matching
   reviews yet, so they intentionally have none.
 
+### 2026-09-20 — Testimonials placement audit
+
+- Added an optional in-band call to action to the testimonials section
+  (gold button under the cards) on Home, About, Pricing, How It Works,
+  Healthcare, Professional Services and Portfolio; Contact and Free Preview
+  omit it because the form is on the same page.
+- Contact: reviews moved below the form (form is the conversion, keep it
+  higher). Free Preview: compact band so the form stays near the top.
+- Open ideas: star ratings per review (not supplied), more reviews for
+  Restaurants/Home Services/Financial Services, Case Studies once real.
+
 ## Claude instruction
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.

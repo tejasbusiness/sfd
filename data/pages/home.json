@@ -215,7 +215,8 @@
         "mamata-desai",
         "sumita-shah",
         "sanjay-bhatia"
-      ]
+      ],
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "pricing-highlight",

@@ -38,7 +38,8 @@
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEWS",
       "heading": "What the process feels like, in clients’ words",
-      "itemIds": ["mamata-desai","sumita-shah"]
+      "itemIds": ["mamata-desai","sumita-shah"],
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "feature-grid",

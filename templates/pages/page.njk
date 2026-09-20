@@ -58,10 +58,8 @@
         {% include "sections/growth-modules.njk" %}
       {% elif section.type == "testimonials" %}
         {% include "sections/testimonials.njk" %}
-      {% elif section.type == "faq" %}
+      {% elif section.type == "faq" or section.type == "faq-split" %}
         {% include "sections/faq.njk" %}
-      {% elif section.type == "faq-split" %}
-        {% include "sections/faq-split.njk" %}
       {% elif section.type == "free-preview-cta" or section.type == "booking-cta" %}
         {% include "sections/cta.njk" %}
       {% elif section.type == "cta-editorial" %}

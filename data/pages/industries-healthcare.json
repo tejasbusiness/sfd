@@ -57,7 +57,8 @@
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEW",
       "heading": "From a doctor who has worked with us",
-      "featuredId": "manu-sharma"
+      "featuredId": "manu-sharma",
+      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
     },
     {
       "type": "faq-split",
