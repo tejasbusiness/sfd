@@ -93,7 +93,7 @@ The build must fail when required fields are absent, canonical paths collide, sl
 
 ## Content-block model
 
-Pages may select tested blocks such as hero, proof strip, process, feature grid, service list, project showcase, comparison table, testimonial, FAQ, booking CTA and free-preview CTA.
+Legal pages (`type: "legal"`) use one `legal-document` section whose content is a list of `clauses` (`id`, `heading`, `body` as paragraphs or bullet arrays; light inline HTML links allowed). Pages may select tested blocks such as hero, proof strip, process, feature grid, service list, project showcase, comparison table, testimonial, FAQ, booking CTA and free-preview CTA.
 
 JSON must contain content and configuration, not raw arbitrary HTML. Limited rich text should use a controlled Markdown or structured-block format and be sanitized during build.
 

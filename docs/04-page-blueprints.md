@@ -110,3 +110,5 @@ Tools remain secondary lead-generation assets. Each tool should naturally connec
 
 Privacy, general terms, subscription terms and refund policy require professional review before launch, particularly because SFD targets several jurisdictions.
 
+All four are built (`/privacy-policy/`, `/terms-and-conditions/`, `/subscription-terms/`, `/refund-policy/`) on the shared `legal-document` section, with the Privacy Policy as the approved reference for structure and styling: dark hero band with a "Last updated" pill, sticky "On this page" list (no `#` in the URL), numbered clauses, and a contact card. Drafting assumptions awaiting owner confirmation are recorded in `docs/10-decisions-and-todos.md`.
+

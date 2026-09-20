@@ -87,6 +87,6 @@ Mobile recommendation:
 - Industries: five industry pages.
 - Resources: Free Tools, Insights, FAQs if introduced.
 - Company: About, Contact, Book a Call.
-- Legal: Privacy, Terms, Subscription Terms, Refund Policy.
+- Legal: Privacy, Terms, Subscription Terms, Refund Policy. These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns.
 - Verified social links only. Do not use `#` placeholders.
 
