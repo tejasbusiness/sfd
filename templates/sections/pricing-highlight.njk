@@ -8,7 +8,7 @@
     <div class="pricing-highlight__plans">
       {% for plan in plans.plans %}
       <div class="card pricing-highlight__plan {{ 'pricing-highlight__plan--recommended' if plan.recommended else '' }}" data-reveal>
-        {% if plan.recommended %}<p class="pricing-highlight__tag">★ Most Popular</p>{% endif %}
+        {% if plan.recommended %}<p class="pricing-highlight__tag">★ Best Value</p>{% endif %}
         <h3>{{ plan.name }}</h3>
         {% if plan.idealFor %}<p class="pricing-highlight__ideal-for">{{ plan.idealFor }}</p>{% endif %}
         {% if plan.priceMonthly %}

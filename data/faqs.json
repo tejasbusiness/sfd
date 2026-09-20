@@ -18,7 +18,7 @@
     {
       "id": "updates",
       "question": "What if I need something updated?",
-      "answer": "Lite includes 10 content updates a month; Business and E-Commerce include unlimited content updates. Larger requests outside a normal update are quoted separately."
+      "answer": "Lite includes 10 content updates a month, Business includes 20 and E-Commerce includes 40. Requests beyond your monthly allowance, or larger than a normal update, are quoted separately, or you can move up a plan."
     },
     {
       "id": "cancellation",
@@ -38,12 +38,12 @@
     {
       "id": "add-pages",
       "question": "Can I add pages to my website later?",
-      "answer": "Yes. New pages and page changes are covered by your plan's monthly content-update allowance — 10 updates a month on Lite, unlimited on Business and E-Commerce — at no extra cost within that allowance."
+      "answer": "Yes. New pages and page changes are covered by your plan's monthly content-update allowance — 10 updates a month on Lite, 20 on Business and 40 on E-Commerce — at no extra cost within that allowance."
     },
     {
-      "id": "unlimited-updates-scope",
-      "question": "What does \"unlimited content updates\" actually include?",
-      "answer": "On Business and E-Commerce, it covers text, images, sections and layout changes to your existing site. It doesn't include full custom redesigns or new third-party integrations, which are scoped and quoted separately."
+      "id": "update-definition",
+      "question": "What counts as a content update?",
+      "answer": "One update is a small change to text, an image or a section on your existing site, usually 20–30 minutes of work. Unused updates don't roll over to the next month. Full custom redesigns and new third-party integrations aren't updates; they are scoped and quoted separately."
     },
     {
       "id": "plan-upgrade",
