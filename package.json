@@ -14,7 +14,10 @@
     "build:production": "node scripts/build.js --mode=production",
     "rebuild": "npm run clean && npm run build",
     "test:validation": "node --test tests/validate-data.test.js",
-    "serve": "node scripts/serve.js"
+    "serve": "node scripts/serve.js",
+    "migrate": "php api/bin/migrate.php",
+    "migrate:status": "php api/bin/migrate.php --status",
+    "tunnel": "node scripts/tunnel.js"
   },
   "devDependencies": {
     "nunjucks": "^3.2.4"

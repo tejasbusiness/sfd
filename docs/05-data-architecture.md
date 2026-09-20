@@ -114,3 +114,7 @@ Never store OAuth credentials, service-account keys, Calendar IDs intended to be
 ## SEO files (2026-09-20)
 
 `data/redirects.json` is an array of `{ "from", "to" }`. `generate-sitemap.js` and `generate-robots.js` were merged into `scripts/generate-seo.js`. The `not-found` page type writes `dist/404.html`.
+
+## Backend data (2026-09-20)
+
+Form submissions and bookings are stored in MySQL, not in JSON. Schema: `migrations/`; runner and PHP API: `api/`. See `docs/14-database-and-api.md`.

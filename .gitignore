@@ -33,3 +33,9 @@ Thumbs.db
 # image-extension rules above (2026-09-20: no file under it was ever tracked).
 !assets/images/
 !assets/images/**
+
+# Secrets (never commit). .env = production server, .env-local = local dev through the SSH tunnel.
+.env-local
+.env.*
+!.env.example
+api/vendor/

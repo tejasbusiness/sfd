@@ -56,3 +56,7 @@ The build fails (non-zero exit) on any validation error, per CLAUDE.md's "fail t
 - `validate-data.js` gained `validateSite`, `validateSeoAcrossPages` and `validateRedirects`; `redirects.json` is now a loaded shared file. This supersedes the "deferred" note above for sitemap and robots; a separate `validate-links.js` is still deferred.
 - Page type `not-found` renders to `dist/404.html` (no canonical, `og:url` or schema).
 - `npm run build:production` currently fails only because `/assets/images/og-default.jpg` is missing.
+
+## Backend scripts (added 2026-09-20)
+
+`npm run tunnel` (SSH tunnel to the live MySQL), `npm run migrate` and `npm run migrate:status` (run `api/bin/migrate.php`; PHP 8.2+ required locally). Environment files: `.env` (server) and `.env-local` (local), both gitignored; names in `.env.example`. Details in `docs/14-database-and-api.md`.

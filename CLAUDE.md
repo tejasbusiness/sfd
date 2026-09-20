@@ -8,7 +8,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 
 1. Do not use React, Next.js, Vue, Astro, WordPress, a page builder or a frontend CSS framework.
 2. Use semantic HTML5, custom CSS, vanilla JavaScript, Nunjucks templates and JSON content.
-3. Use a small Node.js build process only during development and deployment. The production server must not need Node.js.
+3. Use a small Node.js build process only during development and deployment. The production server must not need Node.js. Form and booking handling is a small PHP API under `/api/` with MySQL (`docs/14-database-and-api.md`); page content is still static HTML.
 4. Generate complete static HTML. Do not fetch primary page content from JSON in the browser.
 5. Store page content in JSON. Store shared company, navigation, footer, theme, testimonials and configuration data in shared JSON files.
 6. Generate clean directory URLs ending with `/`, such as `/pricing/` and `/industries/home-services/`.

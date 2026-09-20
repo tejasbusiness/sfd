@@ -32,6 +32,7 @@ The new SFD website is not a conventional agency brochure. It presents a product
 9. `docs/08-seo-accessibility.md` — SEO, schema, accessibility and performance.
 10. `docs/09-build-and-qa.md` — implementation phases and acceptance checks.
 11. `docs/10-decisions-and-todos.md` — confirmed decisions and unresolved inputs.
+12. `docs/14-database-and-api.md` — MySQL, migrations, PHP API and environment files.
 
 ## Working rule
 
