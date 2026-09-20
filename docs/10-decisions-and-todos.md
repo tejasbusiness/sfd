@@ -325,3 +325,21 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 
 - Discovery call is **30 minutes** everywhere (site copy, docs, CLAUDE.md, calendar event length). Available **Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time**; slots are shown in the visitor's timezone. Migration 010 applied to the live database.
 - Removed the booking modal's "Demo" notice and its old "once this connects" text. Still open: buffer (currently 15 minutes), notice, window and daily limit (see docs/14); SMTP password; Google credentials.
+
+## Pending task list (updated 2026-09-20; do each in a fresh session)
+
+Next up, in suggested order:
+
+1. **Google Calendar and Meet:** create the Google OAuth client, refresh token and calendar ID, put them in `.env` and `.env-local` (`GOOGLE_*`, then `GOOGLE_ENABLED=1`), and test that a booking creates the event, the Meet link and the invite. The code exists (`api/src/Google.php`) but is untested.
+2. **Browser test of every form locally:** run `npm run tunnel` and `npm run serve` (restart it; it now proxies `/api/`), then try the booking modal (dates, times, timezone change, slot-taken case), Contact, Free Preview, playbook and the cookie banner. Use `MAIL_LOCAL=1` only when testing real emails.
+3. **Production deploy** (steps in `docs/14-database-and-api.md`): fix write permissions for `sfd-deploy` on the site folder (or upload through CloudPanel), upload `dist/`, `api/`, `migrations/` and `.env`, run `composer install --no-dev` and the migrations on the server, paste `deploy/nginx-redirects.conf` into the CloudPanel vhost, add the cron job for `api/bin/send-outbox.php`, and verify `.env` is not downloadable.
+4. **Add `assets/images/og-default.jpg` (1200x630):** `npm run build:production` fails until it exists.
+5. **Confirm the booking placeholders** in the `booking_settings` table: buffer (15 min, which hides the slot after each booking), minimum notice (12 h), window (30 days), daily limit (6).
+
+Then, from the roadmap and earlier open items:
+
+- Preview-mode system (CLAUDE.md step 10, `docs/06`) and the preview host's `X-Robots-Tag` and security headers.
+- Cross-browser, responsive, performance and accessibility QA (step 12), including self-hosting and subsetting the fonts and image optimisation.
+- Playbook: the file itself, automated delivery email, and the consent wording (legal review).
+- Analytics and consent: choose a tool, load it only after consent, then update the Cookie Policy and Privacy Policy and bump `cookieConsent.version` in `data/footer.json`.
+- Keep pending as agreed: lawyer review of all five legal pages (and the drafting assumptions listed above), and pending content (more reviews for Restaurants, Home Services and Financial Services; a Case Studies band once real case studies exist).
