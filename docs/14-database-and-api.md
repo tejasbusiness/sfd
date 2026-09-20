@@ -40,12 +40,15 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 | 007 | `rate_limits` |
 | 008 | `email_outbox` |
 | 009 | Placeholder booking defaults |
+| 010 | Owner-decided hours (two windows, Monday to Friday) |
 
 `schema_migrations` is created by the runner itself.
 
-## Placeholder booking defaults to confirm
+## Booking rules
 
-Migration 009 seeds values the owner has **not** decided: timezone `Asia/Kolkata`, call length 30 minutes, 15-minute buffer, 12 hours' notice, 30-day window, 6 calls per day, Monday to Friday 10:00 to 18:00, slots every 30 minutes. All rows have `needs_confirmation = 1`. Note the site copy is inconsistent about call length ("30-Minute" in CTAs, "15-minute" on the book-a-call page and in docs/12); confirm one.
+Decided by the owner on 2026-09-20 (migration 010): **30-minute discovery calls, Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time.** Each visitor therefore sees those windows on their own clock (the last start is 12:30 and 18:30), and the API computes slots per visitor timezone. A slot taken by a visitor in one timezone disappears for everyone, because bookings are compared in UTC.
+
+Still placeholders (`needs_confirmation = 1` in `booking_settings`, change with an UPDATE or a new migration): 15-minute buffer between calls (with 30-minute slots this hides the slot right after a booked one, so calls end up 1 hour apart; set `buffer_minutes` to 0 for back-to-back calls), 12 hours' minimum notice, 30-day booking window, 6 calls per day (counted per day in `sfd_timezone`, `Asia/Kolkata`), slots every 30 minutes. Holidays go in `availability_exceptions` (dates are read in the visitor's timezone).
 
 ## API (`api/`)
 
@@ -79,6 +82,6 @@ Site folder: `/home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/`
 
 ## Status
 
-- All nine migrations applied to the live database `sfd-2026-db` (2026-09-20) through the SSH tunnel (user `sfd-deploy`, key login; the firewall has no rule for 3306).
+- All ten migrations applied to the live database `sfd-2026-db` (2026-09-20) through the SSH tunnel (user `sfd-deploy`, key login; the firewall has no rule for 3306).
 - All endpoints were tested against the live database from a local PHP server with curl: valid and invalid submissions, honeypot, wrong content type, bad origin, idempotent replay, and a second booking of the same slot (409). Test rows were deleted afterwards.
 - Not yet verified: emails (need `SMTP_PASSWORD` and `MAIL_LOCAL=1`), Google Calendar/Meet (need OAuth credentials), the browser UI of the booking modal and forms, and a production deploy.

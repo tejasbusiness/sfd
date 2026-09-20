@@ -56,7 +56,7 @@ final class App
         }
 
         $days = [];
-        foreach (Availability::slots() as [$start]) {
+        foreach (Availability::slots($tz) as [$start]) {
             $local = $start->setTimezone($tz);
             $days[$local->format('Y-m-d')][] = ['time' => $local->format('H:i'), 'start' => $start->format('Y-m-d\TH:i:s\Z')];
         }
@@ -112,7 +112,7 @@ final class App
 
         // Recheck: the requested start must still be an open slot right now.
         $end = null;
-        foreach (Availability::slots() as [$slotStart, $slotEnd]) {
+        foreach (Availability::slots($visitorTz) as [$slotStart, $slotEnd]) {
             if ($slotStart == $start) {
                 $end = $slotEnd;
                 break;

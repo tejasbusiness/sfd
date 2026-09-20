@@ -1,6 +1,6 @@
 {# Sitewide accessible booking modal (docs/07-booking-engine.md). Every "Book a
-   15-Minute Call" trigger opens this same dialog. Dates/times shown are DEMO data —
-   see docs/12-booking-integration-contract.md for the real n8n contract this stands in for. #}
+   30-Minute Discovery Call" trigger opens this same dialog. Times come from the PHP API
+   (GET /api/availability, docs/14-database-and-api.md). #}
 {% from "partials/country-code-options.njk" import options as countryCodeOptions %}
 {% import "partials/form-fields.njk" as fields %}
 <dialog id="booking-modal" class="dialog booking-modal" aria-labelledby="booking-modal-title">
@@ -8,11 +8,6 @@
     <div class="dialog__header booking-modal__header">
       <div class="booking-modal__heading-group">
         <h2 id="booking-modal-title" class="booking-modal__title">Book a Free 30-Minute Discovery Call</h2>
-        <p class="booking-modal__demo-notice">
-          <span class="booking-modal__demo-badge">Demo</span>
-          <span class="booking-modal__demo-text">Dates and times below are placeholder data. Live scheduling connects once the booking
-          settings in docs/10-decisions-and-todos.md are confirmed.</span>
-        </p>
       </div>
       <button type="button" class="dialog__close" data-dialog-close aria-label="Close booking dialog">
         <span aria-hidden="true">&times;</span>
@@ -89,7 +84,7 @@
           <h3>Your appointment is booked</h3>
           <p data-booking-confirmation-summary></p>
           <p class="field__hint">
-            A calendar invite with a Google Meet link will be sent once this connects to the live booking backend.
+            Check your email for the confirmation. If your Google Meet link is not in it yet, we will send it before the call.
           </p>
           <button type="button" class="button button--primary" data-dialog-close>Close</button>
         </div>

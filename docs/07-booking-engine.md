@@ -1,4 +1,4 @@
-# 15-Minute Booking Engine
+# 30-Minute Booking Engine
 
 > **Superseded (2026-09-20):** the backend is now the PHP API and MySQL database in `docs/14-database-and-api.md`, not n8n and Google Sheets. The field lists and slot rules below still apply.
 
@@ -52,7 +52,7 @@ Backend responsibilities:
 1. Query Google Calendar Free/Busy.
 2. Calculate valid slots.
 3. Recheck the selected slot.
-4. Create a 15-minute Calendar event.
+4. Create a 30-minute Calendar event.
 5. Generate a unique Google Meet conference.
 6. Add the visitor email as an attendee.
 7. Send calendar updates.
@@ -91,3 +91,7 @@ No Google or n8n secret may appear in frontend code.
 
 See `docs/10-decisions-and-todos.md` for availability hours, calendar timezone, buffer, booking window, reminder policy and cancellation rules.
 
+
+## Decided hours (2026-09-20)
+
+30-minute calls, Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time. See `docs/14-database-and-api.md`.

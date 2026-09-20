@@ -33,7 +33,7 @@ function initDialogTriggers() {
       // Triggers that are real links (e.g. "Book a Free 30-Minute Discovery Call" -> /book-a-call/)
       // work as plain navigation without JS; with JS, open the modal instead.
       event.preventDefault();
-      // A trigger living inside another open dialog (e.g. "Book a 15-Minute
+      // A trigger living inside another open dialog (e.g. "Book a 30-Minute
       // Call" inside the More drawer) closes that dialog first — only one
       // modal makes sense open at a time on top of the drawer.
       const ancestorDialog = trigger.closest('dialog');

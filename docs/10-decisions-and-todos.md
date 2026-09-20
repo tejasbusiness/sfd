@@ -320,3 +320,8 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 - Built the PHP API (`api/`), wired the booking modal, Free Preview, Contact and playbook forms and the cookie-consent record to it, added honeypot spam traps, per-IP rate limits, an email outbox with SMTP, and optional Google Calendar/Meet creation. Details, endpoints and deploy steps: `docs/14-database-and-api.md`.
 - Playbook success text no longer says the file is on its way instantly; the owner is emailed for each sign-up and sends the playbook by hand until delivery is automated.
 - Open: SMTP password and a real send test; Google OAuth credentials; deploy permissions for `sfd-deploy`; a retry script for the email outbox; confirm booking defaults and call length; Privacy Policy provider wording needs lawyer review (edited to name our own database and email hosts instead of Google Sheets).
+
+### Booking hours decided (2026-09-20)
+
+- Discovery call is **30 minutes** everywhere (site copy, docs, CLAUDE.md, calendar event length). Available **Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time**; slots are shown in the visitor's timezone. Migration 010 applied to the live database.
+- Removed the booking modal's "Demo" notice and its old "once this connects" text. Still open: buffer (currently 15 minutes), notice, window and daily limit (see docs/14); SMTP password; Google credentials.
