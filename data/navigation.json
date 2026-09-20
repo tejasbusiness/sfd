@@ -1,5 +1,5 @@
 {
-  "_scaffold": "About Us (/about/), Free Tools (/resources/free-tools/), Free Downloads (/resources/free-downloads/), Blog (/resources/insights/) and Contact Us (/contact/) are Phase 8 pages, all built. Free Tools/Free Downloads/Blog live inside the \"Resources\" mega menu; About Us and Contact Us are their own top-level nav items (2026-09-18).",
+  "_scaffold": "About Us (/about/), Free Tools (/resources/free-tools/), Free Downloads (/resources/free-downloads/), Blog (/resources/blog/) and Contact Us (/contact/) are Phase 8 pages, all built. Free Tools/Free Downloads/Blog live inside the \"Resources\" mega menu; About Us and Contact Us are their own top-level nav items (2026-09-18).",
   "_structure": "Desktop header (restructured 2026-09-18, decluttered from a split/centered-logo layout to a single row): logo, then one inline nav list, then Book a Call + the primary CTA button pinned to the right. Items with `megaMenu: true` render the two-pane flyout (tool/page list + promo panel); items with a plain `children` array render the simple link-list dropdown. Tablet/mobile (<1080px) is unchanged: a centered logo, the fixed bottom tab bar (`tabBar`) and the right-side icon-tile \"More\" drawer (`more`) carry navigation instead.",
   "primary": [
     { "label": "About Us", "path": "/about/" },
@@ -99,7 +99,7 @@
         {
           "label": "Blog",
           "description": "Guides on websites, SEO and local marketing.",
-          "href": "/resources/insights/",
+          "href": "/resources/blog/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M6 3h9l4 4v14a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12h6M9 16h6M9 8h3\" stroke-linecap=\"round\"/></svg>"
         }
       ],
@@ -187,7 +187,7 @@
     },
     {
       "label": "Blog",
-      "path": "/resources/insights/",
+      "path": "/resources/blog/",
       "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2F855A\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M6 3h9l4 4v14a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12h6M9 16h6M9 8h3\" stroke-linecap=\"round\"/></svg>"
     },
     {

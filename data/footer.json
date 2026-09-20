@@ -51,7 +51,7 @@
       "title": "Resources",
       "links": [
         { "label": "Free Tools", "path": "/resources/free-tools/" },
-        { "label": "Insights", "path": "/resources/insights/" }
+        { "label": "Blog", "path": "/resources/blog/" }
       ]
     },
     {

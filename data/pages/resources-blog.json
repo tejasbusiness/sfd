@@ -1,18 +1,18 @@
 {
-  "_scaffold": "Phase 8 stub (2026-09-18): docs/02-sitemap-and-navigation.md plans an /resources/insights/{article-slug}/ series, no articles written yet. This is a holding page only. Nav label is \"Blog\" (data/navigation.json); the page itself uses the sitemap's \"Insights\" naming.",
-  "id": "resources-insights",
+  "_scaffold": "Phase 8 stub (2026-09-18): docs/02-sitemap-and-navigation.md plans an /resources/blog/{article-slug}/ series, no articles written yet. This is a holding page only. Nav label is \"Blog\" (data/navigation.json); the page, its URL and its title all use \"Blog\" (renamed from \"Insights\" on 2026-09-20; /resources/insights/ redirects here).",
+  "id": "resources-blog",
   "type": "static",
-  "slug": "insights",
-  "canonicalPath": "/resources/insights/",
+  "slug": "blog",
+  "canonicalPath": "/resources/blog/",
   "seo": {
-    "title": "Insights | SynergyFirst Digital",
+    "title": "Blog | SynergyFirst Digital",
     "metaDescription": "Articles on websites, SEO and local marketing for small businesses from SynergyFirst Digital — coming soon.",
-    "ogTitle": "Insights",
+    "ogTitle": "Blog | SynergyFirst Digital",
     "ogDescription": "Articles on websites, SEO and local marketing for small businesses — coming soon.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Insights",
+  "h1": "Blog",
   "breadcrumbs": null,
   "sections": [
     {

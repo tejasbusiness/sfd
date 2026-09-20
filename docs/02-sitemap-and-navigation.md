@@ -40,8 +40,8 @@ The persistent header also exposes **Book a Free 30-Minute Discovery Call** with
 /resources/free-tools/website-prompt-generator/
 /resources/free-tools/image-resizer/
 /resources/free-tools/invoice-generator/
-/resources/insights/
-/resources/insights/{article-slug}/
+/resources/blog/
+/resources/blog/{article-slug}/
 
 /contact/
 /book-a-call/
@@ -86,7 +86,7 @@ Mobile recommendation:
 
 - Websites: How It Works, Pricing, Portfolio, Case Studies.
 - Industries: five industry pages.
-- Resources: Free Tools, Insights, FAQs if introduced.
+- Resources: Free Tools, Blog, FAQs if introduced.
 - Company: About, Contact, Book a Call.
 - Legal: Privacy, Terms, Subscription Terms, Refund Policy, Cookie Policy (plus the "Cookie settings" button that reopens the consent banner). These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns. The Cookie Policy was added 2026-09-20 because EU visitors are a main target.
 - Verified social links only. Do not use `#` placeholders.
@@ -103,3 +103,5 @@ Mobile recommendation:
 ## Case study pages (2026-09-20)
 
 Six case studies are live under `/websites/case-studies/`: `budget-opticals`, `cawt`, `cintaa-casting-portal`, `brandbook-company`, `siddhant-cinevision` and `ev-world360`. They use the same six projects as the portfolio, are in the sitemap automatically, carry breadcrumbs (visible and `BreadcrumbList` schema), and are linked from the portfolio ("Read the case study"), the index and each other ("More case studies").
+
+- **Rename (2026-09-20):** the former Insights section is now **Blog** at `/resources/blog/` (and `/resources/blog/{article-slug}/`). `/resources/insights/` returns a single-hop 301 to it via `data/redirects.json`.

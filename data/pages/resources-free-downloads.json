@@ -1,5 +1,5 @@
 {
-  "_scaffold": "Phase 8 stub (2026-09-18): new nav destination requested to replace \"Contact Us\" inside the Resources mega menu. No downloadable assets exist yet — this is a holding page only, following the same honest 'coming soon' pattern as resources-free-tools.json and resources-insights.json.",
+  "_scaffold": "Phase 8 stub (2026-09-18): new nav destination requested to replace \"Contact Us\" inside the Resources mega menu. No downloadable assets exist yet — this is a holding page only, following the same honest 'coming soon' pattern as resources-free-tools.json and resources-blog.json.",
   "id": "resources-free-downloads",
   "type": "static",
   "slug": "free-downloads",

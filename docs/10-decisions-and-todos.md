@@ -359,3 +359,7 @@ Then, from the roadmap and earlier open items:
 ### Case study pages (2026-09-20)
 
 - Built the case-study index and six detail pages (same six projects as the portfolio) with SEO copy written only from what the live sites show. No results, metrics or quotes were invented. Open: ask each client for a real challenge, result and quote if you want fuller case studies; add them to the page JSON (`outcome`). The Case Studies testimonials band on this page stays pending until real project reviews exist.
+
+### Insights renamed to Blog (2026-09-20)
+
+- `/resources/insights/` is now `/resources/blog/` (page `resources-blog.json`, nav and footer label "Blog", title and H1 "Blog"). A 301 redirect from the old URL is in `data/redirects.json`, so `deploy/nginx-redirects.conf` includes it. If you meant a top-level `/blog/`, say so and it is a one-line change plus a new redirect.

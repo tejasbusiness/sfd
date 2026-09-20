@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "from": "/resources/insights/",
+    "to": "/resources/blog/"
+  }
+]
