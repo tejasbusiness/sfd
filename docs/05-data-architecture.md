@@ -15,7 +15,7 @@ data/
   testimonials.json
   faqs.json
   plans.json
-  pages/
+  pages/            (includes the four legal pages, type "legal")
   industries/
   projects/
   case-studies/
@@ -103,3 +103,10 @@ Public JSON may contain labels, URLs, feature flags and non-secret IDs that are 
 
 Never store OAuth credentials, service-account keys, Calendar IDs intended to be private, Sheet IDs, webhook secrets or API secrets inside public files.
 
+## Footer data
+
+`footer.json` holds `groups` (the four link columns), `legalLinks` (centred row in the footer bottom bar), `social`, `brandStatement` and the `playbook` signup copy.
+
+## Page-level scripts
+
+`assets/js/main.js` initialises page behaviours; `legal-toc.js` handles the legal contents list (no `#` in the URL). New behaviours are added as their own module and initialised from `main.js`.

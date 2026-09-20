@@ -119,3 +119,10 @@ All FAQ / Common-questions sections (`faq` and `faq-split`) render through `temp
 
 - Every internal page hero (all pages except the homepage) is the dark `hero--band`: purple-to-deep-ink gradient, gold glow and hairline, white title, gold eyebrow, gold primary button and white-outline secondary button. Pages with no hero section get the same band with only the H1.
 - Legal pages (`legal-document` section) copy the Privacy Policy exactly: hero band with "Last updated" pill, sticky "On this page" list, numbered clauses with gold numerals, gold bullets, and the contact card. Do not restyle per page.
+
+## Link hover and dark bands
+
+- **Hover effect for navigation links** (footer columns, footer legal row, header top-level links only): text colour change plus a thin gold gradient underline (transparent, gold, transparent) that grows from the centre with `transform: scaleX`, 0.25-0.3s, on `:hover` and `:focus-visible`. No motion under `prefers-reduced-motion`. Header sub-menus and dropdown items keep their own hover. On the light header the text goes deep purple, not gold (contrast); on the dark footer it goes gold.
+- **Dark brand band** (trust strip, hero band, testimonials, credentials strip): `linear-gradient(135deg, --color-primary, --color-primary-deep)` with a faint gold radial glow and gold hairlines. Gold (`--color-accent`) is used for eyebrows, icons and accents on dark only.
+- **Footer:** four link columns; column headings gold with a gold gradient hairline; legal links are a centred row with gold dot separators above the centred copyright.
+- **Trust strip:** centred items, heading font, gold-ringed check icons, vertical dividers on desktop.

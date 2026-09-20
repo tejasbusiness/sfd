@@ -262,6 +262,13 @@
   such as "IN". Flags are 194 self-hosted SVGs in assets/images/flags/ (about
   1.3 MB, lazy loaded, MIT-licensed flag-icons; licence file included).
 
+### 2026-09-20 — Trust strip, footer and link polish
+
+- Homepage/About trust strip restyled as a dark brand band (gold glow, hairlines, gold-ringed icons, dividers). Homepage fourth item now "Serving businesses across the world!" (About unchanged). This is broader than the target markets in docs/01, which are unchanged.
+- Footer: Legal group moved out of the columns into a centred horizontal row above the copyright; four columns remain with the logo column width unchanged; column headings gold with a gradient hairline.
+- Centre-grow gold underline hover applied to footer links and header top-level links (not sub-menus).
+- Docs updated in full for this session: 02, 03, 04, 05, 08, 09, 10, 13. Session rule: docs must be fully updated before every session ends (CLAUDE.md).
+
 ## Claude instruction
 
 Do not silently choose values for any blocking item. Use clearly labelled temporary placeholders in development and surface the unresolved decision before production-ready copy or integration is claimed complete.

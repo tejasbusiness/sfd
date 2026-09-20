@@ -1,6 +1,6 @@
 # Visual Art Direction — Homepage, Header & Footer Redesign
 
-Status: **approved in principle, revised per round-2 amendments below**. Still not implemented — nothing in this document has been built. This revision supersedes the first draft; changes from that draft are called out inline where they matter for review.
+Status: **implemented and since extended.** This document is the original redesign brief; where it conflicts with the "Amendments since implementation" section at the end (and with docs/03 and docs/10), the amendments win. Original wording follows. This revision supersedes the first draft; changes from that draft are called out inline where they matter for review.
 
 Scope of this redesign: **header, footer, homepage only**. How It Works, Pricing, Free Preview and Book a Call keep their current (plain) styling until this direction is approved and deliberately extended to them. The booking modal and Free Preview form get a documented *future* direction here but are explicitly not touched yet.
 
@@ -141,7 +141,7 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
    - Preview your website before you pay
    - No obligation to continue after the preview
    - Hosting and maintenance included with every active plan
-   - Serving businesses across the USA, Canada, Australia, New Zealand and Europe
+   - Serving businesses across the world! (amended 2026-09-20; was "Serving businesses across the USA, Canada, Australia, New Zealand and Europe")
    This section no longer depends on the `verified` mechanism at all — everything in it is true today.
 3. **How your preview works** — unchanged: alternating narrative, large ghosted numerals (01–04), a drawn-in connector line, one small supporting visual per step.
 4. **Industries** — asymmetric bento (Home Services dominant; Restaurants + Healthcare medium; Financial + Professional Services supporting). **Revised**: since none of the five industry pages exist yet, tiles render as styled, non-interactive cards (no `href`) rather than links — avoiding the 404s the original draft would have shipped. They become real links automatically once Phase 4 builds those pages (same content, just no anchor wrapper until then).
@@ -250,3 +250,13 @@ The visual system is **not** propagated to How It Works, Pricing, Free Preview o
 ---
 
 Awaiting your review and explicit approval of this revised direction before any implementation file is touched.
+
+---
+
+## Amendments since implementation (kept current; supersede the text above)
+
+- **Scope:** the dark hero band, footer and link-hover treatments now apply sitewide, not to the homepage only. How It Works, Pricing, Free Preview, Book a Call and every other internal page share the same system.
+- **Credibility (trust) strip:** now a dark brand band (purple-to-deep-ink gradient, faint gold glow at the top, gold hairlines top and bottom). Items are centred, in the heading font, each with a gold-ringed check icon and thin vertical dividers on desktop (no dividers on mobile). Shared by Home and About. Homepage fourth item reads "Serving businesses across the world!"; About keeps its own wording. This is broader than the documented target markets in docs/01; the target-market list is unchanged.
+- **Internal page heroes:** every page except the homepage uses the dark `hero--band` (gradient, gold glow, gold hairline, white title, gold eyebrow, gold primary button, white-outline secondary button). Pages without a hero section get the band with only the H1.
+- **Footer:** four link columns (Websites, Industries, Resources, Company); the logo column width is unchanged. The Legal group is no longer a column: Privacy Policy, Terms and Conditions, Subscription Terms and Refund Policy are a centred horizontal row (`legalLinks` in `data/footer.json`) above a centred copyright line, with small gold dot separators. Column headings are gold accent with a gold-to-transparent gradient hairline underneath. Legal links all point to real pages.
+- **Link hover (footer columns, footer legal row, header top-level links):** colour change plus a thin gold gradient underline that grows from the centre (`scaleX`), on hover and keyboard focus; transitions removed under `prefers-reduced-motion`. Header sub-menu links deliberately keep their original hover. Header text stays deep purple on hover for contrast (gold on the light header fails AA).

@@ -95,3 +95,9 @@
 
 The website is complete only when content, conversions, direct URLs, metadata, accessibility, responsive layouts, booking integration and failure states have been verified. A visually complete homepage alone is not completion.
 
+## Legal-launch QA additions
+
+- All four legal pages (`/privacy-policy/`, `/terms-and-conditions/`, `/subscription-terms/`, `/refund-policy/`) reviewed by a qualified lawyer for the targeted jurisdictions, and the drafting assumptions in `docs/10-decisions-and-todos.md` confirmed.
+- Cookie/analytics clause of the Privacy Policy matches the analytics and consent banner actually shipped.
+- Footer legal links, form consent-checkbox links and cross-links between legal pages resolve.
+- Legal contents list works with keyboard and without JavaScript, and the URL never shows `#section-id` after a click.

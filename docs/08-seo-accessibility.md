@@ -56,3 +56,9 @@ Target WCAG 2.2 AA:
 - Defer non-critical scripts.
 - Establish Core Web Vitals targets before launch.
 
+## Additions (2026-09-20)
+
+- Legal pages: the "On this page" list is a labelled `<nav>`; `assets/js/legal-toc.js` scrolls to the clause without writing `#section-id` into the URL and moves focus to the clause heading; links keep their `#` hrefs as the no-JavaScript fallback. Clause anchors use a 96px scroll margin to clear the sticky header.
+- Link hover underlines (header, footer) also trigger on `:focus-visible`, and transitions are disabled under `prefers-reduced-motion`.
+- Gold accent text and icons appear only on dark backgrounds; on light backgrounds use `--color-accent-warm`.
+- Legal pages must be reviewed by a qualified lawyer before launch; the cookie/analytics wording must match the real analytics and consent set-up.
