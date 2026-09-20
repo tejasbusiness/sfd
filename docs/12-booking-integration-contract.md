@@ -1,5 +1,8 @@
 # Booking Integration Contract (n8n)
 
+> **Superseded (2026-09-20):** the backend is now the PHP API and MySQL database in `docs/14-database-and-api.md`, not n8n and Google Sheets. The field lists and slot rules below still apply.
+
+
 Technical addendum to `docs/07-booking-engine.md`. This defines the request/response shapes the frontend booking modal (`assets/js/booking.js`, `templates/partials/booking-dialog.njk`) expects from the secure backend. **None of this is implemented yet** — the frontend currently calls a local mock (`mockSubmitBooking`) that always succeeds after a simulated delay, clearly commented as a demo in the source. n8n is the confirmed backend/orchestration layer (Google Calendar availability and event creation, unique Google Meet generation, Google Sheets insertion, notifications and reminders).
 
 No endpoint here is public yet; URLs and the shared secret belong in `.env` (see `.env.example`) and `data/integrations.public.json`'s `booking.webhookUrl`, never in committed source.

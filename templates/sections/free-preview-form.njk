@@ -16,6 +16,7 @@
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
 
     <form class="sfd-form sfd-form--page" data-free-preview-form novalidate>
+      {{ fields.honeypot() }}
       {{ fields.input("fp-name", "fullName", "Full name *", required=true, autocomplete="name") }}
       {{ fields.input("fp-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
       {{ fields.phone("fp", countryCodes, countryCodeOptions) }}

@@ -28,6 +28,20 @@ function writeChoice(choice) {
     `; Max-Age=${MAX_AGE_DAYS * 86400}; Path=/; SameSite=Lax${secure}`;
 }
 
+// Best-effort proof of the visitor's choice (no personal data; the API stores a salted IP hash).
+function recordChoice(analytics, marketing) {
+  try {
+    fetch('/api/consent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ analytics, marketing, sourcePage: window.location.pathname }),
+      keepalive: true,
+    }).catch(() => {});
+  } catch (err) {
+    // Never block the banner if the request cannot be made.
+  }
+}
+
 export function initCookieConsent() {
   const banner = document.querySelector('[data-cookie-banner]');
   if (!banner) return;
@@ -66,6 +80,7 @@ export function initCookieConsent() {
   function save(analytics, marketing) {
     current = { v: version, analytics, marketing, t: new Date().toISOString() };
     writeChoice(current);
+    recordChoice(analytics, marketing);
     close();
     document.dispatchEvent(new CustomEvent('sfd:consent', { detail: state() }));
   }

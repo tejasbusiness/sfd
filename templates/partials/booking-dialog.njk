@@ -66,6 +66,7 @@
       <section data-booking-step="details" hidden>
         <h3>Your details</h3>
         <form class="sfd-form" data-booking-form novalidate>
+          {{ fields.honeypot() }}
           {{ fields.input("booking-name", "fullName", "Full name *", required=true, autocomplete="name") }}
           {{ fields.input("booking-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
           {{ fields.phone("booking", countryCodes, countryCodeOptions) }}

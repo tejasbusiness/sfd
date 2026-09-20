@@ -2965,3 +2965,12 @@ a.testimonials__rating:hover {
 .cookie-banner__actions .button {
   flex: 1 1 8rem;
 }
+
+/* Honeypot spam trap (form-fields.njk): off-screen, never visible or focusable. */
+.sfd-form__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

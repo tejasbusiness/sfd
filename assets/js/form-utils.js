@@ -66,3 +66,49 @@ export function initWebsiteInputs(form) {
     });
   });
 }
+
+/** Where the visitor came from, sent with every lead form (current URL only, nothing is stored on the device). */
+export function trackingFields() {
+  const params = new URLSearchParams(window.location.search);
+  const utm = {};
+  ['source', 'medium', 'campaign', 'term', 'content'].forEach((key) => {
+    const value = params.get(`utm_${key}`);
+    if (value) utm[key] = value.slice(0, 150);
+  });
+  return { sourcePage: window.location.pathname, utm };
+}
+
+/**
+ * POSTs JSON to the SFD API (see docs/14). Resolves with { ok, status, data };
+ * only a network failure rejects, so callers can show their usual error message.
+ */
+export async function submitJson(url, body, headers = {}) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...headers },
+    body: JSON.stringify(body),
+    credentials: 'same-origin',
+  });
+  let data = {};
+  try {
+    data = await response.json();
+  } catch (err) {
+    data = {};
+  }
+  return { ok: response.ok && data.ok === true, status: response.status, data };
+}
+
+/** Shows a failed submit: field errors from the server (422), a rate-limit note (429) or the fallback message. */
+export function reportSubmitFailure(form, submitErrorEl, result, fallbackMessage) {
+  if (result.status === 422 && result.data.errors) {
+    showFormErrors(form, result.data.errors);
+    const stray = Object.keys(result.data.errors).some((name) => !form.querySelector(`[data-error-for="${name}"]`));
+    if (!stray) {
+      submitErrorEl.hidden = true;
+      return;
+    }
+  }
+  submitErrorEl.textContent =
+    result.status === 429 ? 'Too many attempts. Please wait a little while and try again.' : fallbackMessage;
+  submitErrorEl.hidden = false;
+}

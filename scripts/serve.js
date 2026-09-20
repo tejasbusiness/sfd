@@ -7,14 +7,54 @@
 //   - /path/index.html -> 301 to /path/
 //   - data/redirects.json entries -> 301 (single hop)
 //   - anything missing -> 404.html with a real 404 status, never the homepage
+//   - /api/* is proxied to PHP's built-in server running api/public/index.php with
+//     .env-local, so forms and booking work locally (open the SSH tunnel first:
+//     npm run tunnel). If php is not installed, /api/* answers 503.
 
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { spawn } = require('child_process');
 
 const rootDir = path.join(__dirname, '..', 'dist');
 const redirectsFile = path.join(__dirname, '..', 'data', 'redirects.json');
 const port = Number(process.env.PORT) || 8080;
+const apiPort = Number(process.env.API_PORT) || 8081;
+const projectRoot = path.join(__dirname, '..');
+
+let phpReady = false;
+const php = spawn('php', ['-S', `127.0.0.1:${apiPort}`, path.join(projectRoot, 'api', 'public', 'index.php')], {
+  env: { ...process.env, SFD_ENV_FILE: path.join(projectRoot, '.env-local') },
+  stdio: ['ignore', 'ignore', 'ignore'],
+});
+php.on('spawn', () => {
+  phpReady = true;
+});
+php.on('error', () => {
+  phpReady = false;
+  console.warn('php was not found: /api/* will return 503 (install PHP 8.2+ to test forms locally).');
+});
+process.on('exit', () => php.kill());
+process.on('SIGINT', () => process.exit(0));
+
+function proxyApi(req, res) {
+  if (!phpReady) {
+    res.writeHead(503, { 'Content-Type': 'application/json' });
+    return res.end('{"ok":false,"error":"api_unavailable"}');
+  }
+  const upstream = http.request(
+    { host: '127.0.0.1', port: apiPort, path: req.url, method: req.method, headers: { ...req.headers, host: `127.0.0.1:${apiPort}` } },
+    (upstreamRes) => {
+      res.writeHead(upstreamRes.statusCode, upstreamRes.headers);
+      upstreamRes.pipe(res);
+    }
+  );
+  upstream.on('error', () => {
+    res.writeHead(502, { 'Content-Type': 'application/json' });
+    res.end('{"ok":false,"error":"api_unreachable"}');
+  });
+  req.pipe(upstream);
+}
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -55,6 +95,8 @@ function sendNotFound(req, res) {
 }
 
 const server = http.createServer((req, res) => {
+  if (req.url === '/api' || req.url.startsWith('/api/') || req.url.startsWith('/api?')) return proxyApi(req, res);
+
   const [rawPath, query] = req.url.split('?');
   const search = query ? `?${query}` : '';
 

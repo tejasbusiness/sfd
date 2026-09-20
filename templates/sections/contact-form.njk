@@ -11,6 +11,7 @@
 
     <div class="contact-form__layout">
     <form class="sfd-form sfd-form--page" data-contact-form novalidate>
+      {{ fields.honeypot() }}
       {{ fields.input("ct-name", "fullName", "Full name *", required=true, autocomplete="name") }}
       {{ fields.input("ct-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
       {{ fields.phone("ct", countryCodes, countryCodeOptions) }}

@@ -1,57 +1,52 @@
-// Booking modal controller — FRONTEND-ONLY DEMO.
+// Booking modal controller.
 //
-// Dates and times are mock data generated in the browser. The real availability
-// query, slot recheck, event/Meet creation and Sheets logging happen server-side
-// via the secure n8n workflow documented in docs/12-booking-integration-contract.md.
-// This file never calls Google APIs and never holds a credential (CLAUDE.md rule 11).
+// Available dates and times come from GET /api/availability (MySQL opening rules,
+// existing bookings and, when connected, Google Calendar). Submitting POSTs to
+// /api/bookings with an Idempotency-Key (docs/12, docs/14). The slot is rechecked on
+// the server; a 409 means someone else just took it. This file never calls Google
+// APIs and never holds a credential (CLAUDE.md rule 11).
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
-import { isValidEmail, isValidWebsite, normalizeWebsite, readForm, showFormErrors, initWebsiteInputs, WEBSITE_ERROR_MESSAGE } from './form-utils.js';
+import {
+  isValidEmail,
+  isValidWebsite,
+  normalizeWebsite,
+  readForm,
+  showFormErrors,
+  initWebsiteInputs,
+  submitJson,
+  trackingFields,
+  reportSubmitFailure,
+  WEBSITE_ERROR_MESSAGE,
+} from './form-utils.js';
 
 const STEPS = ['date', 'slot', 'details', 'confirmation'];
-const MOCK_SLOT_TIMES = ['09:00', '09:30', '10:00', '10:30', '11:00', '14:00', '14:30', '15:00'];
 
-function getMockAvailableDates(count) {
-  const dates = [];
-  const cursor = new Date();
-  cursor.setDate(cursor.getDate() + 1);
-  while (dates.length < count) {
-    const day = cursor.getDay();
-    if (day !== 0 && day !== 6) {
-      dates.push(new Date(cursor));
-    }
-    cursor.setDate(cursor.getDate() + 1);
-  }
-  return dates;
+// "YYYY-MM-DD" -> local Date (built from parts, so it never shifts a day).
+function parseDate(value) {
+  const [y, m, d] = value.split('-').map(Number);
+  return new Date(y, m - 1, d);
 }
 
-function formatDate(date) {
-  return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+function formatDate(value) {
+  return parseDate(value).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
-// Stands in for the secure backend: query availability, recheck the slot immediately
-// before creating it, then create the booking. This is a recheck-then-create pattern,
-// not a claim of full atomicity — a real race is still possible, so callers must
-// handle an "ok: false" (slot taken) response gracefully rather than assume success.
-async function mockSubmitBooking(payload, idempotencyKey) {
-  await new Promise((resolve) => setTimeout(resolve, 600));
-  return {
-    ok: true,
-    idempotencyKey,
-    eventId: `demo-${idempotencyKey.slice(0, 8)}`,
-    meetUrl: null,
-  };
-}
+const detectedTimezone = () => Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 export function initBookingModal(dialogEl) {
   if (!dialogEl) return;
 
   const state = {
+    days: [], // [{ date: 'YYYY-MM-DD', times: [{ time: 'HH:mm', start: ISO }] }]
     selectedDate: null,
     selectedTime: null,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    selectedStart: null,
+    timezone: detectedTimezone(),
     idempotencyKey: null,
     submitting: false,
+    loadId: 0,
+    loadedAt: 0,
   };
 
   const stepSections = new Map(STEPS.map((step) => [step, dialogEl.querySelector(`[data-booking-step="${step}"]`)]));
@@ -85,29 +80,41 @@ export function initBookingModal(dialogEl) {
     timezoneEl.textContent = state.timezone;
   }
 
+  function showMessage(container, text) {
+    container.innerHTML = '';
+    const p = document.createElement('p');
+    p.setAttribute('role', 'status');
+    p.textContent = text;
+    container.appendChild(p);
+  }
+
   function renderDates() {
-    const dates = getMockAvailableDates(6);
     datesEl.innerHTML = '';
-    dates.forEach((date) => {
+    if (state.days.length === 0) {
+      showMessage(datesEl, 'No times are open right now. Please try again later or use the contact page.');
+      return;
+    }
+    // The first eight open days keep the step compact; each has real times behind it.
+    state.days.slice(0, 8).forEach((day) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'booking-modal__option';
       button.setAttribute('role', 'option');
-      button.textContent = formatDate(date);
+      button.textContent = formatDate(day.date);
       button.addEventListener('click', () => {
-        state.selectedDate = date;
+        state.selectedDate = day.date;
         [...datesEl.children].forEach((el) => el.setAttribute('aria-selected', el === button ? 'true' : 'false'));
-        selectedDateEl.textContent = `${formatDate(date)} — ${state.timezone}`;
-        renderSlots();
+        selectedDateEl.textContent = `${formatDate(day.date)} — ${state.timezone}`;
+        renderSlots(day);
         showStep('slot');
       });
       datesEl.appendChild(button);
     });
   }
 
-  function renderSlots() {
+  function renderSlots(day) {
     slotsEl.innerHTML = '';
-    MOCK_SLOT_TIMES.forEach((time) => {
+    day.times.forEach(({ time, start }) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'booking-modal__option';
@@ -115,12 +122,35 @@ export function initBookingModal(dialogEl) {
       button.textContent = time;
       button.addEventListener('click', () => {
         state.selectedTime = time;
+        state.selectedStart = start;
         [...slotsEl.children].forEach((el) => el.setAttribute('aria-selected', el === button ? 'true' : 'false'));
         state.idempotencyKey = crypto.randomUUID();
         showStep('details');
       });
       slotsEl.appendChild(button);
     });
+  }
+
+  async function loadAvailability() {
+    const loadId = ++state.loadId;
+    showMessage(datesEl, 'Loading available times…');
+    try {
+      const response = await fetch(`/api/availability?timezone=${encodeURIComponent(state.timezone)}`, { credentials: 'same-origin' });
+      const data = await response.json();
+      if (loadId !== state.loadId) return; // a newer request superseded this one
+      if (!response.ok || !data.ok) throw new Error('availability failed');
+      state.days = data.slots;
+      state.loadedAt = Date.now();
+      if (data.timezone && data.timezone !== state.timezone) {
+        state.timezone = data.timezone;
+        renderTimezone();
+      }
+      renderDates();
+    } catch (err) {
+      if (loadId !== state.loadId) return;
+      state.days = [];
+      showMessage(datesEl, 'We could not load available times. Please close this window and try again in a moment.');
+    }
   }
 
   function validateForm(data) {
@@ -142,11 +172,13 @@ export function initBookingModal(dialogEl) {
 
   if (timezoneSelect) {
     timezoneSelect.addEventListener('change', () => {
-      state.timezone = timezoneSelect.value || Intl.DateTimeFormat().resolvedOptions().timeZone;
+      state.timezone = timezoneSelect.value || detectedTimezone();
+      state.selectedDate = null;
+      state.selectedTime = null;
+      state.selectedStart = null;
       renderTimezone();
-      if (state.selectedDate) {
-        selectedDateEl.textContent = `${formatDate(state.selectedDate)} — ${state.timezone}`;
-      }
+      loadAvailability();
+      showStep('date');
     });
   }
 
@@ -156,6 +188,7 @@ export function initBookingModal(dialogEl) {
       if (state.submitting) return; // duplicate-submission guard
 
       const data = readForm(form);
+      data.consent = form.elements.consent.checked;
       const errors = validateForm(data);
       showFormErrors(form, errors);
       if (Object.keys(errors).length > 0) return;
@@ -165,33 +198,40 @@ export function initBookingModal(dialogEl) {
       submitError.hidden = true;
 
       try {
-        const result = await mockSubmitBooking(
+        const result = await submitJson(
+          '/api/bookings',
           {
             ...data,
             website: normalizeWebsite(data.website),
-            date: state.selectedDate ? state.selectedDate.toISOString() : null,
-            time: state.selectedTime,
+            start: state.selectedStart,
             timezone: state.timezone,
+            ...trackingFields(),
           },
-          state.idempotencyKey
+          { 'Idempotency-Key': state.idempotencyKey }
         );
 
-        if (!result.ok) {
-          // Graceful handling when a slot becomes unavailable: send the visitor
-          // back to pick a new time instead of failing silently.
+        if (result.status === 409) {
+          // The slot was taken while the visitor was typing: refresh and send them back to pick another.
           submitError.textContent = 'That time was just taken. Please choose another slot.';
           submitError.hidden = false;
-          showStep('slot');
+          state.selectedStart = null;
+          await loadAvailability();
+          showStep('date');
+          return;
+        }
+        if (!result.ok) {
+          reportSubmitFailure(form, submitError, result, 'Something went wrong. Please try again.');
           return;
         }
 
+        const link = result.data.meetUrl ? ` Your Google Meet link: ${result.data.meetUrl}.` : '';
         confirmationSummary.textContent =
-          `${formatDate(state.selectedDate)} at ${state.selectedTime} (${state.timezone}) — ` +
-          `confirmation will be sent to ${data.email} and ${data.countryCode} ${data.mobileNumber}.`;
+          `${formatDate(state.selectedDate)} at ${state.selectedTime} (${state.timezone}). ` +
+          `We have emailed your confirmation to ${data.email}.${link}`;
         showStep('confirmation');
       } catch (err) {
         // Safe retry: idempotencyKey is unchanged, so resubmitting reuses the same
-        // key instead of risking a duplicate booking once this calls the real backend.
+        // key instead of risking a duplicate booking.
         submitError.textContent = 'Something went wrong. Please try again.';
         submitError.hidden = false;
       } finally {
@@ -204,6 +244,7 @@ export function initBookingModal(dialogEl) {
   dialogEl.addEventListener('close', () => {
     state.selectedDate = null;
     state.selectedTime = null;
+    state.selectedStart = null;
     state.idempotencyKey = null;
     if (form) form.reset();
     showFormErrors(form, {});
@@ -213,6 +254,11 @@ export function initBookingModal(dialogEl) {
   initPhoneInputs(dialogEl);
   if (form) initWebsiteInputs(form);
   renderTimezone();
-  renderDates();
   showStep('date');
+
+  // Times are fetched only when the modal opens (and again if they are over a minute old),
+  // so pages that never open it make no API calls.
+  new MutationObserver(() => {
+    if (dialogEl.open && Date.now() - state.loadedAt > 60000) loadAvailability();
+  }).observe(dialogEl, { attributes: true, attributeFilter: ['open'] });
 }

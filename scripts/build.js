@@ -1,5 +1,6 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const { getMode } = require('./lib/mode');
 const { validateAll } = require('./validate-data');
@@ -40,6 +41,9 @@ function main() {
   const written = renderPages({ templatesDir, outDir, mode, sharedData, pages });
   copyIfExists(assetsDir, path.join(outDir, 'assets'));
   copyIfExists(publicDir, outDir);
+  // The API front controller is served from /api/; the PHP source stays outside dist/ (docs/14).
+  fs.mkdirSync(path.join(outDir, 'api'), { recursive: true });
+  fs.copyFileSync(path.join(rootDir, 'api', 'public', 'index.php'), path.join(outDir, 'api', 'index.php'));
   const seoFiles = writeSeoFiles({ rootDir, outDir, sharedData, pages });
 
   const audit = checkOutput({ outDir, site: sharedData['site.json'], pages, mode });

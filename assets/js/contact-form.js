@@ -1,7 +1,5 @@
-// Contact enquiry form — FRONTEND-ONLY DEMO, same status as the Free Preview form.
-// Validates client-side and shows a mock success state. No real submission endpoint
-// exists yet (integrations.public.json webhookUrl is null), so messages are NOT
-// delivered until a secure backend is wired in.
+// Contact enquiry form. Validates in the browser, then POSTs to /api/contact (docs/14),
+// which re-validates, stores the enquiry in MySQL and emails the team.
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
 import {
@@ -10,6 +8,9 @@ import {
   normalizeWebsite,
   readForm,
   showFormErrors,
+  submitJson,
+  trackingFields,
+  reportSubmitFailure,
   initWebsiteInputs,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
@@ -29,11 +30,6 @@ function validate(data) {
   if (!data.consent) errors.consent = 'Please confirm before sending.';
   if (!data.message) errors.message = 'Tell us a bit about what you need.';
   return errors;
-}
-
-async function mockSubmitEnquiry() {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return { ok: true };
 }
 
 export function initContactForm(form) {
@@ -63,6 +59,7 @@ export function initContactForm(form) {
     if (submitting) return;
 
     const data = readForm(form);
+    data.consent = form.elements.consent.checked;
     const errors = validate(data);
     showFormErrors(form, errors);
     if (Object.keys(errors).length > 0) return;
@@ -72,8 +69,11 @@ export function initContactForm(form) {
     submitError.hidden = true;
 
     try {
-      const result = await mockSubmitEnquiry({ ...data, website: normalizeWebsite(data.website) });
-      if (!result.ok) throw new Error('submit failed');
+      const result = await submitJson('/api/contact', { ...data, website: normalizeWebsite(data.website), ...trackingFields() });
+      if (!result.ok) {
+        reportSubmitFailure(form, submitError, result, 'Something went wrong sending your message. Please try again.');
+        return;
+      }
       form.hidden = true;
       if (successEl) {
         successEl.hidden = false;

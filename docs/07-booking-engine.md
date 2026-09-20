@@ -1,5 +1,8 @@
 # 15-Minute Booking Engine
 
+> **Superseded (2026-09-20):** the backend is now the PHP API and MySQL database in `docs/14-database-and-api.md`, not n8n and Google Sheets. The field lists and slot rules below still apply.
+
+
 ## CTA label
 
 Use exactly: **Book a Free 30-Minute Discovery Call**.

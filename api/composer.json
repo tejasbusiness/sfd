@@ -1,0 +1,13 @@
+{
+  "name": "synergyfirstdigital/api",
+  "description": "SFD form and booking API (PHP 8.2+, MySQL).",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "ext-pdo": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "config": { "optimize-autoloader": true }
+}

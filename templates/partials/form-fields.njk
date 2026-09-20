@@ -52,6 +52,14 @@
 </div>
 {% endmacro %}
 
+{# Spam trap: hidden from people and screen readers, filled in only by bots. The API
+   silently discards any submission where it is not empty. Put it first inside every form. #}
+{% macro honeypot() %}
+<div class="sfd-form__hp" aria-hidden="true">
+  <label>Leave this field empty<input type="text" name="hp" tabindex="-1" autocomplete="off"></label>
+</div>
+{% endmacro %}
+
 {% macro consent(id, name, label) %}
 <div class="field field--full sfd-form__consent">
   <label>

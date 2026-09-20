@@ -65,7 +65,8 @@
           "body": [
             "We do not sell your personal information. We share it only with service providers that help us operate, and only as needed for the purpose:",
             [
-              "<strong>Google Workspace</strong> (Calendar, Meet, Sheets and Gmail) for booking calls, holding enquiry and booking records and sending email.",
+              "<strong>Google Workspace</strong> (Calendar and Meet) for scheduling discovery calls and sending calendar invitations.",
+              "<strong>Our hosting and email providers</strong> to store the enquiry, booking and sign-up records you submit through our forms in our database, and to send you email about them.",
               "<strong>Razorpay</strong> to process subscription payments.",
               "<strong>Workflow and customer-portal tools</strong>, including our automation platform and the customer portal at crm.synergyfirstdigital.com, to handle leads and customer records.",
               "<strong>Analytics providers</strong>, such as Google Analytics or similar, to measure website use.",

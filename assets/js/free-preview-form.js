@@ -1,7 +1,6 @@
-// Free Preview application form — FRONTEND-ONLY DEMO.
-// Validates client-side and shows a mock success state. No real submission endpoint
-// exists yet — wiring this to a secure backend is a later phase — and per
-// docs/04-page-blueprints.md it must never claim to guarantee a preview.
+// Free Preview application form. Validates in the browser, then POSTs to
+// /api/preview-applications (docs/14). Per docs/04-page-blueprints.md it must never
+// claim to guarantee a preview.
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
 import {
@@ -10,6 +9,9 @@ import {
   normalizeWebsite,
   readForm,
   showFormErrors,
+  submitJson,
+  trackingFields,
+  reportSubmitFailure,
   initWebsiteInputs,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
@@ -30,11 +32,6 @@ function validate(data) {
   if (!data.problem) errors.problem = 'Tell us a bit about the main problem.';
   if (!data.consent) errors.consent = 'Please confirm before submitting.';
   return errors;
-}
-
-async function mockSubmitApplication() {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return { ok: true };
 }
 
 export function initFreePreviewForm(form) {
@@ -64,12 +61,16 @@ export function initFreePreviewForm(form) {
     submitError.hidden = true;
 
     try {
-      const result = await mockSubmitApplication({
+      const result = await submitJson('/api/preview-applications', {
         ...data,
         website: normalizeWebsite(data.website),
         gbpUrl: normalizeWebsite(data.gbpUrl),
+        ...trackingFields(),
       });
-      if (!result.ok) throw new Error('submit failed');
+      if (!result.ok) {
+        reportSubmitFailure(form, submitError, result, 'Something went wrong submitting your application. Please try again.');
+        return;
+      }
       form.hidden = true;
       if (successEl) {
         successEl.hidden = false;

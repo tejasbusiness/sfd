@@ -47,6 +47,38 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 
 Migration 009 seeds values the owner has **not** decided: timezone `Asia/Kolkata`, call length 30 minutes, 15-minute buffer, 12 hours' notice, 30-day window, 6 calls per day, Monday to Friday 10:00 to 18:00, slots every 30 minutes. All rows have `needs_confirmation = 1`. Note the site copy is inconsistent about call length ("30-Minute" in CTAs, "15-minute" on the book-a-call page and in docs/12); confirm one.
 
+## API (`api/`)
+
+Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/public/index.php` (the build copies it to `dist/api/index.php`); code in `api/src/`. JSON only, same-origin only (`ALLOWED_ORIGINS`), body limit 64 KB, no internals in errors.
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/availability?timezone=` | Open slots grouped by date in the visitor's timezone (MySQL rules, existing bookings, Google free/busy when enabled) |
+| `POST /api/bookings` | Book a call. `Idempotency-Key` header (UUID). 201 created, 200 same key replayed, 409 `slot_unavailable`, 422 field errors |
+| `POST /api/contact` | Contact form |
+| `POST /api/preview-applications` | Free Preview application |
+| `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
+| `POST /api/consent` | Records the cookie-banner choice |
+
+Behaviour: server-side validation mirrors `assets/js/form-utils.js`; the consent checkbox is required and a `consents` row is stored; honeypot field `hp` (a filled value gets a fake success and nothing is stored); per-IP rate limits (salted IP hash in `rate_limits`; 429 when exceeded); every email goes to `email_outbox` first, then SMTP. Bookings: the requested start is rechecked against current availability, and the unique key on `bookings` is the final guard against double booking. With `GOOGLE_ENABLED=1` the API also creates the Calendar event with a Google Meet link (Google emails the invite); if that fails, or Google is off, the booking stays `pending_calendar` and the owner email says to add it manually. Google free/busy failures fail open (MySQL is still checked).
+
+Local runs (`APP_ENV=local`): rows are flagged `is_test = 1`, and email is not sent unless `MAIL_LOCAL=1` (rows are marked failed/skipped so the production retry never sends them). `npm run serve` starts PHP's built-in server for the API (with `.env-local`) and proxies `/api/*` to it, so the SSH tunnel must be open.
+
+Frontend: `submitJson()`, `trackingFields()` (current URL's utm values only, nothing stored on the device) and `reportSubmitFailure()` in `assets/js/form-utils.js`; the four form scripts and `booking.js` call the API. Each form has the shared honeypot macro (`form-fields.njk`).
+
+## Deploying to the server (CloudPanel PHP site, root directory `dist`)
+
+Site folder: `/home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/`
+
+1. `npm run build:production`, then upload `dist/` to `<site>/dist/`.
+2. Upload `api/` (without `vendor/`) to `<site>/api/`, `migrations/` to `<site>/migrations/`, and the production `.env` to `<site>/.env`. These sit above the web root and are not public.
+3. On the server: `cd <site>/api && composer install --no-dev`, then `php api/bin/migrate.php --env=production` from `<site>`.
+4. Paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (it routes `/api/`, blocks dotfiles, sets the 404 page).
+5. Optional: a cron job running `php <site>/api/bin/send-outbox.php` to retry failed emails (not written yet).
+6. Verify: `curl -I https://synergyfirstdigital.com/.env` is not 200, `/api/availability` returns JSON, and a test submission arrives.
+
 ## Status
 
-All nine migrations were applied to the live database `sfd-2026-db` on 2026-09-20 through the SSH tunnel (SSH user `sfd-deploy`, key login; the server firewall has no rule for port 3306). Re-running is a no-op. The API endpoints and form wiring are the next step, and need SMTP and Google Calendar details.
+- All nine migrations applied to the live database `sfd-2026-db` (2026-09-20) through the SSH tunnel (user `sfd-deploy`, key login; the firewall has no rule for 3306).
+- All endpoints were tested against the live database from a local PHP server with curl: valid and invalid submissions, honeypot, wrong content type, bad origin, idempotent replay, and a second booking of the same slot (409). Test rows were deleted afterwards.
+- Not yet verified: emails (need `SMTP_PASSWORD` and `MAIL_LOCAL=1`), Google Calendar/Meet (need OAuth credentials), the browser UI of the booking modal and forms, and a production deploy.

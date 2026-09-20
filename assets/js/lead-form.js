@@ -1,9 +1,8 @@
-// Free AI Prompts Playbook signup (name + email) — FRONTEND-ONLY DEMO, same status
-// as the other forms. It validates and shows a mock success state; nothing is
-// stored or sent until a secure endpoint exists (integrations.public.json
-// webhookUrl is null), so no playbook is delivered yet.
+// Free AI Prompts Playbook signup (name + email). POSTs to /api/playbook (docs/14),
+// which stores the subscriber and notifies the team. The playbook itself is still
+// sent by hand until automated delivery exists.
 
-import { isValidEmail, readForm, showFormErrors } from './form-utils.js';
+import { isValidEmail, readForm, showFormErrors, submitJson, trackingFields, reportSubmitFailure } from './form-utils.js';
 
 function validate(data) {
   const errors = {};
@@ -11,11 +10,6 @@ function validate(data) {
   if (!isValidEmail(data.email)) errors.email = 'Enter a valid email address.';
   if (!data.consent) errors.consent = 'Please confirm before signing up.';
   return errors;
-}
-
-async function mockSubscribe() {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return { ok: true };
 }
 
 export function initLeadForm(form) {
@@ -31,6 +25,7 @@ export function initLeadForm(form) {
     if (submitting) return;
 
     const data = readForm(form);
+    data.consent = form.elements.consent.checked;
     const errors = validate(data);
     showFormErrors(form, errors);
     if (Object.keys(errors).length > 0) return;
@@ -40,8 +35,11 @@ export function initLeadForm(form) {
     submitError.hidden = true;
 
     try {
-      const result = await mockSubscribe(data);
-      if (!result.ok) throw new Error('subscribe failed');
+      const result = await submitJson('/api/playbook', { ...data, ...trackingFields() });
+      if (!result.ok) {
+        reportSubmitFailure(form, submitError, result, 'Something went wrong. Please try again.');
+        return;
+      }
       form.hidden = true;
       if (successEl) {
         successEl.hidden = false;
