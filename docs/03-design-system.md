@@ -130,3 +130,5 @@ All FAQ / Common-questions sections (`faq` and `faq-split`) render through `temp
 - **Footer link type (2026-09-20):** all footer links (columns, legal row, social) and the plain group labels use 13px (`0.8125rem`) at weight 300. Montserrat 300 is loaded in `base.njk`.
 
 - **Form submission (2026-09-20):** every form includes the `honeypot()` macro from `form-fields.njk` and submits with `submitJson()` / `reportSubmitFailure()` from `assets/js/form-utils.js` to the PHP API (docs/14). Do not write custom fetch code per form.
+
+- **Mission/Vision cards (2026-09-20):** `templates/sections/mission-vision.njk` uses the shared `.card`; the Vision variant changes only the fill (`.mission-vision__card--dark`). Gold text and icons appear only on that dark fill; the light card uses `--color-accent-warm`.

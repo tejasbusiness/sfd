@@ -116,3 +116,7 @@ All four are built (`/privacy-policy/`, `/terms-and-conditions/`, `/subscription
 ## Cookie Policy (2026-09-20)
 
 `/cookie-policy/` uses the same `legal-document` blueprint as the other legal pages: what cookies are, categories, cookies used, third parties, your choices, changes, related policies.
+
+## About: Mission and Vision (2026-09-20)
+
+The About page credibility strip (`trust-signals`) was replaced by a `mission-vision` section directly after the hero: eyebrow, heading and two shared `.card` panels (Mission on the light fill, Vision on the brand-purple fill). Copy is in `data/pages/about.json`. The "25+ years" claim still appears in "Our Story". The Mission and Vision wording is a first draft for the owner to approve.

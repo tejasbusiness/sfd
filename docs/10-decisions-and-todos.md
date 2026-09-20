@@ -343,3 +343,7 @@ Then, from the roadmap and earlier open items:
 - Playbook: the file itself, automated delivery email, and the consent wording (legal review).
 - Analytics and consent: choose a tool, load it only after consent, then update the Cookie Policy and Privacy Policy and bump `cookieConsent.version` in `data/footer.json`.
 - Keep pending as agreed: lawyer review of all five legal pages (and the drafting assumptions listed above), and pending content (more reviews for Restaurants, Home Services and Financial Services; a Case Studies band once real case studies exist).
+
+### About Mission and Vision (2026-09-20)
+
+- Replaced the About page trust strip with a Mission and Vision section. The wording is a draft based on existing About and offer copy; the owner should approve or edit it in `data/pages/about.json`.

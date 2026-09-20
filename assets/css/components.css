@@ -2974,3 +2974,57 @@ a.testimonials__rating:hover {
   height: 1px;
   overflow: hidden;
 }
+
+/* Mission and Vision (About): two shared .card panels; the dark one only changes fill. */
+.mission-vision__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  margin-top: var(--space-4);
+}
+.mission-vision__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.mission-vision__icon {
+  display: inline-grid;
+  place-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-warm);
+  color: var(--color-accent-warm);
+}
+.mission-vision__label {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-warm);
+}
+.mission-vision__statement {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.35;
+}
+.mission-vision__body {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+.mission-vision__card--dark {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.mission-vision__card--dark .mission-vision__statement {
+  color: #fff;
+}
+.mission-vision__card--dark .mission-vision__body {
+  color: rgba(255, 255, 255, 0.78);
+}
+.mission-vision__card--dark .mission-vision__icon,
+.mission-vision__card--dark .mission-vision__label {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}

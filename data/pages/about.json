@@ -22,11 +22,23 @@
       "secondaryCta": { "label": "See Our Work", "href": "/websites/portfolio/" }
     },
     {
-      "type": "trust-signals",
+      "type": "mission-vision",
+      "eyebrow": "WHAT DRIVES US",
+      "heading": "Our mission and our vision",
       "items": [
-        "25+ years of hands-on web experience",
-        "Strategy, design and development under one roof",
-        "Supporting businesses across the USA, Canada, Australia, New Zealand and Europe"
+        {
+          "icon": "mission",
+          "label": "Our Mission",
+          "statement": "To help local businesses turn their website into a working part of the business.",
+          "body": "We build and look after professional websites for a predictable monthly fee, so people can find you, trust you and take the next step, without the agency overhead."
+        },
+        {
+          "icon": "vision",
+          "tone": "dark",
+          "label": "Our Vision",
+          "statement": "Every local business with a digital presence that supports real growth.",
+          "body": "We want businesses of any size to have a dependable digital foundation and a team that understands their business and grows with them."
+        }
       ]
     },
     {
