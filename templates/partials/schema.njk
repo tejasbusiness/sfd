@@ -32,3 +32,10 @@
     {% endif %}
   {% endif %}
 {% endif %}
+
+{# BreadcrumbList from page.breadcrumbs ([{label, path}], last item path null = current page). #}
+{% if "BreadcrumbList" in page.schemaTypes and page.breadcrumbs %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{% for crumb in page.breadcrumbs %}{"@type":"ListItem","position":{{ loop.index }},"name":{{ crumb.label | dump | safe }},"item":{{ ((site.productionDomain + crumb.path) if crumb.path else canonicalUrl) | dump | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]}
+</script>
+{% endif %}

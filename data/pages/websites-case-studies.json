@@ -4,35 +4,56 @@
   "slug": "case-studies",
   "canonicalPath": "/websites/case-studies/",
   "seo": {
-    "title": "Case Studies | SynergyFirst Digital",
-    "metaDescription": "In-depth case studies from SynergyFirst Digital — the starting situation, strategy and verified outcome for each client, published with permission.",
-    "ogTitle": "Case Studies",
-    "ogDescription": "The problem, the strategy and the verified outcome behind SynergyFirst Digital's managed websites.",
+    "title": "Website Case Studies | SynergyFirst Digital",
+    "metaDescription": "Website case studies from SynergyFirst Digital: an optician, a nonprofit, a casting portal, a book publisher, a production company and an EV charging provider.",
+    "ogTitle": "Website Case Studies | SynergyFirst Digital",
+    "ogDescription": "How we designed and built websites for six businesses, and what each one includes.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Case Studies",
+  "h1": "Website Case Studies",
   "breadcrumbs": null,
   "sections": [
     {
       "type": "hero",
       "eyebrow": "Websites",
-      "subheading": "Full breakdowns — starting situation, strategy, deliverables and verified outcome — published only once a client authorizes sharing their results.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "subheading": "Six websites we have designed and built, from a local optician to a casting platform. Each case study explains what the site needed to do and what it includes.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     },
     {
-      "type": "case-studies-list",
-      "heading": "Case studies",
-      "items": []
+      "type": "case-study-grid",
+      "eyebrow": "OUR PROJECTS",
+      "heading": "Website design case studies by industry",
+      "intro": "Every project starts with the business and its visitors. These case studies show how that thinking became a website, across eye-care retail, nonprofit, entertainment, publishing and clean energy.",
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "cintaa-casting-portal",
+        "brandbook-company",
+        "siddhant-cinevision",
+        "ev-world360"
+      ]
     },
     {
       "type": "free-preview-cta",
-      "heading": "Want to be our next case study?",
+      "heading": "Want your business to be our next case study?",
       "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
     }
   ],
-  "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-09-18"
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-09-20"
 }

@@ -1,0 +1,27 @@
+{# Case-study index: one .card per project with a cropped desktop screenshot, business
+   type, name, summary, service tags and a link to the detail page. Content comes from
+   projects.json (caseStudy.summary / caseStudy.tags), so the summaries are written once. #}
+{% set resolvedItems = projects.items | selectByIds(section.itemIds) %}
+<section class="section case-study-grid">
+  <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="case-study-grid__items">
+      {% for item in resolvedItems %}
+      {% if item.caseStudy %}
+      <a class="card case-study-card" href="{{ item.caseStudy.path }}" data-reveal>
+        <img class="case-study-card__image" src="{{ item.images.desktop }}" alt="" width="1440" height="900" loading="lazy" decoding="async">
+        <p class="eyebrow">{{ item.industryLabel }}</p>
+        <h3>{{ item.title }}</h3>
+        <p class="case-study-card__summary">{{ item.caseStudy.summary }}</p>
+        <ul class="tag-list" aria-label="Services provided">
+          {% for tag in item.caseStudy.tags %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+        <span class="case-study-card__more">Read the case study<span class="visually-hidden"> for {{ item.title }}</span> <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

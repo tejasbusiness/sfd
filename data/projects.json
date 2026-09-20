@@ -11,6 +11,16 @@
         "desktop": "/assets/images/portfolio/budget-opticals-desktop.jpg",
         "tablet": "/assets/images/portfolio/budget-opticals-tablet.jpg",
         "mobile": "/assets/images/portfolio/budget-opticals-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/budget-opticals/",
+        "summary": "A local optician website in Baytown, Texas, built around eye exam booking, service pages and insurance information.",
+        "tags": [
+          "Website design",
+          "Website development",
+          "Service pages",
+          "Appointment booking"
+        ]
       }
     },
     {
@@ -23,6 +33,16 @@
         "desktop": "/assets/images/portfolio/cawt-desktop.jpg",
         "tablet": "/assets/images/portfolio/cawt-tablet.jpg",
         "mobile": "/assets/images/portfolio/cawt-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/cawt/",
+        "summary": "A nonprofit welfare trust website in Mumbai that explains its programs, builds trust and makes donating simple.",
+        "tags": [
+          "Website design",
+          "Website development",
+          "Donation call to action",
+          "Member login"
+        ]
       }
     },
     {
@@ -35,6 +55,16 @@
         "desktop": "/assets/images/portfolio/cintaa-casting-portal-desktop.jpg",
         "tablet": "/assets/images/portfolio/cintaa-casting-portal-tablet.jpg",
         "mobile": "/assets/images/portfolio/cintaa-casting-portal-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/cintaa-casting-portal/",
+        "summary": "A casting platform connecting verified actors with casting professionals, with an actors gallery and searchable profiles.",
+        "tags": [
+          "Custom web portal",
+          "Profile management",
+          "Searchable directory",
+          "Member login"
+        ]
       }
     },
     {
@@ -47,6 +77,16 @@
         "desktop": "/assets/images/portfolio/brandbook-company-desktop.jpg",
         "tablet": "/assets/images/portfolio/brandbook-company-tablet.jpg",
         "mobile": "/assets/images/portfolio/brandbook-company-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/brandbook-company/",
+        "summary": "A website for a custom book creator, built around real book previews, story scenarios and client profiles.",
+        "tags": [
+          "Website design",
+          "Website development",
+          "Portfolio previews",
+          "Contact form"
+        ]
       }
     },
     {
@@ -59,6 +99,16 @@
         "desktop": "/assets/images/portfolio/siddhant-cinevision-desktop.jpg",
         "tablet": "/assets/images/portfolio/siddhant-cinevision-tablet.jpg",
         "mobile": "/assets/images/portfolio/siddhant-cinevision-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/siddhant-cinevision/",
+        "summary": "A cinematic website for a Mumbai television and film production company, with a projects showcase and talent submissions.",
+        "tags": [
+          "Website design",
+          "Website development",
+          "Projects showcase",
+          "Talent submissions"
+        ]
       }
     },
     {
@@ -71,6 +121,16 @@
         "desktop": "/assets/images/portfolio/ev-world360-desktop.jpg",
         "tablet": "/assets/images/portfolio/ev-world360-tablet.jpg",
         "mobile": "/assets/images/portfolio/ev-world360-mobile.jpg"
+      },
+      "caseStudy": {
+        "path": "/websites/case-studies/ev-world360/",
+        "summary": "A website for an EV charging provider, with home, commercial and DC fast charger pages and partnership programs.",
+        "tags": [
+          "Website design",
+          "Website development",
+          "Product pages",
+          "Partner programs"
+        ]
       }
     }
   ]

@@ -355,3 +355,7 @@ Then, from the roadmap and earlier open items:
 ### Portfolio: three more projects (2026-09-20)
 
 - Added The BrandBook Company, Siddhant Cinevision Pvt. Ltd. and EV WORLD360 to `data/projects.json` and the portfolio page (six projects, two rows of three). Descriptions only state what each live site visibly shows. Note: the live EV WORLD360 site still shows placeholder contact details (address "99 Roving St., Big City", phone "123-456-789"), which appear in its screenshot; refresh the screenshot with `node scripts/capture-portfolio.js ev-world360` once the client fixes them.
+
+### Case study pages (2026-09-20)
+
+- Built the case-study index and six detail pages (same six projects as the portfolio) with SEO copy written only from what the live sites show. No results, metrics or quotes were invented. Open: ask each client for a real challenge, result and quote if you want fuller case studies; add them to the page JSON (`outcome`). The Case Studies testimonials band on this page stays pending until real project reviews exist.

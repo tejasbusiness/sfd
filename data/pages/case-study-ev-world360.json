@@ -1,0 +1,100 @@
+{
+  "id": "case-study-ev-world360",
+  "type": "case-study",
+  "slug": "ev-world360",
+  "canonicalPath": "/websites/case-studies/ev-world360/",
+  "seo": {
+    "title": "EV Charging Company Website Case Study | SynergyFirst Digital",
+    "metaDescription": "An EV charging website case study: how SynergyFirst Digital built the EV WORLD360 site with charger pages, software, an FAQ and partnership programs.",
+    "ogTitle": "EV Charging Website Case Study: EV WORLD360",
+    "ogDescription": "A website for an EV charging solutions provider with home, commercial and DC fast charger pages and partnership programs.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "EV WORLD360: A Website for an EV Charging Solutions Provider",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "EV WORLD360",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "ev-world360",
+      "intro": "EV WORLD360 provides electric vehicle charging solutions. We designed and developed its website to explain its charging products, software and partnership programs to homeowners, businesses and resellers.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "Buyers of EV charging equipment ask different questions depending on who they are: a homeowner wants a home charger, a business wants commercial or DC fast charging, and a reseller wants a partnership. The EV WORLD360 website gives each of them a route from the main menu and the home page.",
+        "A home page intro video, dedicated charging solution pages, a software page, an FAQ and a blog give visitors the information they need before they get in touch."
+      ],
+      "goalsHeading": "What the EV charging website needed to do",
+      "goals": [
+        "Explain three charger types, home, commercial and DC fast, without overwhelming visitors.",
+        "Introduce the company's charging software.",
+        "Recruit partners through white label and reseller programs.",
+        "Answer common questions in an FAQ and share advice through a blog."
+      ],
+      "featuresHeading": "What the EV charging website includes",
+      "features": [
+        {
+          "title": "A charging solutions menu",
+          "body": "Home Charger, Commercial Charger and DC Fast Charger each have their own page, reached from one drop-down menu."
+        },
+        {
+          "title": "A software page",
+          "body": "A dedicated page introduces the company's charging software, separate from the hardware."
+        },
+        {
+          "title": "Partnership programs",
+          "body": "White label and reseller programs invite businesses to work with the company."
+        },
+        {
+          "title": "FAQ and blog",
+          "body": "Common questions are answered in an FAQ, and blog articles cover EV maintenance and charging topics."
+        },
+        {
+          "title": "A home page intro video",
+          "body": "A play button on the home page opens an introduction to the company."
+        },
+        {
+          "title": "Bold branding and responsive layout",
+          "body": "Green brand colours and large headlines carry through the design, which adapts from desktop to phone."
+        }
+      ],
+      "audienceHeading": "Who the website serves",
+      "audience": "Homeowners, businesses and organisations looking for EV charging, and companies interested in reselling or white-labelling charging solutions.",
+      "relatedIds": [
+        "budget-opticals",
+        "brandbook-company"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}

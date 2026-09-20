@@ -1,0 +1,100 @@
+{
+  "id": "case-study-budget-opticals",
+  "type": "case-study",
+  "slug": "budget-opticals",
+  "canonicalPath": "/websites/case-studies/budget-opticals/",
+  "seo": {
+    "title": "Optician Website Case Study | SynergyFirst Digital",
+    "metaDescription": "How SynergyFirst Digital built the Budget Opticals of America website: services, insurance information and online appointment booking for a Baytown, Texas optician.",
+    "ogTitle": "Optician Website Case Study: Budget Opticals of America",
+    "ogDescription": "A local optician website with service pages, insurance and payment information and online eye exam booking.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Budget Opticals of America: A Website for a Local Family Optician",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "Budget Opticals of America",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "budget-opticals",
+      "intro": "Budget Opticals of America is an optician serving Baytown, Texas. We designed and developed its website so local families can see what the shop offers, check which insurance and payment options it accepts and book an eye exam online.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "Choosing an optician is a local, practical decision. People search for an eye exam or new glasses close to home, then compare who is nearby, what each shop offers and whether their insurance is accepted. The Budget Opticals of America website is built around those questions.",
+        "The site presents the shop's eye exams, eyeglasses, contact lenses, glasses repairs, safety glasses and specialty lenses on its Services page, and keeps the phone number and a Book Appointment button in the header of every page."
+      ],
+      "goalsHeading": "What the optician website needed to do",
+      "goals": [
+        "Show at a glance what an eye-care and eyewear shop offers for the whole family.",
+        "Answer the insurance and payment question before a visitor picks up the phone.",
+        "Put booking an eye exam one click away from every page.",
+        "Make the address, opening hours and phone number easy to find."
+      ],
+      "featuresHeading": "What the optician website includes",
+      "features": [
+        {
+          "title": "Appointment-focused calls to action",
+          "body": "A Book Appointment button in the header and a Book Your Eye Exam button on the home page lead to online scheduling, with the phone number always in view."
+        },
+        {
+          "title": "Clear service information",
+          "body": "Eye exams, designer and budget-friendly frames, contact lenses, repairs, safety glasses and night-driving and blue-light lenses are explained in plain language."
+        },
+        {
+          "title": "Insurance and payment details",
+          "body": "The site lists the insurance plans and payment methods the shop accepts, so visitors know before they call or visit."
+        },
+        {
+          "title": "Local business details",
+          "body": "The address, weekly opening hours and phone number are easy to find, so visitors can plan a visit."
+        },
+        {
+          "title": "A blog for eye-care advice",
+          "body": "A Blog page gives the shop a place to publish helpful articles for local families."
+        },
+        {
+          "title": "Responsive layout",
+          "body": "The design adapts to desktop, tablet and phone, keeping the booking button and phone number within easy reach on mobile."
+        }
+      ],
+      "audienceHeading": "Who the website serves",
+      "audience": "Families in Baytown, Texas who need an eye exam, glasses or contact lenses, including people looking for an optician that accepts their insurance.",
+      "relatedIds": [
+        "cintaa-casting-portal",
+        "ev-world360"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}

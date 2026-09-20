@@ -1,0 +1,100 @@
+{
+  "id": "case-study-siddhant-cinevision",
+  "type": "case-study",
+  "slug": "siddhant-cinevision",
+  "canonicalPath": "/websites/case-studies/siddhant-cinevision/",
+  "seo": {
+    "title": "TV Production Company Website Case Study | SynergyFirst Digital",
+    "metaDescription": "A production company website case study: how SynergyFirst Digital built the Siddhant Cinevision site with projects, founder profile and a talent submission form.",
+    "ogTitle": "Production Company Website Case Study: Siddhant Cinevision",
+    "ogDescription": "A cinematic website for a Mumbai television and film production company with a projects showcase and talent submissions.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Siddhant Cinevision: A Website for a Television and Film Production Company",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "Siddhant Cinevision Pvt. Ltd.",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "siddhant-cinevision",
+      "intro": "Siddhant Cinevision Pvt. Ltd. is a Mumbai-based television and film production company. We designed and developed its website to present the company, its founder and its productions in a dark, cinematic style.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "A production company's website works as a calling card for broadcasters, collaborators and talent. This one opens with its founder, Manish Goswami, and his role as Founder and Managing Director, so visitors know who is behind the company straight away.",
+        "The Projects area highlights featured productions, and a submission form lets aspiring actors send their details, show-reel links and photos."
+      ],
+      "goalsHeading": "What the production company website needed to do",
+      "goals": [
+        "Introduce the company and its founder with credibility.",
+        "Showcase featured television productions.",
+        "Give aspiring actors an organised way to submit their portfolio.",
+        "Connect visitors to the founder's social and industry profiles."
+      ],
+      "featuresHeading": "What the production company website includes",
+      "features": [
+        {
+          "title": "A founder-led home page",
+          "body": "A full-screen introduction of the founder sets the tone and builds recognition."
+        },
+        {
+          "title": "A projects showcase",
+          "body": "Featured productions are presented together so visitors can see the company's range."
+        },
+        {
+          "title": "Talent portfolio submission",
+          "body": "Aspiring actors can submit their name, contact details, show-reel links and photos through a form."
+        },
+        {
+          "title": "Social and industry links",
+          "body": "Links to social and industry profiles such as Facebook, Instagram and IMDb sit in the header."
+        },
+        {
+          "title": "About Us and contact",
+          "body": "A company story, founder profile and contact form make it easy for industry contacts to reach the team."
+        },
+        {
+          "title": "A dark, cinematic design",
+          "body": "A black background with bold yellow accents gives the site a screen-industry look that fits the brand."
+        }
+      ],
+      "audienceHeading": "Who the website serves",
+      "audience": "Broadcasters, co-producers, actors and other industry professionals, and viewers who follow the company's shows.",
+      "relatedIds": [
+        "cintaa-casting-portal",
+        "brandbook-company"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}

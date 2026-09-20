@@ -1,0 +1,100 @@
+{
+  "id": "case-study-cawt",
+  "type": "case-study",
+  "slug": "cawt",
+  "canonicalPath": "/websites/case-studies/cawt/",
+  "seo": {
+    "title": "Nonprofit Website Case Study | SynergyFirst Digital",
+    "metaDescription": "A nonprofit website case study: how SynergyFirst Digital built the Cine Artistes Welfare Trust website with programs, media, donations and member login.",
+    "ogTitle": "Nonprofit Website Case Study: Cine Artistes Welfare Trust",
+    "ogDescription": "A welfare trust website that explains its programs, builds trust and makes donating simple.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Cine Artistes Welfare Trust: A Website for a Nonprofit Welfare Trust",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "Cine Artistes Welfare Trust (CAWT)",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "cawt",
+      "intro": "The Cine Artistes Welfare Trust (CAWT) is a Mumbai-based nonprofit that supports cine artistes. We designed and developed its website to explain the trust's work, present its programs and make it simple to donate.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "A nonprofit website has to do three jobs at once: build trust, explain the work and make giving easy. The CAWT website opens with the trust's mission, its registration number and its founding year, so visitors see credibility signals before they read any further.",
+        "Programs such as medical aid, the artiste welfare fund, scholarship and education support and health camps each have their own clear description, and a Donate Now button stays visible in the header on every page."
+      ],
+      "goalsHeading": "What the nonprofit website needed to do",
+      "goals": [
+        "Explain who the trust helps and how, in plain language.",
+        "Make donating a single, clearly labelled action.",
+        "Give members a way to log in and stay connected.",
+        "Share news, photos and downloads in one media area."
+      ],
+      "featuresHeading": "What the nonprofit website includes",
+      "features": [
+        {
+          "title": "A prominent Donate Now action",
+          "body": "The donation button sits in the header beside the navigation, so supporters can give from any page."
+        },
+        {
+          "title": "Programs and initiatives",
+          "body": "Medical aid, welfare support, scholarships, health camps and fundraising events are presented as clear programs."
+        },
+        {
+          "title": "A media area",
+          "body": "News, a photo gallery and downloads are grouped in one section so supporters and members can find updates easily."
+        },
+        {
+          "title": "Leadership messages",
+          "body": "Pages for the trustees and the chairperson's message put a human face on the organisation."
+        },
+        {
+          "title": "Member login and newsletter sign-up",
+          "body": "Members can log in from the top of the page, and visitors can subscribe to updates."
+        },
+        {
+          "title": "Trust signals and mobile navigation",
+          "body": "The registration number, founding year and address support credibility, and on phones a bottom navigation bar keeps Home, Initiatives, Contact and More within thumb reach."
+        }
+      ],
+      "audienceHeading": "Who the website serves",
+      "audience": "Donors and supporters, partner organisations, and cine artistes who want to learn about the support the trust provides.",
+      "relatedIds": [
+        "brandbook-company",
+        "siddhant-cinevision"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}

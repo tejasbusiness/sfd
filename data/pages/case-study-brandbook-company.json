@@ -1,0 +1,100 @@
+{
+  "id": "case-study-brandbook-company",
+  "type": "case-study",
+  "slug": "brandbook-company",
+  "canonicalPath": "/websites/case-studies/brandbook-company/",
+  "seo": {
+    "title": "Custom Book Publisher Website Case Study | SynergyFirst Digital",
+    "metaDescription": "A publisher website case study: how SynergyFirst Digital built The BrandBook Company site with book previews, story scenarios and client profiles.",
+    "ogTitle": "Publisher Website Case Study: The BrandBook Company",
+    "ogDescription": "A website for a custom book creator that lets visitors preview real books and start a conversation.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "The BrandBook Company: A Website for a Custom Book Creator",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "The BrandBook Company",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "brandbook-company",
+      "intro": "The BrandBook Company creates customised books that document, archive and celebrate the stories of brands, people and organisations. We designed and developed its website to show the books themselves and make it easy to start a conversation.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "A book publisher sells something visitors need to see. The website therefore leads with the company's promise, writing, design and printing in one place, and lets visitors preview real book samples on the page.",
+        "Six \"tell your story\" scenarios help visitors recognise their own situation, and a contact form with name, phone, email and message keeps the next step simple."
+      ],
+      "goalsHeading": "What the publisher website needed to do",
+      "goals": [
+        "Explain the service quickly: writing, design and printing under one roof.",
+        "Show the quality of the work through real book previews.",
+        "Help visitors see what kind of story they could tell.",
+        "Build trust with client profiles and quotes."
+      ],
+      "featuresHeading": "What the publisher website includes",
+      "features": [
+        {
+          "title": "Book previews",
+          "body": "A book portfolio lets visitors click or tap a book to preview it, with sample PDFs to look through."
+        },
+        {
+          "title": "Tell Your Story scenarios",
+          "body": "Six use cases show the range of books the company creates, from corporate and personal to lifestyle projects."
+        },
+        {
+          "title": "Client profiles with expandable quotes",
+          "body": "Client profiles show who the company has worked with, and each quote can be expanded to read in full."
+        },
+        {
+          "title": "The founders' story",
+          "body": "An About Us section introduces the founders and their advertising and publishing background."
+        },
+        {
+          "title": "Simple navigation",
+          "body": "Home, Tell Your Story, Our Books, About Us, Our Clients and Contact Us keep the whole site within one click."
+        },
+        {
+          "title": "Contact details and form",
+          "body": "Address, email, phone numbers and a contact form make it easy to get in touch."
+        }
+      ],
+      "audienceHeading": "Who the website serves",
+      "audience": "Companies, executives, professionals and community leaders, and individuals who want a book to capture a story, a milestone or a legacy.",
+      "relatedIds": [
+        "cawt",
+        "siddhant-cinevision"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}

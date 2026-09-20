@@ -1,0 +1,17 @@
+{# Responsive device mockup (desktop + tablet + phone screenshots framed in CSS).
+   Expects `item` (a projects.json entry with `images`) in the including template.
+   Shared by the portfolio showcase and the case-study pages. #}
+<div class="device-mockup" role="img" aria-label="{{ item.title }} shown on a desktop, a tablet and a phone">
+  <div class="device-mockup__stage" aria-hidden="true">
+    <div class="device-mockup__desktop">
+      <div class="device-mockup__bar"><span></span><span></span><span></span></div>
+      <img src="{{ item.images.desktop }}" alt="" width="1440" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="device-mockup__tablet">
+      <img src="{{ item.images.tablet }}" alt="" width="820" height="1100" loading="lazy" decoding="async">
+    </div>
+    <div class="device-mockup__phone">
+      <img src="{{ item.images.mobile }}" alt="" width="390" height="800" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+{# Case-study detail body. Facts about the client (name, industry, live site, screenshots,
+   services) come from projects.json via section.projectId; the write-up comes from the page JSON.
+   Only what the live site shows is described. An optional `outcome` block renders only once a
+   verified, client-approved result is added (CLAUDE.md rule 13). #}
+{% set project = (projects.items | selectByIds([section.projectId])) | first %}
+<section class="section case-study">
+  <div class="container">
+    {% if page.breadcrumbs %}
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        {% for crumb in page.breadcrumbs %}
+        <li>{% if crumb.path %}<a href="{{ crumb.path }}">{{ crumb.label }}</a>{% else %}<span aria-current="page">{{ crumb.label }}</span>{% endif %}</li>
+        {% endfor %}
+      </ol>
+    </nav>
+    {% endif %}
+
+    <p class="case-study__intro">{{ section.intro }}</p>
+
+    {% set item = project %}
+    {% include "partials/device-mockup.njk" %}
+
+    <dl class="case-study__facts card">
+      <div><dt>Client</dt><dd>{{ project.title }}</dd></div>
+      <div><dt>Industry</dt><dd>{{ project.industryLabel }}</dd></div>
+      <div><dt>Work completed</dt><dd>{{ project.caseStudy.tags | join(", ") }}</dd></div>
+      <div><dt>Live website</dt><dd><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.url | replace("https://", "") | replace("/", "") }}<span class="visually-hidden"> (opens in a new tab)</span></a></dd></div>
+    </dl>
+
+    <div class="case-study__body">
+      <h2>{{ section.overviewHeading }}</h2>
+      {% for paragraph in section.overview %}<p>{{ paragraph }}</p>{% endfor %}
+
+      <h2>{{ section.goalsHeading }}</h2>
+      <ul class="case-study__list">
+        {% for goal in section.goals %}<li>{{ goal }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <h2>{{ section.featuresHeading }}</h2>
+    <div class="feature-grid__items">
+      {% for feature in section.features %}
+      <div class="card feature-grid__item" data-reveal>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="case-study__body">
+      <h2>{{ section.audienceHeading }}</h2>
+      <p>{{ section.audience }}</p>
+
+      {% if section.outcome %}
+      <h2>{{ section.outcome.heading }}</h2>
+      <p>{{ section.outcome.body }}</p>
+      {% endif %}
+
+      <p>
+        <a class="button button--secondary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">Visit {{ project.title }}<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </p>
+    </div>
+
+    {% if section.relatedIds %}
+    <h2>More case studies</h2>
+    <div class="case-study-grid__items case-study-grid__items--related">
+      {% for related in projects.items | selectByIds(section.relatedIds) %}
+      {% if related.caseStudy %}
+      <a class="card case-study-card" href="{{ related.caseStudy.path }}" data-reveal>
+        <img class="case-study-card__image" src="{{ related.images.desktop }}" alt="" width="1440" height="900" loading="lazy" decoding="async">
+        <p class="eyebrow">{{ related.industryLabel }}</p>
+        <h3>{{ related.title }}</h3>
+        <p class="case-study-card__summary">{{ related.caseStudy.summary }}</p>
+        <span class="case-study-card__more">Read the case study<span class="visually-hidden"> for {{ related.title }}</span> <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,100 @@
+{
+  "id": "case-study-cintaa-casting-portal",
+  "type": "case-study",
+  "slug": "cintaa-casting-portal",
+  "canonicalPath": "/websites/case-studies/cintaa-casting-portal/",
+  "seo": {
+    "title": "Casting Portal Website Case Study | SynergyFirst Digital",
+    "metaDescription": "A casting portal case study: SynergyFirst Digital built a platform connecting verified actors with casting professionals, with an actors gallery and member login.",
+    "ogTitle": "Casting Portal Case Study: CINTAA Casting Portal",
+    "ogDescription": "A talent and casting platform with an actors gallery, searchable profiles and separate journeys for talent and professionals.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "CINTAA Casting Portal: A Talent and Casting Platform",
+  "breadcrumbs": [
+    {
+      "label": "Websites",
+      "path": "/websites/"
+    },
+    {
+      "label": "Case Studies",
+      "path": "/websites/case-studies/"
+    },
+    {
+      "label": "CINTAA Casting Portal",
+      "path": null
+    }
+  ],
+  "sections": [
+    {
+      "type": "case-study",
+      "projectId": "cintaa-casting-portal",
+      "intro": "The CINTAA Casting Portal is a talent and casting platform for the Indian entertainment industry. We designed and built it to connect verified actors with casting directors, producers and other professionals.",
+      "overviewHeading": "Project overview",
+      "overview": [
+        "A casting platform serves two very different visitors: performers who want to be found, and casting professionals who want to find the right person quickly. The portal's home page speaks to both, with separate, clearly labelled paths to view the actors gallery, join as a casting professional or log in as a member.",
+        "Behind the home page, the portal includes profile management for talent and searchable talent discovery for professionals, so the site works as a working tool and not only as a brochure."
+      ],
+      "goalsHeading": "What the casting portal needed to do",
+      "goals": [
+        "Let casting professionals search verified talent by skills, age range and height.",
+        "Give actors a profile that presents them professionally.",
+        "Support the shortlist-and-contact workflow that casting relies on.",
+        "Keep sign-up and login one click away from every page."
+      ],
+      "featuresHeading": "What the casting portal includes",
+      "features": [
+        {
+          "title": "An actors gallery",
+          "body": "Professionals can browse talent visually before opening a full profile."
+        },
+        {
+          "title": "Searchable talent directory",
+          "body": "Profiles can be searched by skills, age range and height, so casting teams reach relevant people faster."
+        },
+        {
+          "title": "Shortlisting and direct contact",
+          "body": "Professionals can shortlist talent and contact them directly by email or SMS."
+        },
+        {
+          "title": "Separate journeys for talent and professionals",
+          "body": "Calls to action such as Casting Professional | Join Now, View Actors Gallery and Member Login give each type of visitor an obvious next step."
+        },
+        {
+          "title": "Category shortcuts",
+          "body": "Home page tiles point to popular needs such as actors, models, anchors and stand-up comedians."
+        },
+        {
+          "title": "Newsletter and responsive layout",
+          "body": "Visitors can subscribe to casting updates, and the layout adapts from desktop to phone."
+        }
+      ],
+      "audienceHeading": "Who the platform serves",
+      "audience": "Actors and other performers, casting directors and filmmakers, advertising agencies and brands, OTT platforms, event organisers and independent creators.",
+      "relatedIds": [
+        "siddhant-cinevision",
+        "budget-opticals"
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want a website like this for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-09-20"
+}
