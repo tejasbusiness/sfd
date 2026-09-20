@@ -1,26 +1,41 @@
 {
-  "_note": "Shared, verified project collection referenced by id (docs/05 §Shared versus page data) from both /about/ and /websites/portfolio/. No problem/result fields are included per CLAUDE.md rule 13 — no verified case-study detail exists yet beyond what is publicly visible on each live site.",
+  "_note": "Shared, verified project collection referenced by id (docs/05 §Shared versus page data) from both /about/ and /websites/portfolio/. No problem/result fields are included per CLAUDE.md rule 13 — no verified case-study detail exists yet beyond what is publicly visible on each live site. `images` are screenshots of the live sites (desktop 1440x900, tablet 820x1100, phone 390x800) taken with scripts/capture-portfolio.js and framed as a responsive mockup on /websites/portfolio/.",
   "items": [
     {
       "id": "budget-opticals",
       "title": "Budget Opticals of America",
       "industryLabel": "Optical Retail & Eye Care",
       "workCompleted": "Website design and development for an established eye-care and eyewear retailer, including service pages, insurance information and appointment-focused calls to action.",
-      "url": "https://budgetopticalsofamerica.com/"
+      "url": "https://budgetopticalsofamerica.com/",
+      "images": {
+        "desktop": "/assets/images/portfolio/budget-opticals-desktop.jpg",
+        "tablet": "/assets/images/portfolio/budget-opticals-tablet.jpg",
+        "mobile": "/assets/images/portfolio/budget-opticals-mobile.jpg"
+      }
     },
     {
       "id": "cawt",
       "title": "Cine Artistes Welfare Trust (CAWT)",
       "industryLabel": "Nonprofit / Welfare Trust",
       "workCompleted": "Website design and development for a nonprofit welfare trust, including a donor-facing impact section and information on member support programs.",
-      "url": "https://cawtmumbai.org/"
+      "url": "https://cawtmumbai.org/",
+      "images": {
+        "desktop": "/assets/images/portfolio/cawt-desktop.jpg",
+        "tablet": "/assets/images/portfolio/cawt-tablet.jpg",
+        "mobile": "/assets/images/portfolio/cawt-mobile.jpg"
+      }
     },
     {
       "id": "cintaa-casting-portal",
       "title": "CINTAA Casting Portal",
       "industryLabel": "Entertainment / Casting Platform",
       "workCompleted": "Design and development of a custom casting portal connecting verified actors with casting directors and producers, including profile management and searchable talent discovery.",
-      "url": "https://castingactorsindia.cintaa.net/"
+      "url": "https://castingactorsindia.cintaa.net/",
+      "images": {
+        "desktop": "/assets/images/portfolio/cintaa-casting-portal-desktop.jpg",
+        "tablet": "/assets/images/portfolio/cintaa-casting-portal-tablet.jpg",
+        "mobile": "/assets/images/portfolio/cintaa-casting-portal-mobile.jpg"
+      }
     }
   ]
 }

@@ -120,3 +120,7 @@ All four are built (`/privacy-policy/`, `/terms-and-conditions/`, `/subscription
 ## About: Mission and Vision (2026-09-20)
 
 The About page credibility strip (`trust-signals`) was replaced by a `mission-vision` section directly after the hero: eyebrow, heading and two shared `.card` panels (Mission on the light fill, Vision on the brand-purple fill). Copy is in `data/pages/about.json`. The "25+ years" claim still appears in "Our Story". The Mission and Vision wording is a first draft for the owner to approve.
+
+## Portfolio "Recent work" mockups (2026-09-20)
+
+`/websites/portfolio/` shows each project as a responsive device mockup (desktop, tablet and phone screenshots of the live site, framed in CSS) with business type, name and a "View website" link (new tab), stacked one per row. Principle taken from the reference (icreateyoursite.com/portfolio): let a multi-device image carry the page, with a minimal caption. Implemented as the `portfolio-showcase` section (`templates/sections/portfolio-showcase.njk`); the About page keeps the `portfolio-grid` cards. Screenshots are `assets/images/portfolio/<id>-<desktop|tablet|mobile>.jpg`, created by `node scripts/capture-portfolio.js [id]` (needs Chrome or Edge, dev only) and referenced from `images` in `data/projects.json`. They are snapshots: re-run the script when a client site changes. To add a project, add it to `projects.json`, run the script, and add its id to `itemIds` on the portfolio page.

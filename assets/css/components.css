@@ -3028,3 +3028,109 @@ a.testimonials__rating:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+
+/* Portfolio showcase: responsive device mockups (desktop + tablet + phone screenshots
+   framed in CSS, no image editing needed). Sizes use container units so the frames and
+   bezels scale with the stage. Screens are real screenshots, so alt text lives on the
+   wrapper (role="img"). */
+.portfolio-showcase__list {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+.portfolio-showcase__item {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+}
+.device-mockup {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 62rem;
+}
+.device-mockup__stage {
+  position: relative;
+  aspect-ratio: 16 / 9.6;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(214, 149, 0, 0.16), transparent 45%),
+    linear-gradient(135deg, var(--color-lavender-soft), var(--color-neutral-surface));
+  overflow: hidden;
+}
+.device-mockup__desktop,
+.device-mockup__tablet,
+.device-mockup__phone {
+  position: absolute;
+  background: var(--color-primary);
+  box-shadow: 0 2.2cqw 4.5cqw -1.5cqw rgba(22, 2, 36, 0.45);
+}
+.device-mockup img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.device-mockup__desktop {
+  top: 8%;
+  left: 5%;
+  width: 72%;
+  border-radius: 1cqw;
+  overflow: hidden;
+}
+.device-mockup__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6cqw;
+  height: 2.6cqw;
+  padding-inline: 1.2cqw;
+  background: var(--color-primary);
+}
+.device-mockup__bar span {
+  width: 0.8cqw;
+  height: 0.8cqw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+.device-mockup__desktop img {
+  aspect-ratio: 1440 / 900;
+  height: auto;
+}
+.device-mockup__tablet {
+  right: 15%;
+  bottom: 7%;
+  width: 22%;
+  padding: 0.7cqw;
+  border-radius: 1.6cqw;
+}
+.device-mockup__tablet img {
+  aspect-ratio: 820 / 1100;
+  height: auto;
+  border-radius: 1cqw;
+}
+.device-mockup__phone {
+  right: 4.5%;
+  bottom: 5%;
+  width: 11.5%;
+  padding: 0.6cqw;
+  border-radius: 1.8cqw;
+}
+.device-mockup__phone img {
+  aspect-ratio: 390 / 800;
+  height: auto;
+  border-radius: 1.3cqw;
+}
+.portfolio-showcase__meta {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+}
+.portfolio-showcase__meta h3,
+.portfolio-showcase__meta .eyebrow {
+  margin: 0;
+}
+
+.portfolio-showcase__meta .button {
+  margin-top: var(--space-2);
+}

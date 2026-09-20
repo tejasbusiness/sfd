@@ -60,3 +60,5 @@ The build fails (non-zero exit) on any validation error, per CLAUDE.md's "fail t
 ## Backend scripts (added 2026-09-20)
 
 `npm run tunnel` (SSH tunnel to the live MySQL), `npm run migrate` and `npm run migrate:status` (run `api/bin/migrate.php`; PHP 8.2+ required locally). Environment files: `.env` (server) and `.env-local` (local), both gitignored; names in `.env.example`. Details in `docs/14-database-and-api.md`.
+
+`scripts/capture-portfolio.js` (development only, not part of the build) takes portfolio screenshots with headless Chrome or Edge over the DevTools protocol; see docs/04.

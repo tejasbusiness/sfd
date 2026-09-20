@@ -1,0 +1,47 @@
+{# Portfolio "Recent work": each project is shown as a responsive device mockup
+   (desktop, tablet and phone screenshots of the live site framed in CSS) with its
+   business type, name and a link to the live site. Projects come from the shared
+   projects.json by id; screenshots come from scripts/capture-portfolio.js. A project
+   without `images` is skipped rather than shown half-built. #}
+{% set resolvedItems = projects.items | selectByIds(section.itemIds) %}
+<section class="section portfolio-showcase">
+  <div class="container">
+    {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+    <h2>{{ section.heading }}</h2>
+    {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
+    <div class="portfolio-showcase__list">
+      {% for item in resolvedItems %}
+      {% if item.images %}
+      <article class="portfolio-showcase__item" data-reveal>
+        <div class="device-mockup" role="img" aria-label="{{ item.title }} shown on a desktop, a tablet and a phone">
+          <div class="device-mockup__stage" aria-hidden="true">
+            <div class="device-mockup__desktop">
+              <div class="device-mockup__bar"><span></span><span></span><span></span></div>
+              <img src="{{ item.images.desktop }}" alt="" width="1440" height="900" loading="lazy" decoding="async">
+            </div>
+            <div class="device-mockup__tablet">
+              <img src="{{ item.images.tablet }}" alt="" width="820" height="1100" loading="lazy" decoding="async">
+            </div>
+            <div class="device-mockup__phone">
+              <img src="{{ item.images.mobile }}" alt="" width="390" height="800" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-showcase__meta">
+          {% if item.industryLabel %}<p class="eyebrow">{{ item.industryLabel }}</p>{% endif %}
+          <h3>{{ item.title }}</h3>
+          {% if item.url %}
+          <a class="button button--secondary" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">View website<span class="visually-hidden"> ({{ item.title }}, opens in a new tab)</span></a>
+          {% endif %}
+        </div>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.cta %}
+    <p class="portfolio-grid__cta">
+      <a class="button button--primary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>
+    </p>
+    {% endif %}
+  </div>
+</section>

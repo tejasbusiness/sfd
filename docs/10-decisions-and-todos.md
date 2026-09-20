@@ -347,3 +347,7 @@ Then, from the roadmap and earlier open items:
 ### About Mission and Vision (2026-09-20)
 
 - Replaced the About page trust strip with a Mission and Vision section. The wording is a draft based on existing About and offer copy; the owner should approve or edit it in `data/pages/about.json`.
+
+### Portfolio mockups (2026-09-20)
+
+- Replaced the Recent work cards with responsive device mockups built from real screenshots of the three live client sites (already listed with permission). Details in docs/04. The Google-hosted client sites can change, so refresh the images with `scripts/capture-portfolio.js` when they do.

@@ -22,7 +22,7 @@
       "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
-      "type": "portfolio-grid",
+      "type": "portfolio-showcase",
       "heading": "Recent work",
       "itemIds": ["budget-opticals", "cawt", "cintaa-casting-portal"]
     },
