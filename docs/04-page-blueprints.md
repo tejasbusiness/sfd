@@ -134,3 +134,7 @@ Reference principles (icreateyoursite.com/case-studies): an index of cards (scre
 - **SEO:** each page has a unique title ("<Industry> Website Case Study | SynergyFirst Digital"), meta description, keyword-natural H1 and H2s, breadcrumbs and internal links.
 - **Honesty rule (CLAUDE.md rule 13):** these pages describe only what each live site visibly contains. No traffic, revenue or lead figures, no before-and-after, no invented client quotes or challenges. The blueprint sections "starting situation", "constraints", "before and after" and "verified outcome" stay empty until real, client-approved facts exist: add them to the page JSON (`outcome` renders automatically) rather than writing them from assumptions.
 - To add a case study: add the project (with `images`, `caseStudy`) to `projects.json`, run `scripts/capture-portfolio.js`, add a `case-study-<id>.json` page, and add its id to the index `itemIds`.
+
+## Services (2026-09-20)
+
+`/services/` is an overview (hero, link cards for the five services, how it fits with the subscription, CTA). Each service page (`data/pages/service-<slug>.json`) uses existing sections: hero, overview content block, "what is included" feature grid, "how it fits" content block, related-service link cards and a free-preview CTA. Every inclusion statement must match `data/plans.json` (plan names, allowances) or the About page; no prices, guarantees, rankings, response times or invented statistics. Marketing and social media are stated to be outside the standard plans (only the Business plan's SEO blog posts are included).

@@ -363,3 +363,7 @@ Then, from the roadmap and earlier open items:
 ### Insights renamed to Blog (2026-09-20)
 
 - `/resources/insights/` is now `/resources/blog/` (page `resources-blog.json`, nav and footer label "Blog", title and H1 "Blog"). A 301 redirect from the old URL is in `data/redirects.json`, so `deploy/nginx-redirects.conf` includes it. If you meant a top-level `/blog/`, say so and it is a one-line change plus a new redirect.
+
+### Services replace Industries in header and footer (2026-09-20)
+
+- Owner decision: Industries removed from the header and footer (industry pages kept, unlinked from navigation); Services added with five sub-items from the About page (Website Design & Development, Local SEO & Google Visibility, Website Care & WordPress Maintenance, Digital Marketing & Social Media, Automation & Custom Solutions). Built `/services/` plus five service pages with SEO copy checked against `plans.json`. Open: owner review of the service copy, and whether Industries should get a new home in the navigation later.

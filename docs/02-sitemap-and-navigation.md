@@ -4,7 +4,7 @@
 
 - Home
 - How It Works
-- Industries
+- Services
 - Websites
 - Pricing
 - About
@@ -19,6 +19,13 @@ The persistent header also exposes **Book a Free 30-Minute Discovery Call** with
 ```text
 /
 /how-it-works/
+
+/services/
+/services/website-design-development/
+/services/local-seo-google-visibility/
+/services/website-care-maintenance/
+/services/digital-marketing-social-media/
+/services/automation-custom-solutions/
 
 /industries/
 /industries/home-services/
@@ -85,7 +92,7 @@ Mobile recommendation:
 ## Footer groups
 
 - Websites: How It Works, Pricing, Portfolio, Case Studies.
-- Industries: five industry pages.
+- Services: the five service pages (Website Design & Development, Local SEO & Google Visibility, Website Care & WordPress Maintenance, Digital Marketing & Social Media, Automation & Custom Solutions).
 - Resources: Free Tools, Blog, FAQs if introduced.
 - Company: About, Contact, Book a Call.
 - Legal: Privacy, Terms, Subscription Terms, Refund Policy, Cookie Policy (plus the "Cookie settings" button that reopens the consent banner). These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns. The Cookie Policy was added 2026-09-20 because EU visitors are a main target.
@@ -105,3 +112,7 @@ Mobile recommendation:
 Six case studies are live under `/websites/case-studies/`: `budget-opticals`, `cawt`, `cintaa-casting-portal`, `brandbook-company`, `siddhant-cinevision` and `ev-world360`. They use the same six projects as the portfolio, are in the sitemap automatically, carry breadcrumbs (visible and `BreadcrumbList` schema), and are linked from the portfolio ("Read the case study"), the index and each other ("More case studies").
 
 - **Rename (2026-09-20):** the former Insights section is now **Blog** at `/resources/blog/` (and `/resources/blog/{article-slug}/`). `/resources/insights/` returns a single-hop 301 to it via `data/redirects.json`.
+
+## Services replace Industries in the navigation (2026-09-20)
+
+The header (mega menu and mobile More drawer) and footer now show **Services** instead of **Industries**. The Industries pages (`/industries/` and the five vertical pages) are **kept** and stay in the sitemap and canonical URL map; they are simply no longer linked from the header or footer (only from in-page links such as the homepage). Restore them by adding an item back in `data/navigation.json` and `data/footer.json`.

@@ -1,0 +1,122 @@
+{
+  "id": "service-local-seo-google-visibility",
+  "type": "service",
+  "slug": "local-seo-google-visibility",
+  "canonicalPath": "/services/local-seo-google-visibility/",
+  "seo": {
+    "title": "Local SEO & Google Business Profile Services | SynergyFirst Digital",
+    "metaDescription": "Local SEO and Google Business Profile services that help nearby customers find your business when they search for what you offer.",
+    "ogTitle": "Local SEO & Google Business Profile Services",
+    "ogDescription": "Practical local search work that helps nearby customers discover your business on Google.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Local SEO & Google Visibility Services",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "SERVICES",
+      "subheading": "Practical local search strategies that help nearby customers discover your business when they are actively looking for what you provide.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "LOCAL SEO",
+      "heading": "Get found by the customers closest to you",
+      "body": [
+        "Most local customers start with a search. Local SEO makes sure your business appears when someone nearby looks for what you do, with a well-structured website and a complete, active Google Business Profile.",
+        "We focus on the practical work that helps local businesses be found and trusted: a site that search engines can understand, an optimised Business Profile, and content that answers what customers actually ask."
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT IS INCLUDED",
+      "heading": "What our local SEO services include",
+      "intro": "The depth of SEO work grows with your plan.",
+      "items": [
+        {
+          "title": "Basic SEO setup",
+          "body": "Every website plan includes a search-friendly structure, page titles and descriptions and basic analytics."
+        },
+        {
+          "title": "Google Business Profile optimisation",
+          "body": "We optimise your profile so your business information, services and categories are complete and accurate."
+        },
+        {
+          "title": "On-page SEO optimisation",
+          "body": "The Business plan adds on-page optimisation across your pages so each one is clear about what it offers."
+        },
+        {
+          "title": "Profile management",
+          "body": "The Business plan includes Google Business Profile management for one location, including reviews and customer replies."
+        },
+        {
+          "title": "SEO blog content",
+          "body": "The Business plan includes one to two SEO blog posts per month to answer customer questions and support search visibility."
+        },
+        {
+          "title": "Custom SEO strategy for larger needs",
+          "body": "The E-Commerce plan adds a custom SEO strategy and execution, with profile management for up to four locations."
+        }
+      ]
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "GOOD TO KNOW",
+      "heading": "Honest expectations",
+      "body": [
+        "Search results depend on many factors outside anyone's control, including competition and search engine changes, so we do not promise rankings or a specific number of calls. What we do is the consistent, practical work that gives your business the best chance of being found.",
+        "Local SEO works best on top of a fast, clear website. That is why it sits inside our managed website plans and not as a disconnected extra."
+      ]
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED SERVICES",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Website Design & Development",
+          "description": "Custom, fast websites built around your customers.",
+          "href": "/services/website-design-development/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Digital Marketing & Social Media",
+          "description": "Consistent campaigns and content that keep you visible.",
+          "href": "/services/digital-marketing-social-media/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 12v3a1 1 0 001 1h2l6 4V8L7 12H5a1 1 0 00-1 1zM17 9a4 4 0 010 6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "description": "Updates, backups and support after launch.",
+          "href": "/services/website-care-maintenance/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we would build for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-09-20"
+}

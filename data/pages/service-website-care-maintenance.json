@@ -1,0 +1,122 @@
+{
+  "id": "service-website-care-maintenance",
+  "type": "service",
+  "slug": "website-care-maintenance",
+  "canonicalPath": "/services/website-care-maintenance/",
+  "seo": {
+    "title": "Website Maintenance & Care Plans | SynergyFirst Digital",
+    "metaDescription": "Website maintenance and care: hosting, SSL, security, backups, monitoring and monthly content updates so your website stays fast, safe and current.",
+    "ogTitle": "Website Maintenance & Care Plans",
+    "ogDescription": "Reliable updates, backups, security checks and technical support that keep your website healthy after launch.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Website Care & WordPress Maintenance",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "SERVICES",
+      "subheading": "Reliable updates, backups, security checks and technical support that keep your website healthy after launch.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "WEBSITE CARE",
+      "heading": "Launch is a milestone, not the finish line",
+      "body": [
+        "A website needs ongoing attention: software to keep current, security to keep tight and content to keep accurate. Left alone, sites slow down, break or fall out of date, and customers notice.",
+        "Our care service takes that work off your plate. We host, secure and maintain your website, and we make the content updates you ask for, so you can run your business while the site stays in good shape."
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT IS INCLUDED",
+      "heading": "What our website care and maintenance includes",
+      "intro": "Care is built into every managed website plan.",
+      "items": [
+        {
+          "title": "Domain, hosting, SSL and security",
+          "body": "Included in every plan, so your site is online, encrypted and protected."
+        },
+        {
+          "title": "Uptime monitoring",
+          "body": "Monthly uptime monitoring helps us spot and fix availability problems."
+        },
+        {
+          "title": "Monthly content updates",
+          "body": "A defined number of updates each month covers changes such as new offers, hours, images and text. Lite includes 10, Business 20 and E-Commerce 40."
+        },
+        {
+          "title": "Priority support on larger plans",
+          "body": "Business adds priority support, and E-Commerce adds same-day support and a dedicated account manager."
+        },
+        {
+          "title": "Analytics reporting",
+          "body": "Basic analytics on every plan, monthly reporting on Business and an advanced dashboard on E-Commerce."
+        },
+        {
+          "title": "WordPress maintenance",
+          "body": "For existing WordPress sites we can handle updates, backups and security checks. Talk to us about your setup."
+        }
+      ]
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "OWNERSHIP",
+      "heading": "Support that grows with you",
+      "body": [
+        "Your website is kept in shape by a team that already knows your business, and you can ask for improvements as your needs change. When you need something more, such as a new page or a new feature, we scope it with you.",
+        "After three continuous months of paid subscription on any plan, the complete website can be transferred to your own hosting at no charge. See the subscription terms for details."
+      ]
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED SERVICES",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Website Design & Development",
+          "description": "Custom, fast websites built around your customers.",
+          "href": "/services/website-design-development/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Local SEO & Google Visibility",
+          "description": "Be found by nearby customers on Google.",
+          "href": "/services/local-seo-google-visibility/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Automation & Custom Solutions",
+          "description": "Systems and AI workflows that save time.",
+          "href": "/services/automation-custom-solutions/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we would build for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-09-20"
+}

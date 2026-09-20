@@ -21,9 +21,22 @@
     "saveLabel": "Save my choices",
     "settingsLinkLabel": "Cookie settings",
     "categories": [
-      { "id": "necessary", "label": "Necessary", "description": "Keep the site secure and remember your cookie choice. Always on.", "locked": true },
-      { "id": "analytics", "label": "Analytics", "description": "Help us understand how visitors use the site. We do not use any analytics yet." },
-      { "id": "marketing", "label": "Marketing", "description": "Used to measure and personalise advertising. We do not use any marketing cookies yet." }
+      {
+        "id": "necessary",
+        "label": "Necessary",
+        "description": "Keep the site secure and remember your cookie choice. Always on.",
+        "locked": true
+      },
+      {
+        "id": "analytics",
+        "label": "Analytics",
+        "description": "Help us understand how visitors use the site. We do not use any analytics yet."
+      },
+      {
+        "id": "marketing",
+        "label": "Marketing",
+        "description": "Used to measure and personalise advertising. We do not use any marketing cookies yet."
+      }
     ]
   },
   "brandStatement": "We build and manage conversion-focused websites for local businesses—starting with a free preview website, you can review before you commit.",
@@ -31,44 +44,101 @@
     {
       "title": "Websites",
       "links": [
-        { "label": "How It Works", "path": "/how-it-works/" },
-        { "label": "Pricing", "path": "/pricing/" },
-        { "label": "Portfolio", "path": "/websites/portfolio/" },
-        { "label": "Case Studies", "path": "/websites/case-studies/" }
+        {
+          "label": "How It Works",
+          "path": "/how-it-works/"
+        },
+        {
+          "label": "Pricing",
+          "path": "/pricing/"
+        },
+        {
+          "label": "Portfolio",
+          "path": "/websites/portfolio/"
+        },
+        {
+          "label": "Case Studies",
+          "path": "/websites/case-studies/"
+        }
       ]
     },
     {
-      "title": "Industries",
+      "title": "Services",
       "links": [
-        { "label": "Home Services", "path": "/industries/home-services/" },
-        { "label": "Restaurants", "path": "/industries/restaurants/" },
-        { "label": "Healthcare", "path": "/industries/healthcare/" },
-        { "label": "Financial Services", "path": "/industries/financial-services/" },
-        { "label": "Professional Services", "path": "/industries/professional-services/" }
+        {
+          "label": "Website Design & Development",
+          "path": "/services/website-design-development/"
+        },
+        {
+          "label": "Local SEO & Google Visibility",
+          "path": "/services/local-seo-google-visibility/"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "path": "/services/website-care-maintenance/"
+        },
+        {
+          "label": "Digital Marketing & Social Media",
+          "path": "/services/digital-marketing-social-media/"
+        },
+        {
+          "label": "Automation & Custom Solutions",
+          "path": "/services/automation-custom-solutions/"
+        }
       ]
     },
     {
       "title": "Resources",
       "links": [
-        { "label": "Free Tools", "path": "/resources/free-tools/" },
-        { "label": "Blog", "path": "/resources/blog/" }
+        {
+          "label": "Free Tools",
+          "path": "/resources/free-tools/"
+        },
+        {
+          "label": "Blog",
+          "path": "/resources/blog/"
+        }
       ]
     },
     {
       "title": "Company",
       "links": [
-        { "label": "About", "path": "/about/" },
-        { "label": "Contact", "path": "/contact/" },
-        { "label": "Book a Call", "path": "/book-a-call/" }
+        {
+          "label": "About",
+          "path": "/about/"
+        },
+        {
+          "label": "Contact",
+          "path": "/contact/"
+        },
+        {
+          "label": "Book a Call",
+          "path": "/book-a-call/"
+        }
       ]
     }
   ],
   "legalLinks": [
-    { "label": "Privacy Policy", "path": "/privacy-policy/" },
-    { "label": "Terms and Conditions", "path": "/terms-and-conditions/" },
-    { "label": "Subscription Terms", "path": "/subscription-terms/" },
-    { "label": "Refund Policy", "path": "/refund-policy/" },
-    { "label": "Cookie Policy", "path": "/cookie-policy/" }
+    {
+      "label": "Privacy Policy",
+      "path": "/privacy-policy/"
+    },
+    {
+      "label": "Terms and Conditions",
+      "path": "/terms-and-conditions/"
+    },
+    {
+      "label": "Subscription Terms",
+      "path": "/subscription-terms/"
+    },
+    {
+      "label": "Refund Policy",
+      "path": "/refund-policy/"
+    },
+    {
+      "label": "Cookie Policy",
+      "path": "/cookie-policy/"
+    }
   ],
   "social": []
 }

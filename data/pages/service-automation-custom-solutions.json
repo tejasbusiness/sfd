@@ -1,0 +1,122 @@
+{
+  "id": "service-automation-custom-solutions",
+  "type": "service",
+  "slug": "automation-custom-solutions",
+  "canonicalPath": "/services/automation-custom-solutions/",
+  "seo": {
+    "title": "Business Automation & Custom Software | SynergyFirst Digital",
+    "metaDescription": "Business automation and custom software for local businesses: CRM, WhatsApp and booking integrations, AI-assisted workflows and internal tools.",
+    "ogTitle": "Business Automation & Custom Software",
+    "ogDescription": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Business Automation & Custom Solutions",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "SERVICES",
+      "subheading": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work and help your team operate more efficiently.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "AUTOMATION",
+      "heading": "Let software handle the repetitive work",
+      "body": [
+        "Many small businesses lose time and leads to manual tasks: replying to the same questions, copying details between tools, or chasing enquiries. Automation removes that friction so every lead is captured and followed up, and your team can focus on the work only people can do.",
+        "We build practical systems that connect to your website, from booking and CRM to messaging and AI assistants, and we can develop custom tools when an off-the-shelf product does not fit."
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT IS INCLUDED",
+      "heading": "What our automation and custom solutions include",
+      "intro": "The scope grows with your plan, and we tailor the real thing to your business.",
+      "items": [
+        {
+          "title": "Booking and CRM systems",
+          "body": "The Business plan includes booking and CRM systems, so enquiries are tracked and nothing slips through the cracks."
+        },
+        {
+          "title": "WhatsApp integration",
+          "body": "An optional upgrade that lets customers reach you on the messaging app they already use every day."
+        },
+        {
+          "title": "AI chatbot or automation",
+          "body": "The E-Commerce plan includes an AI chatbot or automation, so common enquiries get an instant reply."
+        },
+        {
+          "title": "Custom software development",
+          "body": "Internal tools, dashboards and CRMs built around how your business actually works, included in the E-Commerce plan."
+        },
+        {
+          "title": "AI-assisted website edits",
+          "body": "On-demand AI-assisted edits speed up changes to your site on the E-Commerce plan."
+        },
+        {
+          "title": "Multi-location management",
+          "body": "The E-Commerce plan manages several locations across websites and listings."
+        }
+      ]
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "GETTING STARTED",
+      "heading": "Start with the problem, not the tool",
+      "body": [
+        "We recommend automation only where it solves a real problem, never because it is fashionable. Tell us where your team loses time, and we will suggest the simplest system that fixes it.",
+        "Have a specific tool or workflow in mind? Book a call and we will discuss what it would take to build it for your business."
+      ]
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED SERVICES",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "description": "Updates, backups and support after launch.",
+          "href": "/services/website-care-maintenance/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Website Design & Development",
+          "description": "Custom, fast websites built around your customers.",
+          "href": "/services/website-design-development/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Digital Marketing & Social Media",
+          "description": "Consistent campaigns and content that keep you visible.",
+          "href": "/services/digital-marketing-social-media/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 12v3a1 1 0 001 1h2l6 4V8L7 12H5a1 1 0 00-1 1zM17 9a4 4 0 010 6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we would build for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-09-20"
+}
