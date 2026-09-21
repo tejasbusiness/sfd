@@ -367,3 +367,8 @@ Then, from the roadmap and earlier open items:
 ### Services replace Industries in header and footer (2026-09-20)
 
 - Owner decision: Industries removed from the header and footer (industry pages kept, unlinked from navigation); Services added with five sub-items from the About page (Website Design & Development, Local SEO & Google Visibility, Website Care & WordPress Maintenance, Digital Marketing & Social Media, Automation & Custom Solutions). Built `/services/` plus five service pages with SEO copy checked against `plans.json`. Open: owner review of the service copy, and whether Industries should get a new home in the navigation later.
+
+### Pending: move "How It Works" out of the top-level menu (analysed 2026-09-21, no changes made)
+
+- Owner question: can How It Works become a sub-menu item under About Us or Our Work? Recommendation: **About Us** (process page fits "how we operate"; Our Work is proof-only). Alternative worth considering: Pricing dropdown (Plans, How It Works). Awaiting owner choice.
+- If approved: in `data/navigation.json` give the chosen parent a `children` list (simple dropdown) and remove the top-level How It Works item; keep `/how-it-works/` URL (no redirect), the footer link and the mobile tab bar entry; check the parent link still works by keyboard and touch; add it to the mobile "More" drawer only if removed from the tab bar; update docs/02 and this log.
