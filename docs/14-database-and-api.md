@@ -73,6 +73,8 @@ Frontend: `submitJson()`, `trackingFields()` (current URL's utm values only, not
 
 ## Deploying to the server (CloudPanel PHP site, root directory `dist`)
 
+**The full, current step-by-step procedure (commands, verification, rollback, troubleshooting, vhost and one-time server setup) is in `deploy.md` at the project root. Follow that file; the notes below are background.**
+
 Site folder: `/home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/`
 
 1. `npm run build:production`, then upload `dist/` to `<site>/dist/`.

@@ -456,3 +456,7 @@ Then, from the roadmap and earlier open items:
 - Unchanged on purpose: the `/free-preview/` URL, the short nav and tab-bar label "Free Preview", the "Free Preview application" wording, and phrases that describe the site itself ("we build your preview website"). Earlier log entries in this file still use the old name as history.
 - Touched 42 files (page data, header and section templates, owner-email text in the API, README, CLAUDE.md, docs/01). Two legal pages (Terms and Conditions, Refund Policy) changed only in this terminology; they still need the lawyer review already listed. Button text is a good candidate for an A/B test once ad traffic exists.
 - Redeploy `dist/` and `api/src`.
+
+### deploy.md added (2026-09-21)
+
+- Owner request: one file with every deployment step and command, usable from a fresh PowerShell window. Added `deploy.md` at the project root (variables step, pull, validate and production build, access check, upload, backup-and-swap, optional dependency, migration, nginx and `.env` steps, live verification, browser and form tests, rollback, troubleshooting table, the full vhost and one-time server setup). README, docs/14 and CLAUDE.md point to it; CLAUDE.md now requires keeping it in sync with any change to the build, server layout, vhost, environment variables or deploy commands.
