@@ -99,6 +99,8 @@ scp -i $KEY .env $SRV:$SITE/_release/.env
 ssh -i $KEY $SRV "cd $SITE && mkdir -p dist api migrations && cp -a dist dist.bak && rsync -a --delete _release/dist/ dist/ && rsync -a --delete --exclude vendor _release/api/ api/ && rsync -a --delete _release/migrations/ migrations/ && cp _release/.env .env && chmod 640 .env && rm -rf _release && cd api && composer install --no-dev --optimize-autoloader"
 ```
 
+**First set the site's Root Directory to `dist` in CloudPanel** (it defaults to the site folder, which holds `.env`, `api/` and `migrations/`). Until then keep `.env` out of the site folder (`mv $SITE/.env $SITE/../env.hold`, then move it back). Until the vhost is pasted, the CloudPanel placeholder `index.php` answers every path with `Hello World :-)` and status 200, so a 200 on `/.env` does not prove a leak: check the response body (`curl.exe -s <url>`), not just the status.
+
 Then paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (replace any existing `location /` or `error_page`), confirm the site's root directory is `dist`, and verify: `curl -I https://synergyfirstdigital.com/` (200), `/.env` (not 200), `/no-such-page/` (404), `/services/website-design-development/` (301), `/api/availability?timezone=UTC` (JSON). If the API returns 500 the PHP user probably cannot read `.env` (owned by `sfd-deploy`): fix the owner/group in CloudPanel or with sudo. Optional cron for `api/bin/send-outbox.php` in CloudPanel, as the site user.
 
 ## Status
