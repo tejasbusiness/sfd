@@ -24,6 +24,8 @@ Options (add after `--` with npm, or directly after `deploy.bat`):
 | `npm run deploy -- -VerifyOnly` | Only runs the live-site checks (read-only, safe any time). |
 | `npm run deploy -- -Rollback` | Restores the previous static site (`dist.bak`). |
 
+From a terminal, `npm run deploy` is the smoothest way; `deploy.bat` is meant for double-clicking and may wait for a key press at the end so the window does not close.
+
 Two things the script cannot do for you: pasting new nginx redirects into the CloudPanel vhost (it tells you when they changed and copies them to your clipboard; see Step 9) and changing the CloudPanel or server settings in Appendix B.
 
 The script is `scripts/deploy.ps1` (with the `deploy.bat` wrapper). **The manual steps below are the same procedure written out**: use them to understand what the script does, or to deploy by hand if the script cannot run.

@@ -12,5 +12,5 @@ cd /d "%~dp0"
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\deploy.ps1" %*
 set EXITCODE=%ERRORLEVEL%
 rem Keep the window open when it was started by double-clicking.
-echo %cmdcmdline% | "%SystemRoot%System32ind.exe" /i "deploy.bat" >nul && pause
+echo %cmdcmdline% | "%SystemRoot%\System32\find.exe" /i "deploy.bat" >nul && pause
 exit /b %EXITCODE%
