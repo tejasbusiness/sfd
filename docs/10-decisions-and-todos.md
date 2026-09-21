@@ -379,7 +379,8 @@ Then, from the roadmap and earlier open items:
 
 - Owner decisions: SEO moves to `/services/seo/` (label "SEO") as a standalone service with a **free website audit**; Automation becomes **AI & Automation** at `/services/ai-automation/`; the reference's "1-on-1 Website Help" is not added as a page (Website Care covers it); all five service pages get the same structure and hero (docs/04). 301s from both old URLs. Logos now live once in `data/client-logos.json`.
 - Built in one generator pass; all four pages reuse existing copy and `plans.json` facts. Process steps are ours (audit, fix the foundation, build local presence, report), not the reference's. The reference's statistic ("93% of online experiences start with a search engine") and industry use-case examples were not used because they are unsourced or not our offer.
-- Open: confirm the free audit scope and wording; owner review of all new service copy; the audit request currently arrives as a normal enquiry with topic `SEO`, so decide if it needs its own follow-up flow. No pricing is shown for standalone SEO (none has been decided).
+- Confirmed by the owner (2026-09-21): the free audit wording and the new service copy are approved. Forms will be tested by the owner after the production deploy, not in a local session.
+- Open: the audit request currently arrives as a normal enquiry with topic `SEO`, so decide if it needs its own follow-up flow. No pricing is shown for standalone SEO (none has been decided).
 - Checks: rebuild, validate and `test:validation` pass; all five pages return 200 and the old URLs redirect in one hop; layout checked in headless Chrome. Form submission is still untested against the live API (form-testing session).
 
 ### Websites service page rebuilt as a landing page (2026-09-21)
