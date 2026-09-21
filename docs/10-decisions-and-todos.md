@@ -293,7 +293,7 @@ Do not silently choose values for any blocking item. Use clearly labelled tempor
 ### SEO infrastructure (2026-09-20)
 
 - Hosting confirmed: Contabo VPS with CloudPanel (nginx). Built: real 404 page (`dist/404.html`), `sitemap.xml`, `robots.txt`, `deploy/nginx-redirects.conf` from `data/redirects.json` (currently empty: no legacy URLs yet), SEO build checks and output audit, and a local server that mirrors the nginx behaviour. Details in docs/02, 08, 09 and 11.
-- New BLOCKING before launch: add the real `assets/images/og-default.jpg` (1200x630). Production validation fails until it exists.
+- ~~BLOCKING: add the real `assets/images/og-default.jpg` (1200x630).~~ Resolved 2026-09-21.
 - Deployment to-do: paste `deploy/nginx-redirects.conf` into the CloudPanel vhost; confirm CloudPanel's default static-site config does not already define a conflicting `location /` or `error_page`.
 - Open: security headers and `X-Robots-Tag` for the preview host are not yet defined.
 
@@ -333,7 +333,7 @@ Next up, in suggested order:
 1. **Google Calendar and Meet:** create the Google OAuth client, refresh token and calendar ID, put them in `.env` and `.env-local` (`GOOGLE_*`, then `GOOGLE_ENABLED=1`), and test that a booking creates the event, the Meet link and the invite. The code exists (`api/src/Google.php`) but is untested.
 2. **Browser test of every form locally:** run `npm run tunnel` and `npm run serve` (restart it; it now proxies `/api/`), then try the booking modal (dates, times, timezone change, slot-taken case), Contact, Free Preview, playbook and the cookie banner. Use `MAIL_LOCAL=1` only when testing real emails.
 3. **Production deploy** (steps in `docs/14-database-and-api.md`): fix write permissions for `sfd-deploy` on the site folder (or upload through CloudPanel), upload `dist/`, `api/`, `migrations/` and `.env`, run `composer install --no-dev` and the migrations on the server, paste `deploy/nginx-redirects.conf` into the CloudPanel vhost, add the cron job for `api/bin/send-outbox.php`, and verify `.env` is not downloadable.
-4. **Add `assets/images/og-default.jpg` (1200x630):** `npm run build:production` fails until it exists.
+4. ~~Add `assets/images/og-default.jpg`~~ **Done 2026-09-21** (1200x630, 72 KB); `npm run build:production` passes. Optional polish only: see docs/08.
 5. **Confirm the booking placeholders** in the `booking_settings` table: buffer (15 min, which hides the slot after each booking), minimum notice (12 h), window (30 days), daily limit (6).
 
 Then, from the roadmap and earlier open items:

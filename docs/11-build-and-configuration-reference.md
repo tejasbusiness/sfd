@@ -55,7 +55,7 @@ The build fails (non-zero exit) on any validation error, per CLAUDE.md's "fail t
 - `scripts/generate-seo.js` writes `dist/sitemap.xml`, `dist/robots.txt` and `deploy/nginx-redirects.conf` (outside `dist/` so it is never public). `scripts/check-output.js` audits the rendered `dist/` (see docs/08). Both run inside `scripts/build.js`. `npm run clean` removes `dist/` and `deploy/`.
 - `validate-data.js` gained `validateSite`, `validateSeoAcrossPages` and `validateRedirects`; `redirects.json` is now a loaded shared file. This supersedes the "deferred" note above for sitemap and robots; a separate `validate-links.js` is still deferred.
 - Page type `not-found` renders to `dist/404.html` (no canonical, `og:url` or schema).
-- `npm run build:production` currently fails only because `/assets/images/og-default.jpg` is missing.
+- `npm run build:production` passes (the `og-default.jpg` blocker was resolved 2026-09-21).
 
 ## Backend scripts (added 2026-09-20)
 
