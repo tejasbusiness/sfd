@@ -14,5 +14,6 @@
     }
   ],
   "customerPortal": "crm.synergyfirstdigital.com",
+  "customerPortalLive": false,
   "responseTime": "We reply to every enquiry within 1 business day."
 }

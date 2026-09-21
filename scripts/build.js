@@ -38,15 +38,19 @@ function main() {
     process.exit(1);
   }
 
-  const written = renderPages({ templatesDir, outDir, mode, sharedData, pages });
+  // Build-proof diagnostic pages (type "internal-diagnostic") are development-only:
+  // they never ship in a production build (docs/10, link audit 2026-09-21).
+  const buildPages = mode === 'production' ? pages.filter((p) => p.data.type !== 'internal-diagnostic') : pages;
+
+  const written = renderPages({ templatesDir, outDir, mode, sharedData, pages: buildPages });
   copyIfExists(assetsDir, path.join(outDir, 'assets'));
   copyIfExists(publicDir, outDir);
   // The API front controller is served from /api/; the PHP source stays outside dist/ (docs/14).
   fs.mkdirSync(path.join(outDir, 'api'), { recursive: true });
   fs.copyFileSync(path.join(rootDir, 'api', 'public', 'index.php'), path.join(outDir, 'api', 'index.php'));
-  const seoFiles = writeSeoFiles({ rootDir, outDir, sharedData, pages });
+  const seoFiles = writeSeoFiles({ rootDir, outDir, sharedData, pages: buildPages });
 
-  const audit = checkOutput({ outDir, site: sharedData['site.json'], pages, mode });
+  const audit = checkOutput({ outDir, site: sharedData['site.json'], pages: buildPages, mode });
   if (audit.errors.length > 0) {
     console.error(`\nBuild failed SEO output checks (${audit.errors.length} error(s)):`);
     audit.errors.forEach((e) => console.error(`  - ${e}`));

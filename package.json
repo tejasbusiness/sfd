@@ -11,7 +11,7 @@
     "validate": "node scripts/validate-data.js --mode=development",
     "validate:production": "node scripts/validate-data.js --mode=production",
     "build": "node scripts/build.js --mode=development",
-    "build:production": "node scripts/build.js --mode=production",
+    "build:production": "npm run clean && node scripts/build.js --mode=production",
     "rebuild": "npm run clean && npm run build",
     "test:validation": "node --test tests/validate-data.test.js",
     "serve": "node scripts/serve.js",
