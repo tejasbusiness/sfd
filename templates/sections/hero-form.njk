@@ -41,7 +41,7 @@
           {{ fields.input("hf-name", "fullName", "Full name *", required=true, autocomplete="name") }}
           {{ fields.input("hf-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
           {{ fields.phone("hf", countryCodes, countryCodeOptions) }}
-          {{ fields.textarea("hf-message", "message", "Message *", required=true, rows=3) }}
+          {{ fields.textarea("hf-message", "message", "Message *", required=true, rows=2) }}
           {{ fields.consent("hf-consent", "consent", 'I confirm I have the right to share this information and I agree to SynergyFirst Digital using it to reply to my enquiry. See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
           <div class="sfd-form__actions field--full">
             <button type="submit" class="button button--primary" data-contact-submit>{{ section.form.submitLabel or "Send enquiry" }}</button>

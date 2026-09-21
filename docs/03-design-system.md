@@ -117,7 +117,7 @@ All FAQ / Common-questions sections (`faq` and `faq-split`) render through `temp
 
 ## Websites hero form and client logos (2026-09-21)
 
-`hero-form` reuses `.hero--band` with the copy on the left and the enquiry form in a shared `.card` on the right (form second on phones). Focus rings inside the light card are dark purple, not the band's gold. `client-logos` uses one `.card` per logo in a 2, 3 and 4 column grid with fixed-height tiles; the dark tile changes fill only (`.client-logos__item--dark`), never radius, border or padding.
+`hero-form` reuses `.hero--band` with the copy on the left and the enquiry form in a shared `.card` on the right (form second on phones). The hero uses compact vertical padding so the full form shows above the fold on a ~770px-tall laptop screen. Focus rings inside the light card are dark purple, not the band's gold. `client-logos` uses one `.card` per logo in a 2, 3 and 4 column grid with fixed-height tiles; the dark tile changes fill only (`.client-logos__item--dark`), never radius, border or padding.
 
 ## Hero band and legal pages
 
