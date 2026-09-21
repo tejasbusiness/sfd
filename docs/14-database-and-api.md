@@ -58,7 +58,7 @@ Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/
 |---|---|
 | `GET /api/availability?timezone=` | Open slots grouped by date in the visitor's timezone (MySQL rules, existing bookings, Google free/busy when enabled) |
 | `POST /api/bookings` | Book a call. `Idempotency-Key` header (UUID). 201 created, 200 same key replayed, 409 `slot_unavailable`, 422 field errors |
-| `POST /api/contact` | Contact form |
+| `POST /api/contact` | Contact form and the Websites landing hero form (`topic` is sent as a hidden field; `source` is optional) |
 | `POST /api/preview-applications` | Free Preview application |
 | `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
 | `POST /api/consent` | Records the cookie-banner choice |

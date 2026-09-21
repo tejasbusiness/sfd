@@ -1,0 +1,247 @@
+{
+  "id": "service-websites",
+  "type": "service",
+  "slug": "websites",
+  "canonicalPath": "/services/websites/",
+  "seo": {
+    "title": "Websites for Local Businesses | SynergyFirst Digital",
+    "metaDescription": "Custom, responsive websites for local businesses on one monthly plan, with hosting and support included. Preview yours free for seven days before you subscribe.",
+    "ogTitle": "Websites for Local Businesses",
+    "ogDescription": "Custom, managed websites on a monthly plan. Preview yours free for seven days before you decide.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "A Professional Website, Built and Managed for You",
+  "breadcrumbs": null,
+  "sections": [
+    {
+      "type": "hero-form",
+      "eyebrow": "WEBSITES",
+      "subheading": "Custom-designed, responsive websites for local businesses, with hosting, updates and support included in one monthly plan.",
+      "points": [
+        "Preview your website free and in private for seven days",
+        "Subscribe only if you like it",
+        "Hosting, SSL, security and updates included"
+      ],
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 30-Minute Discovery Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "heading": "Tell us about your business",
+        "intro": "Send us a few details and we will reply by email.",
+        "topic": "Websites",
+        "submitLabel": "Send enquiry"
+      }
+    },
+    {
+      "type": "client-logos",
+      "eyebrow": "OUR CLIENTS",
+      "heading": "Businesses we work with",
+      "items": [
+        {
+          "name": "Budget Opticals of America",
+          "src": "/assets/images/customer-logos/budget-opticals-of-america.png",
+          "width": 157,
+          "height": 60
+        },
+        {
+          "name": "CAWT Mumbai",
+          "src": "/assets/images/customer-logos/cawt-mumbai.png",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "CINTAA",
+          "src": "/assets/images/customer-logos/cintaa.png",
+          "width": 365,
+          "height": 199
+        },
+        {
+          "name": "The BrandBook Company",
+          "src": "/assets/images/customer-logos/brand-book-company.png",
+          "width": 1024,
+          "height": 50
+        },
+        {
+          "name": "Siddhant Cinevision Pvt. Ltd.",
+          "src": "/assets/images/customer-logos/siddhant-cinevision.png",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "name": "EV WORLD360",
+          "src": "/assets/images/customer-logos/evworld360.png",
+          "width": 815,
+          "height": 338,
+          "tile": "dark"
+        },
+        {
+          "name": "123 Silva",
+          "src": "/assets/images/customer-logos/123-silva.png",
+          "width": 755,
+          "height": 152,
+          "tile": "dark"
+        },
+        {
+          "name": "NextWorld Communications",
+          "src": "/assets/images/customer-logos/nextworld-communications.png",
+          "width": 500,
+          "height": 165,
+          "tile": "dark"
+        }
+      ],
+      "tinted": true
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "WHY A MANAGED WEBSITE",
+      "heading": "A website that works as hard as your business does",
+      "body": [
+        "Your website is often the first place a customer decides whether to call you. We design and develop custom websites for local businesses so that decision is easy: clear services, a professional look and an obvious next step on every page.",
+        "Every site is custom-designed and responsive, not a recycled template, and it is built to load quickly on phones as well as desktops. We start from your customers, your offer and your goals, and design follows from there."
+      ]
+    },
+    {
+      "type": "portfolio-showcase",
+      "tinted": false,
+      "eyebrow": "RECENT WORK",
+      "heading": "Websites we have built",
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "ev-world360"
+      ],
+      "cta": {
+        "label": "View all our work",
+        "href": "/websites/portfolio/"
+      }
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT IS INCLUDED",
+      "heading": "What every website includes",
+      "intro": "Every managed website plan starts from the same solid foundation.",
+      "items": [
+        {
+          "title": "Custom, responsive design",
+          "body": "A design made for your business, with no templates, that adapts cleanly from desktop to tablet to phone."
+        },
+        {
+          "title": "Speed-optimised pages",
+          "body": "Pages are built to load quickly, because slow pages lose visitors before they read a word."
+        },
+        {
+          "title": "Clear calls to action",
+          "body": "Calls, bookings and enquiry forms are placed where visitors are ready to act."
+        },
+        {
+          "title": "An accessibility-conscious build",
+          "body": "We build with semantic structure, readable contrast and keyboard-friendly navigation in mind."
+        },
+        {
+          "title": "Domain, hosting, SSL and security",
+          "body": "The technical side is handled for you as part of your monthly plan."
+        },
+        {
+          "title": "Basic SEO setup and analytics",
+          "body": "Titles, descriptions, structure and basic analytics are set up so the site is ready to be found and measured."
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "eyebrow": "WHAT WE BUILD",
+      "heading": "The websites we build",
+      "intro": "Whatever your business needs online, we build it around your customers.",
+      "items": [
+        {
+          "title": "Business websites",
+          "body": "A custom site for your local business: your services, your story and a clear way for customers to call or enquire."
+        },
+        {
+          "title": "Website redesigns",
+          "body": "Already have a site that looks dated or is hard to use on a phone? We rebuild it around your customers."
+        },
+        {
+          "title": "Booking and appointment websites",
+          "body": "Let customers book online instead of phoning. Booking and CRM systems are part of the Business plan."
+        },
+        {
+          "title": "E-commerce websites",
+          "body": "A complete online store with product catalogue, checkout and payments, available on the E-Commerce plan."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "tinted": false,
+      "eyebrow": "HOW IT WORKS",
+      "heading": "See it before you subscribe",
+      "intro": "We review each request first, so we only offer previews where we can create something genuinely useful for your business.",
+      "steps": [
+        {
+          "title": "Tell us about your business",
+          "body": "Send your details through the form or apply for a free preview."
+        },
+        {
+          "title": "Review your private preview",
+          "body": "You get seven days to look over your preview website in private."
+        },
+        {
+          "title": "Subscribe only if you like it",
+          "body": "If it is right for you, activate a monthly plan. If not, there is no cost and no obligation."
+        }
+      ],
+      "cta": {
+        "label": "See How It Works",
+        "href": "/how-it-works/"
+      }
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED SERVICES",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Local SEO & Google Visibility",
+          "description": "Be found by nearby customers on Google.",
+          "href": "/services/local-seo-google-visibility/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "description": "Updates, backups and support after launch.",
+          "href": "/services/website-care-maintenance/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Automation & Custom Solutions",
+          "description": "Systems and AI workflows that save time.",
+          "href": "/services/automation-custom-solutions/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "Want to see what we would build for your business?",
+      "body": "Apply for a complimentary preview. There is no cost and no obligation to continue.",
+      "primaryCta": {
+        "label": "Request Your Free Preview Website",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-09-21"
+}

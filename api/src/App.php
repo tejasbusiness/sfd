@@ -213,7 +213,7 @@ final class App
         $v = (new Validator($in))
             ->text('fullName', 'Full name', 120)->email()->phone()
             ->text('businessName', 'Business name', 160, false)->website('website')
-            ->text('topic', 'Topic', 60)->text('source', 'This', 60)->text('sourceOther', 'This', 160, false)
+            ->text('topic', 'Topic', 60)->text('source', 'This', 60, false)->text('sourceOther', 'This', 160, false)
             ->text('message', 'Message', 5000)->consent();
         if (($v->clean['source'] ?? '') === 'other' && ($v->clean['sourceOther'] ?? null) === null) {
             $v->errors['sourceOther'] = 'Please tell us where you heard about us.';
@@ -237,7 +237,8 @@ final class App
         Mailer::send('contact_owner', Env::require('MAIL_OWNER_TO'), null, "New enquiry: {$c['fullName']}", 'A visitor sent a message through the contact form.', [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'], 'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'],
             'Business' => (string) $c['businessName'], 'Website' => (string) $c['website'], 'Topic' => $c['topic'],
-            'Heard about us' => $c['source'] . ($c['sourceOther'] ? ' (' . $c['sourceOther'] . ')' : ''), 'Message' => $c['message'],
+            'Heard about us' => (string) $c['source'] . ($c['sourceOther'] ? ' (' . $c['sourceOther'] . ')' : ''), 'Message' => $c['message'],
+            'Page' => (string) $t['source_page'], 'Campaign' => (string) $t['utm_campaign'],
         ], 'contact', $id, $c['email']);
         Mailer::send('contact_visitor', $c['email'], $c['fullName'], 'We received your message', "Hi {$c['fullName']}, thank you for contacting SynergyFirst Digital. " . self::RESPONSE_TIME, [
             'Reference' => $reference,

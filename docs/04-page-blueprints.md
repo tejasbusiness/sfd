@@ -98,6 +98,16 @@ Do not state that submission guarantees a preview.
 
 Provide booking, email and enquiry paths. Display real business information and response expectations only when confirmed.
 
+## Websites service and landing page (`/services/websites/`)
+
+Built 2026-09-21. Principles taken from the reference (icreateyoursite.com/websites/): a service landing page, not a gallery; outcome-led headline, then proof, what is included, what we build, then the ask. All copy is original and uses only facts already on the site (`plans.json`, the pricing page, the real portfolio). Left out on purpose because SFD has no verified equivalents (rule 13): award badges, "1,000+ sites" counters, review ratings and a delivery-time promise.
+
+Section order: `hero-form` (copy, three bullets, the free preview and discovery call buttons, and a short enquiry form), `client-logos` (8 real client logos), Why a managed website, `portfolio-showcase` (three real projects, link to the portfolio), What every website includes, What we build (business websites, redesigns, booking and appointment websites, e-commerce, the last matching the E-Commerce plan), `process` (three-step free preview), related services, free preview call to action.
+
+- **Hero form** (`templates/sections/hero-form.njk`): Full name, Email, Phone, Message and the consent checkbox, plus a hidden `topic` field (`Websites`, set in the page JSON as `form.topic`). Uses the shared form system and `assets/js/contact-form.js`, so it posts to `/api/contact` and is stored in `contact_enquiries` with the source page and UTM parameters. The contact API now treats "how did you hear about us" as optional (the contact page still requires it in the browser), and the owner email includes the page and campaign.
+- **Client logos** (`templates/sections/client-logos.njk`): logos in `assets/images/customer-logos/`, one `.card` each, alt text is the client name, not links. `tile: "dark"` puts white-artwork logos (EV WORLD360, 123 Silva, NextWorld Communications) on a solid dark tile.
+- The page is the `service` type, so every other service page can link to it, and the Free Preview button remains the primary conversion beside the form.
+
 ## Book a Call
 
 Dedicated fallback for the same booking engine used in the sitewide modal. It must be shareable and functional when opened directly.

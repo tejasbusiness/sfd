@@ -25,7 +25,8 @@ function validate(data) {
   if (!isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
   if (data.website && !isValidWebsite(data.website)) errors.website = WEBSITE_ERROR_MESSAGE;
   if (!data.topic) errors.topic = 'Choose what we can help with.';
-  if (!data.source) errors.source = 'Let us know how you heard about us.';
+  // Compact forms (e.g. the Websites hero) have no "how did you hear" select.
+  if ('source' in data && !data.source) errors.source = 'Let us know how you heard about us.';
   if (data.source === OTHER_SOURCE_VALUE && !data.sourceOther) errors.sourceOther = 'Please tell us where you heard about us.';
   if (!data.consent) errors.consent = 'Please confirm before sending.';
   if (!data.message) errors.message = 'Tell us a bit about what you need.';
@@ -43,16 +44,18 @@ export function initContactForm(form) {
   const successEl = document.querySelector('[data-contact-success]');
   const sourceSelect = form.querySelector('select[name="source"]');
   const otherInput = form.querySelector('input[name="sourceOther"]');
-  const otherField = otherInput.closest('.field');
+  const otherField = otherInput ? otherInput.closest('.field') : null;
   let submitting = false;
 
   // "Other" reveals a free-text field; picking anything else hides and clears it.
-  sourceSelect.addEventListener('change', () => {
-    const isOther = sourceSelect.value === OTHER_SOURCE_VALUE;
-    otherField.hidden = !isOther;
-    if (!isOther) otherInput.value = '';
-    else otherInput.focus();
-  });
+  if (sourceSelect && otherInput) {
+    sourceSelect.addEventListener('change', () => {
+      const isOther = sourceSelect.value === OTHER_SOURCE_VALUE;
+      otherField.hidden = !isOther;
+      if (!isOther) otherInput.value = '';
+      else otherInput.focus();
+    });
+  }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();

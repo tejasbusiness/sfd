@@ -55,9 +55,9 @@
       "viewAllLabel": "View all services",
       "megaItems": [
         {
-          "label": "Website Design & Development",
+          "label": "Websites",
           "description": "Custom, fast websites built around your customers.",
-          "href": "/services/website-design-development/",
+          "href": "/services/websites/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
@@ -172,8 +172,8 @@
       "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2B6CB0\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 6h16M4 12h16M4 18h10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
       "children": [
         {
-          "label": "Website Design & Development",
-          "path": "/services/website-design-development/",
+          "label": "Websites",
+          "path": "/services/websites/",
           "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2B6CB0\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {

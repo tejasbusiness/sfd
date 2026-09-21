@@ -35,9 +35,9 @@
       "intro": "We focus on the parts of your digital presence that directly influence visibility, credibility, enquiries and day-to-day efficiency.",
       "items": [
         {
-          "label": "Website Design & Development",
+          "label": "Websites",
           "description": "Fast, modern and conversion-focused websites shaped around your customers, your offer and the action you want visitors to take.",
-          "href": "/services/website-design-development/",
+          "href": "/services/websites/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {

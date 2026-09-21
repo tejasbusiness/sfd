@@ -2,7 +2,7 @@
 
 {% block content %}
   <article class="page">
-    {% if page.sections[0].type != "hero" and page.sections[0].type != "hero-split" and page.sections[0].type != "legal-document" %}
+    {% if page.sections[0].type != "hero" and page.sections[0].type != "hero-split" and page.sections[0].type != "hero-form" and page.sections[0].type != "legal-document" %}
     <section class="section hero hero--band">
       <div class="container hero__inner" data-reveal>
         <h1>{{ page.h1 | safe }}</h1>
@@ -13,6 +13,10 @@
     {% for section in page.sections %}
       {% if section.type == "hero" %}
         {% include "sections/hero.njk" %}
+      {% elif section.type == "hero-form" %}
+        {% include "sections/hero-form.njk" %}
+      {% elif section.type == "client-logos" %}
+        {% include "sections/client-logos.njk" %}
       {% elif section.type == "hero-split" %}
         {% include "sections/hero-split.njk" %}
       {% elif section.type == "intro" %}

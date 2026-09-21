@@ -2,5 +2,9 @@
   {
     "from": "/resources/insights/",
     "to": "/resources/blog/"
+  },
+  {
+    "from": "/services/website-design-development/",
+    "to": "/services/websites/"
   }
 ]

@@ -1,0 +1,58 @@
+{# Dark hero band with a short enquiry form beside the copy. Used by the Websites
+   service page, which is also the landing page for paid traffic. The form is the
+   shared form system (partials/form-fields.njk inside .sfd-form) and is handled by
+   assets/js/contact-form.js, which POSTs to /api/contact. `section.form.topic` is
+   sent as a hidden field so the enquiry is tagged with the service. The source
+   page and UTM parameters are added by the script (trackingFields). #}
+{% from "partials/country-code-options.njk" import options as countryCodeOptions %}
+{% import "partials/form-fields.njk" as fields %}
+<section class="section hero hero--band hero-form">
+  <div class="container hero-form__grid">
+    <div class="hero-form__content" data-reveal>
+      {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+      <h1>{{ page.h1 }}</h1>
+      <p class="hero__subheading">{{ section.subheading }}</p>
+      {% if section.points %}
+      <ul class="hero-form__points">
+        {% for point in section.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="hero-form__actions">
+        <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+        {% if section.secondaryCta %}
+        <a
+          class="button button--secondary"
+          href="{{ section.secondaryCta.href }}"
+          {% if section.secondaryCta.dialogTarget %}data-dialog-target="{{ section.secondaryCta.dialogTarget }}"{% endif %}
+        >{{ section.secondaryCta.label }}</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hero-form__panel" data-reveal>
+      <div class="card hero-form__card">
+        <h2 class="hero-form__title">{{ section.form.heading }}</h2>
+        {% if section.form.intro %}<p class="hero-form__intro">{{ section.form.intro }}</p>{% endif %}
+        <form class="sfd-form" data-contact-form novalidate>
+          {{ fields.honeypot() }}
+          <input type="hidden" name="topic" value="{{ section.form.topic }}">
+          {{ fields.input("hf-name", "fullName", "Full name *", required=true, autocomplete="name") }}
+          {{ fields.input("hf-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+          {{ fields.phone("hf", countryCodes, countryCodeOptions) }}
+          {{ fields.textarea("hf-message", "message", "Message *", required=true, rows=3) }}
+          {{ fields.consent("hf-consent", "consent", 'I confirm I have the right to share this information and I agree to SynergyFirst Digital using it to reply to my enquiry. See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
+          <div class="sfd-form__actions field--full">
+            <button type="submit" class="button button--primary" data-contact-submit>{{ section.form.submitLabel or "Send enquiry" }}</button>
+          </div>
+          <p class="sfd-form__submit-error field__error field--full" data-submit-error role="alert" hidden></p>
+        </form>
+        <div class="form-success" data-contact-success hidden>
+          <h3>Message received</h3>
+          <p>Thank you for getting in touch. We'll read your message and reply by email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
