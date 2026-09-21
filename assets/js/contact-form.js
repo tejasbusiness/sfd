@@ -88,3 +88,15 @@ export function initContactForm(form) {
     }
   });
 }
+
+// Contact page: show the slim details strip under the header once the details card
+// has scrolled up out of view, and hide it again when the card is back.
+function initContactPin() {
+  const pin = document.querySelector('[data-contact-pin]');
+  const card = document.querySelector('.contact-card');
+  if (!pin || !card || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([entry]) => {
+    pin.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
+  }).observe(card);
+}
+initContactPin();

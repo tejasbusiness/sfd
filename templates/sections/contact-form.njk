@@ -84,6 +84,22 @@
       {% if company.legalName and company.legalName != "TBD" %}<p class="contact-card__legal">{{ company.legalName }}</p>{% endif %}
       {% if section.card.cta %}<a class="button button--accent contact-card__cta" href="{{ section.card.cta.href }}" data-dialog-target="booking-modal">{{ section.card.cta.label }}</a>{% endif %}
     </aside>
+    {# Slim strip pinned under the header once the details card has scrolled out of
+       view (assets/js/contact-form.js). Desktop only; same company data as the card. #}
+    <div class="contact-pin" data-contact-pin hidden>
+      <div class="container contact-pin__inner">
+        <p class="contact-pin__title">Contact details</p>
+        {% if company.phones and company.phones.length %}
+        <ul class="contact-pin__phones">
+          {% for phone in company.phones %}
+          <li><span class="contact-pin__label">{{ phone.label }}</span> <a href="tel:{{ phone.value | replace("-", "") }}">{{ phone.value }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% if company.supportEmail and company.supportEmail != "TBD" %}<a class="contact-pin__email" href="mailto:{{ company.supportEmail }}">{{ company.supportEmail }}</a>{% endif %}
+        {% if section.card.cta %}<a class="button button--accent" href="{{ section.card.cta.href }}" data-dialog-target="booking-modal">{{ section.card.cta.label }}</a>{% endif %}
+      </div>
+    </div>
     </div>
   </div>
 </section>

@@ -2463,13 +2463,48 @@ dialog.booking-modal {
   color: #fff;
   box-shadow: 0 24px 48px -24px rgba(15, 1, 24, 0.55);
 }
-/* Two-column layout only: the card stays in view while the form scrolls; the
-   offset clears the sticky site header. */
+/* Slim strip pinned under the site header once the details card has scrolled out of
+   view (JS toggles [hidden]); desktop only, where the two-column layout applies. */
+.contact-pin {
+  display: none;
+}
 @media (min-width: 61em) {
-  .contact-card {
-    position: sticky;
-    top: 7rem;
+  .contact-pin:not([hidden]) {
+    display: block;
+    position: fixed;
+    top: 80px; /* height of the desktop site header */
+    left: 0;
+    right: 0;
+    z-index: 90;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+    color: #fff;
+    box-shadow: 0 10px 24px -16px rgba(15, 1, 24, 0.6);
   }
+}
+.contact-pin__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: 0.6rem;
+}
+.contact-pin__title {
+  margin: 0 auto 0 0;
+  color: #fff;
+  font-weight: 600;
+}
+.contact-pin__phones {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-pin__label {
+  opacity: 0.75;
+  font-size: 0.85em;
+}
+.contact-pin a:not(.button) {
+  color: #fff;
 }
 .contact-card::after {
   content: "";
