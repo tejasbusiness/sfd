@@ -124,6 +124,10 @@ Section order: `hero-form` (copy, three bullets, the free preview and discovery 
 
 Sources: Websites, Website Care, Digital Marketing and AI & Automation copy come from `plans.json` and the earlier page copy; nothing new was invented. **SEO** is a standalone service as well as part of the managed plans and leads with a **free website audit** (owner-confirmed offer; the form asks for the site address in the message). The audit's exact scope is not described beyond "we review your current website and Google Business Profile and tell you what needs attention", (wording approved by the owner 2026-09-21). Reference pages analysed: icreateyoursite.com `/seo/`, `/ai-services/`, `/1-on-1-website-help/`. The 1-on-1 help product (a paid coaching session with a flat price) is not offered; live WordPress help is covered by Website Care.
 
+## Free Preview page (`/free-preview/`)
+
+Hero band with the H1, then one `free-preview-form` section titled "Tell us about your business" (intro text: every application is reviewed and does not guarantee a preview), then the client reviews. The form fills the full container width (docs/03 "Wide page forms"). The former separate intro section and the "Your details" heading were removed on 2026-09-21.
+
 ## Book a Call
 
 Dedicated fallback for the same booking engine used in the sitewide modal. It must be shareable and functional when opened directly.

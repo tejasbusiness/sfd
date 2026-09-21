@@ -436,3 +436,7 @@ Then, from the roadmap and earlier open items:
 - Owner request: show a reverse 5-second progress bar, make toasts compact, green for success and red for errors on every toast. Done in `assets/js/toast.js` and `assets/css/components.css`; new token `--color-success` in `tokens.css`. Details and the rule 17 exception (the toast is not a `.card`) are in docs/03.
 - Tested in headless Chrome: green `rgb(31,122,61)` and red `rgb(179,38,30)` backgrounds, bar shrinks at 20% per second, hover pauses both the bar and the timer and it resumes with the time left, white text on both. A first version had a dark title on the coloured background; fixed before commit.
 - Front-end only: redeploy `dist/` (no API change this time).
+
+### Free Preview page layout (2026-09-21)
+
+- The form moved into the "Tell us about your business" section (its intro text now sits above the form), the "Your details" section was removed, and the form now spans the full container in a two-column (tablet) or three-column (desktop) grid instead of a narrow 46rem column. The client reviews section now follows the form. Checked in headless Chrome at desktop, tablet and phone widths; the submit flow still works. Front-end only: redeploy `dist/`.

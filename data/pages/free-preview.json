@@ -15,22 +15,23 @@
   "breadcrumbs": null,
   "sections": [
     {
-      "type": "intro",
+      "type": "free-preview-form",
       "heading": "Tell us about your business",
-      "body": "We review every application to make sure we can create something genuinely useful for you — submitting this form does not guarantee a preview. It takes a few minutes."
+      "intro": "We review every application to make sure we can create something genuinely useful for you — submitting this form does not guarantee a preview. It takes a few minutes."
     },
     {
       "type": "testimonials",
       "eyebrow": "CLIENT REVIEWS",
       "heading": "Businesses that trusted us with their website",
-      "itemIds": ["aseem-trivedi","sumita-shah"],
+      "itemIds": [
+        "aseem-trivedi",
+        "sumita-shah"
+      ],
       "compact": true
-    },
-    {
-      "type": "free-preview-form",
-      "heading": "Your details"
     }
   ],
-  "schemaTypes": ["WebPage"],
+  "schemaTypes": [
+    "WebPage"
+  ],
   "lastUpdated": "2026-09-17"
 }

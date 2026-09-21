@@ -2378,6 +2378,21 @@ dialog.booking-modal {
   margin-top: var(--space-4);
   row-gap: var(--space-4);
 }
+/* Wide page form (Free Preview): uses the whole container instead of the narrow
+   46rem column. Two columns on tablets, three on desktop; fields marked
+   .field--full (primary service, the problem box, consent, button) span the row. */
+.sfd-form--wide {
+  max-width: none;
+}
+@media (min-width: 64em) {
+  .sfd-form--wide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sfd-form--wide .field--wide-lg {
+    grid-column: 1 / -1;
+  }
+}
+
 /* Breathing room above the privacy line and the action row on page forms. */
 .sfd-form--page .field__hint {
   margin-top: var(--space-3);

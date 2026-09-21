@@ -4,8 +4,9 @@
    data-error-for="<name>" and are driven by assets/js/form-utils.js.
    Pass the label with its own marker: "Full name *" or "Country (optional)". #}
 
-{% macro input(id, name, label, type="text", required=false, autocomplete="", inputmode="", full=false, hidden=false, website=false) %}
-<div class="field field--floating{{ ' field--full' if full }}"{{ ' hidden' if hidden }}>
+{% macro input(id, name, label, type="text", required=false, autocomplete="", inputmode="", full=false, hidden=false, website=false, wide=false) %}
+{# wide: spans the whole row only in a three-column .sfd-form--wide (desktop); it stays one cell in two columns. #}
+<div class="field field--floating{{ ' field--full' if full }}{{ ' field--wide-lg' if wide }}"{{ ' hidden' if hidden }}>
   <label class="field__label" for="{{ id }}">{{ label }}</label>
   <input class="field__control" id="{{ id }}" name="{{ name }}" type="{{ type }}" placeholder=" "
     {{- ' required' if required }}
