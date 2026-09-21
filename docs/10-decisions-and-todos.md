@@ -445,3 +445,7 @@ Then, from the roadmap and earlier open items:
 
 - The "Primary service" field is now labelled "Primary & Secondary Services" with a small italic hint: "Separate services with commas. The first is your primary service; the rest are secondary." The value is stored as typed in the existing `primary_service` column (max 200 characters, enforced by `maxlength` and the API), so no migration was needed; the owner email row is now "Services (first is primary)". Required-field message: "Add at least one service." If you later want the services stored as separate rows or columns, that needs a migration and splitting on commas in the API.
 - Front end plus a small API label change (`api/src/App.php`): redeploy `dist/` and `api/src`.
+
+### Tablet and mobile header logo (2026-09-21)
+
+- Owner request: on tablet and mobile show `SFD-Black-logo.png`, centred, in the header; desktop stays as is. Done with a `<picture>` source at 1399px and below (see docs/13). The 358 KB master was too heavy for a 28px-tall logo, so a 9 KB header-sized copy is served instead. Checked in headless Chrome at 500, 900, 1398/1400 and 1858px. Front-end only: redeploy `dist/`.

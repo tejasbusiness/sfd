@@ -56,13 +56,18 @@
 <header class="site-header" data-site-header>
   <div class="container site-header__inner">
     <a class="site-header__logo" href="/">
-      <img
-        class="site-header__logo-image"
-        src="/assets/images/sfd-logo-2026.png"
-        alt="SynergyFirst Digital"
-        width="2170"
-        height="390"
-      >
+      {# Tablet and mobile (the centred-logo header, up to 1399px) show the full black
+         wordmark (a header-sized copy of assets/images/SFD-Black-logo.png); desktop keeps the mark. #}
+      <picture>
+        <source media="(max-width: 1399px)" srcset="/assets/images/sfd-logo-black-header.png" width="502" height="90">
+        <img
+          class="site-header__logo-image"
+          src="/assets/images/sfd-logo-2026.png"
+          alt="SynergyFirst Digital"
+          width="2170"
+          height="390"
+        >
+      </picture>
     </a>
 
     <nav class="site-header__nav" aria-label="Primary">

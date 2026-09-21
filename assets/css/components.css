@@ -1056,8 +1056,9 @@ a.site-header__mega-tool:focus-visible {
   .site-header__actions {
     display: none;
   }
+  /* The wordmark is about 5.6 times wider than tall, so 28px tall is roughly 156px wide. */
   .site-header__logo-image {
-    height: 26px;
+    height: 28px;
   }
 }
 
