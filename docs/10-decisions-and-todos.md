@@ -403,3 +403,11 @@ Then, from the roadmap and earlier open items:
 
 - The site is live at https://synergyfirstdigital.com. Deploy steps, the vhost layout and the verification results are in docs/14. Lessons: set the CloudPanel Root Directory to `dist` before uploading `.env`; a 200 on a probe URL is not proof of a leak while the placeholder site answers every path, so check response bodies.
 - Next: owner tests the forms and emails on the live site; connect Google Calendar/Meet; add the outbox cron; submit `sitemap.xml` to Google Search Console; then the remaining QA, analytics and legal-review items in the pending list.
+
+### Live form and email test (2026-09-21)
+
+- Owner submitted the forms on the live site. The database holds 1 booking and 2 contact enquiries (Contact page and the Websites hero form, which posts to the same endpoint), but **0 Free Preview applications and 0 playbook sign-ups**, so those submissions never arrived.
+- Emails: the first three (booking owner and visitor, one enquiry) were left `queued` with "SMTP Error: Could not connect to SMTP host" between 06:34 and 06:38 UTC; later ones sent normally. After a manual run of `api/bin/send-outbox.php` all six show `sent`, so SMTP (Hostinger, port 465) works and the failures were transient. Mail DNS is correct (MX at Hostinger, SPF, DKIM, DMARC `p=none`).
+- The `preview-applications` endpoint timed out on two probes shortly after, then answered normally (HTTP 422 validation, under 1 second) on repeat, so the cause was a transient server stall, not a code fault. Retest Free Preview and the playbook form.
+- To do: add the outbox retry cron (CloudPanel, as the site user, every 10 minutes): `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-outbox.php`. Until it exists, an email that fails once stays queued until someone runs the script. Consider a longer SMTP timeout than 10 seconds in `api/src/Mailer.php`.
+- If `hello@` still receives nothing while the outbox says `sent`, the problem is on the mailbox side: check the Hostinger mailbox exists, its spam folder and any bounce in the `noreply@` mailbox.
