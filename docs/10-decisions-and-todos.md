@@ -440,3 +440,8 @@ Then, from the roadmap and earlier open items:
 ### Free Preview page layout (2026-09-21)
 
 - The form moved into the "Tell us about your business" section (its intro text now sits above the form), the "Your details" section was removed, and the form now spans the full container in a two-column (tablet) or three-column (desktop) grid instead of a narrow 46rem column. The client reviews section now follows the form. Checked in headless Chrome at desktop, tablet and phone widths; the submit flow still works. Front-end only: redeploy `dist/`.
+
+### Free Preview: Primary & Secondary Services field (2026-09-21)
+
+- The "Primary service" field is now labelled "Primary & Secondary Services" with a small italic hint: "Separate services with commas. The first is your primary service; the rest are secondary." The value is stored as typed in the existing `primary_service` column (max 200 characters, enforced by `maxlength` and the API), so no migration was needed; the owner email row is now "Services (first is primary)". Required-field message: "Add at least one service." If you later want the services stored as separate rows or columns, that needs a migration and splitting on commas in the API.
+- Front end plus a small API label change (`api/src/App.php`): redeploy `dist/` and `api/src`.

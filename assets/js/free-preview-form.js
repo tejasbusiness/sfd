@@ -30,7 +30,7 @@ function validate(data) {
   if (!data.country) errors.country = 'Country is required.';
   if (!data.city) errors.city = 'City is required.';
   if (!data.category) errors.category = 'Choose a business category.';
-  if (!data.primaryService) errors.primaryService = 'Primary service is required.';
+  if (!data.primaryService) errors.primaryService = 'Add at least one service.';
   if (!data.problem) errors.problem = 'Tell us a bit about the main problem.';
   if (!data.consent) errors.consent = 'Please confirm before submitting.';
   return errors;

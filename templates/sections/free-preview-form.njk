@@ -26,7 +26,7 @@
       {{ fields.input("fp-country", "country", "Country *", required=true, autocomplete="country-name") }}
       {{ fields.input("fp-city", "city", "City *", required=true, autocomplete="address-level2") }}
       {{ fields.select("fp-category", "category", "Business category *", categories, placeholder="Select a category", required=true) }}
-      {{ fields.input("fp-service", "primaryService", "Primary service *", required=true, wide=true) }}
+      {{ fields.input("fp-service", "primaryService", "Primary & Secondary Services *", required=true, wide=true, maxlength="200", hint="Separate services with commas. The first is your primary service; the rest are secondary.") }}
       {{ fields.textarea("fp-problem", "problem", "Main problem with your current website (or lack of one) *", required=true, rows=3) }}
       {{ fields.consent("fp-consent", "consent", "I confirm I have the right to share this information and any materials I provide, and I understand this application does not guarantee a preview. *") }}
       <div class="sfd-form__actions field--full">

@@ -88,7 +88,7 @@ Explain eligibility and collect only the information needed to evaluate and crea
 - Google Business Profile URL.
 - Country and city.
 - Business category.
-- Primary service.
+- Primary & Secondary Services (one comma-separated field with a small italic hint: the first service is the primary one, the rest are secondary; stored as entered in `primary_service`, max 200 characters).
 - Main website problem.
 - Permission/acknowledgement regarding submitted materials.
 

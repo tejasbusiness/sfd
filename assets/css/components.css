@@ -2188,6 +2188,19 @@ dialog.booking-modal {
 .sfd-form .field__hint {
   margin-top: -4px;
 }
+/* A field with a hint is taller than its input, so the resting label is anchored to the
+   input (6px top padding + half the 40px control) instead of to the middle of the field.
+   The floated (focus or filled) rule above has higher specificity and still wins. */
+.sfd-form .field--floating:has(.field__hint--note) .field__label {
+  top: 26px;
+}
+/* Short instruction under a field: small and italic (e.g. the services list on Free Preview). */
+.sfd-form .field .field__hint--note {
+  margin: 4px 0 0 2px;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.4;
+}
 
 .booking-modal__confirmation {
   display: flex;

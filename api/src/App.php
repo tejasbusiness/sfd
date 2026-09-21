@@ -262,7 +262,7 @@ final class App
             ->text('fullName', 'Full name', 120)->email()->phone()
             ->text('businessName', 'Business name', 160)->website('website')->website('gbpUrl', 500)
             ->text('country', 'Country', 80)->text('city', 'City', 120)->text('category', 'Category', 80)
-            ->text('primaryService', 'Primary service', 200)->text('problem', 'This', 5000)->consent();
+            ->text('primaryService', 'Services', 200)->text('problem', 'This', 5000)->consent();
         self::failIfInvalid($v);
         RateLimit::hit('preview_saved');
 
@@ -283,7 +283,7 @@ final class App
         Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview application: {$c['businessName']}", 'A business applied for a Free Preview Website.', [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'], 'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'],
             'Business' => $c['businessName'], 'Website' => (string) $c['website'], 'Google Business Profile' => (string) $c['gbpUrl'],
-            'Location' => $c['city'] . ', ' . $c['country'], 'Category' => $c['category'], 'Primary service' => $c['primaryService'], 'Main problem' => $c['problem'],
+            'Location' => $c['city'] . ', ' . $c['country'], 'Category' => $c['category'], 'Services (first is primary)' => $c['primaryService'], 'Main problem' => $c['problem'],
         ], 'preview', $id, $c['email']);
         Mailer::send('preview_visitor', $c['email'], $c['fullName'], 'We received your Free Preview application', "Hi {$c['fullName']}, thank you for applying. We will review your details and email you at this address. " . self::RESPONSE_TIME, [
             'Reference' => $reference, 'Business' => $c['businessName'],

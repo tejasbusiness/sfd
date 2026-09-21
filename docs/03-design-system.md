@@ -123,6 +123,10 @@ Every form except the booking modal confirms a successful submission with a dism
 
 A long page form can use the whole container with `sfd-form--wide` (added next to `sfd-form--page`): two columns from tablet width and three from 64em, with fields marked `field--full` (or `wide=true` on the `input` macro, which spans the row only in the three-column layout) taking the whole row. The Free Preview form uses it: name, email and phone; business, website and Google Business Profile; country, city and category; then primary service, the problem box, consent and the button as full rows. Same shared fields and validation as every other form.
 
+## Field hints (2026-09-21)
+
+The `input` macro in `templates/partials/form-fields.njk` takes an optional `hint` (short instruction under the field, small 12px italic, linked to the input with `aria-describedby`) and `maxlength`. Keep hints to one short sentence. Fields with a hint anchor their resting floating label to the input, not to the taller field (CSS `:has(.field__hint--note)`), and the label still floats normally when the field is focused or filled.
+
 ## Error toasts (2026-09-21)
 
 Submit-level failures are shown as a **red toast** (`showToast({ type: 'error', ... })`, `.toast--error`, `role="alert"` so it is announced at once), not as text under the form: rate limit ("Too many attempts"), server errors, network failures and the booking "time no longer available" case. Field validation errors (missing or invalid values) stay inline under their fields, and the form keeps what the visitor typed so they can retry. Failure reporting is centralised in `reportSubmitFailure()` in `assets/js/form-utils.js`. Error toasts auto-dismiss after 5 seconds like every toast.
