@@ -460,3 +460,9 @@ Then, from the roadmap and earlier open items:
 ### deploy.md added (2026-09-21)
 
 - Owner request: one file with every deployment step and command, usable from a fresh PowerShell window. Added `deploy.md` at the project root (variables step, pull, validate and production build, access check, upload, backup-and-swap, optional dependency, migration, nginx and `.env` steps, live verification, browser and form tests, rollback, troubleshooting table, the full vhost and one-time server setup). README, docs/14 and CLAUDE.md point to it; CLAUDE.md now requires keeping it in sync with any change to the build, server layout, vhost, environment variables or deploy commands.
+
+### One-command deploy (2026-09-21)
+
+- Owner request: run the whole deployment with one command. Added `scripts/deploy.ps1` (PowerShell 5.1, ASCII only), `deploy.bat` (double-click or terminal) and `npm run deploy`. It follows `deploy.md`: preflight, validate, tests, production build and clean-build checks, server access check, change detection (composer.lock, new migrations, nginx redirects), a confirmation, upload, backup and swap, optional `composer install`, migrations only with `-Migrate` or a prompt, and live verification (status codes and page bodies). Switches: `-Yes`, `-UploadEnv` (refuses a non-production `.env`), `-Migrate`, `-BuildOnly`, `-VerifyOnly`, `-Rollback`. It reads SSH details from `.env-local`.
+- Not automated on purpose: the CloudPanel vhost (redirect changes are detected with a stored hash in the site folder, the new file is copied to the clipboard and you are asked to confirm) and database migrations without an explicit choice.
+- Tested without touching production: parse check, `-BuildOnly`, `-VerifyOnly` against the live site (all checks pass), and a run answered "no" at the final confirmation.

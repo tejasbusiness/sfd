@@ -43,7 +43,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 - Keep client-facing copy separate from templates and JavaScript.
 - Test direct navigation and refreshes for nested routes.
 - Maintain a decision log when requirements change.
-- Keep `deploy.md` (the deployment procedure) in sync whenever the build, server layout, vhost, environment variables or deploy commands change.
+- Keep `deploy.md`, `deploy.bat` and `scripts/deploy.ps1` (the deployment procedure and its one-command script) in sync whenever the build, server layout, vhost, environment variables or deploy commands change.
 - **Mandatory, non-negotiable:** before ending any session, fully update every affected document in `docs/` (and `README.md` / this file where relevant) so it matches what was built and decided, and commit them with the code. Never end a session with stale docs.
 
 ## Initial implementation order

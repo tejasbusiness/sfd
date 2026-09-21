@@ -1,5 +1,35 @@
 # Deploying the SFD website
 
+## The one-line way (recommended)
+
+From the project folder, in PowerShell or Command Prompt, run:
+
+```
+npm run deploy
+```
+
+or double-click **`deploy.bat`** in the project folder (or run `.\deploy.bat`). It does everything in this file for you, stops at the first problem, asks for confirmation before it touches production, and checks the live site at the end. It reads the SSH details from your `.env-local`, so no variables need to be set.
+
+What it does, in order: preflight (tools, key, git state) → `validate` → `test:validation` → `build:production` (and checks that the build is clean) → checks server access and what changed (dependencies, migrations, nginx redirects) → shows a summary and asks **"Deploy to PRODUCTION now?"** → uploads → backs up the current site as `dist.bak` and swaps in the new one → installs dependencies if `composer.lock` changed → offers to apply new migrations → reminds you if the nginx redirects changed → verifies the live site (status codes and page bodies).
+
+Options (add after `--` with npm, or directly after `deploy.bat`):
+
+| Command | What it does |
+|---|---|
+| `npm run deploy` | Normal deploy, with confirmations. |
+| `npm run deploy -- -Yes` | No prompts (it still never applies migrations unless you also pass `-Migrate`). |
+| `npm run deploy -- -UploadEnv` | Also uploads your production `.env` (only when you changed it; it refuses to upload a non-production file). |
+| `npm run deploy -- -Migrate` | Applies pending database migrations after the swap. |
+| `npm run deploy -- -BuildOnly` | Validates, tests and builds locally; deploys nothing. |
+| `npm run deploy -- -VerifyOnly` | Only runs the live-site checks (read-only, safe any time). |
+| `npm run deploy -- -Rollback` | Restores the previous static site (`dist.bak`). |
+
+Two things the script cannot do for you: pasting new nginx redirects into the CloudPanel vhost (it tells you when they changed and copies them to your clipboard; see Step 9) and changing the CloudPanel or server settings in Appendix B.
+
+The script is `scripts/deploy.ps1` (with the `deploy.bat` wrapper). **The manual steps below are the same procedure written out**: use them to understand what the script does, or to deploy by hand if the script cannot run.
+
+---
+
 This file is self-contained: you can follow it from a fresh PowerShell window at any time. Run the steps in order. Each step says what it does, the exact commands, and what you should see.
 
 **What gets deployed:** the static site (`dist/`), the small PHP API (`api/`), the SQL migrations (`migrations/`) and, only when it changed, the production `.env`. The server is a Contabo VPS running CloudPanel (nginx, PHP-FPM). The site is `https://synergyfirstdigital.com`.

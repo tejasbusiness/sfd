@@ -33,7 +33,7 @@ The new SFD website is not a conventional agency brochure. It presents a product
 10. `docs/09-build-and-qa.md` — implementation phases and acceptance checks.
 11. `docs/10-decisions-and-todos.md` — confirmed decisions and unresolved inputs.
 12. `docs/14-database-and-api.md` — MySQL, migrations, PHP API and environment files.
-13. `deploy.md` — step-by-step production deployment, rollback, troubleshooting and server setup.
+13. `deploy.md` — production deployment: the one-command `npm run deploy` (or `deploy.bat`), the manual steps, rollback, troubleshooting and server setup.
 
 ## Working rule
 
