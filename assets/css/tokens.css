@@ -31,6 +31,7 @@
   --color-ink: #0B0C0D;
   /* Not in the original docs/03 palette — placeholder form-error red pending design review. */
   --color-error: #B3261E;
+  --color-success: #1F7A3D; /* toast confirmations; white text on it is about 5.4:1 */
 
   /* Typography — Libre Baskerville (headings) + Montserrat (body). "The
      Seasons", the reference site's paid display face, isn't licensed, so

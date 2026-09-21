@@ -430,3 +430,9 @@ Then, from the roadmap and earlier open items:
 - The "Too many attempts" message was the rate limiter working as coded, not a bug in the form: the old limit was 5 contact requests per hour per client and counted every request, including failed validation, double clicks during the slow 10 to 30 second waits, and the owner's test probes. It was too strict for real use, so limits were reworked (generous request buckets, plus 5 per hour only for stored submissions; see docs/14) and the client address now comes from `X-Real-IP` so visitors are not lumped together behind the proxy.
 - All submit-level errors (rate limit, server, network, slot taken) now appear as a red, dismissible, 5-second toast; field errors stay inline (docs/03). The empty inline error lines were removed from the form templates.
 - Tested in headless Chrome with a faked API (429, 500, network failure): red toast, button re-enabled, typed values kept; success path unchanged. Needs a redeploy; then re-test on the live site.
+
+### Compact toasts with a progress bar, green and red (2026-09-21)
+
+- Owner request: show a reverse 5-second progress bar, make toasts compact, green for success and red for errors on every toast. Done in `assets/js/toast.js` and `assets/css/components.css`; new token `--color-success` in `tokens.css`. Details and the rule 17 exception (the toast is not a `.card`) are in docs/03.
+- Tested in headless Chrome: green `rgb(31,122,61)` and red `rgb(179,38,30)` backgrounds, bar shrinks at 20% per second, hover pauses both the bar and the timer and it resumes with the time left, white text on both. A first version had a dark title on the coloured background; fixed before commit.
+- Front-end only: redeploy `dist/` (no API change this time).

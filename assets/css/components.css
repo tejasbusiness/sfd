@@ -3415,9 +3415,13 @@ a.case-study-card {
   }
 }
 
-/* Toast: dismissible confirmation shown after a form is submitted (assets/js/toast.js).
-   Built on the shared .card (fill and shadow only change). Top right on desktop,
-   full width at the top on phones; above the sticky header. */
+/* Toast: a compact, dismissible message shown after a form is submitted
+   (assets/js/toast.js). Green = success, red = error, both with white text
+   (about 5.4:1 and 6.5:1). A bar along the bottom shrinks over the 5-second
+   auto-dismiss time and pauses while the pointer is over the toast or focus is
+   inside it. It is deliberately smaller than a .card (a transient overlay, not a
+   content surface). Top right on desktop, full width at the top on phones,
+   above the sticky header. */
 .toast-region {
   position: fixed;
   z-index: 300;
@@ -3434,46 +3438,56 @@ a.case-study-card {
     top: var(--space-4);
     right: var(--space-4);
     left: auto;
-    width: min(26rem, calc(100vw - 2 * var(--space-4)));
+    width: min(22rem, calc(100vw - 2 * var(--space-4)));
   }
 }
 .toast {
+  position: relative;
+  overflow: hidden;
   pointer-events: auto;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: var(--space-2);
+  gap: 0.6rem;
   align-items: start;
   width: 100%;
-  background: var(--color-primary-deep);
-  border-color: var(--color-primary-deep);
+  padding: 0.65rem 0.6rem 0.8rem 0.85rem;
+  border-radius: var(--radius-md);
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 24px 48px -20px rgba(15, 1, 24, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 14px 30px -14px rgba(15, 1, 24, 0.6);
   animation: toast-in 0.25s ease both;
+}
+.toast--success {
+  background: var(--color-success);
+}
+.toast--error {
+  background: var(--color-error);
 }
 .toast--leaving {
   animation: toast-out 0.2s ease both;
 }
 .toast__icon {
-  color: var(--color-accent);
   line-height: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.12rem;
 }
 .toast__title {
   margin: 0;
-  font-weight: 600;
   color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.35;
 }
 .toast__message {
-  margin: var(--space-1) 0 0;
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.85);
+  margin: 0.1rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
 }
 .toast__close {
   display: grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
-  margin: -0.35rem -0.5rem 0 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: -0.2rem -0.15rem 0 0;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -3482,22 +3496,28 @@ a.case-study-card {
   cursor: pointer;
 }
 .toast__close:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.2);
 }
 .toast__close:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  outline: 2px solid #fff;
+  outline-offset: 1px;
 }
-/* Error variant: solid red fill (white text, about 6.5:1), same card shape. */
-.toast--error {
-  background: var(--color-error);
-  border-color: var(--color-error);
+.toast__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.85);
+  transform-origin: left center;
+  animation: toast-progress linear forwards;
 }
-.toast--error .toast__icon {
-  color: #fff;
+.toast--paused .toast__progress {
+  animation-play-state: paused;
 }
-.toast--error .toast__message {
-  color: #fff;
+@keyframes toast-progress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
 }
 @keyframes toast-in {
   from { opacity: 0; transform: translateY(-8px); }
@@ -3511,5 +3531,8 @@ a.case-study-card {
   .toast,
   .toast--leaving {
     animation: none;
+  }
+  .toast__progress {
+    display: none;
   }
 }
