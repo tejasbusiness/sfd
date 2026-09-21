@@ -106,6 +106,8 @@ function Verify-Live {
   )
   foreach ($c in $checks) {
     $code = Http-Code $c.Path
+    # 000 means curl got no answer at all (a brief blip right after the swap): retry before failing.
+    for ($try = 0; $code -eq '000' -and $try -lt 3; $try++) { Start-Sleep -Seconds 3; $code = Http-Code $c.Path }
     if ($code -eq $c.Expect) { Ok ("{0,-30} {1}" -f $c.Name, $code) }
     else { Write-Host ("  FAIL {0,-30} got {1}, expected {2}  ({3})" -f $c.Name, $code, $c.Expect, $c.Path) -ForegroundColor Red; $failures++ }
   }

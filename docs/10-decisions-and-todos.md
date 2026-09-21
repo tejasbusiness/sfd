@@ -469,3 +469,8 @@ Then, from the roadmap and earlier open items:
 
 ### Contact page: pinned details strip (2026-09-21)
 A `position: sticky` card cannot work on `/contact/`: it only moves inside its own row (the form section), and the form and card are about the same height, so it scrolled away with the section. Replaced by a slim strip (`.contact-pin` in `templates/sections/contact-form.njk`) fixed under the desktop header (top 80px, 61em and up). `initContactPin()` in `assets/js/contact-form.js` shows it once the `.contact-card` has scrolled out of view above and hides it when the card is back. It carries the company phones, support email and the "Book a Free 30-Minute Discovery Call" button (opens the booking modal) from the same company data as the card, so nothing is new content. Not shown on tablet or mobile. Tested at 1440x680: hidden while the card is visible, shown at 80px once it has gone.
+
+### First production run of the one-command deploy (2026-09-21)
+- `npm run deploy` ran end to end (upload, swap, `dist.bak` kept) and the live checks passed on a second run. The first verify pass showed five `000` results (no answer from the server for a moment after the swap), so the script now retries a check up to three times, 3 seconds apart, before failing.
+- npm on the owner's machine swallowed `-Flag` after `--` (the run behaved like a plain deploy and stopped at the confirmation). Options are now documented as `.\deploy.bat -Flag` in `deploy.md`.
+- Still open: add the outbox retry cron in CloudPanel (command must start with `php`), retest all five forms and emails on the live site, delete `dist.bak` when satisfied.

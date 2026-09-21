@@ -168,3 +168,6 @@ Reference principles (icreateyoursite.com/case-studies): an index of cards (scre
 ## Services (2026-09-20)
 
 `/services/` is an overview (hero, link cards for the five services, how it fits with the subscription, CTA). Each service page (`data/pages/service-<slug>.json`) uses existing sections: hero, overview content block, "what is included" feature grid, "how it fits" content block, related-service link cards and a free-preview CTA. Every inclusion statement must match `data/plans.json` (plan names, allowances) or the About page; no prices, guarantees, rankings, response times or invented statistics. Marketing and social media are stated to be outside the standard plans (only the Business plan's SEO blog posts are included).
+
+## Contact page: pinned details strip (2026-09-21)
+`/contact/` keeps the form on the left and the dark company-details card on the right. On desktop (61em and up), once the card has scrolled out of view a slim strip is pinned under the site header with the phone numbers, support email and the "Book a Free 30-Minute Discovery Call" button (booking modal), built from the same company data. It hides again when the card is visible and is not shown on tablet or mobile. A sticky card was tried first and dropped because it has no room to travel inside the form section. See `docs/10-decisions-and-todos.md`.

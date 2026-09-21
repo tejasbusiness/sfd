@@ -17,12 +17,14 @@ Options (add after `--` with npm, or directly after `deploy.bat`):
 | Command | What it does |
 |---|---|
 | `npm run deploy` | Normal deploy, with confirmations. |
-| `npm run deploy -- -Yes` | No prompts (it still never applies migrations unless you also pass `-Migrate`). |
-| `npm run deploy -- -UploadEnv` | Also uploads your production `.env` (only when you changed it; it refuses to upload a non-production file). |
-| `npm run deploy -- -Migrate` | Applies pending database migrations after the swap. |
-| `npm run deploy -- -BuildOnly` | Validates, tests and builds locally; deploys nothing. |
-| `npm run deploy -- -VerifyOnly` | Only runs the live-site checks (read-only, safe any time). |
-| `npm run deploy -- -Rollback` | Restores the previous static site (`dist.bak`). |
+| `.\deploy.bat -Yes` | No prompts (it still never applies migrations unless you also pass `-Migrate`). |
+| `.\deploy.bat -UploadEnv` | Also uploads your production `.env` (only when you changed it; it refuses to upload a non-production file). |
+| `.\deploy.bat -Migrate` | Applies pending database migrations after the swap. |
+| `.\deploy.bat -BuildOnly` | Validates, tests and builds locally; deploys nothing. |
+| `.\deploy.bat -VerifyOnly` | Only runs the live-site checks (read-only, safe any time). |
+| `.\deploy.bat -Rollback` | Restores the previous static site (`dist.bak`). |
+
+**Passing options:** on some machines npm swallows the `-Flag` after `--` and runs a normal deploy instead (it then stops at the confirmation). Use `.\deploy.bat -VerifyOnly` (or `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\deploy.ps1 -VerifyOnly`) for any option. Plain `npm run deploy` with no option always works.
 
 From a terminal, `npm run deploy` is the smoothest way; `deploy.bat` is meant for double-clicking and may wait for a key press at the end so the window does not close.
 
