@@ -2463,6 +2463,14 @@ dialog.booking-modal {
   color: #fff;
   box-shadow: 0 24px 48px -24px rgba(15, 1, 24, 0.55);
 }
+/* Two-column layout only: the card stays in view while the form scrolls; the
+   offset clears the sticky site header. */
+@media (min-width: 61em) {
+  .contact-card {
+    position: sticky;
+    top: 7rem;
+  }
+}
 .contact-card::after {
   content: "";
   position: absolute;
