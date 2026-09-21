@@ -3,6 +3,8 @@
 // <p data-error-for="<field name>"> elements; the owning .field also gets
 // .field--invalid so the control's border turns red.
 
+import { showToast } from './toast.js';
+
 const EMAIL_PATTERN = /^\S+@\S+\.\S+$/;
 // Optional http(s)://, then a dotted hostname with a 2+ letter TLD, then an
 // optional port/path/query. "www." and the protocol are both optional, so
@@ -98,19 +100,21 @@ export async function submitJson(url, body, headers = {}) {
   return { ok: response.ok && data.ok === true, status: response.status, data };
 }
 
-/** Shows a failed submit: field errors from the server (422), a rate-limit note (429) or the fallback message. */
-export function reportSubmitFailure(form, submitErrorEl, result, fallbackMessage) {
+/**
+ * Reports a failed submit. Field errors from the server (422) are shown under their
+ * fields; everything else (rate limit, server or network trouble) is a red toast.
+ */
+export function reportSubmitFailure(form, result, fallbackMessage, title = 'Something went wrong') {
   if (result.status === 422 && result.data.errors) {
     showFormErrors(form, result.data.errors);
     const stray = Object.keys(result.data.errors).some((name) => !form.querySelector(`[data-error-for="${name}"]`));
-    if (!stray) {
-      submitErrorEl.hidden = true;
-      return;
-    }
+    if (!stray) return;
   }
-  submitErrorEl.textContent =
-    result.status === 429 ? 'Too many attempts. Please wait a little while and try again.' : fallbackMessage;
-  submitErrorEl.hidden = false;
+  if (result.status === 429) {
+    showToast({ type: 'error', title: 'Too many attempts', message: 'Please wait a little while and try again.' });
+    return;
+  }
+  showToast({ type: 'error', title, message: fallbackMessage });
 }
 
 /**

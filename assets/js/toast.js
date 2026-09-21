@@ -10,6 +10,8 @@
 const DEFAULT_DURATION = 5000;
 const CHECK_ICON =
   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg>';
+const ERROR_ICON =
+  '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.1"/></svg>';
 const CLOSE_ICON =
   '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
@@ -35,18 +37,20 @@ function removeToast(toast) {
 }
 
 /**
- * @param {{ title?: string, message?: string, duration?: number }} options
+ * @param {{ title?: string, message?: string, duration?: number, type?: 'success' | 'error' }} options
  * @returns {HTMLElement | null}
  */
-export function showToast({ title = '', message = '', duration = DEFAULT_DURATION } = {}) {
+export function showToast({ title = '', message = '', duration = DEFAULT_DURATION, type = 'success' } = {}) {
   if (!title && !message) return null;
 
   const toast = document.createElement('div');
-  toast.className = 'card toast';
+  toast.className = type === 'error' ? 'card toast toast--error' : 'card toast';
+  // Errors are announced immediately; confirmations politely (via the region).
+  if (type === 'error') toast.setAttribute('role', 'alert');
 
   const icon = document.createElement('span');
   icon.className = 'toast__icon';
-  icon.innerHTML = CHECK_ICON;
+  icon.innerHTML = type === 'error' ? ERROR_ICON : CHECK_ICON;
 
   const body = document.createElement('div');
   body.className = 'toast__body';

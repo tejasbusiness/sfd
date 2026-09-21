@@ -122,6 +122,8 @@ final class App
             Http::json(409, ['ok' => false, 'reason' => 'slot_unavailable']);
         }
 
+        RateLimit::hit('booking_saved');
+
         $c = $v->clean;
         $t = Validator::tracking($in);
         $consentId = Consent::record('booking', $c['email'], $t['source_page']);
@@ -219,6 +221,7 @@ final class App
             $v->errors['sourceOther'] = 'Please tell us where you heard about us.';
         }
         self::failIfInvalid($v);
+        RateLimit::hit('contact_saved');
 
         $c = $v->clean;
         $t = Validator::tracking($in);
@@ -261,6 +264,7 @@ final class App
             ->text('country', 'Country', 80)->text('city', 'City', 120)->text('category', 'Category', 80)
             ->text('primaryService', 'Primary service', 200)->text('problem', 'This', 5000)->consent();
         self::failIfInvalid($v);
+        RateLimit::hit('preview_saved');
 
         $c = $v->clean;
         $t = Validator::tracking($in);
@@ -298,6 +302,7 @@ final class App
 
         $v = (new Validator($in))->text('fullName', 'Full name', 120)->email()->consent();
         self::failIfInvalid($v);
+        RateLimit::hit('playbook_saved');
 
         $c = $v->clean;
         $t = Validator::tracking($in);

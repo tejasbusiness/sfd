@@ -20,6 +20,7 @@ import {
   reportSubmitFailure,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
+import { showToast } from './toast.js';
 
 const STEPS = ['date', 'slot', 'details', 'confirmation'];
 
@@ -58,7 +59,6 @@ export function initBookingModal(dialogEl) {
   const timezoneEl = dialogEl.querySelector('[data-booking-timezone]');
   const timezoneSelect = dialogEl.querySelector('[data-booking-timezone-select]');
   const form = dialogEl.querySelector('[data-booking-form]');
-  const submitError = dialogEl.querySelector('[data-booking-submit-error]');
   const submitButton = dialogEl.querySelector('[data-booking-submit]');
   const confirmationSummary = dialogEl.querySelector('[data-booking-confirmation-summary]');
 
@@ -197,7 +197,6 @@ export function initBookingModal(dialogEl) {
       state.submitting = true;
       let booked = false;
       setSubmitting(form, submitButton, true, 'Confirming your booking…');
-      submitError.hidden = true;
 
       try {
         const result = await submitJson(
@@ -214,15 +213,14 @@ export function initBookingModal(dialogEl) {
 
         if (result.status === 409) {
           // The slot was taken while the visitor was typing: refresh and send them back to pick another.
-          submitError.textContent = 'That time was just taken. Please choose another slot.';
-          submitError.hidden = false;
+          showToast({ type: 'error', title: 'Time no longer available', message: 'That time was just taken. Please choose another slot.' });
           state.selectedStart = null;
           await loadAvailability();
           showStep('date');
           return;
         }
         if (!result.ok) {
-          reportSubmitFailure(form, submitError, result, 'Something went wrong. Please try again.');
+          reportSubmitFailure(form, result, 'Please try again in a moment.', 'We could not book that');
           return;
         }
 
@@ -235,8 +233,7 @@ export function initBookingModal(dialogEl) {
       } catch (err) {
         // Safe retry: idempotencyKey is unchanged, so resubmitting reuses the same
         // key instead of risking a duplicate booking.
-        submitError.textContent = 'Something went wrong. Please try again.';
-        submitError.hidden = false;
+        showToast({ type: 'error', title: 'We could not book that', message: 'Please check your connection and try again.' });
       } finally {
         state.submitting = false;
         setSubmitting(form, submitButton, false);

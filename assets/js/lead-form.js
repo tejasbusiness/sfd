@@ -17,7 +17,6 @@ export function initLeadForm(form) {
   if (!form) return;
 
   const submitButton = form.querySelector('[data-lead-submit]');
-  const submitError = form.querySelector('[data-submit-error]');
   let submitting = false;
 
   form.addEventListener('submit', async (event) => {
@@ -32,20 +31,18 @@ export function initLeadForm(form) {
 
     submitting = true;
     setSubmitting(form, submitButton, true, form.dataset.loadingLabel || undefined);
-    submitError.hidden = true;
 
     try {
       const result = await submitJson('/api/playbook', { ...data, ...trackingFields() });
       if (!result.ok) {
-        reportSubmitFailure(form, submitError, result, 'Something went wrong. Please try again.');
+        reportSubmitFailure(form, result, 'Please try again in a moment.', 'Sign-up not completed');
         return;
       }
       form.reset();
       showFormErrors(form, {});
       showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
-      submitError.textContent = 'Something went wrong. Please try again.';
-      submitError.hidden = false;
+      showToast({ type: 'error', title: 'Sign-up not completed', message: 'Please check your connection and try again.' });
     } finally {
       submitting = false;
       setSubmitting(form, submitButton, false);

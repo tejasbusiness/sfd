@@ -6,13 +6,21 @@ namespace Sfd;
 /** Per-IP limits stored in MySQL (IP addresses are only ever kept as a salted hash). */
 final class RateLimit
 {
+    // Two kinds of bucket. A plain bucket ('contact') counts every request, including ones
+    // rejected by validation, so it is generous: it only stops floods. A '_saved' bucket is
+    // counted only once a submission passed validation and is about to be stored, so it is
+    // the real anti-spam limit and a visitor fixing typos is never blocked by it.
     private const LIMITS = [
-        'contact' => [5, 3600],
-        'preview' => [5, 3600],
-        'playbook' => [5, 3600],
-        'booking' => [8, 3600],
-        'availability' => [60, 600],
-        'consent' => [30, 3600],
+        'contact' => [30, 3600],
+        'contact_saved' => [5, 3600],
+        'preview' => [30, 3600],
+        'preview_saved' => [5, 3600],
+        'playbook' => [30, 3600],
+        'playbook_saved' => [5, 3600],
+        'booking' => [30, 3600],
+        'booking_saved' => [8, 3600],
+        'availability' => [120, 600],
+        'consent' => [60, 3600],
     ];
 
     public static function hit(string $bucket): void

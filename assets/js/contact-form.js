@@ -42,7 +42,6 @@ export function initContactForm(form) {
   initWebsiteInputs(form);
 
   const submitButton = form.querySelector('[data-contact-submit]');
-  const submitError = form.querySelector('[data-submit-error]');
   const sourceSelect = form.querySelector('select[name="source"]');
   const otherInput = form.querySelector('input[name="sourceOther"]');
   const otherField = otherInput ? otherInput.closest('.field') : null;
@@ -70,12 +69,11 @@ export function initContactForm(form) {
 
     submitting = true;
     setSubmitting(form, submitButton, true, form.dataset.loadingLabel || undefined);
-    submitError.hidden = true;
 
     try {
       const result = await submitJson('/api/contact', { ...data, website: normalizeWebsite(data.website), ...trackingFields() });
       if (!result.ok) {
-        reportSubmitFailure(form, submitError, result, 'Something went wrong sending your message. Please try again.');
+        reportSubmitFailure(form, result, 'Please try again in a moment.', 'Your message was not sent');
         return;
       }
       form.reset();
@@ -83,8 +81,7 @@ export function initContactForm(form) {
       if (otherField) otherField.hidden = true;
       showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
-      submitError.textContent = 'Something went wrong sending your message. Please try again.';
-      submitError.hidden = false;
+      showToast({ type: 'error', title: 'Your message was not sent', message: 'Please check your connection and try again.' });
     } finally {
       submitting = false;
       setSubmitting(form, submitButton, false);

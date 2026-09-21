@@ -43,7 +43,6 @@ export function initFreePreviewForm(form) {
   initWebsiteInputs(form);
 
   const submitButton = form.querySelector('[data-free-preview-submit]');
-  const submitError = form.querySelector('[data-submit-error]');
   let submitting = false;
 
   form.addEventListener('submit', async (event) => {
@@ -59,7 +58,6 @@ export function initFreePreviewForm(form) {
 
     submitting = true;
     setSubmitting(form, submitButton, true, form.dataset.loadingLabel || undefined);
-    submitError.hidden = true;
 
     try {
       const result = await submitJson('/api/preview-applications', {
@@ -69,15 +67,14 @@ export function initFreePreviewForm(form) {
         ...trackingFields(),
       });
       if (!result.ok) {
-        reportSubmitFailure(form, submitError, result, 'Something went wrong submitting your application. Please try again.');
+        reportSubmitFailure(form, result, 'Please try again in a moment.', 'Your application was not sent');
         return;
       }
       form.reset();
       showFormErrors(form, {});
       showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
-      submitError.textContent = 'Something went wrong submitting your application. Please try again.';
-      submitError.hidden = false;
+      showToast({ type: 'error', title: 'Your application was not sent', message: 'Please check your connection and try again.' });
     } finally {
       submitting = false;
       setSubmitting(form, submitButton, false);

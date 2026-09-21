@@ -424,3 +424,9 @@ Then, from the roadmap and earlier open items:
 - Problem: forms took 10 to 30 seconds to confirm because the API sent the emails (SMTP) before replying. Fix: emails are still saved to `email_outbox` first but are delivered after the response is sent (`fastcgi_finish_request()`), so confirmation should take about a second. Failed sends stay queued for the cron. Google Calendar creation, when enabled, still runs before the reply because the Meet link is part of the booking response.
 - Every submit button now shows a spinner and busy label and stays disabled while sending (and, for a confirmed booking, until the modal form is reset). Toasts now auto-dismiss after 5 seconds; the timer pauses only while the pointer is over the toast or focus is inside it.
 - Tested in headless Chrome with a delayed fake API: in-flight state, reset, and dismissal all behave. The server change needs a live check after redeploy: submit a form and time the response.
+
+### Rate limit message and error toasts (2026-09-21)
+
+- The "Too many attempts" message was the rate limiter working as coded, not a bug in the form: the old limit was 5 contact requests per hour per client and counted every request, including failed validation, double clicks during the slow 10 to 30 second waits, and the owner's test probes. It was too strict for real use, so limits were reworked (generous request buckets, plus 5 per hour only for stored submissions; see docs/14) and the client address now comes from `X-Real-IP` so visitors are not lumped together behind the proxy.
+- All submit-level errors (rate limit, server, network, slot taken) now appear as a red, dismissible, 5-second toast; field errors stay inline (docs/03). The empty inline error lines were removed from the form templates.
+- Tested in headless Chrome with a faked API (429, 500, network failure): red toast, button re-enabled, typed values kept; success path unchanged. Needs a redeploy; then re-test on the live site.

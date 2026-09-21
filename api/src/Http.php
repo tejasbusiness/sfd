@@ -49,10 +49,26 @@ final class Http
         return $data;
     }
 
+    /**
+     * The visitor's address. Behind the local nginx proxy REMOTE_ADDR is 127.0.0.1, so the
+     * X-Real-IP header set by our own nginx is trusted, but only when the request really
+     * came through that local proxy (otherwise the header could be forged).
+     */
+    public static function clientIp(): string
+    {
+        $remote = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+        if ($remote === '127.0.0.1' || $remote === '::1') {
+            $forwarded = trim((string) ($_SERVER['HTTP_X_REAL_IP'] ?? ''));
+            if ($forwarded !== '' && filter_var($forwarded, FILTER_VALIDATE_IP)) {
+                return $forwarded;
+            }
+        }
+        return $remote;
+    }
+
     public static function ipHash(): string
     {
-        $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-        return hash_hmac('sha256', $ip, Env::require('RATE_LIMIT_SALT'));
+        return hash_hmac('sha256', self::clientIp(), Env::require('RATE_LIMIT_SALT'));
     }
 
     public static function userAgent(): ?string
