@@ -35,7 +35,7 @@
       <div class="card hero-form__card">
         <h2 class="hero-form__title">{{ section.form.heading }}</h2>
         {% if section.form.intro %}<p class="hero-form__intro">{{ section.form.intro }}</p>{% endif %}
-        <form class="sfd-form" data-contact-form novalidate>
+        <form class="sfd-form" data-contact-form data-success-title="Message received" data-success-message="Thank you for getting in touch. We'll read your message and reply by email." novalidate>
           {{ fields.honeypot() }}
           <input type="hidden" name="topic" value="{{ section.form.topic }}">
           {{ fields.input("hf-name", "fullName", "Full name *", required=true, autocomplete="name") }}
@@ -48,10 +48,6 @@
           </div>
           <p class="sfd-form__submit-error field__error field--full" data-submit-error role="alert" hidden></p>
         </form>
-        <div class="form-success" data-contact-success hidden>
-          <h3>Message received</h3>
-          <p>Thank you for getting in touch. We'll read your message and reply by email.</p>
-        </div>
       </div>
     </div>
   </div>

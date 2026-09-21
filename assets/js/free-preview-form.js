@@ -15,6 +15,7 @@ import {
   initWebsiteInputs,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
+import { showToast } from './toast.js';
 
 function validate(data) {
   const errors = {};
@@ -42,7 +43,6 @@ export function initFreePreviewForm(form) {
 
   const submitButton = form.querySelector('[data-free-preview-submit]');
   const submitError = form.querySelector('[data-submit-error]');
-  const successEl = document.querySelector('[data-free-preview-success]');
   let submitting = false;
 
   form.addEventListener('submit', async (event) => {
@@ -71,12 +71,9 @@ export function initFreePreviewForm(form) {
         reportSubmitFailure(form, submitError, result, 'Something went wrong submitting your application. Please try again.');
         return;
       }
-      form.hidden = true;
-      if (successEl) {
-        successEl.hidden = false;
-        successEl.setAttribute('tabindex', '-1');
-        successEl.focus();
-      }
+      form.reset();
+      showFormErrors(form, {});
+      showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
       submitError.textContent = 'Something went wrong submitting your application. Please try again.';
       submitError.hidden = false;

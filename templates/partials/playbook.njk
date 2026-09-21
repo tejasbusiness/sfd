@@ -18,7 +18,7 @@
     </div>
 
     <div class="playbook__panel">
-      <form class="sfd-form sfd-form--inline" data-lead-form novalidate>
+      <form class="sfd-form sfd-form--inline" data-lead-form data-success-title="{{ footer.playbook.successHeading }}" data-success-message="{{ footer.playbook.successBody }}" novalidate>
         {{ fields.honeypot() }}
         {{ fields.input("pb-name", "fullName", "Full name *", required=true, autocomplete="name") }}
         {{ fields.input("pb-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
@@ -26,10 +26,6 @@
         {{ fields.consent("pb-consent", "consent", footer.playbook.consentLabel + ' See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
         <p class="sfd-form__submit-error field__error field--full" data-submit-error role="alert" hidden></p>
       </form>
-      <div class="playbook__success" data-lead-success hidden>
-        <h3>{{ footer.playbook.successHeading }}</h3>
-        <p>{{ footer.playbook.successBody }}</p>
-      </div>
     </div>
   </div>
 </section>

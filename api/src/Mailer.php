@@ -55,7 +55,7 @@ final class Mailer
             $mail->Password = Env::require('SMTP_PASSWORD');
             $secure = Env::get('SMTP_SECURE', 'ssl');
             $mail->SMTPSecure = $secure === 'ssl' ? PHPMailer::ENCRYPTION_SMTPS : ($secure === 'tls' ? PHPMailer::ENCRYPTION_STARTTLS : '');
-            $mail->Timeout = 10;
+            $mail->Timeout = 20;
             $mail->CharSet = 'UTF-8';
             $mail->setFrom(Env::require('MAIL_FROM'), Env::get('MAIL_FROM_NAME', 'SynergyFirst Digital') ?? '');
             $mail->addAddress($row['to_email'], (string) $row['to_name']);

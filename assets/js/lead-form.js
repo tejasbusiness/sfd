@@ -3,6 +3,7 @@
 // sent by hand until automated delivery exists.
 
 import { isValidEmail, readForm, showFormErrors, submitJson, trackingFields, reportSubmitFailure } from './form-utils.js';
+import { showToast } from './toast.js';
 
 function validate(data) {
   const errors = {};
@@ -17,7 +18,6 @@ export function initLeadForm(form) {
 
   const submitButton = form.querySelector('[data-lead-submit]');
   const submitError = form.querySelector('[data-submit-error]');
-  const successEl = document.querySelector('[data-lead-success]');
   let submitting = false;
 
   form.addEventListener('submit', async (event) => {
@@ -40,12 +40,9 @@ export function initLeadForm(form) {
         reportSubmitFailure(form, submitError, result, 'Something went wrong. Please try again.');
         return;
       }
-      form.hidden = true;
-      if (successEl) {
-        successEl.hidden = false;
-        successEl.setAttribute('tabindex', '-1');
-        successEl.focus();
-      }
+      form.reset();
+      showFormErrors(form, {});
+      showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
       submitError.textContent = 'Something went wrong. Please try again.';
       submitError.hidden = false;

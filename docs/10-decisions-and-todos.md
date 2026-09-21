@@ -411,3 +411,10 @@ Then, from the roadmap and earlier open items:
 - The `preview-applications` endpoint timed out on two probes shortly after, then answered normally (HTTP 422 validation, under 1 second) on repeat, so the cause was a transient server stall, not a code fault. Retest Free Preview and the playbook form.
 - To do: add the outbox retry cron (CloudPanel, as the site user, every 10 minutes): `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-outbox.php`. Until it exists, an email that fails once stays queued until someone runs the script. Consider a longer SMTP timeout than 10 seconds in `api/src/Mailer.php`.
 - If `hello@` still receives nothing while the outbox says `sent`, the problem is on the mailbox side: check the Hostinger mailbox exists, its spam folder and any bounce in the `noreply@` mailbox.
+
+### Toast confirmations and form reset (2026-09-21)
+
+- Owner request: replace the inline "thank you" blocks with a dismissible toast and clear the form after a successful submit. Done for Contact, the Websites hero form, Free Preview and the playbook; the booking modal keeps its confirmation step (it shows the booked time). Details in docs/03.
+- Tested in headless Chrome with a mocked API: each form shows the toast, resets fully (including the country code and the Contact "Other" text field), clears errors, and the toast closes with its button. Real submissions still need the owner's check after redeploy.
+- SMTP timeout raised from 10 to 20 seconds. The outbox cron command needs the `php` prefix (see docs/14).
+- Needs a redeploy (`dist/` and `api/src/Mailer.php`).

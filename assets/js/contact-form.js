@@ -14,6 +14,7 @@ import {
   initWebsiteInputs,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
+import { showToast } from './toast.js';
 
 const OTHER_SOURCE_VALUE = 'other';
 
@@ -41,7 +42,6 @@ export function initContactForm(form) {
 
   const submitButton = form.querySelector('[data-contact-submit]');
   const submitError = form.querySelector('[data-submit-error]');
-  const successEl = document.querySelector('[data-contact-success]');
   const sourceSelect = form.querySelector('select[name="source"]');
   const otherInput = form.querySelector('input[name="sourceOther"]');
   const otherField = otherInput ? otherInput.closest('.field') : null;
@@ -77,12 +77,10 @@ export function initContactForm(form) {
         reportSubmitFailure(form, submitError, result, 'Something went wrong sending your message. Please try again.');
         return;
       }
-      form.hidden = true;
-      if (successEl) {
-        successEl.hidden = false;
-        successEl.setAttribute('tabindex', '-1');
-        successEl.focus();
-      }
+      form.reset();
+      showFormErrors(form, {});
+      if (otherField) otherField.hidden = true;
+      showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {
       submitError.textContent = 'Something went wrong sending your message. Please try again.';
       submitError.hidden = false;
