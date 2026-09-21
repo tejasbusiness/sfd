@@ -1,23 +1,28 @@
 {
-  "id": "service-local-seo-google-visibility",
+  "id": "service-seo",
   "type": "service",
-  "slug": "local-seo-google-visibility",
-  "canonicalPath": "/services/local-seo-google-visibility/",
+  "slug": "seo",
+  "canonicalPath": "/services/seo/",
   "seo": {
-    "title": "Local SEO & Google Business Profile Services | SynergyFirst Digital",
-    "metaDescription": "Local SEO and Google Business Profile services that help nearby customers find your business when they search for what you offer.",
-    "ogTitle": "Local SEO & Google Business Profile Services",
-    "ogDescription": "Practical local search work that helps nearby customers discover your business on Google.",
+    "title": "SEO & Google Business Profile Services | SynergyFirst Digital",
+    "metaDescription": "Local SEO and Google Business Profile services for local businesses, with a free website audit. Practical, consistent work with no promised rankings.",
+    "ogTitle": "SEO & Google Business Profile Services",
+    "ogDescription": "Local SEO and Google Business Profile support that helps nearby customers find your business, starting with a free website audit.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Local SEO & Google Visibility Services",
+  "h1": "Get Found by the Customers Searching for You",
   "breadcrumbs": null,
   "sections": [
     {
-      "type": "hero",
-      "eyebrow": "SERVICES",
-      "subheading": "Practical local search strategies that help nearby customers discover your business when they are actively looking for what you provide.",
+      "type": "hero-form",
+      "eyebrow": "SEO",
+      "subheading": "Local SEO and Google Business Profile support that helps nearby customers find and choose your business.",
+      "points": [
+        "Free website audit of your current website",
+        "Google Business Profile optimisation and management",
+        "Honest advice, with no promised rankings"
+      ],
       "primaryCta": {
         "label": "Request Your Free Preview Website",
         "href": "/free-preview/"
@@ -26,23 +31,50 @@
         "label": "Book a Free 30-Minute Discovery Call",
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "heading": "Get your free website audit",
+        "intro": "Tell us about your business and include your website address in your message. We will reply by email.",
+        "topic": "SEO",
+        "submitLabel": "Request my free audit"
       }
     },
     {
+      "type": "client-logos",
+      "tinted": true,
+      "eyebrow": "OUR CLIENTS",
+      "heading": "Businesses we work with"
+    },
+    {
       "type": "content-block",
-      "eyebrow": "LOCAL SEO",
+      "eyebrow": "WHY LOCAL SEO MATTERS",
       "heading": "Get found by the customers closest to you",
       "body": [
         "Most local customers start with a search. Local SEO makes sure your business appears when someone nearby looks for what you do, with a well-structured website and a complete, active Google Business Profile.",
         "We focus on the practical work that helps local businesses be found and trusted: a site that search engines can understand, an optimised Business Profile, and content that answers what customers actually ask."
-      ]
+      ],
+      "tinted": false
+    },
+    {
+      "type": "portfolio-showcase",
+      "eyebrow": "RECENT WORK",
+      "heading": "Websites we have built",
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "ev-world360"
+      ],
+      "cta": {
+        "label": "View all our work",
+        "href": "/websites/portfolio/"
+      }
     },
     {
       "type": "feature-grid",
       "tinted": true,
       "eyebrow": "WHAT IS INCLUDED",
-      "heading": "What our local SEO services include",
-      "intro": "The depth of SEO work grows with your plan.",
+      "heading": "What our SEO services include",
+      "intro": "Available with our managed website plans or as a standalone service.",
       "items": [
         {
           "title": "Basic SEO setup",
@@ -71,17 +103,42 @@
       ]
     },
     {
+      "type": "process",
+      "eyebrow": "HOW IT WORKS",
+      "heading": "How our SEO work is delivered",
+      "intro": "A clear, practical process that starts with where you are today.",
+      "steps": [
+        {
+          "title": "Free website audit",
+          "body": "We review your current website and Google Business Profile and tell you what needs attention."
+        },
+        {
+          "title": "Fix the foundation",
+          "body": "Page titles, descriptions, structure and speed are set up so search engines can understand your site."
+        },
+        {
+          "title": "Build your local presence",
+          "body": "We optimise your Google Business Profile and add content that answers what your customers ask."
+        },
+        {
+          "title": "Report and adjust",
+          "body": "Analytics show what is working, and we adjust the plan so effort goes where it pays off."
+        }
+      ]
+    },
+    {
       "type": "content-block",
-      "eyebrow": "GOOD TO KNOW",
-      "heading": "Honest expectations",
+      "eyebrow": "HONEST EXPECTATIONS",
+      "heading": "No promised rankings",
+      "tinted": true,
       "body": [
         "Search results depend on many factors outside anyone's control, including competition and search engine changes, so we do not promise rankings or a specific number of calls. What we do is the consistent, practical work that gives your business the best chance of being found.",
-        "Local SEO works best on top of a fast, clear website. That is why it sits inside our managed website plans and not as a disconnected extra."
+        "Local SEO works best on top of a fast, clear website. It is included in our managed website plans, and it is also available as a standalone service. Talk to us on a discovery call about which fits."
       ]
     },
     {
       "type": "link-cards",
-      "tinted": true,
+      "tinted": false,
       "eyebrow": "RELATED SERVICES",
       "heading": "More ways we can help",
       "items": [
@@ -118,5 +175,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-09-20"
+  "lastUpdated": "2026-09-21"
 }

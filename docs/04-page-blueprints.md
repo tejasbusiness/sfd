@@ -109,6 +109,21 @@ Section order: `hero-form` (copy, three bullets, the free preview and discovery 
 - **Client logos** (`templates/sections/client-logos.njk`): logos in `assets/images/customer-logos/`, one `.card` each, alt text is the client name, not links. `tile: "dark"` puts white-artwork logos (EV WORLD360, 123 Silva, NextWorld Communications) on a solid dark tile.
 - The page is the `service` type, so every other service page can link to it, and the Free Preview button remains the primary conversion beside the form.
 
+## Service pages (all five share one structure, 2026-09-21)
+
+`/services/websites/`, `/services/seo/`, `/services/website-care-maintenance/`, `/services/digital-marketing-social-media/` and `/services/ai-automation/` use the same stack and styling, so future service pages should copy it:
+
+1. `hero-form`: H1, three bullets, free preview and discovery call buttons, compact enquiry form (Name, Email, Phone, Message, hidden `topic` = service name: `Websites`, `SEO`, `Website Care`, `Digital Marketing`, `Automation`).
+2. `client-logos` (tinted): the shared list in `data/client-logos.json`, so a new logo is added once.
+3. Why-it-matters content block.
+4. `portfolio-showcase`: the same three real projects.
+5. What is included (`feature-grid`, tinted).
+6. How it works (`process`, four steps).
+7. A closing content block (Honest expectations, Ownership, How we work or Getting started).
+8. Related services (`link-cards`) and the free preview call to action.
+
+Sources: Websites, Website Care, Digital Marketing and AI & Automation copy come from `plans.json` and the earlier page copy; nothing new was invented. **SEO** is a standalone service as well as part of the managed plans and leads with a **free website audit** (owner-confirmed offer; the form asks for the site address in the message). The audit's exact scope is not described beyond "we review your current website and Google Business Profile and tell you what needs attention", so the owner should confirm that wording. Reference pages analysed: icreateyoursite.com `/seo/`, `/ai-services/`, `/1-on-1-website-help/`. The 1-on-1 help product (a paid coaching session with a flat price) is not offered; live WordPress help is covered by Website Care.
+
 ## Book a Call
 
 Dedicated fallback for the same booking engine used in the sitewide modal. It must be shareable and functional when opened directly.

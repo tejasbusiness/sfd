@@ -24,10 +24,10 @@ The persistent header also exposes **Book a Free 30-Minute Discovery Call** with
 
 /services/
 /services/websites/
-/services/local-seo-google-visibility/
+/services/seo/
 /services/website-care-maintenance/
 /services/digital-marketing-social-media/
-/services/automation-custom-solutions/
+/services/ai-automation/
 
 /industries/
 /industries/home-services/
@@ -94,7 +94,7 @@ Mobile recommendation:
 ## Footer groups
 
 - Websites: How It Works, Pricing, Portfolio, Case Studies.
-- Services: the five service pages (Websites, Local SEO & Google Visibility, Website Care & WordPress Maintenance, Digital Marketing & Social Media, Automation & Custom Solutions).
+- Services: the five service pages (Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, AI & Automation).
 - Resources: Free Tools, Blog, FAQs if introduced.
 - Company: About, Contact, Book a Call.
 - Legal: Privacy, Terms, Subscription Terms, Refund Policy, Cookie Policy (plus the "Cookie settings" button that reopens the consent banner). These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns. The Cookie Policy was added 2026-09-20 because EU visitors are a main target.
@@ -122,3 +122,7 @@ The header (mega menu and mobile More drawer) and footer now show **Services** i
 ## Websites service page and landing page (2026-09-21)
 
 `/services/website-design-development/` is now **`/services/websites/`** and the nav, footer and Services labels read **Websites**. The old URL returns a single-hop 301 (`data/redirects.json`). `/websites/` is unchanged: it stays the Our Work hub (Portfolio and Case Studies). `/services/websites/` is also the landing page for paid traffic (Meta ads), so it carries an enquiry form in the hero. Details in docs/04.
+
+## All service pages share the Websites structure (2026-09-21)
+
+Renamed with single-hop 301s in `data/redirects.json`: `/services/local-seo-google-visibility/` to **`/services/seo/`** (label "SEO") and `/services/automation-custom-solutions/` to **`/services/ai-automation/`** (label "AI & Automation"). Website Care and Digital Marketing keep their slugs and labels. Services are now: Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, AI & Automation. Structure and copy sources are in docs/04.

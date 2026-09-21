@@ -70,8 +70,8 @@
           "path": "/services/websites/"
         },
         {
-          "label": "Local SEO & Google Visibility",
-          "path": "/services/local-seo-google-visibility/"
+          "label": "SEO",
+          "path": "/services/seo/"
         },
         {
           "label": "Website Care & WordPress Maintenance",
@@ -82,8 +82,8 @@
           "path": "/services/digital-marketing-social-media/"
         },
         {
-          "label": "Automation & Custom Solutions",
-          "path": "/services/automation-custom-solutions/"
+          "label": "AI & Automation",
+          "path": "/services/ai-automation/"
         }
       ]
     },

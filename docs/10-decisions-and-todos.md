@@ -375,6 +375,13 @@ Then, from the roadmap and earlier open items:
 - Checks: `npm run rebuild`, `validate` and `test:validation` pass. The dropdown is reviewed by code and built HTML, not in an interactive browser: About Us stays a real link to `/about/` (so touch users reach it without hover), the dropdown opens on `:focus-within` so keyboard Tab reaches both items, and it is desktop-only (nav shown at 1080px and above; below that the tab bar and More drawer carry navigation). Still to do in the QA session: confirm in real browsers (keyboard, touch laptop, tablet and phone widths).
 - Open: on `/how-it-works/` the About Us parent is not highlighted as the current section (nav active state only matches the parent's own path). Change the template if you want that.
 
+### Service pages rebuilt to match Websites (2026-09-21)
+
+- Owner decisions: SEO moves to `/services/seo/` (label "SEO") as a standalone service with a **free website audit**; Automation becomes **AI & Automation** at `/services/ai-automation/`; the reference's "1-on-1 Website Help" is not added as a page (Website Care covers it); all five service pages get the same structure and hero (docs/04). 301s from both old URLs. Logos now live once in `data/client-logos.json`.
+- Built in one generator pass; all four pages reuse existing copy and `plans.json` facts. Process steps are ours (audit, fix the foundation, build local presence, report), not the reference's. The reference's statistic ("93% of online experiences start with a search engine") and industry use-case examples were not used because they are unsourced or not our offer.
+- Open: confirm the free audit scope and wording; owner review of all new service copy; the audit request currently arrives as a normal enquiry with topic `SEO`, so decide if it needs its own follow-up flow. No pricing is shown for standalone SEO (none has been decided).
+- Checks: rebuild, validate and `test:validation` pass; all five pages return 200 and the old URLs redirect in one hop; layout checked in headless Chrome. Form submission is still untested against the live API (form-testing session).
+
 ### Websites service page rebuilt as a landing page (2026-09-21)
 
 - Owner decisions: `/services/website-design-development/` becomes `/services/websites/` (301 from the old URL) and is labelled **Websites** everywhere; `/websites/` stays as the Our Work hub; the page doubles as the Meta ads landing page; hero form fields are Name, Email, Phone and Message plus a hidden `topic` of `Websites`; the 8 client logos in `assets/images/customer-logos/` go in a logo strip (owner confirmed permission for all 8, including 123 Silva and NextWorld Communications); site types shown: business websites, redesigns and booking sites.

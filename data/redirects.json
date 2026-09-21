@@ -6,5 +6,13 @@
   {
     "from": "/services/website-design-development/",
     "to": "/services/websites/"
+  },
+  {
+    "from": "/services/local-seo-google-visibility/",
+    "to": "/services/seo/"
+  },
+  {
+    "from": "/services/automation-custom-solutions/",
+    "to": "/services/ai-automation/"
   }
 ]

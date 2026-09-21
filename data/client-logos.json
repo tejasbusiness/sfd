@@ -1,0 +1,56 @@
+{
+  "_note": "Real client logos supplied by the owner (permission confirmed 2026-09-21). `tile: dark` puts white-artwork logos on a solid dark tile. Used by every client-logos section that has no items of its own.",
+  "items": [
+    {
+      "name": "Budget Opticals of America",
+      "src": "/assets/images/customer-logos/budget-opticals-of-america.png",
+      "width": 157,
+      "height": 60
+    },
+    {
+      "name": "CAWT Mumbai",
+      "src": "/assets/images/customer-logos/cawt-mumbai.png",
+      "width": 200,
+      "height": 200
+    },
+    {
+      "name": "CINTAA",
+      "src": "/assets/images/customer-logos/cintaa.png",
+      "width": 365,
+      "height": 199
+    },
+    {
+      "name": "The BrandBook Company",
+      "src": "/assets/images/customer-logos/brand-book-company.png",
+      "width": 1024,
+      "height": 50
+    },
+    {
+      "name": "Siddhant Cinevision Pvt. Ltd.",
+      "src": "/assets/images/customer-logos/siddhant-cinevision.png",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "name": "EV WORLD360",
+      "src": "/assets/images/customer-logos/evworld360.png",
+      "width": 815,
+      "height": 338,
+      "tile": "dark"
+    },
+    {
+      "name": "123 Silva",
+      "src": "/assets/images/customer-logos/123-silva.png",
+      "width": 755,
+      "height": 152,
+      "tile": "dark"
+    },
+    {
+      "name": "NextWorld Communications",
+      "src": "/assets/images/customer-logos/nextworld-communications.png",
+      "width": 500,
+      "height": 165,
+      "tile": "dark"
+    }
+  ]
+}

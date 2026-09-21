@@ -1,15 +1,16 @@
 {# Client logo strip. Every entry is a real client supplied by the owner
-   (assets/images/customer-logos/); nothing is invented (CLAUDE.md rule 13).
+   (assets/images/customer-logos/, listed once in data/client-logos.json); nothing is invented (CLAUDE.md rule 13).
    `tile: "dark"` puts a logo with light artwork on a solid dark card. Logos are plain
    images (alt = client name), not links. #}
-{% if section.items and section.items.length %}
+{% set logoItems = section.items or clientLogos.items %}
+{% if logoItems and logoItems.length %}
 <section class="section client-logos{{ ' section--tinted' if section.tinted }}" aria-labelledby="client-logos-heading">
   <div class="container">
     {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2 id="client-logos-heading">{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <ul class="client-logos__list" data-reveal>
-      {% for item in section.items %}
+      {% for item in logoItems %}
       <li class="card client-logos__item{{ ' client-logos__item--dark' if item.tile == 'dark' }}">
         <img class="client-logos__image" src="{{ item.src }}" alt="{{ item.name }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
       </li>

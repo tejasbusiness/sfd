@@ -11,13 +11,18 @@
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Digital Marketing & Social Media Services",
+  "h1": "Marketing and Social Media That Keeps You Visible",
   "breadcrumbs": null,
   "sections": [
     {
-      "type": "hero",
-      "eyebrow": "SERVICES",
+      "type": "hero-form",
+      "eyebrow": "DIGITAL MARKETING",
       "subheading": "Clear, consistent campaigns and content designed to strengthen brand recall and keep your business visible in the right places.",
+      "points": [
+        "Campaigns planned around your goals",
+        "Consistent content for your social profiles",
+        "Honest reporting, with no promised follower counts"
+      ],
       "primaryCta": {
         "label": "Request Your Free Preview Website",
         "href": "/free-preview/"
@@ -26,16 +31,43 @@
         "label": "Book a Free 30-Minute Discovery Call",
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "heading": "Tell us about your business",
+        "intro": "Share a few details and we will reply by email.",
+        "topic": "Digital Marketing",
+        "submitLabel": "Send enquiry"
       }
     },
     {
+      "type": "client-logos",
+      "tinted": true,
+      "eyebrow": "OUR CLIENTS",
+      "heading": "Businesses we work with"
+    },
+    {
       "type": "content-block",
-      "eyebrow": "DIGITAL MARKETING",
+      "eyebrow": "WHY MARKETING MATTERS",
       "heading": "Stay in front of the customers who already know you exist",
       "body": [
         "A website earns attention; marketing keeps it. Consistent campaigns and content help people remember your business, come back to it and recommend it, whether they find you on search, on social media or in their inbox.",
         "We plan marketing and social media work around your goals and your customers, and connect it back to your website so every campaign has somewhere useful to send people."
-      ]
+      ],
+      "tinted": false
+    },
+    {
+      "type": "portfolio-showcase",
+      "eyebrow": "RECENT WORK",
+      "heading": "Websites we have built",
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "ev-world360"
+      ],
+      "cta": {
+        "label": "View all our work",
+        "href": "/websites/portfolio/"
+      }
     },
     {
       "type": "feature-grid",
@@ -71,24 +103,49 @@
       ]
     },
     {
+      "type": "process",
+      "eyebrow": "HOW IT WORKS",
+      "heading": "How our marketing work runs",
+      "intro": "Scoped with you and planned around your goals.",
+      "steps": [
+        {
+          "title": "Talk to us",
+          "body": "We scope the work with you on a discovery call, so you only pay for what fits your goals."
+        },
+        {
+          "title": "Plan the campaign",
+          "body": "A clear plan for what to say, to whom and where, tied to a real business goal."
+        },
+        {
+          "title": "Create and publish",
+          "body": "Consistent content that reflects your brand and connects back to your website."
+        },
+        {
+          "title": "Report and refine",
+          "body": "Analytics show what is working, so effort goes where it pays off."
+        }
+      ]
+    },
+    {
       "type": "content-block",
       "eyebrow": "HOW WE WORK",
       "heading": "Scoped with you, not bundled by default",
       "body": [
         "Beyond the SEO blog posts in the Business plan, digital marketing and social media work is not part of the standard website plans. We scope it with you on a discovery call, so you only pay for what fits your goals.",
         "We do not promise follower counts, leads or sales figures. We promise consistent, well-planned work and honest reporting."
-      ]
+      ],
+      "tinted": true
     },
     {
       "type": "link-cards",
-      "tinted": true,
+      "tinted": false,
       "eyebrow": "RELATED SERVICES",
       "heading": "More ways we can help",
       "items": [
         {
-          "label": "Local SEO & Google Visibility",
+          "label": "SEO",
           "description": "Be found by nearby customers on Google.",
-          "href": "/services/local-seo-google-visibility/",
+          "href": "/services/seo/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
@@ -98,9 +155,9 @@
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "Automation & Custom Solutions",
+          "label": "AI & Automation",
           "description": "Systems and AI workflows that save time.",
-          "href": "/services/automation-custom-solutions/",
+          "href": "/services/ai-automation/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
@@ -118,5 +175,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-09-20"
+  "lastUpdated": "2026-09-21"
 }

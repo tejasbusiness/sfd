@@ -43,59 +43,6 @@
       "type": "client-logos",
       "eyebrow": "OUR CLIENTS",
       "heading": "Businesses we work with",
-      "items": [
-        {
-          "name": "Budget Opticals of America",
-          "src": "/assets/images/customer-logos/budget-opticals-of-america.png",
-          "width": 157,
-          "height": 60
-        },
-        {
-          "name": "CAWT Mumbai",
-          "src": "/assets/images/customer-logos/cawt-mumbai.png",
-          "width": 200,
-          "height": 200
-        },
-        {
-          "name": "CINTAA",
-          "src": "/assets/images/customer-logos/cintaa.png",
-          "width": 365,
-          "height": 199
-        },
-        {
-          "name": "The BrandBook Company",
-          "src": "/assets/images/customer-logos/brand-book-company.png",
-          "width": 1024,
-          "height": 50
-        },
-        {
-          "name": "Siddhant Cinevision Pvt. Ltd.",
-          "src": "/assets/images/customer-logos/siddhant-cinevision.png",
-          "width": 500,
-          "height": 500
-        },
-        {
-          "name": "EV WORLD360",
-          "src": "/assets/images/customer-logos/evworld360.png",
-          "width": 815,
-          "height": 338,
-          "tile": "dark"
-        },
-        {
-          "name": "123 Silva",
-          "src": "/assets/images/customer-logos/123-silva.png",
-          "width": 755,
-          "height": 152,
-          "tile": "dark"
-        },
-        {
-          "name": "NextWorld Communications",
-          "src": "/assets/images/customer-logos/nextworld-communications.png",
-          "width": 500,
-          "height": 165,
-          "tile": "dark"
-        }
-      ],
       "tinted": true
     },
     {
@@ -211,9 +158,9 @@
       "heading": "More ways we can help",
       "items": [
         {
-          "label": "Local SEO & Google Visibility",
+          "label": "SEO",
           "description": "Be found by nearby customers on Google.",
-          "href": "/services/local-seo-google-visibility/",
+          "href": "/services/seo/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
@@ -223,9 +170,9 @@
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "Automation & Custom Solutions",
+          "label": "AI & Automation",
           "description": "Systems and AI workflows that save time.",
-          "href": "/services/automation-custom-solutions/",
+          "href": "/services/ai-automation/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]

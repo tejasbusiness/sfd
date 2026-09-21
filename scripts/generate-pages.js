@@ -35,6 +35,7 @@ function renderPages({ templatesDir, outDir, mode, sharedData, pages }) {
   const faqs = sharedData['faqs.json'] || { items: [] };
   const testimonials = sharedData['testimonials.json'] || { items: [] };
   const projects = sharedData['projects.json'] || { items: [] };
+  const clientLogos = sharedData['client-logos.json'] || { items: [] };
   const countryCodes = sharedData['country-codes.json'] || { defaultIso2: '', countries: [] };
   const buildYear = new Date().getFullYear();
 
@@ -50,6 +51,7 @@ function renderPages({ templatesDir, outDir, mode, sharedData, pages }) {
       faqs,
       testimonials,
       projects,
+      clientLogos,
       countryCodes,
       page,
       mode,

@@ -1,23 +1,28 @@
 {
-  "id": "service-automation-custom-solutions",
+  "id": "service-ai-automation",
   "type": "service",
-  "slug": "automation-custom-solutions",
-  "canonicalPath": "/services/automation-custom-solutions/",
+  "slug": "ai-automation",
+  "canonicalPath": "/services/ai-automation/",
   "seo": {
-    "title": "Business Automation & Custom Software | SynergyFirst Digital",
-    "metaDescription": "Business automation and custom software for local businesses: CRM, WhatsApp and booking integrations, AI-assisted workflows and internal tools.",
-    "ogTitle": "Business Automation & Custom Software",
-    "ogDescription": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work.",
+    "title": "AI & Automation Services | SynergyFirst Digital",
+    "metaDescription": "AI and automation for local businesses: booking and CRM systems, WhatsApp, AI chatbots, AI-assisted workflows and custom software built around your business.",
+    "ogTitle": "AI & Automation Services",
+    "ogDescription": "Practical AI and automation that saves your team time, from booking and CRM to chatbots and custom tools.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Business Automation & Custom Solutions",
+  "h1": "AI and Automation That Saves Your Team Time",
   "breadcrumbs": null,
   "sections": [
     {
-      "type": "hero",
-      "eyebrow": "SERVICES",
+      "type": "hero-form",
+      "eyebrow": "AI & AUTOMATION",
       "subheading": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work and help your team operate more efficiently.",
+      "points": [
+        "Booking and CRM systems that capture every lead",
+        "WhatsApp and AI assistants for common enquiries",
+        "Custom tools when off-the-shelf products do not fit"
+      ],
       "primaryCta": {
         "label": "Request Your Free Preview Website",
         "href": "/free-preview/"
@@ -26,22 +31,49 @@
         "label": "Book a Free 30-Minute Discovery Call",
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "heading": "Tell us what you need",
+        "intro": "Describe the task or tool you have in mind and we will reply by email.",
+        "topic": "Automation",
+        "submitLabel": "Send enquiry"
       }
     },
     {
+      "type": "client-logos",
+      "tinted": true,
+      "eyebrow": "OUR CLIENTS",
+      "heading": "Businesses we work with"
+    },
+    {
       "type": "content-block",
-      "eyebrow": "AUTOMATION",
+      "eyebrow": "WHY AI & AUTOMATION",
       "heading": "Let software handle the repetitive work",
       "body": [
         "Many small businesses lose time and leads to manual tasks: replying to the same questions, copying details between tools, or chasing enquiries. Automation removes that friction so every lead is captured and followed up, and your team can focus on the work only people can do.",
         "We build practical systems that connect to your website, from booking and CRM to messaging and AI assistants, and we can develop custom tools when an off-the-shelf product does not fit."
-      ]
+      ],
+      "tinted": false
+    },
+    {
+      "type": "portfolio-showcase",
+      "eyebrow": "RECENT WORK",
+      "heading": "Websites we have built",
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "ev-world360"
+      ],
+      "cta": {
+        "label": "View all our work",
+        "href": "/websites/portfolio/"
+      }
     },
     {
       "type": "feature-grid",
       "tinted": true,
       "eyebrow": "WHAT IS INCLUDED",
-      "heading": "What our automation and custom solutions include",
+      "heading": "What our AI and automation services include",
       "intro": "The scope grows with your plan, and we tailor the real thing to your business.",
       "items": [
         {
@@ -71,17 +103,42 @@
       ]
     },
     {
+      "type": "process",
+      "eyebrow": "HOW IT WORKS",
+      "heading": "How we build your automation",
+      "intro": "Start with the problem, not the tool.",
+      "steps": [
+        {
+          "title": "Tell us where time is lost",
+          "body": "Describe the repetitive tasks, missed enquiries or manual steps slowing your team down."
+        },
+        {
+          "title": "We suggest the simplest fix",
+          "body": "We recommend automation only where it solves a real problem."
+        },
+        {
+          "title": "We build and connect it",
+          "body": "Systems are built around how your business works and connected to your website."
+        },
+        {
+          "title": "Review and improve",
+          "body": "We check how it is working and adjust as your needs change."
+        }
+      ]
+    },
+    {
       "type": "content-block",
       "eyebrow": "GETTING STARTED",
       "heading": "Start with the problem, not the tool",
       "body": [
         "We recommend automation only where it solves a real problem, never because it is fashionable. Tell us where your team loses time, and we will suggest the simplest system that fixes it.",
         "Have a specific tool or workflow in mind? Book a call and we will discuss what it would take to build it for your business."
-      ]
+      ],
+      "tinted": true
     },
     {
       "type": "link-cards",
-      "tinted": true,
+      "tinted": false,
       "eyebrow": "RELATED SERVICES",
       "heading": "More ways we can help",
       "items": [
@@ -118,5 +175,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-09-20"
+  "lastUpdated": "2026-09-21"
 }
