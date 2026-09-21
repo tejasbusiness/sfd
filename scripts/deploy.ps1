@@ -72,7 +72,7 @@ function Confirm-Step([string]$question) {
   $answer = Read-Host "$question [y/N]"
   return ($answer -match '^(y|yes)$')
 }
-function Ssh([string]$command) {
+function Invoke-Remote([string]$command) {
   $out = & ssh -i $Key -p $Port -o BatchMode=yes -o ConnectTimeout=15 $Srv $command
   $script:SshExit = $LASTEXITCODE
   return $out
@@ -150,7 +150,7 @@ Ok "Tools found; server $Srv; site folder $Site"
 if ($Rollback) {
   Step 'R' 'Rollback to the previous static site (dist.bak)'
   if (-not (Confirm-Step 'Replace the live site with the previous version?')) { Fail 'Cancelled.' }
-  $out = Ssh "cd $Site && test -d dist.bak && rm -rf dist.failed && mv dist dist.failed && mv dist.bak dist && echo ROLLED_BACK"
+  $out = Invoke-Remote "cd $Site && test -d dist.bak && rm -rf dist.failed && mv dist dist.failed && mv dist.bak dist && echo ROLLED_BACK"
   if (($out -join ' ') -notmatch 'ROLLED_BACK') { Fail 'Rollback did not run (is there a dist.bak on the server?).' }
   Ok 'Previous static site restored (the rolled-back version is kept as dist.failed).'
   $good = Verify-Live
@@ -187,7 +187,7 @@ if ($BuildOnly) { Write-Host ''; Write-Host 'Build only: nothing was deployed.' 
 
 # ---------------------------------------------------------------- server checks
 Step '2' 'Checking server access'
-$out = Ssh "touch $Site/.w && echo WRITE_OK && rm $Site/.w; which composer rsync"
+$out = Invoke-Remote "touch $Site/.w && echo WRITE_OK && rm $Site/.w; which composer rsync"
 $text = $out -join ' '
 if ($text -notmatch 'WRITE_OK') { Fail "Cannot write to $Site as $User. Restore write permission in CloudPanel." }
 if ($text -notmatch 'composer') { Fail 'composer is not installed on the server.' }
@@ -196,15 +196,15 @@ Ok 'Server reachable, site folder writable, composer and rsync present'
 
 # what changed compared with the server (checked before the swap)
 $localLock = (Get-FileHash 'api\composer.lock' -Algorithm SHA256).Hash.ToLower()
-$remoteLock = ((Ssh "sha256sum $Site/api/composer.lock 2>/dev/null | cut -d' ' -f1") -join '').Trim()
+$remoteLock = ((Invoke-Remote "sha256sum $Site/api/composer.lock 2>/dev/null | cut -d' ' -f1") -join '').Trim()
 $composerChanged = ($localLock -ne $remoteLock)
 
 $localMigrations = @(Get-ChildItem migrations -Filter *.sql | ForEach-Object { $_.Name })
-$remoteMigrations = @((Ssh "ls $Site/migrations 2>/dev/null") | ForEach-Object { "$_".Trim() })
+$remoteMigrations = @((Invoke-Remote "ls $Site/migrations 2>/dev/null") | ForEach-Object { "$_".Trim() })
 $newMigrations = @($localMigrations | Where-Object { $remoteMigrations -notcontains $_ })
 
 $localNginx = (Get-FileHash 'deploy\nginx-redirects.conf' -Algorithm SHA256).Hash.ToLower()
-$remoteNginx = ((Ssh "cat $Site/.nginx-redirects.sha256 2>/dev/null") -join '').Trim()
+$remoteNginx = ((Invoke-Remote "cat $Site/.nginx-redirects.sha256 2>/dev/null") -join '').Trim()
 
 if ($UploadEnv) {
   if (-not (Test-Path '.env')) { Fail '.env not found in the project folder.' }
@@ -225,14 +225,18 @@ $tgz = Join-Path $env:TEMP 'sfd-release.tgz'
 if (Test-Path $tgz) { Remove-Item $tgz -Force }
 & tar -czf $tgz dist api/src api/bin api/public api/composer.json api/composer.lock migrations
 if ($LASTEXITCODE -ne 0) { Fail 'Could not create the upload package (tar).' }
-& scp -i $Key -P $Port -o BatchMode=yes $tgz "${Srv}:${Site}/release.tgz"
-if ($LASTEXITCODE -ne 0) { Remove-Item $tgz -Force -ErrorAction SilentlyContinue; Fail 'Upload failed (scp).' }
+# scp can mistake a Windows drive path (C:\...) for a remote host, so upload by file name from its folder.
+Push-Location (Split-Path $tgz)
+& scp -i $Key -P $Port -o BatchMode=yes (Split-Path $tgz -Leaf) "${Srv}:${Site}/release.tgz"
+$scpExit = $LASTEXITCODE
+Pop-Location
 Remove-Item $tgz -Force -ErrorAction SilentlyContinue
+if ($scpExit -ne 0) { Fail 'Upload failed (scp).' }
 if ($UploadEnv) {
   & scp -i $Key -P $Port -o BatchMode=yes '.env' "${Srv}:${Site}/.env.new"
   if ($LASTEXITCODE -ne 0) { Fail 'Uploading .env failed.' }
 }
-$out = Ssh "cd $Site && rm -rf _release && mkdir _release && tar -xzf release.tgz -C _release && rm release.tgz && test -f _release/dist/index.html && test -f _release/api/src/App.php && echo PACKAGE_OK"
+$out = Invoke-Remote "cd $Site && rm -rf _release && mkdir _release && tar -xzf release.tgz -C _release && rm release.tgz && test -f _release/dist/index.html && test -f _release/api/src/App.php && echo PACKAGE_OK"
 if (($out -join ' ') -notmatch 'PACKAGE_OK') { Fail 'The uploaded package is incomplete. Nothing was changed on the live site.' }
 Ok 'Package uploaded to the staging folder'
 
@@ -245,10 +249,10 @@ $swap = "cd $Site && mkdir -p dist api migrations && rm -rf dist.bak && cp -a di
   "find dist api migrations -user $User -type d -exec chmod 755 {} +; " +
   "find dist api migrations -user $User -type f -exec chmod 644 {} +; " +
   "rm -rf _release"
-$out = Ssh $swap
+$out = Invoke-Remote $swap
 if (($out -join ' ') -notmatch 'SWAP_OK') { Fail 'Copying the new files failed part way. Run .\deploy.bat -Rollback to restore the previous static site.' }
 if ($UploadEnv) {
-  $out = Ssh "cd $Site && mv .env.new .env && chmod 640 .env && echo ENV_OK"
+  $out = Invoke-Remote "cd $Site && mv .env.new .env && chmod 640 .env && echo ENV_OK"
   if (($out -join ' ') -notmatch 'ENV_OK') { Fail 'Installing the new .env failed.' }
   Ok '.env updated (mode 640)'
 }
@@ -256,7 +260,7 @@ Ok 'New version is live'
 
 if ($composerChanged) {
   Step '5b' 'Installing PHP dependencies (composer.lock changed)'
-  $out = Ssh "cd $Site/api && composer install --no-dev --optimize-autoloader 2>&1 | tail -5"
+  $out = Invoke-Remote "cd $Site/api && composer install --no-dev --optimize-autoloader 2>&1 | tail -5"
   $out | ForEach-Object { Info $_ }
   if ($script:SshExit -ne 0) { Fail 'composer install failed. The API may not work until it is fixed.' }
   Ok 'Dependencies installed'
@@ -264,13 +268,13 @@ if ($composerChanged) {
 
 if ($newMigrations.Count -gt 0) {
   Step '5c' 'Database migrations'
-  $out = Ssh "cd $Site && php api/bin/migrate.php --env=production --status"
+  $out = Invoke-Remote "cd $Site && php api/bin/migrate.php --env=production --status"
   $out | ForEach-Object { Info $_ }
   $apply = $false
   if ($Migrate) { $apply = $true }
   elseif (-not $Yes) { $apply = Confirm-Step "Apply $($newMigrations.Count) new migration(s) now? (cannot be undone; forward-only)" }
   if ($apply) {
-    $out = Ssh "cd $Site && php api/bin/migrate.php --env=production"
+    $out = Invoke-Remote "cd $Site && php api/bin/migrate.php --env=production"
     $out | ForEach-Object { Info $_ }
     if ($script:SshExit -ne 0) { Fail 'Migration failed. Fix it and run: npm run deploy -- -Migrate' }
     Ok 'Migrations applied'
@@ -281,7 +285,7 @@ if ($newMigrations.Count -gt 0) {
 
 # nginx redirects: only the owner can paste them into the CloudPanel vhost
 if (-not $remoteNginx) {
-  Ssh "echo $localNginx > $Site/.nginx-redirects.sha256" | Out-Null
+  Invoke-Remote "echo $localNginx > $Site/.nginx-redirects.sha256" | Out-Null
   Warn 'Recorded the current nginx redirects as the baseline (assumed to match the CloudPanel vhost).'
 } elseif ($remoteNginx -ne $localNginx) {
   Write-Host ''
@@ -291,7 +295,7 @@ if (-not $remoteNginx) {
   Info 'with deploy\nginx-redirects.conf (copied to your clipboard now), then Save. See deploy.md step 9.'
   Get-Content 'deploy\nginx-redirects.conf' -Raw | Set-Clipboard
   if (Confirm-Step 'Have you updated the vhost in CloudPanel?') {
-    Ssh "echo $localNginx > $Site/.nginx-redirects.sha256" | Out-Null
+    Invoke-Remote "echo $localNginx > $Site/.nginx-redirects.sha256" | Out-Null
     Ok 'Recorded. You will not be reminded again until the redirects change.'
   } else {
     Warn 'Not recorded: you will be reminded on the next deploy.'
