@@ -2,15 +2,17 @@
 
 ## Primary navigation
 
-- Home
-- How It Works
-- Services
-- Websites
+Desktop header (`data/navigation.json` `primary`), in order:
+
+- About Us (dropdown: About Us, How It Works)
+- Our Work (mega menu: Portfolio, Case Studies)
+- Services (mega menu: five service pages)
 - Pricing
-- About
-- Resources
-- Contact
+- Resources (mega menu: Free Tools, Free Downloads, Blog)
+- Contact Us
 - CTA: Get a Free Preview
+
+**How It Works is not a top-level item (2026-09-21).** It sits under About Us. The mobile bottom tab bar (Home, How It Works, Free Preview, Pricing) still has it, so it is not in the More drawer. The `/how-it-works/` URL is unchanged (no redirect), and the footer link and in-page calls to action still point to it.
 
 The persistent header also exposes **Book a Free 30-Minute Discovery Call** without overwhelming the primary CTA. On smaller screens, both actions must remain easy to find.
 

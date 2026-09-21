@@ -368,7 +368,9 @@ Then, from the roadmap and earlier open items:
 
 - Owner decision: Industries removed from the header and footer (industry pages kept, unlinked from navigation); Services added with five sub-items from the About page (Website Design & Development, Local SEO & Google Visibility, Website Care & WordPress Maintenance, Digital Marketing & Social Media, Automation & Custom Solutions). Built `/services/` plus five service pages with SEO copy checked against `plans.json`. Open: owner review of the service copy, and whether Industries should get a new home in the navigation later.
 
-### Pending: move "How It Works" out of the top-level menu (analysed 2026-09-21, no changes made)
+### How It Works moved under About Us (2026-09-21)
 
-- Owner question: can How It Works become a sub-menu item under About Us or Our Work? Recommendation: **About Us** (process page fits "how we operate"; Our Work is proof-only). Alternative worth considering: Pricing dropdown (Plans, How It Works). Awaiting owner choice.
-- If approved: in `data/navigation.json` give the chosen parent a `children` list (simple dropdown) and remove the top-level How It Works item; keep `/how-it-works/` URL (no redirect), the footer link and the mobile tab bar entry; check the parent link still works by keyboard and touch; add it to the mobile "More" drawer only if removed from the tab bar; update docs/02 and this log.
+- Owner decision: parent is **About Us**, and the mobile tab bar entry **stays**. In `data/navigation.json`, About Us now has a simple `children` dropdown (About Us, How It Works) and the top-level How It Works item is removed. The dropdown reuses the existing CSS-only hover/focus-within component; no template or CSS change.
+- Unchanged: `/how-it-works/` URL (no redirect), the footer link, the mobile tab bar entry, the More drawer and all in-page calls to action.
+- Checks: `npm run rebuild`, `validate` and `test:validation` pass. The dropdown is reviewed by code and built HTML, not in an interactive browser: About Us stays a real link to `/about/` (so touch users reach it without hover), the dropdown opens on `:focus-within` so keyboard Tab reaches both items, and it is desktop-only (nav shown at 1080px and above; below that the tab bar and More drawer carry navigation). Still to do in the QA session: confirm in real browsers (keyboard, touch laptop, tablet and phone widths).
+- Open: on `/how-it-works/` the About Us parent is not highlighted as the current section (nav active state only matches the parent's own path). Change the template if you want that.

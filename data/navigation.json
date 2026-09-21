@@ -4,11 +4,17 @@
   "primary": [
     {
       "label": "About Us",
-      "path": "/about/"
-    },
-    {
-      "label": "How It Works",
-      "path": "/how-it-works/"
+      "path": "/about/",
+      "children": [
+        {
+          "label": "About Us",
+          "path": "/about/"
+        },
+        {
+          "label": "How It Works",
+          "path": "/how-it-works/"
+        }
+      ]
     },
     {
       "label": "Our Work",
