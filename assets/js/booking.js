@@ -15,6 +15,7 @@ import {
   showFormErrors,
   initWebsiteInputs,
   submitJson,
+  setSubmitting,
   trackingFields,
   reportSubmitFailure,
   WEBSITE_ERROR_MESSAGE,
@@ -194,7 +195,8 @@ export function initBookingModal(dialogEl) {
       if (Object.keys(errors).length > 0) return;
 
       state.submitting = true;
-      submitButton.disabled = true;
+      let booked = false;
+      setSubmitting(form, submitButton, true, 'Confirming your booking…');
       submitError.hidden = true;
 
       try {
@@ -229,6 +231,7 @@ export function initBookingModal(dialogEl) {
           `${formatDate(state.selectedDate)} at ${state.selectedTime} (${state.timezone}). ` +
           `We have emailed your confirmation to ${data.email}.${link}`;
         showStep('confirmation');
+        booked = true;
       } catch (err) {
         // Safe retry: idempotencyKey is unchanged, so resubmitting reuses the same
         // key instead of risking a duplicate booking.
@@ -236,7 +239,9 @@ export function initBookingModal(dialogEl) {
         submitError.hidden = false;
       } finally {
         state.submitting = false;
-        submitButton.disabled = false;
+        setSubmitting(form, submitButton, false);
+        // A confirmed booking keeps the button disabled until the form is reset (modal closed).
+        if (booked) submitButton.disabled = true;
       }
     });
   }
@@ -248,6 +253,7 @@ export function initBookingModal(dialogEl) {
     state.idempotencyKey = null;
     if (form) form.reset();
     showFormErrors(form, {});
+    if (submitButton) submitButton.disabled = false;
     showStep('date');
   });
 

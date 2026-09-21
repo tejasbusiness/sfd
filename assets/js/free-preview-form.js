@@ -12,6 +12,7 @@ import {
   submitJson,
   trackingFields,
   reportSubmitFailure,
+  setSubmitting,
   initWebsiteInputs,
   WEBSITE_ERROR_MESSAGE,
 } from './form-utils.js';
@@ -57,7 +58,7 @@ export function initFreePreviewForm(form) {
     if (Object.keys(errors).length > 0) return;
 
     submitting = true;
-    submitButton.disabled = true;
+    setSubmitting(form, submitButton, true, form.dataset.loadingLabel || undefined);
     submitError.hidden = true;
 
     try {
@@ -79,7 +80,7 @@ export function initFreePreviewForm(form) {
       submitError.hidden = false;
     } finally {
       submitting = false;
-      submitButton.disabled = false;
+      setSubmitting(form, submitButton, false);
     }
   });
 }

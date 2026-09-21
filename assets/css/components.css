@@ -3391,6 +3391,31 @@ a.case-study-card {
   margin-top: 0;
 }
 
+/* Submit button while a form is sending (assets/js/form-utils.js setSubmitting):
+   spinner, busy label, disabled, and no dimmed look so the label stays readable. */
+.button.is-loading,
+.button.is-loading:disabled {
+  opacity: 1;
+  cursor: progress;
+}
+.button__spinner {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: button-spin 0.7s linear infinite;
+}
+@keyframes button-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button__spinner {
+    animation-duration: 2.4s;
+  }
+}
+
 /* Toast: dismissible confirmation shown after a form is submitted (assets/js/toast.js).
    Built on the shared .card (fill and shadow only change). Top right on desktop,
    full width at the top on phones; above the sticky header. */

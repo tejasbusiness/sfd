@@ -418,3 +418,9 @@ Then, from the roadmap and earlier open items:
 - Tested in headless Chrome with a mocked API: each form shows the toast, resets fully (including the country code and the Contact "Other" text field), clears errors, and the toast closes with its button. Real submissions still need the owner's check after redeploy.
 - SMTP timeout raised from 10 to 20 seconds. The outbox cron command needs the `php` prefix (see docs/14).
 - Needs a redeploy (`dist/` and `api/src/Mailer.php`).
+
+### Faster form responses, loading state, 5-second toast (2026-09-21)
+
+- Problem: forms took 10 to 30 seconds to confirm because the API sent the emails (SMTP) before replying. Fix: emails are still saved to `email_outbox` first but are delivered after the response is sent (`fastcgi_finish_request()`), so confirmation should take about a second. Failed sends stay queued for the cron. Google Calendar creation, when enabled, still runs before the reply because the Meet link is part of the booking response.
+- Every submit button now shows a spinner and busy label and stays disabled while sending (and, for a confirmed booking, until the modal form is reset). Toasts now auto-dismiss after 5 seconds; the timer pauses only while the pointer is over the toast or focus is inside it.
+- Tested in headless Chrome with a delayed fake API: in-flight state, reset, and dismissal all behave. The server change needs a live check after redeploy: submit a form and time the response.

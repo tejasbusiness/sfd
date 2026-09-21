@@ -2,7 +2,7 @@
 // which stores the subscriber and notifies the team. The playbook itself is still
 // sent by hand until automated delivery exists.
 
-import { isValidEmail, readForm, showFormErrors, submitJson, trackingFields, reportSubmitFailure } from './form-utils.js';
+import { isValidEmail, readForm, showFormErrors, submitJson, trackingFields, reportSubmitFailure, setSubmitting } from './form-utils.js';
 import { showToast } from './toast.js';
 
 function validate(data) {
@@ -31,7 +31,7 @@ export function initLeadForm(form) {
     if (Object.keys(errors).length > 0) return;
 
     submitting = true;
-    submitButton.disabled = true;
+    setSubmitting(form, submitButton, true, form.dataset.loadingLabel || undefined);
     submitError.hidden = true;
 
     try {
@@ -48,7 +48,7 @@ export function initLeadForm(form) {
       submitError.hidden = false;
     } finally {
       submitting = false;
-      submitButton.disabled = false;
+      setSubmitting(form, submitButton, false);
     }
   });
 }

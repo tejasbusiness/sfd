@@ -112,3 +112,42 @@ export function reportSubmitFailure(form, submitErrorEl, result, fallbackMessage
     result.status === 429 ? 'Too many attempts. Please wait a little while and try again.' : fallbackMessage;
   submitErrorEl.hidden = false;
 }
+
+/**
+ * Puts a form's submit button into (or out of) its "sending" state: disabled so it
+ * cannot be pressed twice, with a spinner and a busy label, and a polite screen-reader
+ * message. Call with busy = false after a failed request or once the form has been reset.
+ */
+export function setSubmitting(form, button, busy, label = 'Sending…') {
+  if (!button) return;
+  let status = form.querySelector('[data-submit-status]');
+  if (!status) {
+    status = document.createElement('p');
+    status.className = 'visually-hidden';
+    status.setAttribute('role', 'status');
+    status.setAttribute('data-submit-status', '');
+    form.append(status);
+  }
+  if (busy) {
+    if (button.dataset.idleLabel === undefined) button.dataset.idleLabel = button.textContent;
+    const spinner = document.createElement('span');
+    spinner.className = 'button__spinner';
+    spinner.setAttribute('aria-hidden', 'true');
+    button.replaceChildren(spinner, document.createTextNode(label));
+    button.classList.add('is-loading');
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'true');
+    form.setAttribute('aria-busy', 'true');
+    status.textContent = label;
+  } else {
+    if (button.dataset.idleLabel !== undefined) {
+      button.textContent = button.dataset.idleLabel;
+      delete button.dataset.idleLabel;
+    }
+    button.classList.remove('is-loading');
+    button.disabled = false;
+    button.removeAttribute('aria-busy');
+    form.removeAttribute('aria-busy');
+    status.textContent = '';
+  }
+}

@@ -15,7 +15,7 @@
     <h2>{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
 
-    <form class="sfd-form sfd-form--page" data-free-preview-form data-success-title="Application received" data-success-message="Thank you. We review every application to make sure we can create something genuinely useful for your business, and we'll be in touch if we can build you a free preview." novalidate>
+    <form class="sfd-form sfd-form--page" data-free-preview-form data-loading-label="Submitting…" data-success-title="Application received" data-success-message="Thank you. We review every application to make sure we can create something genuinely useful for your business, and we'll be in touch if we can build you a free preview." novalidate>
       {{ fields.honeypot() }}
       {{ fields.input("fp-name", "fullName", "Full name *", required=true, autocomplete="name") }}
       {{ fields.input("fp-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}

@@ -14,7 +14,15 @@ use PHPMailer\PHPMailer\PHPMailer;
  */
 final class Mailer
 {
+    /** @var array<int,array{0:int,1:?string}> outbox rows waiting to be delivered after the response */
+    private static array $pending = [];
+    private static bool $shutdownRegistered = false;
+
     /**
+     * Queues the email (a fast database insert) and delivers it AFTER the HTTP response
+     * has been sent, so a slow SMTP connection never makes the visitor wait. If delivery
+     * fails the row stays queued for api/bin/send-outbox.php.
+     *
      * @param array<string,string> $rows label => value, shown as a table
      */
     public static function send(string $template, string $toEmail, ?string $toName, string $subject, string $intro, array $rows, ?string $relatedType = null, ?int $relatedId = null, ?string $replyTo = null): void
@@ -26,11 +34,35 @@ final class Mailer
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())',
                 [$template, $toEmail, $toName, $subject, $html, $text, $relatedType, $relatedId]
             );
-            $id = Db::insertId();
-            self::deliver($id, $replyTo);
+            self::deliverAfterResponse(Db::insertId(), $replyTo);
         } catch (\Throwable $e) {
             error_log('Mailer::send failed: ' . $e->getMessage());
         }
+    }
+
+    private static function deliverAfterResponse(int $id, ?string $replyTo): void
+    {
+        self::$pending[] = [$id, $replyTo];
+        if (self::$shutdownRegistered) {
+            return;
+        }
+        self::$shutdownRegistered = true;
+        register_shutdown_function(static function (): void {
+            // Sends the response to the browser now and keeps this process running (PHP-FPM).
+            if (function_exists('fastcgi_finish_request')) {
+                fastcgi_finish_request();
+            }
+            ignore_user_abort(true);
+            set_time_limit(120);
+            foreach (self::$pending as [$id, $replyTo]) {
+                try {
+                    self::deliver($id, $replyTo);
+                } catch (\Throwable $e) {
+                    error_log('Mailer::deliver failed: ' . $e->getMessage());
+                }
+            }
+            self::$pending = [];
+        });
     }
 
     public static function deliver(int $id, ?string $replyTo = null): void
