@@ -80,6 +80,27 @@ Site folder: `/home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/`
 5. Optional: a cron job running `php <site>/api/bin/send-outbox.php` to retry failed emails (not written yet).
 6. Verify: `curl -I https://synergyfirstdigital.com/.env` is not 200, `/api/availability` returns JSON, and a test submission arrives.
 
+### Deploy commands (Git Bash on Windows, key login as `sfd-deploy`)
+
+```bash
+cd "<project folder>" && npm run build:production      # cleans dist/ first
+KEY=C:/Users/victus/.ssh/sfd; SRV=sfd-deploy@5.189.168.218
+SITE=/home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com
+
+# 1. access check (write permission, composer, rsync, PHP)
+ssh -i $KEY $SRV "ls -ld $SITE; touch $SITE/.w && echo WRITE_OK && rm $SITE/.w; which composer rsync; php -v | head -1"
+
+# 2. upload to a staging folder (no vendor, no node_modules)
+ssh -i $KEY $SRV "mkdir -p $SITE/_release"
+tar -czf - dist api/src api/bin api/public api/composer.json api/composer.lock migrations | ssh -i $KEY $SRV "tar -xzf - -C $SITE/_release"
+scp -i $KEY .env $SRV:$SITE/_release/.env
+
+# 3. swap in (keeps a backup of the old dist), install dependencies
+ssh -i $KEY $SRV "cd $SITE && mkdir -p dist api migrations && cp -a dist dist.bak && rsync -a --delete _release/dist/ dist/ && rsync -a --delete --exclude vendor _release/api/ api/ && rsync -a --delete _release/migrations/ migrations/ && cp _release/.env .env && chmod 640 .env && rm -rf _release && cd api && composer install --no-dev --optimize-autoloader"
+```
+
+Then paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (replace any existing `location /` or `error_page`), confirm the site's root directory is `dist`, and verify: `curl -I https://synergyfirstdigital.com/` (200), `/.env` (not 200), `/no-such-page/` (404), `/services/website-design-development/` (301), `/api/availability?timezone=UTC` (JSON). If the API returns 500 the PHP user probably cannot read `.env` (owned by `sfd-deploy`): fix the owner/group in CloudPanel or with sudo. Optional cron for `api/bin/send-outbox.php` in CloudPanel, as the site user.
+
 ## Status
 
 - All ten migrations applied to the live database `sfd-2026-db` (2026-09-20) through the SSH tunnel (user `sfd-deploy`, key login; the firewall has no rule for 3306).
