@@ -4,8 +4,8 @@
   "slug": "how-it-works",
   "canonicalPath": "/how-it-works/",
   "seo": {
-    "title": "How It Works — Free Preview Website to Launch | SynergyFirst Digital",
-    "metaDescription": "From application to a private 7-day preview to activation and launch — see exactly how SynergyFirst Digital's Free Preview Website and managed subscription work.",
+    "title": "How It Works — Free Website Preview to Launch | SynergyFirst Digital",
+    "metaDescription": "From application to a private 7-day preview to activation and launch — see exactly how SynergyFirst Digital's Free Website Preview and managed subscription work.",
     "ogTitle": "How It Works",
     "ogDescription": "From application to a private 7-day preview to activation and launch.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -17,7 +17,7 @@
     {
       "type": "hero",
       "subheading": "Here's exactly what happens between applying for a free preview and having your website live and managed.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" },
       "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
@@ -39,7 +39,7 @@
       "eyebrow": "CLIENT REVIEWS",
       "heading": "What the process feels like, in clients’ words",
       "itemIds": ["mamata-desai","sumita-shah"],
-      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
+      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
     },
     {
       "type": "feature-grid",
@@ -69,7 +69,7 @@
     {
       "type": "free-preview-cta",
       "heading": "Ready to Preview your website before you commit to anything?",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage", "FAQPage"],

@@ -18,7 +18,7 @@
       "type": "hero",
       "eyebrow": "For Professional Services Firms",
       "subheading": "Consultants, agencies and other professional services firms win work by being clearly understood. Your website is often the first test of that.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" },
       "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
@@ -58,19 +58,19 @@
       "eyebrow": "CLIENT REVIEWS",
       "heading": "From professional-services firms we have worked with",
       "itemIds": ["sumita-shah","mamata-desai"],
-      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
+      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
     },
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "cta": { "label": "Get My Free Website Preview", "href": "/free-preview/" },
       "itemIds": ["cost", "term", "timing", "cancellation"]
     },
     {
       "type": "free-preview-cta",
       "heading": "See what a professional services website preview looks like.",
       "body": "Apply for a complimentary preview — we'll confirm which plan is the right fit once we understand your services.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage", "FAQPage", "Service"],

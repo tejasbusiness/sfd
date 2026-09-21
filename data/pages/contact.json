@@ -5,9 +5,9 @@
   "canonicalPath": "/contact/",
   "seo": {
     "title": "Contact Us | SynergyFirst Digital",
-    "metaDescription": "Talk to SynergyFirst Digital. Book a Free 30-Minute Discovery Call or apply for a Free Preview Website to get your local business moving online.",
+    "metaDescription": "Talk to SynergyFirst Digital. Book a Free 30-Minute Discovery Call or apply for a Free Website Preview to get your local business moving online.",
     "ogTitle": "Contact SynergyFirst Digital",
-    "ogDescription": "Book a Free 30-Minute Discovery Call or apply for a Free Preview Website.",
+    "ogDescription": "Book a Free 30-Minute Discovery Call or apply for a Free Website Preview.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
@@ -24,7 +24,7 @@
         "dialogTarget": "booking-modal"
       },
       "secondaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       }
     },
@@ -57,7 +57,7 @@
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18M8 3v4M16 3v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "Request Your Free Preview Website",
+          "label": "Get My Free Website Preview",
           "description": "Share a few details about your business and apply for a concept of your new website.",
           "href": "/free-preview/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M8 21h8M12 18v3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
@@ -179,7 +179,7 @@
         "dialogTarget": "booking-modal"
       },
       "secondaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       }
     }

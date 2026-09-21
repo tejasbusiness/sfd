@@ -15,7 +15,7 @@
 - USA, Canada, Australia, New Zealand, Germany and other European markets.
 - USD-only pricing.
 - Public monthly pricing.
-- Primary CTA: Request Your Free Preview Website.
+- Primary CTA: Get My Free Website Preview (renamed 2026-09-21 from "Request Your Free Preview Website").
 - Immediate CTA: Book a Free 30-Minute Discovery Call.
 - Google Meet booking, Calendar event and Google Sheets record.
 - SEO/AI/WhatsApp/automation presented as upgrades.
@@ -449,3 +449,10 @@ Then, from the roadmap and earlier open items:
 ### Tablet and mobile header logo (2026-09-21)
 
 - Owner request: on tablet and mobile show `SFD-Black-logo.png`, centred, in the header; desktop stays as is. Done with a `<picture>` source at 1399px and below (see docs/13). The 358 KB master was too heavy for a 28px-tall logo, so a 9 KB header-sized copy is served instead. Checked in headless Chrome at 500, 900, 1398/1400 and 1858px. Front-end only: redeploy `dist/`.
+
+### Offer renamed to "Free Website Preview" (2026-09-21)
+
+- Decision (owner approved my recommendation): the offer is now **Free Website Preview** everywhere, replacing "Free Preview Website". Button label: **Get My Free Website Preview**. Page titles, H1 and OG titles: **Request Your Free Website Preview**. Prose: "a Free Website Preview" (plural "Free Website Previews"). Reasons: natural English, matches the existing "website preview" body copy and "Free Website Audit", "free website" reads first, and the free part is clearly the preview.
+- Unchanged on purpose: the `/free-preview/` URL, the short nav and tab-bar label "Free Preview", the "Free Preview application" wording, and phrases that describe the site itself ("we build your preview website"). Earlier log entries in this file still use the old name as history.
+- Touched 42 files (page data, header and section templates, owner-email text in the API, README, CLAUDE.md, docs/01). Two legal pages (Terms and Conditions, Refund Policy) changed only in this terminology; they still need the lawyer review already listed. Button text is a good candidate for an A/B test once ad traffic exists.
+- Redeploy `dist/` and `api/src`.

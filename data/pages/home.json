@@ -20,7 +20,7 @@
       "subheading": "We build and manage professional websites for local businesses for one predictable monthly fee — no large upfront bill, no technical headaches.",
       "qualificationNote": "Apply for a complimentary website preview. We review every request to make sure we can create something genuinely useful for your business.",
       "primaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {
@@ -162,7 +162,7 @@
         "Continuously maintained and improved"
       ],
       "cta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       }
     },
@@ -216,7 +216,7 @@
         "sumita-shah",
         "sanjay-bhatia"
       ],
-      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
+      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
     },
     {
       "type": "pricing-highlight",
@@ -256,7 +256,7 @@
       "heading": "Common questions",
       "intro": "Everything you need to know before applying.",
       "cta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "itemIds": [
@@ -273,7 +273,7 @@
       "heading": "Preview your new website before you pay for it.",
       "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
       "primaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {

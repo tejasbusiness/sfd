@@ -5,7 +5,7 @@
   "canonicalPath": "/terms-and-conditions/",
   "seo": {
     "title": "Terms and Conditions | SynergyFirst Digital",
-    "metaDescription": "The terms that apply when you use the SynergyFirst Digital website, request a Free Preview Website, book a discovery call or become a customer.",
+    "metaDescription": "The terms that apply when you use the SynergyFirst Digital website, request a Free Website Preview, book a discovery call or become a customer.",
     "ogTitle": "Terms and Conditions | SynergyFirst Digital",
     "ogDescription": "The terms that apply when you use the SynergyFirst Digital website and services.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -26,7 +26,7 @@
           "id": "about-these-terms",
           "heading": "About these terms",
           "body": [
-            "These Terms and Conditions (\"Terms\") apply when you use the SynergyFirst Digital website, request a Free Preview Website, book a discovery call or otherwise deal with us. \"SynergyFirst Digital\", \"SFD\", \"we\" and \"us\" mean the business that operates this website from Surat, Gujarat, India. \"You\" means you and, where you act for a business, that business.",
+            "These Terms and Conditions (\"Terms\") apply when you use the SynergyFirst Digital website, request a Free Website Preview, book a discovery call or otherwise deal with us. \"SynergyFirst Digital\", \"SFD\", \"we\" and \"us\" mean the business that operates this website from Surat, Gujarat, India. \"You\" means you and, where you act for a business, that business.",
             "By using this website or our services you agree to these Terms. If you do not agree, please do not use them.",
             "If you become a paying customer, our <a href=\"/subscription-terms/\">Subscription Terms</a> and <a href=\"/refund-policy/\">Refund Policy</a> also apply. If they conflict with these Terms on a paid subscription, the Subscription Terms take priority."
           ]
@@ -48,7 +48,7 @@
         },
         {
           "id": "free-preview",
-          "heading": "Free Preview Websites",
+          "heading": "Free Website Previews",
           "body": [
             "You can apply for a complimentary private preview of a website for your business. Please note:",
             [

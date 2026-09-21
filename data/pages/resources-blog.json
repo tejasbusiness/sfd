@@ -18,13 +18,13 @@
     {
       "type": "intro",
       "heading": "Coming soon",
-      "body": "We're preparing articles on websites, SEO and local marketing for small businesses. Check back soon, or apply for a Free Preview Website in the meantime."
+      "body": "We're preparing articles on websites, SEO and local marketing for small businesses. Check back soon, or apply for a Free Website Preview in the meantime."
     },
     {
       "type": "free-preview-cta",
       "heading": "Want to see what we'd build for you?",
       "body": "Apply for a complimentary preview — there's no cost and no obligation to continue.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage"],

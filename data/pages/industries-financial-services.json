@@ -18,7 +18,7 @@
       "type": "hero",
       "eyebrow": "For Financial & Advisory Services",
       "subheading": "Financial decisions take research and trust. Your website is where a prospect decides whether you're worth that first conversation.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" },
       "secondaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
     },
     {
@@ -56,14 +56,14 @@
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "cta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" },
+      "cta": { "label": "Get My Free Website Preview", "href": "/free-preview/" },
       "itemIds": ["cost", "term", "timing", "cancellation"]
     },
     {
       "type": "free-preview-cta",
       "heading": "See what a financial services website preview looks like.",
       "body": "Apply for a complimentary preview — we'll confirm which plan is the right fit once we understand your services and client base.",
-      "primaryCta": { "label": "Request Your Free Preview Website", "href": "/free-preview/" }
+      "primaryCta": { "label": "Get My Free Website Preview", "href": "/free-preview/" }
     }
   ],
   "schemaTypes": ["WebPage", "FAQPage", "Service"],

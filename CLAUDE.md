@@ -27,7 +27,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 ## Product hierarchy
 
 - Primary product: monthly managed website subscription.
-- Primary conversion: Free Preview Website application.
+- Primary conversion: Free Website Preview application.
 - Immediate conversion: 30-minute Google Meet call.
 - Supporting services: SEO, Google Business Profile support, AI, WhatsApp, CRM and automation.
 - Supporting services must not dilute the website-subscription offer on the homepage.

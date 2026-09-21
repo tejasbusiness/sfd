@@ -280,7 +280,7 @@ final class App
         );
         $id = Db::insertId();
 
-        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview application: {$c['businessName']}", 'A business applied for a Free Preview Website.', [
+        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview application: {$c['businessName']}", 'A business applied for a Free Website Preview.', [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'], 'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'],
             'Business' => $c['businessName'], 'Website' => (string) $c['website'], 'Google Business Profile' => (string) $c['gbpUrl'],
             'Location' => $c['city'] . ', ' . $c['country'], 'Category' => $c['category'], 'Services (first is primary)' => $c['primaryService'], 'Main problem' => $c['problem'],

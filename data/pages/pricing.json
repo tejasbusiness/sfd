@@ -19,7 +19,7 @@
       "eyebrow": "PRICING",
       "subheading": "Every plan includes hosting, maintenance and a defined content-update allowance — nothing hidden behind vague wording.",
       "primaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {
@@ -53,7 +53,7 @@
         "manu-sharma",
         "mamata-desai"
       ],
-      "cta": {"label":"Request Your Free Preview Website","href":"/free-preview/"}
+      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
     },
     {
       "type": "feature-grid",
@@ -122,7 +122,7 @@
       "heading": "Not sure which plan fits?",
       "body": "Apply for a free preview or Book a Free 30-Minute Discovery Call — we'll help you figure out what you actually need.",
       "primaryCta": {
-        "label": "Request Your Free Preview Website",
+        "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {

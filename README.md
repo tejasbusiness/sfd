@@ -9,7 +9,7 @@ The new SFD website is not a conventional agency brochure. It presents a product
 - Target geography: USA, Canada, Australia, New Zealand, Germany and other European countries.
 - Currency: USD only.
 - Primary offer: professionally built and managed websites for a predictable monthly fee.
-- Primary CTA: **Request Your Free Preview Website**.
+- Primary CTA: **Get My Free Website Preview**.
 - Immediate CTA: **Book a Free 30-Minute Discovery Call**.
 - Secondary CTA: **See How It Works** or **View Websites**, depending on context.
 - Theme: light, premium, modern, conversion-focused.
