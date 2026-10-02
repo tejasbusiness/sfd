@@ -745,3 +745,24 @@ The homepage is production-ready and **frozen**. Do not redesign or rework its c
   - The 10 / 20 update counts still in the FAQ.
 - **Deploy with migrations** `011` to `013`: `.\deploy.bat -Migrate`.
 - **Hero amendment (owner, 2026-10-02, after the freeze):** the second hero paragraph is removed ("We’ll create a private preview using your real business information, services and public online presence. Review it first — then decide whether you want us to complete and manage it."). The hero is now the eyebrow, H1, one supporting paragraph, the two buttons, the reassurance line and the stats. The same idea is still covered by the preview-steps section and the final call to action.
+- **Hero amendment 2 (owner, 2026-10-02):**
+  - The two hero buttons now sit side by side wherever both fit. The grid uses `minmax(18rem, 1fr)` with less side padding, and the buttons stack on tablet portrait and phones.
+  - The reassurance line ("No payment. No obligation. See the preview first.") was removed from the hero. The template still supports it, and the same line remains in the final call to action.
+- **Stats above the fold:** the stats row must sit fully above the fold. Changes made:
+  - The hero grid is top-aligned instead of centred; the taller before/after visual had pushed the text down.
+  - Gap above the buttons: 2.5rem → 1.5rem.
+  - Gap above the stats: 4rem → 1.5rem.
+  - Stat padding: 1.5rem → 1rem.
+- **Measured fold:**
+
+  | Width | Viewport height | Stats bottom | Bottom tab bar (top) |
+  |---|---|---|---|
+  | 1920 | 960 | 594 | — |
+  | 1536 | 730 | 594 | — |
+  | 1440 | 790 | 594 | — |
+  | 1366 | 650 | 582 | 591 |
+  | 1280 | 720 | 580 | 661 |
+  | 390 | 760 | 670 | 689 |
+
+  The stats are visible at every size above. **Exception:** at 1024 x 640 (tablet landscape) the buttons stack, so the stats fall below the fold.
+

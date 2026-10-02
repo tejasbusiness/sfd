@@ -27,7 +27,10 @@
   padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
 }
 .hero-split__grid {
-  align-items: center;
+  /* Top-aligned: the before/after visual is taller than the text column, and
+     centring pushed the text (and the stats under it) about 25px down, below
+     the fold on 1366 x 768 laptops. */
+  align-items: start;
 }
 .hero-split h1 {
   /* Size and weight come from the sitewide h1 (--text-display); only the
@@ -52,14 +55,13 @@
    once there's no longer room for two. */
 .hero-split__actions {
   display: grid;
-  /* 23.5rem comfortably fits the primary label on one line (measures ~22.3rem);
-     a narrower minmax let both columns get squeezed to an in-between width
-     where the primary wrapped to two lines while the shorter secondary
-     stayed on one, so their heights no longer matched. Below the threshold
-     to fit two side by side, each stacks full-width instead. */
-  grid-template-columns: repeat(auto-fit, minmax(min(23.5rem, 100%), 1fr));
+  /* Side by side whenever both fit (owner, 2026-10-02): each label needs about
+     16rem plus padding, so 18rem columns sit two-up in the hero's text column
+     on laptop and desktop and stack full-width on phones. Equal 1fr columns
+     keep both buttons the same width and height. */
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
   gap: var(--space-3);
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
 }
 .hero-split__reassurance {
   margin-top: var(--space-3);
@@ -69,12 +71,12 @@
 }
 .hero-split__actions .button--primary {
   padding-block: var(--space-3);
-  padding-inline: var(--space-6);
+  padding-inline: var(--space-4);
   font-size: 0.9375rem;
 }
 .hero-split__actions .button--secondary {
   padding-block: var(--space-3);
-  padding-inline: var(--space-5);
+  padding-inline: var(--space-4);
   font-size: 0.9375rem;
   border-width: 2px;
   border-color: var(--color-primary);
@@ -104,7 +106,9 @@
 .hero-split__stats {
   display: flex;
   gap: 1px;
-  margin-top: var(--space-6);
+  /* Tighter than the original 4rem so the stats sit above the fold on
+     laptops (1366 x 768 included, with the bottom tab bar). */
+  margin-top: var(--space-4);
   background: var(--color-border);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -166,7 +170,7 @@
 @media (min-width: 480px) {
   .hero-split__stat {
     align-items: flex-start;
-    padding: var(--space-4) var(--space-3);
+    padding: var(--space-3);
     text-align: left;
   }
   .hero-split__stat-value {
