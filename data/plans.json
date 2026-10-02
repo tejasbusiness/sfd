@@ -1,5 +1,5 @@
 {
-  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan. Updated 2026-10-02: the E-Commerce plan was replaced with a non-packaged \"Custom Solutions\" plan (no fixed price/allowances) because e-commerce and bespoke work are scoped individually, not sold as a standardized monthly tier; see docs/10-decisions-and-todos.md. Also 2026-10-02 per owner instruction: Lite and Business each got a short tagline and a reworded idealFor description (no longer starting with \"Best for\").",
+  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan. Updated 2026-10-02: the E-Commerce plan was replaced with a non-packaged \"Custom Solutions\" plan (no fixed price/allowances) because e-commerce and bespoke work are scoped individually, not sold as a standardized monthly tier; see docs/10-decisions-and-todos.md. Also 2026-10-02 per owner instruction: Lite and Business each got a short tagline and a reworded idealFor description (no longer starting with \"Best for\"). Also 2026-10-02 per owner copy: Business and Custom Solutions idealFor reworded; update allowances (10/20) no longer shown on the plan cards (\"Routine content updates included\" / \"Priority content updates included\"); the booking line is \"Standard booking or CRM integration\"; buyoutPolicy is now 6 consecutive paid months with website files provided (was 3 months and transfer to own hosting).",
   "currency": "USD",
   "plans": [
     {
@@ -14,7 +14,7 @@
         "Custom-designed, responsive website",
         "Up to 5 pages",
         "Domain, hosting, SSL and security included",
-        "10 content updates per month",
+        "Routine content updates included",
         "Basic SEO setup"
       ],
       "includes": [
@@ -23,7 +23,7 @@
         "Domain, hosting, SSL and security included",
         "1 Google Workspace email address (additional addresses available)",
         "Accessibility-conscious build",
-        "10 content updates per month",
+        "Routine content updates included",
         "Speed-optimized pages",
         "Basic SEO setup",
         "Google Business Profile optimization (One‑time)",
@@ -35,7 +35,7 @@
       "id": "business",
       "name": "Business",
       "tagline": "Website + Local Growth",
-      "idealFor": "For established local businesses that want their website and Google presence actively managed to generate more enquiries.",
+      "idealFor": "For businesses that need a professional website fully managed for them.",
       "priceMonthly": "$449",
       "verified": true,
       "recommended": true,
@@ -46,7 +46,7 @@
         "Up to 10 pages",
         "Premium custom design",
         "Google Business Profile management",
-        "20 content updates per month, with priority support"
+        "Priority content updates included"
       ],
       "includes": [
         "Everything in Lite",
@@ -56,15 +56,15 @@
         "Google Business Profile management for up to 1 location — reviews and customer replies",
         "On-page SEO optimization",
         "1–2 SEO blog posts per month",
-        "20 content updates per month, with priority support",
-        "Booking and CRM systems",
+        "Priority content updates included",
+        "Standard booking or CRM integration",
         "Monthly analytics reporting"
       ]
     },
     {
       "id": "custom-solutions",
       "name": "Custom Solutions",
-      "idealFor": "Best for a growing business that needs custom software, multi-location support or e-commerce.",
+      "idealFor": "For businesses needing advanced functionality, integrations, automation, multi-location systems or bespoke development.",
       "summary": "Advanced requirements, integrations and bespoke work — scoped and quoted for what your business actually needs.",
       "cta": {
         "label": "Let's Talk",
@@ -74,5 +74,5 @@
     }
   ],
   "commitmentTerms": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime.",
-  "buyoutPolicy": "After 3 continuous months of paid subscription on any plan, you can transfer your complete website to your own hosting at no charge, with no transfer fees or hidden charges. Ongoing services such as hosting, updates and SEO end when you leave."
+  "buyoutPolicy": "After 6 consecutive months of paid subscription on any plan, the completed website is yours. If you leave after that, we provide your website files at no additional charge. Ongoing services such as hosting, updates and SEO end when you leave."
 }

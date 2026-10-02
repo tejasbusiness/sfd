@@ -90,7 +90,7 @@
           "heading": "Failed or late payments",
           "body": [
             "If a payment fails or is not made when due, we may suspend your website and services immediately, which can take your website offline. We will tell you by email. Services resume once the overdue amount is paid.",
-            "If the payment problem is not resolved, we may end your subscription. Months in which payment was not made do not count towards the three-month transfer period below."
+            "If the payment problem is not resolved, we may end your subscription. Months in which payment was not made do not count towards the six-month ownership period below."
           ]
         },
         {
@@ -134,9 +134,9 @@
             [
               "<strong>Your domain:</strong> the domain name belongs to you. If we register it for you, we do so in your name or hand it over when you ask.",
               "<strong>Your content:</strong> you keep ownership of everything you provided, such as your text, photos and logo, and you can have it back at any time, including if you cancel.",
-              "<strong>Code and design before 3 months:</strong> if you cancel before completing 3 continuous months of paid subscription, the website's code and design remain ours. You keep your domain and receive all of your own content.",
-              "<strong>Free transfer after 3 months:</strong> once you have paid for 3 continuous months on any plan, you can ask us to transfer your complete website to your own hosting at no charge, with no exit or hidden fees. The three months must be paying months in a row, so pausing, cancelling and returning later does not count.",
-              "<strong>After transfer:</strong> you may use the transferred website files for your business. Third-party software, fonts, images and tools included in the site remain under their own licences, and we keep the right to our own tools, methods and general know-how."
+              "<strong>Code and design before 6 months:</strong> if you cancel before completing 6 consecutive months of paid subscription, the website's code and design remain ours. You keep your domain and receive all of your own content.",
+              "<strong>Website ownership after 6 months:</strong> once you have paid for 6 consecutive months on any plan, the completed website is yours. If you leave after that, we will provide your website files at no additional charge, with no exit or hidden fees. The six months must be paying months in a row, so pausing, cancelling and returning later does not count.",
+              "<strong>After handover:</strong> you may use the website files we provide for your business. Third-party software, fonts, images and tools included in the site remain under their own licences, and we keep the right to our own tools, methods and general know-how."
             ],
             "Ongoing services, such as hosting, updates, SEO and support, end when you leave."
           ]

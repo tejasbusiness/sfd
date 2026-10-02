@@ -514,3 +514,14 @@ Also per owner instruction: Lite and Business each got a `tagline` field rendere
 
 ### Business plan badge: "Recommended for local businesses" (2026-10-02)
 Owner: replace the "★ Best Value" badge on the Business plan (Pricing page and homepage) with "Recommended for local businesses" (shown uppercase). The text is now the plan's `badge` field in `data/plans.json` instead of being hard-coded in `pricing-summary.njk` and `pricing-highlight.njk`, so it can change without touching templates. The longer label stays on one line: `white-space: nowrap`, and below 48em a slightly smaller size and tighter left offset (below 22.5em the offset tightens again). Checked at 1440, 768, 360 and 320px.
+
+### Pricing page copy and ownership policy: 6 months (2026-10-02)
+Owner-supplied copy applied on `/pricing/` and the service pricing pages (see docs/04): new H1 and hero line, hero secondary button "Book a Free 20-Minute Call", reworded Business and Custom Solutions descriptions, "Standard booking or CRM integration", "Routine" / "Priority content updates included" on the Lite / Business cards, "Managed for you", and a rewritten "Commitment and ownership" section (H3 line, No Minimum Term, Website Ownership, third-party charges).
+- **Policy change:** website ownership now comes after **6 consecutive paid months** (was 3), and on leaving we **provide the website files** at no additional charge (was: transfer to the client's own hosting). To avoid contradicting the pricing page, the same change was made in `data/faqs.json` (ownership, cancellation), `data/pages/subscription-terms.json` (clause "Ownership and transfer", and the failed-payment clause), `data/pages/service-website-care-maintenance.json` and `data/plans.json` (`buyoutPolicy`). Adapted wording, not new terms; **needs the owner's legal review**, together with the other legal pages already pending review.
+- Where two instructions overlapped, the more detailed one was used: the card is titled "Website Ownership" with the longer text that also covers cancelling earlier.
+- **Open, owner to decide:**
+  1. The booking modal, the closing call-to-action on the pricing pages, the placeholder buttons, the meta descriptions and every other page still say "30-Minute", and the booking slots are 30 minutes. A "20-Minute" hero button now promises a different length than the call booked. Either change the call length everywhere, or revert this button.
+  2. Update counts (10 / 20 a month) are gone from the plan cards but still appear in the pricing FAQ ("What if I need something updated?", "What counts as a content update?"), in Subscription Terms ("Allowances and fair use") and on the Website Care page.
+  3. `$15` per extra Google Workspace address is gone from the pricing page but still stated in Subscription Terms.
+  4. The H1 repeats "managed" ("A professionally managed website, managed for one simple monthly price"); used exactly as supplied.
+

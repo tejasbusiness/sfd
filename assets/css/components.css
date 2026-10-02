@@ -1469,6 +1469,9 @@ a.site-header__mega-tool:focus-visible {
   }
 }
 
+.feature-grid__subheading {
+  margin: var(--space-2) 0 var(--space-3);
+}
 .feature-grid__items {
   display: grid;
   gap: var(--space-4);

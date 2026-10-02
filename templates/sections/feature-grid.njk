@@ -2,12 +2,17 @@
   <div class="container">
     {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2>{{ section.heading }}</h2>
+    {% if section.subheading %}<h3 class="feature-grid__subheading">{{ section.subheading }}</h3>{% endif %}
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <div class="feature-grid__items">
       {% for item in section.items %}
       <div class="card feature-grid__item" data-reveal>
         <h3>{{ item.title }}</h3>
+        {% if item.body is string %}
         <p>{{ item.body }}</p>
+        {% else %}
+        {% for paragraph in item.body %}<p>{{ paragraph }}</p>{% endfor %}
+        {% endif %}
       </div>
       {% endfor %}
     </div>

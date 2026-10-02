@@ -11,19 +11,19 @@
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Plans built to grow with your business",
+  "h1": "A professionally managed website, managed for one simple monthly price (No upfront cost)",
   "breadcrumbs": null,
   "sections": [
     {
       "type": "hero",
       "eyebrow": "PRICING",
-      "subheading": "Every plan includes hosting, maintenance and a defined content-update allowance — nothing hidden behind vague wording.",
+      "subheading": "Custom design, hosting, maintenance and ongoing support included — with no large upfront website fee.",
       "primaryCta": {
         "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {
-        "label": "Book a Free 30-Minute Discovery Call",
+        "label": "Book a Free 20-Minute Call",
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
       }
@@ -113,8 +113,8 @@
           "body": "Every page is built to work correctly on phones, tablets and desktops."
         },
         {
-          "title": "Ongoing content-update support",
-          "body": "A defined monthly update allowance keeps your site current, without a separate maintenance contract."
+          "title": "Managed for you",
+          "body": "We take care of ongoing maintenance, routine content updates, security monitoring, backups, and technical support — so your website stays secure, updated, and running smoothly without you having to manage it yourself."
         }
       ],
       "onlyFor": [
@@ -128,24 +128,34 @@
       "items": [
         {
           "title": "Domain ownership",
-          "body": "You always own your domain, regardless of plan or how long you subscribe."
+          "body": [
+            "Your domain always belongs to you.",
+            "Whether you stay with us for one month or several years, your domain remains in your name and under your control."
+          ]
         },
         {
-          "title": "Minimum term",
-          "body": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime."
+          "title": "No Minimum Term",
+          "body": [
+            "No long-term contract. Cancel anytime.",
+            "Plans are billed month to month with no activation fee and no minimum commitment. You stay because the service is valuable, not because you're locked in."
+          ]
         },
         {
-          "title": "Free website transfer",
-          "body": "After 3 continuous months of paid subscription on any plan, your complete website is yours to take: transfer it to your own hosting at no charge, with no exit fees or hidden charges. Cancel earlier and you still keep your domain and all of your own content. Ongoing services such as hosting, updates and SEO end when you leave."
+          "title": "Website Ownership",
+          "body": [
+            "After six consecutive paid months, the completed website is yours.",
+            "If you decide to leave after that, we'll provide your website files at no additional charge. If you cancel earlier, you still keep your domain and any content you originally supplied."
+          ]
         },
         {
           "title": "Add-ons & third-party charges",
-          "body": "Additional Google Workspace email addresses are $15/month each beyond your plan's included allowance; other third-party charges are passed through at cost."
+          "body": "Third-party services are charged separately where applicable. Items such as additional Google Workspace email accounts, premium software, paid integrations, licences, or other external services are billed separately and clearly agreed with you in advance."
         }
       ],
       "onlyFor": [
         "websites"
-      ]
+      ],
+      "subheading": "No long-term contract. Cancel anytime. And after six months, you own the website."
     },
     {
       "type": "faq",
