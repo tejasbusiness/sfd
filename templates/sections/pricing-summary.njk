@@ -22,11 +22,20 @@
           </li>
           {% endfor %}
         </ul>
+        {% if plan.cta %}
+        <a
+          class="button button--secondary pricing-summary__plan-cta"
+          href="{{ plan.cta.href }}"
+          {% if plan.cta.dialogTarget %}data-dialog-target="{{ plan.cta.dialogTarget }}"{% endif %}
+          aria-label="{{ plan.cta.label }}: talk to us about {{ plan.name }}"
+        >{{ plan.cta.label }}</a>
+        {% else %}
         <a
           class="button {{ 'button--accent' if plan.recommended else 'button--secondary' }} pricing-summary__plan-cta"
           href="/free-preview/"
           aria-label="Start with {{ plan.name }}: request your free website preview"
         >Start with {{ plan.name }}</a>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
@@ -38,15 +47,6 @@
       <span class="pricing-summary__note-dot" aria-hidden="true"></span>
       <strong>{{ section.note.lead }}</strong> {{ section.note.body }}
     </p>
-    {% endif %}
-    {% if section.customPlan %}
-    <div class="pricing-summary__custom">
-      <div>
-        <h3>{{ section.customPlan.heading }}</h3>
-        <p>{{ section.customPlan.body }}</p>
-      </div>
-      <a class="button button--secondary" href="{{ section.customPlan.cta.href }}">{{ section.customPlan.cta.label }} <span aria-hidden="true">&rarr;</span></a>
-    </div>
     {% endif %}
   </div>
 </section>

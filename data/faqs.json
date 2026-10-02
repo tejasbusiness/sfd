@@ -3,7 +3,7 @@
     {
       "id": "cost",
       "question": "How much does a managed website cost?",
-      "answer": "Plans start at $249/month for Lite, $449/month for Business and $749+/month for E-Commerce, billed monthly in USD with no activation fee. See our Pricing page for the full comparison."
+      "answer": "Plans start at $249/month for Lite and $449/month for Business, billed monthly in USD with no activation fee. Custom Solutions — e-commerce, bespoke software and advanced integrations — is scoped and quoted individually. See our Pricing page for the full comparison."
     },
     {
       "id": "term",
@@ -18,7 +18,7 @@
     {
       "id": "updates",
       "question": "What if I need something updated?",
-      "answer": "Lite includes 10 content updates a month, Business includes 20 and E-Commerce includes 40. Requests beyond your monthly allowance, or larger than a normal update, are quoted separately, or you can move up a plan."
+      "answer": "Lite includes 10 content updates a month and Business includes 20. Custom Solutions work is scoped and quoted individually rather than billed against a fixed monthly allowance. Requests beyond your monthly allowance, or larger than a normal update, are quoted separately, or you can move up a plan."
     },
     {
       "id": "cancellation",
@@ -38,12 +38,12 @@
     {
       "id": "page-allowance",
       "question": "How many pages does each plan include?",
-      "answer": "Lite includes up to 5 pages, Business up to 10 and E-Commerce up to 20. Blog posts, legal pages and thank-you pages don't count towards the limit, and E-Commerce product listings are scoped separately when we build your store. Pages beyond your allowance are quoted separately, or you can move up a plan."
+      "answer": "Lite includes up to 5 pages and Business up to 10. Blog posts, legal pages and thank-you pages don't count towards the limit. Custom Solutions — including e-commerce product listings — is scoped to your store or project rather than a fixed page count. Pages beyond your allowance are quoted separately, or you can move up a plan."
     },
     {
       "id": "add-pages",
       "question": "Can I add pages to my website later?",
-      "answer": "Yes. Your plan includes a page allowance — up to 5 pages on Lite, 10 on Business and 20 on E-Commerce — and you can add pages within it at no extra cost. Pages beyond your allowance are quoted separately, or you can move up a plan."
+      "answer": "Yes. Your plan includes a page allowance — up to 5 pages on Lite and 10 on Business — and you can add pages within it at no extra cost. Pages beyond your allowance are quoted separately, you can move up a plan, or for larger needs we scope a Custom Solutions project."
     },
     {
       "id": "update-definition",

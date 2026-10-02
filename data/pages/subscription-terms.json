@@ -18,7 +18,7 @@
       "type": "legal-document",
       "eyebrow": "LEGAL",
       "subheading": "How your monthly website subscription works: what you pay, what is included, how to cancel and who owns what. We keep it in plain language.",
-      "updated": "20 September 2026",
+      "updated": "2 October 2026",
       "contactHeading": "Questions about your subscription",
       "contactBody": "Not sure how a term applies to you? Email us and we will explain it before you sign up.",
       "clauses": [
@@ -34,7 +34,7 @@
           "id": "plans-and-fees",
           "heading": "Plans and fees",
           "body": [
-            "We offer three plans, described in full on our <a href=\"/pricing/\">Pricing</a> page: Lite, Business and E-Commerce. Prices are in US dollars per month. The E-Commerce plan starts from the price shown and is confirmed with you before you sign up, because it depends on the scope of your store.",
+            "We offer two standardized plans, described in full on our <a href=\"/pricing/\">Pricing</a> page: Lite and Business, each billed at a fixed monthly price in US dollars. We also offer Custom Solutions for e-commerce, bespoke software and advanced integrations — this is scoped individually and the price is confirmed with you in writing before you sign up, because it depends on the scope of the work.",
             "There is no activation fee. What each plan includes, such as the page allowance, monthly content updates, hosting, email addresses and support level, is as shown on the Pricing page when you sign up."
           ]
         },
@@ -99,8 +99,8 @@
           "body": [
             "Each plan includes a defined allowance, not unlimited work:",
             [
-              "<strong>Pages:</strong> up to 5 pages on Lite, 10 on Business and 20 on E-Commerce. Blog posts, legal pages and thank-you pages do not count. E-Commerce product listings are scoped separately when we build your store.",
-              "<strong>Content updates:</strong> 10 per month on Lite, 20 on Business and 40 on E-Commerce. One update is a small change to text, an image or a section on your existing site, usually 20 to 30 minutes of work. Unused updates do not roll over to the next month.",
+              "<strong>Pages:</strong> up to 5 pages on Lite and 10 on Business. Blog posts, legal pages and thank-you pages do not count. Custom Solutions, including e-commerce product listings, is scoped to your store or project when we build it, rather than a fixed page allowance.",
+              "<strong>Content updates:</strong> 10 per month on Lite and 20 on Business. One update is a small change to text, an image or a section on your existing site, usually 20 to 30 minutes of work. Unused updates do not roll over to the next month. Custom Solutions work is agreed and quoted individually rather than billed against a fixed monthly allowance.",
               "<strong>Not counted as updates:</strong> full custom redesigns and new third-party integrations. We scope and quote these separately."
             ],
             "Requests beyond your allowance, or larger than a normal update, are quoted and agreed with you before we start, or you can move to a higher plan. We may ask you to reduce use that is unreasonably heavy compared with the plan."
@@ -195,5 +195,5 @@
     }
   ],
   "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-09-20"
+  "lastUpdated": "2026-10-02"
 }

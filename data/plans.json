@@ -1,5 +1,5 @@
 {
-  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan.",
+  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan. Updated 2026-10-02: the E-Commerce plan was replaced with a non-packaged \"Custom Solutions\" plan (no fixed price/allowances) because e-commerce and bespoke work are scoped individually, not sold as a standardized monthly tier; see docs/10-decisions-and-todos.md.",
   "currency": "USD",
   "plans": [
     {
@@ -59,34 +59,33 @@
       ]
     },
     {
-      "id": "ecommerce",
-      "name": "E-Commerce",
+      "id": "custom-solutions",
+      "name": "Custom Solutions",
       "idealFor": "Best for a growing business that needs custom software, multi-location support or e-commerce.",
-      "priceMonthly": "$749+",
-      "verified": true,
-      "summary": "Everything in Business, plus custom software, multi-location management and e-commerce.",
+      "summary": "Advanced requirements, integrations and bespoke work — scoped and quoted for what your business actually needs.",
       "homeHighlights": [
-        "Everything in Business",
-        "Up to 20 pages, plus product listings",
         "Complete e-commerce website with checkout and payments",
         "Custom software development",
-        "40 content updates per month, with same-day support"
+        "Multi-location management",
+        "Scoped and quoted to your requirements"
       ],
       "includes": [
         "Everything in Business",
-        "Up to 20 pages, plus product listings scoped when we build",
         "Complete e-commerce website — product catalog, checkout and payments",
         "Custom software development — internal tools, dashboards, CRMs",
         "Multi-location management across websites and listings",
-        "5 Google Workspace email addresses",
-        "Google Business Profile management for up to 4 locations",
         "Custom SEO strategy and execution",
         "AI chatbot or automation",
         "Advanced analytics dashboard",
         "Dedicated account manager",
-        "40 content updates per month, with same-day support",
-        "On-demand AI-assisted website edits"
-      ]
+        "On-demand AI-assisted website edits",
+        "Scope, allowances and price confirmed with you before you sign up"
+      ],
+      "cta": {
+        "label": "Let's Talk",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     }
   ],
   "commitmentTerms": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime.",
