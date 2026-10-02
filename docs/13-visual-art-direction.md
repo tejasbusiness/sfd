@@ -198,6 +198,13 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
 10. **Testimonials** — unchanged behaviour: renders nothing while `data/testimonials.json` stays empty.
 11. **FAQ** — split layout: sticky heading + intro + reinforcing CTA on the left, **native `<details>`/`<summary>` accordion, restyled** on the right (custom marker icon, generous spacing, clear expanded-state styling, no animated open/close by default — see §7).
 12. **Final CTA** — **tone deliberately left open** in this document. Once the full homepage rhythm is assembled (one dark section already spent on the monthly-model statement), the final CTA's background — dark, purple, lavender or warm-light — is decided by what keeps the page feeling balanced and recognizably light-theme overall, not pre-committed here. Structure regardless of tone: large headline with hand-set line breaks, two CTAs, one small trust line.
+    - **Homepage copy** (owner, 2026-10-02):
+      - Heading: "See your new website before you pay for it."
+      - A private-preview line underneath.
+      - Buttons: "Get My Free Website Preview" and "Book a Free 20-Minute Call".
+      - Reassurance line: "No payment. No obligation. See the preview first."
+
+      There is no application or qualification wording, and the copy matches the hero.
 13. **Footer** — **revised per this revision**: brief brand statement (docs/01's pre-approved remote-team wording), multi-column nav (Websites / Industries / Resources / Company / Legal). **No intentional broken links**: any destination page that doesn't exist yet renders as a plain, non-linked label (not an `<a>`) instead of a 404-bound link; columns/items become real links automatically as their pages are built in later phases. The social row only renders an icon as a link if a real, verified profile URL exists (§9) — otherwise that platform is simply omitted, never shown as a dead or `#` link. Legal links only appear once their pages exist, following the same rule.
 
 ---

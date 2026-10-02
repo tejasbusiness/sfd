@@ -653,3 +653,15 @@ Owner brief: position the homepage for local service businesses in general, with
   - The titles were H4 directly under the H2. They are now H3, at the same visual size.
 - **Responsive:** one column below 560px. From 560px to 1023px (tablet) the cards form a 2 x 2 grid, because at 820px "Communication" overflowed a quarter-width card. Four across from 1024px.
 
+### Homepage final call to action (2026-10-02)
+- **Copy:** owner copy, now consistent with the hero.
+  - Heading: "See your new website before you pay for it."
+  - A private-preview line underneath.
+  - Buttons: "Get My Free Website Preview" and "Book a Free 20-Minute Call".
+  - Reassurance line: "No payment. No obligation. See the preview first."
+- **Removed:** "Apply for a complimentary preview" and "Free to apply".
+- **Scope:** only the homepage data changed. The `cta-editorial` template is also used by About and Contact, and was left untouched.
+- **Open:**
+  - The homepage now has three "20-Minute" buttons (hero, final call to action and the pricing pages) while the booking pop-up offers 30 minutes. See "Pricing page copy" above.
+  - The homepage FAQ intro still says "Everything you need to know before applying."
+
