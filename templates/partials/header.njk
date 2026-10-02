@@ -100,7 +100,7 @@
 <nav class="tab-bar" aria-label="Primary">
   <ul class="tab-bar__list">
     {% for item in navigation.tabBar %}
-    {% set isActive = item.path == page.canonicalPath %}
+    {% set isActive = item.path == page.canonicalPath or (item.path != "/" and page.canonicalPath.indexOf(item.path) == 0) %}
     <li>
       <a
         class="tab-bar__item{{ ' tab-bar__item--emphasis' if item.emphasis }}"

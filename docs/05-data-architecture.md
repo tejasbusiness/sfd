@@ -91,6 +91,9 @@ Each indexable page requires:
 
 The build must fail when required fields are absent, canonical paths collide, slugs are invalid or navigation links target missing pages.
 
+### Page variants (2026-10-02)
+A page file may list `variants`: extra pages built from the same file (used by `data/pages/pricing.json` for one page per service). `expandVariants()` in `scripts/validate-data.js` runs when page files load, so every variant is validated, rendered, put in the sitemap and checked like any other page. A variant overrides top-level fields (`id`, `slug`, `canonicalPath`, `h1`, `breadcrumbs`, `schemaTypes`, `activeService`), merges `seo`, and merges `hero` into the page's hero section. Sections with an `onlyFor` list are kept only on pages whose `activeService` is in it (the website-only FAQ and feature grids). Validation errors name the variant, e.g. `pricing.json [pricing-seo]`.
+
 ## Content-block model
 
 Legal pages (`type: "legal"`) use one `legal-document` section whose content is a list of `clauses` (`id`, `heading`, `body` as paragraphs or bullet arrays; light inline HTML links allowed). Pages may select tested blocks such as hero, proof strip, process, feature grid, service list, project showcase, comparison table, testimonial, FAQ, booking CTA and free-preview CTA.

@@ -1,8 +1,9 @@
-{# Pricing page plans. With `section.services`, the page shows one tab per service
-   (assets/js/pricing-tabs.js): the Websites tab holds the plan cards from
-   data/plans.json, the others show `section.placeholder` until their pricing is
-   decided. Every panel is in the HTML, so without JavaScript they simply stack and
-   the tab links jump to them; #pricing-<id> in the URL opens that tab. #}
+{# Pricing page plans. With `section.services` the page shows one link per service;
+   each is its own page (/pricing/, /pricing/seo/, ...) generated from
+   data/pages/pricing.json `variants`, and `page.activeService` picks the panel
+   rendered here. The Websites panel holds the plan cards from data/plans.json; the
+   others show `section.placeholder` until their pricing is decided.
+   assets/js/pricing-tabs.js keeps the scroll position when switching. #}
 {% set websitePlans %}
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <div class="pricing-summary__plans">
@@ -57,32 +58,35 @@
 {% endset %}
 <section class="section pricing-summary">
   <div class="container">
-    <h2>{{ section.heading }}</h2>
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
     {% if section.services %}
-    <div class="pricing-tabs" data-pricing-tabs>
-      <ul class="pricing-tabs__list" aria-label="Pricing by service">
+    <nav class="pricing-tabs" aria-label="Pricing by service" data-pricing-tabs>
+      <ul class="pricing-tabs__list">
         {% for service in section.services %}
-        <li><a class="pricing-tabs__tab" href="#pricing-{{ service.id }}" id="pricing-tab-{{ service.id }}">{{ service.label }}</a></li>
+        <li><a class="pricing-tabs__tab{{ ' is-active' if service.id == page.activeService }}" href="{{ service.path }}"{% if service.id == page.activeService %} aria-current="page"{% endif %}>{{ service.label }}</a></li>
         {% endfor %}
       </ul>
-      {% for service in section.services %}
-      <div class="pricing-tabs__panel" id="pricing-{{ service.id }}" aria-labelledby="pricing-tab-{{ service.id }}">
-        {% if service.plans %}
-        {{ websitePlans | safe }}
-        {% else %}
-        <div class="card pricing-tabs__placeholder">
-          <h3>{{ service.name }}</h3>
-          <p class="pricing-tabs__placeholder-lead">{{ section.placeholder.lead }}</p>
-          <p>{{ section.placeholder.body }}</p>
-          <div class="pricing-tabs__placeholder-actions">
-            <a class="button button--primary" href="{{ section.placeholder.cta.href }}"{% if section.placeholder.cta.dialogTarget %} data-dialog-target="{{ section.placeholder.cta.dialogTarget }}"{% endif %}>{{ section.placeholder.cta.label }}</a>
-            <a class="button button--secondary" href="{{ service.href }}" aria-label="{{ section.placeholder.linkLabel }}: {{ service.name }}">{{ section.placeholder.linkLabel }}</a>
-          </div>
+    </nav>
+    {% for service in section.services %}
+    {% if service.id == page.activeService %}
+    <div class="pricing-tabs__panel">
+      {% if service.plans %}
+      <h2 class="visually-hidden">{{ service.label }} plans</h2>
+      {{ websitePlans | safe }}
+      {% else %}
+      <div class="card pricing-tabs__placeholder">
+        <h2 class="pricing-tabs__placeholder-title">{{ service.name }}</h2>
+        <p class="pricing-tabs__placeholder-lead">{{ section.placeholder.lead }}</p>
+        <p>{{ section.placeholder.body }}</p>
+        <div class="pricing-tabs__placeholder-actions">
+          <a class="button button--primary" href="{{ section.placeholder.cta.href }}"{% if section.placeholder.cta.dialogTarget %} data-dialog-target="{{ section.placeholder.cta.dialogTarget }}"{% endif %}>{{ section.placeholder.cta.label }}</a>
+          <a class="button button--secondary" href="{{ service.href }}" aria-label="{{ section.placeholder.linkLabel }}: {{ service.name }}">{{ section.placeholder.linkLabel }}</a>
         </div>
-        {% endif %}
       </div>
-      {% endfor %}
+      {% endif %}
     </div>
+    {% endif %}
+    {% endfor %}
     {% else %}
     {{ websitePlans | safe }}
     {% endif %}

@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 
-const { loadJson, validatePage, validateCrossPage } = require('../scripts/validate-data');
+const { loadJson, validatePage, validateCrossPage, expandVariants } = require('../scripts/validate-data');
 
 const fixturesDir = path.join(__dirname, 'fixtures');
 
@@ -100,3 +100,38 @@ test('sitemap lists only indexable pages on the production domain; robots points
   assert.ok(buildRobots({ site }).includes('Sitemap: https://example-prod.com/sitemap.xml'));
   assert.ok(buildNginxConfig({ redirects: [{ from: '/old/', to: '/new/' }] }).includes('location = /old { return 301 /new/; }'));
 });
+
+test('page variants become separate valid pages with their own sections', () => {
+  const base = loadFixture('valid-page.json');
+  base.data = {
+    ...base.data,
+    activeService: 'a',
+    sections: [
+      { type: 'hero', subheading: 'Base' },
+      { type: 'faq', itemIds: [], onlyFor: ['a'] },
+    ],
+    variants: [
+      {
+        id: 'variant-b',
+        slug: 'variant-b',
+        canonicalPath: '/variant-b/',
+        activeService: 'b',
+        h1: 'Variant B',
+        seo: { title: 'Variant B title' },
+        hero: { subheading: 'Variant B' },
+      },
+    ],
+  };
+  const pages = expandVariants(base);
+  assert.equal(pages.length, 2);
+  assert.equal(pages[0].data.variants, undefined);
+  assert.equal(pages[0].data.sections.length, 2);
+  const variant = pages[1].data;
+  assert.equal(variant.canonicalPath, '/variant-b/');
+  assert.equal(variant.seo.title, 'Variant B title');
+  assert.equal(variant.seo.metaDescription, base.data.seo.metaDescription);
+  assert.deepEqual(variant.sections, [{ type: 'hero', subheading: 'Variant B' }]);
+  assert.deepEqual(validatePage(pages[1], { mode: 'production' }).errors, []);
+  assert.deepEqual(validateCrossPage(pages).errors, []);
+});
+

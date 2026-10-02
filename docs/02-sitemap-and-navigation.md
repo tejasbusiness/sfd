@@ -42,6 +42,10 @@ The persistent header also exposes **Book a Free 30-Minute Discovery Call** with
 /websites/case-studies/{case-study-slug}/
 
 /pricing/
+/pricing/seo/
+/pricing/website-care/
+/pricing/digital-marketing/
+/pricing/ai-automation/
 /about/
 
 /resources/
@@ -126,3 +130,6 @@ The header (mega menu and mobile More drawer) and footer now show **Services** i
 ## All service pages share the Websites structure (2026-09-21)
 
 Renamed with single-hop 301s in `data/redirects.json`: `/services/local-seo-google-visibility/` to **`/services/seo/`** (label "SEO") and `/services/automation-custom-solutions/` to **`/services/ai-automation/`** (label "AI & Automation"). Website Care and Digital Marketing keep their slugs and labels. Services are now: Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, AI & Automation. Structure and copy sources are in docs/04.
+
+## Pricing pages per service (2026-10-02)
+`/pricing/` is the Websites pricing page (the main product, so it keeps the shortest URL). Each other service has its own indexable page: `/pricing/seo/`, `/pricing/website-care/`, `/pricing/digital-marketing/`, `/pricing/ai-automation/`, all generated from `data/pages/pricing.json` (`variants`, see docs/05). `/pricing/websites/` 301-redirects to `/pricing/` (`data/redirects.json`). The service pills on these pages are plain links; the "Pricing" header and tab-bar items stay highlighted on every `/pricing/...` page (the tab bar now uses the same prefix match as the header).

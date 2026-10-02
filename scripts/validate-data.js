@@ -28,10 +28,37 @@ function loadPageFiles(pagesDir) {
   return fs
     .readdirSync(pagesDir)
     .filter((file) => file.endsWith('.json'))
-    .map((file) => ({
+    .flatMap((file) => expandVariants({
       file: path.join(pagesDir, file),
       data: loadJson(path.join(pagesDir, file)),
     }));
+}
+
+/**
+ * A page file may list `variants`: extra pages built from the same data (the
+ * Pricing page has one per service, e.g. /pricing/seo/). Each variant overrides
+ * top-level fields (id, slug, canonicalPath, h1, breadcrumbs, schemaTypes,
+ * activeService), merges `seo` and `hero` (into the page's hero section), and
+ * drops sections whose `onlyFor` list doesn't include its `activeService`. Every
+ * variant is then validated and built like any other page.
+ */
+function expandVariants(page) {
+  const { variants, ...base } = page.data;
+  if (!Array.isArray(variants) || variants.length === 0) return [page];
+
+  const forService = (sections, service) =>
+    sections.filter((s) => !Array.isArray(s.onlyFor) || s.onlyFor.includes(service));
+
+  const basePage = { file: page.file, data: { ...base, sections: forService(base.sections || [], base.activeService) } };
+  const extra = variants.map((variant) => {
+    const { seo, hero, ...fields } = variant;
+    const data = { ...base, ...fields, seo: { ...base.seo, ...seo } };
+    data.sections = forService(base.sections || [], data.activeService).map((s) =>
+      s.type === 'hero' && hero ? { ...s, ...hero } : s
+    );
+    return { file: `${page.file} [${variant.id}]`, data };
+  });
+  return [basePage, ...extra];
 }
 
 /** Recursively collects dotted paths of every string value matching a whole-word "TBD". */
@@ -402,6 +429,7 @@ function validateAll({ dataDir, mode }) {
 module.exports = {
   loadJson,
   loadPageFiles,
+  expandVariants,
   findTbdPaths,
   findUnverifiedPaths,
   validatePage,

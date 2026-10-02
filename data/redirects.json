@@ -14,5 +14,9 @@
   {
     "from": "/services/automation-custom-solutions/",
     "to": "/services/ai-automation/"
+  },
+  {
+    "from": "/pricing/websites/",
+    "to": "/pricing/"
   }
 ]

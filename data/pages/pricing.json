@@ -30,18 +30,46 @@
     },
     {
       "type": "pricing-summary",
-      "heading": "Compare plans",
       "intro": "Every plan is billed monthly in USD, with no activation fee and no long-term contract — see exactly what's included below.",
       "note": {
         "lead": "No contracts. No commitments.",
         "body": "Cancel anytime — you stay because you're getting value, not because you're locked in."
       },
       "services": [
-        { "id": "websites", "label": "Websites", "plans": true },
-        { "id": "seo", "label": "SEO", "name": "SEO", "href": "/services/seo/" },
-        { "id": "website-care", "label": "Website Care", "name": "Website Care & WordPress Maintenance", "href": "/services/website-care-maintenance/" },
-        { "id": "digital-marketing", "label": "Digital Marketing", "name": "Digital Marketing & Social Media", "href": "/services/digital-marketing-social-media/" },
-        { "id": "ai-automation", "label": "AI & Automation", "name": "AI & Automation", "href": "/services/ai-automation/" }
+        {
+          "id": "websites",
+          "label": "Websites",
+          "path": "/pricing/",
+          "plans": true
+        },
+        {
+          "id": "seo",
+          "label": "SEO",
+          "name": "SEO",
+          "path": "/pricing/seo/",
+          "href": "/services/seo/"
+        },
+        {
+          "id": "website-care",
+          "label": "Website Care",
+          "name": "Website Care & WordPress Maintenance",
+          "path": "/pricing/website-care/",
+          "href": "/services/website-care-maintenance/"
+        },
+        {
+          "id": "digital-marketing",
+          "label": "Digital Marketing",
+          "name": "Digital Marketing & Social Media",
+          "path": "/pricing/digital-marketing/",
+          "href": "/services/digital-marketing-social-media/"
+        },
+        {
+          "id": "ai-automation",
+          "label": "AI & Automation",
+          "name": "AI & Automation",
+          "path": "/pricing/ai-automation/",
+          "href": "/services/ai-automation/"
+        }
       ],
       "placeholder": {
         "lead": "Pricing is being updated.",
@@ -62,7 +90,10 @@
         "manu-sharma",
         "mamata-desai"
       ],
-      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
+      "cta": {
+        "label": "Get My Free Website Preview",
+        "href": "/free-preview/"
+      }
     },
     {
       "type": "feature-grid",
@@ -85,6 +116,9 @@
           "title": "Ongoing content-update support",
           "body": "A defined monthly update allowance keeps your site current, without a separate maintenance contract."
         }
+      ],
+      "onlyFor": [
+        "websites"
       ]
     },
     {
@@ -108,6 +142,9 @@
           "title": "Add-ons & third-party charges",
           "body": "Additional Google Workspace email addresses are $15/month each beyond your plan's included allowance; other third-party charges are passed through at cost."
         }
+      ],
+      "onlyFor": [
+        "websites"
       ]
     },
     {
@@ -123,6 +160,9 @@
         "update-definition",
         "plan-upgrade",
         "cancellation"
+      ],
+      "onlyFor": [
+        "websites"
       ]
     },
     {
@@ -145,5 +185,128 @@
     "WebPage",
     "FAQPage"
   ],
-  "lastUpdated": "2026-09-17"
+  "lastUpdated": "2026-10-02",
+  "activeService": "websites",
+  "variants": [
+    {
+      "id": "pricing-seo",
+      "slug": "pricing-seo",
+      "canonicalPath": "/pricing/seo/",
+      "activeService": "seo",
+      "h1": "SEO pricing",
+      "seo": {
+        "title": "SEO Pricing | SynergyFirst Digital",
+        "metaDescription": "SEO pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "ogTitle": "SEO Pricing",
+        "ogDescription": "SEO pricing from SynergyFirst Digital."
+      },
+      "hero": {
+        "subheading": "Be found by nearby customers on Google."
+      },
+      "breadcrumbs": [
+        {
+          "label": "Pricing",
+          "path": "/pricing/"
+        },
+        {
+          "label": "SEO",
+          "path": null
+        }
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "id": "pricing-website-care",
+      "slug": "pricing-website-care",
+      "canonicalPath": "/pricing/website-care/",
+      "activeService": "website-care",
+      "h1": "Website Care & WordPress Maintenance pricing",
+      "seo": {
+        "title": "Website Care & WordPress Maintenance Pricing | SynergyFirst Digital",
+        "metaDescription": "Website Care & WordPress Maintenance pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "ogTitle": "Website Care & WordPress Maintenance Pricing",
+        "ogDescription": "Website Care & WordPress Maintenance pricing from SynergyFirst Digital."
+      },
+      "hero": {
+        "subheading": "Updates, backups and support after launch."
+      },
+      "breadcrumbs": [
+        {
+          "label": "Pricing",
+          "path": "/pricing/"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "path": null
+        }
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "id": "pricing-digital-marketing",
+      "slug": "pricing-digital-marketing",
+      "canonicalPath": "/pricing/digital-marketing/",
+      "activeService": "digital-marketing",
+      "h1": "Digital Marketing & Social Media pricing",
+      "seo": {
+        "title": "Digital Marketing & Social Media Pricing | SynergyFirst Digital",
+        "metaDescription": "Digital Marketing & Social Media pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "ogTitle": "Digital Marketing & Social Media Pricing",
+        "ogDescription": "Digital Marketing & Social Media pricing from SynergyFirst Digital."
+      },
+      "hero": {
+        "subheading": "Consistent campaigns and content that keep you visible."
+      },
+      "breadcrumbs": [
+        {
+          "label": "Pricing",
+          "path": "/pricing/"
+        },
+        {
+          "label": "Digital Marketing & Social Media",
+          "path": null
+        }
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "id": "pricing-ai-automation",
+      "slug": "pricing-ai-automation",
+      "canonicalPath": "/pricing/ai-automation/",
+      "activeService": "ai-automation",
+      "h1": "AI & Automation pricing",
+      "seo": {
+        "title": "AI & Automation Pricing | SynergyFirst Digital",
+        "metaDescription": "AI & Automation pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "ogTitle": "AI & Automation Pricing",
+        "ogDescription": "AI & Automation pricing from SynergyFirst Digital."
+      },
+      "hero": {
+        "subheading": "Systems and AI workflows that save time."
+      },
+      "breadcrumbs": [
+        {
+          "label": "Pricing",
+          "path": "/pricing/"
+        },
+        {
+          "label": "AI & Automation",
+          "path": null
+        }
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    }
+  ]
 }
