@@ -1555,6 +1555,18 @@ a.link-cards__item {
   border-color: var(--color-accent);
   border-width: 2px;
 }
+/* The talk-to-us plan (no fixed price/features) doesn't stretch to match the
+   priced cards' height — it would otherwise be mostly empty space (owner
+   feedback 2026-10-02). It hugs its own content and gets a soft tint so it
+   still reads as a deliberately designed card, not an unfinished one. */
+.pricing-summary__plan--compact {
+  align-self: start;
+  background: var(--color-lavender-soft);
+  padding-bottom: var(--space-4);
+}
+.pricing-summary__plan--compact .pricing-summary__plan-cta {
+  margin-top: var(--space-4);
+}
 .pricing-summary__tag {
   position: absolute;
   top: -14px;
@@ -2702,10 +2714,21 @@ a.testimonials__rating:hover {
 }
 
 /* "Best for…" line on the Pricing page plan cards (mirrors the homepage cards). */
+.pricing-summary__tagline {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-accent-warm);
+}
 .pricing-summary__ideal {
   margin: 4px 0 var(--space-2);
   font-size: 13px;
   color: var(--color-text-secondary);
+}
+.pricing-summary__ideal--bold {
+  font-weight: 600;
 }
 /* Same-height summary block so the include lists start on one line across cards. */
 .pricing-summary__plan > p:not([class]) {

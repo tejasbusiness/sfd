@@ -1,11 +1,12 @@
 {
-  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan. Updated 2026-10-02: the E-Commerce plan was replaced with a non-packaged \"Custom Solutions\" plan (no fixed price/allowances) because e-commerce and bespoke work are scoped individually, not sold as a standardized monthly tier; see docs/10-decisions-and-todos.md.",
+  "_note": "Pricing confirmed 2026-09-18 per direct instruction: plan structure and USD prices adapted from https://icreateyoursite.com/pricing/ (Starter/Professional/Business), renamed Lite/Business/E-Commerce, with \"Complete e-commerce website\" moved from the first plan to the third. Copy is written in SFD's own voice, not copied verbatim, per CLAUDE.md rule 14. Owner decisions 2026-09-20: free site transfer after 3 continuous paid months; update allowances 10/20/40; page allowances 5/10/20; e-commerce only on the E-Commerce plan. Updated 2026-10-02: the E-Commerce plan was replaced with a non-packaged \"Custom Solutions\" plan (no fixed price/allowances) because e-commerce and bespoke work are scoped individually, not sold as a standardized monthly tier; see docs/10-decisions-and-todos.md. Also 2026-10-02 per owner instruction: Lite and Business each got a short tagline and a reworded idealFor description (no longer starting with \"Best for\").",
   "currency": "USD",
   "plans": [
     {
       "id": "lite",
       "name": "Lite",
-      "idealFor": "Best for a new business that needs a professional website live fast — no e-commerce needed.",
+      "tagline": "Professional Website",
+      "idealFor": "For businesses that need a professional website that's managed for them.",
       "priceMonthly": "$249",
       "verified": true,
       "summary": "A custom-designed, professional website with everything needed to keep it running.",
@@ -33,7 +34,8 @@
     {
       "id": "business",
       "name": "Business",
-      "idealFor": "Best for a business actively trying to win more local customers.",
+      "tagline": "Website + Local Growth",
+      "idealFor": "For established local businesses that want their website and Google presence actively managed to generate more enquiries.",
       "priceMonthly": "$449",
       "verified": true,
       "recommended": true,
