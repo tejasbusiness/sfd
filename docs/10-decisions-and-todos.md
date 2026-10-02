@@ -553,3 +553,15 @@ Owner brief: position the homepage for local service businesses in general, with
 - **Docs:** docs/01 and docs/13 example headlines updated.
 - **Open:** the "20-Minute" button vs. the 30-minute booking call (see "Pricing page copy" above) now also applies to the homepage hero.
 
+### Homepage trust strip: new statements (2026-10-02)
+- **New statements** (owner copy, in this order):
+  1. "See your website before you pay"
+  2. "No contract. No obligation to continue"
+  3. "Hosting, maintenance & support included"
+  4. "Built for local service businesses"
+- **What they replace:** these supersede the 2026-09-20 wording, including "Serving businesses across the world!". The strip no longer names any countries.
+- **Markup:** the strip is now a list (`<ul role="list">` with `<li>` items) instead of paragraphs. The layout and icons are unchanged.
+- **Line breaks:**
+  - `text-wrap: balance` evens out wrapped lines.
+  - A non-breaking space in "No obligation" stops "No" being left alone at the end of a line.
+

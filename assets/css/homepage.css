@@ -580,6 +580,11 @@
   bottom: 0;
 }
 .trust-signals__inner {
+  /* A list (four parallel statements); role="list" keeps it announced as one
+     where list-style: none would otherwise drop the semantics in Safari. */
+  list-style: none;
+  margin-block: 0;
+  padding-block: 0;
   display: grid;
   gap: var(--space-5) 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -603,6 +608,8 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.92);
   margin: 0;
+  /* Even line lengths when a statement wraps, so the four columns look balanced. */
+  text-wrap: balance;
 }
 @media (min-width: 768px) {
   .trust-signals__item + .trust-signals__item {

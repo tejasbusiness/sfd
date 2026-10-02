@@ -137,11 +137,12 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
    - *Left*: eyebrow label with a lime status-dot, H1 with hand-set line breaks and one highlighted phrase, `--text-body-lg` supporting copy, qualification/trust note, primary + secondary CTA.
    - *Right* (revised per reviewer feedback — this must show the actual transformation, not abstract rectangles): a layered **before → after** composition. Behind: a muted, low-contrast "before" browser frame — sparse, dated-looking layout, generic faded placeholder copy — representing a weak or missing website. In front, overlapping with a clear visual seam (a soft diagonal reveal line or directional arrow): a vivid, fully-styled "after" browser frame showing a credible, modern local-business homepage concept — real illustrative hierarchy (nav bar, headline, CTA button, image block) using the SFD palette, with generic micro-copy like "Your Business Name" / "Call Now" that obviously isn't a real business (never a real or implied business name). A smaller mobile-phone frame beside it repeats the "after" state responsively. A small floating "7-day private preview" chip with a compact countdown/progress motif reinforces the review mechanic (a factual process description, not a stat). Faint dot-grid background, restrained drift only.
    - Sized to feel complete at common laptop heights — no forced `100vh` dead zone.
-2. **Credibility strip** — **rebuilt per this revision**: no statistics, no "pending verification" content, nothing unresolved rendered in any mode. Four always-true, already-confirmed trust signals, rendered plainly (icon + short line each):
-   - Preview your website before you pay
-   - No obligation to continue after the preview
-   - Hosting and maintenance included with every active plan
-   - Serving businesses across the world! (amended 2026-09-20; was "Serving businesses across the USA, Canada, Australia, New Zealand and Europe")
+2. **Credibility strip** — **rebuilt per this revision**: no statistics, no "pending verification" content, nothing unresolved rendered in any mode. Four always-true, already-confirmed trust signals, rendered plainly (icon + short line each) as a `<ul role="list">`, in this order (risk reversal, no lock-in, managed value, audience fit; owner copy 2026-10-02):
+   - See your website before you pay
+   - No contract. No obligation to continue
+   - Hosting, maintenance & support included
+   - Built for local service businesses
+   No country names in this strip. Text uses `text-wrap: balance` so wrapped lines are even across the four columns.
    This section no longer depends on the `verified` mechanism at all — everything in it is true today.
 3. **How your preview works** — unchanged: alternating narrative, large ghosted numerals (01–04), a drawn-in connector line, one small supporting visual per step.
 4. **Industries** — asymmetric bento (Home Services dominant; Restaurants + Healthcare medium; Financial + Professional Services supporting). **Revised**: since none of the five industry pages exist yet, tiles render as styled, non-interactive cards (no `href`) rather than links — avoiding the 404s the original draft would have shipped. They become real links automatically once Phase 4 builds those pages (same content, just no anchor wrapper until then).
