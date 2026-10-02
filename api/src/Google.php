@@ -54,7 +54,7 @@ final class Google
             'POST',
             "https://www.googleapis.com/calendar/v3/calendars/{$calendar}/events?conferenceDataVersion=1&sendUpdates=all",
             [
-                'summary' => 'SFD discovery call: ' . ($b['business_name'] ?: $b['full_name']),
+                'summary' => 'SFD 20-minute call: ' . ($b['business_name'] ?: $b['full_name']),
                 'description' => $description,
                 'start' => ['dateTime' => $start->format('Y-m-d\TH:i:s\Z'), 'timeZone' => 'UTC'],
                 'end' => ['dateTime' => $end->format('Y-m-d\TH:i:s\Z'), 'timeZone' => 'UTC'],

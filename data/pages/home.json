@@ -4,16 +4,22 @@
   "slug": "home",
   "canonicalPath": "/",
   "seo": {
-    "title": "SynergyFirst Digital — See Your New Website Before You Pay For It",
-    "metaDescription": "Professional website design, hosting and maintenance for local service businesses, managed for one predictable monthly fee. See a free website preview before you pay.",
-    "ogTitle": "See Your New Website Before You Pay For It",
-    "ogDescription": "Conversion-focused, managed websites for local service businesses — one predictable monthly fee, no large upfront cost. Get a free website preview.",
+    "title": "Managed Websites for Local Service Businesses | SynergyFirst Digital",
+    "metaDescription": "Professional websites for local service businesses with no large upfront design cost. See a private website preview before you pay, then choose a simple monthly plan.",
+    "ogTitle": "Managed Websites for Local Service Businesses",
+    "ogDescription": "See a private preview of your new website before you pay, then choose a simple monthly plan with hosting, maintenance and support included.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
   "h1": "See your <span class=\"text-highlight\">new website</span><br>before you pay for it.",
-  "breadcrumbs": null,
   "leadOffer": "website-review",
+  "breadcrumbs": null,
+  "service": {
+    "name": "Managed websites for local service businesses",
+    "serviceType": "Website design, hosting and maintenance",
+    "description": "Professionally designed websites for local service businesses, hosted, maintained and supported for one predictable monthly fee, with a free private preview before you pay.",
+    "audience": "Local service businesses"
+  },
   "sections": [
     {
       "type": "hero-split",
@@ -21,7 +27,7 @@
       "subheading": "We design, host and manage conversion-focused websites for local service businesses — with no large upfront website cost and one predictable monthly fee.",
       "qualificationNote": "We’ll create a private preview using your real business information, services and public online presence. Review it first — then decide whether you want us to complete and manage it.",
       "primaryCta": {
-        "label": "Get My Free Website Preview",
+        "label": "Show Me My New Website",
         "href": "/free-preview/"
       },
       "secondaryCta": {
@@ -68,7 +74,7 @@
           "title": "Tell us about your business",
           "body": "Share your business name, website and a few basic details. We’ll review your current online presence and identify the best way to create a useful preview.",
           "cta": {
-            "label": "Request My Preview",
+            "label": "Show Me My New Website",
             "href": "/free-preview/"
           }
         },
@@ -181,7 +187,7 @@
         "Kept current as your business evolves"
       ],
       "cta": {
-        "label": "Get My Free Website Preview",
+        "label": "Show Me My New Website",
         "href": "/free-preview/"
       }
     },
@@ -249,16 +255,20 @@
         "sumita-shah",
         "sanjay-bhatia"
       ],
-      "cta": {"label":"Get My Free Website Preview","href":"/free-preview/"}
+      "cta": {
+        "label": "Show Me My New Website",
+        "href": "/free-preview/"
+      }
     },
     {
       "type": "pricing-highlight",
       "heading": "Plans built to grow with you",
-      "intro": "Three monthly plans, no long-term contract — the highlights are below, with every feature on the pricing page.",
+      "intro": "Two simple monthly plans and Custom Solutions, with no long-term contract. The highlights are below, with every feature on the pricing page.",
       "cta": {
         "label": "Compare every feature",
         "href": "/pricing/"
-      }
+      },
+      "planCtaLabel": "Show Me My New Website"
     },
     {
       "type": "growth-modules",
@@ -288,9 +298,9 @@
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "intro": "Everything you need to know before applying.",
+      "intro": "Straight answers before you ask to see your new website.",
       "cta": {
-        "label": "Get My Free Website Preview",
+        "label": "Show Me My New Website",
         "href": "/free-preview/"
       },
       "itemIds": [
@@ -307,7 +317,7 @@
       "heading": "See your new website before you pay for it.",
       "body": "Request a private website preview built around your real business, services and online presence — with no payment and no obligation to continue.",
       "primaryCta": {
-        "label": "Get My Free Website Preview",
+        "label": "Show Me My New Website",
         "href": "/free-preview/"
       },
       "secondaryCta": {
@@ -321,7 +331,9 @@
   "schemaTypes": [
     "WebPage",
     "Organization",
-    "WebSite"
+    "WebSite",
+    "Service",
+    "FAQPage"
   ],
   "lastUpdated": "2026-10-02"
 }

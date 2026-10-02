@@ -38,7 +38,7 @@
   <main id="main-content">
     {% block content %}{% endblock %}
   </main>
-  {# Band above the footer: the homepage offers a Free Website Review; other pages keep the playbook. #}
+  {# Band above the footer: the homepage offers the Free Website Audit; other pages keep the playbook. #}
   {% if page.leadOffer == "website-review" %}{% include "partials/website-review.njk" %}
   {% elif not page.hidePlaybook %}{% include "partials/playbook.njk" %}{% endif %}
   {% include "partials/footer.njk" %}

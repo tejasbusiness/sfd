@@ -36,7 +36,7 @@
           "body": [
             "We collect only what we need to respond to you, provide our services and run this website.",
             [
-              "<strong>Information you give us:</strong> your name, email address, phone or WhatsApp number, business name, current website address, the category of your business, how you heard about us and the message you write, when you use our contact form, Free Preview application, discovery-call booking, Free Website Review request or Free AI Prompts Playbook sign-up.",
+              "<strong>Information you give us:</strong> your name, email address, phone or WhatsApp number, business name, current website address, the category of your business, how you heard about us and the message you write, when you use our contact form, Free Preview application, discovery-call booking, Free Website Audit request or Free AI Prompts Playbook sign-up.",
               "<strong>Booking details:</strong> your chosen date and time, your time zone and the call-preparation notes you provide.",
               "<strong>Customer and billing information:</strong> if you subscribe, your billing name and contact details, the plan you choose and records of payments. Payments are processed by Razorpay; we do not see or store your full card details.",
               "<strong>Website content you supply:</strong> text, images, logos, business details and other materials you send us to build or update your website.",
@@ -52,7 +52,7 @@
               "To reply to your enquiries and arrange discovery calls.",
               "To review Free Preview requests and, where we can help, prepare and share a private preview website.",
               "To provide, host, maintain and support your website subscription, and to take payment.",
-              "To review your current website and email you our recommendations, and related service information, if you request a Free Website Review.",
+              "To audit your current website and email you a report with our recommendations, and related service information, if you request a Free Website Audit.",
               "To send you the Free AI Prompts Playbook and related emails if you ask for it. You can unsubscribe at any time.",
               "To understand how the website is used and improve it.",
               "To keep the website and our systems secure, prevent misuse and meet legal obligations."
@@ -96,7 +96,7 @@
           "heading": "How long we keep information",
           "body": [
             [
-              "Enquiries, bookings, Free Preview applications and Free Website Review requests: up to 24 months after our last contact with you, then deleted or anonymised.",
+              "Enquiries, bookings, Free Preview applications and Free Website Audit requests: up to 24 months after our last contact with you, then deleted or anonymised.",
               "Customer, contract and payment records: for as long as your subscription runs and afterwards for as long as tax, accounting and other laws require.",
               "Playbook and marketing sign-ups: until you unsubscribe or ask us to delete your details."
             ],

@@ -106,7 +106,7 @@ Still forbidden: lime as a default numbered-step circle fill, lime or purple as 
 - **Stay compact**: header height is fixed between states — only background opacity/blur and a hairline shadow change, nothing resizes, so there's no layout shift.
 - **Keep the JS minimal**: one small listener toggling one class; no scroll-jacking, no dependency.
 
-Logo becomes a temporary refined wordmark + small inline-SVG geometric mark (two overlapping forms in purple/lime) — clearly labeled in code as a placeholder pending real brand assets. "Book a Free 30-Minute Discovery Call" becomes a quieter refined secondary action; "Get a Free Preview" stays the single dominant filled action.
+Logo becomes a temporary refined wordmark + small inline-SVG geometric mark (two overlapping forms in purple/lime) — clearly labeled in code as a placeholder pending real brand assets. "Book a Free 20-Minute Call" (was "Book a Free 30-Minute Discovery Call") becomes a quieter refined secondary action; "Show Me My New Website" stays the single dominant filled action.
 
 **Buttons** — primary gets a soft elevated shadow and a slightly larger touch target; hover states use both colour shift and a subtle lift, never colour-only. Secondary/ghost buttons get a refined thin border and icon slot.
 
@@ -201,7 +201,7 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
     - **Homepage copy** (owner, 2026-10-02):
       - Heading: "See your new website before you pay for it."
       - A private-preview line underneath.
-      - Buttons: "Get My Free Website Preview" and "Book a Free 20-Minute Call".
+      - Buttons: "Show Me My New Website" and "Book a Free 20-Minute Call".
       - Reassurance line: "No payment. No obligation. See the preview first."
 
       There is no application or qualification wording, and the copy matches the hero.

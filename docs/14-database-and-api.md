@@ -41,15 +41,17 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 | 008 | `email_outbox` |
 | 009 | Placeholder booking defaults |
 | 010 | Owner-decided hours (two windows, Monday to Friday) |
-| 011 | `website_reviews` (Free Website Review requests, homepage) |
+| 011 | `website_reviews` (Free Website Audit / "Free Audit Report" requests, homepage) |
+| 012 | `preview_applications`: phone, country, city and category nullable; `website` holds the website **or** Google Business Profile URL (simplified Free Preview request) |
+| 013 | `call_duration_minutes` = 20 (free 20-minute call) |
 
 `schema_migrations` is created by the runner itself.
 
 ## Booking rules
 
-Decided by the owner on 2026-09-20 (migration 010): **30-minute discovery calls, Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time.** Each visitor therefore sees those windows on their own clock (the last start is 12:30 and 18:30), and the API computes slots per visitor timezone. A slot taken by a visitor in one timezone disappears for everyone, because bookings are compared in UTC.
+Decided by the owner on 2026-09-20 (migration 010), call length changed to 20 minutes on 2026-10-02 (migration 013): **free 20-minute calls, Monday to Friday, 10:00 to 13:00 and 17:00 to 19:00 in the visitor's local time.** Each visitor therefore sees those windows on their own clock (the last start is 12:30 and 18:30), and the API computes slots per visitor timezone. A slot taken by a visitor in one timezone disappears for everyone, because bookings are compared in UTC.
 
-Still placeholders (`needs_confirmation = 1` in `booking_settings`, change with an UPDATE or a new migration): 15-minute buffer between calls (with 30-minute slots this hides the slot right after a booked one, so calls end up 1 hour apart; set `buffer_minutes` to 0 for back-to-back calls), 12 hours' minimum notice, 30-day booking window, 6 calls per day (counted per day in `sfd_timezone`, `Asia/Kolkata`), slots every 30 minutes. Holidays go in `availability_exceptions` (dates are read in the visitor's timezone).
+Still placeholders (`needs_confirmation = 1` in `booking_settings`, change with an UPDATE or a new migration): 15-minute buffer between calls (with 20-minute calls on a 30-minute slot grid, the 15-minute buffer hides the slot right after a booked one; set `buffer_minutes` to 0 for back-to-back calls), 12 hours' minimum notice, 30-day booking window, 6 calls per day (counted per day in `sfd_timezone`, `Asia/Kolkata`), slots every 30 minutes. Holidays go in `availability_exceptions` (dates are read in the visitor's timezone).
 
 ## API (`api/`)
 
@@ -60,9 +62,9 @@ Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/
 | `GET /api/availability?timezone=` | Open slots grouped by date in the visitor's timezone (MySQL rules, existing bookings, Google free/busy when enabled) |
 | `POST /api/bookings` | Book a call. `Idempotency-Key` header (UUID). 201 created, 200 same key replayed, 409 `slot_unavailable`, 422 field errors |
 | `POST /api/contact` | Contact form and the Websites landing hero form (`topic` is sent as a hidden field; `source` is optional) |
-| `POST /api/preview-applications` | Free Preview application |
+| `POST /api/preview-applications` | Free Preview request ("Show Me My New Website"): required `fullName`, `email`, `businessName`, `website` (website or Google Business Profile URL); optional phone (`countryCode` + `mobileNumber`), `primaryService`, `problem`; consent |
 | `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
-| `POST /api/website-review` | Free Website Review request: `website` (required, bare domains get `https://`), `email`, optional `businessName`, consent. Stored in `website_reviews` with a `WR-` reference; owner notified, visitor gets a confirmation. The review itself is prepared and emailed by hand |
+| `POST /api/website-review` | Free Website Audit ("Free Audit Report") request: `website` (required, bare domains get `https://`), `email`, optional `businessName`, consent. Stored in `website_reviews` with a `WR-` reference; owner notified, visitor gets a confirmation. The audit report itself is prepared and emailed by hand |
 | `POST /api/consent` | Records the cookie-banner choice |
 
 **Rate limits** (per client, salted hash in `rate_limits`): each form has a generous request bucket that counts every call, including ones rejected by validation (30 per hour; availability 120 per 10 minutes; consent 60 per hour), plus a `_saved` bucket that counts only submissions that passed validation and are stored (contact, Free Preview, playbook, website review 5 per hour; booking 8 per hour). Fixing typos therefore never trips the limit. The client address is `X-Real-IP` set by our own nginx, trusted only when the request arrives from 127.0.0.1 (`Http::clientIp()`), so visitors are not all counted as the proxy. A 429 shows the red "Too many attempts" toast.

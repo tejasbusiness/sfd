@@ -10,13 +10,13 @@
     "successBody": "You are on the list. We will email your AI Prompts Playbook to the address you gave."
   },
   "websiteReview": {
-    "eyebrow": "FREE WEBSITE REVIEW",
+    "eyebrow": "FREE WEBSITE AUDIT",
     "heading": "Find out what’s holding your website back",
-    "body": "Get a quick review of your current website with practical recommendations for improving trust, mobile usability, local visibility and enquiry conversion.",
-    "buttonLabel": "Review My Website",
-    "consentLabel": "I agree to SynergyFirst Digital using my details to send my website review and related service information.",
+    "body": "Get a quick audit of your current website with practical recommendations for improving trust, mobile usability, local visibility and enquiry conversion.",
+    "buttonLabel": "Free Audit Report",
+    "consentLabel": "I agree to SynergyFirst Digital using my details to send my audit report and related service information.",
     "successHeading": "Thank you!",
-    "successBody": "We have your request. We will review your website and email your recommendations to the address you gave."
+    "successBody": "We have your request. We will audit your website and email your report to the address you gave."
   },
   "cookieConsent": {
     "version": 1,
@@ -48,7 +48,7 @@
       }
     ]
   },
-  "brandStatement": "We build and manage conversion-focused websites for local businesses—starting with a free website preview, you can review before you commit.",
+  "brandStatement": "We design, host and manage conversion-focused websites for local service businesses — starting with a free private preview you can review before you pay.",
   "groups": [
     {
       "title": "Websites",

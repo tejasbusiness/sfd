@@ -42,8 +42,11 @@ Final marketing copy may improve this wording but must preserve the promise.
 
 ## Conversion hierarchy
 
-1. **Get My Free Website Preview** — primary CTA (button label; titles and headings use "Request Your Free Website Preview").
-2. **Book a Free 30-Minute Discovery Call** — immediate human-contact CTA.
+Locked by the owner on 2026-10-02 (homepage final pass):
+
+1. **Show Me My New Website**: the primary CTA. Every button that asks for the private preview uses it, and all of them go to the same `/free-preview/` request. Titles and headings may still say "Request Your Free Website Preview".
+2. **Book a Free 20-Minute Call**: the immediate human-contact CTA. Every call button opens the same booking modal, and the call is 20 minutes long.
+3. **Free Audit Report** (Free Website Audit): the lower-intent offer on the homepage. It diagnoses the current website; it never creates a preview.
 3. **See How It Works** — education CTA.
 4. **View Websites** — proof CTA.
 

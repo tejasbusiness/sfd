@@ -5,9 +5,9 @@
   "canonicalPath": "/free-preview/",
   "seo": {
     "title": "Request Your Free Website Preview | SynergyFirst Digital",
-    "metaDescription": "Apply for a complimentary, private website preview from SynergyFirst Digital. We review every application to confirm we can create something genuinely useful for your business.",
+    "metaDescription": "Request a free, private preview of your new website, built from your real business information and online presence. No payment and no obligation to continue.",
     "ogTitle": "Request Your Free Website Preview",
-    "ogDescription": "Apply for a complimentary, private website preview.",
+    "ogDescription": "See your new website before you pay for it: request a free, private website preview.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
@@ -17,7 +17,11 @@
     {
       "type": "free-preview-form",
       "heading": "Tell us about your business",
-      "intro": "We review every application to make sure we can create something genuinely useful for you — submitting this form does not guarantee a preview. It takes a few minutes."
+      "intro": "Tell us where to find your business online. We look at every request first, and when we can create something genuinely useful we build a private preview of your new website. There is no payment and no obligation to continue. It takes about a minute.",
+      "submitLabel": "Show Me My New Website",
+      "consentLabel": "I confirm I have the right to share this information, and I understand a preview is not guaranteed for every request.",
+      "successTitle": "Request received",
+      "successMessage": "Thank you. We'll look at your business and email you about your private website preview."
     },
     {
       "type": "testimonials",
@@ -33,5 +37,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-09-17"
+  "lastUpdated": "2026-10-02"
 }

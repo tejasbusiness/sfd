@@ -40,7 +40,7 @@
 </div>
 {% endmacro %}
 
-{% macro phone(id, countryCodes, countryCodeOptions, label="Mobile number *") %}
+{% macro phone(id, countryCodes, countryCodeOptions, label="Mobile number *", required=true) %}
 <div class="field phone-field">
   <div class="phone-field__row">
     <select class="field__control phone-field__code" id="{{ id }}-country-code" name="countryCode" data-enhance="country-select" data-default-iso2="{{ countryCodes.defaultIso2 }}">
@@ -48,7 +48,7 @@
     </select>
     <div class="phone-field__number-wrap">
       <label class="field__label" for="{{ id }}-phone">{{ label }}</label>
-      <input class="field__control phone-field__number" id="{{ id }}-phone" name="mobileNumber" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder=" " required autocomplete="tel-national">
+      <input class="field__control phone-field__number" id="{{ id }}-phone" name="mobileNumber" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder=" "{{ ' required' if required }} autocomplete="tel-national">
     </div>
   </div>
   <p class="field__error" data-error-for="mobileNumber" role="alert" hidden></p>

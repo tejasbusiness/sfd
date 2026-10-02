@@ -179,13 +179,13 @@ final class App
         $when = $start->setTimezone($visitorTz)->format('l j F Y, H:i') . ' (' . $visitorTz->getName() . ')';
         $whenSfd = $start->setTimezone(new \DateTimeZone($settings['sfd_timezone']))->format('l j F Y, H:i') . ' (' . $settings['sfd_timezone'] . ')';
 
-        Mailer::send('booking_owner', Env::require('MAIL_OWNER_TO'), null, "New discovery call booked: {$c['fullName']}", 'A visitor booked a discovery call.', [
+        Mailer::send('booking_owner', Env::require('MAIL_OWNER_TO'), null, "New 20-minute call booked: {$c['fullName']}", 'A visitor booked a free 20-minute call.', [
             'Reference' => $reference, 'When (visitor)' => $when, 'When (SFD)' => $whenSfd, 'Name' => $c['fullName'], 'Email' => $c['email'],
             'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'], 'Business' => (string) $c['businessName'], 'Website' => (string) $c['website'],
             'Country' => (string) $c['country'], 'Message' => $c['message'], 'Calendar' => $calendarNote . ($meetUrl ? " {$meetUrl}" : ''),
         ], 'booking', $id, $c['email']);
 
-        Mailer::send('booking_visitor', $c['email'], $c['fullName'], 'Your discovery call with SynergyFirst Digital', "Hi {$c['fullName']}, your call is booked.", [
+        Mailer::send('booking_visitor', $c['email'], $c['fullName'], 'Your free 20-minute call with SynergyFirst Digital', "Hi {$c['fullName']}, your call is booked.", [
             'Reference' => $reference, 'When' => $when,
             'Meeting link' => $meetUrl ?? 'We will email your Google Meet link before the call.',
         ], 'booking', $id);
@@ -260,11 +260,12 @@ final class App
         $in = Http::body();
         self::honeypot($in);
 
+        // Low-friction request (2026-10-02): name, email, business name and one website or
+        // Google Business Profile URL are required; phone, service and message are optional.
         $v = (new Validator($in))
-            ->text('fullName', 'Full name', 120)->email()->phone()
-            ->text('businessName', 'Business name', 160)->website('website')->website('gbpUrl', 500)
-            ->text('country', 'Country', 80)->text('city', 'City', 120)->text('category', 'Category', 80)
-            ->text('primaryService', 'Services', 200)->text('problem', 'This', 5000)->consent();
+            ->text('fullName', 'Full name', 120)->email()->phone(false)
+            ->text('businessName', 'Business name', 160)->website('website', 500, true)
+            ->text('primaryService', 'Primary service', 200, false)->text('problem', 'Message', 5000, false)->consent();
         self::failIfInvalid($v);
         RateLimit::hit('preview_saved');
 
@@ -272,22 +273,24 @@ final class App
         $t = Validator::tracking($in);
         $consentId = Consent::record('preview', $c['email'], $t['source_page']);
         $reference = 'PV-' . strtoupper(bin2hex(random_bytes(4)));
+        // `website` holds the one URL the visitor gave: their website or their Google Business Profile.
         Db::run(
-            'INSERT INTO preview_applications (reference, full_name, email, country_code, mobile_number, business_name, website, gbp_url, country, city,
-                category, primary_service, problem, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
-            [$reference, $c['fullName'], $c['email'], $c['countryCode'], $c['mobileNumber'], $c['businessName'], $c['website'], $c['gbpUrl'], $c['country'],
-             $c['city'], $c['category'], $c['primaryService'], $c['problem'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
+            'INSERT INTO preview_applications (reference, full_name, email, country_code, mobile_number, business_name, website,
+                primary_service, problem, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+            [$reference, $c['fullName'], $c['email'], $c['countryCode'], $c['mobileNumber'], $c['businessName'], $c['website'],
+             $c['primaryService'], $c['problem'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
              $t['utm_campaign'], $t['utm_term'], $t['utm_content'], Http::ipHash(), Http::userAgent(), Env::isLocal() ? 1 : 0]
         );
         $id = Db::insertId();
 
-        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview application: {$c['businessName']}", 'A business applied for a Free Website Preview.', [
-            'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'], 'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'],
-            'Business' => $c['businessName'], 'Website' => (string) $c['website'], 'Google Business Profile' => (string) $c['gbpUrl'],
-            'Location' => $c['city'] . ', ' . $c['country'], 'Category' => $c['category'], 'Services (first is primary)' => $c['primaryService'], 'Main problem' => $c['problem'],
+        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview request: {$c['businessName']}", 'A business asked to see their new website (Free Website Preview).', [
+            'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'],
+            'Phone' => $c['mobileNumber'] ? $c['countryCode'] . ' ' . $c['mobileNumber'] : '',
+            'Business' => $c['businessName'], 'Website or Google Business Profile' => $c['website'],
+            'Primary service' => (string) $c['primaryService'], 'Message' => (string) $c['problem'],
         ], 'preview', $id, $c['email']);
-        Mailer::send('preview_visitor', $c['email'], $c['fullName'], 'We received your Free Preview application', "Hi {$c['fullName']}, thank you for applying. We will review your details and email you at this address. " . self::RESPONSE_TIME, [
+        Mailer::send('preview_visitor', $c['email'], $c['fullName'], 'We received your Free Website Preview request', "Hi {$c['fullName']}, thank you for asking to see your new website. We will look at your business and email you at this address. " . self::RESPONSE_TIME, [
             'Reference' => $reference, 'Business' => $c['businessName'],
         ], 'preview', $id);
 
@@ -350,11 +353,11 @@ final class App
         );
         $id = Db::insertId();
 
-        Mailer::send('website_review_owner', Env::require('MAIL_OWNER_TO'), null, "New website review request: {$c['website']}", 'Someone asked for a free website review. Review the site and email the recommendations by hand.', [
+        Mailer::send('website_review_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Audit Report request: {$c['website']}", 'Someone asked for a Free Audit Report. Audit the site and email the findings and recommendations by hand.', [
             'Reference' => $reference, 'Website' => $c['website'], 'Business' => (string) $c['businessName'], 'Email' => $c['email'],
             'Page' => (string) $t['source_page'], 'Campaign' => (string) $t['utm_campaign'],
         ], 'website_review', $id, $c['email']);
-        Mailer::send('website_review_visitor', $c['email'], null, 'We received your website review request', 'Thank you for asking SynergyFirst Digital to review your website. We will look at it and email you practical recommendations.', [
+        Mailer::send('website_review_visitor', $c['email'], null, 'We received your Free Audit Report request', 'Thank you for asking SynergyFirst Digital to audit your website. We will look at it and email you a report with practical recommendations.', [
             'Reference' => $reference, 'Website' => $c['website'],
         ], 'website_review', $id);
 

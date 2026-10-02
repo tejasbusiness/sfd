@@ -6,7 +6,21 @@
 
 {% if "Organization" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }}}
+{"@context":"https://schema.org","@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }},"email":{{ company.supportEmail | dump | safe }}{% if company.description %},"description":{{ company.description | dump | safe }}{% endif %}}
+</script>
+{% endif %}
+
+{% if "WebSite" in page.schemaTypes %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}}
+</script>
+{% endif %}
+
+{# Service: what the page sells, from page.service ({ name, serviceType, description,
+   audience }). No prices, ratings or service areas — only what the page states. #}
+{% if "Service" in page.schemaTypes and page.service %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":{{ page.service.name | dump | safe }},"serviceType":{{ page.service.serviceType | dump | safe }},"description":{{ page.service.description | dump | safe }},"provider":{"@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}},"audience":{"@type":"BusinessAudience","audienceType":{{ page.service.audience | dump | safe }}}}
 </script>
 {% endif %}
 

@@ -38,12 +38,12 @@
     {
       "id": "timing",
       "question": "How long does it take to see my preview website?",
-      "answer": "Timelines depend on your business and the information you provide. We confirm an expected timeframe when we review your application."
+      "answer": "Timelines depend on your business and the information you provide. We confirm an expected timeframe when we look at your request."
     },
     {
       "id": "preview-guarantee",
       "question": "Am I guaranteed a free preview?",
-      "answer": "Not automatically. We review every application to make sure we can create something genuinely useful for your business before building a preview."
+      "answer": "Not automatically. We look at every request first to make sure we can create something genuinely useful for your business before building a preview."
     },
     {
       "id": "page-allowance",
@@ -93,12 +93,12 @@
     {
       "id": "about-get-started",
       "question": "How do we get started?",
-      "answer": "Book a free 30-minute discovery call. We will discuss your business, current digital presence, immediate priorities and whether SynergyFirst Digital is the right fit for the work."
+      "answer": "Book a free 20-minute call. We will discuss your business, current digital presence, immediate priorities and whether SynergyFirst Digital is the right fit for the work."
     },
     {
       "id": "contact-which-option",
       "question": "Should I book a call or request a free preview?",
-      "answer": "Book a Free 30-Minute Discovery Call if you would like to talk through your goals with us directly. Request a Free Website Preview if you would rather see how your business could look first. If you are unsure, start with the call and we will point you to the right next step."
+      "answer": "Book a Free 20-Minute Call if you would like to talk through your goals with us directly. Request a Free Website Preview if you would rather see how your business could look first. If you are unsure, start with the call and we will point you to the right next step."
     },
     {
       "id": "contact-preview-guarantee",

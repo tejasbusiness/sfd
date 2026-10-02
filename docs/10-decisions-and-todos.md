@@ -692,3 +692,55 @@ Owner brief: position the homepage for local service businesses in general, with
   - New `.sfd-form--review` grid: two rows of two from 40em, one column on phones.
 - **Privacy Policy** (updated 2 October 2026): now lists the review request in "Information we collect", adds a "How we use it" line, and sets retention at 24 months. **Needs legal review** with the other legal pages.
 
+
+### Homepage final polish and QA pass: HOMEPAGE FROZEN (2026-10-02)
+The homepage is production-ready and **frozen**. Do not redesign or rework its copy without a new owner instruction. Next phase: the Garage Door Services industry page, then Tree Services.
+
+- **Locked CTA hierarchy:**
+  - Primary: **Show Me My New Website**, every preview button → `/free-preview/`.
+  - Secondary: **Book a Free 20-Minute Call**, every call button → booking modal.
+  - Tertiary: **Free Audit Report** (eyebrow "Free Website Audit"), homepage band above the footer.
+- **Where each label now appears:**
+  - Primary: hero, preview-steps button, comparison, testimonials, homepage pricing plan buttons (Lite and Business), FAQ panel, final call to action, and the **sitewide header** button.
+  - Secondary: the sitewide header link, the mega-menu promo buttons, the "More" menu, the booking modal title, and every page's call buttons.
+  - Custom Solutions keeps "Let's Talk" (owner's earlier choice); it opens the same booking modal.
+- **Call length is now 20 minutes everywhere:**
+  - Migration `013_call_duration_20_minutes.sql`.
+  - Booking modal title, booking emails and the Calendar event title.
+  - All page CTAs and mentions, the Terms ("Discovery calls" clause), Book a Call, Contact and Pricing.
+  - Generic "discovery call" wording remains in some service and legal body text (Privacy, Refund, Terms intro, SEO and Digital Marketing pages, a Contact FAQ). Tidy it when those pages are next edited.
+- **Free Preview request simplified:**
+  - Required: name, email, business name, and one "Website or Google Business Profile URL".
+  - Optional: phone, main service, message.
+  - Removed: country, city and the category list (which still offered Restaurants, Healthcare and so on).
+  - Request wording throughout, with no "application" or "qualify".
+  - Migration `012` makes the dropped columns nullable; the API mirrors the change. See docs/04 and docs/14.
+- **Audit offer:** "Free Website Audit" / "Free Audit Report", in the copy, consent text, emails and Privacy Policy. The API and table names stay `website-review` / `website_reviews` (internal only). The button is now the outlined secondary style, so it does not compete with the primary CTA.
+- **SEO:**
+  - Title "Managed Websites for Local Service Businesses | SynergyFirst Digital", and the owner's meta description.
+  - Open Graph text aligned with the title and description.
+  - FAQ intro, pricing intro ("Two simple monthly plans and Custom Solutions") and the FAQ "application" wording updated.
+- **Structured data:**
+  - Organization (now with email and description from `data/company.json`), plus the new WebSite, Service (`page.service`, with no price, area or rating) and FAQPage (from the visible FAQs).
+  - Nothing fabricated: no AggregateRating, Review, address or prices.
+- **Accessibility:**
+  - Mega-menu promo "We can build it for you." is no longer an H3 (it came before the H1).
+  - Exactly one H1; no heading jumps in `<main>`.
+  - All controls are labelled, and the audit and preview forms are checked.
+- **Performance:**
+  - Footer wordmark: 6667 px / 1 MB PNG → `SFD-White-logo-footer.png` (836 × 150, 42 KB), with dimensions and lazy loading.
+  - Hero photo: 1400 × 1700 / 394 KB → `hero-photo-640.jpg` (66 KB).
+  - The original files stay in `assets/images/` as sources (unreferenced).
+- **Responsive:**
+  - Hero buttons and the step-1 button no longer wrap on phones (smaller side padding below 30em).
+  - Preview form fields stay aligned (`align-items: start`); the URL field is full width below 64em.
+- **QA:** checked at 1920, 1440, 1400 (the header breakpoint), 1024, 820, 390 and 360px.
+  - No horizontal scroll and no broken internal links.
+  - One title, description, canonical and viewport; `index, follow`.
+- **Preview indexing:** preview-mode builds are not implemented (`scripts/build.js` refuses `--mode=preview`). Prospect previews are therefore hosted outside this codebase and must carry `noindex, nofollow` there (docs/06).
+- **Needs manual verification:**
+  - Hero stats: 300+ websites, 4.8★ Google rating, 8+ years.
+  - The Google-rating link and the testimonials.
+  - That backups and enquiry tracking are included in every plan.
+  - The 10 / 20 update counts still in the FAQ.
+- **Deploy with migrations** `011` to `013`: `.\deploy.bat -Migrate`.

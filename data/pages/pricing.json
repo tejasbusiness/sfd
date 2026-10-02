@@ -75,7 +75,7 @@
         "lead": "Pricing is being updated.",
         "body": "Tell us what you need and we'll share a quote on a free call.",
         "cta": {
-          "label": "Book a Free 30-Minute Discovery Call",
+          "label": "Book a Free 20-Minute Call",
           "href": "/book-a-call/",
           "dialogTarget": "booking-modal"
         },
@@ -209,7 +209,7 @@
       "h1": "SEO pricing",
       "seo": {
         "title": "SEO Pricing | SynergyFirst Digital",
-        "metaDescription": "SEO pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "metaDescription": "SEO pricing from SynergyFirst Digital. Pricing is being updated: book a free 20-minute call and we'll quote for what your business needs.",
         "ogTitle": "SEO Pricing",
         "ogDescription": "SEO pricing from SynergyFirst Digital."
       },
@@ -239,7 +239,7 @@
       "h1": "Website Care & WordPress Maintenance pricing",
       "seo": {
         "title": "Website Care & WordPress Maintenance Pricing | SynergyFirst Digital",
-        "metaDescription": "Website Care & WordPress Maintenance pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "metaDescription": "Website Care & WordPress Maintenance pricing from SynergyFirst Digital. Pricing is being updated: book a free 20-minute call and we'll quote for what your business needs.",
         "ogTitle": "Website Care & WordPress Maintenance Pricing",
         "ogDescription": "Website Care & WordPress Maintenance pricing from SynergyFirst Digital."
       },
@@ -269,7 +269,7 @@
       "h1": "Digital Marketing & Social Media pricing",
       "seo": {
         "title": "Digital Marketing & Social Media Pricing | SynergyFirst Digital",
-        "metaDescription": "Digital Marketing & Social Media pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "metaDescription": "Digital Marketing & Social Media pricing from SynergyFirst Digital. Pricing is being updated: book a free 20-minute call and we'll quote for what your business needs.",
         "ogTitle": "Digital Marketing & Social Media Pricing",
         "ogDescription": "Digital Marketing & Social Media pricing from SynergyFirst Digital."
       },
@@ -299,7 +299,7 @@
       "h1": "AI & Automation pricing",
       "seo": {
         "title": "AI & Automation Pricing | SynergyFirst Digital",
-        "metaDescription": "AI & Automation pricing from SynergyFirst Digital. Pricing is being updated: book a free 30-minute call and we'll quote for what your business needs.",
+        "metaDescription": "AI & Automation pricing from SynergyFirst Digital. Pricing is being updated: book a free 20-minute call and we'll quote for what your business needs.",
         "ogTitle": "AI & Automation Pricing",
         "ogDescription": "AI & Automation pricing from SynergyFirst Digital."
       },

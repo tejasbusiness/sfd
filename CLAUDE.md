@@ -28,7 +28,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 
 - Primary product: monthly managed website subscription.
 - Primary conversion: Free Website Preview application.
-- Immediate conversion: 30-minute Google Meet call.
+- Immediate conversion: free 20-minute Google Meet call ("Book a Free 20-Minute Call").
 - Supporting services: SEO, Google Business Profile support, AI, WhatsApp, CRM and automation.
 - Supporting services must not dilute the website-subscription offer on the homepage.
 

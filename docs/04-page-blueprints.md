@@ -78,23 +78,29 @@ Use an editorial project presentation. Every project must identify the business 
 
 Present SFD as an experienced remote team. Include founder credibility, 25+ years of web experience when verified for public use, operating principles, delivery model and transparent company information. Avoid generic mission statements.
 
-## Free Preview application
+## Free Preview request ("Show Me My New Website")
 
-Explain eligibility and collect only the information needed to evaluate and create a preview. Suggested fields:
+The form is deliberately low-friction (owner decision, 2026-10-02). It reads as a request, never as an application or qualification process.
 
-- Full name.
-- Work email.
-- Mobile number (country code and 10-digit number as separate fields).
+Required:
+
+- Your name.
+- Email address.
 - Business name.
-- Existing website.
-- Google Business Profile URL.
-- Country and city.
-- Business category.
-- Primary & Secondary Services (one comma-separated field with a small italic hint: the first service is the primary one, the rest are secondary; stored as entered in `primary_service`, max 200 characters).
-- Main website problem.
-- Permission/acknowledgement regarding submitted materials.
+- **Website or Google Business Profile URL.** This is one field, so a business with no website can paste its Google Business Profile link; the hint says so. It is stored in `website`.
+- Consent: the right to share the information, and that a preview is not guaranteed for every request.
 
-Do not state that submission guarantees a preview.
+Optional:
+
+- Phone (country code + 10-digit number).
+- Main service.
+- "Anything we should know?"
+
+Details:
+
+- The button is "Show Me My New Website", and the success toast is "Request received".
+- Every homepage and header "Show Me My New Website" button links here. There is only one preview workflow.
+- Do not state that submission guarantees a preview.
 
 ## Contact
 
@@ -172,7 +178,7 @@ Reference principles (icreateyoursite.com/case-studies): an index of cards (scre
 `/services/` is an overview (hero, link cards for the five services, how it fits with the subscription, CTA). Each service page (`data/pages/service-<slug>.json`) uses existing sections: hero, overview content block, "what is included" feature grid, "how it fits" content block, related-service link cards and a free-preview CTA. Every inclusion statement must match `data/plans.json` (plan names, allowances) or the About page; no prices, guarantees, rankings, response times or invented statistics. Marketing and social media are stated to be outside the standard plans (only the Business plan's SEO blog posts are included).
 
 ## Contact page: pinned details strip (2026-09-21)
-`/contact/` keeps the form on the left and the dark company-details card on the right. On desktop (61em and up), once the card has scrolled out of view a slim strip is pinned under the site header with the phone numbers, support email and the "Book a Free 30-Minute Discovery Call" button (booking modal), built from the same company data. It hides again when the card is visible and is not shown on tablet or mobile. A sticky card was tried first and dropped because it has no room to travel inside the form section. See `docs/10-decisions-and-todos.md`.
+`/contact/` keeps the form on the left and the dark company-details card on the right. On desktop (61em and up), once the card has scrolled out of view a slim strip is pinned under the site header with the phone numbers, support email and the "Book a Free 20-Minute Call" button (booking modal), built from the same company data. It hides again when the card is visible and is not shown on tablet or mobile. A sticky card was tried first and dropped because it has no room to travel inside the form section. See `docs/10-decisions-and-todos.md`.
 
 ## Pricing page copy update (2026-10-02)
 Hero (all pricing pages): H1 on `/pricing/` is "A professionally managed website, managed for one simple monthly price (No upfront cost)"; subheading "Custom design, hosting, maintenance and ongoing support included — with no large upfront website fee."; secondary button "Book a Free 20-Minute Call" (opens the booking modal). Plan cards: Business and Custom Solutions descriptions reworded; the Lite and Business cards no longer show update counts ("Routine content updates included", "Priority content updates included"); Business lists "Standard booking or CRM integration". "Included on every plan": the last card is "Managed for you". "Commitment and ownership" gains an H3 line under its heading ("No long-term contract. Cancel anytime. And after six months, you own the website.") and its cards are Domain ownership, No Minimum Term, Website Ownership and Add-ons & third-party charges. The `feature-grid` section now accepts an optional `subheading` (H3) and a card `body` that is a string or a list of paragraphs.

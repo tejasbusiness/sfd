@@ -84,6 +84,16 @@
   background: var(--color-primary);
   color: var(--color-bg);
 }
+/* Phones: the full-width stacked buttons keep "SHOW ME MY NEW WEBSITE" and
+   "BOOK A FREE 20-MINUTE CALL" on one line (the desktop side padding made both
+   wrap at 390px) and centre the label if a very narrow screen still wraps it. */
+@media (max-width: 30em) {
+  .hero-split__actions .button--primary,
+  .hero-split__actions .button--secondary {
+    padding-inline: var(--space-3);
+    text-align: center;
+  }
+}
 
 /* Trust-strip stat card: a raised, bordered group rather than plain text in
    a row — this is the hero's primary trust signal, so it's designed to read
@@ -692,6 +702,13 @@
   margin-top: var(--space-2);
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
+  text-align: center;
+}
+@media (max-width: 30em) {
+  .process-narrative__cta {
+    padding-inline: var(--space-3);
+    font-size: 0.8125rem;
+  }
 }
 @media (min-width: 768px) {
   .process-narrative__step:nth-child(even) {

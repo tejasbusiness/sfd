@@ -38,10 +38,10 @@ function initDialogTriggers(root = document) {
     const controller = controllers.get(targetId);
 
     trigger.addEventListener('click', (event) => {
-      // Triggers that are real links (e.g. "Book a Free 30-Minute Discovery Call" -> /book-a-call/)
+      // Triggers that are real links (e.g. "Book a Free 20-Minute Call" -> /book-a-call/)
       // work as plain navigation without JS; with JS, open the modal instead.
       event.preventDefault();
-      // A trigger living inside another open dialog (e.g. "Book a 30-Minute
+      // A trigger living inside another open dialog (e.g. "Book a Free 20-Minute
       // Call" inside the More drawer) closes that dialog first — only one
       // modal makes sense open at a time on top of the drawer.
       const ancestorDialog = trigger.closest('dialog');

@@ -49,10 +49,16 @@ final class Validator
         return $this;
     }
 
-    public function phone(): self
+    /** Country code + 10-digit number; with $required = false an empty number is allowed (both stored as null). */
+    public function phone(bool $required = true): self
     {
         $code = $this->raw('countryCode');
         $number = $this->raw('mobileNumber');
+        if (!$required && $number === '') {
+            $this->clean['countryCode'] = null;
+            $this->clean['mobileNumber'] = null;
+            return $this;
+        }
         if (!preg_match('/^\+?\d{1,4}(-\d{1,4})?$/', $code)) {
             $this->errors['countryCode'] = 'Select a country code.';
         } else {

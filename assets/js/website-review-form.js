@@ -1,4 +1,4 @@
-// Free Website Review request (homepage band above the footer). POSTs to
+// Free Website Audit request ("Free Audit Report", homepage band above the footer). POSTs to
 // /api/website-review (docs/14), which stores the request and emails the team;
 // the review itself is prepared and sent by hand.
 

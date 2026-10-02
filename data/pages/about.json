@@ -18,7 +18,7 @@
       "type": "hero",
       "eyebrow": "ABOUT SYNERGYFIRST DIGITAL",
       "subheading": "We help local businesses turn their digital presence into a practical growth engine—with conversion-focused websites, stronger local visibility and technology that makes day-to-day business easier.",
-      "primaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "primaryCta": { "label": "Book a Free 20-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
       "secondaryCta": { "label": "See Our Work", "href": "/websites/portfolio/" }
     },
     {
@@ -47,7 +47,7 @@
       "heading": "What our clients say about working with us",
       "featuredId": "mamata-desai",
       "itemIds": ["aseem-trivedi", "manu-sharma", "sanjay-bhatia"],
-      "cta": {"label":"Book a Free 30-Minute Discovery Call","href":"/book-a-call/","dialogTarget":"booking-modal"}
+      "cta": {"label":"Book a Free 20-Minute Call","href":"/book-a-call/","dialogTarget":"booking-modal"}
     },
     {
       "type": "content-block",
@@ -188,7 +188,7 @@
       "eyebrow": "LET'S TALK",
       "heading": "Ready for a digital presence that works harder for your business?",
       "body": "Tell us where your business is today and where you want it to go. We will help you identify the smartest next step—without jargon, pressure or a bloated sales process.",
-      "primaryCta": { "label": "Book a Free 30-Minute Discovery Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
+      "primaryCta": { "label": "Book a Free 20-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
       "secondaryCta": { "label": "Tell Us About Your Project", "href": "/contact/" },
       "trustNote": "A focused conversation. No obligation. Practical next steps."
     }

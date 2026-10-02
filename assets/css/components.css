@@ -2503,6 +2503,16 @@ dialog.booking-modal {
    .field--full (primary service, the problem box, consent, button) span the row. */
 .sfd-form--wide {
   max-width: none;
+  /* A field with a hint is taller; without this its row neighbours stretch and
+     their floating labels drop below the input. */
+  align-items: start;
+}
+/* Below the three-column layout, the long "Website or Google Business Profile
+   URL *" label needs the whole row instead of half of it. */
+@media (max-width: 63.99em) {
+  .sfd-form--wide .field:has(#fp-website) {
+    grid-column: 1 / -1;
+  }
 }
 @media (min-width: 64em) {
   .sfd-form--wide {

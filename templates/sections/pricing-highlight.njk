@@ -37,8 +37,8 @@
         <a
           class="button {{ 'button--accent' if plan.recommended else 'button--secondary' }} pricing-summary__plan-cta"
           href="/free-preview/"
-          aria-label="Start with {{ plan.name }}: request your free website preview"
-        >Start with {{ plan.name }}</a>
+          aria-label="{{ section.planCtaLabel }}: request your free website preview, then start with {{ plan.name }}"
+        >{{ section.planCtaLabel }}</a>
         {% endif %}
       </div>
       {% endfor %}
