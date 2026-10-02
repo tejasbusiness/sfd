@@ -1,0 +1,32 @@
+{# Free Website Review: the homepage's lower-intent lead offer, shown above the
+   footer in place of the playbook band (page.leadOffer == "website-review").
+   Same layout and classes as playbook.njk; copy in data/footer.json
+   ("websiteReview"); posts to /api/website-review (docs/14). #}
+{% import "partials/form-fields.njk" as fields %}
+{% if footer.websiteReview %}
+<section class="playbook website-review" aria-labelledby="website-review-title">
+  <div class="container playbook__inner">
+    <div class="playbook__copy">
+      <span class="playbook__icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M8 21h8"/><circle cx="11" cy="13" r="2.5"/><path d="M13 15l2 2"/></svg>
+      </span>
+      <div>
+        <p class="eyebrow">{{ footer.websiteReview.eyebrow }}</p>
+        <h2 id="website-review-title" class="playbook__title">{{ footer.websiteReview.heading }}</h2>
+        <p class="playbook__body">{{ footer.websiteReview.body }}</p>
+      </div>
+    </div>
+
+    <div class="playbook__panel">
+      <form class="sfd-form sfd-form--inline sfd-form--review" data-website-review-form data-success-title="{{ footer.websiteReview.successHeading }}" data-success-message="{{ footer.websiteReview.successBody }}" novalidate>
+        {{ fields.honeypot() }}
+        {{ fields.input("wr-business", "businessName", "Business name", autocomplete="organization") }}
+        {{ fields.input("wr-website", "website", "Website URL *", type="url", required=true, autocomplete="url", inputmode="url", website=true) }}
+        {{ fields.input("wr-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+        <button type="submit" class="button button--primary playbook__submit" data-website-review-submit>{{ footer.websiteReview.buttonLabel }}</button>
+        {{ fields.consent("wr-consent", "consent", footer.websiteReview.consentLabel + ' See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
+      </form>
+    </div>
+  </div>
+</section>
+{% endif %}

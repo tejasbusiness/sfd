@@ -450,7 +450,7 @@ The redirect lines inside the markers are generated: after adding a redirect, pa
 3. **Vhost:** paste the config from Appendix A.
 4. **Varnish:** turn it off for this site (Sites, then Varnish Cache).
 5. **Deploy user:** `sfd-deploy` with key login and write access to the site folder (it must be in the site group). Its private key is on your PC at `C:/Users/victus/.ssh/sfd`.
-6. **Database:** MySQL `sfd-2026-db` with user `sfd-2026-user`; migrations `001` to `010` applied. MySQL is never exposed to the internet; local development reaches it through `npm run tunnel` (SSH tunnel on port 3307).
+6. **Database:** MySQL `sfd-2026-db` with user `sfd-2026-user`; migrations `001` to `010` applied; `011` (`website_reviews`, 2026-10-02) must be applied on the next deploy (`.\deploy.bat -Migrate`, or accept the prompt). MySQL is never exposed to the internet; local development reaches it through `npm run tunnel` (SSH tunnel on port 3307).
 7. **Production `.env`:** created from `.env.example` with real values (`APP_ENV=production`, `SITE_URL=https://synergyfirstdigital.com`, `ALLOWED_ORIGINS`, `RATE_LIMIT_SALT`, `DB_*`, `SMTP_*` for Hostinger, `MAIL_LOCAL=0`, `GOOGLE_ENABLED=0` until Google Calendar is set up). Upload with Step 5b.
 8. **Outbox cron:** CloudPanel, Cron Jobs, every 10 minutes (`*/10 * * * *`), command exactly:
    `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-outbox.php`

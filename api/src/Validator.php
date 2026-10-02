@@ -66,11 +66,14 @@ final class Validator
         return $this;
     }
 
-    /** Optional website; a bare domain gets https:// (same rule as the browser). */
-    public function website(string $field, int $max = 255): self
+    /** Website (optional unless $required); a bare domain gets https:// (same rule as the browser). */
+    public function website(string $field, int $max = 255, bool $required = false): self
     {
         $value = $this->raw($field);
         if ($value === '') {
+            if ($required) {
+                $this->errors[$field] = 'Website address is required.';
+            }
             $this->clean[$field] = null;
             return $this;
         }

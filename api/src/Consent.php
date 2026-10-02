@@ -6,7 +6,7 @@ namespace Sfd;
 /** Writes the proof-of-consent row (docs/14). Bump WORDING_VERSION when any consent wording changes. */
 final class Consent
 {
-    public const WORDING_VERSION = '2026-09-20';
+    public const WORDING_VERSION = '2026-10-02';
 
     public static function record(string $purpose, ?string $email, ?string $sourcePage, ?bool $analytics = null, ?bool $marketing = null, bool $granted = true): int
     {

@@ -10,6 +10,7 @@ namespace Sfd;
  *   POST /contact
  *   POST /preview-applications
  *   POST /playbook
+ *   POST /website-review
  *   POST /consent           (cookie-banner choice)
  */
 final class App
@@ -33,6 +34,7 @@ final class App
                 $method === 'POST' && $path === '/contact' => self::contact(),
                 $method === 'POST' && $path === '/preview-applications' => self::previewApplication(),
                 $method === 'POST' && $path === '/playbook' => self::playbook(),
+                $method === 'POST' && $path === '/website-review' => self::websiteReview(),
                 $method === 'POST' && $path === '/consent' => self::cookieConsent(),
                 default => Http::json(404, ['ok' => false, 'error' => 'not_found']),
             };
@@ -320,6 +322,43 @@ final class App
         ], 'playbook', null, $c['email']);
 
         Http::json(201, ['ok' => true]);
+    }
+
+    // ---------------------------------------------------------------- website review
+
+    private static function websiteReview(): never
+    {
+        RateLimit::hit('website_review');
+        $in = Http::body();
+        self::honeypot($in);
+
+        $v = (new Validator($in))
+            ->text('businessName', 'Business name', 160, false)->website('website', 255, true)->email()->consent();
+        self::failIfInvalid($v);
+        RateLimit::hit('website_review_saved');
+
+        $c = $v->clean;
+        $t = Validator::tracking($in);
+        $consentId = Consent::record('website_review', $c['email'], $t['source_page']);
+        $reference = 'WR-' . strtoupper(bin2hex(random_bytes(4)));
+        Db::run(
+            'INSERT INTO website_reviews (reference, business_name, website, email, consent_id, source_page,
+                utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+            [$reference, $c['businessName'], $c['website'], $c['email'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
+             $t['utm_campaign'], $t['utm_term'], $t['utm_content'], Http::ipHash(), Http::userAgent(), Env::isLocal() ? 1 : 0]
+        );
+        $id = Db::insertId();
+
+        Mailer::send('website_review_owner', Env::require('MAIL_OWNER_TO'), null, "New website review request: {$c['website']}", 'Someone asked for a free website review. Review the site and email the recommendations by hand.', [
+            'Reference' => $reference, 'Website' => $c['website'], 'Business' => (string) $c['businessName'], 'Email' => $c['email'],
+            'Page' => (string) $t['source_page'], 'Campaign' => (string) $t['utm_campaign'],
+        ], 'website_review', $id, $c['email']);
+        Mailer::send('website_review_visitor', $c['email'], null, 'We received your website review request', 'Thank you for asking SynergyFirst Digital to review your website. We will look at it and email you practical recommendations.', [
+            'Reference' => $reference, 'Website' => $c['website'],
+        ], 'website_review', $id);
+
+        Http::json(201, ['ok' => true, 'reference' => $reference]);
     }
 
     // ---------------------------------------------------------------- cookie consent

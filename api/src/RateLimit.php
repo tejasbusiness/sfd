@@ -17,6 +17,8 @@ final class RateLimit
         'preview_saved' => [5, 3600],
         'playbook' => [30, 3600],
         'playbook_saved' => [5, 3600],
+        'website_review' => [30, 3600],
+        'website_review_saved' => [5, 3600],
         'booking' => [30, 3600],
         'booking_saved' => [8, 3600],
         'availability' => [120, 600],

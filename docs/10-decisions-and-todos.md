@@ -665,3 +665,30 @@ Owner brief: position the homepage for local service businesses in general, with
   - The homepage now has three "20-Minute" buttons (hero, final call to action and the pricing pages) while the booking pop-up offers 30 minutes. See "Pricing page copy" above.
   - The homepage FAQ intro still says "Everything you need to know before applying."
 
+### Homepage lead offer: Free Website Review replaces the AI playbook (2026-10-02)
+- **What changed:** the homepage band above the footer is now a **Free Website Review** form, using owner copy:
+  - Eyebrow: "Free website review".
+  - Heading: "Find out what’s holding your website back".
+  - Button: "Review My Website".
+  - Fields: business name (optional), website URL (required) and email (required), plus a consent checkbox.
+- **Customer journey:** the Free Preview is the high-intent offer; the review is the lower-intent alternative for owners who already have a website.
+- **Scope:**
+  - Only the homepage changed (`"leadOffer": "website-review"` in `data/pages/home.json`).
+  - **Every other page still shows the AI Prompts Playbook band**, and Pricing still hides it.
+  - **Open, owner to decide:** replace the playbook sitewide (one-line change), or keep it elsewhere.
+- **Backend (real, not a demo):**
+  - New migration `011_create_website_reviews.sql`.
+  - New endpoint `POST /api/website-review`:
+    - stores the request with a `WR-` reference;
+    - emails the owner and sends the visitor a confirmation.
+  - Rate limits: 30 requests and 5 saved per hour.
+  - Website check: `Validator::website()` gained a `required` flag.
+  - Consent records use purpose `website_review`, and `Consent::WORDING_VERSION` was bumped to `2026-10-02`.
+  - **The migration must be applied on deploy** (`.\deploy.bat -Migrate`). Until then the form returns a server error.
+  - The review itself is prepared and emailed by hand.
+- **Frontend:**
+  - `templates/partials/website-review.njk` reuses the playbook band layout and the shared form system.
+  - New `assets/js/website-review-form.js`.
+  - New `.sfd-form--review` grid: two rows of two from 40em, one column on phones.
+- **Privacy Policy** (updated 2 October 2026): now lists the review request in "Information we collect", adds a "How we use it" line, and sets retention at 24 months. **Needs legal review** with the other legal pages.
+

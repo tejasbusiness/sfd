@@ -41,6 +41,7 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 | 008 | `email_outbox` |
 | 009 | Placeholder booking defaults |
 | 010 | Owner-decided hours (two windows, Monday to Friday) |
+| 011 | `website_reviews` (Free Website Review requests, homepage) |
 
 `schema_migrations` is created by the runner itself.
 
@@ -61,15 +62,16 @@ Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/
 | `POST /api/contact` | Contact form and the Websites landing hero form (`topic` is sent as a hidden field; `source` is optional) |
 | `POST /api/preview-applications` | Free Preview application |
 | `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
+| `POST /api/website-review` | Free Website Review request: `website` (required, bare domains get `https://`), `email`, optional `businessName`, consent. Stored in `website_reviews` with a `WR-` reference; owner notified, visitor gets a confirmation. The review itself is prepared and emailed by hand |
 | `POST /api/consent` | Records the cookie-banner choice |
 
-**Rate limits** (per client, salted hash in `rate_limits`): each form has a generous request bucket that counts every call, including ones rejected by validation (30 per hour; availability 120 per 10 minutes; consent 60 per hour), plus a `_saved` bucket that counts only submissions that passed validation and are stored (contact, Free Preview, playbook 5 per hour; booking 8 per hour). Fixing typos therefore never trips the limit. The client address is `X-Real-IP` set by our own nginx, trusted only when the request arrives from 127.0.0.1 (`Http::clientIp()`), so visitors are not all counted as the proxy. A 429 shows the red "Too many attempts" toast.
+**Rate limits** (per client, salted hash in `rate_limits`): each form has a generous request bucket that counts every call, including ones rejected by validation (30 per hour; availability 120 per 10 minutes; consent 60 per hour), plus a `_saved` bucket that counts only submissions that passed validation and are stored (contact, Free Preview, playbook, website review 5 per hour; booking 8 per hour). Fixing typos therefore never trips the limit. The client address is `X-Real-IP` set by our own nginx, trusted only when the request arrives from 127.0.0.1 (`Http::clientIp()`), so visitors are not all counted as the proxy. A 429 shows the red "Too many attempts" toast.
 
 Behaviour: server-side validation mirrors `assets/js/form-utils.js`; the consent checkbox is required and a `consents` row is stored; honeypot field `hp` (a filled value gets a fake success and nothing is stored); per-IP rate limits (salted IP hash in `rate_limits`; 429 when exceeded); every email goes to `email_outbox` first, then SMTP **after the response has been sent** (`Mailer::send` queues the row; a shutdown function calls `fastcgi_finish_request()` and then delivers), so a slow SMTP connection never makes the visitor wait. Rows that fail stay `queued` for the retry cron. Bookings: the requested start is rechecked against current availability, and the unique key on `bookings` is the final guard against double booking. With `GOOGLE_ENABLED=1` the API also creates the Calendar event with a Google Meet link (Google emails the invite); if that fails, or Google is off, the booking stays `pending_calendar` and the owner email says to add it manually. Google free/busy failures fail open (MySQL is still checked).
 
 Local runs (`APP_ENV=local`): rows are flagged `is_test = 1`, and email is not sent unless `MAIL_LOCAL=1` (rows are marked failed/skipped so the production retry never sends them). `npm run serve` starts PHP's built-in server for the API (with `.env-local`) and proxies `/api/*` to it, so the SSH tunnel must be open.
 
-Frontend: `submitJson()`, `trackingFields()` (current URL's utm values only, nothing stored on the device) and `reportSubmitFailure()` in `assets/js/form-utils.js`; the four form scripts and `booking.js` call the API. Each form has the shared honeypot macro (`form-fields.njk`).
+Frontend: `submitJson()`, `trackingFields()` (current URL's utm values only, nothing stored on the device) and `reportSubmitFailure()` in `assets/js/form-utils.js`; the form scripts (`free-preview.js`, `contact-form.js`, `lead-form.js`, `website-review-form.js`) and `booking.js` call the API. Consent rows use purpose `website_review` for the review form; `Consent::WORDING_VERSION` is `2026-10-02`. Each form has the shared honeypot macro (`form-fields.njk`).
 
 ## Deploying to the server (CloudPanel PHP site, root directory `dist`)
 

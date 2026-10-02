@@ -2971,6 +2971,18 @@ a.testimonials__rating:hover {
     align-items: end;
   }
 }
+/* Website review: three fields + button. From 40em, two rows of two (business
+   name + website, email + button); phones: one column. Placed after the
+   .sfd-form--inline rules so it overrides their three-column desktop grid. */
+@media (min-width: 40em) {
+  .sfd-form--review {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+  }
+}
+.sfd-form--review .playbook__submit {
+  width: 100%;
+}
 .playbook__submit {
   padding-inline: var(--space-4);
   align-self: end;
