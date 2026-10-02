@@ -1,6 +1,7 @@
 {# The one FAQ component. "faq" stacks heading over list; "faq-split" puts a
    sticky heading/intro/CTA beside the list. Both share identical, compact
-   native <details>/<summary> rows (no custom disclosure JS). #}
+   native <details>/<summary> rows (no custom disclosure JS); rows in one section
+   share a `name`, so opening one closes the others. #}
 {% set split = section.type == "faq-split" %}
 <section class="section faq{{ ' faq--split' if split }}">
   <div class="container faq__grid">
@@ -11,13 +12,14 @@
       {% if section.cta %}<a class="button button--secondary" href="{{ section.cta.href }}">{{ section.cta.label }}</a>{% endif %}
     </div>
     <div class="faq__items" data-reveal>
+      {% set group = "faq-" ~ (section.heading | lower | replace(" ", "-")) %}
       {% for item in faqs.items | selectByIds(section.itemIds) %}
-      <details class="faq__item">
+      <details class="faq__item" name="{{ group }}">
         <summary>
           <span class="faq__question">{{ item.question }}</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </summary>
-        <p>{{ item.answer }}</p>
+        <div class="faq__answer"><p>{{ item.answer }}</p></div>
       </details>
       {% endfor %}
     </div>

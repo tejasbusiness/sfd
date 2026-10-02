@@ -531,3 +531,6 @@ Owner-supplied copy applied on `/pricing/` and the service pricing pages (see do
 - The new FAQ says there is "no payment or obligation to review your preview"; the existing FAQ "Am I guaranteed a free preview?" still says previews are reviewed first and not automatic. Both are consistent (free, but not guaranteed to every applicant).
 - Open: the booking pop-up and other pages still say 30 minutes while the hero button says 20 (see the previous entry).
 
+### FAQ redesign, sitewide (2026-10-02)
+Owner: the "Pricing questions" section looked plain, dated and too long. Because docs/03 requires one FAQ style everywhere (no page-specific FAQ styling), the shared component was redesigned rather than the pricing page alone: numbered rows, round plus/minus button, a white raised panel on hover and when open, one answer open at a time, smooth open/close where supported (details in docs/03). It applies to every FAQ (Home, Pricing, How It Works, About, Contact, Industries). The Pricing FAQ also moved to the `faq-split` layout (heading, intro and "Ask Us a Question" on the left), which makes it shorter and easier to scan. Checked on Pricing, Home and Contact at 1440px and on Pricing at 390px.
+

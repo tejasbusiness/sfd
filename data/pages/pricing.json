@@ -158,7 +158,7 @@
       "subheading": "No long-term contract. Cancel anytime. And after six months, you own the website."
     },
     {
-      "type": "faq",
+      "type": "faq-split",
       "heading": "Pricing questions",
       "itemIds": [
         "cost",
@@ -175,7 +175,13 @@
       ],
       "onlyFor": [
         "websites"
-      ]
+      ],
+      "eyebrow": "PRICING FAQ",
+      "intro": "Straight answers about plans, ownership, updates and cancelling.",
+      "cta": {
+        "label": "Ask Us a Question",
+        "href": "/contact/"
+      }
     },
     {
       "type": "free-preview-cta",

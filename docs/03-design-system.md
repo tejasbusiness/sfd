@@ -112,7 +112,7 @@ Every card-like surface uses `.card`: surface fill, 1px `--color-border`, 8px ra
 
 ## FAQ (one accordion)
 
-All FAQ / Common-questions sections (`faq` and `faq-split`) render through `templates/sections/faq.njk` with the shared `.faq` styles: divided rows with hairline rules, plus/minus icon, native `<details>`/`<summary>`, compact spacing. `faq-split` only changes the layout (sticky heading on the left). Do not add page-specific FAQ styling.
+All FAQ / Common-questions sections (`faq` and `faq-split`) render through `templates/sections/faq.njk` with the shared `.faq` styles. Redesigned 2026-10-02 (owner: the old hairline list looked plain and dated): compact numbered rows (01, 02 … in the AA-safe dark gold `--color-accent-warm`), a round 30px plus/minus button (lavender at rest, filled primary with a white minus when open), rows that lift onto a white panel with an 8px radius on hover and when open, answers aligned with the question text, one answer open at a time per section (native `<details name>`), and a smooth open/close where `::details-content` is supported (instant elsewhere and under reduced motion). Still native `<details>`/`<summary>`, no JavaScript. `faq-split` only changes the layout (sticky heading, intro and button on the left). Do not add page-specific FAQ styling.
 - **Shape:** form controls (fields, dropdown triggers and popups, timezone picker) use the 8px `--radius-md`, the same as cards; buttons stay fully rounded (pill). Containers and inputs are 8px, actions are pills.
 
 ## Form success: toast, then reset (2026-09-21)
