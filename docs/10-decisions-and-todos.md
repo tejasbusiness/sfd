@@ -511,3 +511,6 @@ Also per owner instruction: Lite and Business each got a `tagline` field rendere
 - `initDialogTriggers` in `main.js` became re-runnable (skips triggers already bound) so booking buttons in swapped content open the modal.
 - Tested in headless Chrome at 1440px and 390px: no reload, pills stay at the same position, URL/title/canonical update, Back/Forward, booking modal from a swapped placeholder.
 
+
+### Business plan badge: "Recommended for local businesses" (2026-10-02)
+Owner: replace the "★ Best Value" badge on the Business plan (Pricing page and homepage) with "Recommended for local businesses" (shown uppercase). The text is now the plan's `badge` field in `data/plans.json` instead of being hard-coded in `pricing-summary.njk` and `pricing-highlight.njk`, so it can change without touching templates. The longer label stays on one line: `white-space: nowrap`, and below 48em a slightly smaller size and tighter left offset (below 22.5em the offset tightens again). Checked at 1440, 768, 360 and 320px.

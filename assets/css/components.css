@@ -1580,6 +1580,22 @@ a.link-cards__item {
   padding: 5px var(--space-3);
   border-radius: 999px;
   margin: 0;
+  white-space: nowrap;
+}
+/* The badge text is long ("Recommended for local businesses"): keep it on one
+   line on narrower cards instead of wrapping over the plan name. */
+@media (max-width: 48em) {
+  .pricing-summary__tag {
+    left: var(--space-3);
+    padding: 5px 12px;
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+  }
+}
+@media (max-width: 22.5em) {
+  .pricing-summary__tag {
+    left: var(--space-2);
+  }
 }
 .pricing-summary__price {
   font-family: var(--font-heading);

@@ -6,7 +6,7 @@
     <div class="pricing-summary__plans">
       {% for plan in plans.plans %}
       <div class="card pricing-summary__plan {{ 'pricing-summary__plan--recommended' if plan.recommended else '' }} {{ 'pricing-summary__plan--compact' if plan.cta else '' }}" data-reveal>
-        {% if plan.recommended %}<p class="pricing-summary__tag">★ Best Value</p>{% endif %}
+        {% if plan.recommended and plan.badge %}<p class="pricing-summary__tag">{{ plan.badge }}</p>{% endif %}
         <h3>{{ plan.name }}</h3>
         {% if plan.tagline %}<p class="pricing-summary__tagline">{{ plan.tagline }}</p>{% endif %}
         {% if plan.idealFor %}<p class="pricing-summary__ideal {{ 'pricing-summary__ideal--bold' if not plan.cta else '' }}">{{ plan.idealFor }}</p>{% endif %}
