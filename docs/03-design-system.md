@@ -156,3 +156,6 @@ On submit, every form calls `setSubmitting()` (`assets/js/form-utils.js`): the b
 - **Form submission (2026-09-20):** every form includes the `honeypot()` macro from `form-fields.njk` and submits with `submitJson()` / `reportSubmitFailure()` from `assets/js/form-utils.js` to the PHP API (docs/14). Do not write custom fetch code per form.
 
 - **Mission/Vision cards (2026-09-20):** `templates/sections/mission-vision.njk` uses the shared `.card`; the Vision variant changes only the fill (`.mission-vision__card--dark`). Gold text and icons appear only on that dark fill; the light card uses `--color-accent-warm`.
+
+## Tabs (pricing page, 2026-10-02)
+`.pricing-tabs` in `templates/sections/pricing-summary.njk`, behaviour in `assets/js/pricing-tabs.js`. Pills (44px tall, field-border outline, active = filled primary) in a row that scrolls sideways on narrow screens; the active pill is scrolled into view. The HTML is a list of links to stacked panels, so it works without JavaScript; the script adds the ARIA tabs pattern (`tablist`/`tab`/`tabpanel`, `aria-selected`, roving tabindex, Left/Right/Home/End), shows one panel, and syncs the `#pricing-<id>` fragment both ways (load, click, `hashchange`). Placeholder panels use `.card` (`.pricing-tabs__placeholder`). Reuse this pattern for any future tabbed content rather than writing a new one.

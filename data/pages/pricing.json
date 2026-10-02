@@ -35,6 +35,23 @@
       "note": {
         "lead": "No contracts. No commitments.",
         "body": "Cancel anytime — you stay because you're getting value, not because you're locked in."
+      },
+      "services": [
+        { "id": "websites", "label": "Websites", "plans": true },
+        { "id": "seo", "label": "SEO", "name": "SEO", "href": "/services/seo/" },
+        { "id": "website-care", "label": "Website Care", "name": "Website Care & WordPress Maintenance", "href": "/services/website-care-maintenance/" },
+        { "id": "digital-marketing", "label": "Digital Marketing", "name": "Digital Marketing & Social Media", "href": "/services/digital-marketing-social-media/" },
+        { "id": "ai-automation", "label": "AI & Automation", "name": "AI & Automation", "href": "/services/ai-automation/" }
+      ],
+      "placeholder": {
+        "lead": "Pricing is being updated.",
+        "body": "Tell us what you need and we'll share a quote on a free call.",
+        "cta": {
+          "label": "Book a Free 30-Minute Discovery Call",
+          "href": "/book-a-call/",
+          "dialogTarget": "booking-modal"
+        },
+        "linkLabel": "About this service"
       }
     },
     {

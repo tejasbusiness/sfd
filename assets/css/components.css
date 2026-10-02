@@ -2730,6 +2730,72 @@ a.testimonials__rating:hover {
 .pricing-summary__ideal--bold {
   font-weight: 600;
 }
+
+/* Pricing page service tabs (assets/js/pricing-tabs.js). Pills scroll sideways on
+   narrow screens instead of wrapping into a tall block. */
+.pricing-tabs__list {
+  display: flex;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 var(--space-4);
+  padding: 4px 2px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pricing-tabs__list::-webkit-scrollbar {
+  display: none;
+}
+.pricing-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-field-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pricing-tabs__tab:hover {
+  border-color: var(--color-primary);
+}
+.pricing-tabs__tab.is-active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+.pricing-tabs__panel:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+/* Without JavaScript all panels stack, so space them apart. */
+.pricing-tabs__panel + .pricing-tabs__panel:not([hidden]) {
+  margin-top: var(--space-5);
+}
+.pricing-tabs__placeholder {
+  max-width: 40rem;
+  margin-block: var(--space-4);
+}
+.pricing-tabs__placeholder h3 {
+  margin: 0 0 var(--space-2);
+}
+.pricing-tabs__placeholder-lead {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-accent-warm);
+}
+.pricing-tabs__placeholder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.pricing-tabs__placeholder-actions .button {
+  flex: 1 1 auto;
+}
 /* Same-height summary block so the include lists start on one line across cards. */
 .pricing-summary__plan > p:not([class]) {
   margin: 0;

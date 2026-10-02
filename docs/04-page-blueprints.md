@@ -36,6 +36,8 @@ Explain qualification, preview creation, seven-day review, activation, completio
 
 Never hide material terms behind vague wording.
 
+**Service tabs (2026-10-02).** All service pricing lives on this one page, so visitors never have to go page to page. Under "Compare plans" there is one tab per service: Websites (opens first; the Lite, Business and Custom Solutions cards, the intro line and the no-contracts note), SEO, Website Care, Digital Marketing and AI & Automation. Until the owner sets their prices, the four non-website tabs show one placeholder card: the service name, "Pricing is being updated.", a line inviting a quote on a free call, the discovery-call button (booking modal) and an "About this service" link to the service page. Tabs and placeholder copy are in `data/pages/pricing.json` (`services`, `placeholder`). Each tab has a link: `/pricing/#pricing-websites`, `#pricing-seo`, `#pricing-website-care`, `#pricing-digital-marketing`, `#pricing-ai-automation`, which opens that tab directly (for service pages and ads). The rest of the page (testimonials, "Included on every plan", "Commitment and ownership", FAQ, closing CTA) is unchanged and still describes the website plans.
+
 ## Industries index
 
 Explain that each website is structured around how customers choose businesses in that niche. Link to the five initial vertical pages.
