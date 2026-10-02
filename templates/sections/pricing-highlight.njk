@@ -13,6 +13,7 @@
         <p class="pricing-summary__price">{{ plan.priceMonthly }}/mo</p>
         {% endif %}
         <p>{{ plan.summary }}</p>
+        {% if not plan.cta %}
         <ul class="pricing-summary__includes">
           {% for item in (plan.homeHighlights or plan.includes) %}
           <li>
@@ -23,6 +24,7 @@
           </li>
           {% endfor %}
         </ul>
+        {% endif %}
         {% if plan.cta %}
         <a
           class="button button--secondary pricing-summary__plan-cta"
