@@ -4,30 +4,31 @@
   "slug": "home",
   "canonicalPath": "/",
   "seo": {
-    "title": "SynergyFirst Digital — Preview your New Website Before You Pay For It",
-    "metaDescription": "SynergyFirst Digital builds and manages professional websites for local businesses in the US, Canada, Australia, New Zealand and Europe, for one predictable monthly fee. Apply for a free preview.",
-    "ogTitle": "Preview your New Website Before You Pay For It",
-    "ogDescription": "A remote digital team building and managing local-business websites for one predictable monthly fee.",
+    "title": "SynergyFirst Digital — See Your New Website Before You Pay For It",
+    "metaDescription": "Professional website design, hosting and maintenance for local service businesses, managed for one predictable monthly fee. See a free website preview before you pay.",
+    "ogTitle": "See Your New Website Before You Pay For It",
+    "ogDescription": "Conversion-focused, managed websites for local service businesses — one predictable monthly fee, no large upfront cost. Get a free website preview.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "Preview your <span class=\"text-highlight\">new website</span><br>before you pay for it.",
+  "h1": "See your <span class=\"text-highlight\">new website</span><br>before you pay for it.",
   "breadcrumbs": null,
   "sections": [
     {
       "type": "hero-split",
-      "eyebrow": "Website-as-a-Service",
-      "subheading": "We build and manage professional websites for local businesses for one predictable monthly fee — no large upfront bill, no technical headaches.",
-      "qualificationNote": "Apply for a complimentary website preview. We review every request to make sure we can create something genuinely useful for your business.",
+      "eyebrow": "WEBSITES FOR LOCAL SERVICE BUSINESSES",
+      "subheading": "We design, host and manage conversion-focused websites for local service businesses — with no large upfront website cost and one predictable monthly fee.",
+      "qualificationNote": "We’ll create a private preview using your real business information, services and public online presence. Review it first — then decide whether you want us to complete and manage it.",
       "primaryCta": {
         "label": "Get My Free Website Preview",
         "href": "/free-preview/"
       },
       "secondaryCta": {
-        "label": "Book a Free 30-Minute Discovery Call",
+        "label": "Book a Free 20-Minute Call",
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
       },
+      "reassurance": "No payment. No obligation. See the preview first.",
       "stats": [
         {
           "value": "300+",
@@ -35,13 +36,19 @@
         },
         {
           "value": "4.8★",
-          "label": "Ratings on Google"
+          "label": "Google Rating"
         },
         {
-          "value": "8+",
-          "label": "Years in Business"
+          "value": "8+ Years",
+          "label": "Building Websites"
         }
-      ]
+      ],
+      "visual": {
+        "label": "Before and after example of a professionally designed website for a local service business",
+        "afterHeading": "Trusted Local Service.<br>Done Right.",
+        "afterSub": "Fast quotes. Friendly local team.",
+        "afterCta": "Request a Free Quote"
+      }
     },
     {
       "type": "trust-signals",

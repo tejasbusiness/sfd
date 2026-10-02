@@ -534,3 +534,22 @@ Owner-supplied copy applied on `/pricing/` and the service pricing pages (see do
 ### FAQ redesign, sitewide (2026-10-02)
 Owner: the "Pricing questions" section looked plain, dated and too long. Because docs/03 requires one FAQ style everywhere (no page-specific FAQ styling), the shared component was redesigned rather than the pricing page alone: numbered rows, round plus/minus button, a white raised panel on hover and when open, one answer open at a time, smooth open/close where supported (details in docs/03). It applies to every FAQ (Home, Pricing, How It Works, About, Contact, Industries). The Pricing FAQ also moved to the `faq-split` layout (heading, intro and "Ask Us a Question" on the left), which makes it shorter and easier to scan. Checked on Pricing, Home and Contact at 1440px and on Pricing at 390px.
 
+### Homepage hero: local service businesses (2026-10-02)
+Owner brief: position the homepage for local service businesses in general, with no single niche. All copy below was supplied by the owner and is stored in `data/pages/home.json` (`hero-split`).
+- **Copy:**
+  - Eyebrow: "Websites for local service businesses".
+  - H1: "See your *new website* before you pay for it." The highlight stays on "new website".
+  - Supporting text: two paragraphs, covering design, hosting and management, and the private preview.
+  - Buttons: "Get My Free Website Preview" and "Book a Free 20-Minute Call".
+  - New reassurance line (`reassurance`): "No payment. No obligation. See the preview first."
+  - Stats: "300+ Websites Delivered", "4.8★ Google Rating", "8+ Years Building Websites".
+- **Before/after visual:**
+  - The After mock-up's headline and button text now come from `visual` in the JSON and read "Trusted Local Service. Done Right." and "Request a Free Quote".
+  - The visual was `aria-hidden`. It is now a single labelled image (`role="img"`, with the label "Before and after example of a professionally designed website for a local service business").
+- **SEO:** the homepage title, meta description and OG text were aligned with the new positioning. They now mention professional website design, hosting, maintenance, managed and conversion-focused websites, the monthly fee and the free preview. There is still exactly one H1.
+- **CSS:**
+  - The stat value no longer wraps, and its mid-range size is slightly smaller, so "8+ Years" fits on one line on tablet.
+  - The mock-up's quote button is slightly smaller so it fits on one line on desktop.
+- **Docs:** docs/01 and docs/13 example headlines updated.
+- **Open:** the "20-Minute" button vs. the 30-minute booking call (see "Pricing page copy" above) now also applies to the homepage hero.
+

@@ -30,11 +30,13 @@ Do not imply that SFD is physically located in the prospect's country. Company a
 
 Recommended headline direction:
 
-> Preview your new website before you pay for it.
+> See your new website before you pay for it.
 
 Recommended supporting direction:
 
-> We create professional websites for local businesses and manage everything for one predictable monthly fee. No large upfront website bill. No technical headaches.
+> We design, host and manage conversion-focused websites for local service businesses — with no large upfront website cost and one predictable monthly fee.
+
+The homepage targets local service businesses broadly. It must not be written for a single niche (such as roofers or tree services); niche messaging belongs on the industry pages.
 
 Final marketing copy may improve this wording but must preserve the promise.
 

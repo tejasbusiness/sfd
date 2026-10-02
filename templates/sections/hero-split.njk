@@ -17,6 +17,7 @@
         >{{ section.secondaryCta.label }}</a>
         {% endif %}
       </div>
+      {% if section.reassurance %}<p class="hero-split__reassurance">{{ section.reassurance }}</p>{% endif %}
       {% if section.stats %}
       <div class="hero-split__stats">
         {% for stat in section.stats %}
@@ -30,7 +31,8 @@
     </div>
 
     <div class="hero-split__visual col-span-5 col-start-8" data-reveal>
-      <div class="hero-visual" aria-hidden="true">
+      {# One labelled image for assistive tech; the mock-up text inside is decorative. #}
+      <div class="hero-visual" role="img" aria-label="{{ section.visual.label }}">
         <div class="hero-visual__before">
           <p class="hero-visual__tag hero-visual__tag--before">Before</p>
           <div class="browser-frame browser-frame--muted">
@@ -72,9 +74,9 @@
               </div>
               <div class="mock-site__hero">
                 <div class="mock-site__hero-text">
-                  <p class="mock-site__hero-heading">Reliable Service,<br>Done Right</p>
-                  <p class="mock-site__hero-sub">Fast quotes. Friendly local team.</p>
-                  <span class="mock-site__hero-button">Get a Free Quote</span>
+                  <p class="mock-site__hero-heading">{{ section.visual.afterHeading | safe }}</p>
+                  <p class="mock-site__hero-sub">{{ section.visual.afterSub }}</p>
+                  <span class="mock-site__hero-button">{{ section.visual.afterCta }}</span>
                 </div>
                 <div class="mock-site__hero-image">
                   <img src="/assets/images/hero-photo.jpg" alt="" width="1400" height="1700" loading="eager">
@@ -98,8 +100,8 @@
               <div class="mock-site__hero-image mock-site__hero-image--mobile">
                 <img src="/assets/images/hero-photo.jpg" alt="" width="1400" height="1700" loading="eager">
               </div>
-              <p class="mock-site__hero-heading mock-site__hero-heading--sm">Reliable Service, Done Right</p>
-              <span class="mock-site__hero-button mock-site__hero-button--sm">Get a Free Quote</span>
+              <p class="mock-site__hero-heading mock-site__hero-heading--sm">{{ section.visual.afterHeading | replace("<br>", " ") | safe }}</p>
+              <span class="mock-site__hero-button mock-site__hero-button--sm">{{ section.visual.afterCta }}</span>
             </div>
           </div>
         </div>

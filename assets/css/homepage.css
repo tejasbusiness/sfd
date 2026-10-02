@@ -61,6 +61,12 @@
   gap: var(--space-3);
   margin-top: var(--space-5);
 }
+.hero-split__reassurance {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
 .hero-split__actions .button--primary {
   padding-block: var(--space-3);
   padding-inline: var(--space-6);
@@ -125,8 +131,10 @@
   align-items: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: clamp(1.375rem, 1.05rem + 1.4vw, 2rem);
+  /* Slightly lower mid-range so "8+ Years" stays on one line at tablet width. */
+  font-size: clamp(1.375rem, 0.9rem + 1.4vw, 2rem);
   line-height: 1;
+  white-space: nowrap;
   color: var(--color-primary);
 }
 .hero-split__stat-value::after {
@@ -357,6 +365,12 @@
   font-size: 10px;
   padding: 5px var(--space-2);
   margin-top: var(--space-2);
+}
+/* Homepage hero mock-up: a smaller button so "Request a Free Quote" fits on
+   one line in the desktop-frame text column. */
+.hero-visual .mock-site__hero-text .mock-site__hero-button {
+  font-size: 10px;
+  padding: 6px var(--space-2);
 }
 .mock-site__hero-image {
   height: 78px;

@@ -43,7 +43,7 @@ All heading sizes are fluid (`clamp()`), scaling continuously between mobile and
 
 Deliberate weight variation is a requirement: H1 at 800, H2 at 700, H3/H4 at 600, nav/buttons at 600, body at 400, secondary text at 400 but in the muted `--color-text-secondary`. No section should read as a single weight.
 
-H1 line breaks are hand-set in content — e.g. "Preview your new website" / "before you pay for it." as two explicit lines, with "new website" carrying a controlled highlight treatment (a low-opacity lavender or lime marker-style background behind the phrase, not a gradient-text effect).
+H1 line breaks are hand-set in content — e.g. "See your new website" / "before you pay for it." as two explicit lines, with "new website" carrying a controlled highlight treatment (a low-opacity lavender or lime marker-style background behind the phrase, not a gradient-text effect).
 
 ---
 
