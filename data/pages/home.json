@@ -186,41 +186,55 @@
     },
     {
       "type": "preview-concepts",
-      "heading": "See the kind of website we build",
-      "intro": "Illustrative concepts showing how we approach different industries — not real client projects.",
+      "heading": "See the kind of websites we build for local service businesses",
+      "intro": "Illustrative website concepts showing how we design around the way local customers search, compare and request service. These are concept examples, not published client projects.",
       "items": [
         {
-          "industryLabel": "Home Services",
-          "headline": "A modern home services concept",
-          "description": "Emergency-ready CTAs, service-area clarity and a mobile-first layout.",
-          "mockBusinessName": "Your Business",
-          "mockCta": "Call Now",
-          "mockNavLinks": "Services  Areas  Contact",
-          "mockHeroHeading": "Fast, Reliable Home Repairs",
-          "mockHeroSub": "Serving your local area, 7 days a week.",
-          "mockTrustCue": "Licensed &amp; insured"
+          "industryLabel": "Garage Door Services",
+          "headline": "A conversion-focused garage door website",
+          "description": "Designed around urgent repair enquiries, service areas, customer reviews and fast paths to call or request a quote.",
+          "mockAlt": "Illustrative garage door service website concept",
+          "mockBusinessName": "Your Garage Doors",
+          "mockNavLinks": "Services  Areas  Reviews",
+          "mockNavCta": "Call Now",
+          "mockHeroHeading": "Fast, Reliable Garage Door Repair",
+          "mockHeroSub": "Repairs, installation and emergency service in your area.",
+          "mockHeroCta": "Request Service",
+          "mockTrustCues": [
+            "Licensed & Insured",
+            "Same-Day Service",
+            "Free Estimates"
+          ]
         },
         {
-          "industryLabel": "Restaurant",
-          "headline": "A modern restaurant concept",
-          "description": "Menu, hours and reservations front and center.",
-          "mockBusinessName": "Your Restaurant",
-          "mockCta": "Reserve",
-          "mockNavLinks": "Menu  Hours  Reserve",
-          "mockHeroHeading": "Fresh, Local, Made Daily",
-          "mockHeroSub": "Dine in, takeout or delivery.",
-          "mockTrustCue": "Fresh, local ingredients"
+          "industryLabel": "Tree Services",
+          "headline": "A modern tree service website",
+          "description": "Built to showcase services, project photos, local coverage and simple quote requests for both routine and urgent work.",
+          "mockAlt": "Illustrative tree service website concept",
+          "mockBusinessName": "Your Tree Care",
+          "mockNavLinks": "Services  Projects  Contact",
+          "mockNavCta": "Call Now",
+          "mockHeroHeading": "Safe, Professional Tree Care",
+          "mockHeroSub": "Trimming, removal and storm clean-up.",
+          "mockHeroCta": "Request a Quote",
+          "mockTrustCues": [
+            "Free Quotes"
+          ]
         },
         {
-          "industryLabel": "Healthcare / Professional Services",
-          "headline": "A modern professional services concept",
-          "description": "Credibility-first layout with a simple enquiry path.",
-          "mockBusinessName": "Your Practice",
-          "mockCta": "Book Now",
-          "mockNavLinks": "About  Services  Contact",
-          "mockHeroHeading": "Trusted, Attentive Care",
-          "mockHeroSub": "Now accepting new patients.",
-          "mockTrustCue": "Accepting new patients"
+          "industryLabel": "Roofing & Exterior",
+          "headline": "A modern roofing contractor website",
+          "description": "Structured around trust, completed projects, service areas, warranties and high-value estimate enquiries.",
+          "mockAlt": "Illustrative roofing contractor website concept",
+          "mockBusinessName": "Your Roofing",
+          "mockNavLinks": "Services  Projects  Contact",
+          "mockNavCta": "Call Now",
+          "mockHeroHeading": "Trusted Roofing & Exterior Services",
+          "mockHeroSub": "Roof repair, replacement and exterior work.",
+          "mockHeroCta": "Get an Estimate",
+          "mockTrustCues": [
+            "Free Estimates"
+          ]
         }
       ]
     },

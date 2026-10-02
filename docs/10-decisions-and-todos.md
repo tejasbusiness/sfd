@@ -620,3 +620,21 @@ Owner brief: position the homepage for local service businesses in general, with
 - **Copy moved to data:** the column labels used to be hard-coded in the template. They now live in the JSON file (`traditionalLabel`, `sfdLabel`).
 - **Accessibility:** the column labels are now H3s, and each list is labelled by its heading.
 
+### Homepage concept examples: local service trades (2026-10-02)
+- **Copy:** owner copy for the heading, intro and three concepts:
+  - Garage Door Services (featured)
+  - Tree Services
+  - Roofing & Exterior
+
+  These replace the Home Services, Restaurant and Healthcare / Professional Services concepts.
+- **Disclaimer:** both the intro and each card's fixed caption still say these are illustrative, not client projects.
+- **Mock-ups:**
+  - The header button and the main button now have separate text, so each can say something different (`mockNavCta`, `mockHeroCta`).
+  - A mock-up can list several trust points (`mockTrustCues`):
+    - The garage door concept shows Licensed & Insured, Same-Day Service and Free Estimates.
+    - The tree and roofing concepts show one each.
+  - Each concept has a new icon (garage door, tree, roof).
+  - No ratings, review counts or statistics appear in any mock-up.
+- **Accessibility:** each mock-up is now one labelled image (for example, "Illustrative garage door service website concept"). Before, screen readers read out its sample text, such as "Call Now".
+- **Links:** the cards are still not links; no URLs were invented.
+
