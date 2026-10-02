@@ -262,24 +262,25 @@
     {
       "type": "growth-modules",
       "heading": "Grow beyond your website",
-      "intro": "Optional upgrades connected to your website foundation, once your subscription is active.",
+      "intro": "Start with a professionally managed website, then add the tools you need to attract, respond to and manage more enquiries.",
       "core": "Your website",
+      "itemsLabel": "Optional services you can add to your website",
       "items": [
         {
-          "title": "SEO & Google Business Profile",
-          "body": "Get found first when local customers search for what you do."
+          "title": "Local SEO & Google Business Profile",
+          "body": "Improve your visibility in local search and help nearby customers find your business when they need your services."
         },
         {
-          "title": "AI & automation",
-          "body": "Never miss an enquiry — replies go out automatically, day or night."
+          "title": "AI & Lead Automation",
+          "body": "Respond faster with automated enquiry handling, follow-ups and workflows designed around your business."
         },
         {
-          "title": "WhatsApp",
-          "body": "Meet customers on the app they already use every day."
+          "title": "Messaging & Customer Communication",
+          "body": "Connect enquiries from website forms, messaging channels and follow-ups into a smoother customer journey."
         },
         {
-          "title": "CRM",
-          "body": "Every lead tracked and followed up — none slip through the cracks."
+          "title": "CRM & Lead Tracking",
+          "body": "Keep enquiries organised, track follow-ups and reduce the chance of valuable leads slipping through the cracks."
         }
       ]
     },

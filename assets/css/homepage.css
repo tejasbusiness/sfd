@@ -1211,12 +1211,24 @@ $0
   background: linear-gradient(var(--color-primary), var(--color-border));
 }
 .growth-modules__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   gap: var(--space-4);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
 }
-@media (min-width: 768px) {
+/* One column on phones: titles such as "Messaging & Customer Communication"
+   are too long for half-width cards at 390px. */
+@media (min-width: 560px) {
+  .growth-modules__items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Four across only on wide screens; at tablet width the longer titles
+   overflowed quarter-width cards, so tablet uses a 2 x 2 grid. */
+@media (min-width: 1024px) {
   .growth-modules__items {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1245,8 +1257,9 @@ $0
   color: var(--color-accent-warm);
   margin-bottom: var(--space-3);
 }
-.growth-modules__item h4 {
+.growth-modules__item .growth-modules__title {
   font-size: 1.0625rem;
+  text-wrap: balance;
   margin-bottom: var(--space-2);
 }
 .growth-modules__item p {

@@ -641,3 +641,15 @@ Owner brief: position the homepage for local service businesses in general, with
   - The grid had three columns, with the featured concept spanning all three. That left an empty third column beside the two smaller cards. From 640px the grid now has two columns: the featured concept spans the full row and the two smaller cards share the row below.
   - The two smaller cards use CSS subgrid, so their mock-ups, labels, titles and captions line up even when one mock-up headline wraps.
 
+### Homepage "Grow beyond your website" (2026-10-02)
+- **Copy:** owner copy for the intro and four optional add-on services:
+  - Local SEO & Google Business Profile
+  - AI & Lead Automation
+  - Messaging & Customer Communication (replaces the "WhatsApp" card; WhatsApp is still a supporting service per CLAUDE.md, now covered by "messaging channels")
+  - CRM & Lead Tracking
+- **Tone:** absolute claims removed: "Get found first", "Never miss an enquiry", "none slip through the cracks".
+- **Markup:**
+  - The cards are now a labelled list ("Optional services you can add to your website").
+  - The titles were H4 directly under the H2. They are now H3, at the same visual size.
+- **Responsive:** one column below 560px. From 560px to 1023px (tablet) the cards form a 2 x 2 grid, because at 820px "Communication" overflowed a quarter-width card. Four across from 1024px.
+
