@@ -156,7 +156,16 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
      - A step can have a `note`. Step 2's note is "No payment is required to review it."
    - **Step 4 visual chip:** reads "Live & managed".
    - **Layout:** step copy is capped at a 40rem measure. On tablet and up, right-aligned (even) steps keep clear of the timeline line.
-4. **Industries** — asymmetric bento (Home Services dominant; Restaurants + Healthcare medium; Financial + Professional Services supporting). **Revised**: since none of the five industry pages exist yet, tiles render as styled, non-interactive cards (no `href`) rather than links — avoiding the 404s the original draft would have shipped. They become real links automatically once Phase 4 builds those pages (same content, just no anchor wrapper until then).
+4. **Local service businesses**: "Built around how local customers choose you" (owner copy, 2026-10-02).
+   - **Layout:** an asymmetric bento grid.
+     - **Large card (dominant):** Garage Door Services.
+     - **Medium cards:** Tree Services and Roofing & Exterior.
+     - **Supporting cards:** Plumbing, HVAC & Electrical, and Fencing, Concrete & Remodeling.
+   - **Scope:** the homepage no longer shows restaurants, healthcare, financial or professional services.
+   - **No links:** tiles are not links, because no page exists for these trades. Add `href` and an anchor only once a real page exists.
+   - **Responsive:**
+     - Phones (below 560px) use one column. From 560px there are two columns, and from 900px the bento layout.
+     - Card titles use `text-wrap: balance`.
 5. **What every managed website includes** — bento (one dominant "everything handled" tile + smaller Hosting & Security / Analytics / Monthly Updates / SEO Foundation / Mobile Optimization tiles), unchanged.
 6. **Monthly-model statement** — the **one** full-bleed dark section (ink/deep-purple). Large white headline, one lime-highlighted phrase, a plain-language "traditional project pricing" vs. "SFD monthly model" comparison — no invented dollar figures — plus a CTA.
 7. **Preview Concepts** (renamed from "Featured Work" — SFD has no verified client work yet, and the section must never imply otherwise). Three illustrative device-frame concepts — Home Services, Restaurant, and Healthcare/Professional Services — each visually similar in treatment to the hero's "after" mockup but distinct per industry. **Every single example carries a persistent, clearly visible caption: "Illustrative website concept — not a published client project."** No industry-neutral wording implying these are real deliveries, results or endorsements. This section no longer uses the `verified: false` placeholder mechanism (§9) — it isn't pending verification, it's permanently, explicitly illustrative.

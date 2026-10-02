@@ -576,3 +576,28 @@ Owner brief: position the homepage for local service businesses in general, with
   - Step copy is capped at a 40rem measure. The longer text ran the full width on desktop, and right-aligned steps crossed the timeline line.
   - On tablet and up, even steps reserve the numeral's space on the left.
 
+### Homepage industries section: local service trades (2026-10-02)
+- **Copy:** the owner supplied a new heading, intro and five cards:
+  - Garage Door Services (featured)
+  - Tree Services
+  - Roofing & Exterior
+  - Plumbing, HVAC & Electrical
+  - Fencing, Concrete & Remodeling
+- **Removed:** Home Services, Restaurants, Healthcare, Financial and Professional Services are gone from the homepage.
+- **Icons:** each card has a new simple line icon (garage door, tree, roof, bolt, fence). Icons stay decorative; the card titles carry the meaning.
+- **Links:**
+  - The cards are still not links.
+  - The old `href` values pointed to the five generic industry pages and were removed from the data. No URLs were invented for the new trades.
+- **Phones:** below 560px the grid is now one column. At 390px, two columns made "Fencing, Concrete & Remodeling" overflow its card.
+- **Open, owner to decide:** the generic industry pages still exist and are still linked from the navigation, footer and `/industries/`:
+  - Home Services
+  - Restaurants
+  - Healthcare
+  - Financial Services
+  - Professional Services
+
+  This now conflicts with the homepage's local-service focus. Options:
+  1. Keep them as they are.
+  2. Retire them with redirects.
+  3. Replace them with pages for these trades.
+

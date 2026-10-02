@@ -1,7 +1,7 @@
-{# Homepage industries bento (docs/13 §8.4). Only used by the homepage today.
-   Tiles are deliberately not links yet — none of the five industry pages exist
-   until Phase 4, and docs/13 §amendment-6 forbids shipping links that 404.
-   `item.href` is kept in the data as the documented future destination. #}
+{# Homepage local-service bento (docs/13 §8.4). Only used by the homepage.
+   Tiles are not links: there are no pages for these service niches yet, and
+   docs/13 §amendment-6 forbids shipping links that 404. Add `item.href` and
+   wrap the tile in a link only once a matching page exists. #}
 <section class="section industry-links">
   <div class="container">
     <h2>{{ section.heading }}</h2>

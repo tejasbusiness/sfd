@@ -822,11 +822,21 @@
 /* ---------------------------------------------------------------------- */
 /* Industry bento                                                         */
 /* ---------------------------------------------------------------------- */
+/* One column on phones: two-word trade titles such as "Fencing, Concrete &
+   Remodeling" don't fit a half-width card at 390px. */
 .industry-links__grid {
   display: grid;
   gap: var(--space-4);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   margin-top: var(--space-4);
+}
+.industry-links__item h3 {
+  text-wrap: balance;
+}
+@media (min-width: 560px) {
+  .industry-links__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .industry-links__icon {
   display: inline-flex;
