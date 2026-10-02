@@ -744,3 +744,4 @@ The homepage is production-ready and **frozen**. Do not redesign or rework its c
   - That backups and enquiry tracking are included in every plan.
   - The 10 / 20 update counts still in the FAQ.
 - **Deploy with migrations** `011` to `013`: `.\deploy.bat -Migrate`.
+- **Hero amendment (owner, 2026-10-02, after the freeze):** the second hero paragraph is removed ("We’ll create a private preview using your real business information, services and public online presence. Review it first — then decide whether you want us to complete and manage it."). The hero is now the eyebrow, H1, one supporting paragraph, the two buttons, the reassurance line and the stats. The same idea is still covered by the preview-steps section and the final call to action.
