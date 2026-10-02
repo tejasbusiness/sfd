@@ -11,6 +11,16 @@
       "answer": "No. Every plan is month-to-month with no long-term contract and no activation fee — cancel anytime."
     },
     {
+      "id": "no-upfront-fee",
+      "question": "Why is there no upfront website design fee?",
+      "answer": "Instead of charging thousands upfront, we include the cost of designing, hosting, maintaining and supporting your website within one predictable monthly plan."
+    },
+    {
+      "id": "preview-free",
+      "question": "Is the free website preview really free?",
+      "answer": "Yes. There is no payment or obligation to review your preview. If you like the direction, choose a plan and we'll work with you to complete and launch the website."
+    },
+    {
       "id": "ownership",
       "question": "Who owns the website and domain?",
       "answer": "You always own your domain, and if you cancel before 6 months you receive all of your own content. After 6 consecutive months as a paying subscriber on any plan, the completed website is yours: if you leave after that, we provide your website files at no additional charge."

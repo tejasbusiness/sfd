@@ -38,7 +38,7 @@
   <main id="main-content">
     {% block content %}{% endblock %}
   </main>
-  {% include "partials/playbook.njk" %}
+  {% if not page.hidePlaybook %}{% include "partials/playbook.njk" %}{% endif %}
   {% include "partials/footer.njk" %}
   {% include "partials/cookie-banner.njk" %}
   <script type="module" src="/assets/js/main.js"></script>

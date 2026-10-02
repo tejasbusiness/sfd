@@ -1,4 +1,5 @@
-{# Shared partial for the "free-preview-cta" and "booking-cta" block types (docs/05). #}
+{# On the dark brand band the primary button is gold (accent): a dark primary button would vanish into the band.
+   Shared partial for the "free-preview-cta" and "booking-cta" block types (docs/05). #}
 <section class="section cta-banner {{ 'section--brand' if section.tone == 'brand' else '' }}">
   <div class="container cta-banner__inner" data-reveal>
     <h2>{{ section.heading }}</h2>
@@ -6,12 +7,12 @@
     <div class="cta-banner__actions">
       {% if section.type == "booking-cta" %}
       <a
-        class="button button--primary"
+        class="button {{ 'button--accent' if section.tone == 'brand' else 'button--primary' }}"
         href="{{ section.primaryCta.href }}"
         data-dialog-target="booking-modal"
       >{{ section.primaryCta.label }}</a>
       {% else %}
-      <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+      <a class="button {{ 'button--accent' if section.tone == 'brand' else 'button--primary' }}" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
       {% endif %}
       {% if section.secondaryCta %}
       <a

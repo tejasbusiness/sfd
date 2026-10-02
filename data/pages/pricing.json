@@ -11,7 +11,7 @@
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "A professionally managed website, managed for one simple monthly price (No upfront cost)",
+  "h1": "A professionally built and managed website for one simple monthly price — with no upfront cost.",
   "breadcrumbs": null,
   "sections": [
     {
@@ -162,7 +162,9 @@
       "heading": "Pricing questions",
       "itemIds": [
         "cost",
+        "no-upfront-fee",
         "term",
+        "preview-free",
         "ownership",
         "updates",
         "page-allowance",
@@ -178,16 +180,11 @@
     {
       "type": "free-preview-cta",
       "tone": "brand",
-      "heading": "Not sure which plan fits?",
-      "body": "Apply for a free preview or Book a Free 30-Minute Discovery Call — we'll help you figure out what you actually need.",
+      "heading": "Ready to see your business with a better website?",
+      "body": "We'll create a private preview using your real business information. Review it before deciding whether to work with us.",
       "primaryCta": {
         "label": "Get My Free Website Preview",
         "href": "/free-preview/"
-      },
-      "secondaryCta": {
-        "label": "Book a Free 30-Minute Discovery Call",
-        "href": "/book-a-call/",
-        "dialogTarget": "booking-modal"
       }
     }
   ],
@@ -318,5 +315,6 @@
         "BreadcrumbList"
       ]
     }
-  ]
+  ],
+  "hidePlaybook": true
 }

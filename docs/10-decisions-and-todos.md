@@ -525,3 +525,9 @@ Owner-supplied copy applied on `/pricing/` and the service pricing pages (see do
   3. `$15` per extra Google Workspace address is gone from the pricing page but still stated in Subscription Terms.
   4. The H1 repeats "managed" ("A professionally managed website, managed for one simple monthly price"); used exactly as supplied.
 
+### Pricing: H1, two FAQs, commercial closing, no playbook banner (2026-10-02)
+- Owner copy: new `/pricing/` H1 (see docs/04); two new trust FAQs ("Why is there no upfront website design fee?", "Is the free website preview really free?"); the playbook banner removed from pricing pages and the closing section replaced by "Ready to see your business with a better website?" with a single "Get My Free Website Preview" button, as proposed in the owner's review notes. The "Commitment and ownership" H3 line was left exactly as it is.
+- The hero subheading instruction (item 2) gave identical old and new text ("Custom design, hosting, maintenance and ongoing support included — with no large upfront website fee."), so nothing changed there.
+- The new FAQ says there is "no payment or obligation to review your preview"; the existing FAQ "Am I guaranteed a free preview?" still says previews are reviewed first and not automatic. Both are consistent (free, but not guaranteed to every applicant).
+- Open: the booking pop-up and other pages still say 30 minutes while the hero button says 20 (see the previous entry).
+
