@@ -666,6 +666,11 @@
     -webkit-text-stroke: 1.5px var(--color-text-secondary);
   }
 }
+/* Readable measure: the longer step copy would otherwise run full width and,
+   on right-aligned (even) steps, reach back across the timeline line. */
+.process-narrative__content {
+  max-width: 40rem;
+}
 .process-narrative__content h3 {
   margin-bottom: var(--space-1);
 }
@@ -676,10 +681,26 @@
   display: flex;
   margin-top: var(--space-3);
 }
+.process-narrative__content p.process-narrative__note {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent-warm);
+}
+/* Step 1's real CTA sits under the decorative form fragment, matching its width. */
+.process-narrative__cta {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
 @media (min-width: 768px) {
   .process-narrative__step:nth-child(even) {
     flex-direction: row-reverse;
     text-align: right;
+  }
+  /* Keep right-aligned copy clear of the timeline line on the left (tablet). */
+  .process-narrative__step:nth-child(even) .process-narrative__content {
+    margin-inline-start: calc(3.8rem + var(--space-4));
   }
   .process-narrative__step:nth-child(even) .process-narrative__visual {
     justify-content: flex-end;

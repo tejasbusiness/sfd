@@ -11,12 +11,12 @@
         <div class="process-narrative__content">
           <h3>{{ step.title }}</h3>
           <p>{{ step.body }}</p>
+          {% if step.note %}<p class="process-narrative__note">{{ step.note }}</p>{% endif %}
           <div class="process-narrative__visual" aria-hidden="true">
             {% if loop.index == 1 %}
             <div class="mini-form">
               <span class="mini-form__field"><span class="mini-form__label">Business name</span></span>
               <span class="mini-form__field"><span class="mini-form__label">Website (optional)</span></span>
-              <span class="mini-form__submit">Apply for preview</span>
             </div>
             {% elif loop.index == 2 %}
             <div class="mini-browser">
@@ -40,10 +40,13 @@
             {% else %}
             <div class="mini-live">
               <span class="mini-live__dot"></span>
-              <span>Live &amp; approved</span>
+              <span>Live &amp; managed</span>
             </div>
             {% endif %}
           </div>
+          {# A real link, outside the decorative (aria-hidden) visual, so it is
+             announced and reachable by keyboard. #}
+          {% if step.cta %}<a class="button button--primary process-narrative__cta" href="{{ step.cta.href }}">{{ step.cta.label }}</a>{% endif %}
         </div>
       </li>
       {% endfor %}

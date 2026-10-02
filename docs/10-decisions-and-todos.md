@@ -565,3 +565,14 @@ Owner brief: position the homepage for local service businesses in general, with
   - `text-wrap: balance` evens out wrapped lines.
   - A non-breaking space in "No obligation" stops "No" being left alone at the end of a line.
 
+### Homepage "How your free website preview works" (2026-10-02)
+- **Copy:** the owner supplied a new heading and four steps (exact text in `data/pages/home.json`).
+  - The wording no longer says "If you qualify" or "Activate", and no longer reads as an application.
+  - The FAQ "Am I guaranteed a free preview?" still says that requests are reviewed. This is consistent with "We'll review your current online presence".
+- **Step 1 call to action:** "Request My Preview" (`/free-preview/`) is now a real button. Before, there was only a decorative "Apply for preview" pill inside the hidden visual, which screen readers and keyboards couldn't reach.
+- **Step 2:** adds the optional reassurance line "No payment is required to review it."
+- **Step 4 visual chip:** changed from "Live & approved" to "Live & managed", so it no longer implies an approval step.
+- **CSS:**
+  - Step copy is capped at a 40rem measure. The longer text ran the full width on desktop, and right-aligned steps crossed the timeline line.
+  - On tablet and up, even steps reserve the numeral's space on the left.
+

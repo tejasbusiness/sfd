@@ -144,7 +144,18 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
    - Built for local service businesses
    No country names in this strip. Text uses `text-wrap: balance` so wrapped lines are even across the four columns.
    This section no longer depends on the `verified` mechanism at all — everything in it is true today.
-3. **How your preview works** — unchanged: alternating narrative, large ghosted numerals (01–04), a drawn-in connector line, one small supporting visual per step.
+3. **How your free website preview works**: an alternating narrative with large ghosted numerals (01–04), a drawn-in connector line and one small supporting visual per step.
+   - **Copy** (owner, 2026-10-02): four steps, with the copy in `data/pages/home.json`.
+     1. Tell us about your business
+     2. We build your private preview
+     3. Review it privately for 7 days
+     4. Choose a plan or simply walk away
+   - **Tone:** no "If you qualify" or "Activate". It must not read as a formal application.
+   - **Step options:**
+     - A step can have a `cta`. Step 1's "Request My Preview" button links to `/free-preview/` and sits outside the decorative visual, so it can be reached by keyboard.
+     - A step can have a `note`. Step 2's note is "No payment is required to review it."
+   - **Step 4 visual chip:** reads "Live & managed".
+   - **Layout:** step copy is capped at a 40rem measure. On tablet and up, right-aligned (even) steps keep clear of the timeline line.
 4. **Industries** — asymmetric bento (Home Services dominant; Restaurants + Healthcare medium; Financial + Professional Services supporting). **Revised**: since none of the five industry pages exist yet, tiles render as styled, non-interactive cards (no `href`) rather than links — avoiding the 404s the original draft would have shipped. They become real links automatically once Phase 4 builds those pages (same content, just no anchor wrapper until then).
 5. **What every managed website includes** — bento (one dominant "everything handled" tile + smaller Hosting & Security / Analytics / Monthly Updates / SEO Foundation / Mobile Optimization tiles), unchanged.
 6. **Monthly-model statement** — the **one** full-bleed dark section (ink/deep-purple). Large white headline, one lime-highlighted phrase, a plain-language "traditional project pricing" vs. "SFD monthly model" comparison — no invented dollar figures — plus a CTA.

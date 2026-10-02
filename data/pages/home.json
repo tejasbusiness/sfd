@@ -61,23 +61,28 @@
     },
     {
       "type": "process-narrative",
-      "heading": "How your free preview works",
+      "heading": "How your free website preview works",
       "steps": [
         {
-          "title": "Apply",
-          "body": "Tell us about your business so we can check we're a good fit."
+          "title": "Tell us about your business",
+          "body": "Share your business name, website and a few basic details. We’ll review your current online presence and identify the best way to create a useful preview.",
+          "cta": {
+            "label": "Request My Preview",
+            "href": "/free-preview/"
+          }
         },
         {
-          "title": "We build your preview website",
-          "body": "If you qualify, we create a private concept website for your business, at no cost."
+          "title": "We build your private preview",
+          "body": "We use your real business information, services, branding and publicly available content to create a private website preview tailored to your business.",
+          "note": "No payment is required to review it."
         },
         {
-          "title": "Review for 7 days",
-          "body": "Explore the preview privately. It's not public and isn't your live website yet."
+          "title": "Review it privately for 7 days",
+          "body": "Explore your preview on a private link for seven days. It isn’t public, and your existing website stays unchanged while you review the new version."
         },
         {
-          "title": "Activate or let it expire",
-          "body": "Like it? Activate a monthly plan and we complete and launch it. If not, it simply expires."
+          "title": "Choose a plan or simply walk away",
+          "body": "If you like the preview, choose a monthly plan and we’ll complete, launch and manage the website for you. If it isn’t right for you, the preview expires — with no obligation."
         }
       ]
     },
