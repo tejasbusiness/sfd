@@ -13,13 +13,19 @@ import { initPricingTabs } from './pricing-tabs.js';
 
 // Several triggers (header button, mobile-nav button, page CTAs) can all open the
 // same sitewide dialog (e.g. #booking-modal) — one controller per dialog, shared.
-function initDialogTriggers() {
-  const controllers = new Map();
+// Re-runnable on new content (the pricing pills swap page content in place):
+// triggers already bound are skipped.
+const dialogControllers = new Map();
 
-  document.querySelectorAll('[data-dialog-target]').forEach((trigger) => {
+function initDialogTriggers(root = document) {
+  const controllers = dialogControllers;
+
+  root.querySelectorAll('[data-dialog-target]').forEach((trigger) => {
+    if (trigger.dataset.dialogBound) return;
     const targetId = trigger.getAttribute('data-dialog-target');
     const dialogEl = document.getElementById(targetId);
     if (!dialogEl) return;
+    trigger.dataset.dialogBound = 'true';
 
     if (!controllers.has(targetId)) {
       controllers.set(targetId, setupDialog(dialogEl));
@@ -48,7 +54,7 @@ function initDialogTriggers() {
     });
 
     dialogEl.addEventListener('close', () => {
-      if (trigger.hasAttribute('aria-expanded')) {
+      if (trigger.isConnected && trigger.hasAttribute('aria-expanded')) {
         trigger.setAttribute('aria-expanded', 'false');
       }
     });
@@ -66,6 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomSelects();
   initCountrySelects();
   initLegalToc();
-  initPricingTabs();
+  initPricingTabs({ onSwap: (root) => initDialogTriggers(root) });
   initCookieConsent();
 });

@@ -504,3 +504,10 @@ Also per owner instruction: Lite and Business each got a `tagline` field rendere
 - Service pages leave out the website-only sections (pricing FAQ, "Included on every plan", "Commitment and ownership") via `onlyFor`, so they don't describe website plans.
 - Removed the "Compare plans" heading (owner). A visually hidden "Websites plans" H2 keeps the heading order for screen readers.
 - Deploy: `deploy/nginx-redirects.conf` changed (new `/pricing/websites/` rule), so the CloudPanel vhost needs the updated redirect block pasted in; `deploy.ps1` detects this and copies it to the clipboard.
+
+### Pricing pills switch without a reload (2026-10-02)
+- Owner: switching service pills looked like a flicker and a page load. It was one: each pill was a normal link, so the new page painted at the top, jumped to the saved scroll position and replayed the card fade-ins.
+- Now `pricing-tabs.js` fetches the target page's static HTML (prefetched on hover/focus), swaps `<main>` and the head tags, and uses `history.pushState`, so the switch is instant and the pills don't move. Every URL is still a complete static page, so search engines and users without JavaScript see the same content (CLAUDE.md rule 4 is about not building content from JSON in the browser; this only loads our own pages). Back/Forward work; any error falls back to a normal load.
+- `initDialogTriggers` in `main.js` became re-runnable (skips triggers already bound) so booking buttons in swapped content open the modal.
+- Tested in headless Chrome at 1440px and 390px: no reload, pills stay at the same position, URL/title/canonical update, Back/Forward, booking modal from a swapped placeholder.
+
