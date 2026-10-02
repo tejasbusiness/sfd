@@ -890,6 +890,36 @@
   flex-direction: column;
   justify-content: center;
 }
+/* The five smaller cards are siblings of the large card (h3), shown at h4 size. */
+.feature-bento__title {
+  font-size: var(--text-h4);
+}
+/* "Everything handled": a quiet two/three-column checklist to fill the card. */
+.feature-bento__checklist {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-4);
+}
+.feature-bento__checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.feature-bento__checklist svg {
+  flex-shrink: 0;
+  color: var(--color-accent-warm);
+}
+@media (min-width: 560px) {
+  .feature-bento__checklist {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 .feature-bento__visual {
   display: flex;
   align-items: center;
@@ -953,10 +983,8 @@
   border-radius: 4px;
   background: var(--color-border);
 }
-.micro-search__rank {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--color-accent-warm);
+.micro-search__ok {
+  color: var(--color-success);
 }
 .micro-devices {
   display: inline-flex;

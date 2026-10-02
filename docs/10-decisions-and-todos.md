@@ -601,3 +601,12 @@ Owner brief: position the homepage for local service businesses in general, with
   2. Retire them with redirects.
   3. Replace them with pages for these trades.
 
+### Homepage "What every managed website includes" (2026-10-02)
+- **Copy:** owner copy for all six cards, plus a six-item checklist in the "Everything handled" card.
+- **Backups:** kept. Backups were already stated as included across the site: the old version of this card, the pricing "Managed for you" card (owner copy), Website Care, the services menu and the About page. However, they are not listed in the plan feature lists in `data/plans.json`.
+- **Uptime monitoring:** matches "Monthly uptime monitoring" in the Lite plan.
+- **"Enquiry performance" in the analytics card:** owner copy. The plans only promise "Basic analytics" (Lite) and "Monthly analytics reporting" (Business). Confirm that enquiry/form tracking is part of basic analytics.
+- **No ranking claims:** the decorative SEO graphic showed "#1", which implied a ranking. It is now a tick.
+- **Headings:** the small cards were H4 directly under an H3 they don't belong to. They are now H3, styled at the previous H4 size.
+- **Links:** no card links were added. Only Website Care and SEO have service pages, and the brief allowed links but didn't require them.
+

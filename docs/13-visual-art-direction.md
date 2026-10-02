@@ -166,7 +166,17 @@ No preloader, no custom cursor, no scroll-jacking/parallax beyond the bounded de
    - **Responsive:**
      - Phones (below 560px) use one column. From 560px there are two columns, and from 900px the bento layout.
      - Card titles use `text-wrap: balance`.
-5. **What every managed website includes** — bento (one dominant "everything handled" tile + smaller Hosting & Security / Analytics / Monthly Updates / SEO Foundation / Mobile Optimization tiles), unchanged.
+5. **What every managed website includes**: a bento layout (owner copy, 2026-10-02).
+   - **Large tile:** "Everything handled", with a quiet three-column checklist: Hosting, Security, Backups, Updates, Monitoring and Support (two columns below 560px).
+   - **Five smaller tiles:**
+     - Hosting, security & backups
+     - Performance & analytics
+     - Routine content updates
+     - SEO-ready foundation
+     - Mobile-first experience
+   - **Headings:** all tile titles are H3; the small tiles are styled at H4 size.
+   - **Allowances:** no monthly update count here; the exact allowances belong on Pricing.
+   - **No ranking claims:** this includes the decorative visuals. The SEO tile's old "#1" mark is now a tick.
 6. **Monthly-model statement** — the **one** full-bleed dark section (ink/deep-purple). Large white headline, one lime-highlighted phrase, a plain-language "traditional project pricing" vs. "SFD monthly model" comparison — no invented dollar figures — plus a CTA.
 7. **Preview Concepts** (renamed from "Featured Work" — SFD has no verified client work yet, and the section must never imply otherwise). Three illustrative device-frame concepts — Home Services, Restaurant, and Healthcare/Professional Services — each visually similar in treatment to the hero's "after" mockup but distinct per industry. **Every single example carries a persistent, clearly visible caption: "Illustrative website concept — not a published client project."** No industry-neutral wording implying these are real deliveries, results or endorsements. This section no longer uses the `verified: false` placeholder mechanism (§9) — it isn't pending verification, it's permanently, explicitly illustrative.
 8. **Pricing summary** — Growth tile visually elevated between two more compact Essential/Automation tiles; check-icon inclusion lists. The elevated tile is labeled **"Recommended for local businesses"** (owner decision 2026-10-02, replacing "Best Value" from 2026-09-20; never "Most Popular", since SFD has no usage data to support a popularity claim). The label text is the plan's `badge` field in `data/plans.json`. **Revised**: while prices are unresolved, the price row is omitted entirely — no "TBD", no "Pricing finalizing", no dashes, zeroes or invented figures anywhere in rendered output, in any mode. Each plan still shows its name, who it's for, its included features and its CTA. Production validation still hard-fails the build while `priceMonthly` remains unresolved (§9) — omitting the price row is a display decision, not a validation bypass; launch is still blocked until real prices exist.

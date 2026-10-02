@@ -128,28 +128,36 @@
       "heading": "What every managed website includes",
       "large": {
         "title": "Everything handled",
-        "body": "Hosting, security, backups, updates and support are all part of your plan — one team, start to finish, so nothing falls through the cracks."
+        "body": "Hosting, security, backups, routine updates, monitoring and technical support are all included — so you have one team responsible for keeping your website running smoothly.",
+        "checklist": [
+          "Hosting",
+          "Security",
+          "Backups",
+          "Updates",
+          "Monitoring",
+          "Support"
+        ]
       },
       "items": [
         {
-          "title": "Hosting & security",
-          "body": "Fast, secure hosting with SSL included by default."
+          "title": "Hosting, security & backups",
+          "body": "Fast managed hosting, SSL security, uptime monitoring and regular backups are included with every active plan."
         },
         {
-          "title": "Analytics",
-          "body": "Visibility into how your site is performing."
+          "title": "Performance & analytics",
+          "body": "Track website traffic, visitor activity and enquiry performance so you can see how your website is working for your business."
         },
         {
-          "title": "Monthly updates",
-          "body": "A defined content-update allowance every month."
+          "title": "Routine content updates",
+          "body": "Need to change text, photos, business hours, services or other everyday content? Routine updates are included within your plan."
         },
         {
-          "title": "SEO foundation",
-          "body": "Built to be found from day one."
+          "title": "SEO-ready foundation",
+          "body": "Every website is built with clean structure, search-friendly content, metadata and technical foundations designed to help search engines understand your business."
         },
         {
-          "title": "Mobile optimization",
-          "body": "Looks and works right on every device."
+          "title": "Mobile-first experience",
+          "body": "Your website is designed to load, read and convert smoothly across phones, tablets and desktops — where many local customers search and call from."
         }
       ]
     },
