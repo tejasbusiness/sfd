@@ -163,18 +163,21 @@
     },
     {
       "type": "statement",
-      "headingPrefix": "Stop paying for a website ",
-      "headingHighlight": "once and abandoning it.",
+      "headingPrefix": "Your website shouldn’t become outdated ",
+      "headingHighlight": "the moment it launches.",
       "headingSuffix": "",
+      "intro": "Instead of paying thousands upfront and starting over every few years, your website stays managed, maintained and up to date for one predictable monthly price.",
+      "traditionalLabel": "Traditional website project",
       "traditional": [
-        "One large upfront project bill",
-        "You're on your own after launch",
-        "Redesigned every few years, at another big cost"
+        "One large upfront cost",
+        "Ongoing changes cost extra",
+        "Eventually needs another redesign"
       ],
+      "sfdLabel": "The SFD managed website model",
       "sfd": [
-        "One predictable monthly fee",
-        "Ongoing management included",
-        "Continuously maintained and improved"
+        "One predictable monthly price",
+        "Hosting, maintenance & support included",
+        "Kept current as your business evolves"
       ],
       "cta": {
         "label": "Get My Free Website Preview",

@@ -610,3 +610,13 @@ Owner brief: position the homepage for local service businesses in general, with
 - **Headings:** the small cards were H4 directly under an H3 they don't belong to. They are now H3, styled at the previous H4 size.
 - **Links:** no card links were added. Only Website Care and SEO have service pages, and the brief allowed links but didn't require them.
 
+### Homepage monthly-model comparison (2026-10-02)
+- **Copy:** owner copy for the dark comparison section.
+  - Heading: "Your website shouldn't become outdated the moment it launches.", with "the moment it launches." in gold italic.
+  - New supporting sentence.
+  - Column labels: "Traditional website project" and "The SFD managed website model".
+  - Three items in each column.
+- **Tone:** the old lines "Stop paying for a website once and abandoning it" and "You're on your own after launch" were removed. They implied that other agencies abandon their clients.
+- **Copy moved to data:** the column labels used to be hard-coded in the template. They now live in the JSON file (`traditionalLabel`, `sfdLabel`).
+- **Accessibility:** the column labels are now H3s, and each list is labelled by its heading.
+

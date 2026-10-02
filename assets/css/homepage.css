@@ -1016,6 +1016,18 @@
 }
 .statement__heading {
   margin-bottom: var(--space-5);
+  text-wrap: balance;
+}
+.statement__heading:has(+ .statement__intro) {
+  margin-bottom: var(--space-3);
+}
+.statement .statement__intro {
+  max-width: 40rem;
+  margin: 0 auto var(--space-5);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  text-wrap: pretty;
 }
 .statement__highlight {
   font-family: var(--font-heading);
@@ -1043,6 +1055,8 @@ $0
   border-color: rgba(214, 149, 0, 0.4);
 }
 .statement__column-label {
+  font-family: var(--font-body);
+  line-height: 1.4;
   font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
