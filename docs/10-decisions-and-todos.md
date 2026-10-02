@@ -637,4 +637,7 @@ Owner brief: position the homepage for local service businesses in general, with
   - No ratings, review counts or statistics appear in any mock-up.
 - **Accessibility:** each mock-up is now one labelled image (for example, "Illustrative garage door service website concept"). Before, screen readers read out its sample text, such as "Call Now".
 - **Links:** the cards are still not links; no URLs were invented.
+- **Layout fix:**
+  - The grid had three columns, with the featured concept spanning all three. That left an empty third column beside the two smaller cards. From 640px the grid now has two columns: the featured concept spans the full row and the two smaller cards share the row below.
+  - The two smaller cards use CSS subgrid, so their mock-ups, labels, titles and captions line up even when one mock-up headline wraps.
 

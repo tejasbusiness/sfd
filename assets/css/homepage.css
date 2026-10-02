@@ -1102,13 +1102,33 @@ $0
   grid-template-columns: 1fr;
   margin-top: var(--space-4);
 }
-@media (min-width: 900px) {
+/* Featured concept full width, the two smaller concepts sharing the row below
+   (a 3-column grid left an empty third column beside them). */
+@media (min-width: 640px) {
   .preview-concepts__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .preview-concepts__item--dominant {
-    grid-column: span 3;
+    grid-column: 1 / -1;
   }
+  /* The two smaller cards share row tracks (mock-up, label, title, text,
+     caption), so their mock-ups and copy line up even when one mock-up
+     headline wraps to an extra line. */
+  .preview-concepts__item:not(.preview-concepts__item--dominant) {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+  .preview-concepts__item:not(.preview-concepts__item--dominant) .browser-frame {
+    display: flex;
+    flex-direction: column;
+  }
+  .preview-concepts__item:not(.preview-concepts__item--dominant) .browser-frame__body {
+    flex: 1;
+  }
+}
+@media (min-width: 900px) {
   .preview-concepts__item--dominant .browser-frame {
     max-width: 40rem;
     margin-inline: auto;
