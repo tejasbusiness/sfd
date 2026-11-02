@@ -72,3 +72,6 @@ On activation:
 
 Reuse the niche architecture and components, not the prospect's logo, images, reviews, NAP, credentials, service copy, tracking IDs, metadata or form configuration. Start every new preview from a clean starter to prevent customer-data leakage.
 
+## Hosting (2026-11-02)
+
+Prototype demos are hosted outside this codebase on `preview.synergyfirstdigital.com`, a static HTML site that sends `X-Robots-Tag: noindex, nofollow`, with a planned seven-day expiry and private token URLs. They are generated from a master prompt by the n8n workflow described in `docs/15-lead-automation.md`.
