@@ -1,4 +1,4 @@
-// Free Website Preview request ("Show Me My New Website"). Validates in the browser,
+// Free Website Preview request ("Start My Free Website Preview"). Validates in the browser,
 // then POSTs to /api/preview-applications (docs/14). The same script drives the free
 // preview page and the industry hero "lead" form (hero-form.njk, docs/15); the hero form
 // adds a hidden `trade` field. Per docs/04-page-blueprints.md it

@@ -15,7 +15,7 @@
 - USA, Canada, Australia, New Zealand, Germany and other European markets.
 - USD-only pricing.
 - Public monthly pricing.
-- Primary CTA: Get My Free Website Preview (renamed 2026-09-21 from "Request Your Free Preview Website").
+- Primary CTA: Start My Free Website Preview (renamed 2026-11-02 from "Show Me My New Website", after trying "Request My Free Website Preview", which wrapped).
 - Immediate CTA: Book a Free 30-Minute Discovery Call.
 - Google Meet booking, Calendar event and Google Sheets record.
 - SEO/AI/WhatsApp/automation presented as upgrades.
@@ -816,3 +816,9 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 
 ### Service field label (2026-11-02)
 - Owner request: the "Main service" label on both lead forms (Garage Door hero and Free Preview) is now **Enter Service(s)**. Hint and storage (`primary_service`) are unchanged; the owner email row still says "Primary service".
+
+### Primary CTA renamed to "Start My Free Website Preview" (2026-11-02)
+- **Owner decision:** "Show Me My New Website" read as vague: it sounds like an instant result, but the click leads to a request form and then we prepare the preview. The owner first chose "Request My Free Website Preview", saw it wrap to two lines on a button, and then chose **Start My Free Website Preview**. It supersedes "Show Me My New Website" (2026-10-02) and the older "Get My Free Website Preview" (2026-09-21).
+- **Scope: sitewide, including the frozen homepage** (explicitly approved by the owner for this text change only). Every primary preview button, the header button, the Free Preview and Garage Door form buttons, plan buttons and closing calls to action now use it (about 70 places across `data/pages/*.json`, templates and one script comment). The other locked labels are unchanged: "Book a Free 20-Minute Call" and "Free Audit Report". The URL `/free-preview/`, the short nav label "Free Preview" and the "Request received" toast are unchanged. CLAUDE.md, README, docs/01, 04, 13, 14, 15 and the memory notes were updated; earlier log entries above keep the old names as history.
+- **Layout fixes** for the longer label (29 characters, uppercase): `.button` gets tighter side padding and letter spacing on phones (`components.css`), plan-card buttons use tighter padding, the homepage hero buttons use a slightly smaller font on phones, and the homepage "How your free website preview works" step button reaches back under the step number on phones to use the full row (the text column is only about 240px). Checked in a browser by counting text lines in every button: no wrapping and no horizontal overflow on Home (1440, 1100, 820, 390, 360), Garage Door (1440, 1100, 390), Pricing, Free Preview, Websites, How It Works, About and Contact (1440, 390).
+- **Not checked:** the older industry pages, services pages and legal pages were not measured (they use the same button styles), and the booking modal buttons are unchanged. A/B testing the label is still a good idea once ad traffic exists.

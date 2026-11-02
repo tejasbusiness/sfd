@@ -86,13 +86,14 @@
   background: var(--color-primary);
   color: var(--color-bg);
 }
-/* Phones: the full-width stacked buttons keep "SHOW ME MY NEW WEBSITE" and
+/* Phones: the full-width stacked buttons keep "START MY FREE WEBSITE PREVIEW" and
    "BOOK A FREE 20-MINUTE CALL" on one line (the desktop side padding made both
    wrap at 390px) and centre the label if a very narrow screen still wraps it. */
 @media (max-width: 30em) {
   .hero-split__actions .button--primary,
   .hero-split__actions .button--secondary {
     padding-inline: var(--space-3);
+    font-size: 0.8125rem;
     text-align: center;
   }
 }
@@ -712,6 +713,11 @@
   .process-narrative__cta {
     padding-inline: var(--space-3);
     font-size: 0.8125rem;
+    /* The step's text column is only about 240px on a phone, too narrow for the long label,
+       so the button reaches back under the step number to use the full row. */
+    margin-inline-start: calc(-1 * (3.8rem + var(--space-4)));
+    width: calc(100% + 3.8rem + var(--space-4));
+    max-width: none;
   }
 }
 @media (min-width: 768px) {

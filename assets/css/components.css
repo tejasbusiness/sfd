@@ -1625,6 +1625,9 @@ a.link-cards__item {
   display: flex;
   margin-top: auto;
   width: 100%;
+  /* "Start My Free Website Preview" is long; tighter padding keeps it on one line in a card. */
+  padding-inline: var(--space-3);
+  letter-spacing: 0.03em;
 }
 .pricing-summary__includes {
   margin-bottom: var(--space-4);
@@ -3858,5 +3861,13 @@ a.case-study-card {
   }
   .toast__progress {
     display: none;
+  }
+}
+
+/* Phones: the long primary CTA label ("Start My Free Website Preview") must stay on one line. */
+@media (max-width: 30em) {
+  .button {
+    padding-inline: var(--space-3);
+    letter-spacing: 0.03em;
   }
 }

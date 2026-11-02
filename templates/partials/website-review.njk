@@ -23,7 +23,7 @@
         {{ fields.input("wr-business", "businessName", "Business name", autocomplete="organization") }}
         {{ fields.input("wr-website", "website", "Website URL *", type="url", required=true, autocomplete="url", inputmode="url", website=true) }}
         {{ fields.input("wr-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
-        {# Tertiary CTA: outlined, so it never competes with the primary "Show Me My New Website". #}
+        {# Tertiary CTA: outlined, so it never competes with the primary "Start My Free Website Preview". #}
         <button type="submit" class="button button--secondary playbook__submit" data-website-review-submit>{{ footer.websiteReview.buttonLabel }}</button>
         {{ fields.consent("wr-consent", "consent", footer.websiteReview.consentLabel + ' See our <a href="/privacy-policy/">Privacy Policy</a>. *') }}
       </form>

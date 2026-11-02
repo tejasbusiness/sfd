@@ -24,7 +24,7 @@
         "dialogTarget": "booking-modal"
       },
       "secondaryCta": {
-        "label": "Get My Free Website Preview",
+        "label": "Start My Free Website Preview",
         "href": "/free-preview/"
       }
     },
@@ -57,7 +57,7 @@
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18M8 3v4M16 3v4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "Get My Free Website Preview",
+          "label": "Start My Free Website Preview",
           "description": "Share a few details about your business and apply for a concept of your new website.",
           "href": "/free-preview/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M8 21h8M12 18v3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
@@ -179,7 +179,7 @@
         "dialogTarget": "booking-modal"
       },
       "secondaryCta": {
-        "label": "Get My Free Website Preview",
+        "label": "Start My Free Website Preview",
         "href": "/free-preview/"
       }
     }

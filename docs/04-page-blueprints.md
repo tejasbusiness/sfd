@@ -80,7 +80,7 @@ Use an editorial project presentation. Every project must identify the business 
 
 Present SFD as an experienced remote team. Include founder credibility, 25+ years of web experience when verified for public use, operating principles, delivery model and transparent company information. Avoid generic mission statements.
 
-## Free Preview request ("Show Me My New Website")
+## Free Preview request ("Start My Free Website Preview")
 
 The form is deliberately low-friction (owner decision, 2026-10-02). It reads as a request, never as an application or qualification process.
 
@@ -100,8 +100,8 @@ Optional:
 
 Details:
 
-- The button is "Show Me My New Website", and the success toast is "Request received".
-- Every homepage and header "Show Me My New Website" button links here. There is only one preview workflow.
+- The button is "Start My Free Website Preview", and the success toast is "Request received".
+- Every homepage and header "Start My Free Website Preview" button links here. There is only one preview workflow.
 - Do not state that submission guarantees a preview.
 
 ## Contact
