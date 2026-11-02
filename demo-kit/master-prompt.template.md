@@ -96,6 +96,23 @@ The owner will judge this demo in a few seconds. It must look like a bespoke, pr
 
 {{artDirectionBlock}}
 
+**Techniques from SFD's reference build (use them, adapted to this trade)**
+
+An earlier SFD demo that met this bar used the following. A page that only has tidy cards on pale backgrounds will be judged flat.
+
+1. **A large focal illustration in the hero**, drawn in inline SVG and built from layered groups (back, middle, front) with `radialGradient` fills for volume and a soft highlight overlay. Each layer moves at a different speed on scroll (`data-speed` read by one `requestAnimationFrame` handler writing `translate3d`) and one layer sways slowly. Never leave the right half of the hero empty. Make the illustration relate to the trade and use only palette colours.
+2. **Layered silhouettes at the bottom of the hero** at different opacities and parallax speeds (for example tree-lines, rooftops or a skyline).
+3. **Headline word-by-word reveal**: wrap each word in `.word > span`, animate the outer with `clip-path` and the inner with `translateY`, staggered with a `--w` custom property. Leave a little negative inset so italic descenders are not clipped.
+4. **Motion gate on `<html>`**: JavaScript adds `js` and, only when `prefers-reduced-motion` is not `reduce`, `motion`. Every hidden-until-revealed state, keyframe and transition is scoped under `html.motion`, so no-JS and reduced-motion visitors get the fully visible static page.
+5. **Cursor spotlight on cards**: one delegated `pointermove` listener (only under `(hover: hover)`) sets `--mx` and `--my` on the hovered card, and `.card::before` is a `radial-gradient(circle at var(--mx) var(--my), accent-at-low-alpha, transparent)` that fades in on hover. Cards also get a gradient hairline border and a layered soft shadow.
+6. **Stacked sticky steps** for How it works: the title column is `position: sticky`, and the step cards are sticky with a small increasing `top` offset so they pile up as you scroll. Use `overflow: clip` (not `hidden`) on ancestors so sticky keeps working. Oversized outlined numerals (`-webkit-text-stroke`) and a vertical line that draws itself with `stroke-dasharray` and `pathLength="1"`.
+7. **Self-drawing line artwork** (rings, outlines, road lines) with `pathLength="1"`, `stroke-dasharray: 1`, and `stroke-dashoffset` transitioned to 0 with a per-element delay when the card scrolls into view.
+8. **Designed photo placeholders**: rounded frames in a CSS grid (not CSS columns, which drop transformed items), each with a palette gradient, a hatched or grain texture, a simple SVG silhouette of the subject and a pill caption `[PHOTO: ...]`. Never a blank box.
+9. **Strong variation between sections**: a deep dark band, a soft gradient section, a section with a large organic SVG shape bleeding off the edge and drifting slowly, and oversized type moments (a display line up to about 7.5rem and a faded business-name wordmark in the footer at about 15vw).
+10. **Small touches**: a scroll progress line (`scaleX`) in the header, falling leaf or particle spans driven by custom properties, an animated link underline, button arrows that slide on hover.
+
+Screenshot warning: headless Chrome on Windows clamps `--window-size` to about 500px wide, so a "390px" screenshot is only a crop. Check phone widths by loading each page in an `<iframe width="390">` wrapper and measure `scrollWidth <= innerWidth` inside it.
+
 ### Call-to-action labels
 
 {{ctaBlock}}
@@ -130,7 +147,11 @@ Shared on every page: the preview bar (section 7), a header with the business na
 
 In `{{token}}/`: `index.html`, `services.html`, `contact.html`, `assets/styles.css`, `assets/main.js` (and `assets/` images or SVG if any), and `README.md` containing: the list of facts and placeholders to confirm with the business, the image sources and rights, the palette and font used, and the exact steps to upload the folder to `{{previewUrl}}`.
 
-## 10. Finish by checking
+## 10. Look at your own work, then fix it
+
+Do not stop after writing the code. If you can run a browser (headless Chrome, Playwright or similar), take screenshots of every page at 1440px and 390px wide and look at them. For a full-page view use a copy with fixed pixel heights, because `svh` heroes distort in very tall windows. Then write down what looks flat, empty, cramped or template-like (an empty half of the hero, plain boxes on pale backgrounds, blank placeholder frames, timid headings, text hard to read over artwork) and fix it. Repeat at least twice. If you cannot run a browser, re-read your CSS against the design quality bar above and fix the same things.
+
+## 11. Finish by checking
 
 - [ ] No claim appears that is not in section 3, and every placeholder is in `README.md`.
 - [ ] Each page: one `<h1>`, `noindex, nofollow`, preview bar, disclaimer.

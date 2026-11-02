@@ -146,6 +146,15 @@ test('every kit has trade art direction, and the prompt carries the design quali
   assert.ok(!/\{\{\w+\}\}/.test(prompt));
 });
 
+test('the prompt carries the reference techniques and a self-review step', () => {
+  const { prompt } = render();
+  assert.ok(prompt.includes('Techniques from SFD'));
+  assert.ok(prompt.includes('Never leave the right half of the hero empty'));
+  assert.ok(prompt.includes('html.motion'));
+  assert.ok(prompt.includes('Look at your own work, then fix it'));
+  assert.ok(prompt.includes('iframe width="390"'));
+});
+
 test('closing buttons never promise free quotes (the prompt forbids free-estimate claims)', () => {
   for (const kit of Object.values(kits)) {
     for (const [key, label] of Object.entries(kit.ctaLabels)) assert.ok(!/free/i.test(label), `${kit.id}.${key}: ${label}`);
