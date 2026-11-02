@@ -91,6 +91,26 @@ test('HTML entities are decoded, including numeric ones', () => {
   assert.ok(r.text.includes('\u2197') && r.text.includes('\u2192') && r.text.includes("it's"));
 });
 
+test('hero lines with unverified quality claims are replaced by plain statements', () => {
+  const kit = kits['tree-services'];
+  const claimy = lib.parseAi({ heroHeadline: 'Professional Tree Services', heroSubheadline: 'Safe and reliable care for your trees and property', services: ['Tree removal', 'Stump grinding', 'Storm clean-up'] }, kit);
+  const plain = lib.plainHeroLines(claimy, claimy.services);
+  assert.equal(plain.headline, 'Tree removal and Stump grinding');
+  assert.equal(plain.sub, '');
+  const area = lib.parseAi({ heroHeadline: 'Tree removal in Springfield', heroSubheadline: 'Trusted by neighbours', services: ['Tree removal'], serviceArea: 'Springfield' }, kit);
+  const kept = lib.plainHeroLines(area, area.services);
+  assert.equal(kept.headline, 'Tree removal in Springfield');
+  assert.equal(kept.sub, 'Serving Springfield');
+  for (const word of ['Professional', 'safe', 'RELIABLE', 'Family run', 'best']) assert.ok(lib.HERO_BANNED.test(word), word);
+  assert.ok(!lib.HERO_BANNED.test('Tree removal and stump grinding'));
+});
+
+test('a prompt with no verified phone tells Claude how to show call buttons', () => {
+  const { prompt } = render({ research: lib.extractResearch('', 'https://www.google.com/maps/place/x') });
+  assert.ok(prompt.includes('Call [TO CONFIRM: phone]'));
+  assert.ok(prompt.includes('no `tel:` link'));
+});
+
 test('closing buttons never promise free quotes (the prompt forbids free-estimate claims)', () => {
   for (const kit of Object.values(kits)) {
     for (const [key, label] of Object.entries(kit.ctaLabels)) assert.ok(!/free/i.test(label), `${kit.id}.${key}: ${label}`);

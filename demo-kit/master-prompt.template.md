@@ -63,7 +63,7 @@ Load the fonts with the single `<link>` above (with `rel="preconnect"` to `fonts
 
 Headline: {{heroHeadline}}
 Subheadline: {{heroSubheadline}}
-(Adjust only if it conflicts with the content rules.)
+These two lines only state what the business does. Do not add quality or trust words (professional, safe, reliable, trusted, affordable, experienced, fast, best, quality) because none of them is a verified fact.
 
 ### Call-to-action labels
 

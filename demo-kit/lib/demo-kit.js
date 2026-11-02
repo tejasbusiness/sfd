@@ -133,6 +133,7 @@ const AI_SYSTEM_PROMPT = [
   '3. Choose exactly one palette id and one font pair id from the options, the best fit for the business and its trade.',
   '4. If something is not stated, leave it out. Do not write a business summary and do not list missing information.',
   '5. "verifiedFacts" are ONLY extra facts found in the research text (for example a stated service area or something the business says about how it works). Do not repeat the business name or the services the lead typed. Use an empty array when the research has none.',
+  '6. "heroHeadline" and "heroSubheadline" must only state what the business does (for example "Tree removal and stump grinding"). No quality or trust words such as professional, safe, reliable, trusted, affordable, experienced, fast, best or quality.',
   'Reply with ONLY a JSON object with these keys:',
   '{"paletteId": string, "fontPairId": string, "designRationale": string (one sentence), "services": string[] (services stated by the lead or research, max 8), "serviceArea": string|null, "heroHeadline": string (plain, no claims), "heroSubheadline": string (plain, no claims), "verifiedFacts": [{"fact": string, "source": "website"}]}',
 ].join('\n');
@@ -206,6 +207,16 @@ function parseAi(raw, kit) {
       .filter((f) => f.fact)
       .slice(0, 8),
   };
+}
+
+// Quality and trust words the business has not verified. Hero lines containing them are replaced.
+const HERO_BANNED = /\b(professional|professionals|safe|safely|safety|reliable|reliably|trusted|trustworthy|affordable|experienced|expert|experts|fast|quick|quickly|best|top|leading|quality|licensed|insured|guaranteed|certified|premier|family|local|friendly|honest|dependable|award[- ]winning)\b/i;
+
+function plainHeroLines(ai, services) {
+  const list = services.slice(0, 2);
+  const headline = ai.heroHeadline && !HERO_BANNED.test(ai.heroHeadline) ? ai.heroHeadline : list.length ? list.join(' and ') : '';
+  const sub = ai.heroSubheadline && !HERO_BANNED.test(ai.heroSubheadline) ? ai.heroSubheadline : ai.serviceArea ? 'Serving ' + ai.serviceArea : '';
+  return { headline, sub };
 }
 
 function makeToken() {
@@ -286,6 +297,8 @@ function renderPrompt(opts) {
       ['--dark', c.dark], ['--on-dark', c.onDark], ['--border', c.border],
     ].map(([k, v]) => `  ${k}: ${v};`).join('\n') + '\n}';
 
+  const hero = plainHeroLines(ai, services);
+
   const values = {
     businessName,
     token,
@@ -301,7 +314,7 @@ function renderPrompt(opts) {
     leadBlock,
     factsBlock: bullets(facts, '[TO CONFIRM: no facts available]'),
     servicesBlock: bullets(services, '[TO CONFIRM: services offered]'),
-    contactBlock: bullets(contact, 'None verified. Show [TO CONFIRM: business phone] and [TO CONFIRM: business email]. Do not use any other phone or email.'),
+    contactBlock: bullets(contact, 'None verified. Show [TO CONFIRM: business phone] and [TO CONFIRM: business email]. Do not use any other phone or email. Call buttons (header, hero, closing section) must still appear for layout, but show the text "Call [TO CONFIRM: phone]" as a plain button with no `tel:` link until a real number is supplied.'),
     missingBlock: bullets(missing, 'nothing'),
     paletteBlock: '```css\n' + root + '\n```\n\nPalette: ' + ai.palette.name + '. ' + ai.palette.mood,
     fontBlock: [
@@ -310,8 +323,8 @@ function renderPrompt(opts) {
       `- Stylesheet link: \`${ai.font.googleFontsUrl}\``,
       `- Feel: ${ai.font.mood}`,
     ].join('\n'),
-    heroHeadline: ai.heroHeadline || `[Write a plain headline about ${businessName}'s main service]`,
-    heroSubheadline: ai.heroSubheadline || '[Write one plain supporting sentence using only the facts above]',
+    heroHeadline: hero.headline || `[Write a plain headline naming ${businessName}'s main service]`,
+    heroSubheadline: hero.sub || '[Write one plain supporting sentence using only the facts above, or leave it out]',
     ctaBlock: [`- Call button: "${kit.ctaLabels.call}"`, `- Quote or request button: "${kit.ctaLabels.quote}"`, `- Closing section button: "${kit.ctaLabels.preview}"`].join('\n'),
     pagesBlock: kit.pages
       .map((p) => `### \`${p.file}\` (${p.name})\n\n` + p.sections.map((s) => '- ' + s).join('\n'))
@@ -329,6 +342,6 @@ function renderPrompt(opts) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     PALETTE_KEYS, PALETTE_PAIRS, contrastRatio, paletteContrastIssues, pickKitId, cleanText, extractResearch,
-    isGoogleProfileUrl, buildAiRequest, parseAi, makeToken, formatExpiry, renderPrompt, AI_SYSTEM_PROMPT,
+    isGoogleProfileUrl, plainHeroLines, HERO_BANNED, buildAiRequest, parseAi, makeToken, formatExpiry, renderPrompt, AI_SYSTEM_PROMPT,
   };
 }
