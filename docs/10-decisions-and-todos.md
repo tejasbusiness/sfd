@@ -788,7 +788,7 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - Demos are plain static HTML/CSS/vanilla JS on `preview.synergyfirstdigital.com`. No Node, no React.
 - **Dropped:** an AI voice call-back bot (Retell), because of AI-call consent rules; do not add it back.
 - Adds n8n as a step after the PHP/MySQL save; it does not replace the database (earlier n8n booking plans in docs/07 and 12 were superseded on 2026-09-20).
-- Owner to do: create the Telegram bot and add its credential and chat ID to n8n. Legal: Privacy Policy must name OpenAI, Telegram and Apify (pending lawyer review).
+- Telegram bot `@SFDLeadsBot` is created and tested in n8n (done 2026-11-02; details in docs/15). Legal: Privacy Policy must name OpenAI, Telegram and Apify (pending lawyer review).
 
 ### Preview host created (2026-11-02)
 `preview.synergyfirstdigital.com` is a CloudPanel Static HTML Site with SSL, separate from the main site. The vhost adds `X-Robots-Tag: noindex, nofollow` (server level and the asset block) and uses `expires 1h` for assets. Checked from outside: HTTPS 200, HTTP 301, real 404s, header present. Details and the recommended random-token URL scheme: docs/15. Nothing in this repo changed for it; the vhost is edited in CloudPanel.

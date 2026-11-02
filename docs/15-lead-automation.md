@@ -39,7 +39,7 @@ Possible later automation: "Build" in Telegram starts Claude on a server and dep
 
 - Instance: `https://n8n.apps.synergyfirstdigital.com` (self-hosted, HTTPS).
 - Existing credentials (seen 2026-11-02): Google Drive, IMGBB, Apify, OpenAI, WhatsApp.
-- **Missing:** a Telegram bot credential and the owner's chat ID. Owner creates the bot with @BotFather.
+- **Telegram (done 2026-11-02):** bot `@SFDLeadsBot` created with @BotFather; the token was revoked and regenerated after it was pasted into a chat, then stored only as the n8n credential `SFD Leads Bot` (connection tested). The owner's chat ID was found with a Telegram Trigger and a test message sent successfully with the Send a text message action ("Append n8n Attribution" switched off). The chat ID and token are kept in n8n only, not in this repo. A throwaway workflow `Telegram chat ID test` can be deleted.
 - All secrets live only in n8n credentials and `.env` (rule 11); never in browser code or public JSON.
 
 ## Webhook contract (to build)
@@ -96,8 +96,8 @@ Built and verified 2026-11-02.
 
 ## Owner to do
 
-- Create the Telegram bot (@BotFather) and add the credential and chat ID to n8n.
 - Confirm the token URL scheme at build time.
+- Delete the `Telegram chat ID test` workflow in n8n when no longer needed.
 
 ## Open
 
