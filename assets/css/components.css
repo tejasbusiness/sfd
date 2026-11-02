@@ -3262,6 +3262,60 @@ a.testimonials__rating:hover {
   outline-color: var(--color-primary);
 }
 
+/* Lead mode (industry landing pages, docs/15): the form is two columns on tablet and up and
+   the card is a little wider, so the whole hero (copy, buttons and form) fits above the
+   fold on a laptop. */
+@media (min-width: 40em) {
+  .hero-form__card .sfd-form--lead {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-2);
+  }
+  .hero-form__card .sfd-form--lead textarea.field__control {
+    min-height: 0;
+    height: 3.1rem;
+    resize: none;
+  }
+}
+@media (min-width: 61em) {
+  /* Card 28rem on small laptops, up to 33rem on wide screens; the headline scales with the
+     width so it wraps to two or three lines instead of four or five. */
+  .hero-form--lead .hero-form__grid {
+    grid-template-columns: minmax(0, 1fr) clamp(28rem, 30vw + 6rem, 33rem);
+  }
+  .hero-form--lead h1 {
+    font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+  }
+}
+/* Below 87.5em the sticky bottom tab bar (about 60px) covers the foot of the screen, so the
+   lead hero is tightened further to end above it on a small laptop or landscape tablet. */
+@media (min-width: 61em) and (max-width: 87.49em) {
+  .hero-form--lead .hero-form__content .hero__subheading {
+    font-size: var(--text-base);
+  }
+  .hero-form--lead .hero-form__points {
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+  }
+  .hero-form--lead .hero-form__actions {
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .hero-form--lead .hero-form__actions .button {
+    padding-inline: 1.25rem;
+  }
+}
+@media (min-width: 61em) and (max-height: 820px) {
+  .hero.hero-form--lead {
+    padding-block: var(--space-3);
+  }
+  .hero-form--lead .hero-form__card {
+    padding: var(--space-3) var(--space-4);
+  }
+  .hero-form--lead .hero-form__card .sfd-form {
+    row-gap: 4px;
+  }
+}
+
 /* Client logo strip: one shared .card per logo, fixed-height tiles so wide and
    square marks sit evenly. */
 .client-logos__list {

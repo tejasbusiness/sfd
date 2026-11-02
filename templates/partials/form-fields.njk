@@ -20,8 +20,8 @@
 </div>
 {% endmacro %}
 
-{% macro textarea(id, name, label, required=false, rows=2) %}
-<div class="field field--floating field--full">
+{% macro textarea(id, name, label, required=false, rows=2, full=true) %}
+<div class="field field--floating{{ ' field--full' if full }}">
   <label class="field__label" for="{{ id }}">{{ label }}</label>
   <textarea class="field__control" id="{{ id }}" name="{{ name }}" rows="{{ rows }}" placeholder=" "{{ ' required' if required }}></textarea>
   <p class="field__error" data-error-for="{{ name }}" role="alert" hidden></p>

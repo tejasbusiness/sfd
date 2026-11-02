@@ -6,7 +6,7 @@
    page and UTM parameters are added by the script (trackingFields). #}
 {% from "partials/country-code-options.njk" import options as countryCodeOptions %}
 {% import "partials/form-fields.njk" as fields %}
-<section class="section hero hero--band hero-form">
+<section class="section hero hero--band hero-form{{ ' hero-form--lead' if section.form.mode == "lead" }}">
   <div class="container hero-form__grid">
     <div class="hero-form__content" data-reveal>
       {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
@@ -34,20 +34,20 @@
     <div class="hero-form__panel" data-reveal>
       <div class="card hero-form__card">
         <h2 class="hero-form__title">{{ section.form.heading }}</h2>
-        {% if section.form.intro %}<p class="hero-form__intro">{{ section.form.intro }}</p>{% endif %}
+        {% if section.form.intro and section.form.mode != "lead" %}<p class="hero-form__intro">{{ section.form.intro }}</p>{% endif %}
         {% if section.form.mode == "lead" %}
         {# Lead mode (docs/15): same fields as the Free Preview page, posted to
            /api/preview-applications by free-preview-form.js and tagged with `trade`. #}
-        <form class="sfd-form" data-free-preview-form data-loading-label="Sending…" data-success-title="{{ section.form.successTitle }}" data-success-message="{{ section.form.successMessage }}" novalidate>
+        <form class="sfd-form sfd-form--lead" data-free-preview-form data-loading-label="Sending…" data-success-title="{{ section.form.successTitle }}" data-success-message="{{ section.form.successMessage }}" novalidate>
           {{ fields.honeypot() }}
           <input type="hidden" name="trade" value="{{ section.form.topic }}">
           {{ fields.input("hf-name", "fullName", "Your name *", required=true, autocomplete="name") }}
           {{ fields.input("hf-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
-          {{ fields.phone("hf", countryCodes, countryCodeOptions) }}
+          {{ fields.phone("hf", countryCodes, countryCodeOptions, label="Phone *") }}
           {{ fields.input("hf-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
-          {{ fields.input("hf-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, hint="No website yet? Paste your Google Business Profile link.") }}
+          {{ fields.input("hf-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, full=true) }}
           {{ fields.input("hf-service", "primaryService", "Main service", maxlength="200") }}
-          {{ fields.textarea("hf-problem", "problem", "Anything we should know? (optional)", rows=2) }}
+          {{ fields.textarea("hf-problem", "problem", "Anything we should know?", rows=1, full=false) }}
           {{ fields.consent("hf-consent", "consent", section.form.consentLabel + " *") }}
           <div class="sfd-form__actions field--full">
             <button type="submit" class="button button--primary" data-free-preview-submit>{{ section.form.submitLabel }}</button>
