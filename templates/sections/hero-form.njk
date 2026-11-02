@@ -46,7 +46,7 @@
           {{ fields.phone("hf", countryCodes, countryCodeOptions, label="Phone *") }}
           {{ fields.input("hf-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
           {{ fields.input("hf-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, full=true) }}
-          {{ fields.input("hf-service", "primaryService", "Main service", maxlength="200", full=true, hint="Offering more than one? Separate your services with commas.") }}
+          {{ fields.input("hf-service", "primaryService", "Main service", maxlength="200", full=true, hint="Offering more than one service? Separate your services with commas.") }}
           {{ fields.textarea("hf-problem", "problem", "Anything we should know? (optional)", rows=1) }}
           {{ fields.consent("hf-consent", "consent", section.form.consentLabel + " *") }}
           <div class="sfd-form__actions field--full">

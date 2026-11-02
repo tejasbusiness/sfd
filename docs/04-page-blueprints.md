@@ -95,7 +95,7 @@ Required:
 
 Optional:
 
-- Main service, with the hint "Offering more than one? Separate your services with commas." (the whole text is stored in `primary_service`; the first is the primary service).
+- Main service, with the hint "Offering more than one service? Separate your services with commas." (the whole text is stored in `primary_service`; the first is the primary service).
 - "Anything we should know?"
 
 Details:
