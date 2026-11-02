@@ -42,11 +42,14 @@ Possible later automation: "Build" in Telegram starts Claude on a server and dep
 - **Telegram (done 2026-11-02):** bot `@SFDLeadsBot` created with @BotFather; the token was revoked and regenerated after it was pasted into a chat, then stored only as the n8n credential `SFD Leads Bot` (connection tested). The owner's chat ID was found with a Telegram Trigger and a test message sent successfully with the Send a text message action ("Append n8n Attribution" switched off). The chat ID and token are kept in n8n only, not in this repo. A throwaway workflow `Telegram chat ID test` can be deleted.
 - All secrets live only in n8n credentials and `.env` (rule 11); never in browser code or public JSON.
 
-## Webhook contract (to build)
+## Webhook contract (built 2026-11-02)
 
-- `.env` / `.env-local` gain `N8N_WEBHOOK_URL` and `N8N_WEBHOOK_SECRET` (names are a proposal). Add them to `deploy.md` and `scripts/deploy.ps1` when built.
-- The request carries a timestamp and an HMAC signature of the body; n8n rejects bad or old signatures.
-- The payload holds the lead row (reference, fields above, trade, source page, UTM values) and no secrets.
+- **Env:** `N8N_WEBHOOK_URL` (the n8n Webhook node's **production** URL, `https://n8n.apps.synergyfirstdigital.com/webhook/sfd-lead-intake`) and `N8N_WEBHOOK_SECRET`, plus `WEBHOOK_LOCAL=0` (see `.env.example`). Production `.env` must be uploaded once (`.\deploy.bat -UploadEnv`).
+- **Authentication (changed from the first plan):** a shared secret in the `X-SFD-Webhook-Secret` header, checked by the n8n Webhook node's **Header Auth** credential (header name `X-SFD-Webhook-Secret`, value = the secret). An HMAC of the body was dropped for now: n8n cannot verify an HMAC without a code step and the raw body, while Header Auth is built in, keeps the secret in n8n credentials and is safe over https. The URL is refused unless it is https (except locally). n8n stores received headers in execution data (visible to n8n users only). Upgrade to an HMAC check later if more people get n8n access.
+- **Request:** `POST` JSON, headers `X-SFD-Webhook-Secret`, `X-SFD-Event: lead.created`, `X-SFD-Delivery: <outbox id>` (use it to ignore duplicates) and `X-SFD-Timestamp`.
+- **Body fields:** `event`, `kind` (`free_preview`), `reference`, `fullName`, `email`, `phone` ("+1 5551234567"), `countryCode`, `mobileNumber`, `businessName`, `website`, `services`, `message`, `trade`, `sourcePage`, `utm{...}`, `isTest`, `createdAt`. No secrets. In n8n the body is under `$json.body`.
+- **Delivery:** `webhook_outbox` (migration 015) is written first; the post happens after the visitor's response; failures retry with backoff up to 8 attempts via `api/bin/send-webhooks.php` (cron every 5 minutes); sent rows are purged after 30 days. n8n being down never fails or slows a form.
+- **Which forms:** Free Preview and every industry hero lead form (`/api/preview-applications`). Contact enquiries, bookings, playbook and audit requests are not wired yet.
 
 ## Design kit
 
@@ -89,7 +92,7 @@ Built and verified 2026-11-02.
 ## Build order (next sessions, one task each)
 
 1. **DONE 2026-11-02.** Forms: add business name and website/GBP fields to the industry hero form, make phone required on Free Preview, make message optional on the hero form; use the shared form macros and `form-utils.js`. Update the API validation, a migration for any new columns, and the docs.
-2. Webhook sender with signature and retry queue in the PHP API; env variables; deploy docs.
+2. **DONE 2026-11-02 (code and docs; not deployed).** Webhook sender with shared-secret header and retry queue in the PHP API (`api/src/Webhook.php`, `api/bin/send-webhooks.php`, migration 015); env variables; deploy docs. Tested locally against a throwaway MySQL and a fake receiver: delivery with the right headers and body, n8n down (500) still gives the visitor a 201, retry succeeds, "not configured" keeps rows queued, http refused outside local, local skip, give-up after 8 attempts, 30-day purge. **Still to do to go live:** n8n Webhook node set to Header Auth, `N8N_` lines in the production `.env`, deploy with `-Migrate -UploadEnv`, the `send-webhooks.php` cron, one real test lead.
 3. n8n workflow (Telegram alert, Apify research, design-kit pick, OpenAI prompt, Telegram file and buttons) and the design kits.
 4. Demo expiry cron, token URLs, and a dry run with a real lead.
 Step 1 notes: the Garage Door hero form now uses `form.mode: "lead"` (hero-form.njk) and the same script as Free Preview; both post to `/api/preview-applications`; phone is required in the browser and the API; migration `014_preview_applications_trade.sql` adds `trade` and **must be applied on deploy** (`.\deploy.bat -Migrate`). The industry hero form's old required message is now an optional "Anything we should know?". Tested in a browser with a mocked API (empty-phone error, payload including `trade`, toast, reset); not tested against the live API.
@@ -100,6 +103,8 @@ Step 1 notes: the Garage Door hero form now uses `form.mode: "lead"` (hero-form.
 
 - Confirm the token URL scheme at build time.
 - Delete the `Telegram chat ID test` workflow in n8n when no longer needed.
+- In n8n: create a **Header Auth** credential (name `SFD Lead Webhook`, header `X-SFD-Webhook-Secret`, value = the secret from `.env`), set the Webhook node's Authentication to Header Auth with it, keep the workflow Active.
+- Add the CloudPanel cron for `send-webhooks.php` (deploy.md Appendix B).
 
 ## Open
 

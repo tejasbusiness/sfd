@@ -286,6 +286,31 @@ final class App
         );
         $id = Db::insertId();
 
+        // Instant lead alert and demo-prompt workflow in n8n (docs/15). Queued first so it is posted
+        // first after the response; the field names match the n8n Telegram message.
+        Webhook::enqueue('lead.created', [
+            'event' => 'lead.created',
+            'kind' => 'free_preview',
+            'reference' => $reference,
+            'fullName' => $c['fullName'],
+            'email' => $c['email'],
+            'phone' => $c['countryCode'] . ' ' . $c['mobileNumber'],
+            'countryCode' => $c['countryCode'],
+            'mobileNumber' => $c['mobileNumber'],
+            'businessName' => $c['businessName'],
+            'website' => $c['website'],
+            'services' => (string) $c['primaryService'],
+            'message' => (string) $c['problem'],
+            'trade' => (string) $c['trade'],
+            'sourcePage' => (string) $t['source_page'],
+            'utm' => [
+                'source' => $t['utm_source'], 'medium' => $t['utm_medium'], 'campaign' => $t['utm_campaign'],
+                'term' => $t['utm_term'], 'content' => $t['utm_content'],
+            ],
+            'isTest' => Env::isLocal(),
+            'createdAt' => gmdate('c'),
+        ], 'preview', $id);
+
         Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview request: {$c['businessName']}", 'A business asked to see their new website (Free Website Preview).', [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'],
             'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'], 'Trade' => (string) $c['trade'],

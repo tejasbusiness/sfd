@@ -289,6 +289,7 @@ Then hard-refresh. This restores the static files only. If the problem is in the
 | CloudPanel rejects the vhost | Duplicate `location /` or `error_page`, or a missing brace. Compare with Appendix A. |
 | Emails not arriving but the outbox says `sent` | The mailbox side: check the `hello@` mailbox exists in Hostinger, its spam folder and any bounce in the `noreply@` mailbox. |
 | Emails stuck as `queued` | Run the retry command in Step 11 and set up the cron (Appendix B). |
+| Lead alerts missing in Telegram | Check `webhook_outbox` (`status`, `last_error`): `not set` means the `N8N_` lines are missing from the server `.env`; `HTTP 4xx` usually means the secret does not match n8n's Header Auth credential or the n8n workflow is not Active; then run `php $SITE/api/bin/send-webhooks.php`. |
 | `build:production` fails on validation | Read the listed errors (missing SEO fields, unknown redirect targets, missing `og-default.jpg`), fix, rebuild. |
 
 ---
@@ -450,11 +451,14 @@ The redirect lines inside the markers are generated: after adding a redirect, pa
 3. **Vhost:** paste the config from Appendix A.
 4. **Varnish:** turn it off for this site (Sites, then Varnish Cache).
 5. **Deploy user:** `sfd-deploy` with key login and write access to the site folder (it must be in the site group). Its private key is on your PC at `C:/Users/victus/.ssh/sfd`.
-6. **Database:** MySQL `sfd-2026-db` with user `sfd-2026-user`; migrations `001` to `010` applied; `011` (`website_reviews`), `012` (simplified Free Preview request) and `013` (20-minute calls), all from 2026-10-02, must be applied on the next deploy (`.\deploy.bat -Migrate`, or accept the prompt). MySQL is never exposed to the internet; local development reaches it through `npm run tunnel` (SSH tunnel on port 3307).
-7. **Production `.env`:** created from `.env.example` with real values (`APP_ENV=production`, `SITE_URL=https://synergyfirstdigital.com`, `ALLOWED_ORIGINS`, `RATE_LIMIT_SALT`, `DB_*`, `SMTP_*` for Hostinger, `MAIL_LOCAL=0`, `GOOGLE_ENABLED=0` until Google Calendar is set up). Upload with Step 5b.
+6. **Database:** MySQL `sfd-2026-db` with user `sfd-2026-user`; migrations `001` to `014` applied (2026-11-02); `015` (`webhook_outbox`, the n8n lead webhook queue) must be applied on the next deploy (`.\deploy.bat -Migrate`, or accept the prompt). MySQL is never exposed to the internet; local development reaches it through `npm run tunnel` (SSH tunnel on port 3307).
+7. **Production `.env`:** created from `.env.example` with real values (`APP_ENV=production`, `SITE_URL=https://synergyfirstdigital.com`, `ALLOWED_ORIGINS`, `RATE_LIMIT_SALT`, `DB_*`, `SMTP_*` for Hostinger, `MAIL_LOCAL=0`, `N8N_WEBHOOK_URL` (the n8n Webhook node's **production** URL, https) and `N8N_WEBHOOK_SECRET` (the same secret as the n8n Header Auth credential), `GOOGLE_ENABLED=0` until Google Calendar is set up). Upload with Step 5b; **the `.env` must be uploaded (`-UploadEnv`) once after adding the two `N8N_` lines**, otherwise lead alerts stay queued with "not set".
 8. **Outbox cron:** CloudPanel, Cron Jobs, every 10 minutes (`*/10 * * * *`), command exactly:
    `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-outbox.php`
    (the leading `php` is required).
+   **Webhook cron** (n8n lead alerts, added 2026-11-02): same screen, every 5 minutes (`*/5 * * * *`), command exactly:
+   `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-webhooks.php`
+   It retries leads that n8n did not accept the first time and removes sent webhook rows after 30 days.
 9. **DNS and mail:** the domain's A record points at the server; MX, SPF and DKIM point at Hostinger mail.
 10. **First deploy order:** set the Root Directory (2) and vhost (3), then run Steps 1 to 8, then verify (Step 10).
 
