@@ -801,3 +801,10 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Layout:** at 390 and 1024px the taller hero form causes no horizontal overflow and the page keeps one H1.
 - **Not tested:** a real submission against the live API and database; keyboard and screen-reader pass.
 - **Next in docs/15:** webhook sender with signature and retry queue, then the n8n workflow.
+
+### Garage Door hero: everything above the fold (2026-11-02)
+- **Owner request:** the taller lead form pushed the form's button below the fold; restructure the hero so no text, button or form content is below it.
+- **Changes** (lead mode only; the Websites hero is untouched): two-column form from tablet width, no card intro or hint line, short phone label ("Phone *"), a half-width message box, a 28 to 33rem card and a headline that scales with width (`.hero-form--lead`, `.sfd-form--lead` in `components.css`; optional `full=false` on the shared `textarea` macro). Small laptops (61em to 87.5em) get slightly tighter copy and buttons so the hero also clears the 60px bottom tab bar shown below 1400px.
+- **Measured** (hero bottom vs the fold, and the tab bar top where shown): 1920x960 ends at 630; 1440x790 at 613; 1399x700 at 578; 1366x650 at 562 (tab bar at 592); 1280x720 at 552; 1100x700 at 531 (tab bar at 641); 1024x700 at 629 (buttons stack, still clear). No horizontal overflow at any of them.
+- **Exception, as on the homepage:** on tablet portrait and phones the hero stacks (copy, then form), so the form is below the fold there. A stacked layout cannot fit a seven-field form and the copy in one phone screen.
+- **Not tested:** a real submission after this change (field names are unchanged, so the earlier mocked test still applies).
