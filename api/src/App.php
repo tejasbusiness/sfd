@@ -260,10 +260,12 @@ final class App
         $in = Http::body();
         self::honeypot($in);
 
-        // Low-friction request (2026-10-02): name, email, business name and one website or
-        // Google Business Profile URL are required; phone, service and message are optional.
+        // Lead request: name, email, phone (required since 2026-11-02), business name and one
+        // website or Google Business Profile URL are required; service and message are optional.
+        // `trade` is a hidden field set by industry hero forms (e.g. "Garage Door Services").
         $v = (new Validator($in))
-            ->text('fullName', 'Full name', 120)->email()->phone(false)
+            ->text('fullName', 'Full name', 120)->email()->phone()
+            ->text('trade', 'Trade', 60, false)
             ->text('businessName', 'Business name', 160)->website('website', 500, true)
             ->text('primaryService', 'Primary service', 200, false)->text('problem', 'Message', 5000, false)->consent();
         self::failIfInvalid($v);
@@ -276,17 +278,17 @@ final class App
         // `website` holds the one URL the visitor gave: their website or their Google Business Profile.
         Db::run(
             'INSERT INTO preview_applications (reference, full_name, email, country_code, mobile_number, business_name, website,
-                primary_service, problem, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+                primary_service, problem, trade, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
             [$reference, $c['fullName'], $c['email'], $c['countryCode'], $c['mobileNumber'], $c['businessName'], $c['website'],
-             $c['primaryService'], $c['problem'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
+             $c['primaryService'], $c['problem'], $c['trade'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
              $t['utm_campaign'], $t['utm_term'], $t['utm_content'], Http::ipHash(), Http::userAgent(), Env::isLocal() ? 1 : 0]
         );
         $id = Db::insertId();
 
         Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview request: {$c['businessName']}", 'A business asked to see their new website (Free Website Preview).', [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'],
-            'Phone' => $c['mobileNumber'] ? $c['countryCode'] . ' ' . $c['mobileNumber'] : '',
+            'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'], 'Trade' => (string) $c['trade'],
             'Business' => $c['businessName'], 'Website or Google Business Profile' => $c['website'],
             'Primary service' => (string) $c['primaryService'], 'Message' => (string) $c['problem'],
         ], 'preview', $id, $c['email']);

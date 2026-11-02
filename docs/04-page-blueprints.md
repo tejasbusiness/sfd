@@ -57,7 +57,7 @@ Each industry page contains:
 
 Do not publish thin near-duplicate vertical pages.
 
-**Garage Door Services (`/industries/garage-door-services/`, 2026-11-02).** First trade landing page, built from `data/pages/industries-garage-door-services.json` with existing sections only: `hero-form` (enquiry form, topic `Garage Door Services`, locked CTAs), common-problems `feature-grid`, a single illustrative `preview-concepts` card (same concept as the homepage), "what we build" `feature-grid`, four-step `process`, `faq-split` (shared FAQ ids `cost`, `no-upfront-fee`, `preview-free`, `ownership`, `timing`), `link-cards` (Pricing, SEO, Website Care) and a closing CTA. Schema: WebPage, Service, FAQPage, BreadcrumbList. No testimonials, pricing cards or statistics (none exist for this trade). Use it as the model for Tree Services.
+**Garage Door Services (`/industries/garage-door-services/`, 2026-11-02).** First trade landing page, built from `data/pages/industries-garage-door-services.json` with existing sections only: `hero-form` (lead mode: same fields as Free Preview, trade `Garage Door Services`, locked CTAs), common-problems `feature-grid`, a single illustrative `preview-concepts` card (same concept as the homepage), "what we build" `feature-grid`, four-step `process`, `faq-split` (shared FAQ ids `cost`, `no-upfront-fee`, `preview-free`, `ownership`, `timing`), `link-cards` (Pricing, SEO, Website Care) and a closing CTA. Schema: WebPage, Service, FAQPage, BreadcrumbList. No testimonials, pricing cards or statistics (none exist for this trade). Use it as the model for Tree Services.
 
 ## Websites / Portfolio
 
@@ -88,13 +88,13 @@ Required:
 
 - Your name.
 - Email address.
+- **Phone** (country code + 10-digit number). Required since 2026-11-02, so the instant lead alert can be acted on (docs/15).
 - Business name.
 - **Website or Google Business Profile URL.** This is one field, so a business with no website can paste its Google Business Profile link; the hint says so. It is stored in `website`.
 - Consent: the right to share the information, and that a preview is not guaranteed for every request.
 
 Optional:
 
-- Phone (country code + 10-digit number).
 - Main service.
 - "Anything we should know?"
 
@@ -133,6 +133,8 @@ Section order: `hero-form` (copy, three bullets, the free preview and discovery 
 8. Related services (`link-cards`) and the free preview call to action.
 
 Sources: Websites, Website Care, Digital Marketing and AI & Automation copy come from `plans.json` and the earlier page copy; nothing new was invented. **SEO** is a standalone service as well as part of the managed plans and leads with a **free website audit** (owner-confirmed offer; the form asks for the site address in the message). The audit's exact scope is not described beyond "we review your current website and Google Business Profile and tell you what needs attention", (wording approved by the owner 2026-09-21). Reference pages analysed: icreateyoursite.com `/seo/`, `/ai-services/`, `/1-on-1-website-help/`. The 1-on-1 help product (a paid coaching session with a flat price) is not offered; live WordPress help is covered by Website Care.
+
+**Same fields on industry hero forms (2026-11-02).** The `hero-form` section has a `lead` mode (`form.mode: "lead"` in the page JSON) that renders exactly these fields, driven by `assets/js/free-preview-form.js`, posting to `/api/preview-applications` with a hidden `trade` value (`form.topic`, e.g. `Garage Door Services`). Its heading, intro, button, consent and success text come from the page JSON. The Websites service page's hero form is unchanged (contact enquiry: name, email, phone, message, topic `Websites`).
 
 ## Free Preview page (`/free-preview/`)
 

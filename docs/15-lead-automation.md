@@ -88,10 +88,12 @@ Built and verified 2026-11-02.
 
 ## Build order (next sessions, one task each)
 
-1. Forms: add business name and website/GBP fields to the industry hero form, make phone required on Free Preview, make message optional on the hero form; use the shared form macros and `form-utils.js`. Update the API validation, a migration for any new columns, and the docs.
+1. **DONE 2026-11-02.** Forms: add business name and website/GBP fields to the industry hero form, make phone required on Free Preview, make message optional on the hero form; use the shared form macros and `form-utils.js`. Update the API validation, a migration for any new columns, and the docs.
 2. Webhook sender with signature and retry queue in the PHP API; env variables; deploy docs.
 3. n8n workflow (Telegram alert, Apify research, design-kit pick, OpenAI prompt, Telegram file and buttons) and the design kits.
 4. Demo expiry cron, token URLs, and a dry run with a real lead.
+Step 1 notes: the Garage Door hero form now uses `form.mode: "lead"` (hero-form.njk) and the same script as Free Preview; both post to `/api/preview-applications`; phone is required in the browser and the API; migration `014_preview_applications_trade.sql` adds `trade` and **must be applied on deploy** (`.\deploy.bat -Migrate`). The industry hero form's old required message is now an optional "Anything we should know?". Tested in a browser with a mocked API (empty-phone error, payload including `trade`, toast, reset); not tested against the live API.
+
 5. Also pending: the email-outbox retry cron (docs/10), Privacy Policy provider names, then Tree Services page.
 
 ## Owner to do

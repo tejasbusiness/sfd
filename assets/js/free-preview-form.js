@@ -1,7 +1,9 @@
 // Free Website Preview request ("Show Me My New Website"). Validates in the browser,
-// then POSTs to /api/preview-applications (docs/14). Per docs/04-page-blueprints.md it
-// must never claim to guarantee a preview. Required: name, email, business name and
-// one website or Google Business Profile URL; phone, service and message are optional.
+// then POSTs to /api/preview-applications (docs/14). The same script drives the free
+// preview page and the industry hero "lead" form (hero-form.njk, docs/15); the hero form
+// adds a hidden `trade` field. Per docs/04-page-blueprints.md it
+// must never claim to guarantee a preview. Required: name, email, phone, business name and
+// one website or Google Business Profile URL; service and message are optional.
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
 import {
@@ -23,7 +25,8 @@ function validate(data) {
   const errors = {};
   if (!data.fullName) errors.fullName = 'Your name is required.';
   if (!isValidEmail(data.email)) errors.email = 'Enter a valid email address.';
-  if (data.mobileNumber && !isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
+  if (!data.countryCode) errors.countryCode = 'Select a country code.';
+  if (!isValidMobileNumber(data.mobileNumber)) errors.mobileNumber = 'Enter a valid 10-digit mobile number.';
   if (!data.businessName) errors.businessName = 'Business name is required.';
   if (!data.website) errors.website = 'Add your website or Google Business Profile link.';
   else if (!isValidWebsite(data.website)) errors.website = WEBSITE_ERROR_MESSAGE;

@@ -43,6 +43,7 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 | 010 | Owner-decided hours (two windows, Monday to Friday) |
 | 011 | `website_reviews` (Free Website Audit / "Free Audit Report" requests, homepage) |
 | 012 | `preview_applications`: phone, country, city and category nullable; `website` holds the website **or** Google Business Profile URL (simplified Free Preview request) |
+| 014 | `preview_applications.trade` (nullable, 60 characters): set by industry hero forms, e.g. `Garage Door Services`; empty for the Free Preview page. The columns for phone stay nullable for old rows, but the API now requires a phone for new requests. Deploy with `.\deploy.bat -Migrate` |
 | 013 | `call_duration_minutes` = 20 (free 20-minute call) |
 
 `schema_migrations` is created by the runner itself.
@@ -62,7 +63,7 @@ Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/
 | `GET /api/availability?timezone=` | Open slots grouped by date in the visitor's timezone (MySQL rules, existing bookings, Google free/busy when enabled) |
 | `POST /api/bookings` | Book a call. `Idempotency-Key` header (UUID). 201 created, 200 same key replayed, 409 `slot_unavailable`, 422 field errors |
 | `POST /api/contact` | Contact form and the Websites landing hero form (`topic` is sent as a hidden field; `source` is optional) |
-| `POST /api/preview-applications` | Free Preview request ("Show Me My New Website"): required `fullName`, `email`, `businessName`, `website` (website or Google Business Profile URL); optional phone (`countryCode` + `mobileNumber`), `primaryService`, `problem`; consent |
+| `POST /api/preview-applications` | Free Preview request ("Show Me My New Website"): required `fullName`, `email`, phone (`countryCode` + `mobileNumber`, required since 2026-11-02), `businessName`, `website` (website or Google Business Profile URL); optional `primaryService`, `problem`, hidden `trade`; consent. Used by the Free Preview page and industry hero forms (docs/15). The owner email shows the phone and the trade |
 | `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
 | `POST /api/website-review` | Free Website Audit ("Free Audit Report") request: `website` (required, bare domains get `https://`), `email`, optional `businessName`, consent. Stored in `website_reviews` with a `WR-` reference; owner notified, visitor gets a confirmation. The audit report itself is prepared and emailed by hand |
 | `POST /api/consent` | Records the cookie-banner choice |

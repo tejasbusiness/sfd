@@ -792,3 +792,12 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 
 ### Preview host created (2026-11-02)
 `preview.synergyfirstdigital.com` is a CloudPanel Static HTML Site with SSL, separate from the main site. The vhost adds `X-Robots-Tag: noindex, nofollow` (server level and the asset block) and uses `expires 1h` for assets. Checked from outside: HTTPS 200, HTTP 301, real 404s, header present. Details and the recommended random-token URL scheme: docs/15. Nothing in this repo changed for it; the vhost is edited in CloudPanel.
+
+### Unified lead form fields built (2026-11-02)
+- **What changed:** the Free Preview form now requires phone; the Garage Door hero form switched from a contact enquiry (message required, no business or website) to the same lead fields as Free Preview (name, email, phone, business name, website or Google Business Profile URL; optional main service and message). Both post to `/api/preview-applications`; the hero form adds a hidden `trade` (`Garage Door Services`). See docs/04, docs/14 and docs/15.
+- **How:** `hero-form.njk` got a `lead` mode (page JSON `form.mode`), `free-preview-form.js` validates phone, the API requires phone and stores `trade` (migration `014_preview_applications_trade.sql`), and the owner email shows phone and trade. The Websites service page hero form is unchanged (contact enquiry).
+- **Checks:** `validate`, `test:validation`, `build:production` and PHP lint pass. In a browser with a mocked API: empty form shows all required errors, a missing phone blocks submit, a full submit sends the right payload with `trade`, shows the success toast and resets. Hero layout checked at 1440px (the taller form fits inside the hero band).
+- **Needs deploy with migrations:** `.\deploy.bat -Migrate` (014, plus 011 to 013 if not yet applied).
+- **Layout:** at 390 and 1024px the taller hero form causes no horizontal overflow and the page keeps one H1.
+- **Not tested:** a real submission against the live API and database; keyboard and screen-reader pass.
+- **Next in docs/15:** webhook sender with signature and retry queue, then the n8n workflow.

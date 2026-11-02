@@ -35,6 +35,25 @@
       <div class="card hero-form__card">
         <h2 class="hero-form__title">{{ section.form.heading }}</h2>
         {% if section.form.intro %}<p class="hero-form__intro">{{ section.form.intro }}</p>{% endif %}
+        {% if section.form.mode == "lead" %}
+        {# Lead mode (docs/15): same fields as the Free Preview page, posted to
+           /api/preview-applications by free-preview-form.js and tagged with `trade`. #}
+        <form class="sfd-form" data-free-preview-form data-loading-label="Sending…" data-success-title="{{ section.form.successTitle }}" data-success-message="{{ section.form.successMessage }}" novalidate>
+          {{ fields.honeypot() }}
+          <input type="hidden" name="trade" value="{{ section.form.topic }}">
+          {{ fields.input("hf-name", "fullName", "Your name *", required=true, autocomplete="name") }}
+          {{ fields.input("hf-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
+          {{ fields.phone("hf", countryCodes, countryCodeOptions) }}
+          {{ fields.input("hf-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
+          {{ fields.input("hf-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, hint="No website yet? Paste your Google Business Profile link.") }}
+          {{ fields.input("hf-service", "primaryService", "Main service", maxlength="200") }}
+          {{ fields.textarea("hf-problem", "problem", "Anything we should know? (optional)", rows=2) }}
+          {{ fields.consent("hf-consent", "consent", section.form.consentLabel + " *") }}
+          <div class="sfd-form__actions field--full">
+            <button type="submit" class="button button--primary" data-free-preview-submit>{{ section.form.submitLabel }}</button>
+          </div>
+        </form>
+        {% else %}
         <form class="sfd-form" data-contact-form data-success-title="Message received" data-success-message="Thank you for getting in touch. We'll read your message and reply by email." novalidate>
           {{ fields.honeypot() }}
           <input type="hidden" name="topic" value="{{ section.form.topic }}">
@@ -47,6 +66,7 @@
             <button type="submit" class="button button--primary" data-contact-submit>{{ section.form.submitLabel or "Send enquiry" }}</button>
           </div>
         </form>
+        {% endif %}
       </div>
     </div>
   </div>
