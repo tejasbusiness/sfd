@@ -780,3 +780,18 @@ The homepage is production-ready and **frozen**. Do not redesign or rework its c
   3. The five old industry pages still use the old "Get My Free Website Preview" label (keep, redirect or replace).
   4. Add garage door reviews and project photos when real ones exist.
 - **Next:** Tree Services, built on this page as the model.
+
+### Lead-response automation plan: n8n alert + demo prompt (2026-11-02, PLAN ONLY, not built)
+Problem: "we reply by email" is too slow for hot leads. Decisions agreed with the owner in the Garage Door session; build in its own fresh session.
+
+- **Unified lead form fields (owner):** the Free Preview form and every industry hero form carry the same fields. Required: full name, email, **phone (now required on Free Preview)**, business name, one "Website or Google Business Profile URL". Optional: main service, message. Both post to one endpoint (tagged with trade and source page) into one table, so one n8n workflow handles every lead. The hero form currently asks name, email, phone and a required message and must change; Free Preview currently has phone optional. Needs: shared form macros, API validation, a migration, Privacy/consent wording check.
+- **Flow:** the PHP API saves the row, replies to the visitor, then POSTs a signed payload to the n8n webhook (`https://n8n.apps.synergyfirstdigital.com`, self-hosted). A shared secret lives in `.env` only (rule 11). Failed posts go into a retry queue like the email outbox, so no lead is lost.
+- **n8n steps:** (1) verify the signature; (2) Telegram alert 1 straight away: name, tap-to-call phone, business, URL, source page, campaign; (3) Apify reads the prospect's website and Google Business Profile (verified facts only); (4) pick a palette and font pair from the curated design kit; (5) OpenAI writes the master prompt; (6) Telegram message 2: short summary plus the prompt as a `.md` file (Telegram caps messages at 4096 characters) with Call / Build / Skip buttons; the file can also be saved to Google Drive. n8n already has OpenAI, Apify, Google Drive, IMGBB and WhatsApp credentials. **Telegram bot not yet created** (owner: @BotFather, add credential and chat ID to n8n).
+- **Design kit:** a small curated library in the repo: Garage Door, Tree Services and one general local-service kit, each with 3 contrast-checked (WCAG AA) palettes and 3 font pairs. OpenAI picks from it and says why; it adapts to the prospect's brand colours only if contrast still passes. Per-trade starter sites ("niche starter repositories") come after 5 to 10 demos.
+- **Prompt rules:** never invent reviews, licences, statistics, prices or "same-day" claims; unverified facts are marked as placeholders. Output is a 2 to 3 page demo.
+- **Demos:** hosted on `preview.synergyfirstdigital.com/<business>/`, `noindex, nofollow`, expiring after 7 days (docs/06; preview mode is not yet built). Owner adds the DNS record later.
+- **Owner setup to do:** Telegram bot and chat ID; DNS for the preview host.
+- **Legal:** the Privacy Policy must name OpenAI and Telegram (and Apify) as processors; n8n is already named. Add to the pending lawyer review.
+- **Decision history:** this adds n8n back as a step after the PHP/MySQL save (docs/07 and 12 planned n8n for bookings on 2026-09-20 and were superseded); it does not replace the database.
+- **Dropped (owner, 2026-11-02):** an AI voice call-back bot (Retell). Consent rules for AI calls (TCPA, EU, Canada, Australia) made it a poor first step; do not add it to the plan.
+- **Open:** where the hero form's required message goes (now optional); instant alert channel could switch to WhatsApp later (needs approved templates).
