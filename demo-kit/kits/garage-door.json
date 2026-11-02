@@ -128,7 +128,7 @@
   "ctaLabels": {
     "call": "Call Now",
     "quote": "Request Service",
-    "preview": "Request a Free Quote"
+    "preview": "Contact Us"
   },
   "trustCueRule": "Licensing, insurance, warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: licence number].",
   "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised garage door, tools) and marked photo placeholders such as [PHOTO: completed installation]."

@@ -84,6 +84,19 @@ test('website text extraction keeps facts and drops scripts', () => {
   assert.ok(!r.text.includes('color:red'));
 });
 
+test('HTML entities are decoded, including numeric ones', () => {
+  const r = lib.extractResearch('<html><head><title>A &amp; B</title></head><body><p>Open now &#8599; &#x2192; it&#39;s great. We are a local company serving many homes and businesses every year.</p></body></html>', 'https://x.example');
+  assert.equal(r.title, 'A & B');
+  assert.ok(!r.text.includes('&#'));
+  assert.ok(r.text.includes('\u2197') && r.text.includes('\u2192') && r.text.includes("it's"));
+});
+
+test('closing buttons never promise free quotes (the prompt forbids free-estimate claims)', () => {
+  for (const kit of Object.values(kits)) {
+    for (const [key, label] of Object.entries(kit.ctaLabels)) assert.ok(!/free/i.test(label), `${kit.id}.${key}: ${label}`);
+  }
+});
+
 test('Google Business Profile links and empty pages give no research', () => {
   for (const url of ['https://www.google.com/maps/place/Acme', 'https://maps.app.goo.gl/abc', 'https://g.page/acme']) {
     const r = lib.extractResearch(html, url);
@@ -112,11 +125,12 @@ test('AI request carries options, not secrets, and omits research for profile li
 
 test('AI answers are validated, with safe fallbacks', () => {
   const kit = kits['tree-services'];
-  const good = lib.parseAi(JSON.stringify({ paletteId: 'sage-terracotta', fontPairId: 'bitter-nunito', services: ['Tree removal', 5, ''], verifiedFacts: [{ fact: 'Family run', source: 'website' }, { fact: '' }] }), kit);
+  const good = lib.parseAi(JSON.stringify({ paletteId: 'sage-terracotta', fontPairId: 'bitter-nunito', services: ['Tree removal', 5, ''], verifiedFacts: [{ fact: 'Family run', source: 'website' }, { fact: 'Copied from the form', source: 'lead form' }, { fact: '', source: 'website' }] }), kit);
   assert.equal(good.palette.id, 'sage-terracotta');
   assert.equal(good.font.id, 'bitter-nunito');
   assert.deepEqual(good.services, ['Tree removal']);
-  assert.equal(good.verifiedFacts.length, 1);
+  assert.equal(good.verifiedFacts.length, 1, 'only website-sourced, non-empty facts are kept');
+  assert.equal(good.verifiedFacts[0].source, 'website');
   const bad = lib.parseAi('not json at all', kit);
   assert.equal(bad.palette.id, kit.palettes[0].id);
   assert.equal(bad.paletteFellBack, true);
@@ -135,7 +149,7 @@ test('tokens are 10 unguessable characters', () => {
 function render(extra = {}) {
   const kit = kits['garage-door'];
   const research = lib.extractResearch(html, lead.website);
-  const ai = lib.parseAi(JSON.stringify({ paletteId: 'charcoal-yellow', fontPairId: 'oswald-source', designRationale: 'Bold and practical.', businessSummary: 'Acme repairs and installs garage doors.', services: ['Garage door repair', 'Openers'], serviceArea: 'Springfield', heroHeadline: 'Garage door repair in Springfield', heroSubheadline: 'Repairs, installation and openers.', verifiedFacts: [{ fact: 'Family run', source: 'website' }], missingInfo: ['Business hours', 'Warranty terms'] }), kit);
+  const ai = lib.parseAi(JSON.stringify({ paletteId: 'charcoal-yellow', fontPairId: 'oswald-source', designRationale: 'Bold and practical.', services: ['Garage door repair', 'Openers'], serviceArea: 'Springfield', heroHeadline: 'Garage door repair in Springfield', heroSubheadline: 'Repairs, installation and openers.', verifiedFacts: [{ fact: 'Family run', source: 'website' }] }), kit);
   return lib.renderPrompt({ lead, research, ai, kit, token: 'abc123xyz9', expiresAtIso: '2026-11-09T07:02:00.000Z', previewBaseUrl: 'https://preview.synergyfirstdigital.com/', template, ...extra });
 }
 
@@ -156,8 +170,12 @@ test('master prompt is complete, safe and has no leftover placeholders', () => {
   assert.ok(prompt.includes('--primary: #2B2D31;'));
   assert.ok(prompt.includes('Oswald'));
   assert.ok(prompt.includes('+1-555-000-1111'), 'phone found on their own website');
-  assert.ok(missing.includes('Warranty terms') && missing.includes('Business hours'));
-  assert.equal(missing.filter((m) => m === 'Business hours').length, 1, 'no duplicates');
+  assert.ok(missing.includes('Business hours') && missing.includes('Years in business'));
+  assert.equal(new Set(missing.map((m) => m.toLowerCase())).size, missing.length, 'no duplicate items');
+  assert.ok(missing.length <= 10, 'a short checklist, not a long one');
+  assert.ok(prompt.includes('Family run (source: website)'));
+  assert.equal((prompt.match(/Acme Garage Doors/g) || []).length > 0, true);
+  assert.ok(!/source: website\)[^\n]*Acme repairs/.test(prompt), 'no AI summary mislabelled as website');
 });
 
 test('the lead\'s own phone and email never reach the prompt, and visitor text cannot escape its block', () => {

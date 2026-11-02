@@ -129,7 +129,7 @@
   "ctaLabels": {
     "call": "Call Now",
     "quote": "Request a Quote",
-    "preview": "Get a Free Quote"
+    "preview": "Contact Us"
   },
   "trustCueRule": "Licensing, insurance, certifications (for example an arborist certification), warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: insurance details].",
   "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised tree, leaves) and marked photo placeholders such as [PHOTO: crew at work]."
