@@ -1,0 +1,135 @@
+{
+  "id": "garage-door",
+  "label": "Garage Door Services",
+  "matchTrades": ["garage door services", "garage door", "garage doors"],
+  "audienceNote": "Homeowners searching on a phone, often with a broken door in front of them. They want to call quickly, see that the company covers their area, and trust it.",
+  "tone": "Direct, reliable, calm and practical. Short sentences. No hype.",
+  "palettes": [
+    {
+      "id": "steel-signal",
+      "name": "Steel & Signal",
+      "mood": "Dependable navy with a warm orange signal for calls to action. Strong and professional.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F3F5F8",
+        "text": "#14202E",
+        "textMuted": "#4A5868",
+        "primary": "#12355B",
+        "onPrimary": "#FFFFFF",
+        "accent": "#F28C28",
+        "onAccent": "#14202E",
+        "dark": "#0E1F33",
+        "onDark": "#FFFFFF",
+        "border": "#D3D9E1"
+      }
+    },
+    {
+      "id": "charcoal-yellow",
+      "name": "Charcoal & Safety Yellow",
+      "mood": "Workshop feel: dark charcoal with a bright safety yellow. Bold and high contrast.",
+      "colors": {
+        "bg": "#FAFAF7",
+        "surface": "#F0EFE9",
+        "text": "#1C1C1C",
+        "textMuted": "#55554F",
+        "primary": "#2B2D31",
+        "onPrimary": "#FFFFFF",
+        "accent": "#FFC20E",
+        "onAccent": "#1C1C1C",
+        "dark": "#1C1D20",
+        "onDark": "#FFFFFF",
+        "border": "#D9D8D0"
+      }
+    },
+    {
+      "id": "garage-red-slate",
+      "name": "Garage Red & Slate",
+      "mood": "Confident red for urgency with a cool steel-blue highlight on a slate band. Warm and approachable.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F4F1EE",
+        "text": "#231F20",
+        "textMuted": "#5A5350",
+        "primary": "#B3261E",
+        "onPrimary": "#FFFFFF",
+        "accent": "#9CC0D4",
+        "onAccent": "#1D2B33",
+        "dark": "#22303A",
+        "onDark": "#FFFFFF",
+        "border": "#DDD6D0"
+      }
+    }
+  ],
+  "fontPairs": [
+    {
+      "id": "barlow",
+      "name": "Barlow Condensed + Barlow",
+      "heading": "Barlow Condensed",
+      "body": "Barlow",
+      "headingWeights": "600;700",
+      "bodyWeights": "400;500;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap",
+      "mood": "Sturdy, industrial and very readable on a phone."
+    },
+    {
+      "id": "oswald-source",
+      "name": "Oswald + Source Sans 3",
+      "heading": "Oswald",
+      "body": "Source Sans 3",
+      "headingWeights": "500;600",
+      "bodyWeights": "400;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap",
+      "mood": "Tall, confident headlines with a friendly, neutral body."
+    },
+    {
+      "id": "archivo-inter",
+      "name": "Archivo + Inter",
+      "heading": "Archivo",
+      "body": "Inter",
+      "headingWeights": "600;700",
+      "bodyWeights": "400;500;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap",
+      "mood": "Clean and modern; reads as a well-run, current company."
+    }
+  ],
+  "pages": [
+    {
+      "file": "index.html",
+      "name": "Home",
+      "sections": [
+        "Header with the business name, a click-to-call phone button and a Request Service button",
+        "Hero: the main service, the service area if known, one primary call button and one secondary quote button",
+        "Services overview: repair, new door installation, openers and remotes, only those the business actually offers",
+        "How it works: a simple three-step path from call or request to completed job (no promised times)",
+        "Service area (only if known)",
+        "Questions customers ask (generic, no invented policies)",
+        "Final call to action with the phone number and quote request"
+      ]
+    },
+    {
+      "file": "services.html",
+      "name": "Services",
+      "sections": [
+        "One block per service the business offers (repair, installation, openers and remotes, maintenance), each with a short description and a call button",
+        "Emergency versus scheduled work, described without promising response times",
+        "Quote request section"
+      ]
+    },
+    {
+      "file": "contact.html",
+      "name": "Contact",
+      "sections": [
+        "Phone, email and address only if provided in the facts; otherwise clearly marked placeholders",
+        "Quote request form (preview only: the form must not submit anywhere)",
+        "Service area and hours only if provided"
+      ]
+    }
+  ],
+  "ctaLabels": {
+    "call": "Call Now",
+    "quote": "Request Service",
+    "preview": "Request a Free Quote"
+  },
+  "trustCueRule": "Licensing, insurance, warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: licence number].",
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised garage door, tools) and marked photo placeholders such as [PHOTO: completed installation]."
+}

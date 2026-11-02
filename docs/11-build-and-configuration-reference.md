@@ -20,7 +20,8 @@ The build recognizes three modes via `--mode=<value>` (CLI, takes precedence) or
 | `npm run build:production` | Same, in production mode. Fails today because `data/company.json` still has BLOCKING `TBD` fields — this is correct, expected behaviour, not a bug. |
 | `npm run rebuild` | `clean` then `build`. |
 | `npm run clean` | Removes `dist/`. |
-| `npm run test:validation` | Runs the fixture-based validation test suite in `tests/`. |
+| `npm run test:validation` | Runs the fixture-based validation tests plus the demo-kit tests (palette contrast, prompt rules, generated n8n scripts up to date) in `tests/`. |
+| `npm run build:demo-kit` | Regenerates `demo-kit/n8n/*.js` (the n8n Code-node scripts) from `demo-kit/` (docs/15). |
 
 ## Environment variables
 

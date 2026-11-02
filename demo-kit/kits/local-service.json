@@ -1,0 +1,134 @@
+{
+  "id": "local-service",
+  "label": "Local service business (general)",
+  "matchTrades": [],
+  "audienceNote": "Local customers deciding who to call. They want to understand what the business does, see that it covers their area, and take a clear next step.",
+  "tone": "Clear, friendly and professional. Plain language. No hype.",
+  "palettes": [
+    {
+      "id": "trust-blue",
+      "name": "Trust Blue",
+      "mood": "Classic dependable blue with a warm amber call to action.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F2F6FB",
+        "text": "#15233A",
+        "textMuted": "#4B5A70",
+        "primary": "#1F4E9C",
+        "onPrimary": "#FFFFFF",
+        "accent": "#F5A623",
+        "onAccent": "#15233A",
+        "dark": "#102A54",
+        "onDark": "#FFFFFF",
+        "border": "#D5DEEA"
+      }
+    },
+    {
+      "id": "warm-slate",
+      "name": "Warm Slate",
+      "mood": "Understated slate with a warm copper accent. Calm and premium.",
+      "colors": {
+        "bg": "#FBFAF8",
+        "surface": "#F1EEE9",
+        "text": "#222A30",
+        "textMuted": "#566068",
+        "primary": "#36505F",
+        "onPrimary": "#FFFFFF",
+        "accent": "#D98B3F",
+        "onAccent": "#222A30",
+        "dark": "#25343D",
+        "onDark": "#FFFFFF",
+        "border": "#DCD7CF"
+      }
+    },
+    {
+      "id": "fresh-teal",
+      "name": "Fresh Teal",
+      "mood": "Modern teal with a sunny yellow highlight. Light and friendly.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#EFF7F6",
+        "text": "#10282A",
+        "textMuted": "#486062",
+        "primary": "#0F6E6E",
+        "onPrimary": "#FFFFFF",
+        "accent": "#E8B431",
+        "onAccent": "#10282A",
+        "dark": "#0B3D3F",
+        "onDark": "#FFFFFF",
+        "border": "#CFE3E1"
+      }
+    }
+  ],
+  "fontPairs": [
+    {
+      "id": "poppins-inter",
+      "name": "Poppins + Inter",
+      "heading": "Poppins",
+      "body": "Inter",
+      "headingWeights": "600;700",
+      "bodyWeights": "400;500;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap",
+      "mood": "Friendly geometric headings with a neutral, highly readable body."
+    },
+    {
+      "id": "dm-serif-sans",
+      "name": "DM Serif Display + DM Sans",
+      "heading": "DM Serif Display",
+      "body": "DM Sans",
+      "headingWeights": "400",
+      "bodyWeights": "400;500;700",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap",
+      "mood": "Elegant serif headlines for a more established, premium feel."
+    },
+    {
+      "id": "manrope-inter",
+      "name": "Manrope + Inter",
+      "heading": "Manrope",
+      "body": "Inter",
+      "headingWeights": "600;700;800",
+      "bodyWeights": "400;500;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap",
+      "mood": "Contemporary and crisp; works for almost any service trade."
+    }
+  ],
+  "pages": [
+    {
+      "file": "index.html",
+      "name": "Home",
+      "sections": [
+        "Header with the business name, a click-to-call phone button and a quote or booking button",
+        "Hero: what the business does, the service area if known, one primary and one secondary button",
+        "Services overview: only services the business actually offers",
+        "How it works: a simple three-step path (no promised times or prices)",
+        "Service area (only if known)",
+        "Questions customers ask (generic, no invented policies)",
+        "Final call to action with the phone number and enquiry"
+      ]
+    },
+    {
+      "file": "services.html",
+      "name": "Services",
+      "sections": [
+        "One block per service the business offers, each with a short description and a call button",
+        "Enquiry section"
+      ]
+    },
+    {
+      "file": "contact.html",
+      "name": "Contact",
+      "sections": [
+        "Phone, email and address only if provided in the facts; otherwise clearly marked placeholders",
+        "Enquiry form (preview only: the form must not submit anywhere)",
+        "Service area and hours only if provided"
+      ]
+    }
+  ],
+  "ctaLabels": {
+    "call": "Call Now",
+    "quote": "Request a Quote",
+    "preview": "Get a Free Quote"
+  },
+  "trustCueRule": "Licensing, insurance, certifications, warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: licence details].",
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes and marked photo placeholders such as [PHOTO: team at work]."
+}

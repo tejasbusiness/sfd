@@ -51,21 +51,38 @@ Possible later automation: "Build" in Telegram starts Claude on a server and dep
 - **Delivery:** `webhook_outbox` (migration 015) is written first; the post happens after the visitor's response; failures retry with backoff up to 8 attempts via `api/bin/send-webhooks.php` (cron every 5 minutes); sent rows are purged after 30 days. n8n being down never fails or slows a form.
 - **Which forms:** Free Preview and every industry hero lead form (`/api/preview-applications`). Contact enquiries, bookings, playbook and audit requests are not wired yet.
 
-## Design kit
+## Design kit (built 2026-11-02)
 
-- Lives in the repo (no secrets). Kits for **Garage Door**, **Tree Services** and one general **local service** kit.
-- Each kit: 3 palettes and 3 font pairs, all contrast-checked for WCAG AA before they go in.
-- The prompt says which palette and pair to use and why in one line.
+- Lives in the repo in `demo-kit/` (no secrets); see `demo-kit/README.md`. Kits for **Garage Door**, **Tree Services** and one general **local service** fallback (`demo-kit/kits/*.json`).
+- Each kit: audience and tone, 3 palettes (11 colour tokens each), 3 Google font pairs, the 2 to 3 demo pages and their sections, button labels, a trust-cue rule and image guidance.
+- **Every palette passes WCAG AA** for the pairings the prompt promises (text and muted text on background and surface, primary on background, text on primary, accent and dark bands); `tests/demo-kit.test.js` fails otherwise. Three first-draft palettes failed and were corrected.
+- The AI only picks one palette id and one font pair id from the kit, with a one-line reason; invalid answers fall back to the first option. Fonts load from Google Fonts only.
 - Per-trade starter sites ("niche starter repositories", docs/10 "Later decisions") come after 5 to 10 demos, once repeating layouts are known.
 
 ## Master prompt rules
 
-- Build a 2 to 3 page demo as **plain HTML, CSS and vanilla JavaScript only**. No framework, no build step.
-- Never invent reviews, licences, insurance, statistics, prices, awards, years in business or "same-day" or "24/7" claims. Mark unverified facts as placeholders.
-- Use the supplied design kit choice, the prospect's real services, area and contact details only.
-- Label the demo as a preview; forms must not submit anywhere real.
-- Start from a clean folder so no customer data leaks between demos (docs/06 reuse policy).
-- Output includes `noindex, nofollow` meta tags.
+The rules live in `demo-kit/master-prompt.template.md`, so they are present in every prompt whatever the AI says:
+
+- Build a 2 to 3 page demo (`index.html`, `services.html`, `contact.html` plus `assets/styles.css` and `assets/main.js`) as **plain HTML, CSS and vanilla JavaScript only**. No framework, no build step, no jQuery.
+- Never invent reviews, ratings, licences, insurance, years in business, statistics, prices, response times, guarantees, "24/7" or "same-day" claims, addresses, phone numbers or emails. Anything unknown becomes a visible `[TO CONFIRM: ...]` placeholder, listed in the demo's `README.md`.
+- Use only the facts in the prompt: the form's business name, website or profile link and services, plus facts read from the prospect's own website. The lead's own phone and email are not put in the prompt.
+- Follow docs/06: `noindex, nofollow` meta tags, a sticky "Private Website Preview" bar with a countdown to a fixed UTC expiry (7 days) and a "Keep This Website" button (to `/book-a-call/`), the concept disclaimer in every footer, forms that do not submit anywhere, no tracking or third-party requests except Google Fonts.
+- Accessibility and responsive checks (WCAG 2.2 AA, 390 / 768 / 1280px), and a final checklist.
+- Visitor-typed and scraped text is labelled untrusted data inside `<lead-data>`; `<`, `>` and `{{` are neutralised.
+
+## n8n build guide: demo-prompt branch (after the alert)
+
+Add these nodes after the existing `Webhook` node, in parallel with the Telegram alert (so the alert is never delayed):
+
+1. **HTTP Request** named `Fetch website`: Method GET, URL `{{ $('Webhook').first().json.body.website }}` (expression), Options: Response Format `Text`, Timeout 15000, **On Error: Continue (regular output)** in the node settings. If the lead gave a Google Business Profile link it returns junk or fails; the script handles both.
+2. **Code** named `Prepare AI request`: Mode **Run Once for All Items**, Language JavaScript, paste `demo-kit/n8n/1-prepare-ai-request.js`. The node name must be exactly `Prepare AI request` and the trigger node must be named `Webhook` (the scripts refer to both). Change `OPENAI_MODEL` at the top of the script's last section if you prefer another model.
+3. **HTTP Request** named `OpenAI`: Method POST, URL `https://api.openai.com/v1/chat/completions`, Authentication **Predefined Credential Type** then **OpenAI API** and the existing `OpenAi account` credential, Send Body ON, Body Content Type JSON, **Specify Body: Using JSON**, JSON `{{ JSON.stringify($json.openaiBody) }}` (expression). Timeout 60000.
+4. **Code** named `Build master prompt`: Run Once for All Items, paste `demo-kit/n8n/2-build-prompt.js`. It outputs `summary` text plus a binary file in the property `data`.
+5. **Telegram** node, operation **Send Document**: credential `SFD Leads Bot`, Chat ID the owner's, Binary File ON, Input Binary Field `data`, Additional Fields: Caption `{{ $json.summary }}`, Append n8n Attribution OFF.
+6. Test with the PowerShell sample lead (use a real public business site as `website`); the owner should receive a `.md` file named `demo-prompt-<token>.md`. Then open it, check it reads well, and give it to Claude in a new empty folder named after the token.
+7. After editing any kit, template or library file: `npm run build:demo-kit`, then paste the changed script into its Code node again.
+
+If a node shows an error, the usual causes are: node names not exactly `Webhook` / `Prepare AI request`; the HTTP Request response format not set to Text (script 1 reads `data`); an invalid OpenAI model name; or the OpenAI credential not selected.
 
 ## Preview host
 
@@ -93,7 +110,7 @@ Built and verified 2026-11-02.
 
 1. **DONE 2026-11-02.** Forms: add business name and website/GBP fields to the industry hero form, make phone required on Free Preview, make message optional on the hero form; use the shared form macros and `form-utils.js`. Update the API validation, a migration for any new columns, and the docs.
 2. **DONE 2026-11-02 (code and docs; not deployed).** Webhook sender with shared-secret header and retry queue in the PHP API (`api/src/Webhook.php`, `api/bin/send-webhooks.php`, migration 015); env variables; deploy docs. Tested locally against a throwaway MySQL and a fake receiver: delivery with the right headers and body, n8n down (500) still gives the visitor a 201, retry succeeds, "not configured" keeps rows queued, http refused outside local, local skip, give-up after 8 attempts, 30-day purge. **Still to do to go live:** n8n Webhook node set to Header Auth, `N8N_` lines in the production `.env`, deploy with `-Migrate -UploadEnv`, the `send-webhooks.php` cron, one real test lead.
-3. n8n workflow (Telegram alert, Apify research, design-kit pick, OpenAI prompt, Telegram file and buttons) and the design kits.
+3. **Repo side DONE 2026-11-02; n8n side to build by the owner.** Design kits, master-prompt template, generated n8n Code-node scripts and tests (`demo-kit/`, `npm run build:demo-kit`). Step-by-step n8n build guide below. Phase 2 (later): Apify Google Maps lookup for leads who only gave a Google Business Profile link, and Telegram Call / Build / Skip buttons (these need a second workflow to handle the button presses, and Telegram buttons cannot open `tel:` links, so the alert keeps the tappable number).
 4. Demo expiry cron, token URLs, and a dry run with a real lead.
 Step 1 notes: the Garage Door hero form now uses `form.mode: "lead"` (hero-form.njk) and the same script as Free Preview; both post to `/api/preview-applications`; phone is required in the browser and the API; migration `014_preview_applications_trade.sql` adds `trade` and **must be applied on deploy** (`.\deploy.bat -Migrate`). The industry hero form's old required message is now an optional "Anything we should know?". Tested in a browser with a mocked API (empty-phone error, payload including `trade`, toast, reset); not tested against the live API.
 

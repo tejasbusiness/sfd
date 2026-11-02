@@ -1,0 +1,136 @@
+{
+  "id": "tree-services",
+  "label": "Tree Services",
+  "matchTrades": ["tree services", "tree service", "tree removal", "arborist"],
+  "audienceNote": "Homeowners with a storm-damaged, overgrown or risky tree, and property managers planning routine work. They want a safe, professional crew, a clear quote and proof of past work.",
+  "tone": "Capable, safety-minded and down to earth. Plain language about the work. No exaggeration.",
+  "palettes": [
+    {
+      "id": "forest-bark",
+      "name": "Forest & Bark",
+      "mood": "Deep forest green with a warm amber accent on a soft natural background.",
+      "colors": {
+        "bg": "#FBFAF6",
+        "surface": "#EFEFE6",
+        "text": "#1D2A1F",
+        "textMuted": "#4F5C50",
+        "primary": "#1F5A3A",
+        "onPrimary": "#FFFFFF",
+        "accent": "#C98A2B",
+        "onAccent": "#1D2A1F",
+        "dark": "#143626",
+        "onDark": "#FFFFFF",
+        "border": "#D5D8C8"
+      }
+    },
+    {
+      "id": "sage-terracotta",
+      "name": "Sage & Terracotta",
+      "mood": "Soft sage with an earthy terracotta call to action. Friendly and approachable.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F2F4EE",
+        "text": "#22291F",
+        "textMuted": "#556050",
+        "primary": "#3E6B4B",
+        "onPrimary": "#FFFFFF",
+        "accent": "#E08A5A",
+        "onAccent": "#22291F",
+        "dark": "#2A3A2E",
+        "onDark": "#FFFFFF",
+        "border": "#D8DDD0"
+      }
+    },
+    {
+      "id": "evergreen-sky",
+      "name": "Evergreen & Sky",
+      "mood": "Cool evergreen teal with a bright amber highlight. Fresh and professional.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#EEF4F6",
+        "text": "#14232B",
+        "textMuted": "#4A5C66",
+        "primary": "#0F4C5C",
+        "onPrimary": "#FFFFFF",
+        "accent": "#E9A23B",
+        "onAccent": "#14232B",
+        "dark": "#0B2E38",
+        "onDark": "#FFFFFF",
+        "border": "#D2DEE3"
+      }
+    }
+  ],
+  "fontPairs": [
+    {
+      "id": "fraunces-source",
+      "name": "Fraunces + Source Sans 3",
+      "heading": "Fraunces",
+      "body": "Source Sans 3",
+      "headingWeights": "600;700",
+      "bodyWeights": "400;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap",
+      "mood": "Warm, characterful serif headings with a clear, modern body. Organic but professional."
+    },
+    {
+      "id": "merriweather-open",
+      "name": "Merriweather + Open Sans",
+      "heading": "Merriweather",
+      "body": "Open Sans",
+      "headingWeights": "700",
+      "bodyWeights": "400;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap",
+      "mood": "Sturdy serif for trust and tradition, paired with a very readable sans."
+    },
+    {
+      "id": "bitter-nunito",
+      "name": "Bitter + Nunito Sans",
+      "heading": "Bitter",
+      "body": "Nunito Sans",
+      "headingWeights": "600;700",
+      "bodyWeights": "400;600",
+      "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Nunito+Sans:wght@400;600&display=swap",
+      "mood": "Friendly slab headings and a soft, easy body. Approachable and hard-working."
+    }
+  ],
+  "pages": [
+    {
+      "file": "index.html",
+      "name": "Home",
+      "sections": [
+        "Header with the business name, a click-to-call phone button and a Request a Quote button",
+        "Hero: the main service, the service area if known, one primary quote button and one call button",
+        "Services overview: tree removal, trimming and pruning, stump grinding, storm clean-up, only those the business actually offers",
+        "How it works: request, site assessment and quote, scheduled work (no promised times or prices)",
+        "Project gallery section with clearly marked photo placeholders",
+        "Service area (only if known)",
+        "Questions customers ask (generic, no invented policies)",
+        "Final call to action with the phone number and quote request"
+      ]
+    },
+    {
+      "file": "services.html",
+      "name": "Services",
+      "sections": [
+        "One block per service the business offers, each with a short description and a quote button",
+        "Routine work versus urgent or storm work, described without promising response times",
+        "Quote request section"
+      ]
+    },
+    {
+      "file": "contact.html",
+      "name": "Contact",
+      "sections": [
+        "Phone, email and address only if provided in the facts; otherwise clearly marked placeholders",
+        "Quote request form (preview only: the form must not submit anywhere)",
+        "Service area and hours only if provided"
+      ]
+    }
+  ],
+  "ctaLabels": {
+    "call": "Call Now",
+    "quote": "Request a Quote",
+    "preview": "Get a Free Quote"
+  },
+  "trustCueRule": "Licensing, insurance, certifications (for example an arborist certification), warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: insurance details].",
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised tree, leaves) and marked photo placeholders such as [PHOTO: crew at work]."
+}

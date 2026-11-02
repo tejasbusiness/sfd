@@ -35,7 +35,8 @@ The new SFD website is not a conventional agency brochure. It presents a product
 11. `docs/10-decisions-and-todos.md` — confirmed decisions and unresolved inputs.
 12. `docs/14-database-and-api.md` — MySQL, migrations, PHP API and environment files.
 13. `docs/15-lead-automation.md` — planned n8n lead alerts, demo prompt workflow and the preview host.
-14. `deploy.md` — production deployment: the one-command `npm run deploy` (or `deploy.bat`), the manual steps, rollback, troubleshooting and server setup.
+14. `demo-kit/README.md` — design kits, master-prompt template and n8n scripts for the private preview demos.
+15. `deploy.md` — production deployment: the one-command `npm run deploy` (or `deploy.bat`), the manual steps, rollback, troubleshooting and server setup.
 
 ## Working rule
 
