@@ -315,7 +315,7 @@ function renderPrompt(opts) {
     leadBlock,
     factsBlock: bullets(facts, '[TO CONFIRM: no facts available]'),
     servicesBlock: bullets(services, '[TO CONFIRM: services offered]'),
-    contactBlock: bullets(contact, 'None verified. Show [TO CONFIRM: business phone] and [TO CONFIRM: business email]. Do not use any other phone or email. Call buttons (header, hero, closing section) must still appear for layout, but show the text "Call [TO CONFIRM: phone]" as a plain button with no `tel:` link until a real number is supplied.'),
+    contactBlock: bullets(contact, 'None verified. Show [TO CONFIRM: business phone] and [TO CONFIRM: business email]. Do not use any other phone or email. Call buttons (hero, closing section, and the header on wide screens) must still appear for layout, but show the text "Call [TO CONFIRM: phone]" (with a space after Call) as a plain button with no `tel:` link until a real number is supplied. Below 1100px the header call button moves into the menu.'),
     missingBlock: bullets(missing, 'nothing'),
     paletteBlock: '```css\n' + root + '\n```\n\nPalette: ' + ai.palette.name + '. ' + ai.palette.mood,
     fontBlock: [

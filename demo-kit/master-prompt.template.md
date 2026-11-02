@@ -89,7 +89,8 @@ Shared on every page: the preview bar (section 7), a header with the business na
 
 - **Plain HTML5, CSS and vanilla JavaScript only.** No framework (no React, Vue, Next.js, Astro), no CSS framework, no build step, no package manager, no jQuery. The folder must work when opened from disk or served by any static web server.
 - Semantic HTML (header, nav, main, section, footer), exactly one `<h1>` per page, no skipped heading levels, descriptive link text, a skip-to-content link, and unique `<title>` and `<meta name="description">` per page.
-- Responsive and mobile first. Check 390px, 768px and 1280px wide: no horizontal scrolling, readable text, buttons at least 44px high, and a click-to-call button that is easy to reach on a phone.
+- Responsive and mobile first. Test at 360, 390, 600, 768, 820, 1024 and 1280px wide: no horizontal scrolling, readable text, buttons at least 44px high, and a call button that is easy to reach on a phone.
+- **The header is where demos break.** Placeholder button labels such as `Call [TO CONFIRM: phone]` are much longer than "Call Now", so a header with the business name, three links and two buttons overflows at tablet widths. Below 1100px show only the business name, a Menu button and the single primary button (Request a Quote), and move the navigation links and the call button into the menu panel. Nothing in the header may wrap onto three lines or make the page wider than the screen. Always put a space between words and a placeholder (`Call [TO CONFIRM: phone]`, never `Call[TO CONFIRM: phone]`).
 - Accessible (WCAG 2.2 AA): visible focus states, keyboard-usable navigation (including any menu button), labelled form fields with error text near the field, sufficient contrast, `alt` text for meaningful images and empty `alt` for decorative ones, and `prefers-reduced-motion` respected.
 - Fast and light: one CSS file, one small JS file, inline SVG for icons, images (if any) sized with width and height and lazy loaded below the fold. Keep each page under 200 KB excluding fonts.
 - Clean code: readable class names, comments only where useful, no dead code.
@@ -102,6 +103,6 @@ In `{{token}}/`: `index.html`, `services.html`, `contact.html`, `assets/styles.c
 
 - [ ] No claim appears that is not in section 3, and every placeholder is in `README.md`.
 - [ ] Each page: one `<h1>`, `noindex, nofollow`, preview bar, disclaimer.
-- [ ] No horizontal scroll at 390px, 768px and 1280px; links work; forms do not submit.
+- [ ] No horizontal scroll at 360, 390, 600, 768, 820, 1024 and 1280px, checked by measurement (`document.documentElement.scrollWidth <= window.innerWidth` in a browser or a headless browser), not by eye; links work; forms do not submit.
 - [ ] Contrast pairs are as specified; focus states are visible; keyboard navigation works.
 - [ ] No frameworks, trackers or external requests other than Google Fonts.

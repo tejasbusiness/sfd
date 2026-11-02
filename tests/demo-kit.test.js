@@ -122,6 +122,15 @@ test('a prompt with no verified phone tells Claude how to show call buttons', ()
   assert.ok(prompt.includes('no `tel:` link'));
 });
 
+test('the prompt warns the builder about long placeholder labels overflowing the header', () => {
+  const { prompt } = render({ research: lib.extractResearch('', 'https://www.google.com/maps/place/x') });
+  assert.ok(prompt.includes('The header is where demos break'));
+  assert.ok(prompt.includes('Below 1100px'));
+  assert.ok(prompt.includes('360, 390, 600, 768, 820, 1024 and 1280px'));
+  assert.ok(prompt.includes('scrollWidth <= window.innerWidth'));
+  assert.ok(prompt.includes('with a space after Call'));
+});
+
 test('closing buttons never promise free quotes (the prompt forbids free-estimate claims)', () => {
   for (const kit of Object.values(kits)) {
     for (const [key, label] of Object.entries(kit.ctaLabels)) assert.ok(!/free/i.test(label), `${kit.id}.${key}: ${label}`);
