@@ -57,6 +57,8 @@ Each industry page contains:
 
 Do not publish thin near-duplicate vertical pages.
 
+**Garage Door Services (`/industries/garage-door-services/`, 2026-11-02).** First trade landing page, built from `data/pages/industries-garage-door-services.json` with existing sections only: `hero-form` (enquiry form, topic `Garage Door Services`, locked CTAs), common-problems `feature-grid`, a single illustrative `preview-concepts` card (same concept as the homepage), "what we build" `feature-grid`, four-step `process`, `faq-split` (shared FAQ ids `cost`, `no-upfront-fee`, `preview-free`, `ownership`, `timing`), `link-cards` (Pricing, SEO, Website Care) and a closing CTA. Schema: WebPage, Service, FAQPage, BreadcrumbList. No testimonials, pricing cards or statistics (none exist for this trade). Use it as the model for Tree Services.
+
 ## Websites / Portfolio
 
 Use an editorial project presentation. Every project must identify the business type, problem, work completed and real result if available. Portfolio links should never lead to dead or repurposed client domains without review.

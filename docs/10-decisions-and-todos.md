@@ -766,3 +766,17 @@ The homepage is production-ready and **frozen**. Do not redesign or rework its c
 
   The stats are visible at every size above. **Exception:** at 1024 x 640 (tablet landscape) the buttons stack, so the stats fall below the fold.
 
+
+### Garage Door Services page (2026-11-02)
+- **Built:** `/industries/garage-door-services/` from `data/pages/industries-garage-door-services.json`. Owner decisions: URL under `/industries/`; copy drafted by me for owner approval; ad-ready layout with the hero enquiry form (same pattern as `/services/websites/`); the five old generic industry pages left untouched. Structure: docs/04.
+- **No new templates, CSS, API or migration.** The hero form posts to `/api/contact` with the free-text topic `Garage Door Services`. Deploy is `dist/` only (no `-Migrate`).
+- **Copy rules followed:** locked CTAs (Show Me My New Website, Book a Free 20-Minute Call). Trust items are described as what we design space for, never as claims about a client. The FAQ reuses existing shared answers, so no new commercial claims. No testimonials, statistics, prices or licensing claims; the single concept card carries the template's fixed "illustrative" caption.
+- **SEO:** unique title and description, production canonical, `index, follow`; WebPage, Service, FAQPage and BreadcrumbList schema (no price or rating). Listed in `sitemap.xml`.
+- **Checks:** `validate`, `test:validation` and `build:production` pass. Local server: 200, no-slash 301, unknown URL 404. Measured at 390 and 1024px in same-origin iframes and at desktop width: one H1, no horizontal overflow, all seven internal links return 200. Screenshots at 1440 were reviewed (scroll-reveal sections appear faded in static captures only).
+- **Not tested:** a real hero-form submission against the API; keyboard and screen-reader pass; a 1440 scroll-through in a live browser.
+- **Open, owner to decide:**
+  1. Approve or edit the drafted copy.
+  2. Link the homepage Garage Door card and the `/industries/` index to this page. Both are outside this task (the homepage is frozen), so they stay unlinked until instructed.
+  3. The five old industry pages still use the old "Get My Free Website Preview" label (keep, redirect or replace).
+  4. Add garage door reviews and project photos when real ones exist.
+- **Next:** Tree Services, built on this page as the model.

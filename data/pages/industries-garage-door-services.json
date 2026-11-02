@@ -1,0 +1,212 @@
+{
+  "id": "industries-garage-door-services",
+  "type": "static",
+  "slug": "garage-door-services",
+  "canonicalPath": "/industries/garage-door-services/",
+  "seo": {
+    "title": "Garage Door Company Websites | SynergyFirst Digital",
+    "metaDescription": "Managed websites for garage door repair and installation companies, built for urgent calls, clear service areas and quote requests. Preview yours free before you pay.",
+    "ogTitle": "Garage Door Company Websites",
+    "ogDescription": "A managed website built for garage door repair and installation companies. See a free private preview before you pay.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "A Website That Turns Garage Door Searches Into Calls",
+  "breadcrumbs": [
+    { "label": "Industries", "path": "/industries/" },
+    { "label": "Garage Door Services", "path": null }
+  ],
+  "service": {
+    "name": "Managed websites for garage door companies",
+    "serviceType": "Website design, hosting and maintenance",
+    "description": "Professionally designed websites for garage door repair and installation companies, hosted, maintained and supported for one predictable monthly fee, with a free private preview before you pay.",
+    "audience": "Garage door repair and installation companies"
+  },
+  "sections": [
+    {
+      "type": "hero-form",
+      "eyebrow": "GARAGE DOOR SERVICES",
+      "subheading": "Customers often search with a broken door in front of them. We build and manage your website so they can see what you do, trust you and call or request service in seconds.",
+      "points": [
+        "See your new website free, in private, for seven days",
+        "Subscribe only if you like it",
+        "Hosting, updates and support included"
+      ],
+      "primaryCta": {
+        "label": "Show Me My New Website",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "heading": "Tell us about your business",
+        "intro": "Send us a few details and we will reply by email.",
+        "topic": "Garage Door Services",
+        "submitLabel": "Send enquiry"
+      }
+    },
+    {
+      "type": "feature-grid",
+      "eyebrow": "COMMON PROBLEMS",
+      "heading": "Why garage door websites lose jobs they should win",
+      "intro": "Most garage door searches are urgent and made on a phone. These are the gaps we see most often.",
+      "items": [
+        {
+          "title": "The phone number is hard to find",
+          "body": "When a door is stuck or off its track, a number hidden in a menu sends the customer to the next company."
+        },
+        {
+          "title": "Repair, installation and openers are mixed together",
+          "body": "A broken spring and a new door are different jobs. Without clear paths for each, visitors leave unsure you handle theirs."
+        },
+        {
+          "title": "The service area is unclear",
+          "body": "If visitors cannot quickly tell whether you cover their town, they do not enquire."
+        },
+        {
+          "title": "No easy way to request a quote",
+          "body": "Not every customer wants to phone. A short request form captures the ones who would rather write."
+        },
+        {
+          "title": "Trust is left to chance",
+          "body": "Licence and insurance details, reviews and past work belong where customers look for reassurance."
+        },
+        {
+          "title": "Slow or dated on mobile",
+          "body": "A site that loads slowly or looks out of date undercuts the quality of the work you actually do."
+        }
+      ]
+    },
+    {
+      "type": "preview-concepts",
+      "heading": "What a garage door website can look like",
+      "intro": "An illustrative concept showing how we design around urgent enquiries, service areas and quote requests. It is a concept example, not a published client project.",
+      "items": [
+        {
+          "industryLabel": "Garage Door Services",
+          "headline": "A conversion-focused garage door website",
+          "description": "Designed around urgent repair enquiries, service areas, customer reviews and fast paths to call or request a quote.",
+          "mockAlt": "Illustrative garage door service website concept",
+          "mockBusinessName": "Your Garage Doors",
+          "mockNavLinks": "Services  Areas  Reviews",
+          "mockNavCta": "Call Now",
+          "mockHeroHeading": "Fast, Reliable Garage Door Repair",
+          "mockHeroSub": "Repairs, installation and emergency service in your area.",
+          "mockHeroCta": "Request Service",
+          "mockTrustCues": [
+            "Licensed & Insured",
+            "Same-Day Service",
+            "Free Estimates"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT WE BUILD",
+      "heading": "What we build into a garage door website",
+      "intro": "Every site is custom-designed around how your customers choose a garage door company.",
+      "items": [
+        {
+          "title": "Click-to-call on every page",
+          "body": "Your number stays one tap away on phones, so urgent customers can reach you without searching."
+        },
+        {
+          "title": "Separate paths for repair, installation and openers",
+          "body": "Clear service sections so each visitor lands on the job they need, with a call or quote request beside it."
+        },
+        {
+          "title": "Emergency and scheduled service options",
+          "body": "Give urgent and planned jobs their own route, so each customer knows what to do next."
+        },
+        {
+          "title": "Service-area clarity",
+          "body": "State where you work, so visitors can see straight away that you cover their location."
+        },
+        {
+          "title": "A home for reviews, licences and project photos",
+          "body": "Space for the trust signals you can genuinely show, placed where customers look for reassurance."
+        },
+        {
+          "title": "A simple quote-request form",
+          "body": "A short, accessible form that sends enquiries straight to you."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "eyebrow": "HOW IT WORKS",
+      "heading": "See it before you pay",
+      "intro": "We create a private preview from your public business information, and you decide whether to go ahead.",
+      "steps": [
+        {
+          "title": "Tell us about your business",
+          "body": "Send your business name and your website or Google Business Profile."
+        },
+        {
+          "title": "We build your private preview",
+          "body": "We design a preview using your real services and public online presence."
+        },
+        {
+          "title": "Review it for seven days",
+          "body": "Explore it on a private link. Your current website stays unchanged while you review."
+        },
+        {
+          "title": "Choose a plan or walk away",
+          "body": "If you like it, we complete, launch and manage it. If not, there is no obligation."
+        }
+      ],
+      "cta": {
+        "label": "See How It Works",
+        "href": "/how-it-works/"
+      }
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": { "label": "Show Me My New Website", "href": "/free-preview/" },
+      "itemIds": ["cost", "no-upfront-fee", "preview-free", "ownership", "timing"]
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Pricing",
+          "description": "Simple monthly plans with hosting and support included.",
+          "href": "/pricing/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3v18M16 7.5c0-1.4-1.8-2.5-4-2.5s-4 1.1-4 2.5 1.8 2.5 4 2.5 4 1.1 4 2.5-1.8 2.5-4 2.5-4-1.1-4-2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "SEO",
+          "description": "Be found by nearby customers on Google.",
+          "href": "/services/seo/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "description": "Updates, backups and support after launch.",
+          "href": "/services/website-care-maintenance/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See your new garage door website before you pay for it.",
+      "body": "Request a free private preview. There is no payment and no obligation to continue.",
+      "primaryCta": {
+        "label": "Show Me My New Website",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": ["WebPage", "Service", "FAQPage", "BreadcrumbList"],
+  "lastUpdated": "2026-11-02"
+}
