@@ -65,6 +65,37 @@ Headline: {{heroHeadline}}
 Subheadline: {{heroSubheadline}}
 These two lines only state what the business does. Do not add quality or trust words (professional, safe, reliable, trusted, affordable, experienced, fast, best, quality) because none of them is a verified fact.
 
+### Design quality bar: modern, polished and memorable
+
+The owner will judge this demo in a few seconds. It must look like a bespoke, premium website made this year, not a template: no plain stacked sections on flat backgrounds, no default-looking white boxes, no small timid headings. Build all of it with plain CSS and a little vanilla JavaScript (no libraries, no images from other sites).
+
+**Layout and typography**
+
+- Fluid type with `clamp()`: the hero headline runs from about 3rem on phones to 6rem or more on desktop, with a tight line height (about 1.02 to 1.1) and `text-wrap: balance`. Body text 1.0625 to 1.25rem. Strong hierarchy using the heading font's weights. Highlight one or two words of the hero headline in the accent colour (only words that already exist in it).
+- The hero fills at least 85% of the first screen (`min-height: 88svh`) with an asymmetric, layered composition: large custom inline-SVG artwork overlapping the text column, plus a gradient mesh and a soft grain texture made only from the palette colours.
+- Vary the composition of every section: bento grid, split layout with a sticky side title, full-bleed dark band, oversized decorative numerals. Generous spacing (6 to 10rem between sections on desktop), large radii (20 to 32px), hairline borders and layered soft shadows instead of flat boxes.
+- A glass header: sticky with `backdrop-filter: blur()` that tightens slightly once the page is scrolled. The preview bar stays above it.
+- Craft details: custom focus rings, animated link underlines, button arrows that slide on hover, subtle gradient borders, one consistent inline-SVG icon style.
+
+**Motion: subtle, purposeful and optional**
+
+- A staggered load-in for the hero (fade and rise, 600 to 900 ms, ease-out).
+- Scroll reveal with `IntersectionObserver`: elements fade and rise about 24px with staggered delays, each animating once.
+- Gentle parallax or drift on the hero artwork layers (transform only, `requestAnimationFrame`, passive scroll listener) and one slow ambient animation on a decorative element.
+- Hover and focus micro-interactions on cards and buttons (lift, glow, arrow slide).
+- Animate only `transform` and `opacity`; nothing may shift the layout. Keep the JavaScript for motion under 6 KB.
+- **Everything animated must be switched off by `prefers-reduced-motion: reduce`, which gets a static, fully visible page.** Content must also be fully visible with JavaScript disabled: add the "hidden until revealed" state only after JavaScript adds a class to `<html>`.
+- Never animate numbers, ratings, counters, badges or logos, and keep decorative motion from implying any claim.
+
+**Contrast and truth still win**
+
+- Text over gradients or artwork must still meet 4.5:1 using the palette pairs; put a solid or high-opacity panel behind text where needed.
+- No fake statistics, star ratings, "trusted by" strips, review quotes or certification badges as visual filler. Decorative numerals are allowed only for the process steps.
+
+**Art direction for this trade**
+
+{{artDirectionBlock}}
+
 ### Call-to-action labels
 
 {{ctaBlock}}
@@ -92,7 +123,7 @@ Shared on every page: the preview bar (section 7), a header with the business na
 - Responsive and mobile first. Test at 360, 390, 600, 768, 820, 1024 and 1280px wide: no horizontal scrolling, readable text, buttons at least 44px high, and a call button that is easy to reach on a phone.
 - **The header is where demos break.** Placeholder button labels such as `Call [TO CONFIRM: phone]` are much longer than "Call Now", so a header with the business name, three links and two buttons overflows at tablet widths. Below 1100px show only the business name, a Menu button and the single primary button (Request a Quote), and move the navigation links and the call button into the menu panel. Nothing in the header may wrap onto three lines or make the page wider than the screen. Always put a space between words and a placeholder (`Call [TO CONFIRM: phone]`, never `Call[TO CONFIRM: phone]`).
 - Accessible (WCAG 2.2 AA): visible focus states, keyboard-usable navigation (including any menu button), labelled form fields with error text near the field, sufficient contrast, `alt` text for meaningful images and empty `alt` for decorative ones, and `prefers-reduced-motion` respected.
-- Fast and light: one CSS file, one small JS file, inline SVG for icons, images (if any) sized with width and height and lazy loaded below the fold. Keep each page under 200 KB excluding fonts.
+- Fast and light: one CSS file, one small JS file, inline SVG for icons and artwork, images (if any) sized with width and height and lazy loaded below the fold. Keep each page under 250 KB excluding fonts. Animate only `transform` and `opacity`.
 - Clean code: readable class names, comments only where useful, no dead code.
 
 ## 9. Deliverables
@@ -104,5 +135,6 @@ In `{{token}}/`: `index.html`, `services.html`, `contact.html`, `assets/styles.c
 - [ ] No claim appears that is not in section 3, and every placeholder is in `README.md`.
 - [ ] Each page: one `<h1>`, `noindex, nofollow`, preview bar, disclaimer.
 - [ ] No horizontal scroll at 360, 390, 600, 768, 820, 1024 and 1280px, checked by measurement (`document.documentElement.scrollWidth <= window.innerWidth` in a browser or a headless browser), not by eye; links work; forms do not submit.
+- [ ] It looks premium: hero at least 85% of the first screen, layered artwork, varied section layouts, scroll reveal and hover motion present; with `prefers-reduced-motion: reduce` and with JavaScript off the page is static and fully visible.
 - [ ] Contrast pairs are as specified; focus states are visible; keyboard navigation works.
 - [ ] No frameworks, trackers or external requests other than Google Fonts.

@@ -1,7 +1,11 @@
 {
   "id": "garage-door",
   "label": "Garage Door Services",
-  "matchTrades": ["garage door services", "garage door", "garage doors"],
+  "matchTrades": [
+    "garage door services",
+    "garage door",
+    "garage doors"
+  ],
   "audienceNote": "Homeowners searching on a phone, often with a broken door in front of them. They want to be able to call straight away, see that the company covers their area, and trust it.",
   "tone": "Direct, reliable, calm and practical. Short sentences. No hype.",
   "palettes": [
@@ -131,5 +135,13 @@
     "preview": "Contact Us"
   },
   "trustCueRule": "Licensing, insurance, warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: licence number].",
-  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised garage door, tools) and marked photo placeholders such as [PHOTO: completed installation]."
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised garage door, tools) and marked photo placeholders such as [PHOTO: completed installation].",
+  "artDirection": [
+    "Hero: a stylised garage door drawn from 5 to 6 horizontal CSS or SVG panels that roll up on load to reveal the headline behind them (about 900 ms, ease-out; static and already open for reduced motion), with a bold condensed headline and one or two of its own words in the accent colour.",
+    "Use strong diagonal section dividers, subtle panel-line and rivet textures, and a thin accent stripe motif that animates across a dark band once.",
+    "Services as a bento grid with panel-line textures, large icons drawn in inline SVG (door, spring, opener, remote) and hover lift; never plain white boxes.",
+    "How it works as three large horizontal steps with oversized outlined numerals that slide in on scroll.",
+    "Past work placeholders in rounded frames with a faint grain and a clearly marked placeholder caption on each.",
+    "Closing section: a full-bleed dark band with a large display line and a single button; the footer has a very large faded business-name wordmark."
+  ]
 }

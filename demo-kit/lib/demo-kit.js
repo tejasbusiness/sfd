@@ -326,6 +326,7 @@ function renderPrompt(opts) {
     ].join('\n'),
     heroHeadline: hero.headline || `[Write a plain headline naming ${businessName}'s main service]`,
     heroSubheadline: hero.sub || '(none: leave the subheadline out, or write one plain sentence using only the facts above)',
+    artDirectionBlock: bullets(kit.artDirection || [], 'Follow the design quality bar above.'),
     ctaBlock: [`- Call button: "${kit.ctaLabels.call}"`, `- Quote or request button: "${kit.ctaLabels.quote}"`, `- Closing section button: "${kit.ctaLabels.preview}"`].join('\n'),
     pagesBlock: kit.pages
       .map((p) => `### \`${p.file}\` (${p.name})\n\n` + p.sections.map((s) => '- ' + s).join('\n'))

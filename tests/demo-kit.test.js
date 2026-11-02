@@ -131,6 +131,21 @@ test('the prompt warns the builder about long placeholder labels overflowing the
   assert.ok(prompt.includes('with a space after Call'));
 });
 
+test('every kit has trade art direction, and the prompt carries the design quality bar', () => {
+  for (const kit of Object.values(kits)) {
+    assert.ok(Array.isArray(kit.artDirection) && kit.artDirection.length >= 5, `${kit.id} artDirection`);
+    assert.ok(kit.artDirection.every((l) => l.length > 40), `${kit.id} art direction lines are real sentences`);
+  }
+  const { prompt } = render();
+  assert.ok(prompt.includes('Design quality bar'));
+  assert.ok(prompt.includes('prefers-reduced-motion: reduce'));
+  assert.ok(prompt.includes('JavaScript disabled'));
+  assert.ok(prompt.includes('Never animate numbers'));
+  assert.ok(prompt.includes('88svh'));
+  assert.ok(prompt.includes('garage door drawn from') || prompt.includes('garage-door') === false, 'garage kit art direction rendered');
+  assert.ok(!/\{\{\w+\}\}/.test(prompt));
+});
+
 test('closing buttons never promise free quotes (the prompt forbids free-estimate claims)', () => {
   for (const kit of Object.values(kits)) {
     for (const [key, label] of Object.entries(kit.ctaLabels)) assert.ok(!/free/i.test(label), `${kit.id}.${key}: ${label}`);

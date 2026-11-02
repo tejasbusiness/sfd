@@ -1,7 +1,12 @@
 {
   "id": "tree-services",
   "label": "Tree Services",
-  "matchTrades": ["tree services", "tree service", "tree removal", "arborist"],
+  "matchTrades": [
+    "tree services",
+    "tree service",
+    "tree removal",
+    "arborist"
+  ],
   "audienceNote": "Homeowners with a storm-damaged, overgrown or risky tree, and property managers planning routine work. They look for clear information, a straightforward quote and examples of past work.",
   "tone": "Capable, safety-minded and down to earth. Plain language about the work. No exaggeration.",
   "palettes": [
@@ -132,5 +137,13 @@
     "preview": "Contact Us"
   },
   "trustCueRule": "Licensing, insurance, certifications (for example an arborist certification), warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: insurance details].",
-  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised tree, leaves) and marked photo placeholders such as [PHOTO: crew at work]."
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes (a stylised tree, leaves) and marked photo placeholders such as [PHOTO: crew at work].",
+  "artDirection": [
+    "Hero: a full-bleed deep-green scene. Draw three layered tree-line silhouettes in inline SVG (use `--dark`, `--primary` and the same colours at lower opacity) that drift at different speeds on scroll, a few leaf shapes that sway slowly, and a soft light glow in `--accent` behind the headline. The headline is very large Fraunces with one or two of its own words set in the accent colour.",
+    "Stump grinding tile: concentric growth-ring artwork (inline SVG circles) that draws itself when the tile scrolls into view. Tree removal tile: a bold tree silhouette whose canopy gently breathes.",
+    "Services as a bento grid with one large and one tall tile, big organic SVG shapes, soft inner shadows and hover lift; never plain white boxes.",
+    "How it works as a vertical timeline: a thin line that draws downward as the section scrolls into view, oversized outlined step numerals, and steps that rise in one after another.",
+    "Past work placeholders as a soft masonry of rounded frames with a faint grain texture and a clearly marked placeholder caption on each.",
+    "Closing section: a full-bleed dark band with a large display line and a single button; the footer has a very large faded business-name wordmark."
+  ]
 }

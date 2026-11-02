@@ -130,5 +130,12 @@
     "preview": "Contact Us"
   },
   "trustCueRule": "Licensing, insurance, certifications, warranties, years in business, ratings and guarantees may be shown ONLY if they appear in the verified facts. Otherwise leave a clearly marked placeholder such as [TO CONFIRM: licence details].",
-  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes and marked photo placeholders such as [PHOTO: team at work]."
+  "imageGuidance": "Use no stock photographs of other companies. Use simple inline SVG or CSS shapes and marked photo placeholders such as [PHOTO: team at work].",
+  "artDirection": [
+    "Hero: a full-bleed gradient mesh built only from the palette colours (soft blurred shapes that drift slowly), large custom inline-SVG artwork related to the trade, and a very large headline with one or two of its own words in the accent colour.",
+    "Services as a bento grid with one large tile, big simple inline-SVG icons, soft inner shadows and hover lift; never plain white boxes.",
+    "How it works as a vertical or horizontal timeline with a line that draws as the section scrolls into view and oversized outlined step numerals.",
+    "Past work placeholders in rounded frames with a faint grain and a clearly marked placeholder caption on each.",
+    "Closing section: a full-bleed dark band with a large display line and a single button; the footer has a very large faded business-name wordmark."
+  ]
 }
