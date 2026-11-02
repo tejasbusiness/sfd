@@ -813,3 +813,6 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Owner request:** make "Main service" full width, tell visitors they can list several services separated by commas, and put "Anything we should know?" below it.
 - **Done** on the Garage Door hero form and, to keep the two lead forms identical, on the Free Preview form: hint "Offering more than one service? Separate your services with commas." under the field. The message box is now full width under it. Storage is unchanged (`primary_service`, up to 200 characters, as typed), so no migration. The n8n prompt can split the services on commas.
 - **Fold re-measured** (hero bottom vs window or tab bar): 1920x960 ends at 630; 1440x790 at 613; 1366x650 at 562 (tab bar 592); 1280x720 at 577; 1100x700 at 576 (tab bar 641); 1024x700 at 629 (tab bar 641). The taller card still fits, because the copy column sets the hero height.
+
+### Service field label (2026-11-02)
+- Owner request: the "Main service" label on both lead forms (Garage Door hero and Free Preview) is now **Enter Service(s)**. Hint and storage (`primary_service`) are unchanged; the owner email row still says "Primary service".
