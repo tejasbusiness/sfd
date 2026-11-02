@@ -46,6 +46,26 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 - Keep `deploy.md`, `deploy.bat` and `scripts/deploy.ps1` (the deployment procedure and its one-command script) in sync whenever the build, server layout, vhost, environment variables or deploy commands change.
 - **Mandatory, non-negotiable:** before ending any session, fully update every affected document in `docs/` (and `README.md` / this file where relevant) so it matches what was built and decided, and commit them with the code. Never end a session with stale docs.
 
+## Session rituals
+
+One task or page per session. The homepage is frozen (2026-10-02): do not change it without a new owner instruction.
+
+**Start**
+
+1. Read `README.md`, `docs/` and the memory notes.
+2. State the scope in one line, plus what stays untouched.
+3. Post the requirements checklist and name any assumptions before acting on them.
+4. Check `docs/10-decisions-and-todos.md` for `BLOCKING` items that affect the task.
+
+**End**
+
+1. Run `npm run validate`, `npm run test:validation` and `npm run build:production`.
+2. Check the changed pages at 1440, 1024 and 390px: no horizontal scroll, no dead links, one H1, and the locked CTA labels ("Show Me My New Website", "Book a Free 20-Minute Call", "Free Audit Report").
+3. Update every affected doc: a dated `docs/10` entry, plus the blueprint, sitemap and navigation docs when relevant.
+4. Update the memory notes with the next task and any open owner decisions.
+5. Commit the code and docs together and push. Deploy only when the owner asks (from PowerShell, not Git Bash; `-Migrate` only when there are new migrations).
+6. Report what changed and what is still open.
+
 ## Initial implementation order
 
 1. Project structure and build pipeline.
