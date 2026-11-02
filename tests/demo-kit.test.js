@@ -181,9 +181,7 @@ test('without any website text the prompt shows placeholders instead of invented
 test('generated n8n scripts are up to date with their sources', () => {
   const fresh = buildScripts();
   for (const [name, content] of Object.entries(fresh)) {
-    const onDisk = fs.readFileSync(path.join(kitDir, 'n8n', name), 'utf8').replace(/
-/g, '
-'); // tolerate CRLF checkouts
+    const onDisk = fs.readFileSync(path.join(kitDir, 'n8n', name), 'utf8').replace(/\r\n/g, '\n'); // tolerate CRLF checkouts
     assert.equal(onDisk, content, `${name} is stale: run npm run build:demo-kit`);
   }
 });
