@@ -99,7 +99,7 @@
       "sections": [
         "Header with the business name, a click-to-call phone button and a quote or booking button",
         "Hero: what the business does, the service area if known, one primary and one secondary button",
-        "Services overview: only services the business actually offers",
+        "Services overview: one card for each service in section 3 and no others",
         "How it works: a simple three-step path (no promised times or prices)",
         "Service area (only if known)",
         "Questions customers ask (generic, no invented policies)",
@@ -110,7 +110,7 @@
       "file": "services.html",
       "name": "Services",
       "sections": [
-        "One block per service the business offers, each with a short description and a call button",
+        "One block per service listed in section 3 and no others, each with a short description and a call button",
         "Enquiry section"
       ]
     },

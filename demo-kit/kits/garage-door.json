@@ -2,7 +2,7 @@
   "id": "garage-door",
   "label": "Garage Door Services",
   "matchTrades": ["garage door services", "garage door", "garage doors"],
-  "audienceNote": "Homeowners searching on a phone, often with a broken door in front of them. They want to call quickly, see that the company covers their area, and trust it.",
+  "audienceNote": "Homeowners searching on a phone, often with a broken door in front of them. They want to be able to call straight away, see that the company covers their area, and trust it.",
   "tone": "Direct, reliable, calm and practical. Short sentences. No hype.",
   "palettes": [
     {
@@ -99,7 +99,7 @@
       "sections": [
         "Header with the business name, a click-to-call phone button and a Request Service button",
         "Hero: the main service, the service area if known, one primary call button and one secondary quote button",
-        "Services overview: repair, new door installation, openers and remotes, only those the business actually offers",
+        "Services overview: one card for each service in section 3 and no others (typical for this trade: repair, installation, openers and remotes)",
         "How it works: a simple three-step path from call or request to completed job (no promised times)",
         "Service area (only if known)",
         "Questions customers ask (generic, no invented policies)",
@@ -110,7 +110,7 @@
       "file": "services.html",
       "name": "Services",
       "sections": [
-        "One block per service the business offers (repair, installation, openers and remotes, maintenance), each with a short description and a call button",
+        "One block per service listed in section 3 and no others, each with a short description and a call button",
         "Emergency versus scheduled work, described without promising response times",
         "Quote request section"
       ]

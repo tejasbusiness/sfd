@@ -215,7 +215,8 @@ const HERO_BANNED = /\b(professional|professionals|safe|safely|safety|reliable|r
 function plainHeroLines(ai, services) {
   const list = services.slice(0, 2);
   const headline = ai.heroHeadline && !HERO_BANNED.test(ai.heroHeadline) ? ai.heroHeadline : list.length ? list.join(' and ') : '';
-  const sub = ai.heroSubheadline && !HERO_BANNED.test(ai.heroSubheadline) ? ai.heroSubheadline : ai.serviceArea ? 'Serving ' + ai.serviceArea : '';
+  const sameAsHeadline = (t) => String(t).trim().toLowerCase() === String(headline).trim().toLowerCase();
+  const sub = ai.heroSubheadline && !HERO_BANNED.test(ai.heroSubheadline) && !sameAsHeadline(ai.heroSubheadline) ? ai.heroSubheadline : ai.serviceArea ? 'Serving ' + ai.serviceArea : '';
   return { headline, sub };
 }
 
@@ -324,7 +325,7 @@ function renderPrompt(opts) {
       `- Feel: ${ai.font.mood}`,
     ].join('\n'),
     heroHeadline: hero.headline || `[Write a plain headline naming ${businessName}'s main service]`,
-    heroSubheadline: hero.sub || '[Write one plain supporting sentence using only the facts above, or leave it out]',
+    heroSubheadline: hero.sub || '(none: leave the subheadline out, or write one plain sentence using only the facts above)',
     ctaBlock: [`- Call button: "${kit.ctaLabels.call}"`, `- Quote or request button: "${kit.ctaLabels.quote}"`, `- Closing section button: "${kit.ctaLabels.preview}"`].join('\n'),
     pagesBlock: kit.pages
       .map((p) => `### \`${p.file}\` (${p.name})\n\n` + p.sections.map((s) => '- ' + s).join('\n'))

@@ -101,8 +101,19 @@ test('hero lines with unverified quality claims are replaced by plain statements
   const kept = lib.plainHeroLines(area, area.services);
   assert.equal(kept.headline, 'Tree removal in Springfield');
   assert.equal(kept.sub, 'Serving Springfield');
+  const dup = lib.parseAi({ heroHeadline: 'Tree removal and stump grinding', heroSubheadline: ' tree removal and stump grinding ', services: ['Tree removal'] }, kit);
+  assert.equal(lib.plainHeroLines(dup, dup.services).sub, '', 'a subheadline that repeats the headline is dropped');
   for (const word of ['Professional', 'safe', 'RELIABLE', 'Family run', 'best']) assert.ok(lib.HERO_BANNED.test(word), word);
   assert.ok(!lib.HERO_BANNED.test('Tree removal and stump grinding'));
+});
+
+test('kits do not put quality words or unverified services into the build instructions', () => {
+  for (const kit of Object.values(kits)) {
+    assert.ok(!lib.HERO_BANNED.test(kit.audienceNote.replace(/\blocal\b/gi, '')), `${kit.id} audienceNote`);
+    for (const page of kit.pages) {
+      for (const line of page.sections.filter((x) => /^(Services overview|One block per service)/.test(x))) assert.ok(line.includes('section 3'), `${kit.id} ${page.file}: ${line}`);
+    }
+  }
 });
 
 test('a prompt with no verified phone tells Claude how to show call buttons', () => {
