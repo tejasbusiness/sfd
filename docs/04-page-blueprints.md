@@ -95,7 +95,7 @@ Required:
 
 Optional:
 
-- Main service.
+- Main service, with the hint "Offering more than one? Separate your services with commas." (the whole text is stored in `primary_service`; the first is the primary service).
 - "Anything we should know?"
 
 Details:
@@ -134,7 +134,7 @@ Section order: `hero-form` (copy, three bullets, the free preview and discovery 
 
 Sources: Websites, Website Care, Digital Marketing and AI & Automation copy come from `plans.json` and the earlier page copy; nothing new was invented. **SEO** is a standalone service as well as part of the managed plans and leads with a **free website audit** (owner-confirmed offer; the form asks for the site address in the message). The audit's exact scope is not described beyond "we review your current website and Google Business Profile and tell you what needs attention", (wording approved by the owner 2026-09-21). Reference pages analysed: icreateyoursite.com `/seo/`, `/ai-services/`, `/1-on-1-website-help/`. The 1-on-1 help product (a paid coaching session with a flat price) is not offered; live WordPress help is covered by Website Care.
 
-**Same fields on industry hero forms (2026-11-02).** The `hero-form` section has a `lead` mode (`form.mode: "lead"` in the page JSON) that renders exactly these fields, driven by `assets/js/free-preview-form.js`, posting to `/api/preview-applications` with a hidden `trade` value (`form.topic`, e.g. `Garage Door Services`). Its heading, button, consent and success text come from the page JSON. **Above the fold (2026-11-02):** the card is two columns on tablet and up (name | email, phone | business, website full width, main service | message), 28 to 33rem wide beside the copy, with no intro or hint line, and the H1 scales with the width, so the headline, bullets, both buttons and the whole form sit above the fold on laptops and desktops (CSS `.hero-form--lead`, `.sfd-form--lead`). The shared `textarea` macro gained an optional `full=false` for a half-width box. The Websites service page's hero form is unchanged (contact enquiry: name, email, phone, message, topic `Websites`).
+**Same fields on industry hero forms (2026-11-02).** The `hero-form` section has a `lead` mode (`form.mode: "lead"` in the page JSON) that renders exactly these fields, driven by `assets/js/free-preview-form.js`, posting to `/api/preview-applications` with a hidden `trade` value (`form.topic`, e.g. `Garage Door Services`). Its heading, button, consent and success text come from the page JSON. **Above the fold (2026-11-02):** the card is two columns on tablet and up (name | email, phone | business, then website, main service and message each full width), 28 to 33rem wide beside the copy, with no intro or hint line, and the H1 scales with the width, so the headline, bullets, both buttons and the whole form sit above the fold on laptops and desktops (CSS `.hero-form--lead`, `.sfd-form--lead`). The shared `textarea` macro gained an optional `full=false` for a half-width box (unused for now). The Websites service page's hero form is unchanged (contact enquiry: name, email, phone, message, topic `Websites`).
 
 ## Free Preview page (`/free-preview/`)
 
