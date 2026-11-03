@@ -1413,3 +1413,97 @@ html:not(.motion) .page-home .client-logos__list {
 html.motion .sticker.is-dragging {
   animation-play-state: paused, paused;
 }
+
+/* ------------------------------------------- mobile hero rework (2026-11-05) */
+/* Phones: one-line status pill, a tighter headline and copy, full-width stacked buttons
+   above the fold, and the proof stickers as a compact row of chips below the buttons. */
+@media (max-width: 760px) {
+  .hero-statement {
+    padding-block: 1.25rem 1.75rem;
+  }
+  .hero-statement__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-status {
+    gap: 0.45rem;
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .hero-statement h1 {
+    font-size: clamp(1.85rem, 8.2vw, 2.4rem);
+    line-height: 0.96;
+  }
+  .hero-statement__sub {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .hero-statement__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 21rem;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+  .hero-statement__actions .button {
+    width: 100%;
+    min-height: 48px;
+  }
+  .hero-stickers {
+    order: 5;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+  .sticker {
+    margin: 0;
+    padding: 0.4rem 0.8rem;
+    border-width: 3px;
+    font-size: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  /* The starburst becomes a regular chip on phones (a star does not fit a one-line row). */
+  .sticker--burst {
+    width: auto;
+    aspect-ratio: auto;
+    padding: 0;
+    clip-path: none;
+    border: 0;
+    border-radius: 100px;
+    background: #fff;
+    font-size: 0.75rem;
+  }
+  .sticker--burst .sticker__fill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: auto;
+    height: auto;
+    margin: 3px;
+    padding: 0.4rem 0.8rem;
+    clip-path: none;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .sticker__value,
+  .sticker__label {
+    display: inline;
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .sticker__value {
+    font-size: 0.8125rem;
+  }
+}
+@media (max-width: 340px) {
+  .hero-status {
+    white-space: normal;
+    text-align: center;
+  }
+}

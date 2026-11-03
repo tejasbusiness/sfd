@@ -1071,3 +1071,4 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 
 ### Deploy 2026-11-05 (sixth)
 - **Shipped:** commit e3e82bf: homepage de-clutter (trust strip, preview-concepts, hero price line, testimonial button removed), draggable stickers, self-hosted Inter and Archivo fonts (no Google request), corrected Cookie Policy third-party paragraph. No migrations, no new dependencies, nginx redirects unchanged. All 16 live checks passed first time; live woff2 files return 200 and the live homepage has no Google Fonts reference or trust strip. `dist.bak` now holds the fifth deploy.
+- **Mobile hero fix (2026-11-05, later):** owner reported the phone hero looked bad (wrapped status pill, blob sticker, buttons below the fold). Reworked (docs/03). Checked at 320, 360, 390, 430 and 600: no sideways scroll, buttons in the first screen. Committed, not deployed.
