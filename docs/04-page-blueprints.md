@@ -59,6 +59,8 @@ Do not publish thin near-duplicate vertical pages.
 
 **Garage Door Services (`/industries/garage-door-services/`, 2026-11-02).** First trade landing page, built from `data/pages/industries-garage-door-services.json` with existing sections only: `hero-form` (lead mode: same fields as Free Preview, trade `Garage Door Services`, locked CTAs), common-problems `feature-grid`, a single illustrative `preview-concepts` card (same concept as the homepage), "what we build" `feature-grid`, four-step `process`, `faq-split` (shared FAQ ids `cost`, `no-upfront-fee`, `preview-free`, `ownership`, `timing`), `link-cards` (Pricing, SEO, Website Care) and a closing CTA. Schema: WebPage, Service, FAQPage, BreadcrumbList. No testimonials, pricing cards or statistics (none exist for this trade). Use it as the model for Tree Services.
 
+**Tree Services (`/industries/tree-services/`, 2026-11-03).** Same structure and sections as Garage Door Services, from `data/pages/industries-tree-services.json`; only the copy changes (quote requests after a site visit, storm and emergency calls, removal vs trimming vs stump grinding, photos of past work). Hero form topic/trade `Tree Services`, which the demo kit maps to the tree design kit. The concept card uses neutral cues (Quote Requests, Service Areas, Photos of Past Work), not claims such as licensed, insured or free estimates. No testimonials, prices or statistics. Use it as the model for the next trade pages.
+
 ## Websites / Portfolio
 
 Use an editorial project presentation. Every project must identify the business type, problem, work completed and real result if available. Portfolio links should never lead to dead or repurposed client domains without review.
