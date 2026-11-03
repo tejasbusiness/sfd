@@ -1003,3 +1003,11 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 ### Deploy 2026-11-04 (evening): royal theme and Light / Dark / System live
 - Ran the deploy script with `-Yes` (no migrations, no `.env` upload, redirects unchanged). Validation, 39 tests and the production build (41 pages) passed; all live checks passed; `dist.bak` kept. Live: `royal.css`, `theme.js` and the new tokens are served; the homepage carries the pre-paint theme script, the header theme button and the Cormorant Garamond font link.
 - Owner to do: hard-refresh (assets are cached for a day), try the three modes, look at the less-visited pages in dark mode and report anything off; Cookie Policy wording for the theme preference.
+
+### Midnight-glow dark theme and richer motion (2026-11-05)
+- **Owner request:** none of the earlier dark palettes liked; wanted something like the Framer product video (near-black, glowing blue, frosted glass); then asked for other libraries beyond particles, and to deploy so they could check.
+- **Done:** dark tokens replaced by midnight glow (`tokens.css`); the oxblood and gold dark rules in `royal.css` replaced by blue-glow rules (body glow, hero bands, frosted cards, blue buttons, footer glow); dark-only travelling card-border beam, drifting aurora and film grain; Lenis smooth scrolling (`assets/js/vendor/lenis.min.js` from npm `lenis` 1.3.27, plus `smooth-scroll.js`); particles pale blue in dark. GSAP and OGL were considered and skipped (weight; CSS covers the look). Temporary `?lab=` switcher and test palettes were removed before commit.
+- **Checked:** validation, 39 tests, production build; in a real browser the homepage and Pricing in the experiment and the roofing page in dark and light after folding in; Lenis, beam and aurora confirmed running; no horizontal scroll on the roofing page at 1440.
+- **Not checked:** every page in dark mode, mobile widths, phone performance of blur and grain, contrast figures for the new dark palette (not recomputed), Safari and Firefox.
+- **Open:** owner to judge the scroll feel, beam brightness and grain; Lenis licence file is not added to the repo (MIT, from the npm package).
+

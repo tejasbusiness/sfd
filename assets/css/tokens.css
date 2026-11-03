@@ -95,29 +95,31 @@
   }
 }
 
-/* Dark theme ("obsidian, oxblood and gold"). Applied by assets/js/theme.js, which sets data-theme="dark" on
-   <html> when the visitor chose Dark, or chose System and their device is in
-   dark mode. Brand fills (--color-primary) become a deep oxblood so
-   buttons and bands stay distinct from the near-black page; foreground colours flip to warm ivory and champagne. */
+/* Dark theme ("midnight glow": near-black with an electric royal-blue glow, frosted
+   glass and no gold). Applied by assets/js/theme.js, which sets data-theme="dark" on
+   <html> when the visitor chose Dark, or chose System and their device is in dark
+   mode. --color-primary stays the brand FILL (a deep royal blue); foreground colours
+   flip to near-white and pale periwinkle. */
 :root[data-theme="dark"] {
-  --color-bg: #0E0C0A;
-  --color-surface: #181512;
-  --color-text: #F2EBDD;
-  --color-text-secondary: #BFB4A3;
-  --color-primary: #3A1220;
-  --color-primary-deep: #170709;
-  --color-tint: #120F0D;
-  --color-accent: #D69500;
-  --color-accent-warm: #DDB660;
-  --color-neutral-surface: #120F0D;
-  --color-border: #2B2521;
-  --color-field-border: #7C6F62;
-  --color-lavender-soft: #1F1713;
-  --color-link: #EBDDB8;
-  --color-ink: #080605;
+  --color-bg: #02030B;
+  --color-surface: #0A0E2B;
+  --color-text: #F4F6FF;
+  --color-text-secondary: #B3BAE0;
+  --color-primary: #0D1EA0;
+  --color-primary-deep: #040838;
+  --color-tint: #060920;
+  --color-accent: #4F73FF;
+  --color-accent-warm: #9DB1FF;
+  --color-gold-light: #C7D3FF;
+  --color-neutral-surface: #060920;
+  --color-border: #1C2358;
+  --color-field-border: #7480C0;
+  --color-lavender-soft: #0A0E2B;
+  --color-link: #CFD8FF;
+  --color-ink: #01020A;
   --color-error: #FF8F85;
-  --color-header-bg: rgba(14, 12, 10, 0.84);
-  --color-card-border: rgba(221, 182, 96, 0.2);
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 22px 44px -26px rgba(0, 0, 0, 0.75);
+  --color-header-bg: rgba(2, 3, 11, 0.62);
+  --color-card-border: rgba(130, 160, 255, 0.28);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 0 46px -16px rgba(30, 70, 255, 0.7), 0 24px 44px -26px rgba(0, 0, 0, 0.8);
   color-scheme: dark;
 }
