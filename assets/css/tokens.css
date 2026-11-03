@@ -9,37 +9,37 @@
    light page it fails contrast, so eyebrow/link/accent-phrase text uses the
    darker, AA-safe gold instead. */
 :root {
-  /* Colour: royal ivory and imperial violet with gold (2026-11-04). Dark mode
+  /* Colour: "studio" system (2026-11-05). Off-white page, near-black ink and flat
+     black panels; one restrained violet accent for links, marks and focus. Dark mode
      overrides every colour token in the [data-theme="dark"] block below. */
-  --color-bg: #FBF8F2;
+  --color-bg: #F5F5F3;
   --color-surface: #FFFFFF;
-  --color-text: #1A0830;
-  --color-text-secondary: #5A4D66;
-  --color-primary: #2B0E4D;
-  --color-primary-deep: #12031F;
-  --color-tint: #F4EEE3;
-  --color-accent: #D69500;
-  --color-accent-warm: #8A6000;
-  --color-gold-light: #F3D98F;
-  --color-gold-deep: #A87500;
-  --gold-gradient: linear-gradient(135deg, #F6DE9E 0%, #D69500 52%, #A87500 100%);
-  --color-neutral-surface: #F4EEE3;
-  --color-border: #E8DFCD;
+  --color-text: #0A0A0A;
+  --color-text-secondary: #5C5C5A;
+  --color-primary: #0A0A0A;
+  --color-primary-deep: #000000;
+  --color-tint: #ECECE9;
+  --color-accent: #5B3FA6;
+  --color-accent-warm: #4A2F8C;
+  --color-gold-light: #C9B8F2;
+  --color-gold-deep: #4A2F8C;
+  --gold-gradient: linear-gradient(135deg, #6B4FC0 0%, #5B3FA6 100%);
+  --color-neutral-surface: #ECECE9;
+  --color-border: #E2E2DE;
   /* Form-field border: darker than --color-border so fields read clearly on the page. */
-  --color-field-border: #8F8472;
-  /* Soft lavender used only for the footer playbook signup band. */
-  --color-lavender-soft: #EFE8F8;
-  /* Foreground colour for links, outlined buttons and strong icons. It is dark
-     violet on light pages and light lavender in dark mode; --color-primary stays
-     the brand FILL (buttons, bands) in both themes. */
-  --color-link: #2B0E4D;
-  /* Fixed always-dark ink for the footer. */
-  --color-ink: #0B0C0D;
+  --color-field-border: #8A8A86;
+  --color-lavender-soft: #ECECE9;
+  /* Foreground colour for links, outlined buttons and strong icons; flips in dark mode.
+     --color-primary stays the fill for primary buttons and the switch. */
+  --color-link: #0A0A0A;
+  /* Fixed always-dark ink for the footer and dark bands. */
+  --color-ink: #0A0A0A;
   --color-error: #B3261E;
+  --color-lime: #C8F169; /* the action accent from the original token spec; recommended-plan pill */
   --color-success: #1F7A3D; /* toast confirmations; white text on it is about 5.4:1 */
-  --color-header-bg: rgba(251, 248, 242, 0.86);
-  --color-card-border: rgba(168, 117, 0, 0.22);
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -26px rgba(43, 14, 77, 0.28);
+  --color-header-bg: rgba(245, 245, 243, 0.86);
+  --color-card-border: rgba(10, 10, 10, 0.12);
+  --shadow-card: none;
   color-scheme: light;
 
   /* Typography — Libre Baskerville (headings) + Montserrat (body). "The
@@ -47,12 +47,13 @@
      Libre Baskerville — which the reference also legitimately licenses via
      Google Fonts for its own accents — stands in everywhere a heading font
      is needed. */
-  --font-heading: "Cormorant Garamond", "Libre Baskerville", Georgia, serif;
-  --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Archivo Black", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Fluid heading scale (docs/13 §2) */
-  --text-display: clamp(2.6rem, 1.8rem + 3.3vw, 3.9rem);
-  --text-h2: clamp(1.9rem, 1.45rem + 1.6vw, 2.7rem);
+  --text-display: clamp(2.75rem, 1.9rem + 3.6vw, 4.6rem);
+  --text-h2: clamp(1.9rem, 1.4rem + 1.9vw, 3rem);
   --text-numeral: clamp(2.4rem, 1.7rem + 2.6vw, 4.1rem); /* decorative step numbers; was the old --text-h2 */
   --text-h3: clamp(1.4rem, 1.2rem + 0.7vw, 1.85rem);
   --text-h4: clamp(1.2rem, 1.1rem + 0.35vw, 1.4rem);
@@ -95,31 +96,30 @@
   }
 }
 
-/* Dark theme ("midnight glow": near-black with an electric royal-blue glow, frosted
-   glass and no gold). Applied by assets/js/theme.js, which sets data-theme="dark" on
-   <html> when the visitor chose Dark, or chose System and their device is in dark
-   mode. --color-primary stays the brand FILL (a deep royal blue); foreground colours
-   flip to near-white and pale periwinkle. */
+/* Dark theme: true black, white type, hairline borders, the same violet accent lifted
+   for contrast. Applied by assets/js/theme.js (data-theme="dark" on <html> when the
+   visitor chose Dark, or System with a dark device). Primary buttons become white with
+   black text (studio.css); --color-primary stays a dark fill for the few other fills. */
 :root[data-theme="dark"] {
-  --color-bg: #02030B;
-  --color-surface: #0A0E2B;
-  --color-text: #F4F6FF;
-  --color-text-secondary: #B3BAE0;
-  --color-primary: #0D1EA0;
-  --color-primary-deep: #040838;
-  --color-tint: #060920;
-  --color-accent: #4F73FF;
-  --color-accent-warm: #9DB1FF;
-  --color-gold-light: #C7D3FF;
-  --color-neutral-surface: #060920;
-  --color-border: #1C2358;
-  --color-field-border: #7480C0;
-  --color-lavender-soft: #0A0E2B;
-  --color-link: #CFD8FF;
-  --color-ink: #01020A;
+  --color-bg: #000000;
+  --color-surface: #0E0E0E;
+  --color-text: #F5F5F3;
+  --color-text-secondary: #A6A6A2;
+  --color-primary: #1A1A1A;
+  --color-primary-deep: #0A0A0A;
+  --color-tint: #0A0A0A;
+  --color-accent: #A990FF;
+  --color-accent-warm: #B8A4FF;
+  --color-gold-light: #D6CAFF;
+  --color-neutral-surface: #0A0A0A;
+  --color-border: #242424;
+  --color-field-border: #7A7A76;
+  --color-lavender-soft: #0E0E0E;
+  --color-link: #F5F5F3;
+  --color-ink: #000000;
   --color-error: #FF8F85;
-  --color-header-bg: rgba(2, 3, 11, 0.62);
-  --color-card-border: rgba(130, 160, 255, 0.28);
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 0 46px -16px rgba(30, 70, 255, 0.7), 0 24px 44px -26px rgba(0, 0, 0, 0.8);
+  --color-header-bg: rgba(0, 0, 0, 0.78);
+  --color-card-border: rgba(255, 255, 255, 0.14);
+  --shadow-card: none;
   color-scheme: dark;
 }

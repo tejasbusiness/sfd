@@ -30,8 +30,17 @@
     {% endmacro %}
     {% for item in featured %}
     <blockquote class="card card--dark testimonials__item testimonials__item--featured" data-reveal>
-      <p>&ldquo;{{ item.quote }}&rdquo;</p>
+      <p{% if section.bigQuote %} data-quote-reveal{% endif %}>&ldquo;{{ item.quote }}&rdquo;</p>
+      {% if section.bigQuote %}
+      <footer class="testimonials__footer">
+        <span class="testimonials__avatar" aria-hidden="true">{{ item.author | truncate(1, true, "") }}</span>
+        <span class="testimonials__author">{{ item.author }}</span>
+        <span class="testimonials__role">{{ item.role }}</span>
+        {% if item.source %}<span class="testimonials__source">{{ item.source }}</span>{% endif %}
+      </footer>
+      {% else %}
       {{ attribution(item) }}
+      {% endif %}
     </blockquote>
     {% endfor %}
     {% if others.length %}

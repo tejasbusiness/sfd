@@ -58,39 +58,31 @@
     <a class="site-header__logo" href="/">
       {# Tablet and mobile (the centred-logo header, up to 1399px) show the full black
          wordmark (a header-sized copy of assets/images/SFD-Black-logo.png); desktop keeps the mark. #}
-      <picture>
-        <source media="(max-width: 1399px)" srcset="/assets/images/sfd-logo-black-header.png" width="502" height="90">
-        <img
-          class="site-header__logo-image"
-          src="/assets/images/sfd-logo-2026.png"
-          alt="SynergyFirst Digital"
-          width="2170"
-          height="390"
-        >
-      </picture>
+      <img
+        class="site-header__logo-image"
+        src="/assets/images/sfd-logo-black-header.png"
+        alt="SynergyFirst Digital"
+        width="502"
+        height="90"
+      >
     </a>
 
-    <nav class="site-header__nav" aria-label="Primary">
-      <ul class="site-header__nav-list">
-        {{ navItems(navigation.primary, page) }}
-      </ul>
-    </nav>
-
+    {# Studio layout (2026-11-05): the header carries no navigation row. The full menu
+       is the "Menu" drawer below (navigation.more); the bottom dock, footer groups and
+       in-page links cover the rest. The navItems macro above is kept for reuse. #}
     <div class="site-header__actions">
       {% include "partials/theme-cycle.njk" %}
-      {# Real href for no-JS/direct-share fallback (docs/07); JS opens the shared
-         #booking-modal dialog instead of navigating. /free-preview/ is a plain link. #}
-      <a
-        class="site-header__book"
-        href="/book-a-call/"
-        data-dialog-target="booking-modal"
+      <button
+        type="button"
+        class="site-header__menu"
+        aria-controls="more-drawer"
+        aria-expanded="false"
+        data-dialog-target="more-drawer"
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Book a Free 20-Minute Call
-      </a>
-      <a class="button button--primary site-header__preview" href="/free-preview/">Start My Free Website Preview</a>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        Menu
+      </button>
+      <a class="button button--primary site-header__preview" href="/free-preview/">Start My Free Website Preview <span aria-hidden="true">&#8599;</span></a>
     </div>
   </div>
 </header>
@@ -137,7 +129,7 @@
 <dialog id="more-drawer" class="more-drawer" aria-label="More menu">
   <div class="more-drawer__panel">
     <div class="more-drawer__header">
-      <span class="more-drawer__title">More</span>
+      <span class="more-drawer__title">Menu</span>
       <button type="button" class="more-drawer__close" data-dialog-close aria-label="Close menu">
         <span aria-hidden="true">&times;</span>
       </button>

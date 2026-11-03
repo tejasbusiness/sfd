@@ -56,7 +56,7 @@
   box-shadow: 0 10px 24px -10px rgba(15, 1, 24, 0.35);
 }
 .button--accent:hover {
-  background: #B37D00;
+  background: #4A2F8C;
   transform: translateY(-2px);
   box-shadow: 0 16px 28px -10px rgba(15, 1, 24, 0.45);
 }
@@ -1197,7 +1197,7 @@ a.site-header__mega-tool:focus-visible {
   bottom: 0;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(214, 149, 0, 0.35) 55%, transparent 100%);
+  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(91, 63, 166, 0.35) 55%, transparent 100%);
 }
 .site-footer__group-list {
   list-style: none;
@@ -1245,7 +1245,7 @@ a.site-header__mega-tool:focus-visible {
   margin-inline: var(--space-3);
   vertical-align: middle;
   border-radius: 50%;
-  background: rgba(214, 149, 0, 0.6);
+  background: rgba(91, 63, 166, 0.6);
 }
 .site-footer__legal a,
 .site-footer__legal button,
@@ -2638,7 +2638,7 @@ dialog.booking-modal {
   width: 9rem;
   height: 9rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(214, 149, 0, 0.35), rgba(214, 149, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(91, 63, 166, 0.35), rgba(91, 63, 166, 0) 70%);
   pointer-events: none;
 }
 .contact-card__title {
@@ -2749,7 +2749,7 @@ a.contact-card__value:hover {
   width: 26rem;
   height: 26rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(214, 149, 0, 0.28), rgba(214, 149, 0, 0) 68%);
+  background: radial-gradient(circle, rgba(91, 63, 166, 0.28), rgba(91, 63, 166, 0) 68%);
   pointer-events: none;
 }
 .testimonials .container {
@@ -3021,7 +3021,7 @@ a.testimonials__rating:hover {
   /* Dark brand band with a soft gold glow, matching the trust strip and
      testimonials so the legal pages feel part of the same system. */
   background:
-    radial-gradient(60% 120% at 50% 0%, rgba(214, 149, 0, 0.18) 0%, transparent 70%),
+    radial-gradient(60% 120% at 50% 0%, rgba(91, 63, 166, 0.18) 0%, transparent 70%),
     linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
 }
 .hero--band::after {
@@ -3030,7 +3030,7 @@ a.testimonials__rating:hover {
   inset-inline: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(214, 149, 0, 0.6) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(91, 63, 166, 0.6) 50%, transparent);
 }
 .hero--band .eyebrow {
   color: var(--color-accent);
@@ -3047,9 +3047,9 @@ a.testimonials__rating:hover {
   display: inline-block;
   margin: var(--space-4) 0 0;
   padding: 0.4rem 1rem;
-  border: 1px solid rgba(214, 149, 0, 0.5);
+  border: 1px solid rgba(91, 63, 166, 0.5);
   border-radius: 999px;
-  background: rgba(214, 149, 0, 0.12);
+  background: rgba(91, 63, 166, 0.12);
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -3169,7 +3169,7 @@ a.testimonials__rating:hover {
   box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
 }
 .hero--band .button--primary:hover {
-  background: #B37D00;
+  background: #4A2F8C;
 }
 .hero--band .button--secondary {
   color: #fff;
@@ -3508,7 +3508,7 @@ a.testimonials__rating:hover {
   aspect-ratio: 16 / 9.6;
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 18% 20%, rgba(214, 149, 0, 0.16), transparent 45%),
+    radial-gradient(circle at 18% 20%, rgba(91, 63, 166, 0.16), transparent 45%),
     linear-gradient(135deg, var(--color-lavender-soft), var(--color-neutral-surface));
   overflow: hidden;
 }

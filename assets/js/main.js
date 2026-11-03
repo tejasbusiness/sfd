@@ -10,6 +10,7 @@ import { initMotion } from './motion.js';
 import { initTheme } from './theme.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { initFunnel } from './funnel.js';
+import { initStudioFx } from './studio-fx.js';
 import { initCustomSelects } from './custom-select.js';
 import { initCountrySelects } from './country-select.js';
 import { initLegalToc } from './legal-toc.js';
@@ -70,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initSmoothScroll();
   initFunnel();
+  initStudioFx();
   initDialogTriggers();
   initBookingModal(document.getElementById('booking-modal'));
   initFreePreviewForm(document.querySelector('[data-free-preview-form]'));

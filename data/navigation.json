@@ -264,5 +264,27 @@
       "dialogTarget": "booking-modal",
       "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#D69500\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
     }
+  ],
+  "dock": [
+    {
+      "label": "Projects",
+      "path": "/websites/case-studies/",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"/></svg>"
+    },
+    {
+      "label": "How it works",
+      "path": "/how-it-works/",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 17c4 0 4-10 8-10s4 10 8 10\"/></svg>"
+    },
+    {
+      "label": "Pricing",
+      "path": "/pricing/",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 12l-8 8-9-9V4h7z\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/></svg>"
+    },
+    {
+      "label": "Contact",
+      "path": "/contact/",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 5h16v11H8l-4 4z\"/></svg>"
+    }
   ]
 }

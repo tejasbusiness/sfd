@@ -11,7 +11,7 @@
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "See your <span class=\"text-highlight\">new website</span><br>before you pay for it.",
+  "h1": "See your <span class=\"text-highlight\">new website</span> before you pay for it.",
   "leadOffer": "website-review",
   "breadcrumbs": null,
   "service": {
@@ -57,15 +57,34 @@
       "priceContext": {
         "prefix": "Managed website plans from"
       },
-      "carousel": {
-        "ids": [
-          "ev-world360",
-          "brandbook-company",
-          "budget-opticals",
-          "siddhant-cinevision"
-        ],
-        "captionPrefix": "Real client projects:"
-      }
+      "statement": true,
+      "status": {
+        "label": "Accepting free preview requests",
+        "link": {
+          "label": "Book a call",
+          "href": "/book-a-call/",
+          "dialogTarget": "booking-modal"
+        }
+      },
+      "stickers": [
+        {
+          "label": "4.8★ Google rating",
+          "tone": "lime",
+          "shape": "burst"
+        },
+        {
+          "label": "300+ websites delivered",
+          "tone": "violet"
+        },
+        {
+          "label": "See it before you pay",
+          "tone": "peach"
+        }
+      ]
+    },
+    {
+      "type": "client-logos",
+      "heading": "Trusted by"
     },
     {
       "type": "trust-signals",
@@ -79,12 +98,13 @@
     {
       "type": "case-study-grid",
       "eyebrow": "REAL CLIENT WORK",
-      "heading": "Websites we have designed and built",
-      "intro": "Three recent client projects. Each one started with the business and its customers, then became a website built around them.",
+      "heading": "Selected client projects",
+      "intro": "Four recent client projects. Each one started with the business and its customers, then became a website built around them.",
       "itemIds": [
         "ev-world360",
         "brandbook-company",
-        "budget-opticals"
+        "budget-opticals",
+        "siddhant-cinevision"
       ],
       "cta": {
         "label": "See all case studies",
@@ -94,12 +114,13 @@
     {
       "type": "testimonials",
       "eyebrow": "WHAT CLIENTS SAY",
-      "heading": "What a client says about working with us",
+      "heading": "What a client says",
       "featuredId": "aseem-trivedi",
       "cta": {
         "label": "Start My Free Website Preview",
         "href": "/free-preview/"
-      }
+      },
+      "bigQuote": true
     },
     {
       "type": "process-narrative",

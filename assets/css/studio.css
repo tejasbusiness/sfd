@@ -1,0 +1,378 @@
+/* Studio layer (2026-11-05): monochrome, flat and typographic. Off-white page, true
+   black panels, hairline borders, pill buttons without gradients or glows, Inter Tight
+   headings with tight tracking and Manrope body text. Loaded last so it refines the
+   shared components; colour tokens live in tokens.css. Replaces royal.css. */
+
+::selection {
+  background: rgba(91, 63, 166, 0.25);
+  color: inherit;
+}
+html {
+  scrollbar-color: var(--color-text-secondary) var(--color-bg);
+  scrollbar-width: thin;
+}
+body {
+  background: var(--color-bg);
+  font-weight: 400;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------ typography */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+h1 {
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+h2 {
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+h1 em,
+h2 em,
+h3 em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+.hero--band h1 em,
+.hero--band h2 em,
+.trust-signals em,
+.section--brand em,
+.section--dark em,
+.cta-banner em {
+  color: rgba(255, 255, 255, 0.55);
+}
+.text-highlight {
+  color: var(--color-text-secondary);
+}
+p {
+  line-height: 1.65;
+}
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--color-text-secondary);
+}
+.eyebrow::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.eyebrow::after {
+  content: none;
+}
+.hero--band .eyebrow,
+.section--brand .eyebrow,
+.section--dark .eyebrow,
+.cta-banner .eyebrow,
+.trust-signals .eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------------- buttons */
+.button {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  box-shadow: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.button:hover {
+  transform: none;
+  box-shadow: none;
+}
+.button--primary,
+.button--accent {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  filter: none;
+}
+.button--primary:hover,
+.button--accent:hover {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #2a2a2a;
+  filter: none;
+}
+.button--secondary,
+.hero-split__actions .button--secondary {
+  background: transparent;
+  color: var(--color-link);
+  border-width: 1px;
+  border-color: var(--color-link);
+}
+.button--secondary:hover,
+.hero-split__actions .button--secondary:hover {
+  background: var(--color-link);
+  color: var(--color-bg);
+  border-color: var(--color-link);
+}
+/* On black bands every button is white-on-black or outlined white. */
+.hero--band .button--primary,
+.cta-banner .button--primary,
+.section--brand .button--primary,
+.section--dark .button--primary,
+.trust-signals .button--primary {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+}
+.hero--band .button--primary:hover,
+.cta-banner .button--primary:hover,
+.section--brand .button--primary:hover,
+.section--dark .button--primary:hover,
+.trust-signals .button--primary:hover {
+  background: #e8e8e4;
+  color: #0a0a0a;
+  border-color: #e8e8e4;
+}
+.hero--band .button--secondary,
+.cta-banner .button--secondary,
+.section--brand .button--secondary,
+.section--dark .button--secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.hero--band .button--secondary:hover,
+.cta-banner .button--secondary:hover,
+.section--brand .button--secondary:hover,
+.section--dark .button--secondary:hover {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+}
+/* Hero and call-to-action buttons: the long locked labels stay on one line. */
+.hero-split__actions .button,
+.hero-form__actions .button,
+.hero--band .button,
+.cta-editorial .button {
+  letter-spacing: 0;
+}
+
+/* ----------------------------------------------------------------- cards */
+.card {
+  border-radius: var(--radius-lg);
+  border-color: var(--color-card-border);
+  box-shadow: none;
+  background-image: none;
+}
+a.card:hover,
+.card--interactive:hover {
+  border-color: var(--color-text);
+  box-shadow: none;
+  transform: none;
+}
+.card--dark {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------------------------------------------------------------- header */
+.site-header {
+  background: var(--color-header-bg);
+  border-bottom-color: var(--color-border);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .site-header,
+  .site-header--scrolled {
+    background: var(--color-header-bg);
+    backdrop-filter: blur(14px);
+  }
+}
+.site-header--scrolled {
+  box-shadow: none;
+  border-bottom-color: var(--color-border);
+}
+
+/* ---------------------------------------------------------------- bands */
+.hero--band,
+.trust-signals,
+.section--brand,
+.cta-banner,
+.testimonials {
+  background: var(--color-ink);
+  background-image: none;
+}
+.hero--band::after,
+.testimonials::before,
+.contact-card::after {
+  content: none;
+}
+.section--dark {
+  background: var(--color-ink);
+}
+
+/* ---------------------------------------------------------------- footer */
+.site-footer {
+  position: relative;
+  background: var(--color-ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.site-footer__group-title::after {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---------------------------------------------------------- theme switch */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-card-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+}
+.theme-switch__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.theme-switch__btn:hover {
+  color: var(--color-link);
+}
+.theme-switch__btn[aria-pressed="true"] {
+  background: var(--color-link);
+  color: var(--color-bg);
+}
+.theme-switch__btn:focus-visible,
+.theme-cycle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.theme-cycle {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--color-card-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-link);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.theme-cycle:hover {
+  border-color: var(--color-link);
+}
+.theme-cycle__icon {
+  display: none;
+}
+:root[data-theme-pref="light"] .theme-cycle__icon--light,
+:root[data-theme-pref="dark"] .theme-cycle__icon--dark,
+:root[data-theme-pref="system"] .theme-cycle__icon--system {
+  display: block;
+}
+.site-header__actions .theme-cycle {
+  flex-shrink: 0;
+}
+.more-drawer__theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ------------------------------------------------ homepage specifics */
+.hero-split__stat-value::after {
+  background: var(--color-accent);
+}
+.hero-split__stats {
+  border-radius: var(--radius-lg);
+}
+.hero-split__stat:hover {
+  transform: none;
+  box-shadow: none;
+}
+.hero-carousel__item a {
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+/* ------------------------------------------- dark mode corrections */
+:root[data-theme="dark"] .site-header__logo-image,
+:root[data-theme="dark"] .site-footer__wordmark--invert {
+  filter: invert(1) brightness(1.1);
+}
+/* Primary buttons flip to white on black; black bands get a hairline so they
+   still read as panels against the black page. */
+:root[data-theme="dark"] .button--primary,
+:root[data-theme="dark"] .button--accent {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+}
+:root[data-theme="dark"] .button--primary:hover,
+:root[data-theme="dark"] .button--accent:hover {
+  background: #e8e8e4;
+  color: #0a0a0a;
+  border-color: #e8e8e4;
+}
+:root[data-theme="dark"] .hero--band,
+:root[data-theme="dark"] .trust-signals,
+:root[data-theme="dark"] .section--brand,
+:root[data-theme="dark"] .cta-banner,
+:root[data-theme="dark"] .testimonials,
+:root[data-theme="dark"] .section--dark {
+  background: #0a0a0a;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+:root[data-theme="dark"] .card {
+  background-color: var(--color-surface);
+}
+:root[data-theme="dark"] .card::after {
+  content: none;
+}
+:root[data-theme="dark"] .site-footer {
+  border-top-color: var(--color-border);
+}
+/* Mock-ups of customers' websites stay light in both themes: they are pictures of a different site. */
+:root[data-theme="dark"] .browser-frame,
+:root[data-theme="dark"] .phone-frame,
+:root[data-theme="dark"] .device-mockup {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #0a0a0a;
+  --color-text-secondary: #5c5c5a;
+  --color-tint: #f4f4f4;
+  --color-border: #e6e6e6;
+  --color-link: #0a0a0a;
+  --color-accent-warm: #4a2f8c;
+  color: #0a0a0a;
+}

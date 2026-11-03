@@ -15,31 +15,34 @@ Do not copy exact layouts, shapes, colours, animation sequences or written conte
 
 ## Colour tokens
 
-Initial direction, subject to final visual review:
+Studio system (2026-11-05, `assets/css/tokens.css`). Monochrome with one restrained violet accent; no gold.
 
-| Role | Value |
-|---|---|
-| Warm page background | `#F7F7F3` |
-| White surface | `#FFFFFF` |
-| Primary text | `#121318` |
-| Secondary text | `#5E626D` |
-| Primary purple | `#6447E8` |
-| Deep purple | `#332375` |
-| Soft lavender | `#ECE8FF` |
-| Action accent | `#C8F169` |
-| Neutral surface | `#E9E9E4` |
-| Border | `#DADBD5` |
+| Role | Light | Dark |
+|---|---|---|
+| Page background `--color-bg` | `#F5F5F3` | `#000000` |
+| Surface `--color-surface` | `#FFFFFF` | `#0E0E0E` |
+| Text `--color-text` | `#0A0A0A` | `#F5F5F3` |
+| Secondary text `--color-text-secondary` | `#5C5C5A` | `#A6A6A2` |
+| Primary fill `--color-primary` (buttons, switch) | `#0A0A0A` | `#1A1A1A` (primary buttons are white, see studio.css) |
+| Link / outline `--color-link` | `#0A0A0A` | `#F5F5F3` |
+| Accent `--color-accent` (dots, marks, focus, highlights) | `#5B3FA6` | `#A990FF` |
+| Accent as text `--color-accent-warm` | `#4A2F8C` | `#B8A4FF` |
+| Border `--color-border` | `#E2E2DE` | `#242424` |
+| Field border `--color-field-border` | `#8A8A86` | `#7A7A76` |
+| Ink (footer, black bands) `--color-ink` | `#0A0A0A` | `#000000` |
 
-Target proportion: 65% warm white/neutral, 20% ink typography, 10% purple and 5% lime accent. Lime is for highlights and action states, not large backgrounds.
+Proportion: off-white page, black panels for the hero bands, testimonials, call-to-action bands and footer, black type, violet only as a small mark. The old `--color-gold-*` and `--gold-gradient` token names still exist for compatibility but hold violet values; do not add new uses.
 
 All combinations must pass WCAG 2.2 AA. Tokens may be adjusted to meet contrast.
 
 ## Typography
 
-- Headings: evaluate Manrope, Plus Jakarta Sans or Sora.
-- Body: evaluate Inter or DM Sans.
-- Metrics and small technical labels: optional IBM Plex Mono.
-- Prefer self-hosted optimized font files when licensing permits.
+- Headings: **Inter** 500 with tight tracking (`-0.035em` on H1, `-0.03em` on H2), line height 1 to 1.08. Fluid sizes in `tokens.css`.
+- Display: **Archivo Black** (`--font-display`), uppercase, for the homepage statement hero, process step titles, plan names and prices on the homepage band, and the footer statement. Nowhere else.
+- Body: **Inter** 400, 500 for emphasis, 600 for buttons and labels. Line height 1.65.
+- Eyebrows: Inter 600 at 0.6875rem, letter-spacing 0.16em, secondary grey with a violet dot.
+- Buttons: Inter 600, 0.8125rem, sentence case (no uppercase), pill shape.
+- Loaded from Google Fonts in `base.njk`; self-hosting is still the long-term plan.
 - Maintain comfortable body line length and avoid tiny uppercase text for important information.
 
 ## Layout
@@ -173,11 +176,25 @@ Sitewide motion lives in `assets/js/motion.js` and `assets/css/motion.css` (load
 - **Page:** a 3px gold scroll-progress bar at the top, a pulse on the eyebrow dot, and a cross-document view transition (`@view-transition`) for a soft fade between pages in supporting browsers.
 - **Rules for new work:** animate only `transform`, `opacity` and `translate`; keep decorative motion free of claims (no animated numbers or ratings); add new effects inside `html.motion`; no new dependency.
 
-## Royal theme and Light / Dark / System mode (2026-11-04)
-- **Look:** warm ivory page, imperial violet brand fills, gold accents and hairlines, and Cormorant Garamond for headings (Montserrat stays for body text). Headings are about 8 percent larger because Cormorant sets small. Eyebrows use a gold diamond and hairline; primary buttons are violet gradients with a gold edge; accent and hero buttons are a gold gradient with dark text; cards get a faint gold border and a soft layered shadow (radius, border width and padding are unchanged, rule 17). Tokens are in `assets/css/tokens.css`; the refinements are in `assets/css/royal.css` (loaded last).
-- **Dark theme ("midnight glow", 2026-11-05):** near-black page (`#02030B`) with an electric royal-blue glow, frosted-glass cards (translucent indigo, 16px blur, light edge), blue gradient buttons with a pale rim and halo, pale-periwinkle links and accents, and no gold. Chosen from the owner's Framer reference after the violet-black, obsidian/oxblood/gold, navy, racing-green and graphite options were rejected. Dark-only extras in `royal.css`: a light beam that travels around every `.card` border (`@property --beam`), a slowly drifting blue aurora (`body::before`), and a faint film grain (`body::after`); all stop under reduced motion. Particles are pale blue in dark mode. Light mode keeps the ivory, violet and gold royal look. Mock-ups of customers' websites (`.browser-frame`, `.phone-frame`) stay light in both themes because they are pictures of other sites.
-- **Smooth scrolling:** Lenis (vendored `assets/js/vendor/lenis.min.js`, 18.8 KB, v1.3.27) via `assets/js/smooth-scroll.js`, both themes; skipped for reduced motion; dialogs and the More drawer keep native scrolling.
-- **Token rules:** `--color-primary` and `--color-primary-deep` are brand FILLS in both themes (buttons, bands); foreground uses (links, outlines, strong icons) use `--color-link`, which flips. Text on a primary fill is `#fff`. New tokens: `--color-link`, `--color-gold-light`, `--color-gold-deep`, `--gold-gradient`, `--color-header-bg`, `--color-card-border`, `--shadow-card`. Do not use `--color-primary` for text.
-- **Switching:** an inline script in `<head>` sets `data-theme` (light or dark) and `data-theme-pref` (light, dark or system) before first paint from `localStorage["sfd-theme"]` or the device setting; `assets/js/theme.js` wires the header button (cycles Light, Dark, System, icon shows the current choice) and the three-way switch in the mobile More drawer (`templates/partials/theme-cycle.njk`, `theme-switch.njk`), and follows the device while System is chosen. Without JavaScript the page is light.
-- **Contrast (computed):** body text 15 to 19:1 and secondary text 7 to 10:1 on every surface in both themes; the darker gold used as text on ivory is 5.3:1; light gold on violet bands (light mode) is 11 to 14:1; dark text on the gold button (light mode) is 7.3:1 at its centre and 4.65:1 at its darkest edge. Dark mode contrast was NOT recomputed after the midnight-glow change (checked by eye only): body text is near-white on near-black; run the contrast check before relying on it. Form field borders were darkened to 3.2:1 or more (was about 1.7:1) to meet the 3:1 rule for controls; they still do not change on focus.
-- **Privacy note:** the choice is stored in the visitor's browser (`localStorage`, key `sfd-theme`) and never sent anywhere. It is a functional preference; the Cookie Policy should mention it (lawyer review pending).
+## Studio theme and Light / Dark / System mode (2026-11-05)
+- **Look:** flat, monochrome and typographic, after the owner's references (dovvstudio.com, gianmediagroup.com; principles only, nothing copied). Off-white page, true-black bands and footer, hairline borders, pill buttons without gradients, glows or lift, flat cards at the large radius with a border that darkens on hover, Inter throughout with Archivo Black for display statements. Violet survives as the single accent (eyebrow dot, stat underline, focus ring, highlight words); gold is gone. Tokens in `assets/css/tokens.css`; refinements in `assets/css/studio.css` and the layout patterns in `assets/css/studio-layout.css` (both loaded last; they replaced `royal.css`).
+- **Buttons:** light mode, primary is black with white text and secondary is a black outline; on black bands primary is white with black text. Dark mode flips the primary to white on black everywhere. The locked labels stay in sentence case now (they were uppercase).
+- **Dark theme:** black page, `#0E0E0E` surfaces, `#0A0A0A` bands with a hairline top and bottom so they read as panels, white type, lifted violet accent. No glow, aurora, grain, beam or particles. Mock-ups of customers' websites (`.browser-frame`, `.phone-frame`) stay light in both themes because they are pictures of other sites.
+- **Motion kept:** word-by-word headline reveal, staggered card reveal, magnetic hero buttons, Lenis smooth scrolling (`assets/js/vendor/lenis.min.js`, MIT, licence beside it), scroll-progress bar (now ink-coloured), view transitions. **Removed sitewide:** particle canvas and glow fields (`initAmbientFields` returns early unless `<html data-ambient>` is set), card cursor spotlight, button shine and the eyebrow pulse. The earlier Motion system notes above describe the ambient field for reference only.
+- **Token rules:** `--color-primary` is a fill, `--color-link` is the foreground that flips; text on a primary fill is `#fff` in light mode. Do not use `--color-primary` for text.
+- **Switching:** unchanged. An inline script in `<head>` sets `data-theme` and `data-theme-pref` before first paint from `localStorage["sfd-theme"]` or the device setting; `assets/js/theme.js` wires the header button and the three-way switch in the mobile More drawer. Without JavaScript the page is light.
+- **Contrast (computed 2026-11-05):** dark mode on a trade page: headings, body text, eyebrows and primary buttons 19.8:1, secondary buttons and labels 17.7:1, links 8.6:1, field borders 5.2:1. Light mode figures are in `docs/10` for this date.
+- **Privacy note:** the choice is stored in the visitor's browser (`localStorage`, key `sfd-theme`) and never sent anywhere; the Cookie Policy says so (2026-11-05).
+
+## Studio layout (2026-11-05)
+Owner instruction: match dovvstudio.com's layout, type, motion and styling while keeping the multi-page structure and all content. Built from scratch in `assets/css/studio-layout.css`, `assets/js/studio-fx.js` and a few templates (CLAUDE.md rule 14: patterns, not a copy).
+- **Header:** logo left; right: the theme pill, a **Menu** pill that opens the existing drawer (`#more-drawer`, now titled "Menu", content from `navigation.more`) and one black "Start My Free Website Preview ↗" button. The primary navigation row and mega menus are no longer rendered (the `navItems` macro stays in `header.njk` for reuse). Every page is still linked from the drawer, the footer groups (which gained "All Services" and "Free Downloads" so the orphan guard passes), the dock and in-page links. The header button hides under 760px (the tab bar carries the action).
+- **Dock:** `templates/partials/dock.njk`, items in `navigation.dock` (Projects, How it works, Pricing, Contact). Desktop only (1400px and up); below that the tab bar owns the bottom edge.
+- **Statement hero** (`section.statement` on `hero-split`): status pill (`section.status`), uppercase Archivo Black headline (the H1 words unchanged; its forced line break was removed), three sticker pills from `section.stickers` (each a verified fact: the 4.8★ Google rating as a starburst, 300+ websites delivered, see it before you pay), subheading, the two locked buttons, the price line. Stickers sit statically in a row under 760px. The hero clips overflow so tilted stickers never cause sideways scroll.
+- **Logo marquee:** the homepage `client-logos` section renders as a grey "Trusted by" row; `studio-fx.js` wraps it in a track and appends an aria-hidden copy so the CSS marquee loops. Static under reduced motion.
+- **Project panels:** homepage `case-study-grid` cards are black rounded panels with the screenshot inside a thin frame, name and tag pills; four projects, two per row, "See all case studies" outlined pill.
+- **Big quote:** `testimonials` with `bigQuote: true` renders the featured review as an oversized Inter quote whose words light up as they pass 68% of the viewport (`data-quote-reveal`, `.quote-word.is-lit`), with an initials avatar. Plain text for reduced motion and without JS.
+- **Black band:** on the homepage `process-narrative`, `pricing-highlight` and `founder-note` share one black band with rounded top and bottom; plan cards are dark, the recommended plan is white with a lime pill (`--color-lime`, the action accent from the original token spec); plan names and prices use the display face.
+- **Footer:** a giant "Let's talk" statement (`footer.statement`) with two truthful stickers (`footer.statementStickers`), a "Start a project" column with the brand statement and the booking button, the link groups in a hairline grid, and the legal row. Off-white in light mode, black in dark mode.
+- **Word flip:** `[data-flip-words]` (hero H1, footer statement). Each word gets two stacked copies; hover crossfades Archivo Black to light Inter, and one random word flips for a second every 2.6s. Runs after motion.js has split the headline (it reuses the `.wi` boxes). Off under reduced motion. Verified in the browser: hover and the idle flip.
+- **Homepage clutter:** analysed for the owner on 2026-11-05 (docs/10); the trust strip, the preview-concepts block, the hero price line and the duplicate closing asks are the candidates to remove. Not applied yet.

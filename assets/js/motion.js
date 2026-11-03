@@ -163,6 +163,9 @@ function createParticleField(host, canvas, tone) {
 }
 
 function initAmbientFields() {
+  // Studio redesign (2026-11-05): no particle canvas or glow fields on any page. The
+  // code stays for a future opt-in (data-ambient on <html>); it is never run otherwise.
+  if (!document.documentElement.hasAttribute('data-ambient')) return;
   const hosts = document.querySelectorAll(FX_TARGETS);
   // The homepage stays calm (2026-11-05): soft glow fields only, no particle canvas.
   const calm = document.body.classList.contains('page-home');

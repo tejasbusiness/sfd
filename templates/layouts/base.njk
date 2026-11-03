@@ -29,12 +29,13 @@
      subsetted font files before production launch — not done yet, flagged. #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="/assets/css/motion.css">
-  <link rel="stylesheet" href="/assets/css/royal.css">
+  <link rel="stylesheet" href="/assets/css/studio.css">
+  <link rel="stylesheet" href="/assets/css/studio-layout.css">
   {% if page.id == "home" %}
   <link rel="stylesheet" href="/assets/css/homepage.css">
   {% endif %}
@@ -52,6 +53,7 @@
   {% if page.leadOffer == "website-review" %}{% include "partials/website-review.njk" %}
   {% elif not page.hidePlaybook %}{% include "partials/playbook.njk" %}{% endif %}
   {% include "partials/footer.njk" %}
+  {% include "partials/dock.njk" %}
   {% include "partials/cookie-banner.njk" %}
   <script defer src="/assets/js/vendor/lenis.min.js"></script>
   <script type="module" src="/assets/js/main.js"></script>

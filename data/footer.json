@@ -122,6 +122,10 @@
         {
           "label": "AI & Automation",
           "path": "/services/ai-automation/"
+        },
+        {
+          "label": "All Services",
+          "path": "/services/"
         }
       ]
     },
@@ -135,6 +139,10 @@
         {
           "label": "Blog",
           "path": "/resources/blog/"
+        },
+        {
+          "label": "Free Downloads",
+          "path": "/resources/free-downloads/"
         }
       ]
     },
@@ -178,5 +186,22 @@
       "path": "/cookie-policy/"
     }
   ],
-  "social": []
+  "social": [],
+  "statement": "Let’s talk",
+  "startLabel": "START A PROJECT",
+  "startCta": {
+    "label": "Book a Free 20-Minute Call",
+    "href": "/book-a-call/",
+    "dialogTarget": "booking-modal"
+  },
+  "statementStickers": [
+    {
+      "label": "Accepting new projects",
+      "tone": "lime"
+    },
+    {
+      "label": "Free 20-minute call",
+      "tone": "violet"
+    }
+  ]
 }

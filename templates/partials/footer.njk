@@ -1,9 +1,22 @@
 <footer class="site-footer">
+  {% if footer.statement %}
+  <div class="footer-statement" aria-hidden="true">
+    <div class="footer-statement__inner">
+      <p class="footer-statement__text" data-flip-words>{{ footer.statement }}</p>
+      {% for st in footer.statementStickers %}
+      <span class="sticker sticker--f{{ loop.index }} sticker--{{ st.tone }}">{{ st.label }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
   <div class="container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
+        {% if footer.startLabel %}<p class="site-footer__brand-label">{{ footer.startLabel }}</p>{% endif %}
+        {% if company.email %}<a class="site-footer__email" href="mailto:{{ company.email }}">{{ company.email }}</a>{% endif %}
         <img class="site-footer__wordmark" src="/assets/images/SFD-White-logo-footer.png" alt="{{ company.tradingName }}" width="836" height="150" loading="lazy" decoding="async">
         {% if footer.brandStatement %}<p class="site-footer__statement">{{ footer.brandStatement }}</p>{% endif %}
+        {% if footer.startCta %}<a class="button button--primary" href="{{ footer.startCta.href }}"{% if footer.startCta.dialogTarget %} data-dialog-target="{{ footer.startCta.dialogTarget }}"{% endif %}>{{ footer.startCta.label }}</a>{% endif %}
       </div>
 
       {% if footer.groups and footer.groups.length %}

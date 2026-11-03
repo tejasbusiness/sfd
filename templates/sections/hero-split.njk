@@ -1,5 +1,37 @@
 {# Homepage-only redesigned hero (docs/13 §8.1). The "hero" type/template used by
    How It Works and Pricing is untouched — this is a separate type on purpose. #}
+{% if section.statement %}
+{# Statement hero (2026-11-05): centred uppercase display headline with sticker pills.
+   Every sticker is a verified fact from section.stickers (same source as the old stats). #}
+<section class="section hero-split hero-statement">
+  <div class="container hero-statement__inner" data-reveal>
+    {% if section.status %}
+    <p class="hero-status">
+      <span class="hero-status__dot" aria-hidden="true"></span>{{ section.status.label }}
+      {% if section.status.link %}<span class="hero-status__sep" aria-hidden="true"></span><a href="{{ section.status.link.href }}"{% if section.status.link.dialogTarget %} data-dialog-target="{{ section.status.link.dialogTarget }}"{% endif %}>{{ section.status.link.label }} &rarr;</a>{% endif %}
+    </p>
+    {% endif %}
+    <h1 data-flip-words>{{ page.h1 | safe }}</h1>
+    {% if section.stickers %}
+    <div class="hero-stickers">
+      {% for st in section.stickers %}
+      <span class="sticker sticker--{{ loop.index }} sticker--{{ st.tone }}{% if st.shape %} sticker--{{ st.shape }}{% endif %}">{{ st.label }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <p class="hero-statement__sub">{{ section.subheading }}</p>
+    <div class="hero-statement__actions">
+      <a class="button button--primary" href="{{ section.primaryCta.href }}">{{ section.primaryCta.label }}</a>
+      {% if section.secondaryCta %}
+      <a class="button button--secondary" href="{{ section.secondaryCta.href }}"{% if section.secondaryCta.dialogTarget %} data-dialog-target="{{ section.secondaryCta.dialogTarget }}"{% endif %}>{{ section.secondaryCta.label }}</a>
+      {% endif %}
+    </div>
+    {% if section.priceContext %}
+    <p class="hero-statement__price">{{ section.priceContext.prefix }} <strong>{{ plans.plans[0].priceMonthly }}/month</strong>. {{ plans.commitmentTerms }}</p>
+    {% endif %}
+  </div>
+</section>
+{% else %}
 <section class="section hero-split">
   <div class="container grid-12 hero-split__grid">
     <div class="hero-split__content col-span-7" data-reveal>
@@ -164,3 +196,4 @@
     </div>
   </div>
 </section>
+{% endif %}
