@@ -999,3 +999,7 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Checked:** validation, 39 tests and the production build; in a real browser: homepage, roofing page, Contact, Pricing, About footer and the booking dialog in dark, homepage and roofing in light; hero buttons stay on one line and nothing scrolls sideways at 390, 768, 1100 and 1440px on the homepage, a trade page, Pricing and Contact in both themes; hero forms still above the fold on desktop (bottoms 603 to 675px); contrast computed for the main pairs.
 - **Not checked:** every page in dark mode by eye (case studies, legal pages, tools, blog, 404), the mobile More drawer visually, Safari and Firefox, and real-phone performance.
 - **Open:** mention the theme preference in the Cookie Policy; owner to look at dark mode on the less-visited pages and report anything off.
+
+### Deploy 2026-11-04 (evening): royal theme and Light / Dark / System live
+- Ran the deploy script with `-Yes` (no migrations, no `.env` upload, redirects unchanged). Validation, 39 tests and the production build (41 pages) passed; all live checks passed; `dist.bak` kept. Live: `royal.css`, `theme.js` and the new tokens are served; the homepage carries the pre-paint theme script, the header theme button and the Cormorant Garamond font link.
+- Owner to do: hard-refresh (assets are cached for a day), try the three modes, look at the less-visited pages in dark mode and report anything off; Cookie Policy wording for the theme preference.
