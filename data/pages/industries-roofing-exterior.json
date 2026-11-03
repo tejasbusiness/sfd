@@ -1,0 +1,264 @@
+{
+  "id": "industries-roofing-exterior",
+  "type": "static",
+  "slug": "roofing-exterior",
+  "canonicalPath": "/industries/roofing-exterior/",
+  "seo": {
+    "title": "Roofing Company Website Design | SynergyFirst Digital",
+    "metaDescription": "Managed websites for roofing and exterior companies, built for estimate requests and storm-damage calls. See a free private preview before you pay.",
+    "ogTitle": "Roofing Company Website Design",
+    "ogDescription": "A managed website built for roofing and exterior companies. See a free private preview before you pay.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "A Website That Turns Roofing Searches Into Estimate Requests",
+  "breadcrumbs": [
+    {
+      "label": "Industries",
+      "path": "/industries/"
+    },
+    {
+      "label": "Roofing & Exterior",
+      "path": null
+    }
+  ],
+  "service": {
+    "name": "Managed websites for roofing and exterior companies",
+    "serviceType": "Website design, hosting and maintenance",
+    "description": "Professionally designed websites for roofing and exterior companies, hosted, maintained and supported for one predictable monthly fee, with a free private preview before you pay.",
+    "audience": "Roofing and exterior companies",
+    "startingPrice": "249"
+  },
+  "sections": [
+    {
+      "type": "hero-form",
+      "eyebrow": "ROOFING & EXTERIOR",
+      "subheading": "Homeowners search when a roof leaks, storm damage hits or a replacement is due. We build and manage your website so they can see what you do, trust you and request an estimate or call in seconds.",
+      "points": [
+        "See your new website free, in private, for seven days",
+        "Subscribe only if you like it",
+        "Hosting, updates and support included"
+      ],
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "form": {
+        "mode": "lead",
+        "heading": "See your new website first",
+        "topic": "Roofing & Exterior",
+        "submitLabel": "Start My Free Website Preview",
+        "consentLabel": "I confirm I have the right to share this information, and I understand a preview is not guaranteed for every request.",
+        "successTitle": "Request received",
+        "successMessage": "Thank you. We'll look at your business and email you about your private website preview."
+      }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "IN SHORT",
+      "heading": "What is a managed website for a roofing company?",
+      "body": [
+        "A managed website for a roofing company is a professionally designed website that SynergyFirst Digital hosts, maintains and supports for one monthly fee, with no upfront design fee. It is built around how people look for roofing and exterior work: repair, replacement, the area you cover, and a fast way to call or request an estimate.",
+        "Plans start at $249 per month with no activation fee, and every business can see a free, private preview before paying."
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "eyebrow": "COMMON PROBLEMS",
+      "heading": "Why roofing websites lose jobs they should win",
+      "intro": "A roof is a big, often urgent purchase, and homeowners compare quickly. These are the gaps we see most often.",
+      "items": [
+        {
+          "title": "The phone number is hard to find",
+          "body": "When a roof is leaking after a storm, a number buried in a menu sends the homeowner to the next company."
+        },
+        {
+          "title": "Repair, replacement and exterior work are mixed together",
+          "body": "A small leak and a full replacement are different decisions. Without clear paths for each, visitors are unsure you handle theirs."
+        },
+        {
+          "title": "Customers cannot see completed work",
+          "body": "Without clear photos of finished roofs and exteriors, it is hard for a homeowner to judge the quality of what you do."
+        },
+        {
+          "title": "The service area is unclear",
+          "body": "If visitors cannot quickly tell whether you cover their town, they do not enquire."
+        },
+        {
+          "title": "No easy way to ask for an estimate",
+          "body": "Most roofing jobs are priced after a look at the roof. A short request form captures customers who would rather write than call."
+        },
+        {
+          "title": "Trust is left to chance",
+          "body": "Licence and insurance details, warranty terms, reviews and past work belong where customers look for reassurance."
+        }
+      ]
+    },
+    {
+      "type": "preview-concepts",
+      "heading": "What a roofing website can look like",
+      "intro": "An illustrative concept showing how we design around estimate requests, storm calls and service areas. It is a concept example, not a published client project.",
+      "items": [
+        {
+          "industryLabel": "Roofing & Exterior",
+          "headline": "An estimate-focused roofing website",
+          "description": "Designed around estimate requests, urgent storm and leak calls, clear service sections and fast paths to call or request an estimate.",
+          "mockAlt": "Illustrative roofing website concept",
+          "mockBusinessName": "Your Roofing Company",
+          "mockNavLinks": "Services  Areas  Our Work",
+          "mockNavCta": "Get an Estimate",
+          "mockHeroHeading": "Roof Repair and Replacement",
+          "mockHeroSub": "Repair, replacement and exterior work in your area.",
+          "mockHeroCta": "Request an Estimate",
+          "mockTrustCues": [
+            "Estimate Requests",
+            "Service Areas",
+            "Photos of Past Work"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "tinted": true,
+      "eyebrow": "WHAT WE BUILD",
+      "heading": "What we build into a roofing website",
+      "intro": "Every site is custom-designed around how your customers choose a roofing and exterior company.",
+      "items": [
+        {
+          "title": "Click-to-call on every page",
+          "body": "Your number stays one tap away on phones, so urgent customers can reach you without searching."
+        },
+        {
+          "title": "Separate paths for repair, replacement and exterior work",
+          "body": "Clear service sections so each visitor lands on the job they need, with a call or estimate request beside it."
+        },
+        {
+          "title": "Storm and leak options",
+          "body": "Give urgent jobs their own route, so a homeowner with a leak or storm damage knows what to do next."
+        },
+        {
+          "title": "Service-area clarity",
+          "body": "State where you work, so visitors can see straight away that you cover their location."
+        },
+        {
+          "title": "A home for photos, reviews and credentials",
+          "body": "Space for completed work, warranty terms and the trust signals you can genuinely show, placed where customers look for reassurance."
+        },
+        {
+          "title": "A simple estimate-request form",
+          "body": "A short, accessible form where customers describe the job, so you can plan the visit."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "eyebrow": "HOW IT WORKS",
+      "heading": "See it before you pay",
+      "intro": "We create a private preview from your public business information, and you decide whether to go ahead.",
+      "steps": [
+        {
+          "title": "Tell us about your business",
+          "body": "Send your business name and your website or Google Business Profile."
+        },
+        {
+          "title": "We build your private preview",
+          "body": "We design a preview using your real services and public online presence."
+        },
+        {
+          "title": "Review it for seven days",
+          "body": "Explore it on a private link. Your current website stays unchanged while you review."
+        },
+        {
+          "title": "Choose a plan or walk away",
+          "body": "If you like it, we complete, launch and manage it. If not, there is no obligation."
+        }
+      ],
+      "cta": {
+        "label": "See How It Works",
+        "href": "/how-it-works/"
+      }
+    },
+    {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "itemIds": [
+        "roofing-website-needs",
+        "roofing-estimate",
+        "roofing-storm",
+        "roofing-trust",
+        "cost",
+        "preview-free"
+      ]
+    },
+    {
+      "type": "link-cards",
+      "tinted": true,
+      "eyebrow": "RELATED",
+      "heading": "More ways we can help",
+      "items": [
+        {
+          "label": "Pricing",
+          "description": "Simple monthly plans with hosting and support included.",
+          "href": "/pricing/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3v18M16 7.5c0-1.4-1.8-2.5-4-2.5s-4 1.1-4 2.5 1.8 2.5 4 2.5 4 1.1 4 2.5-1.8 2.5-4 2.5-4-1.1-4-2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "SEO",
+          "description": "Be found by nearby customers on Google.",
+          "href": "/services/seo/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M21 21l-4.3-4.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Website Care & WordPress Maintenance",
+          "description": "Updates, backups and support after launch.",
+          "href": "/services/website-care-maintenance/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Garage Door Websites",
+          "description": "The same managed approach for garage door repair and installation companies.",
+          "href": "/industries/garage-door-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 21V8l8-4 8 4v13M4 11h16M4 15h16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Garage Door Websites",
+          "description": "The same managed approach for garage door repair and installation companies.",
+          "href": "/industries/garage-door-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 21V8l8-4 8 4v13M4 11h16M4 15h16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Tree Service Websites",
+          "description": "The same managed approach for tree removal, trimming and stump grinding companies.",
+          "href": "/industries/tree-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    },
+    {
+      "type": "free-preview-cta",
+      "heading": "See your new roofing website before you pay for it.",
+      "body": "Request a free private preview. There is no payment and no obligation to continue.",
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "Service",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-11-04"
+}

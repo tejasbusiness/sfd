@@ -229,6 +229,12 @@
           "description": "The same managed approach for tree removal, trimming and stump grinding companies.",
           "href": "/industries/tree-services/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Roofing Company Websites",
+          "description": "The same managed approach for roofing and exterior companies.",
+          "href": "/industries/roofing-exterior/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },

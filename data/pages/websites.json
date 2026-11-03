@@ -46,7 +46,7 @@
         },
         {
           "label": "Industries",
-          "description": "Landing pages for garage door and tree service companies.",
+          "description": "Landing pages for garage door, tree and roofing companies.",
           "href": "/industries/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 21h18M5 21V9l5 3V9l5 3V5h4v16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }

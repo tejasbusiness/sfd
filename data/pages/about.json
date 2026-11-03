@@ -151,7 +151,7 @@
       "type": "link-cards",
       "eyebrow": "WHO WE WORK WITH",
       "heading": "Digital growth shaped around how local customers choose",
-      "intro": "A garage door company is not marketed like a tree service. We adapt the website structure, proof, calls to action and customer journey to the way people choose a business in each trade.",
+      "intro": "A garage door company is not marketed like a tree service or a roofer. We adapt the website structure, proof, calls to action and customer journey to the way people choose a business in each trade.",
       "items": [
         {
           "label": "Garage Door Services",
@@ -164,6 +164,12 @@
           "description": "Quote-focused websites for removal, trimming and stump grinding.",
           "href": "/industries/tree-services/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Roofing & Exterior",
+          "description": "Estimate-focused websites for roofing and exterior companies.",
+          "href": "/industries/roofing-exterior/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ],
       "closing": "Different trades. Different buying journeys. One principle: make the next step obvious and easy.",

@@ -83,6 +83,10 @@
           "path": "/industries/tree-services/"
         },
         {
+          "label": "Roofing & Exterior",
+          "path": "/industries/roofing-exterior/"
+        },
+        {
           "label": "All Industries",
           "path": "/industries/"
         }

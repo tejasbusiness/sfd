@@ -5,7 +5,7 @@
   "canonicalPath": "/industries/",
   "seo": {
     "title": "Industries We Build Websites For | SynergyFirst Digital",
-    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door and tree service companies, with more trades coming. See a free private preview before you pay.",
+    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree service, and roofing and exterior companies. See a free private preview before you pay.",
     "ogTitle": "Industries We Build Websites For",
     "ogDescription": "Every website is structured around how people search for and choose a local service business.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -44,6 +44,12 @@
           "description": "Quote-focused websites for removal, trimming and stump grinding.",
           "href": "/industries/tree-services/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Roofing & Exterior",
+          "description": "Estimate-focused websites for roofing and exterior companies.",
+          "href": "/industries/roofing-exterior/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },
