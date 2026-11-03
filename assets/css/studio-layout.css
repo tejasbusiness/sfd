@@ -386,19 +386,21 @@ html.motion .page-home .client-logos__track:hover .client-logos__list {
 }
 .page-home .testimonials__item--featured > p {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 1rem + 3.2vw, 4.4rem);
+  font-size: clamp(1.5rem, 0.9rem + 2.5vw, 3.4rem); /* one step down (2026-11-05) */
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  color: var(--color-text);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--color-text-secondary);
   margin: 0 0 2rem;
 }
+/* Words rest in the secondary grey and turn black as they light up, so the lit
+   phrase is what reads, not the whole block. */
 .quote-word {
-  opacity: 0.22;
-  transition: opacity 0.35s ease;
+  color: var(--color-text-secondary);
+  transition: color 0.35s ease;
 }
 .quote-word.is-lit {
-  opacity: 1;
+  color: var(--color-text);
 }
 .page-home .testimonials__footer {
   display: grid;
