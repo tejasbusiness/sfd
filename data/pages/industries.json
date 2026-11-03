@@ -5,7 +5,7 @@
   "canonicalPath": "/industries/",
   "seo": {
     "title": "Industries We Build Websites For | SynergyFirst Digital",
-    "metaDescription": "Managed websites shaped around how customers actually choose a business in your industry — home services, restaurants, healthcare, financial and professional services.",
+    "metaDescription": "Managed websites shaped around how customers choose a business in your industry: garage door and tree services, home services, restaurants, healthcare, financial and professional services.",
     "ogTitle": "Industries We Build Websites For",
     "ogDescription": "Every website is structured around how people search for and choose a business in your specific industry.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -18,14 +18,33 @@
       "type": "hero",
       "eyebrow": "Industries",
       "subheading": "Every plan runs on the same managed foundation — hosting, SEO, monthly updates — shaped around what actually gets someone in your industry to call, book or visit.",
-      "primaryCta": { "label": "Start My Free Website Preview", "href": "/free-preview/" },
-      "secondaryCta": { "label": "Book a Free 20-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" }
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     },
     {
       "type": "link-cards",
       "heading": "Choose your industry",
       "intro": "Each industry page covers the problems we see most often, the features that matter for that kind of business, and how the process works.",
       "items": [
+        {
+          "label": "Garage Door Services",
+          "description": "Urgent-call websites for repair and installation companies.",
+          "href": "/industries/garage-door-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 21V8l8-4 8 4v13M4 11h16M4 15h16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Tree Services",
+          "description": "Quote-focused websites for removal, trimming and stump grinding.",
+          "href": "/industries/tree-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
         {
           "label": "Home Services",
           "description": "Emergency-ready calls-to-action and service-area clarity.",
@@ -62,9 +81,14 @@
       "type": "free-preview-cta",
       "heading": "Don't see your industry?",
       "body": "We build for local businesses outside these five categories too — apply for a free preview and we'll tell you honestly whether we're a good fit.",
-      "primaryCta": { "label": "Start My Free Website Preview", "href": "/free-preview/" }
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      }
     }
   ],
-  "schemaTypes": ["WebPage"],
+  "schemaTypes": [
+    "WebPage"
+  ],
   "lastUpdated": "2026-09-18"
 }

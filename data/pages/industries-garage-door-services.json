@@ -4,8 +4,8 @@
   "slug": "garage-door-services",
   "canonicalPath": "/industries/garage-door-services/",
   "seo": {
-    "title": "Garage Door Company Websites | SynergyFirst Digital",
-    "metaDescription": "Managed websites for garage door repair and installation companies, built for urgent calls, clear service areas and quote requests. Preview yours free before you pay.",
+    "title": "Garage Door Website Design | SynergyFirst Digital",
+    "metaDescription": "Managed websites for garage door repair and installation companies, built for urgent calls and quote requests. See a free private preview before you pay.",
     "ogTitle": "Garage Door Company Websites",
     "ogDescription": "A managed website built for garage door repair and installation companies. See a free private preview before you pay.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -13,14 +13,21 @@
   },
   "h1": "A Website That Turns Garage Door Searches Into Calls",
   "breadcrumbs": [
-    { "label": "Industries", "path": "/industries/" },
-    { "label": "Garage Door Services", "path": null }
+    {
+      "label": "Industries",
+      "path": "/industries/"
+    },
+    {
+      "label": "Garage Door Services",
+      "path": null
+    }
   ],
   "service": {
     "name": "Managed websites for garage door companies",
     "serviceType": "Website design, hosting and maintenance",
     "description": "Professionally designed websites for garage door repair and installation companies, hosted, maintained and supported for one predictable monthly fee, with a free private preview before you pay.",
-    "audience": "Garage door repair and installation companies"
+    "audience": "Garage door repair and installation companies",
+    "startingPrice": "249"
   },
   "sections": [
     {
@@ -50,6 +57,15 @@
         "successTitle": "Request received",
         "successMessage": "Thank you. We'll look at your business and email you about your private website preview."
       }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "IN SHORT",
+      "heading": "What is a managed website for a garage door company?",
+      "body": [
+        "A managed website for a garage door company is a professionally designed website that SynergyFirst Digital hosts, maintains and supports for one monthly fee, with no upfront design fee. It is built around how people look for garage door help: repair, new doors and openers, the area you cover, and a fast way to call or request a quote.",
+        "Plans start at $249 per month with no activation fee, and every business can see a free, private preview before paying."
+      ]
     },
     {
       "type": "feature-grid",
@@ -100,9 +116,9 @@
           "mockHeroSub": "Repairs, installation and emergency service in your area.",
           "mockHeroCta": "Request Service",
           "mockTrustCues": [
-            "Licensed & Insured",
-            "Same-Day Service",
-            "Free Estimates"
+            "Call Now",
+            "Service Areas",
+            "Photos of Past Work"
           ]
         }
       ]
@@ -171,8 +187,18 @@
     {
       "type": "faq-split",
       "heading": "Common questions",
-      "cta": { "label": "Start My Free Website Preview", "href": "/free-preview/" },
-      "itemIds": ["cost", "no-upfront-fee", "preview-free", "ownership", "timing"]
+      "cta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "itemIds": [
+        "garage-website-needs",
+        "garage-urgent",
+        "garage-paths",
+        "cost",
+        "preview-free",
+        "ownership"
+      ]
     },
     {
       "type": "link-cards",
@@ -197,6 +223,12 @@
           "description": "Updates, backups and support after launch.",
           "href": "/services/website-care-maintenance/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9 12l2 2 4-4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Tree Service Websites",
+          "description": "The same managed approach for tree removal, trimming and stump grinding companies.",
+          "href": "/industries/tree-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },
@@ -210,6 +242,11 @@
       }
     }
   ],
-  "schemaTypes": ["WebPage", "Service", "FAQPage", "BreadcrumbList"],
-  "lastUpdated": "2026-11-02"
+  "schemaTypes": [
+    "WebPage",
+    "Service",
+    "FAQPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-11-03"
 }

@@ -6,13 +6,13 @@
 
 {% if "Organization" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }},"email":{{ company.supportEmail | dump | safe }}{% if company.description %},"description":{{ company.description | dump | safe }}{% endif %}}
+{"@context":"https://schema.org","@type":"Organization","@id":{{ (site.productionDomain + "/#organization") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }},"email":{{ company.supportEmail | dump | safe }}{% if company.description %},"description":{{ company.description | dump | safe }}{% endif %}}
 </script>
 {% endif %}
 
 {% if "WebSite" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}}
+{"@context":"https://schema.org","@type":"WebSite","@id":{{ (site.productionDomain + "/#website") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"publisher":{"@id":{{ (site.productionDomain + "/#organization") | dump | safe }}}}
 </script>
 {% endif %}
 
@@ -20,13 +20,13 @@
    audience }). No prices, ratings or service areas — only what the page states. #}
 {% if "Service" in page.schemaTypes and page.service %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":{{ page.service.name | dump | safe }},"serviceType":{{ page.service.serviceType | dump | safe }},"description":{{ page.service.description | dump | safe }},"provider":{"@type":"Organization","name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}},"audience":{"@type":"BusinessAudience","audienceType":{{ page.service.audience | dump | safe }}}}
+{"@context":"https://schema.org","@type":"Service","@id":{{ (canonicalUrl + "#service") | dump | safe }},"name":{{ page.service.name | dump | safe }},"serviceType":{{ page.service.serviceType | dump | safe }},"description":{{ page.service.description | dump | safe }},"url":{{ canonicalUrl | dump | safe }},"provider":{"@type":"Organization","@id":{{ (site.productionDomain + "/#organization") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}},"audience":{"@type":"BusinessAudience","audienceType":{{ page.service.audience | dump | safe }}}{% if page.service.startingPrice %},"offers":{"@type":"Offer","url":{{ (site.productionDomain + "/pricing/") | dump | safe }},"priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":{{ page.service.startingPrice | dump | safe }},"priceCurrency":"USD","unitText":"MONTH","referenceQuantity":{"@type":"QuantitativeValue","value":1,"unitCode":"MON"}},"description":"Monthly managed website plan, starting price. No activation fee."}{% endif %}}
 </script>
 {% endif %}
 
 {% if "AboutPage" in page.schemaTypes or "ContactPage" in page.schemaTypes or "WebPage" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":{{ ("AboutPage" if "AboutPage" in page.schemaTypes else ("ContactPage" if "ContactPage" in page.schemaTypes else "WebPage")) | dump | safe }},"name":{{ page.seo.title | dump | safe }},"description":{{ page.seo.metaDescription | dump | safe }},"url":{{ canonicalUrl | dump | safe }}}
+{"@context":"https://schema.org","@type":{{ ("AboutPage" if "AboutPage" in page.schemaTypes else ("ContactPage" if "ContactPage" in page.schemaTypes else "WebPage")) | dump | safe }},"@id":{{ (canonicalUrl + "#webpage") | dump | safe }},"name":{{ page.seo.title | dump | safe }},"description":{{ page.seo.metaDescription | dump | safe }},"url":{{ canonicalUrl | dump | safe }},"inLanguage":{{ site.defaultLocale | dump | safe }},"isPartOf":{"@type":"WebSite","@id":{{ (site.productionDomain + "/#website") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }}},"publisher":{"@id":{{ (site.productionDomain + "/#organization") | dump | safe }}}{% if page.lastUpdated %},"dateModified":{{ page.lastUpdated | dump | safe }}{% endif %}{% if "Service" in page.schemaTypes and page.service %},"about":{"@id":{{ (canonicalUrl + "#service") | dump | safe }}}{% endif %}{% if "BreadcrumbList" in page.schemaTypes and page.breadcrumbs %},"breadcrumb":{"@id":{{ (canonicalUrl + "#breadcrumb") | dump | safe }}}{% endif %}}
 </script>
 {% endif %}
 
@@ -50,6 +50,6 @@
 {# BreadcrumbList from page.breadcrumbs ([{label, path}], last item path null = current page). #}
 {% if "BreadcrumbList" in page.schemaTypes and page.breadcrumbs %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{% for crumb in page.breadcrumbs %}{"@type":"ListItem","position":{{ loop.index }},"name":{{ crumb.label | dump | safe }},"item":{{ ((site.productionDomain + crumb.path) if crumb.path else canonicalUrl) | dump | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","@id":{{ (canonicalUrl + "#breadcrumb") | dump | safe }},"itemListElement":[{% for crumb in page.breadcrumbs %}{"@type":"ListItem","position":{{ loop.index }},"name":{{ crumb.label | dump | safe }},"item":{{ ((site.productionDomain + crumb.path) if crumb.path else canonicalUrl) | dump | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]}
 </script>
 {% endif %}
