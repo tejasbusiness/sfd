@@ -1,3 +1,5 @@
+{# `hover: "detail"` marks a logo with large opaque areas: on hover it becomes a black and white
+   copy instead of a flat black or white silhouette, so its detail survives. #}
 {# Client logo strip. Every entry is a real client supplied by the owner
    (assets/images/customer-logos/, listed once in data/client-logos.json); nothing is invented (CLAUDE.md rule 13).
    `tile: "dark"` puts a logo with light artwork on a solid dark card. Logos are plain
@@ -11,7 +13,7 @@
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
     <ul class="client-logos__list" data-reveal>
       {% for item in logoItems %}
-      <li class="card client-logos__item{{ ' client-logos__item--dark' if item.tile == 'dark' }}">
+      <li class="card client-logos__item{{ ' client-logos__item--dark' if item.tile == 'dark' }}{{ ' client-logos__item--detail' if item.hover == 'detail' }}">
         <img class="client-logos__image" src="{{ item.src }}" alt="{{ item.name }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
       </li>
       {% endfor %}

@@ -51,11 +51,34 @@ function initLogoMarquee() {
   list.parentNode.insertBefore(track, list);
   track.appendChild(list);
   if (!document.documentElement.classList.contains('motion')) return;
-  const copy = list.cloneNode(true);
-  copy.setAttribute('aria-hidden', 'true');
-  copy.querySelectorAll('img').forEach((img) => img.setAttribute('alt', ''));
-  Array.from(copy.children).forEach((li) => list.appendChild(li));
   list.dataset.cloned = '1';
+  const originals = Array.from(list.children);
+  // Tile enough copies of the set to cover the track plus one spare set, then shift by
+  // exactly one set's width so the loop is seamless at any viewport width.
+  const build = () => {
+    list.querySelectorAll('[data-clone]').forEach((n) => n.remove());
+    list.style.removeProperty('--marquee-shift');
+    const setW = originals.reduce((sum, li) => sum + li.getBoundingClientRect().width, 0);
+    if (!setW) return;
+    const sets = Math.ceil(track.clientWidth / setW) + 1;
+    for (let i = 0; i < sets; i += 1) {
+      originals.forEach((li) => {
+        const c = li.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('data-clone', '');
+        c.querySelectorAll('img').forEach((img) => img.setAttribute('alt', ''));
+        list.appendChild(c);
+      });
+    }
+    list.style.setProperty('--marquee-shift', setW.toFixed(1) + 'px');
+    list.style.setProperty('--marquee-duration', Math.max(18, setW / 45).toFixed(1) + 's'); // about 45px per second
+  };
+  build();
+  let t = 0;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(t);
+    t = window.setTimeout(build, 200);
+  });
 }
 
 /* Weight field. Letters are wrapped in spans (words stay unbreakable); motion.js may
@@ -242,8 +265,12 @@ export function initStudioFx() {
   initLocalTime();
   initStickerShine();
   initDock();
-  initQuoteReveal();
-  initLogoMarquee();
-  // After motion.js (same DOMContentLoaded handler) has split the headlines.
-  window.setTimeout(initWeightField, 0);
+  // After motion.js (same DOMContentLoaded handler, runs later) has added html.motion and
+  // split the headlines: these three behave differently with and without motion, so they
+  // must not read the class before it is set.
+  window.setTimeout(() => {
+    initQuoteReveal();
+    initLogoMarquee();
+    initWeightField();
+  }, 0);
 }

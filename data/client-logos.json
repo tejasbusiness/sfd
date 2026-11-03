@@ -5,13 +5,15 @@
       "name": "Budget Opticals of America",
       "src": "/assets/images/customer-logos/budget-opticals-of-america.png",
       "width": 157,
-      "height": 60
+      "height": 60,
+      "hover": "detail"
     },
     {
       "name": "CAWT Mumbai",
       "src": "/assets/images/customer-logos/cawt-mumbai.png",
       "width": 200,
-      "height": 200
+      "height": 200,
+      "hover": "detail"
     },
     {
       "name": "CINTAA",
@@ -29,7 +31,8 @@
       "name": "Siddhant Cinevision Pvt. Ltd.",
       "src": "/assets/images/customer-logos/siddhant-cinevision.png",
       "width": 500,
-      "height": 500
+      "height": 500,
+      "hover": "detail"
     },
     {
       "name": "EV WORLD360",

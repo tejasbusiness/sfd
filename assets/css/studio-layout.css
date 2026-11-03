@@ -1273,3 +1273,124 @@ ul.feature-bento__checklist svg {
 .page-home .testimonials__head .eyebrow {
   margin-bottom: 0.35rem;
 }
+
+/* ----------------------- icon chips: no more violet on dark (2026-11-05) */
+/* Same rule as the tick discs: lime on a dark disc, ink on a light chip. */
+.playbook__icon,
+.contact-card__icon,
+.mission-vision__card--dark .mission-vision__icon {
+  color: var(--color-lime);
+}
+.mission-vision__card--dark .mission-vision__icon {
+  border-color: var(--color-lime);
+}
+.growth-modules__icon,
+.cta-editorial__icon,
+.mission-vision__icon {
+  color: var(--color-text);
+}
+.mission-vision__icon {
+  border-color: var(--color-border);
+}
+
+/* ------------------------------- footer brand column breathing room */
+.site-footer__top--studio .site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
+.site-footer__top--studio .site-footer__brand > * {
+  margin: 0;
+}
+.site-footer__top--studio .site-footer__brand .site-footer__brand-label {
+  margin-bottom: -0.5rem; /* the label sits closer to the address it names */
+}
+.site-footer__top--studio .site-footer__brand .button {
+  margin-top: 0.5rem;
+}
+
+/* --------------- column dividers run edge to edge, hairline to hairline */
+/* The group divider is a border on a group inside a padded column; pull it out by the
+   column padding on both sides so it meets the vertical hairlines. */
+@media (min-width: 900px) {
+  .site-footer__col:not(:first-child):not(:last-child) .site-footer__group + .site-footer__group {
+    margin-inline: -1.75rem;
+    padding-inline: 1.75rem;
+  }
+  .site-footer__col:last-child .site-footer__group + .site-footer__group {
+    margin-left: -1.75rem;
+    margin-right: calc(-1 * var(--container-padding));
+    padding-left: 1.75rem;
+    padding-right: var(--container-padding);
+  }
+}
+@media (max-width: 899px) {
+  .site-footer__col .site-footer__group + .site-footer__group {
+    margin-inline: calc(-1 * var(--container-padding));
+    padding-inline: var(--container-padding);
+  }
+}
+
+/* ------------------------------------ logo marquee: even cells, full width */
+/* Every logo sits in a same-width cell, so the rhythm is even whatever the logo's shape.
+   studio-fx.js tiles enough copies to fill the track and sets --marquee-shift to one
+   set's width, so the loop is seamless and never leaves a blank run on the right. */
+.page-home .client-logos__list {
+  gap: 0;
+}
+.page-home .client-logos__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(9rem, 7rem + 5vw, 12rem);
+}
+.page-home .client-logos__image {
+  max-width: calc(100% - 2.5rem);
+}
+html.motion .page-home .client-logos__list {
+  animation: marquee var(--marquee-duration, 38s) linear infinite;
+}
+@keyframes marquee {
+  to { transform: translateX(calc(var(--marquee-shift, 50%) * -1)); }
+}
+html:not(.motion) .page-home .client-logos__list {
+  width: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 1.5rem;
+}
+/* Hover: the logo goes solid black in light mode and solid white in dark mode. */
+.page-home .client-logos__item:hover .client-logos__image,
+.page-home .client-logos__item--dark:hover .client-logos__image {
+  filter: brightness(0);
+  opacity: 1;
+}
+:root[data-theme="dark"] .page-home .client-logos__item:hover .client-logos__image,
+:root[data-theme="dark"] .page-home .client-logos__item--dark:hover .client-logos__image {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+/* ---------- logo cells are plain (no card chrome, either theme) + detail logos */
+.page-home .client-logos__item,
+:root[data-theme="dark"] .page-home .client-logos__item {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.page-home .client-logos__item:hover,
+:root[data-theme="dark"] .page-home .client-logos__item:hover {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+/* Logos with big opaque areas keep their detail: darker (light mode) or brighter (dark
+   mode) grayscale copy, not a flat silhouette, which would turn them into a solid blob. */
+.page-home .client-logos__item--detail:hover .client-logos__image {
+  filter: grayscale(1) brightness(0.4) contrast(1.8);
+}
+:root[data-theme="dark"] .page-home .client-logos__item--detail:hover .client-logos__image {
+  filter: grayscale(1) invert(1) brightness(1.7) contrast(1.4);
+}
