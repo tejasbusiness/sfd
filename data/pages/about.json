@@ -18,8 +18,15 @@
       "type": "hero",
       "eyebrow": "ABOUT SYNERGYFIRST DIGITAL",
       "subheading": "We help local businesses turn their digital presence into a practical growth engine—with conversion-focused websites, stronger local visibility and technology that makes day-to-day business easier.",
-      "primaryCta": { "label": "Book a Free 20-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
-      "secondaryCta": { "label": "See Our Work", "href": "/websites/portfolio/" }
+      "primaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "secondaryCta": {
+        "label": "See Our Work",
+        "href": "/websites/portfolio/"
+      }
     },
     {
       "type": "mission-vision",
@@ -46,8 +53,16 @@
       "eyebrow": "CLIENT REVIEWS",
       "heading": "What our clients say about working with us",
       "featuredId": "mamata-desai",
-      "itemIds": ["aseem-trivedi", "manu-sharma", "sanjay-bhatia"],
-      "cta": {"label":"Book a Free 20-Minute Call","href":"/book-a-call/","dialogTarget":"booking-modal"}
+      "itemIds": [
+        "aseem-trivedi",
+        "manu-sharma",
+        "sanjay-bhatia"
+      ],
+      "cta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
     },
     {
       "type": "content-block",
@@ -77,11 +92,26 @@
       "heading": "One connected digital team. Fewer disconnected vendors.",
       "intro": "We focus on the parts of your digital presence that directly influence visibility, credibility, enquiries and operational efficiency.",
       "items": [
-        { "title": "Websites", "body": "Fast, modern and conversion-focused websites shaped around your customers, your offer and the action you want visitors to take." },
-        { "title": "SEO", "body": "Practical local search strategies that help nearby customers discover your business when they are actively looking for what you provide." },
-        { "title": "Website Care & WordPress Maintenance", "body": "Reliable updates, backups, security checks and technical support that keep your website healthy after launch." },
-        { "title": "Digital Marketing & Social Media", "body": "Clear, consistent campaigns and content designed to strengthen brand recall and keep your business visible in the right places." },
-        { "title": "AI & Automation", "body": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work and help your team operate more efficiently." }
+        {
+          "title": "Websites",
+          "body": "Fast, modern and conversion-focused websites shaped around your customers, your offer and the action you want visitors to take."
+        },
+        {
+          "title": "SEO",
+          "body": "Practical local search strategies that help nearby customers discover your business when they are actively looking for what you provide."
+        },
+        {
+          "title": "Website Care & WordPress Maintenance",
+          "body": "Reliable updates, backups, security checks and technical support that keep your website healthy after launch."
+        },
+        {
+          "title": "Digital Marketing & Social Media",
+          "body": "Clear, consistent campaigns and content designed to strengthen brand recall and keep your business visible in the right places."
+        },
+        {
+          "title": "AI & Automation",
+          "body": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work and help your team operate more efficiently."
+        }
       ]
     },
     {
@@ -91,53 +121,56 @@
       "heading": "Senior thinking without the traditional agency overhead",
       "intro": "You should not have to manage five different vendors to make one digital strategy work. We keep the process focused, transparent and accountable from the first conversation to ongoing support.",
       "items": [
-        { "title": "Business before design", "body": "We start with your customers, goals, offer and sales journey. Visual design follows strategy—not the other way around." },
-        { "title": "Direct, clear communication", "body": "You speak with the people responsible for the work. No bloated account-management chain and no technical jargon used to hide simple answers." },
-        { "title": "Practical technology", "body": "We recommend tools because they solve a real problem, not because they are fashionable. Every feature must earn its place." },
-        { "title": "Built for ownership and growth", "body": "We create maintainable digital foundations that can evolve with your business instead of trapping you inside a short-term setup." },
-        { "title": "Support beyond launch", "body": "Launch is a milestone, not the end of the relationship. When you need improvements, maintenance or a new capability, you have a team that already understands your business." },
-        { "title": "Global delivery, personal attention", "body": "Our remote-first model lets us support businesses across time zones while keeping the working relationship responsive and personal." }
+        {
+          "title": "Business before design",
+          "body": "We start with your customers, goals, offer and sales journey. Visual design follows strategy—not the other way around."
+        },
+        {
+          "title": "Direct, clear communication",
+          "body": "You speak with the people responsible for the work. No bloated account-management chain and no technical jargon used to hide simple answers."
+        },
+        {
+          "title": "Practical technology",
+          "body": "We recommend tools because they solve a real problem, not because they are fashionable. Every feature must earn its place."
+        },
+        {
+          "title": "Built for ownership and growth",
+          "body": "We create maintainable digital foundations that can evolve with your business instead of trapping you inside a short-term setup."
+        },
+        {
+          "title": "Support beyond launch",
+          "body": "Launch is a milestone, not the end of the relationship. When you need improvements, maintenance or a new capability, you have a team that already understands your business."
+        },
+        {
+          "title": "Global delivery, personal attention",
+          "body": "Our remote-first model lets us support businesses across time zones while keeping the working relationship responsive and personal."
+        }
       ]
     },
     {
       "type": "link-cards",
       "eyebrow": "WHO WE WORK WITH",
       "heading": "Digital growth shaped around how local customers choose",
-      "intro": "A restaurant is not marketed like a roofing company. A clinic does not earn trust the same way as a financial services firm. We adapt the website structure, proof, calls to action and customer journey to the way people evaluate businesses in each industry.",
+      "intro": "A garage door company is not marketed like a tree service. We adapt the website structure, proof, calls to action and customer journey to the way people choose a business in each trade.",
       "items": [
         {
-          "label": "Home Services, Roofers & Plumbers",
-          "description": "Turn emergency searches into booked jobs, fast.",
-          "href": "/industries/home-services/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M14.7 6.3a4 4 0 00-5.4 5.1L4 17v3h3l5.6-5.6a4 4 0 005.1-5.4l-2.8 2.8-2.1-2.1 2.9-2.8z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+          "label": "Garage Door Services",
+          "description": "Turn urgent searches into calls and quote requests.",
+          "href": "/industries/garage-door-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 21V8l8-4 8 4v13M4 11h16M4 15h16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "Restaurants & Food Businesses",
-          "description": "Menu, hours and table — answered in seconds.",
-          "href": "/industries/restaurants/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 2v8M5 2v5a2 2 0 002 2 2 2 0 002-2V2M7 12v10M17 2c-1.7 0-3 2-3 5s1.3 5 3 5v8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
-        },
-        {
-          "label": "Clinics, Doctors & Healthcare Practices",
-          "description": "Build trust before a patient ever calls.",
-          "href": "/industries/healthcare/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M20.8 8.6c0 5.4-8.8 10.4-8.8 10.4S3.2 14 3.2 8.6a4.6 4.6 0 018.8-1.9 4.6 4.6 0 018.8 1.9z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
-        },
-        {
-          "label": "Financial Services",
-          "description": "Earn the first conversation with a high-consideration client.",
-          "href": "/industries/financial-services/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 10l9-6 9 6M5 10v9M9 10v9M15 10v9M19 10v9M3 21h18\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
-        },
-        {
-          "label": "Professional Services",
-          "description": "Position your expertise clearly, from the first visit.",
-          "href": "/industries/professional-services/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+          "label": "Tree Services",
+          "description": "Quote-focused websites for removal, trimming and stump grinding.",
+          "href": "/industries/tree-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ],
-      "closing": "Different industries. Different buying journeys. One principle: make the next step obvious and easy.",
-      "cta": { "label": "Explore Industries", "href": "/industries/" }
+      "closing": "Different trades. Different buying journeys. One principle: make the next step obvious and easy.",
+      "cta": {
+        "label": "Explore Industries",
+        "href": "/industries/"
+      }
     },
     {
       "type": "process",
@@ -145,27 +178,52 @@
       "eyebrow": "OUR APPROACH",
       "heading": "Clear thinking before execution",
       "steps": [
-        { "title": "Understand", "body": "We study your business, current website or Google Business Profile, audience, competitors and strongest selling points." },
-        { "title": "Find the opportunity", "body": "We identify what is blocking trust, visibility or conversion and define the most valuable improvement to make first." },
-        { "title": "Build with purpose", "body": "We shape the message, customer journey, design and technology around a clear business outcome." },
-        { "title": "Launch, learn and improve", "body": "After launch, we support, maintain and refine the work as your business and opportunities evolve." }
+        {
+          "title": "Understand",
+          "body": "We study your business, current website or Google Business Profile, audience, competitors and strongest selling points."
+        },
+        {
+          "title": "Find the opportunity",
+          "body": "We identify what is blocking trust, visibility or conversion and define the most valuable improvement to make first."
+        },
+        {
+          "title": "Build with purpose",
+          "body": "We shape the message, customer journey, design and technology around a clear business outcome."
+        },
+        {
+          "title": "Launch, learn and improve",
+          "body": "After launch, we support, maintain and refine the work as your business and opportunities evolve."
+        }
       ],
-      "cta": { "label": "See How It Works", "href": "/how-it-works/" }
+      "cta": {
+        "label": "See How It Works",
+        "href": "/how-it-works/"
+      }
     },
     {
       "type": "portfolio-grid",
       "eyebrow": "SELECTED WORK",
       "heading": "Judge us by the work—not the claims",
       "intro": "Explore selected websites and digital experiences created to help businesses present themselves more clearly, earn trust faster and make it easier for customers to act.",
-      "itemIds": ["budget-opticals", "cawt", "cintaa-casting-portal"],
-      "cta": { "label": "View Our Work", "href": "/websites/portfolio/" }
+      "itemIds": [
+        "budget-opticals",
+        "cawt",
+        "cintaa-casting-portal"
+      ],
+      "cta": {
+        "label": "View Our Work",
+        "href": "/websites/portfolio/"
+      }
     },
     {
       "type": "founder-note",
       "eyebrow": "A NOTE FROM OUR CHIEF TECHNICAL OFFICER",
       "heading": "The best digital work starts with understanding the business",
       "quote": "After spending more than 20 years in the technical field, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.",
-      "attribution": { "name": "Tejas G.", "title": "CTO, SynergyFirst Digital" },
+      "attribution": {
+        "name": "Tejas G.",
+        "title": "CTO, SynergyFirst Digital"
+      },
       "avatarImage": "/assets/images/tejas-gandhi-dp.png",
       "avatarAlt": "Tejas G.",
       "avatarInitials": "TG"
@@ -188,11 +246,23 @@
       "eyebrow": "LET'S TALK",
       "heading": "Ready for a digital presence that works harder for your business?",
       "body": "Tell us where your business is today and where you want it to go. We will help you identify the smartest next step—without jargon, pressure or a bloated sales process.",
-      "primaryCta": { "label": "Book a Free 20-Minute Call", "href": "/book-a-call/", "dialogTarget": "booking-modal" },
-      "secondaryCta": { "label": "Tell Us About Your Project", "href": "/contact/" },
+      "primaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "secondaryCta": {
+        "label": "Tell Us About Your Project",
+        "href": "/contact/"
+      },
       "trustNote": "A focused conversation. No obligation. Practical next steps."
     }
   ],
-  "schemaTypes": ["WebPage", "AboutPage", "Organization", "FAQPage"],
+  "schemaTypes": [
+    "WebPage",
+    "AboutPage",
+    "Organization",
+    "FAQPage"
+  ],
   "lastUpdated": "2026-09-20"
 }

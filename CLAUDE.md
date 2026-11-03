@@ -11,7 +11,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 3. Use a small Node.js build process only during development and deployment. The production server must not need Node.js. Form and booking handling is a small PHP API under `/api/` with MySQL (`docs/14-database-and-api.md`); page content is still static HTML.
 4. Generate complete static HTML. Do not fetch primary page content from JSON in the browser.
 5. Store page content in JSON. Store shared company, navigation, footer, theme, testimonials and configuration data in shared JSON files.
-6. Generate clean directory URLs ending with `/`, such as `/pricing/` and `/industries/home-services/`.
+6. Generate clean directory URLs ending with `/`, such as `/pricing/` and `/industries/tree-services/`.
 7. Generate unique metadata, canonical URLs and structured data for every indexable page.
 8. Never use `noindex` on production pages. Preview sites are the exception and must always be `noindex, nofollow`.
 9. Never point canonicals, Open Graph URLs, schema or sitemaps to a temporary domain.

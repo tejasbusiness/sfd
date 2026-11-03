@@ -18,5 +18,25 @@
   {
     "from": "/pricing/websites/",
     "to": "/pricing/"
+  },
+  {
+    "from": "/industries/home-services/",
+    "to": "/industries/"
+  },
+  {
+    "from": "/industries/restaurants/",
+    "to": "/industries/"
+  },
+  {
+    "from": "/industries/healthcare/",
+    "to": "/industries/"
+  },
+  {
+    "from": "/industries/financial-services/",
+    "to": "/industries/"
+  },
+  {
+    "from": "/industries/professional-services/",
+    "to": "/industries/"
   }
 ]

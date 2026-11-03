@@ -60,7 +60,7 @@ dist/
   index.html
   pricing/index.html
   industries/index.html
-  industries/home-services/index.html
+  industries/tree-services/index.html
   book-a-call/index.html
   404.html
   sitemap.xml

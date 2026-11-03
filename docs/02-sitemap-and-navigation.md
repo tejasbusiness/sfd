@@ -30,11 +30,6 @@ The persistent header also exposes **Book a Free 20-Minute Call** without overwh
 /services/ai-automation/
 
 /industries/
-/industries/home-services/
-/industries/restaurants/
-/industries/healthcare/
-/industries/financial-services/
-/industries/professional-services/
 /industries/garage-door-services/   (added 2026-11-02; linked from /industries/ and the Tree Services page since 2026-11-03; not yet from the homepage card or navigation)
 /industries/tree-services/           (added 2026-11-03; linked from /industries/ and the Garage Door page; not yet from the homepage card or navigation)
 

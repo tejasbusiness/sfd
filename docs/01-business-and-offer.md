@@ -14,7 +14,7 @@ Primary targets are operating local businesses with a weak digital presence:
 - Clear services and a meaningful average customer value.
 - Weak mobile experience, calls to action, local visibility or enquiry flow.
 
-Priority niches include home services, healthcare, financial services, professional services, restaurants and hospitality.
+Priority niches (owner decision 2026-11-03): garage door services, tree services, roofing and exterior, plumbing, HVAC and electrical, and fencing, concrete and remodeling. Healthcare, financial services, professional services, restaurants and generic home services were dropped.
 
 Do not position inactive businesses with no market proof as ideal customers. SFD helps a healthy business present and convert better; it does not fix a fundamentally non-operational business.
 
