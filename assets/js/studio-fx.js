@@ -177,7 +177,25 @@ function initWeightField() {
   window.setTimeout(invalidate, 1800);
 }
 
+/* "Based in" local time in the footer: hours and minutes in the company time zone. */
+function initLocalTime() {
+  const els = document.querySelectorAll('[data-local-time]');
+  if (!els.length) return;
+  const tick = () => {
+    els.forEach((el) => {
+      try {
+        el.textContent = new Intl.DateTimeFormat([], { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: el.dataset.localTime }).format(new Date());
+      } catch (e) {
+        el.textContent = '';
+      }
+    });
+  };
+  tick();
+  window.setInterval(tick, 30000);
+}
+
 export function initStudioFx() {
+  initLocalTime();
   initQuoteReveal();
   initLogoMarquee();
   // After motion.js (same DOMContentLoaded handler) has split the headlines.

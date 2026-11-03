@@ -51,57 +51,32 @@
   "brandStatement": "We design, host and manage conversion-focused websites for local service businesses — starting with a free private preview you can review before you pay.",
   "groups": [
     {
-      "title": "Websites",
+      "title": "Pages",
+      "column": 2,
+      "style": "bold",
       "links": [
         {
-          "label": "How It Works",
-          "path": "/how-it-works/"
+          "label": "Home",
+          "path": "/"
+        },
+        {
+          "label": "Work",
+          "path": "/websites/case-studies/"
         },
         {
           "label": "Pricing",
           "path": "/pricing/"
         },
         {
-          "label": "Portfolio",
-          "path": "/websites/portfolio/"
-        },
-        {
-          "label": "Case Studies",
-          "path": "/websites/case-studies/"
-        }
-      ]
-    },
-    {
-      "title": "Industries",
-      "links": [
-        {
-          "label": "Garage Door Services",
-          "path": "/industries/garage-door-services/"
-        },
-        {
-          "label": "Tree Services",
-          "path": "/industries/tree-services/"
-        },
-        {
-          "label": "Roofing & Exterior",
-          "path": "/industries/roofing-exterior/"
-        },
-        {
-          "label": "Plumbing, HVAC & Electrical",
-          "path": "/industries/plumbing-hvac-electrical/"
-        },
-        {
-          "label": "Fencing, Concrete & Remodeling",
-          "path": "/industries/fencing-concrete-remodeling/"
-        },
-        {
-          "label": "All Industries",
-          "path": "/industries/"
+          "label": "Contact",
+          "path": "/contact/"
         }
       ]
     },
     {
       "title": "Services",
+      "column": 2,
+      "style": "small",
       "links": [
         {
           "label": "Websites",
@@ -124,16 +99,57 @@
           "path": "/services/ai-automation/"
         },
         {
-          "label": "All Services",
+          "label": "All services",
           "path": "/services/"
         }
       ]
     },
     {
-      "title": "Resources",
+      "title": "Industries",
+      "column": 3,
+      "style": "bold",
       "links": [
         {
-          "label": "Free Tools",
+          "label": "Garage Door",
+          "path": "/industries/garage-door-services/"
+        },
+        {
+          "label": "Tree Services",
+          "path": "/industries/tree-services/"
+        },
+        {
+          "label": "Roofing",
+          "path": "/industries/roofing-exterior/"
+        },
+        {
+          "label": "Plumbing & HVAC",
+          "path": "/industries/plumbing-hvac-electrical/"
+        },
+        {
+          "label": "Fencing & Remodeling",
+          "path": "/industries/fencing-concrete-remodeling/"
+        },
+        {
+          "label": "All industries",
+          "path": "/industries/"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "column": 3,
+      "style": "small",
+      "links": [
+        {
+          "label": "How it works",
+          "path": "/how-it-works/"
+        },
+        {
+          "label": "Portfolio",
+          "path": "/websites/portfolio/"
+        },
+        {
+          "label": "Free tools",
           "path": "/resources/free-tools/"
         },
         {
@@ -141,25 +157,12 @@
           "path": "/resources/blog/"
         },
         {
-          "label": "Free Downloads",
+          "label": "Free downloads",
           "path": "/resources/free-downloads/"
-        }
-      ]
-    },
-    {
-      "title": "Company",
-      "links": [
+        },
         {
           "label": "About",
           "path": "/about/"
-        },
-        {
-          "label": "Contact",
-          "path": "/contact/"
-        },
-        {
-          "label": "Book a Call",
-          "path": "/book-a-call/"
         }
       ]
     }
@@ -203,5 +206,12 @@
       "label": "Free 20-minute call",
       "tone": "violet"
     }
-  ]
+  ],
+  "basedIn": {
+    "label": "BASED IN",
+    "place": "India",
+    "timezone": "Asia/Kolkata",
+    "timeLabel": "local time"
+  },
+  "showEmail": true
 }

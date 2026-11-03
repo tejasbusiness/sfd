@@ -10,23 +10,25 @@
   </div>
   {% endif %}
   <div class="container">
-    <div class="site-footer__top">
-      <div class="site-footer__brand">
+    {# Studio footer (2026-11-05): four columns with a clear hierarchy, after the owner's
+       reference. Column 1 is the start-a-project block; columns 2 and 3 take the groups
+       from footer.groups by their "column" number (style bold = display uppercase links,
+       small = plain list); column 4 is "based in" with a live local time. #}
+    <div class="site-footer__top site-footer__top--studio">
+      <div class="site-footer__col site-footer__brand">
         {% if footer.startLabel %}<p class="site-footer__brand-label">{{ footer.startLabel }}</p>{% endif %}
-        {% if company.email %}<a class="site-footer__email" href="mailto:{{ company.email }}">{{ company.email }}</a>{% endif %}
-        <img class="site-footer__wordmark" src="/assets/images/SFD-White-logo-footer.png" alt="{{ company.tradingName }}" width="836" height="150" loading="lazy" decoding="async">
+        {% if footer.showEmail and company.supportEmail %}<a class="site-footer__email" href="mailto:{{ company.supportEmail }}">{{ company.supportEmail }}</a>{% endif %}
         {% if footer.brandStatement %}<p class="site-footer__statement">{{ footer.brandStatement }}</p>{% endif %}
-        {% if footer.startCta %}<a class="button button--primary" href="{{ footer.startCta.href }}"{% if footer.startCta.dialogTarget %} data-dialog-target="{{ footer.startCta.dialogTarget }}"{% endif %}>{{ footer.startCta.label }}</a>{% endif %}
+        {% if footer.startCta %}<a class="button button--primary" href="{{ footer.startCta.href }}"{% if footer.startCta.dialogTarget %} data-dialog-target="{{ footer.startCta.dialogTarget }}"{% endif %}>{{ footer.startCta.label }} <span aria-hidden="true">&#8599;</span></a>{% endif %}
       </div>
-
-      {% if footer.groups and footer.groups.length %}
-      <div class="site-footer__groups">
+      {% for col in [2, 3] %}
+      <div class="site-footer__col">
         {% for group in footer.groups %}
-        <div class="site-footer__group">
+        {% if group.column == col %}
+        <div class="site-footer__group site-footer__group--{{ group.style }}">
           <h2 class="site-footer__group-title">{{ group.title }}</h2>
           <ul class="site-footer__group-list">
             {% for link in group.links %}
-            {# link.path === null renders a plain label, never a broken link (docs/13 §8.13). #}
             <li>
               {% if link.path %}
               <a href="{{ link.path }}">{{ link.label }}</a>
@@ -37,9 +39,19 @@
             {% endfor %}
           </ul>
         </div>
+        {% endif %}
         {% endfor %}
       </div>
-      {% endif %}
+      {% endfor %}
+      <div class="site-footer__col">
+        {% if footer.basedIn %}
+        <div class="site-footer__group site-footer__group--bold">
+          <h2 class="site-footer__group-title">{{ footer.basedIn.label }}</h2>
+          <p class="site-footer__place">{{ footer.basedIn.place }}</p>
+          <p class="site-footer__time"><span class="site-footer__time-dot" aria-hidden="true"></span><span data-local-time="{{ footer.basedIn.timezone }}">--:--</span> {{ footer.basedIn.timeLabel }}</p>
+        </div>
+        {% endif %}
+      </div>
     </div>
 
     <div class="site-footer__bottom">
@@ -54,13 +66,7 @@
       </nav>
       {% endif %}
       <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
-      {% if footer.social and footer.social.length %}
-      <ul class="site-footer__social">
-        {% for item in footer.social %}
-        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+      <a class="site-footer__top-link" href="#main-content">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
   </div>
 </footer>
