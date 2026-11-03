@@ -1070,3 +1070,12 @@ html.motion .dock {
   color: var(--color-text);
   text-decoration: underline;
 }
+
+/* ------------------------------------- dividers between stacked groups (2026-11-05) */
+/* Pages | Services, Industries | (nothing), Ask AI | Legal. The time and the Ask AI
+   tiles stay one block, so no line above the tiles. */
+.site-footer__top--studio .site-footer__group + .site-footer__group:not(.site-footer__ai) {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
