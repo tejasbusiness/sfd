@@ -1079,3 +1079,6 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Fixed:** logos never revealed on phones (docs/03); process timeline layout; violet text and icons on black; stickers covering the headline between 761 and 1280px; plus the earlier mobile hero rework (95b56fe).
 - **Checked clean:** no sideways scroll and one H1 at 390, 768 and 1024; hero buttons in the first screen on phones; CTAs, forms and footer intact.
 - **Not checked:** a real phone or Safari (owner to test after deploy), dark mode on every section.
+
+### Deploy 2026-11-05 (seventh)
+- **Shipped:** commits 95b56fe (mobile hero) and a302bcb (full homepage review fixes). No migrations, no new dependencies, nginx redirects unchanged. All 16 live checks passed first time; the live homepage no longer has the reveal on the logo list and the live stylesheet has the new rules. `dist.bak` now holds the sixth deploy. Owner to test on a real phone.
