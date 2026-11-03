@@ -1010,4 +1010,5 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Checked:** validation, 39 tests, production build; in a real browser the homepage and Pricing in the experiment and the roofing page in dark and light after folding in; Lenis, beam and aurora confirmed running; no horizontal scroll on the roofing page at 1440.
 - **Not checked:** every page in dark mode, mobile widths, phone performance of blur and grain, contrast figures for the new dark palette (not recomputed), Safari and Firefox.
 - **Open:** owner to judge the scroll feel, beam brightness and grain; Lenis licence file is not added to the repo (MIT, from the npm package).
+- **Deployed 2026-11-05** with `.\deploy.bat -Yes` (no migrations, `.env` or redirect changes); all live checks passed; `dist.bak` kept. Live: `royal.css`, `smooth-scroll.js` and `vendor/lenis.min.js` served; homepage loads Lenis.
 
