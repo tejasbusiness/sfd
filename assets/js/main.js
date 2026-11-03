@@ -9,6 +9,7 @@ import { initScrollReveal } from './scroll-reveal.js';
 import { initMotion } from './motion.js';
 import { initTheme } from './theme.js';
 import { initSmoothScroll } from './smooth-scroll.js';
+import { initFunnel } from './funnel.js';
 import { initCustomSelects } from './custom-select.js';
 import { initCountrySelects } from './country-select.js';
 import { initLegalToc } from './legal-toc.js';
@@ -68,6 +69,7 @@ function initDialogTriggers(root = document) {
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initSmoothScroll();
+  initFunnel();
   initDialogTriggers();
   initBookingModal(document.getElementById('booking-modal'));
   initFreePreviewForm(document.querySelector('[data-free-preview-form]'));

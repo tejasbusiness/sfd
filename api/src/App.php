@@ -12,6 +12,7 @@ namespace Sfd;
  *   POST /playbook
  *   POST /website-review
  *   POST /consent           (cookie-banner choice)
+ *   POST /events            (anonymous funnel step: cta_click, form_start)
  */
 final class App
 {
@@ -36,6 +37,7 @@ final class App
                 $method === 'POST' && $path === '/playbook' => self::playbook(),
                 $method === 'POST' && $path === '/website-review' => self::websiteReview(),
                 $method === 'POST' && $path === '/consent' => self::cookieConsent(),
+                $method === 'POST' && $path === '/events' => self::funnelEvent(),
                 default => Http::json(404, ['ok' => false, 'error' => 'not_found']),
             };
         } catch (\Throwable $e) {
@@ -401,6 +403,25 @@ final class App
         $marketing = ($in['marketing'] ?? false) === true;
         $t = Validator::tracking($in);
         Consent::record('cookie', null, $t['source_page'], $analytics, $marketing, $analytics || $marketing);
+        Http::json(201, ['ok' => true]);
+    }
+
+    // ---------------------------------------------------------------- funnel events
+
+    /** Cookieless funnel counter: stores only the step, the page path and the time. */
+    private static function funnelEvent(): never
+    {
+        RateLimit::hit('event');
+        $in = Http::body();
+        $event = $in['event'] ?? '';
+        if (!in_array($event, ['cta_click', 'form_start'], true)) {
+            Http::json(422, ['ok' => false, 'error' => 'validation']);
+        }
+        $page = is_string($in['page'] ?? null) ? (string) parse_url($in['page'], PHP_URL_PATH) : '';
+        if ($page === '' || $page[0] !== '/' || strlen($page) > 255) {
+            Http::json(422, ['ok' => false, 'error' => 'validation']);
+        }
+        Db::run('INSERT INTO funnel_events (event, page, created_at) VALUES (?, ?, UTC_TIMESTAMP())', [$event, $page]);
         Http::json(201, ['ok' => true]);
     }
 

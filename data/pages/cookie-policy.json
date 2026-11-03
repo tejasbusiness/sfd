@@ -39,7 +39,8 @@
               "<strong>Analytics:</strong> would help us understand how visitors use the site so we can improve it. Off unless you accept them.",
               "<strong>Marketing:</strong> would be used to measure and personalise advertising. Off unless you accept them."
             ],
-            "At the date above we do not run any analytics or marketing tools, so no analytics or marketing cookies are set. If we add them, we will update this policy, ask for your choice again and only load them if you accept."
+            "At the date above we do not run any analytics or marketing tools, so no analytics or marketing cookies are set. If we add them, we will update this policy, ask for your choice again and only load them if you accept. We do count, without cookies, how many visitors click a \"Start My Free Website Preview\" button and how many begin a preview form: only the step, the page address and the time are stored, with no IP address, identifier or anything else about you, so it cannot be used to recognise you.",
+            "Local storage is similar to a cookie but stays only on your device. We use it for one convenience: if you pick a light or dark theme, it remembers that choice. It is not sent to us."
           ]
         },
         {
@@ -86,6 +87,8 @@
       ]
     }
   ],
-  "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-09-20"
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-11-05"
 }

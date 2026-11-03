@@ -3,7 +3,7 @@
 // preview page and the industry hero "lead" form (hero-form.njk, docs/15); the hero form
 // adds a hidden `trade` field. Per docs/04-page-blueprints.md it
 // must never claim to guarantee a preview. Required: name, email, phone, business name and
-// one website or Google Business Profile URL; service and message are optional.
+// one website or Google Business Profile URL (service and message fields removed 2026-11-05).
 
 import { initPhoneInputs, isValidMobileNumber } from './phone-input.js';
 import {

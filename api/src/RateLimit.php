@@ -23,6 +23,7 @@ final class RateLimit
         'booking_saved' => [8, 3600],
         'availability' => [120, 600],
         'consent' => [60, 3600],
+        'event' => [120, 3600],
     ];
 
     public static function hit(string $bucket): void

@@ -64,6 +64,7 @@ Plain PHP 8.2+ with PDO (MySQL) and PHPMailer (Composer). Front controller `api/
 | `GET /api/availability?timezone=` | Open slots grouped by date in the visitor's timezone (MySQL rules, existing bookings, Google free/busy when enabled) |
 | `POST /api/bookings` | Book a call. `Idempotency-Key` header (UUID). 201 created, 200 same key replayed, 409 `slot_unavailable`, 422 field errors |
 | `POST /api/contact` | Contact form and the Websites landing hero form (`topic` is sent as a hidden field; `source` is optional) |
+| `POST /api/events` | Cookieless funnel step from `assets/js/funnel.js`: `event` (`cta_click` or `form_start`) and `page` (path only). Stores the step, path and time in `funnel_events`; no IP, user agent, cookie or visitor id. Rate limit 120/hour per IP hash (the hash is used for the limit only, not stored with the event) |
 | `POST /api/preview-applications` | Free Preview request ("Start My Free Website Preview"): required `fullName`, `email`, phone (`countryCode` + `mobileNumber`, required since 2026-11-02), `businessName`, `website` (website or Google Business Profile URL); optional `primaryService`, `problem` (no longer sent by the site forms since 2026-11-05), hidden `trade`; consent. Used by the Free Preview page and industry hero forms (docs/15). The owner email shows the phone and the trade |
 | `POST /api/playbook` | Playbook sign-up (stored, owner notified; the playbook itself is still sent by hand) |
 | `POST /api/website-review` | Free Website Audit ("Free Audit Report") request: `website` (required, bare domains get `https://`), `email`, optional `businessName`, consent. Stored in `website_reviews` with a `WR-` reference; owner notified, visitor gets a confirmation. The audit report itself is prepared and emailed by hand |
@@ -115,6 +116,29 @@ ssh -i $KEY $SRV "cd $SITE && mkdir -p dist api migrations && cp -a dist dist.ba
 
 Then paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (replace any existing `location /` or `error_page`), confirm the site's root directory is `dist`, and verify: `curl -I https://synergyfirstdigital.com/` (200), `/.env` (not 200), `/no-such-page/` (404), `/services/website-design-development/` (301), `/api/availability?timezone=UTC` (JSON). If the API returns 500 the PHP user probably cannot read `.env` (owned by `sfd-deploy`): fix the owner/group in CloudPanel or with sudo. Cron for `api/bin/send-outbox.php` in CloudPanel (Cron Jobs, every 10 minutes, as the site user). The command must start with `php`: `php /home/synergyfirstdigital-2026/htdocs/synergyfirstdigital.com/api/bin/send-outbox.php`. The SMTP connection timeout is 20 seconds (`api/src/Mailer.php`).
 
+## Funnel tracking (2026-11-05)
+
+Owner decision: measure the preview journey with our own API and no cookies, so the Cookie Policy stays "no analytics tools". The steps:
+
+| Step | Where it is counted |
+|---|---|
+| Preview CTA click | `funnel_events` (`cta_click`), sent by `funnel.js` on any click of a `/free-preview/` link |
+| Form start | `funnel_events` (`form_start`), sent once on the first focus inside a preview form (Free Preview page and the trade hero forms) |
+| Submitted request | `preview_applications` row (`is_test = 0`) |
+| Qualified | `preview_applications.status` in `qualified`, `preview_sent`, `activated` |
+| Preview delivered | status in `preview_sent`, `activated` |
+| Paid subscription | status `activated` |
+| Production hours | `preview_applications.production_minutes`, added per request as work is done |
+
+Migration 016 adds `funnel_events`, and `status_changed_at` and `production_minutes` on `preview_applications`. Two CLIs on the server (from `<site>`):
+
+```
+php api/bin/lead-status.php SFD-XXXX qualified --minutes=45   # move a request along, log unpaid time
+php api/bin/funnel-report.php --days=30                        # the six steps with step-to-step rates, hours per paying customer
+```
+
+Statuses are set by hand for now (there is no admin UI). Clicks are counted per click, not per visitor, so a visitor who clicks twice counts twice; the report is for trends, not exact attribution.
+
 ## Status
 
 - All ten migrations applied to the live database `sfd-2026-db` (2026-09-20) through the SSH tunnel (user `sfd-deploy`, key login; the firewall has no rule for 3306).
@@ -122,3 +146,4 @@ Then paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (replace any 
 - **Deployed 2026-09-21** to `synergyfirstdigital.com` (CloudPanel PHP site, Root Directory `synergyfirstdigital.com/dist`, files uploaded over SSH as `sfd-deploy`, `composer install --no-dev` run on the server). Verified live: homepage 200, `/.env` 403, `/api/composer.json` 404, unknown URL 404, old Websites URL 301, `/api/availability` returns JSON from the live database. The vhost is the CloudPanel default with the SFD rules from `deploy/nginx-redirects.conf` added to the port 8080 server block (the block that serves files) and `expires max` changed to `expires 1d` for static files; do not add a second `location /` to the port 443 block. Varnish should be off for this site.
 - Still to verify on the live site: form submissions and real emails (SMTP is configured), the booking modal, Google Calendar/Meet (`GOOGLE_ENABLED=0`, so bookings stay `pending_calendar` and the owner adds them by hand), the outbox retry cron, and cleanup of `dist.bak` and the placeholder `index.php` in the site folder.
 - **Deploy 2026-11-02:** migrations 001 to 015 are all applied on the live database (014 added `preview_applications.trade`). `POST /api/preview-applications` now requires a phone and accepts a hidden `trade`; verified live with an empty request (422 with phone errors). Real form submissions still to be tested by the owner (docs/10).
+- **Deploy 2026-11-05:** migration 016 (funnel tracking) applied with `-Migrate`; `POST /api/events` live.

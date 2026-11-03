@@ -69,8 +69,9 @@
               "<strong>Google Workspace</strong> (Calendar and Meet) for scheduling discovery calls and sending calendar invitations.",
               "<strong>Our hosting and email providers</strong> to store the enquiry, booking and sign-up records you submit through our forms in our database, and to send you email about them.",
               "<strong>Razorpay</strong> to process subscription payments.",
-              "<strong>Workflow and customer-portal tools</strong>, including our automation platform and the customer portal at crm.synergyfirstdigital.com, to handle leads and customer records.",
-              "<strong>Analytics providers</strong>, such as Google Analytics or similar, to measure website use.",
+              "<strong>Workflow and customer-portal tools</strong>, including our automation platform (n8n) and the customer portal at crm.synergyfirstdigital.com, to handle leads and customer records.",
+              "<strong>AI and messaging providers</strong>: when you request a free website preview, the business details you give and the public content of your website may be sent to OpenAI to help draft the preview, and a summary of your request is sent to our team through Telegram so we can respond quickly.",
+              "<strong>Analytics providers</strong>, such as Google Analytics or similar, only if we add them and you accept analytics cookies (none at present; see \"Cookies and analytics\").",
               "<strong>Professional advisers, authorities and successors</strong> where the law requires it, to protect our rights, or if our business is sold or reorganised."
             ],
             "Service providers may only use your information to provide services to us and must protect it appropriately."
@@ -88,7 +89,7 @@
           "heading": "Cookies and analytics",
           "body": [
             "Cookies are small files stored on your device. We use those that are necessary to make this website work and, only if you accept them, analytics or marketing cookies. When you first visit, a banner lets you accept all, reject all or choose by category, and the \"Cookie settings\" link at the bottom of every page lets you change or withdraw your choice at any time. You can also control or delete cookies in your browser settings.",
-            "At present we set only one necessary cookie, which remembers your choice. See our <a href=\"/cookie-policy/\">Cookie Policy</a> for the full list and details."
+            "At present we set only one necessary cookie, which remembers your choice. If you pick a light or dark theme, your browser's local storage remembers that choice; it does not identify you and never leaves your device. To understand how the website performs we count, without cookies, when a \"Start My Free Website Preview\" button is clicked and when a preview form is first used: we store only the step, the page address and the time, never your IP address, a visitor identifier or anything that could identify you. See our <a href=\"/cookie-policy/\">Cookie Policy</a> for the full list and details."
           ]
         },
         {
@@ -158,6 +159,8 @@
       ]
     }
   ],
-  "schemaTypes": ["WebPage"],
-  "lastUpdated": "2026-10-02"
+  "schemaTypes": [
+    "WebPage"
+  ],
+  "lastUpdated": "2026-11-05"
 }
