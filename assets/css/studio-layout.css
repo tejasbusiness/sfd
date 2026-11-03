@@ -1209,3 +1209,47 @@ html.motion .dock {
     font-size: 0.65rem;
   }
 }
+
+/* ------------------------------------------------- tick marks (2026-11-05) */
+/* One tick system everywhere: a small solid disc with a crisp check. Lime disc with an
+   ink tick on black surfaces (trust strip, dark plan cards, the statement band); ink
+   disc with a white tick on light surfaces (the tick flips with the theme tokens).
+   Replaces the dim violet rings and violet/gold ticks. */
+.trust-signals .trust-signals__icon {
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  padding: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-lime);
+  color: #0a0a0a;
+  stroke-width: 2.75;
+}
+.pricing-summary__includes svg,
+ul.feature-bento__checklist svg {
+  box-sizing: content-box;
+  width: 9px;
+  height: 9px;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: var(--color-bg);
+  stroke-width: 3.2;
+  margin-top: 1px;
+}
+.page-home .pricing-summary__plan .pricing-summary__includes svg {
+  background: var(--color-lime);
+  color: #0a0a0a;
+}
+.page-home .pricing-summary__plan--recommended .pricing-summary__includes svg {
+  background: #0a0a0a;
+  color: #fff;
+}
+.statement__icon.statement__icon--yes {
+  color: var(--color-lime);
+}
+.booking-modal__confirmation-icon {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
