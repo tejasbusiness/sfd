@@ -939,3 +939,7 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Live spot checks:** `/industries/`, `/industries/garage-door-services/` and `/industries/tree-services/` return 200 and are in the sitemap; the homepage links to the Tree Services page; the breadcrumb is on the page; the removed pages (`/industries/restaurants/`, `/industries/home-services/`) return 404 for now.
 - **Owner action pending:** the nginx redirects changed. Until the CloudPanel vhost block is replaced with the new `deploy/nginx-redirects.conf` (deploy.md step 9), the five removed industry URLs return 404 instead of a 301 to `/industries/`. The deploy script will not remind again.
 - **Still open:** crons for `send-webhooks.php` and `send-outbox.php`; real test lead; Search Console and Bing submission of the two trade pages; Rich Results Test on the live pages; social image for all pages; remaining three trade pages.
+
+### Crons and vhost redirects added in CloudPanel (2026-11-03)
+- Owner added both cron jobs (screenshot checked): `*/5 * * * *` `send-webhooks.php` and `*/10 * * * *` `send-outbox.php`, commands exactly as in deploy.md Appendix B. This closes the "outbox retry cron missing" item open since 2026-09. Not yet verified by a real queued row (owner tests the forms at the end).
+- Owner also received the 12 new redirect lines for the vhost (`/pricing/websites/` plus the five removed industry pages); applying and the 301 check are the owner's.
