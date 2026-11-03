@@ -1056,3 +1056,6 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Not checked live:** real phones, Safari and Firefox, the remaining pages in dark mode, Lighthouse. `dist.bak` holds the previous site (rollback: `.\deploy.bat -Rollback`); delete it once satisfied.
 - **Tick marks (2026-11-05, later):** owner found the violet ticks (trust strip) ugly on black. Replaced all ticks with solid lime or ink discs (docs/03). Checked the homepage trust strip and plan cards, and the Pricing page, in light mode; dark mode checked by computed colours. Committed, not deployed.
 - **Testimonial hierarchy (2026-11-05, later):** owner said the heading "In their own words" looked the same as the quote. Heading reduced to a label with a hairline divider; quote unchanged. Committed, not deployed.
+
+### Deploy 2026-11-05 (fourth)
+- **Shipped:** the unified tick-mark discs (lime on black, ink on white) and the smaller testimonial heading with hairline, on top of the third deploy. Commit 9160f60. No migrations, no new dependencies, nginx redirects unchanged. All 16 live checks passed on the first run; the live homepage and stylesheet contain the new heading and tick rules. `dist.bak` now holds the third deploy.
