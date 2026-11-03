@@ -11,7 +11,7 @@
     {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
     <h2 id="client-logos-heading">{{ section.heading }}</h2>
     {% if section.intro %}<p>{{ section.intro }}</p>{% endif %}
-    <ul class="client-logos__list" data-reveal>
+    <ul class="client-logos__list">
       {% for item in logoItems %}
       <li class="card client-logos__item{{ ' client-logos__item--dark' if item.tile == 'dark' }}{{ ' client-logos__item--detail' if item.hover == 'detail' }}">
         <img class="client-logos__image" src="{{ item.src }}" alt="{{ item.name }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">

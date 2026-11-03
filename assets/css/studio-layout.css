@@ -1507,3 +1507,114 @@ html.motion .sticker.is-dragging {
     text-align: center;
   }
 }
+
+/* --------------------- homepage colour fixes from the full review (2026-11-05) */
+/* homepage.css loads after this file, so these use the .page-home prefix to win. */
+.page-home .process-narrative__content p.process-narrative__note {
+  color: var(--color-lime); /* was dark violet on the black band: about 2.4:1 */
+}
+.page-home .industry-links__item--dominant .industry-links__icon {
+  color: var(--color-lime);
+}
+.page-home .micro-chart__bar {
+  background: var(--color-text);
+}
+
+/* ---------------------------------- process timeline layout (2026-11-05) */
+/* One left-aligned timeline at every width (the old zigzag left large empty areas beside a
+   line that sat at the far left). From 1000px the heading is pinned on the left and the
+   four steps stack on the right. homepage.css loads later, hence the .page-home prefix. */
+@media (min-width: 768px) {
+  .page-home .process-narrative__step:nth-child(even) {
+    flex-direction: row;
+    text-align: left;
+  }
+  .page-home .process-narrative__step:nth-child(even) .process-narrative__content {
+    margin-inline-start: 0;
+  }
+  .page-home .process-narrative__step:nth-child(even) .process-narrative__visual {
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 1000px) {
+  .page-home .process-narrative > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.65fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+    align-items: start;
+  }
+  .page-home .process-narrative > .container > h2,
+  .page-home .process-narrative > .container > p {
+    grid-column: 1;
+    margin: 0;
+  }
+  .page-home .process-narrative > .container > h2 {
+    position: sticky;
+    top: 7rem;
+  }
+  .page-home .process-narrative__list {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin-top: 0;
+  }
+}
+
+/* ------------- stickers become a chip row up to 1280px (2026-11-05, review) */
+/* Between 761 and 1280px the headline spans most of the width, so floating stickers
+   covered its letters. They sit in a row under the buttons instead, as on phones. */
+@media (max-width: 1280px) {
+  .hero-statement__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-stickers {
+    order: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .hero-statement .sticker {
+    position: relative;
+    inset: auto;
+    --tilt: 0deg;
+    margin: 0;
+    padding: 0.45rem 0.9rem;
+    border-width: 3px;
+    font-size: 0.8125rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  html.motion .hero-statement .sticker {
+    animation: none;
+  }
+  .hero-statement .sticker--burst {
+    width: auto;
+    aspect-ratio: auto;
+    padding: 0;
+    clip-path: none;
+    border: 0;
+    border-radius: 100px;
+    background: #fff;
+  }
+  .hero-statement .sticker--burst .sticker__fill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: auto;
+    height: auto;
+    margin: 3px;
+    padding: 0.45rem 0.9rem;
+    clip-path: none;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .hero-statement .sticker__value,
+  .hero-statement .sticker__label {
+    display: inline;
+    margin: 0;
+    font-size: 0.8125rem;
+  }
+}

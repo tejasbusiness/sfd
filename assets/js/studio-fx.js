@@ -262,11 +262,11 @@ function initStickerShine() {
 }
 
 /* Draggable stickers: pointer drag inside the hero (or the footer statement), clamped so a
-   sticker never leaves its area; it stays where it is dropped. Desktop layout only. */
+   sticker never leaves its area; it stays where it is dropped. Desktop layout only (above 1280px). */
 function initStickerDrag() {
   if (!document.documentElement.classList.contains('motion')) return;
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  if (window.matchMedia('(max-width: 760px)').matches) return;
+  if (window.matchMedia('(max-width: 1280px)').matches) return; // stickers are a static row there
   document.querySelectorAll('.sticker').forEach((el) => {
     const area = el.closest('.hero-statement, .footer-statement');
     if (!area) return;
