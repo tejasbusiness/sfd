@@ -5,7 +5,7 @@
 Reworked 2026-11-05 from owner-supplied conversion advice ("real work above the fold, a simpler application, clearer plan differences"). Section order in `data/pages/home.json`:
 
 1. Sticky header with primary and booking CTAs.
-2. `hero-split`: free-preview promise, the two locked CTAs, starting-price context ("Managed website plans from $249/month" plus the commitment terms, both read from `plans.json`), the verified stats, and a **real client project** screenshot (EV World360, from `projects.json`) linked to its case study. The illustrative before/after mock-up is still in the template and returns if `section.project` is removed.
+2. `hero-split`: free-preview promise, the two locked CTAs, starting-price context ("Managed website plans from $249/month" plus the commitment terms, both read from `plans.json`), the verified stats, and a **curved carousel** of four real client projects (`section.carousel.ids`: EV World360, The BrandBook Company, Budget Opticals, Siddhant Cinevision; screenshots from `projects.json`). It is a concave CSS 3D ring of eight cards (projects repeated), rotating slowly, paused on hover and static under reduced motion; the ring is decorative (`aria-hidden`) and the caption carries the real links to each case study. The template also still supports a single project (`section.project`) and the old illustrative before/after mock-up (neither set).
 3. `trust-signals` strip.
 4. `case-study-grid`: three real client projects (EV World360, The BrandBook Company, Budget Opticals) with a "See all case studies" link.
 5. `testimonials`: one featured real Google review (Aseem Trivedi), no card grid.

@@ -54,12 +54,17 @@
         "afterSub": "Fast quotes. Friendly local team.",
         "afterCta": "Request a Free Quote"
       },
-      "project": {
-        "id": "ev-world360",
-        "captionPrefix": "Real client project:"
-      },
       "priceContext": {
         "prefix": "Managed website plans from"
+      },
+      "carousel": {
+        "ids": [
+          "ev-world360",
+          "brandbook-company",
+          "budget-opticals",
+          "siddhant-cinevision"
+        ],
+        "captionPrefix": "Real client projects:"
       }
     },
     {

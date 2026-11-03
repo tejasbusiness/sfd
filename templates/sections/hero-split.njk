@@ -35,7 +35,30 @@
     </div>
 
     <div class="hero-split__visual col-span-5 col-start-8" data-reveal>
-      {% if section.project %}
+      {% if section.carousel %}
+      {# Curved carousel of real client projects (2026-11-05). The 3D ring is decorative and
+         hidden from assistive tech; the caption below holds the real, focusable links.
+         Projects are repeated to fill eight slots so the arc never shows a gap. #}
+      {% set heroProjects = projects.items | selectByIds(section.carousel.ids) %}
+      {% set slots = 8 %}
+      <figure class="hero-carousel">
+        <div class="hero-carousel__stage" aria-hidden="true">
+          <ul class="hero-carousel__ring" style="--n: {{ slots }}">
+            {% for i in range(0, slots) %}
+            {% set item = heroProjects[i % heroProjects.length] %}
+            <li class="hero-carousel__item" style="--i: {{ i }}">
+              <a href="{{ item.caseStudy.path }}" tabindex="-1">
+                <img src="{{ item.images.desktop }}" alt="" width="1440" height="900" {% if i == 0 %}loading="eager" fetchpriority="high"{% elif i < heroProjects.length %}loading="eager"{% else %}loading="lazy"{% endif %} decoding="async">
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <figcaption class="hero-project__caption">{{ section.carousel.captionPrefix }}
+          {% for item in heroProjects %}<a href="{{ item.caseStudy.path }}">{{ item.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+        </figcaption>
+      </figure>
+      {% elif section.project %}
       {# Real client work above the fold: a screenshot from projects.json, linked to its case study. #}
       {% set heroProject = (projects.items | selectByIds([section.project.id]))[0] %}
       <figure class="hero-project">
