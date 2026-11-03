@@ -62,19 +62,11 @@
           </ul>
         </div>
         {% endif %}
-      </div>
-    </div>
-
-    {# Bottom bar (2026-11-05): logo left, copyright and legal links centred, Back to top right. #}
-    <div class="site-footer__bottom site-footer__bottom--studio">
-      <a class="site-footer__logo" href="/" aria-label="{{ company.tradingName }} home">
-        <img src="/assets/images/sfd-logo-black-header.png" alt="" width="162" height="26" loading="lazy">
-      </a>
-      <div class="site-footer__bottom-centre">
-        <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
         {% if footer.legalLinks and footer.legalLinks.length %}
-        <nav class="site-footer__legal" aria-label="Legal">
-          <ul>
+        {# Legal links live in the last column (2026-11-05) so the bottom bar stays compact. #}
+        <nav class="site-footer__group site-footer__group--small site-footer__legal site-footer__legal--column" aria-label="Legal">
+          <h2 class="site-footer__group-title">Legal</h2>
+          <ul class="site-footer__group-list">
             {% for link in footer.legalLinks %}
             <li><a href="{{ link.path }}">{{ link.label }}</a></li>
             {% endfor %}
@@ -83,6 +75,14 @@
         </nav>
         {% endif %}
       </div>
+    </div>
+
+    {# Bottom bar (2026-11-05): logo left, copyright centred, Back to top right. #}
+    <div class="site-footer__bottom site-footer__bottom--studio">
+      <a class="site-footer__logo" href="/" aria-label="{{ company.tradingName }} home">
+        <img src="/assets/images/sfd-logo-black-header.png" alt="" width="162" height="26" loading="lazy">
+      </a>
+      <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
       <a class="site-footer__top-link" href="#main-content">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
   </div>

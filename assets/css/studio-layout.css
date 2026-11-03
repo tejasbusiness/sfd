@@ -1039,3 +1039,34 @@ html.motion .dock {
 .site-footer__bottom--studio .site-footer__top-link {
   font-size: 0.9375rem;
 }
+
+/* ------------------------------------------ legal links in the last column (2026-11-05) */
+.site-footer__legal--column ul {
+  display: grid;
+  gap: 0.2rem;
+  justify-content: start;
+  align-items: start;
+}
+.site-footer__legal--column li + li::before {
+  content: none;
+}
+.site-footer__legal--column a,
+.site-footer__legal--column .site-footer__link-button {
+  display: inline-block;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  padding-block: 0.1rem;
+  padding-inline: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--color-text);
+}
+.site-footer__legal--column a::after,
+.site-footer__legal--column .site-footer__link-button::after {
+  content: none;
+}
+.site-footer__legal--column a:hover,
+.site-footer__legal--column .site-footer__link-button:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
