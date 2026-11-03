@@ -5,7 +5,7 @@
   "canonicalPath": "/industries/",
   "seo": {
     "title": "Industries We Build Websites For | SynergyFirst Digital",
-    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree, roofing, plumbing, HVAC, electrical, fencing, concrete and remodeling companies. See a free private preview before you pay.",
+    "metaDescription": "Managed websites for local service businesses: garage door, tree, roofing, plumbing, HVAC, electrical, fencing, concrete and remodeling. Preview yours free.",
     "ogTitle": "Industries We Build Websites For",
     "ogDescription": "Every website is structured around how people search for and choose a local service business.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -27,6 +27,15 @@
         "href": "/book-a-call/",
         "dialogTarget": "booking-modal"
       }
+    },
+    {
+      "type": "content-block",
+      "eyebrow": "IN SHORT",
+      "heading": "What do we build for local service businesses?",
+      "body": [
+        "SynergyFirst Digital builds managed websites for local service businesses, with a dedicated page for each trade: garage door, tree service, roofing and exterior, plumbing, HVAC and electrical, and fencing, concrete and remodeling. Every website is hosted, maintained and supported for one monthly fee, with no upfront design fee.",
+        "Plans start at $249 per month with no activation fee, and every business can see a free, private preview before paying."
+      ]
     },
     {
       "type": "link-cards",
@@ -66,6 +75,20 @@
       ]
     },
     {
+      "type": "faq-split",
+      "heading": "Common questions",
+      "cta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "itemIds": [
+        "about-who-we-work-with",
+        "cost",
+        "preview-free",
+        "ownership"
+      ]
+    },
+    {
       "type": "free-preview-cta",
       "heading": "Don't see your industry?",
       "body": "We build for local businesses outside these five categories too — apply for a free preview and we'll tell you honestly whether we're a good fit.",
@@ -76,7 +99,8 @@
     }
   ],
   "schemaTypes": [
-    "WebPage"
+    "WebPage",
+    "FAQPage"
   ],
-  "lastUpdated": "2026-09-18"
+  "lastUpdated": "2026-11-04"
 }

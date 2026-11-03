@@ -241,6 +241,12 @@
           "description": "The same managed approach for fencing, concrete and remodeling companies.",
           "href": "/industries/fencing-concrete-remodeling/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 21V7l2-3 2 3v14M11 21V7l2-3 2 3v14M17 21V7l2-3v17M3 11h18M3 16h18\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Tree Service Websites",
+          "description": "The same managed approach for tree removal, trimming and stump grinding companies.",
+          "href": "/industries/tree-services/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },
