@@ -388,6 +388,14 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 
+/* Leftover gold glows from the light theme, turned blue in dark mode. */
+:root[data-theme="dark"] .testimonials::before,
+:root[data-theme="dark"] .contact-card::after {
+  background: radial-gradient(circle, rgba(60, 100, 255, 0.32), rgba(60, 100, 255, 0) 68%);
+}
+:root[data-theme="dark"] .site-footer__group-title::after {
+  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(79, 115, 255, 0.35) 55%, transparent 100%);
+}
 /* Mock-ups of customers' websites stay light in both themes: they are pictures of a different site. */
 :root[data-theme="dark"] .browser-frame,
 :root[data-theme="dark"] .phone-frame,

@@ -23,5 +23,8 @@
       {% endif %}
       {% endfor %}
     </div>
+    {% if section.cta %}
+    <p class="case-study-grid__more"><a class="button button--secondary" href="{{ section.cta.href }}">{{ section.cta.label }}</a></p>
+    {% endif %}
   </div>
 </section>

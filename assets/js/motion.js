@@ -164,13 +164,15 @@ function createParticleField(host, canvas, tone) {
 
 function initAmbientFields() {
   const hosts = document.querySelectorAll(FX_TARGETS);
+  // The homepage stays calm (2026-11-05): soft glow fields only, no particle canvas.
+  const calm = document.body.classList.contains('page-home');
   hosts.forEach((host) => {
     if (host.querySelector(':scope > .fx')) return;
     const dark = !host.classList.contains('hero-split');
     const fx = document.createElement('div');
     fx.className = 'fx fx--' + (dark ? 'dark' : 'light');
     fx.setAttribute('aria-hidden', 'true');
-    fx.innerHTML = '<span class="fx-blob fx-blob--a" data-parallax="0.12"></span><span class="fx-blob fx-blob--b" data-parallax="-0.08"></span><canvas class="fx-canvas"></canvas>';
+    fx.innerHTML = '<span class="fx-blob fx-blob--a" data-parallax="0.12"></span><span class="fx-blob fx-blob--b" data-parallax="-0.08"></span>' + (calm ? '' : '<canvas class="fx-canvas"></canvas>');
     if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
     host.insertBefore(fx, host.firstChild);
     // Lift in-flow content above the effect layer.
@@ -181,7 +183,7 @@ function initAmbientFields() {
         child.style.zIndex = '1';
       }
     });
-    createParticleField(host, fx.querySelector('canvas'), dark ? 'dark' : 'light');
+    if (!calm) createParticleField(host, fx.querySelector('canvas'), dark ? 'dark' : 'light');
   });
 }
 

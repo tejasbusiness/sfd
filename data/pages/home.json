@@ -53,6 +53,13 @@
         "afterHeading": "Trusted Local Service.<br>Done Right.",
         "afterSub": "Fast quotes. Friendly local team.",
         "afterCta": "Request a Free Quote"
+      },
+      "project": {
+        "id": "ev-world360",
+        "captionPrefix": "Real client project:"
+      },
+      "priceContext": {
+        "prefix": "Managed website plans from"
       }
     },
     {
@@ -63,6 +70,31 @@
         "Hosting, maintenance & support included",
         "Built for local service businesses"
       ]
+    },
+    {
+      "type": "case-study-grid",
+      "eyebrow": "REAL CLIENT WORK",
+      "heading": "Websites we have designed and built",
+      "intro": "Three recent client projects. Each one started with the business and its customers, then became a website built around them.",
+      "itemIds": [
+        "ev-world360",
+        "brandbook-company",
+        "budget-opticals"
+      ],
+      "cta": {
+        "label": "See all case studies",
+        "href": "/websites/case-studies/"
+      }
+    },
+    {
+      "type": "testimonials",
+      "eyebrow": "WHAT CLIENTS SAY",
+      "heading": "What a client says about working with us",
+      "featuredId": "aseem-trivedi",
+      "cta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      }
     },
     {
       "type": "process-narrative",
@@ -138,67 +170,6 @@
       }
     },
     {
-      "type": "feature-bento",
-      "heading": "What every managed website includes",
-      "large": {
-        "title": "Everything handled",
-        "body": "Hosting, security, backups, routine updates, monitoring and technical support are all included — so you have one team responsible for keeping your website running smoothly.",
-        "checklist": [
-          "Hosting",
-          "Security",
-          "Backups",
-          "Updates",
-          "Monitoring",
-          "Support"
-        ]
-      },
-      "items": [
-        {
-          "title": "Hosting, security & backups",
-          "body": "Fast managed hosting, SSL security, uptime monitoring and regular backups are included with every active plan."
-        },
-        {
-          "title": "Performance & analytics",
-          "body": "Track website traffic, visitor activity and enquiry performance so you can see how your website is working for your business."
-        },
-        {
-          "title": "Routine content updates",
-          "body": "Need to change text, photos, business hours, services or other everyday content? Routine updates are included within your plan."
-        },
-        {
-          "title": "SEO-ready foundation",
-          "body": "Every website is built with clean structure, search-friendly content, metadata and technical foundations designed to help search engines understand your business."
-        },
-        {
-          "title": "Mobile-first experience",
-          "body": "Your website is designed to load, read and convert smoothly across phones, tablets and desktops — where many local customers search and call from."
-        }
-      ]
-    },
-    {
-      "type": "statement",
-      "headingPrefix": "Your website shouldn’t become outdated ",
-      "headingHighlight": "the moment it launches.",
-      "headingSuffix": "",
-      "intro": "Instead of paying thousands upfront and starting over every few years, your website stays managed, maintained and up to date for one predictable monthly price.",
-      "traditionalLabel": "Traditional website project",
-      "traditional": [
-        "One large upfront cost",
-        "Ongoing changes cost extra",
-        "Eventually needs another redesign"
-      ],
-      "sfdLabel": "The SFD managed website model",
-      "sfd": [
-        "One predictable monthly price",
-        "Hosting, maintenance & support included",
-        "Kept current as your business evolves"
-      ],
-      "cta": {
-        "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
-      }
-    },
-    {
       "type": "preview-concepts",
       "heading": "See the kind of websites we build for local service businesses",
       "intro": "Illustrative website concepts showing how we design around the way local customers search, compare and request service. These are concept examples, not published client projects.",
@@ -253,54 +224,66 @@
       ]
     },
     {
-      "type": "testimonials",
-      "eyebrow": "WHAT CLIENTS SAY",
-      "heading": "Words from business owners we have worked with",
-      "featuredId": "aseem-trivedi",
-      "itemIds": [
-        "mamata-desai",
-        "sumita-shah",
-        "sanjay-bhatia"
-      ],
-      "cta": {
-        "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
-      }
+      "type": "feature-bento",
+      "heading": "What every managed website includes",
+      "large": {
+        "title": "Everything handled",
+        "body": "Hosting, security, backups, routine updates, monitoring and technical support are all included — so you have one team responsible for keeping your website running smoothly.",
+        "checklist": [
+          "Hosting",
+          "Security",
+          "Backups",
+          "Updates",
+          "Monitoring",
+          "Support"
+        ]
+      },
+      "items": [
+        {
+          "title": "Hosting, security & backups",
+          "body": "Fast managed hosting, SSL security, uptime monitoring and regular backups are included with every active plan."
+        },
+        {
+          "title": "Performance & analytics",
+          "body": "Track website traffic, visitor activity and enquiry performance so you can see how your website is working for your business."
+        },
+        {
+          "title": "Routine content updates",
+          "body": "Need to change text, photos, business hours, services or other everyday content? Routine updates are included within your plan."
+        },
+        {
+          "title": "SEO-ready foundation",
+          "body": "Every website is built with clean structure, search-friendly content, metadata and technical foundations designed to help search engines understand your business."
+        },
+        {
+          "title": "Mobile-first experience",
+          "body": "Your website is designed to load, read and convert smoothly across phones, tablets and desktops — where many local customers search and call from."
+        }
+      ]
     },
     {
       "type": "pricing-highlight",
-      "heading": "Plans built to grow with you",
-      "intro": "Two simple monthly plans and Custom Solutions, with no long-term contract. The highlights are below, with every feature on the pricing page.",
+      "heading": "Plans and subscription terms",
+      "intro": "Two simple monthly plans and Custom Solutions. The differences are below, with every feature on the pricing page.",
       "cta": {
         "label": "Compare every feature",
         "href": "/pricing/"
       },
-      "planCtaLabel": "Start My Free Website Preview"
+      "planCtaLabel": "Start My Free Website Preview",
+      "showTerms": true
     },
     {
-      "type": "growth-modules",
-      "heading": "Grow beyond your website",
-      "intro": "Start with a professionally managed website, then add the tools you need to attract, respond to and manage more enquiries.",
-      "core": "Your website",
-      "itemsLabel": "Optional services you can add to your website",
-      "items": [
-        {
-          "title": "Local SEO & Google Business Profile",
-          "body": "Improve your visibility in local search and help nearby customers find your business when they need your services."
-        },
-        {
-          "title": "AI & Lead Automation",
-          "body": "Respond faster with automated enquiry handling, follow-ups and workflows designed around your business."
-        },
-        {
-          "title": "Messaging & Customer Communication",
-          "body": "Connect enquiries from website forms, messaging channels and follow-ups into a smoother customer journey."
-        },
-        {
-          "title": "CRM & Lead Tracking",
-          "body": "Keep enquiries organised, track follow-ups and reduce the chance of valuable leads slipping through the cracks."
-        }
-      ]
+      "type": "founder-note",
+      "eyebrow": "WHO YOU WILL WORK WITH",
+      "heading": "The best digital work starts with understanding the business",
+      "quote": "After spending more than 20 years in the technical field, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.",
+      "attribution": {
+        "name": "Tejas G.",
+        "title": "CTO, SynergyFirst Digital"
+      },
+      "avatarImage": "/assets/images/tejas-gandhi-dp.png",
+      "avatarAlt": "Tejas G.",
+      "avatarInitials": "TG"
     },
     {
       "type": "faq-split",
@@ -342,5 +325,5 @@
     "Service",
     "FAQPage"
   ],
-  "lastUpdated": "2026-10-02"
+  "lastUpdated": "2026-11-05"
 }

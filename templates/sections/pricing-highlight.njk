@@ -43,6 +43,13 @@
       </div>
       {% endfor %}
     </div>
+    {% if section.showTerms %}
+    {# Subscription conditions in plain words, from plans.json (same text as the Pricing page). #}
+    <ul class="pricing-highlight__terms">
+      <li>{{ plans.commitmentTerms }}</li>
+      <li>{{ plans.buyoutPolicy }}</li>
+    </ul>
+    {% endif %}
     {% if section.cta %}
     <p class="pricing-highlight__more"><a href="{{ section.cta.href }}">{{ section.cta.label }} <span class="pricing-highlight__more-arrow" aria-hidden="true">&rarr;</span></a></p>
     {% endif %}

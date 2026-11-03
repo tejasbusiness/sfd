@@ -18,6 +18,10 @@
         {% endif %}
       </div>
       {% if section.reassurance %}<p class="hero-split__reassurance">{{ section.reassurance }}</p>{% endif %}
+      {% if section.priceContext %}
+      {# Starting price comes from plans.json so it never drifts from the Pricing page. #}
+      <p class="hero-split__price">{{ section.priceContext.prefix }} <strong>{{ plans.plans[0].priceMonthly }}/month</strong>. {{ plans.commitmentTerms }}</p>
+      {% endif %}
       {% if section.stats %}
       <div class="hero-split__stats">
         {% for stat in section.stats %}
@@ -31,6 +35,23 @@
     </div>
 
     <div class="hero-split__visual col-span-5 col-start-8" data-reveal>
+      {% if section.project %}
+      {# Real client work above the fold: a screenshot from projects.json, linked to its case study. #}
+      {% set heroProject = (projects.items | selectByIds([section.project.id]))[0] %}
+      <figure class="hero-project">
+        <a class="hero-project__link" href="{{ heroProject.caseStudy.path }}">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+            </div>
+            <img class="hero-project__image" src="{{ heroProject.images.desktop }}" alt="Homepage of the {{ heroProject.title }} website, designed and built by SynergyFirst Digital" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+        </a>
+        <figcaption class="hero-project__caption">{{ section.project.captionPrefix }} <a href="{{ heroProject.caseStudy.path }}">{{ heroProject.title }}</a> &middot; {{ heroProject.industryLabel }}</figcaption>
+      </figure>
+      {% else %}
       {# One labelled image for assistive tech; the mock-up text inside is decorative. #}
       <div class="hero-visual" role="img" aria-label="{{ section.visual.label }}">
         <div class="hero-visual__before">
@@ -116,6 +137,7 @@
           <span class="hero-visual__chip-text">Day 3 of 7 — private preview</span>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </section>

@@ -1367,3 +1367,85 @@ $0
   margin-top: var(--space-3);
   font-size: var(--text-sm);
 }
+
+/* ---------------------------------------------- 2026-11-05 homepage rework */
+/* Starting-price context under the hero buttons. */
+.hero-split__price {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.hero-split__price strong {
+  color: var(--color-text);
+}
+/* Real client project above the fold. */
+.hero-project {
+  margin: 0;
+}
+.hero-project__link {
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease;
+}
+.hero-project__link:hover {
+  transform: translateY(-3px);
+}
+.hero-project__link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+.hero-project .browser-frame {
+  overflow: hidden;
+}
+.hero-project__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+.hero-project__caption {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.hero-project__caption a {
+  color: var(--color-link);
+  font-weight: 600;
+}
+.page-home .case-study-grid__more {
+  margin-top: var(--space-5);
+  text-align: center;
+}
+/* Subscription conditions under the plan cards. */
+.pricing-highlight__terms {
+  max-width: 760px;
+  margin: var(--space-5) auto 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Calm homepage (owner feedback 2026-11-05): no particle canvas (motion.js), soft
+   button shadows, no travelling card beam, a quieter aurora. Purple stays the
+   primary action colour and gold a small accent. Other pages keep the full effects. */
+:root body.page-home .button,
+:root body.page-home .button:hover,
+:root[data-theme="dark"] body.page-home .button,
+:root[data-theme="dark"] body.page-home .button:hover {
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.45);
+}
+:root[data-theme="dark"] body.page-home .card::after {
+  content: none;
+}
+:root[data-theme="dark"] body.page-home::before {
+  opacity: 0.45;
+}
+:root[data-theme="dark"] body.page-home .card {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 40px -28px rgba(0, 0, 0, 0.8);
+}

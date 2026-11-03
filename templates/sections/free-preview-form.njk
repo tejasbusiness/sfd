@@ -1,7 +1,8 @@
 {# Free Website Preview request ("Start My Free Website Preview"), built on the shared form
    system (partials/form-fields.njk, .sfd-form) so it matches the booking modal.
    Kept low-friction (2026-10-02): name, email, phone, business name and one
-   website or Google Business Profile URL are required; service and message are optional
+   website or Google Business Profile URL are required. Service and message fields were
+   removed 2026-11-05 (owner: simpler application); the API still accepts them as optional
    (phone made required 2026-11-02 so the lead alert can be acted on; same fields as the
    hero "lead" form, docs/15).
    Copy (button, consent, success toast) lives in the page JSON section. #}
@@ -18,9 +19,7 @@
       {{ fields.input("fp-email", "email", "Email address *", type="email", required=true, autocomplete="email") }}
       {{ fields.phone("fp", countryCodes, countryCodeOptions) }}
       {{ fields.input("fp-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
-      {{ fields.input("fp-service", "primaryService", "Enter Service(s)", maxlength="200", hint="Offering more than one service? Separate your services with commas.") }}
       {{ fields.input("fp-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, hint="No website yet? Paste your Google Business Profile link.") }}
-      {{ fields.textarea("fp-problem", "problem", "Anything we should know? (optional)", rows=3) }}
       {{ fields.consent("fp-consent", "consent", section.consentLabel + " *") }}
       <div class="sfd-form__actions field--full">
         <button type="submit" class="button button--primary" data-free-preview-submit>{{ section.submitLabel }}</button>

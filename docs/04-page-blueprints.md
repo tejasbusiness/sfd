@@ -2,21 +2,22 @@
 
 ## Homepage
 
-1. Light sticky header with primary and booking CTAs.
-2. Outcome-led hero: free-preview promise, qualification note and two actions.
-3. Credibility strip using only verified proof.
-4. How the free preview works in three or four steps.
-5. Before-and-after website transformation.
-6. Industry entry points.
-7. What every managed website includes.
-8. Featured websites or case studies.
-9. Why the monthly model works.
-10. Pricing summary with three plans.
-11. Growth-service upgrades.
-12. Testimonials.
-13. FAQ addressing cost, term, ownership, updates, cancellation and timing.
-14. Final free-preview CTA.
-15. Complete footer.
+Reworked 2026-11-05 from owner-supplied conversion advice ("real work above the fold, a simpler application, clearer plan differences"). Section order in `data/pages/home.json`:
+
+1. Sticky header with primary and booking CTAs.
+2. `hero-split`: free-preview promise, the two locked CTAs, starting-price context ("Managed website plans from $249/month" plus the commitment terms, both read from `plans.json`), the verified stats, and a **real client project** screenshot (EV World360, from `projects.json`) linked to its case study. The illustrative before/after mock-up is still in the template and returns if `section.project` is removed.
+3. `trust-signals` strip.
+4. `case-study-grid`: three real client projects (EV World360, The BrandBook Company, Budget Opticals) with a "See all case studies" link.
+5. `testimonials`: one featured real Google review (Aseem Trivedi), no card grid.
+6. `process-narrative`: how the free preview works.
+7. `industry-links` then `preview-concepts`: the five trade entry points and illustrative industry concepts.
+8. `feature-bento`: what every managed website includes.
+9. `pricing-highlight`: plan cards plus the subscription conditions (`plans.commitmentTerms`, `plans.buyoutPolicy`).
+10. `founder-note`: the CTO introduction (same text as About).
+11. `faq-split`, then the closing `cta-editorial`.
+12. Footer.
+
+Removed from the homepage: the "traditional vs managed" `statement` band and `growth-modules` (supporting services must not dilute the website offer; they remain on the services pages). The homepage is visually calmer than other pages: no particle canvas, soft button shadows, and in dark mode no card-border beam and a quieter aurora (`homepage.css`, `motion.js`).
 
 ## How It Works
 
@@ -101,10 +102,7 @@ Required:
 - **Website or Google Business Profile URL.** This is one field, so a business with no website can paste its Google Business Profile link; the hint says so. It is stored in `website`.
 - Consent: the right to share the information, and that a preview is not guaranteed for every request.
 
-Optional:
-
-- Enter Service(s) (label changed from "Main service" 2026-11-02), with the hint "Offering more than one service? Separate your services with commas." (the whole text is stored in `primary_service`; the first is the primary service).
-- "Anything we should know?"
+Optional fields: none since 2026-11-05. "Enter Service(s)" and "Anything we should know?" were removed from the Free Preview form and the trade hero forms (owner: simpler application). The API still accepts `primaryService` and `problem` as optional, so old clients and future forms keep working; the n8n webhook now receives empty `services` and `message` for new requests.
 
 Details:
 
