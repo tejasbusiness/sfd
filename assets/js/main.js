@@ -6,6 +6,7 @@ import { initLeadForm } from './lead-form.js';
 import { initWebsiteReviewForm } from './website-review-form.js';
 import { initHeaderScroll } from './header-scroll.js';
 import { initScrollReveal } from './scroll-reveal.js';
+import { initMotion } from './motion.js';
 import { initCustomSelects } from './custom-select.js';
 import { initCountrySelects } from './country-select.js';
 import { initLegalToc } from './legal-toc.js';
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWebsiteReviewForm(document.querySelector('[data-website-review-form]'));
   initHeaderScroll();
   initScrollReveal();
+  initMotion();
   initCustomSelects();
   initCountrySelects();
   initLegalToc();
