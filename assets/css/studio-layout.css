@@ -12,7 +12,8 @@
 .footer-statement__text,
 .process-narrative__step h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 900;
+  font-variation-settings: "wght" 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 0.92;
@@ -777,35 +778,22 @@ html.motion .dock {
   }
 }
 
-/* ------------------------------------------------------------- word flip */
-.flip-word {
-  position: relative;
+/* ---------------------------------------------------------- weight field */
+/* Letters of the display statements (studio-fx.js). Words never break across lines;
+   each letter carries its own font-variation-settings while the pointer is near. */
+.wf-word {
   display: inline-block;
+  white-space: nowrap;
 }
-.flip-word__a,
-.flip-word__b {
+.wf-char {
   display: inline-block;
-  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  font-variation-settings: "wght" 900;
+  transition: none;
 }
-.flip-word__b {
-  position: absolute;
-  inset: 0;
-  font-family: var(--font-heading);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(0.12em);
-}
-.flip-word:hover .flip-word__a,
-.flip-word.is-flipped .flip-word__a {
-  opacity: 0;
-  transform: translateY(-0.12em);
-}
-.flip-word:hover .flip-word__b,
-.flip-word.is-flipped .flip-word__b {
-  opacity: 1;
-  transform: none;
+.hero-statement h1 .wi,
+.hero-statement h1 .w {
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 /* ---------------------------------------------------- starburst sticker */

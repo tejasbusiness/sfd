@@ -48,7 +48,7 @@
      Google Fonts for its own accents — stands in everywhere a heading font
      is needed. */
   --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Archivo Black", "Inter", system-ui, sans-serif;
+  --font-display: "Archivo", "Archivo Black", "Inter", system-ui, sans-serif; /* variable weight axis: the cursor weight field uses it */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Fluid heading scale (docs/13 §2) */

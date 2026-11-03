@@ -11,7 +11,7 @@
       {% if section.status.link %}<span class="hero-status__sep" aria-hidden="true"></span><a href="{{ section.status.link.href }}"{% if section.status.link.dialogTarget %} data-dialog-target="{{ section.status.link.dialogTarget }}"{% endif %}>{{ section.status.link.label }} &rarr;</a>{% endif %}
     </p>
     {% endif %}
-    <h1 data-flip-words>{{ page.h1 | safe }}</h1>
+    <h1 data-weight-field>{{ page.h1 | safe }}</h1>
     {% if section.stickers %}
     <div class="hero-stickers">
       {% for st in section.stickers %}

@@ -2,7 +2,7 @@
   {% if footer.statement %}
   <div class="footer-statement" aria-hidden="true">
     <div class="footer-statement__inner">
-      <p class="footer-statement__text" data-flip-words>{{ footer.statement }}</p>
+      <p class="footer-statement__text" data-weight-field>{{ footer.statement }}</p>
       {% for st in footer.statementStickers %}
       <span class="sticker sticker--f{{ loop.index }} sticker--{{ st.tone }}">{{ st.label }}</span>
       {% endfor %}
