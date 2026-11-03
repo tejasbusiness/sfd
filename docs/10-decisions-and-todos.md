@@ -1028,4 +1028,5 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Lenis licence** added at `assets/js/vendor/lenis.LICENSE` (MIT).
 - **Light mode** homepage checked below the hero (projects, plans and terms).
 - **Still open after this:** lawyer review of the legal pages; the shared social (OG) image; `dist.bak` cleanup; real-phone and Safari checks of the carousel and dark effects; owner to run `funnel-report.php` after a few weeks and set lead statuses as requests progress.
+- **Deployed 2026-11-05 (second deploy)** with `.\deploy.bat -Migrate -Yes`: migration 016 applied, all live checks passed, `dist.bak` kept. Verified live: `POST /api/events` 201 for a valid step and a validation error for an invalid one (one test row in `funnel_events`, page `/deploy-check/`, ignore it in reports); short homepage title; carousel markup; Lenis served; Privacy Policy names OpenAI; Cookie Policy mentions the theme; no service field on the Free Preview form. Owner next: hard-refresh, submit each form once, then set lead statuses with `lead-status.php` as requests progress.
 
