@@ -6,11 +6,11 @@ Title "Managed Websites for Local Service Businesses | SynergyFirst" (2026-11-05
 
 1. Sticky header with primary and booking CTAs.
 2. `hero-split`: free-preview promise, the two locked CTAs, starting-price context ("Managed website plans from $249/month" plus the commitment terms, both read from `plans.json`), the verified stats, and a **curved carousel** of four real client projects (`section.carousel.ids`: EV World360, The BrandBook Company, Budget Opticals, Siddhant Cinevision; screenshots from `projects.json`). It is a concave CSS 3D ring of eight cards (projects repeated), rotating slowly, paused on hover and static under reduced motion; the ring is decorative (`aria-hidden`) and the caption carries the real links to each case study. The template also still supports a single project (`section.project`) and the old illustrative before/after mock-up (neither set).
-3. `trust-signals` strip.
+3. (the trust strip was removed 2026-11-05, see below.)
 4. `case-study-grid`: three real client projects (EV World360, The BrandBook Company, Budget Opticals) with a "See all case studies" link.
-5. `testimonials`: one featured real Google review (Aseem Trivedi), no card grid.
+5. `testimonials`: one featured real Google review (Aseem Trivedi) as a large scroll-lit quote under a small "In their own words" label, no card grid, no button.
 6. `process-narrative`: how the free preview works.
-7. `industry-links` then `preview-concepts`: the five trade entry points and illustrative industry concepts.
+7. `industry-links`: the five trade entry points (the `preview-concepts` block was removed 2026-11-05).
 8. `feature-bento`: what every managed website includes.
 9. `pricing-highlight`: plan cards plus the subscription conditions (`plans.commitmentTerms`, `plans.buyoutPolicy`).
 10. `founder-note`: the CTO introduction (same text as About).
@@ -200,3 +200,4 @@ Hero (all pricing pages): H1 on `/pricing/` is "A professionally managed website
 
 Pricing FAQ (2026-10-02): uses the `faq-split` layout, with eyebrow "PRICING FAQ", heading "Pricing questions", intro "Straight answers about plans, ownership, updates and cancelling." and an "Ask Us a Question" button to `/contact/` beside the questions, using the redesigned shared FAQ (docs/03).
 
+**Homepage de-clutter (2026-11-05, owner instruction "complete the open list tasks").** Removed from `data/pages/home.json`: the `trust-signals` strip, the `preview-concepts` block, the hero starting-price line (`priceContext`; the price still appears in the plans band) and the testimonial button (the FAQ and the closing band keep their asks). The two section templates stay for other pages. Restore any of them from git history (commit before this entry) if the owner changes their mind.

@@ -1,0 +1,10 @@
+Fonts in this folder
+
+Inter: Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter).
+Archivo: Copyright 2019 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo).
+
+Both are licensed under the SIL Open Font License, Version 1.1.
+Full text: https://openfontlicense.org (the licence permits use, embedding and redistribution,
+including on websites, provided the licence and copyright notice stay with the fonts).
+
+Files were obtained from Google Fonts (fonts.google.com) on 2026-11-05.

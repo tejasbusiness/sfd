@@ -1063,3 +1063,8 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 
 ### Deploy 2026-11-05 (fifth)
 - **Shipped:** commit 4d18a1f: icon chips lime or ink, footer brand spacing and edge-to-edge dividers, even full-width logo marquee with black/white hover, and the init-order fix (marquee copies and the scroll-lit quote now actually run). No migrations, no new dependencies, nginx redirects unchanged. All 16 live checks passed first time; the live JS and CSS contain the new rules. `dist.bak` now holds the fourth deploy.
+
+### Open list completed (2026-11-05, later)
+- **Owner instruction:** "please complete open list tasks and then deploy".
+- **Done:** (1) homepage de-clutter applied as proposed: trust strip, preview-concepts block, hero price line and the testimonial button removed (docs/04). (2) Draggable stickers (docs/03). (3) Fonts self-hosted: Inter and Archivo variable, Latin and Latin Extended, in `assets/fonts/` with `assets/css/fonts.css`, preloaded; no request goes to Google; the Cookie Policy third-party paragraph was corrected accordingly (lastUpdated unchanged on purpose: same day as the other edits). (4) Responsive pass on the homepage in a real browser: no sideways scroll and one H1 at 390, 768 and 1024.
+- **Could not do (needs the owner or real devices):** social links in the footer (need the profile URLs), real phones and Safari/Firefox checks, lawyer review of legal pages, the shared OG image, the two BLOCKING decisions (response time, public address). `dist.bak` stays on the server as the rollback copy.

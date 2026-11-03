@@ -133,7 +133,7 @@
   white-space: nowrap;
   cursor: default;
   user-select: none;
-  transform: rotate(var(--tilt, -8deg));
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--tilt, -8deg));
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 .sticker::after {
@@ -148,7 +148,7 @@
   pointer-events: none;
 }
 .sticker:hover {
-  transform: rotate(calc(var(--tilt, -8deg) * -0.6)) scale(1.08);
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(calc(var(--tilt, -8deg) * -0.6)) scale(1.08);
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
   z-index: 3;
 }
@@ -1393,4 +1393,23 @@ html:not(.motion) .page-home .client-logos__list {
 }
 :root[data-theme="dark"] .page-home .client-logos__item--detail:hover .client-logos__image {
   filter: grayscale(1) invert(1) brightness(1.7) contrast(1.4);
+}
+
+/* ------------------------------------------------ draggable stickers (2026-11-05) */
+/* studio-fx.js adds .is-draggable (fine pointer, motion allowed, desktop layout). A drag
+   moves the sticker by --dx/--dy inside its hero, lifts it (bigger shadow, straightened
+   tilt) and pauses the bob; it stays where it is dropped until the page reloads. */
+.sticker.is-draggable {
+  cursor: grab;
+  touch-action: none;
+}
+.sticker.is-dragging {
+  cursor: grabbing;
+  z-index: 5;
+  transition: box-shadow 0.2s ease;
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(calc(var(--tilt, -8deg) * 0.3)) scale(1.1);
+  box-shadow: 0 22px 34px rgba(0, 0, 0, 0.28);
+}
+html.motion .sticker.is-dragging {
+  animation-play-state: paused, paused;
 }

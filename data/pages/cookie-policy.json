@@ -57,7 +57,7 @@
           "id": "third-parties",
           "heading": "Third-party services",
           "body": [
-            "Our pages load fonts from Google Fonts. When your browser requests them, Google receives technical information such as your IP address. Google Fonts does not set cookies for this purpose. We plan to host the fonts ourselves so this request is no longer needed.",
+            "The fonts on our pages are served from our own server, so your browser does not contact Google or any other font provider to display them.",
             "If you choose to book a call, the details you give are processed by us and by our service providers as described in the Privacy Policy. Google Meet, Google Calendar and Razorpay set their own cookies only on their own pages."
           ]
         },

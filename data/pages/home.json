@@ -54,9 +54,6 @@
         "afterSub": "Fast quotes. Friendly local team.",
         "afterCta": "Request a Free Quote"
       },
-      "priceContext": {
-        "prefix": "Managed website plans from"
-      },
       "statement": true,
       "status": {
         "label": "Accepting free preview requests",
@@ -88,15 +85,6 @@
       "heading": "Trusted by"
     },
     {
-      "type": "trust-signals",
-      "items": [
-        "See your website before you pay",
-        "No contract. No obligation to continue",
-        "Hosting, maintenance & support included",
-        "Built for local service businesses"
-      ]
-    },
-    {
       "type": "case-study-grid",
       "eyebrow": "REAL CLIENT WORK",
       "heading": "Selected client projects",
@@ -117,10 +105,6 @@
       "eyebrow": "WHAT CLIENTS SAY",
       "heading": "In their own words",
       "featuredId": "aseem-trivedi",
-      "cta": {
-        "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
-      },
       "bigQuote": true
     },
     {
@@ -195,60 +179,6 @@
         "label": "See all industries",
         "href": "/industries/"
       }
-    },
-    {
-      "type": "preview-concepts",
-      "heading": "See the kind of websites we build for local service businesses",
-      "intro": "Illustrative website concepts showing how we design around the way local customers search, compare and request service. These are concept examples, not published client projects.",
-      "items": [
-        {
-          "industryLabel": "Garage Door Services",
-          "headline": "A conversion-focused garage door website",
-          "description": "Designed around urgent repair enquiries, service areas, customer reviews and fast paths to call or request a quote.",
-          "mockAlt": "Illustrative garage door service website concept",
-          "mockBusinessName": "Your Garage Doors",
-          "mockNavLinks": "Services  Areas  Reviews",
-          "mockNavCta": "Call Now",
-          "mockHeroHeading": "Fast, Reliable Garage Door Repair",
-          "mockHeroSub": "Repairs, installation and emergency service in your area.",
-          "mockHeroCta": "Request Service",
-          "mockTrustCues": [
-            "Licensed & Insured",
-            "Same-Day Service",
-            "Free Estimates"
-          ]
-        },
-        {
-          "industryLabel": "Tree Services",
-          "headline": "A modern tree service website",
-          "description": "Built to showcase services, project photos, local coverage and simple quote requests for both routine and urgent work.",
-          "mockAlt": "Illustrative tree service website concept",
-          "mockBusinessName": "Your Tree Care",
-          "mockNavLinks": "Services  Projects  Contact",
-          "mockNavCta": "Call Now",
-          "mockHeroHeading": "Safe, Professional Tree Care",
-          "mockHeroSub": "Trimming, removal and storm clean-up.",
-          "mockHeroCta": "Request a Quote",
-          "mockTrustCues": [
-            "Free Quotes"
-          ]
-        },
-        {
-          "industryLabel": "Roofing & Exterior",
-          "headline": "A modern roofing contractor website",
-          "description": "Structured around trust, completed projects, service areas, warranties and high-value estimate enquiries.",
-          "mockAlt": "Illustrative roofing contractor website concept",
-          "mockBusinessName": "Your Roofing",
-          "mockNavLinks": "Services  Projects  Contact",
-          "mockNavCta": "Call Now",
-          "mockHeroHeading": "Trusted Roofing & Exterior Services",
-          "mockHeroSub": "Roof repair, replacement and exterior work.",
-          "mockHeroCta": "Get an Estimate",
-          "mockTrustCues": [
-            "Free Estimates"
-          ]
-        }
-      ]
     },
     {
       "type": "feature-bento",

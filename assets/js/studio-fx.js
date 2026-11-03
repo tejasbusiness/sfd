@@ -261,6 +261,58 @@ function initStickerShine() {
   });
 }
 
+/* Draggable stickers: pointer drag inside the hero (or the footer statement), clamped so a
+   sticker never leaves its area; it stays where it is dropped. Desktop layout only. */
+function initStickerDrag() {
+  if (!document.documentElement.classList.contains('motion')) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.matchMedia('(max-width: 760px)').matches) return;
+  document.querySelectorAll('.sticker').forEach((el) => {
+    const area = el.closest('.hero-statement, .footer-statement');
+    if (!area) return;
+    el.classList.add('is-draggable');
+    let startX = 0;
+    let startY = 0;
+    let baseX = 0;
+    let baseY = 0;
+    let rect0 = null;
+    let areaRect = null;
+    let active = false;
+    el.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      active = true;
+      el.setPointerCapture(e.pointerId);
+      el.classList.add('is-dragging');
+      startX = e.clientX;
+      startY = e.clientY;
+      baseX = parseFloat(el.dataset.dx || '0');
+      baseY = parseFloat(el.dataset.dy || '0');
+      rect0 = el.getBoundingClientRect();
+      areaRect = area.getBoundingClientRect();
+      e.preventDefault();
+    });
+    el.addEventListener('pointermove', (e) => {
+      if (!active) return;
+      let mx = e.clientX - startX;
+      let my = e.clientY - startY;
+      mx = Math.min(Math.max(mx, areaRect.left - rect0.left), areaRect.right - rect0.right);
+      my = Math.min(Math.max(my, areaRect.top - rect0.top), areaRect.bottom - rect0.bottom);
+      el.style.setProperty('--dx', (baseX + mx).toFixed(1) + 'px');
+      el.style.setProperty('--dy', (baseY + my).toFixed(1) + 'px');
+    });
+    const end = (e) => {
+      if (!active) return;
+      active = false;
+      el.classList.remove('is-dragging');
+      el.dataset.dx = parseFloat(el.style.getPropertyValue('--dx')) || baseX;
+      el.dataset.dy = parseFloat(el.style.getPropertyValue('--dy')) || baseY;
+      if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    };
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+  });
+}
+
 export function initStudioFx() {
   initLocalTime();
   initStickerShine();
@@ -272,5 +324,6 @@ export function initStudioFx() {
     initQuoteReveal();
     initLogoMarquee();
     initWeightField();
+    initStickerDrag();
   }, 0);
 }

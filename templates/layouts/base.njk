@@ -25,11 +25,11 @@
   {% if page.type != "not-found" %}
   <meta property="og:url" content="{{ site.productionDomain }}{{ page.canonicalPath }}">
   {% endif %}
-  {# Google Fonts CDN for this visual-review pass; docs/03 prefers self-hosted
-     subsetted font files before production launch — not done yet, flagged. #}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@300..900&display=swap" rel="stylesheet">
+  {# Self-hosted variable fonts (2026-11-05): Inter and Archivo, Latin subsets preloaded so the
+     headline does not swap late; see assets/css/fonts.css and assets/fonts/LICENSE-fonts.txt. #}
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
