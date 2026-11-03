@@ -5,7 +5,7 @@
   "canonicalPath": "/industries/",
   "seo": {
     "title": "Industries We Build Websites For | SynergyFirst Digital",
-    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree service, and roofing and exterior companies. See a free private preview before you pay.",
+    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree service, roofing and exterior, and plumbing, HVAC and electrical companies. See a free private preview before you pay.",
     "ogTitle": "Industries We Build Websites For",
     "ogDescription": "Every website is structured around how people search for and choose a local service business.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -50,6 +50,12 @@
           "description": "Estimate-focused websites for roofing and exterior companies.",
           "href": "/industries/roofing-exterior/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Plumbing, HVAC & Electrical",
+          "description": "Call-focused websites for plumbing, HVAC and electrical companies.",
+          "href": "/industries/plumbing-hvac-electrical/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M13 2L4 14h7l-1 8 9-12h-7l1-8z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },

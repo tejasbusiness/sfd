@@ -121,7 +121,8 @@
           "label": "Plumbing, HVAC & Electrical",
           "description": "Clear service pages, emergency contact options, local coverage and fast booking or call paths.",
           "size": "supporting",
-          "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2L4 14h7l-1 8 9-12h-7z\"/></svg>"
+          "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2L4 14h7l-1 8 9-12h-7z\"/></svg>",
+          "href": "/industries/plumbing-hvac-electrical/"
         },
         {
           "label": "Fencing, Concrete & Remodeling",

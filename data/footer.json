@@ -87,6 +87,10 @@
           "path": "/industries/roofing-exterior/"
         },
         {
+          "label": "Plumbing, HVAC & Electrical",
+          "path": "/industries/plumbing-hvac-electrical/"
+        },
+        {
           "label": "All Industries",
           "path": "/industries/"
         }

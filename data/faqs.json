@@ -164,6 +164,26 @@
       "id": "roofing-trust",
       "question": "What trust information should a roofing website show?",
       "answer": "Anything you can genuinely show: licence and insurance details, accreditations you hold, warranty terms you offer, reviews and photos of completed work. We place them where customers look for reassurance, and we never invent them."
+    },
+    {
+      "id": "plumbing-website-needs",
+      "question": "What should a plumbing, HVAC or electrical company's website include?",
+      "answer": "At minimum: a phone number that is one tap away on mobile, separate sections for each trade you offer, a clear service area, a short service-request form, and space for photos of completed work, reviews and credentials you can genuinely show. SynergyFirst Digital builds all of these into a managed website."
+    },
+    {
+      "id": "plumbing-emergency",
+      "question": "Can a plumbing, HVAC or electrical website handle emergency calls?",
+      "answer": "Yes. We give urgent jobs their own route, such as a prominent call button and a short request path, so a customer with a burst pipe, no heating or cooling, or a power problem knows what to do next. We do not publish response-time or 24/7 promises for your business unless you confirm them."
+    },
+    {
+      "id": "plumbing-booking",
+      "question": "How do customers book a plumber, HVAC technician or electrician on the website?",
+      "answer": "Through a click-to-call button on every page and a short service-request form where they describe the problem and the type of work. Each request goes straight to you, so you can call back or arrange the visit."
+    },
+    {
+      "id": "plumbing-trust",
+      "question": "What trust information should a trade company's website show?",
+      "answer": "Anything you can genuinely show: the licences and insurance you hold for each trade, accreditations, reviews and photos of completed work. Licensing rules differ by trade and location, so we show only what you confirm and never invent it."
     }
   ]
 }

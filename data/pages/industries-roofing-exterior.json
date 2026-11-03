@@ -241,6 +241,12 @@
           "description": "The same managed approach for tree removal, trimming and stump grinding companies.",
           "href": "/industries/tree-services/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 21v-6M12 3l5 7h-3l4 6H6l4-6H7l5-7z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Plumbing, HVAC & Electrical Websites",
+          "description": "The same managed approach for plumbing, HVAC and electrical companies.",
+          "href": "/industries/plumbing-hvac-electrical/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M13 2L4 14h7l-1 8 9-12h-7l1-8z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },
