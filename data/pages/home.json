@@ -68,7 +68,8 @@
       },
       "stickers": [
         {
-          "label": "4.8★ Google rating",
+          "value": "4.8★",
+          "label": "Google rating",
           "tone": "lime",
           "shape": "burst"
         },

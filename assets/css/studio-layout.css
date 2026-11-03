@@ -1163,3 +1163,47 @@ html.motion .dock {
     transition: none;
   }
 }
+
+/* ------------------------------------------- sticker foil fills (2026-11-05, v2.1) */
+/* Multi-stop "foil" gradients instead of flat two-stop fills, with a soft radial shine
+   that is always on (top-left) and follows the pointer on hover. */
+.sticker--violet {
+  --sticker-fill: linear-gradient(115deg, #6a46e8 0%, #9d7bff 22%, #d2c2ff 40%, #7a5cff 58%, #b894ff 78%, #6a46e8 100%);
+}
+.sticker--lime {
+  --sticker-fill: linear-gradient(115deg, #b9ef4a 0%, #eaff8a 20%, #8ff07a 38%, #d9ff5a 56%, #7fe6b0 74%, #c8f169 90%, #f2ff9a 100%);
+}
+.sticker--peach {
+  --sticker-fill: linear-gradient(115deg, #ff5a2c 0%, #ff7a4a 20%, #ffa06b 38%, #ff4f7a 58%, #ff6a3d 78%, #ff9a5e 100%);
+}
+.sticker {
+  --mx: 30%;
+  --my: 22%;
+}
+.sticker::after {
+  opacity: 0.85;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0) 60%);
+}
+/* Big value with a small caption (the rating star). */
+.sticker__value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.sticker__label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+@media (max-width: 760px) {
+  .sticker__value {
+    font-size: 1.4rem;
+  }
+  .sticker__label {
+    font-size: 0.65rem;
+  }
+}
