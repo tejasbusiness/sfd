@@ -4,7 +4,7 @@
     <div class="footer-statement__inner">
       <p class="footer-statement__text" data-weight-field>{{ footer.statement }}</p>
       {% for st in footer.statementStickers %}
-      <span class="sticker sticker--f{{ loop.index }} sticker--{{ st.tone }}">{{ st.label }}</span>
+      <span class="sticker sticker--f{{ loop.index }} sticker--{{ st.tone }}"><span class="sticker__fill">{{ st.label }}</span></span>
       {% endfor %}
     </div>
   </div>

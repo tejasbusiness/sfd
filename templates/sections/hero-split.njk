@@ -15,7 +15,7 @@
     {% if section.stickers %}
     <div class="hero-stickers">
       {% for st in section.stickers %}
-      <span class="sticker sticker--{{ loop.index }} sticker--{{ st.tone }}{% if st.shape %} sticker--{{ st.shape }}{% endif %}">{{ st.label }}</span>
+      <span class="sticker sticker--{{ loop.index }} sticker--{{ st.tone }}{% if st.shape %} sticker--{{ st.shape }}{% endif %}"><span class="sticker__fill">{{ st.label }}</span></span>
       {% endfor %}
     </div>
     {% endif %}

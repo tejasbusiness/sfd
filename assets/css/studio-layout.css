@@ -104,56 +104,97 @@
   color: var(--color-text);
 }
 
-/* Stickers: tilted pills around the headline, each a verified fact from page JSON. */
+/* Stickers (v2, 2026-11-05): die-cut pills around the headline, each a verified fact
+   from page JSON. Thick white rim, bold label, soft drop shadow, a tilt per sticker
+   (--tilt), a springy pop-in on load, and on hover a scale-up that counter-rotates
+   with a bounce while a pointer-tracked sheen (--mx/--my from studio-fx.js) crosses
+   the fill. Reduced motion: no pop, no bob, a plain hover. */
 .sticker {
+  --sticker-fill: #fff;
+  --sticker-ink: #0a0a0a;
+  --mx: 50%;
+  --my: 50%;
   position: absolute;
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.6rem 1.1rem;
-  border: 3px solid #fff;
-  border-radius: 999px;
-  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  padding: 0.7rem 1.25rem;
+  border: 4px solid #fff;
+  border-radius: 100px;
+  background: var(--sticker-fill);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.16);
   font-family: var(--font-body);
-  font-size: clamp(0.8125rem, 0.7rem + 0.5vw, 1.0625rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #0a0a0a;
+  font-size: clamp(0.875rem, 0.75rem + 0.55vw, 1.125rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--sticker-ink);
   white-space: nowrap;
-  rotate: var(--tilt, -8deg);
+  cursor: default;
+  user-select: none;
+  transform: rotate(var(--tilt, -8deg));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.sticker::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 45%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
+.sticker:hover {
+  transform: rotate(calc(var(--tilt, -8deg) * -0.6)) scale(1.08);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+.sticker:hover::after {
+  opacity: 1;
+}
 .sticker--violet {
-  background: linear-gradient(100deg, #b79cff, #6f4fe0);
-  color: #fff;
+  --sticker-fill: linear-gradient(110deg, #8f6bff, #6a46e8 55%, #a990ff);
+  --sticker-ink: #fff;
 }
 .sticker--lime {
-  background: linear-gradient(100deg, #e7ff9a, #b9ef4a);
+  --sticker-fill: linear-gradient(110deg, #d9ff7a, #c8f169 50%, #a9e83a);
+  --sticker-ink: #1d2a00;
 }
 .sticker--peach {
-  background: linear-gradient(100deg, #ffd1a6, #ff8a5c);
+  --sticker-fill: linear-gradient(110deg, #ff9a6b, #ff6a3d 55%, #ff8f5e);
+  --sticker-ink: #fff;
 }
 .sticker--1 { top: 24%; left: 0; --tilt: -9deg; }
 .sticker--2 { top: 36%; right: 0; --tilt: 7deg; }
 .sticker--3 { bottom: 24%; left: 3%; --tilt: 6deg; }
 html.motion .sticker {
-  animation: sticker-bob 6s ease-in-out infinite;
+  animation: sticker-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s backwards, sticker-bob 6s ease-in-out 1.2s infinite;
 }
-html.motion .sticker--2 { animation-delay: -2s; }
-html.motion .sticker--3 { animation-delay: -4s; }
+html.motion .sticker--2 { animation-delay: 0.65s, 1.2s; }
+html.motion .sticker--3 { animation-delay: 0.8s, 1.2s; }
+html.motion .sticker:hover {
+  animation-play-state: paused, paused;
+}
+@keyframes sticker-pop {
+  from { scale: 0; opacity: 0; }
+  to { scale: 1; opacity: 1; }
+}
 @keyframes sticker-bob {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -8px; }
 }
 @media (max-width: 760px) {
   .sticker {
-    position: static;
-    rotate: 0deg;
+    position: relative;
+    --tilt: 0deg;
     margin: 0.25rem;
     box-shadow: none;
-    border-width: 2px;
-    font-size: 0.75rem;
+    border-width: 3px;
+    font-size: 0.8125rem;
+    padding: 0.5rem 0.9rem;
   }
   .hero-stickers {
     display: flex;
@@ -705,7 +746,8 @@ html.motion .dock {
   background: var(--color-surface);
 }
 :root[data-theme="dark"] .sticker {
-  border-color: #0a0a0a;
+  border-color: #fff; /* the die-cut rim stays white on black */
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.5);
 }
 
 /* ------------------------------------------------ header (studio, 2026-11-05) */
@@ -798,16 +840,41 @@ html.motion .dock {
 }
 
 /* ---------------------------------------------------- starburst sticker */
+/* The white rim is the outer element (star clip); the tone fills the inner span,
+   clipped to a slightly smaller star. clip-path clips a box-shadow, so the burst has none. */
 .sticker--burst {
-  padding: 1.35rem 1rem;
+  padding: 0;
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  background: #fff;
+  width: 10.5rem;
+  aspect-ratio: 1;
   clip-path: polygon(50% 0%, 61% 12%, 76% 7%, 80% 22%, 95% 26%, 90% 41%, 100% 50%, 90% 59%, 95% 74%, 80% 78%, 76% 93%, 61% 88%, 50% 100%, 39% 88%, 24% 93%, 20% 78%, 5% 74%, 10% 59%, 0% 50%, 10% 41%, 5% 26%, 20% 22%, 24% 7%, 39% 12%);
+}
+.sticker--burst:hover {
+  box-shadow: none;
+}
+.sticker--burst .sticker__fill {
+  display: grid;
+  place-items: center;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  padding: 1.1rem;
+  background: var(--sticker-fill);
+  clip-path: inherit;
   text-align: center;
   white-space: normal;
-  width: 9.5rem;
   line-height: 1.1;
+}
+.sticker--burst::after {
+  border-radius: 0;
+}
+@media (max-width: 760px) {
+  .sticker--burst {
+    width: 7.5rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* --------------------------------------------------- footer stickers */

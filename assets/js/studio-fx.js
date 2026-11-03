@@ -222,8 +222,25 @@ function initDock() {
   window.setTimeout(update, 1800);
 }
 
+/* Sticker sheen: the highlight on a hovered sticker follows the pointer (CSS --mx/--my). */
+function initStickerShine() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  document.querySelectorAll('.sticker').forEach((el) => {
+    el.addEventListener('pointermove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    }, { passive: true });
+    el.addEventListener('pointerleave', () => {
+      el.style.removeProperty('--mx');
+      el.style.removeProperty('--my');
+    });
+  });
+}
+
 export function initStudioFx() {
   initLocalTime();
+  initStickerShine();
   initDock();
   initQuoteReveal();
   initLogoMarquee();
