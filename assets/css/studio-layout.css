@@ -787,6 +787,7 @@ html.motion .dock {
 }
 .wf-char {
   display: inline-block;
+  text-align: center;
   font-variation-settings: "wght" 900;
   transition: none;
 }

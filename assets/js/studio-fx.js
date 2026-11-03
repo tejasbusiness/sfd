@@ -108,6 +108,20 @@ function initWeightField() {
   let py = -1e4;
   let raf = 0;
   let measured = false;
+  // Thinner weights are narrower, so without this a thinned cluster shortens the line
+  // and the headline re-wraps. Each letter keeps the width it has at weight 900.
+  const lockWidths = () => {
+    chars.forEach((c) => {
+      c.el.style.width = '';
+      c.el.style.fontVariationSettings = '"wght" 900';
+    });
+    const widths = chars.map((c) => c.el.getBoundingClientRect().width);
+    chars.forEach((c, i) => {
+      c.el.style.width = widths[i].toFixed(2) + 'px';
+      c.el.style.fontVariationSettings = '"wght" ' + c.w.toFixed(0);
+    });
+    measured = false;
+  };
   const measure = () => {
     chars.forEach((c) => {
       const r = c.el.getBoundingClientRect();
@@ -116,6 +130,8 @@ function initWeightField() {
     });
     measured = true;
   };
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(lockWidths);
+  else lockWidths();
   const frame = () => {
     raf = 0;
     if (!measured) measure();
@@ -149,7 +165,14 @@ function initWeightField() {
     kick();
   };
   window.addEventListener('scroll', invalidate, { passive: true });
-  window.addEventListener('resize', invalidate);
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      lockWidths();
+      kick();
+    }, 120);
+  });
   // The headline reveal moves the letters for about a second after load.
   window.setTimeout(invalidate, 1800);
 }
