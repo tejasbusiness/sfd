@@ -134,37 +134,6 @@
           "path": "/industries/"
         }
       ]
-    },
-    {
-      "title": "Resources",
-      "column": 3,
-      "style": "small",
-      "links": [
-        {
-          "label": "How it works",
-          "path": "/how-it-works/"
-        },
-        {
-          "label": "Portfolio",
-          "path": "/websites/portfolio/"
-        },
-        {
-          "label": "Free tools",
-          "path": "/resources/free-tools/"
-        },
-        {
-          "label": "Blog",
-          "path": "/resources/blog/"
-        },
-        {
-          "label": "Free downloads",
-          "path": "/resources/free-downloads/"
-        },
-        {
-          "label": "About",
-          "path": "/about/"
-        }
-      ]
     }
   ],
   "legalLinks": [
@@ -213,5 +182,31 @@
     "timezone": "Asia/Kolkata",
     "timeLabel": "local time"
   },
-  "showEmail": true
+  "showEmail": true,
+  "askAi": {
+    "label": "ASK AI ABOUT SYNERGYFIRST",
+    "prompt": "What is SynergyFirst Digital (synergyfirstdigital.com) and what does its managed website subscription for local service businesses include?",
+    "tools": [
+      {
+        "name": "ChatGPT",
+        "href": "https://chatgpt.com/?q=",
+        "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9z\"/><path d=\"M12 8l3.5 2v4L12 16l-3.5-2v-4z\"/></svg>"
+      },
+      {
+        "name": "Claude",
+        "href": "https://claude.ai/new?q=",
+        "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7\"/></svg>"
+      },
+      {
+        "name": "Perplexity",
+        "href": "https://www.perplexity.ai/search?q=",
+        "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><rect x=\"7\" y=\"7\" width=\"10\" height=\"10\"/><path d=\"M12 2v5M12 17v5M2 12h5M17 12h5\"/></svg>"
+      },
+      {
+        "name": "Grok",
+        "href": "https://grok.com/?q=",
+        "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M6 18L18 6M6 6l4.5 4.5\"/></svg>"
+      }
+    ]
+  }
 }

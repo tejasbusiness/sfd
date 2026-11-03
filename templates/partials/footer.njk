@@ -9,7 +9,7 @@
     </div>
   </div>
   {% endif %}
-  <div class="container">
+  <div class="site-footer__inner">
     {# Studio footer (2026-11-05): four columns with a clear hierarchy, after the owner's
        reference. Column 1 is the start-a-project block; columns 2 and 3 take the groups
        from footer.groups by their "column" number (style bold = display uppercase links,
@@ -49,6 +49,17 @@
           <h2 class="site-footer__group-title">{{ footer.basedIn.label }}</h2>
           <p class="site-footer__place">{{ footer.basedIn.place }}</p>
           <p class="site-footer__time"><span class="site-footer__time-dot" aria-hidden="true"></span><span data-local-time="{{ footer.basedIn.timezone }}">--:--</span> {{ footer.basedIn.timeLabel }}</p>
+        </div>
+        {% endif %}
+        {% if footer.askAi and footer.askAi.tools.length %}
+        {# Each tile opens an AI assistant in a new tab with footer.askAi.prompt prefilled. #}
+        <div class="site-footer__group site-footer__ai">
+          <h2 class="site-footer__group-title">{{ footer.askAi.label }}</h2>
+          <ul class="site-footer__ai-list">
+            {% for tool in footer.askAi.tools %}
+            <li><a class="site-footer__ai-tile" href="{{ tool.href }}{{ footer.askAi.prompt | urlencode }}" target="_blank" rel="noopener" aria-label="Ask {{ tool.name }} about {{ company.tradingName }} (opens in a new tab)" title="Ask {{ tool.name }}">{{ tool.icon | safe }}</a></li>
+            {% endfor %}
+          </ul>
         </div>
         {% endif %}
       </div>
