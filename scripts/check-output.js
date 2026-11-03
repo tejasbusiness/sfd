@@ -66,6 +66,31 @@ function checkOutput({ outDir, site, pages, mode }) {
     }
   }
 
+  // Internal links: every root-relative link must reach a built page or file, and
+  // every indexable page except the homepage must be linked from at least one other page.
+  const livePaths = new Set(pages.map((p) => p.data).filter((d) => d.type !== 'not-found').map((d) => d.canonicalPath));
+  const inbound = new Map([...livePaths].map((p) => [p, 0]));
+  for (const { data: page } of pages) {
+    if (page.type === 'not-found') continue;
+    const file = path.join(outDir, page.canonicalPath, 'index.html');
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
+    const targets = new Set();
+    for (const m of html.matchAll(/<a\s[^>]*href="(\/[^"#?]*)/g)) targets.add(m[1]);
+    for (const href of targets) {
+      if (href.startsWith('//')) continue;
+      if (livePaths.has(href)) {
+        if (href !== page.canonicalPath) inbound.set(href, inbound.get(href) + 1);
+      } else if (!fs.existsSync(path.join(outDir, href)) || fs.statSync(path.join(outDir, href)).isDirectory()) {
+        errors.push(`${page.canonicalPath}: internal link "${href}" does not reach a built page or file`);
+      }
+    }
+  }
+  for (const { data: page } of pages) {
+    if (page.type === 'not-found' || !isIndexable(page) || page.canonicalPath === '/') continue;
+    if (inbound.get(page.canonicalPath) === 0) errors.push(`${page.canonicalPath}: orphan page, no other page links to it`);
+  }
+
   const sitemapPath = path.join(outDir, 'sitemap.xml');
   if (!fs.existsSync(sitemapPath)) {
     errors.push('sitemap.xml was not generated');

@@ -100,13 +100,15 @@
           "label": "Garage Door Services",
           "description": "Fast calls-to-action, service-area coverage, reviews and clear paths for repair, installation and emergency enquiries.",
           "size": "dominant",
-          "icon": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 10l9-6 9 6v10H3z\"/><path d=\"M7 20v-8h10v8M7 15h10M7 18h10\"/></svg>"
+          "icon": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 10l9-6 9 6v10H3z\"/><path d=\"M7 20v-8h10v8M7 15h10M7 18h10\"/></svg>",
+          "href": "/industries/garage-door-services/"
         },
         {
           "label": "Tree Services",
           "description": "Built around urgent enquiries, service areas, project photos, reviews and easy quote requests.",
           "size": "medium",
-          "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l-6 8h3l-4 6h14l-4-6h3z\"/><path d=\"M12 17v4\"/></svg>"
+          "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l-6 8h3l-4 6h14l-4-6h3z\"/><path d=\"M12 17v4\"/></svg>",
+          "href": "/industries/tree-services/"
         },
         {
           "label": "Roofing & Exterior",
@@ -126,7 +128,11 @@
           "size": "supporting",
           "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21V7l2-3 2 3v14M15 21V7l2-3 2 3v14M3 11h18M3 17h18\"/></svg>"
         }
-      ]
+      ],
+      "cta": {
+        "label": "See all industries",
+        "href": "/industries/"
+      }
     },
     {
       "type": "feature-bento",

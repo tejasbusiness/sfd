@@ -1,6 +1,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+  {% include "partials/breadcrumbs.njk" %}
   <article class="page">
     {% if page.sections[0].type != "hero" and page.sections[0].type != "hero-split" and page.sections[0].type != "hero-form" and page.sections[0].type != "legal-document" %}
     <section class="section hero hero--band">

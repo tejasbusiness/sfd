@@ -72,6 +72,23 @@
       ]
     },
     {
+      "title": "Industries",
+      "links": [
+        {
+          "label": "Garage Door Services",
+          "path": "/industries/garage-door-services/"
+        },
+        {
+          "label": "Tree Services",
+          "path": "/industries/tree-services/"
+        },
+        {
+          "label": "All Industries",
+          "path": "/industries/"
+        }
+      ]
+    },
+    {
       "title": "Services",
       "links": [
         {

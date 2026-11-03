@@ -1,0 +1,15 @@
+{# Visible breadcrumb trail. Mirrors the BreadcrumbList schema (page.breadcrumbs,
+   last item path null = current page). Rendered above the first section on every
+   page that defines breadcrumbs, so nested pages link back to their parents. #}
+{% if page.breadcrumbs and page.breadcrumbs.length > 1 %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="breadcrumbs__list">
+      <li><a href="/">Home</a></li>
+      {% for crumb in page.breadcrumbs %}
+      <li>{% if crumb.path %}<a href="{{ crumb.path }}">{{ crumb.label }}</a>{% else %}<span aria-current="page">{{ crumb.label }}</span>{% endif %}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</nav>
+{% endif %}

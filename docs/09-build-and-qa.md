@@ -107,3 +107,6 @@ The website is complete only when content, conversions, direct URLs, metadata, a
 - `npm run build` runs the SEO output audit automatically; `npm run test:validation` (which also runs the demo-kit tests, docs/15) covers domain, uniqueness, redirect and sitemap rules.
 - Manual, with `npm run serve`: `/pricing` returns 301 to `/pricing/`; `/pricing/index.html` returns 301; `/nope/` returns 404 with the branded page; `/404.html` returns 404; `/sitemap.xml` and `/robots.txt` load.
 - On the VPS after deploy: repeat the same checks against the real domain with `curl -I`, and confirm the vhost snippet from `deploy/nginx-redirects.conf` is installed.
+
+## Internal link checks (2026-11-03)
+`scripts/check-output.js` now also fails the build when a root-relative link in a built page does not reach a built page or file, and when an indexable page (other than the homepage) has no inbound link from any other page. Navigation and footer links were already validated in `validate-data.js`. The check does not yet require a link from page body content (About, Services and the three Resources pages are linked only from the header and footer).

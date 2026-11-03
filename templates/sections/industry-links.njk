@@ -1,7 +1,7 @@
 {# Homepage local-service bento (docs/13 §8.4). Only used by the homepage.
-   Tiles are not links: there are no pages for these service niches yet, and
-   docs/13 §amendment-6 forbids shipping links that 404. Add `item.href` and
-   wrap the tile in a link only once a matching page exists. #}
+   A tile links only when `item.href` points to a page that exists (docs/13
+   §amendment-6 forbids shipping links that 404); the link is the heading and
+   stretches over the whole tile. #}
 <section class="section industry-links">
   <div class="container">
     <h2>{{ section.heading }}</h2>
@@ -10,10 +10,15 @@
       {% for item in section.items %}
       <div class="card industry-links__item industry-links__item--{{ item.size }}" data-reveal>
         <span class="industry-links__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+        {% if item.href %}
+        <h3><a class="industry-links__link" href="{{ item.href }}">{{ item.label }}<span class="industry-links__arrow" aria-hidden="true"> &rarr;</span></a></h3>
+        {% else %}
         <h3>{{ item.label }}</h3>
+        {% endif %}
         <p>{{ item.description }}</p>
       </div>
       {% endfor %}
     </div>
+    {% if section.cta %}<p class="industry-links__cta"><a href="{{ section.cta.href }}">{{ section.cta.label }} &rarr;</a></p>{% endif %}
   </div>
 </section>
