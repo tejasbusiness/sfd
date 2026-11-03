@@ -235,6 +235,12 @@
           "description": "The same managed approach for roofing and exterior companies.",
           "href": "/industries/roofing-exterior/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 11l9-8 9 8M5 10v10h14V10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Fencing, Concrete & Remodeling Websites",
+          "description": "The same managed approach for fencing, concrete and remodeling companies.",
+          "href": "/industries/fencing-concrete-remodeling/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 21V7l2-3 2 3v14M11 21V7l2-3 2 3v14M17 21V7l2-3v17M3 11h18M3 16h18\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },

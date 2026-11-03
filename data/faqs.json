@@ -184,6 +184,26 @@
       "id": "plumbing-trust",
       "question": "What trust information should a trade company's website show?",
       "answer": "Anything you can genuinely show: the licences and insurance you hold for each trade, accreditations, reviews and photos of completed work. Licensing rules differ by trade and location, so we show only what you confirm and never invent it."
+    },
+    {
+      "id": "fencing-website-needs",
+      "question": "What should a fencing, concrete or remodeling company's website include?",
+      "answer": "At minimum: a phone number that is one tap away on mobile, separate sections for each type of work you offer, a clear service area, a short quote-request form, and a gallery of completed projects, reviews and credentials you can genuinely show. SynergyFirst Digital builds all of these into a managed website."
+    },
+    {
+      "id": "fencing-portfolio",
+      "question": "How should a fencing, concrete or remodeling website show past projects?",
+      "answer": "With clear photos of completed work, grouped by type of project, and a short caption for each. These jobs are big decisions, so customers want to see finished results before they ask for a quote. We build the gallery and you supply the photos you have the right to use; we never use stock images as your work."
+    },
+    {
+      "id": "fencing-quote",
+      "question": "How do customers request a quote on a fencing, concrete or remodeling website?",
+      "answer": "Through a short quote-request form and a click-to-call button on every page. Most of these jobs are priced after a visit to the site, so the form collects the details you need to plan it and sends each enquiry straight to you."
+    },
+    {
+      "id": "fencing-trust",
+      "question": "What trust information should a fencing, concrete or remodeling website show?",
+      "answer": "Anything you can genuinely show: licence and insurance details where they apply, accreditations, warranty terms you offer, reviews and photos of completed projects. Requirements differ by trade and location, so we show only what you confirm and never invent it."
     }
   ]
 }

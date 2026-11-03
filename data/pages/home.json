@@ -128,7 +128,8 @@
           "label": "Fencing, Concrete & Remodeling",
           "description": "Project-led websites designed around portfolios, local credibility and high-value quote enquiries.",
           "size": "supporting",
-          "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21V7l2-3 2 3v14M15 21V7l2-3 2 3v14M3 11h18M3 17h18\"/></svg>"
+          "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21V7l2-3 2 3v14M15 21V7l2-3 2 3v14M3 11h18M3 17h18\"/></svg>",
+          "href": "/industries/fencing-concrete-remodeling/"
         }
       ],
       "cta": {

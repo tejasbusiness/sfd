@@ -34,6 +34,7 @@ The persistent header also exposes **Book a Free 20-Minute Call** without overwh
 /industries/tree-services/           (added 2026-11-03; linked from /industries/ and the Garage Door page; not yet from the homepage card or navigation)
 /industries/roofing-exterior/        (added 2026-11-04; linked sitewide from the footer, plus homepage tile, /industries/, About and the other trade pages)
 /industries/plumbing-hvac-electrical/ (added 2026-11-04; same linking as roofing)
+/industries/fencing-concrete-remodeling/ (added 2026-11-04; same linking as roofing; completes the five homepage niches)
 
 /websites/
 /websites/portfolio/

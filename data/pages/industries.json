@@ -5,7 +5,7 @@
   "canonicalPath": "/industries/",
   "seo": {
     "title": "Industries We Build Websites For | SynergyFirst Digital",
-    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree service, roofing and exterior, and plumbing, HVAC and electrical companies. See a free private preview before you pay.",
+    "metaDescription": "Managed websites shaped around how customers choose a local service business: garage door, tree, roofing, plumbing, HVAC, electrical, fencing, concrete and remodeling companies. See a free private preview before you pay.",
     "ogTitle": "Industries We Build Websites For",
     "ogDescription": "Every website is structured around how people search for and choose a local service business.",
     "ogImage": "/assets/images/og-default.jpg",
@@ -56,6 +56,12 @@
           "description": "Call-focused websites for plumbing, HVAC and electrical companies.",
           "href": "/industries/plumbing-hvac-electrical/",
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M13 2L4 14h7l-1 8 9-12h-7l1-8z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "label": "Fencing, Concrete & Remodeling",
+          "description": "Project-led websites for fencing, concrete and remodeling companies.",
+          "href": "/industries/fencing-concrete-remodeling/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 21V7l2-3 2 3v14M11 21V7l2-3 2 3v14M17 21V7l2-3v17M3 11h18M3 16h18\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         }
       ]
     },

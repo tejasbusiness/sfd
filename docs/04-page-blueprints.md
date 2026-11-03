@@ -65,6 +65,8 @@ Do not publish thin near-duplicate vertical pages.
 
 **Plumbing, HVAC & Electrical (`/industries/plumbing-hvac-electrical/`, 2026-11-04).** Same structure, from `data/pages/industries-plumbing-hvac-electrical.json`, one page for the three trades (as on the homepage card). H1 "A Website That Turns Urgent Home Repair Searches Into Calls"; separate paths per trade; four specific FAQs (`plumbing-website-needs`, `plumbing-emergency`, `plumbing-booking`, `plumbing-trust`) plus `cost` and `preview-free`. Licensing differs by trade and location, so the copy only says to show licences the business confirms; no 24/7, response-time or price claims. Related cards link to the Garage Door and Roofing pages.
 
+**Fencing, Concrete & Remodeling (`/industries/fencing-concrete-remodeling/`, 2026-11-04).** Last of the five homepage niches, from `data/pages/industries-fencing-concrete-remodeling.json`. Project-led: H1 "A Website That Turns Project Searches Into Quote Requests", a project-gallery emphasis (photos supplied by the business, never stock images presented as its work), separate paths per type of work, four specific FAQs (`fencing-website-needs`, `fencing-portfolio`, `fencing-quote`, `fencing-trust`) plus `cost` and `preview-free`. No price, timing, warranty or licence claims. Related cards link to the Roofing and Plumbing pages.
+
 ## Websites / Portfolio
 
 Use an editorial project presentation. Every project must identify the business type, problem, work completed and real result if available. Portfolio links should never lead to dead or repurposed client domains without review.

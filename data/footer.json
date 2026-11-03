@@ -91,6 +91,10 @@
           "path": "/industries/plumbing-hvac-electrical/"
         },
         {
+          "label": "Fencing, Concrete & Remodeling",
+          "path": "/industries/fencing-concrete-remodeling/"
+        },
+        {
           "label": "All Industries",
           "path": "/industries/"
         }

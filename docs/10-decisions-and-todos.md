@@ -957,3 +957,11 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Internal links (all 38 other pages link to it):** footer Industries group, homepage tile, `/industries/`, About, related cards on the Garage Door, Tree and Roofing pages (and back), mega menu and Industries cards on `/services/websites/` and `/websites/` reworded to "garage door, tree, roofing and home trade companies".
 - **Checked:** validation, 39 tests, production build (40 pages, broken-link and orphan guard); browser at 1024, 1280, 1366, 1440 and 390px: one H1, no horizontal scroll, hero form above the fold on desktop. Not deployed.
 - **Open:** Fencing, Concrete & Remodeling page (last homepage niche); deploy; social image for all pages; Search Console and Bing.
+
+### Fencing, Concrete & Remodeling industry page (2026-11-04)
+- **Built:** `/industries/fencing-concrete-remodeling/`, the last of the five homepage niches, modelled on the Plumbing page (project-gallery emphasis, quotes after a site visit). Copy awaiting owner approval. All five homepage industry tiles now link to a page.
+- **SEO, AIO and GEO:** title "Fencing, Concrete & Remodeling Websites | SynergyFirst Digital" (62 characters, slightly long but kept so the three trades stay in the title), 158-character description, answer-first definition block, four specific FAQs plus two shared in the FAQPage schema, Service, WebPage and BreadcrumbList schema, visible breadcrumb, one H1.
+- **Internal links (all 39 other pages link to it):** footer Industries group, homepage tile, `/industries/`, About, related cards on all four other trade pages (and back).
+- **Checked:** validation, 39 tests, production build (41 pages, broken-link and orphan guard); browser at 1024, 1280, 1366, 1440 and 390px: one H1, no horizontal scroll, hero form above the fold on desktop. Not deployed.
+- **Demo kit note:** only Garage Door and Tree Services have their own design kit; Roofing, Plumbing/HVAC/Electrical and Fencing leads fall back to the general local-service kit.
+- **Open:** deploy; social image for all pages; Search Console and Bing submission; optional trade-specific demo kits and reference builds; the owner reading and approving the copy of all five trade pages.
