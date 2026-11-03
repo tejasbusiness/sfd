@@ -65,18 +65,24 @@
       </div>
     </div>
 
-    <div class="site-footer__bottom">
-      {% if footer.legalLinks and footer.legalLinks.length %}
-      <nav class="site-footer__legal" aria-label="Legal">
-        <ul>
-          {% for link in footer.legalLinks %}
-          <li><a href="{{ link.path }}">{{ link.label }}</a></li>
-          {% endfor %}
-          <li><button type="button" class="site-footer__link-button" data-cookie-settings>{{ footer.cookieConsent.settingsLinkLabel }}</button></li>
-        </ul>
-      </nav>
-      {% endif %}
-      <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
+    {# Bottom bar (2026-11-05): logo left, copyright and legal links centred, Back to top right. #}
+    <div class="site-footer__bottom site-footer__bottom--studio">
+      <a class="site-footer__logo" href="/" aria-label="{{ company.tradingName }} home">
+        <img src="/assets/images/sfd-logo-black-header.png" alt="" width="162" height="26" loading="lazy">
+      </a>
+      <div class="site-footer__bottom-centre">
+        <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
+        {% if footer.legalLinks and footer.legalLinks.length %}
+        <nav class="site-footer__legal" aria-label="Legal">
+          <ul>
+            {% for link in footer.legalLinks %}
+            <li><a href="{{ link.path }}">{{ link.label }}</a></li>
+            {% endfor %}
+            <li><button type="button" class="site-footer__link-button" data-cookie-settings>{{ footer.cookieConsent.settingsLinkLabel }}</button></li>
+          </ul>
+        </nav>
+        {% endif %}
+      </div>
       <a class="site-footer__top-link" href="#main-content">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
   </div>
