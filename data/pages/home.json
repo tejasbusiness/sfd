@@ -36,7 +36,7 @@
       },
       "stats": [
         {
-          "value": "300+",
+          "value": "50+",
           "label": "Websites Delivered"
         },
         {
@@ -73,7 +73,7 @@
           "shape": "burst"
         },
         {
-          "label": "300+ websites delivered",
+          "label": "50+ websites delivered",
           "tone": "violet"
         },
         {

@@ -1079,3 +1079,20 @@ html.motion .dock {
   padding-top: 1.75rem;
   border-top: 1px solid var(--color-border);
 }
+
+/* --------------------------------------- dock steps aside for hero buttons (2026-11-05) */
+/* studio-fx.js adds .is-hidden while a hero button row would sit under the dock. Uses
+   transform, not translate, so it does not fight the dock-in animation. */
+.dock {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+.dock.is-hidden {
+  transform: translateY(160%);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dock {
+    transition: none;
+  }
+}

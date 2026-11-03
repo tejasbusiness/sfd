@@ -194,8 +194,37 @@ function initLocalTime() {
   window.setInterval(tick, 30000);
 }
 
+/* The fixed dock slides away while a hero's button row would sit under it (short
+   viewports), and returns as soon as the buttons scroll clear. */
+function initDock() {
+  const dock = document.querySelector('.dock');
+  const avoid = document.querySelectorAll('.hero-statement__actions, .hero-split__actions');
+  if (!dock || !avoid.length) return;
+  let raf = 0;
+  const update = () => {
+    raf = 0;
+    const h = dock.offsetHeight;
+    if (!h) return;
+    const dockTop = window.innerHeight - 20 - h - 12; // bottom offset plus breathing room
+    let hit = false;
+    avoid.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.height && r.bottom > dockTop && r.top < window.innerHeight) hit = true;
+    });
+    dock.classList.toggle('is-hidden', hit);
+  };
+  const kick = () => {
+    if (!raf) raf = window.requestAnimationFrame(update);
+  };
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  update();
+  window.setTimeout(update, 1800);
+}
+
 export function initStudioFx() {
   initLocalTime();
+  initDock();
   initQuoteReveal();
   initLogoMarquee();
   // After motion.js (same DOMContentLoaded handler) has split the headlines.
