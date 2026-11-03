@@ -9,45 +9,54 @@
    light page it fails contrast, so eyebrow/link/accent-phrase text uses the
    darker, AA-safe gold instead. */
 :root {
-  /* Colour */
-  --color-bg: #FAFAFA;
+  /* Colour: royal ivory and imperial violet with gold (2026-11-04). Dark mode
+     overrides every colour token in the [data-theme="dark"] block below. */
+  --color-bg: #FBF8F2;
   --color-surface: #FFFFFF;
-  --color-text: #160224;
-  --color-text-secondary: #5F5168;
-  --color-primary: #160224;
-  --color-primary-deep: #0F0118;
-  --color-tint: #F4F4F4;
+  --color-text: #1A0830;
+  --color-text-secondary: #5A4D66;
+  --color-primary: #2B0E4D;
+  --color-primary-deep: #12031F;
+  --color-tint: #F4EEE3;
   --color-accent: #D69500;
-  --color-accent-warm: #8F6400;
-  --color-neutral-surface: #F4F4F4;
-  --color-border: #F2F2F2;
-  /* Form-field border: --color-border darkened 20% so fields read clearly on the page. */
-  --color-field-border: #C2C2C2;
-  /* Soft lavender used only for the footer playbook signup band, so it stands out from the site's neutral light backgrounds. */
-  --color-lavender-soft: #EEE8F8;
-  /* Fixed always-dark ink, independent of --color-text/--color-bg theming —
-     used only where a component intentionally needs a dark chrome background
-     (footer, the one contrast section) regardless of the active page theme. */
+  --color-accent-warm: #8A6000;
+  --color-gold-light: #F3D98F;
+  --color-gold-deep: #A87500;
+  --gold-gradient: linear-gradient(135deg, #F6DE9E 0%, #D69500 52%, #A87500 100%);
+  --color-neutral-surface: #F4EEE3;
+  --color-border: #E8DFCD;
+  /* Form-field border: darker than --color-border so fields read clearly on the page. */
+  --color-field-border: #8F8472;
+  /* Soft lavender used only for the footer playbook signup band. */
+  --color-lavender-soft: #EFE8F8;
+  /* Foreground colour for links, outlined buttons and strong icons. It is dark
+     violet on light pages and light lavender in dark mode; --color-primary stays
+     the brand FILL (buttons, bands) in both themes. */
+  --color-link: #2B0E4D;
+  /* Fixed always-dark ink for the footer. */
   --color-ink: #0B0C0D;
-  /* Not in the original docs/03 palette — placeholder form-error red pending design review. */
   --color-error: #B3261E;
   --color-success: #1F7A3D; /* toast confirmations; white text on it is about 5.4:1 */
+  --color-header-bg: rgba(251, 248, 242, 0.86);
+  --color-card-border: rgba(168, 117, 0, 0.22);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -26px rgba(43, 14, 77, 0.28);
+  color-scheme: light;
 
   /* Typography — Libre Baskerville (headings) + Montserrat (body). "The
      Seasons", the reference site's paid display face, isn't licensed, so
      Libre Baskerville — which the reference also legitimately licenses via
      Google Fonts for its own accents — stands in everywhere a heading font
      is needed. */
-  --font-heading: "Libre Baskerville", Georgia, serif;
+  --font-heading: "Cormorant Garamond", "Libre Baskerville", Georgia, serif;
   --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Fluid heading scale (docs/13 §2) */
-  --text-display: clamp(2.25rem, 1.6rem + 2.8vw, 3.25rem);
-  --text-h2: clamp(1.625rem, 1.3rem + 1.3vw, 2.25rem);
-  --text-numeral: clamp(2.1rem, 1.5rem + 2.4vw, 3.75rem); /* decorative step numbers; was the old --text-h2 */
-  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
-  --text-h4: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
-  --text-stat: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+  --text-display: clamp(2.6rem, 1.8rem + 3.3vw, 3.9rem);
+  --text-h2: clamp(1.9rem, 1.45rem + 1.6vw, 2.7rem);
+  --text-numeral: clamp(2.4rem, 1.7rem + 2.6vw, 4.1rem); /* decorative step numbers; was the old --text-h2 */
+  --text-h3: clamp(1.4rem, 1.2rem + 0.7vw, 1.85rem);
+  --text-h4: clamp(1.2rem, 1.1rem + 0.35vw, 1.4rem);
+  --text-stat: clamp(2.7rem, 1.9rem + 3.2vw, 4.8rem);
   --text-body-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
 
   /* Fixed scale */
@@ -82,6 +91,33 @@
 /* Slightly smaller H1 on phones only; tablet and desktop keep the fluid size above. */
 @media (max-width: 640px) {
   :root {
-    --text-display: 2rem;
+    --text-display: 2.3rem;
   }
+}
+
+/* Dark theme ("obsidian, oxblood and gold"). Applied by assets/js/theme.js, which sets data-theme="dark" on
+   <html> when the visitor chose Dark, or chose System and their device is in
+   dark mode. Brand fills (--color-primary) become a deep oxblood so
+   buttons and bands stay distinct from the near-black page; foreground colours flip to warm ivory and champagne. */
+:root[data-theme="dark"] {
+  --color-bg: #0E0C0A;
+  --color-surface: #181512;
+  --color-text: #F2EBDD;
+  --color-text-secondary: #BFB4A3;
+  --color-primary: #3A1220;
+  --color-primary-deep: #170709;
+  --color-tint: #120F0D;
+  --color-accent: #D69500;
+  --color-accent-warm: #DDB660;
+  --color-neutral-surface: #120F0D;
+  --color-border: #2B2521;
+  --color-field-border: #7C6F62;
+  --color-lavender-soft: #1F1713;
+  --color-link: #EBDDB8;
+  --color-ink: #080605;
+  --color-error: #FF8F85;
+  --color-header-bg: rgba(14, 12, 10, 0.84);
+  --color-card-border: rgba(221, 182, 96, 0.2);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 22px 44px -26px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
 }

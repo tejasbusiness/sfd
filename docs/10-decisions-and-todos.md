@@ -991,3 +991,11 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 ### Deploy 2026-11-04 (later): sitewide motion layer live
 - Ran the deploy script with `-Yes` (no migrations, no `.env` upload, redirects unchanged). Validation, 39 tests and the production build (41 pages) passed; all live checks passed; `dist.bak` kept.
 - Live: `assets/js/motion.js` and `assets/css/motion.css` are served and linked from the homepage and the trade pages. Visual check on the live site is the owner's (hard-refresh first; static files are cached for a day).
+
+### Royal redesign and Light / Dark / System mode (2026-11-04)
+- **Owner request:** add dark, light and system modes; make the site more royal, elegant and classy, with free design decisions, then deploy.
+- **Decisions:** keep the brand violet and gold in light mode, move to ivory backgrounds and a classical serif (Cormorant Garamond) for headings, gold-edged buttons and hairlines. After the first dark theme used violet-black (owner: "default colours used by AI"), dark mode was redone as obsidian, oxblood and gold. Details and token rules in `docs/03` (Royal theme and Light / Dark / System mode).
+- **Done:** theme tokens and the dark block; 42 foreground uses of `--color-primary` moved to `--color-link`; `royal.css`; header theme button, More drawer switch, pre-paint script, `theme.js`; particles and glows follow the theme; field borders darkened for the 3:1 rule.
+- **Checked:** validation, 39 tests and the production build; in a real browser: homepage, roofing page, Contact, Pricing, About footer and the booking dialog in dark, homepage and roofing in light; hero buttons stay on one line and nothing scrolls sideways at 390, 768, 1100 and 1440px on the homepage, a trade page, Pricing and Contact in both themes; hero forms still above the fold on desktop (bottoms 603 to 675px); contrast computed for the main pairs.
+- **Not checked:** every page in dark mode by eye (case studies, legal pages, tools, blog, 404), the mobile More drawer visually, Safari and Firefox, and real-phone performance.
+- **Open:** mention the theme preference in the Cookie Policy; owner to look at dark mode on the less-visited pages and report anything off.

@@ -1,4 +1,5 @@
 {
-  "mode": "light",
-  "tokensFile": "/assets/css/tokens.css"
+  "mode": "light-dark-system",
+  "tokensFile": "/assets/css/tokens.css",
+  "note": "Light, Dark and System modes (assets/js/theme.js). Tokens in tokens.css; royal layer in royal.css."
 }

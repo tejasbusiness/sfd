@@ -2,6 +2,7 @@
 <html lang="{{ site.defaultLocale }}">
 <head>
   <meta charset="utf-8">
+  <script>(function(){try{var p=localStorage.getItem("sfd-theme");p=p==="light"||p==="dark"?p:"system";var d=p==="dark"||(p==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.setAttribute("data-theme",d?"dark":"light");document.documentElement.setAttribute("data-theme-pref",p)}catch(e){}})()</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.seo.title }}</title>
   <meta name="description" content="{{ page.seo.metaDescription }}">
@@ -28,11 +29,12 @@
      subsetted font files before production launch — not done yet, flagged. #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/royal.css">
   {% if page.id == "home" %}
   <link rel="stylesheet" href="/assets/css/homepage.css">
   {% endif %}

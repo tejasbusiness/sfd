@@ -40,13 +40,13 @@
    border and inverts to a solid fill on hover/focus. */
 .button--secondary {
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-link);
   border-width: 2px;
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
 }
 .button--secondary:hover {
   background: var(--color-primary);
-  color: var(--color-bg);
+  color: #fff;
   transform: translateY(-2px);
 }
 
@@ -288,7 +288,7 @@ a.card:hover,
 }
 .custom-select__option--selected {
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .custom-select__option[aria-disabled="true"] {
   color: var(--color-text-secondary);
@@ -474,7 +474,7 @@ a.card:hover,
 }
 .country-select__option[aria-selected="true"] {
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .country-select__option[aria-selected="true"] .country-select__option-code {
   color: inherit;
@@ -676,7 +676,7 @@ dialog.more-drawer[open] {
 }
 .more-drawer__subtile:hover,
 .more-drawer__subtile:focus-visible {
-  color: var(--color-primary);
+  color: var(--color-link);
   border-color: var(--color-accent-warm);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -781,7 +781,7 @@ dialog.more-drawer[open] {
 .site-header__nav-link:hover,
 .site-header__nav-item:hover .site-header__nav-link,
 .site-header__nav-item:focus-within .site-header__nav-link {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .site-header__nav-link:hover::after,
 .site-header__nav-item:hover .site-header__nav-link::after,
@@ -845,7 +845,7 @@ dialog.more-drawer[open] {
 }
 .site-header__dropdown a:hover {
   background: var(--color-tint);
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header__dropdown,
@@ -937,7 +937,7 @@ a.site-header__mega-tool:focus-visible {
   margin-bottom: 2px;
   border-radius: var(--radius-sm);
   background: var(--color-tint);
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .site-header__mega-tool-category {
   font-size: 10px;
@@ -972,7 +972,7 @@ a.site-header__mega-tool:focus-visible {
   width: 100%;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-link);
   text-decoration: none;
 }
 .site-header__mega-viewall:hover {
@@ -1032,7 +1032,7 @@ a.site-header__mega-tool:focus-visible {
   white-space: nowrap;
 }
 .site-header__book:hover {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .site-header__preview {
   padding-inline: var(--space-4);
@@ -1116,7 +1116,7 @@ a.site-header__mega-tool:focus-visible {
   text-align: center;
 }
 .tab-bar__item[aria-current="page"] {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 /* The Free Preview tab (primary conversion) carries the AA-safe accent gold
    even at rest, same substitution used sitewide for icons/eyebrows on light
@@ -1125,10 +1125,10 @@ a.site-header__mega-tool:focus-visible {
   color: var(--color-accent-warm);
 }
 .tab-bar__item--emphasis[aria-current="page"] .tab-bar__icon {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .tab-bar__more[aria-expanded="true"] {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 /* ---------------------------------------------------------------------- */
@@ -1499,7 +1499,7 @@ a.link-cards__item {
 }
 .link-cards__icon {
   display: inline-flex;
-  color: var(--color-primary);
+  color: var(--color-link);
   margin-bottom: var(--space-3);
 }
 .link-cards__item h3 {
@@ -1608,7 +1608,7 @@ a.link-cards__item {
 .pricing-summary__price {
   font-family: var(--font-heading);
   font-size: var(--text-h3);
-  color: var(--color-primary);
+  color: var(--color-link);
   margin: 0 0 var(--space-2);
 }
 .pricing-summary__includes {
@@ -1812,7 +1812,7 @@ a.link-cards__item {
   color: var(--color-accent-warm);
 }
 .faq__item summary:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-link);
   outline-offset: 2px;
 }
 .faq__question {
@@ -1943,17 +1943,17 @@ input[type="checkbox"]::after {
   transition: transform 0.12s ease;
 }
 input[type="checkbox"]:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
 }
 input[type="checkbox"]:checked {
   background: var(--color-primary);
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
 }
 input[type="checkbox"]:checked::after {
   transform: scale(1);
 }
 input[type="checkbox"]:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-link);
   outline-offset: 2px;
 }
 input[type="checkbox"]:disabled {
@@ -2076,11 +2076,11 @@ dialog.booking-modal {
 }
 .booking-modal__steps li[aria-current="step"] .booking-modal__step-num {
   background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-surface);
+  border-color: var(--color-link);
+  color: #fff;
 }
 .booking-modal__steps li[aria-current="step"] .booking-modal__step-label {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 .booking-modal__step-head {
@@ -2155,9 +2155,9 @@ dialog.booking-modal {
   background: var(--color-tint);
 }
 .booking-modal__option[aria-selected="true"] {
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
   background: var(--color-primary);
-  color: var(--color-surface);
+  color: #fff;
 }
 .booking-modal__step-actions {
   display: flex;
@@ -2229,7 +2229,7 @@ dialog.booking-modal {
   top: 6px;
   transform: translateY(-50%);
   background: var(--float-label-bg, var(--color-surface));
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .sfd-form .field--floating .field__control {
   padding-left: 10px;
@@ -2283,7 +2283,7 @@ dialog.booking-modal {
   top: 6px;
   transform: translateY(-50%);
   background: var(--float-label-bg, var(--color-surface));
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .sfd-form .phone-field__number-wrap .field__control {
   padding-left: 10px;
@@ -2543,7 +2543,7 @@ dialog.booking-modal {
   top: 6px;
   transform: translateY(-50%);
   background: var(--float-label-bg, var(--color-surface));
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .sfd-form .field--select .field__control {
   padding-left: 10px;
@@ -2872,10 +2872,10 @@ a.testimonials__rating:hover {
   white-space: nowrap;
 }
 .pricing-tabs__tab:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
 }
 .pricing-tabs__tab.is-active {
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
   background: var(--color-primary);
   color: #fff;
 }
@@ -3267,7 +3267,7 @@ a.testimonials__rating:hover {
 }
 /* The band's gold focus ring is for the dark background; the light card needs a dark one. */
 .hero--band .hero-form__card :focus-visible {
-  outline-color: var(--color-primary);
+  outline-color: var(--color-link);
 }
 
 /* Lead mode (industry landing pages, docs/15): the form is two columns on tablet and up and
@@ -3449,7 +3449,7 @@ a.testimonials__rating:hover {
 }
 .mission-vision__card--dark {
   background: var(--color-primary);
-  border-color: var(--color-primary);
+  border-color: var(--color-link);
 }
 .mission-vision__card--dark .mission-vision__statement {
   color: #fff;
@@ -3639,7 +3639,7 @@ a.case-study-card {
   margin-top: auto;
   padding-top: var(--space-2);
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .tag-list {
   display: flex;

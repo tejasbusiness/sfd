@@ -79,12 +79,12 @@
   padding-inline: var(--space-4);
   font-size: 0.9375rem;
   border-width: 2px;
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-link);
+  color: var(--color-link);
 }
 .hero-split__actions .button--secondary:hover {
   background: var(--color-primary);
-  color: var(--color-bg);
+  color: #fff;
 }
 /* Phones: the full-width stacked buttons keep "START MY FREE WEBSITE PREVIEW" and
    "BOOK A FREE 20-MINUTE CALL" on one line (the desktop side padding made both
@@ -150,7 +150,7 @@
   font-size: clamp(1.375rem, 0.9rem + 1.4vw, 2rem);
   line-height: 1;
   white-space: nowrap;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .hero-split__stat-value::after {
   content: "";
@@ -450,7 +450,7 @@
 .hero-visual__arrow {
   display: flex;
   justify-content: center;
-  color: var(--color-primary);
+  color: var(--color-link);
   margin-block: var(--space-2);
 }
 .hero-visual__tag {
@@ -464,7 +464,7 @@
   color: var(--color-text-secondary);
 }
 .hero-visual__tag--after {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 .phone-frame {
@@ -905,7 +905,7 @@
 }
 .industry-links__icon {
   display: inline-flex;
-  color: var(--color-primary);
+  color: var(--color-link);
   margin-bottom: var(--space-3);
 }
 /* The sitewide h3 size (clamp up to 1.875rem) is disproportionate — and at
@@ -990,7 +990,7 @@
   align-items: center;
   margin-bottom: var(--space-3);
   height: 28px;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 .micro-status {
   display: inline-flex;
@@ -1212,7 +1212,7 @@ $0
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-link);
   margin: var(--space-3) 0 var(--space-1);
 }
 .preview-concepts__disclaimer {
@@ -1233,14 +1233,14 @@ $0
   margin: 0;
 }
 .pricing-highlight__more a {
-  color: var(--color-primary);
+  color: var(--color-link);
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid var(--color-border);
   transition: border-color 0.15s ease;
 }
 .pricing-highlight__more a:hover {
-  border-bottom-color: var(--color-primary);
+  border-bottom-color: var(--color-link);
 }
 .pricing-highlight__more-arrow {
   display: inline-block;

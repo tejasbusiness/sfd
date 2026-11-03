@@ -28,9 +28,10 @@ function createParticleField(host, canvas, tone) {
   const saveData = navigator.connection && navigator.connection.saveData;
   if (saveData) return null;
 
-  const dotColor = tone === 'dark' ? 'rgba(214, 149, 0, 0.7)' : rgbaFromCssColor(getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '', 0.35);
-  const lineColor = tone === 'dark' ? [255, 255, 255] : [60, 30, 110];
-  const lineAlpha = tone === 'dark' ? 0.16 : 0.12;
+  const root = document.documentElement;
+  const useDark = () => tone === 'dark' || root.getAttribute('data-theme') === 'dark';
+  const LIGHT_DOT = rgbaFromCssColor('rgb(60, 30, 110)', 0.35);
+  const DARK_DOT = 'rgba(214, 149, 0, 0.7)';
 
   let width = 0;
   let height = 0;
@@ -69,6 +70,10 @@ function createParticleField(host, canvas, tone) {
     const dt = Math.min(2, (now - last) / 16.7 || 1);
     last = now;
     ctx.clearRect(0, 0, width, height);
+    const dark = useDark();
+    const dotColor = dark ? DARK_DOT : LIGHT_DOT;
+    const lineColor = dark ? [255, 255, 255] : [60, 30, 110];
+    const lineAlpha = dark ? 0.16 : 0.12;
     const linkDist = small ? 86 : 118;
 
     for (const p of particles) {
