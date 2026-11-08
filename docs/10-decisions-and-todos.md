@@ -1112,3 +1112,8 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Checked:** validate, 39 tests, production build; `/`, `/founding-clients/`, `/services/crm-lead-follow-up/`, `/about/`, `/pricing/`, `/services/` at 390, 1024 and 1440: one H1, no sideways scroll, no link to the old URLs, banners and counter present; the three redirects return one 301 locally.
 - **Owner action after deploy:** `data/redirects.json` changed, so paste the new `deploy/nginx-redirects.conf` into the CloudPanel vhost (deploy.md Step 9). Until then `/services/ai-automation/` and `/pricing/ai-automation/` return 404 on the live site, not a 301.
 - **Open:** the Custom Solutions plan text in `plans.json` still lists "automation" (shown on Home and Pricing; not part of this brief); the "Ask AI" footer tiles stay sitewide; a real test of the new review emails.
+
+### Deploy 2026-11-08 (ninth)
+- **Shipped:** commit 828062f (website review emails and Privacy Policy wording, Founding Client Program, CRM & Lead Follow-up replacing AI & Automation, About rewrite). `deploy.bat -Yes`: no migrations, no new dependencies, no `.env` upload; nginx redirects CHANGED. All 16 live checks passed. `dist.bak` holds the eighth deploy.
+- **Verified live:** `/founding-clients/` (200, title, "5 of 5 spots left"), `/services/crm-lead-follow-up/` and `/about/` (200), the homepage banner, no AI pricing pill on `/pricing/`, and the Privacy Policy wording.
+- **Owner action needed:** paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (deploy.md Step 9). Until then `/services/ai-automation/` and `/pricing/ai-automation/` return 404 instead of a 301, and the old `/services/automation-custom-solutions/` rule still points to the removed AI page.
