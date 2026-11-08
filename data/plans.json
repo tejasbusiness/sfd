@@ -74,5 +74,16 @@
     }
   ],
   "commitmentTerms": "Month-to-month billing with no long-term contract and no activation fee — cancel anytime.",
-  "buyoutPolicy": "After 6 consecutive months of paid subscription on any plan, the completed website is yours. If you leave after that, we provide your website files at no additional charge. Ongoing services such as hosting, updates and SEO end when you leave."
+  "buyoutPolicy": "After 6 consecutive months of paid subscription on any plan, the completed website is yours. If you leave after that, we provide your website files at no additional charge. Ongoing services such as hosting, updates and SEO end when you leave.",
+  "foundingClients": {
+    "_note": "Founding Client Program (2026-11-08). spotsLeft is updated BY HAND only; nothing decreases it automatically. No countdowns or deadlines.",
+    "spotsTotal": 5,
+    "spotsLeft": 5,
+    "banner": {
+      "lead": "Founding Client Program:",
+      "text": "Business plan features at the Lite price for the first 5 home service businesses.",
+      "linkLabel": "See details",
+      "href": "/founding-clients/"
+    }
+  }
 }

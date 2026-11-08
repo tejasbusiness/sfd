@@ -13,7 +13,7 @@
   },
   {
     "from": "/services/automation-custom-solutions/",
-    "to": "/services/ai-automation/"
+    "to": "/services/crm-lead-follow-up/"
   },
   {
     "from": "/pricing/websites/",
@@ -38,5 +38,13 @@
   {
     "from": "/industries/professional-services/",
     "to": "/industries/"
+  },
+  {
+    "from": "/services/ai-automation/",
+    "to": "/services/crm-lead-follow-up/"
+  },
+  {
+    "from": "/pricing/ai-automation/",
+    "to": "/pricing/"
   }
 ]

@@ -1,0 +1,10 @@
+{# Slim offer banner (2026-11-08): one line of text and a link, on the shared .card.
+   Copy comes from section.banner or, by default, plans.foundingClients.banner. #}
+{% set b = section.banner or plans.foundingClients.banner %}
+{% if b %}
+<section class="section promo-banner" aria-label="{{ b.lead | replace(':', '') }}">
+  <div class="container">
+    <p class="card promo-banner__card"><strong>{{ b.lead }}</strong> {{ b.text }} <a class="promo-banner__link" href="{{ b.href }}">{{ b.linkLabel }} <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+{% endif %}

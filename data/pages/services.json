@@ -5,9 +5,9 @@
   "canonicalPath": "/services/",
   "seo": {
     "title": "Website & Digital Marketing Services | SynergyFirst Digital",
-    "metaDescription": "Website design, local SEO, website care, digital marketing and automation for local businesses, all managed by one team for a predictable monthly fee.",
+    "metaDescription": "Website design, local SEO, website care, digital marketing and CRM and lead follow-up for local businesses, managed by one team for a monthly fee.",
     "ogTitle": "Website & Digital Marketing Services",
-    "ogDescription": "One connected digital team for websites, local SEO, website care, marketing and automation.",
+    "ogDescription": "One connected digital team for websites, local SEO, website care, marketing and lead follow-up.",
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
@@ -17,7 +17,7 @@
     {
       "type": "hero",
       "eyebrow": "SERVICES",
-      "subheading": "Website design, local visibility, ongoing care, marketing and automation from one team, so you do not have to manage five different vendors.",
+      "subheading": "Website design, local visibility, ongoing care, marketing and lead follow-up from one team, so you do not have to manage five different vendors.",
       "primaryCta": {
         "label": "Start My Free Website Preview",
         "href": "/free-preview/"
@@ -59,10 +59,10 @@
           "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 12v3a1 1 0 001 1h2l6 4V8L7 12H5a1 1 0 00-1 1zM17 9a4 4 0 010 6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
         },
         {
-          "label": "AI & Automation",
-          "description": "Useful systems, integrations and AI-assisted workflows that reduce repetitive work and help your team operate more efficiently.",
-          "href": "/services/ai-automation/",
-          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+          "label": "CRM & Lead Follow-up",
+          "description": "Every website enquiry saved as a lead in one place, with statuses, notes and reminders so you can follow up before the customer calls someone else. Included in the Business plan.",
+          "href": "/services/crm-lead-follow-up/",
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 5h16v10H8l-4 4V5z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8 9h8M8 12h5\" stroke-linecap=\"round\"/></svg>"
         }
       ]
     },
@@ -72,7 +72,7 @@
       "eyebrow": "HOW IT FITS TOGETHER",
       "heading": "Start with the website. Add what your business needs.",
       "body": [
-        "Our primary offer is a professionally built, managed website for a predictable monthly fee, previewed for free before you commit. Local SEO, ongoing care, marketing and automation build on that foundation, and several of them are already part of our plans.",
+        "Our primary offer is a professionally built, managed website for a predictable monthly fee, previewed for free before you commit. Local SEO, ongoing care, marketing and lead follow-up build on that foundation, and several of them are already part of our plans.",
         "See the pricing page for exactly what each plan includes, or book a call to talk through what your business needs."
       ]
     },
@@ -94,5 +94,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-09-20"
+  "lastUpdated": "2026-11-08"
 }

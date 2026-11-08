@@ -125,3 +125,6 @@ Form submissions and bookings are stored in MySQL, not in JSON. Schema: `migrati
 ### Page flag: hidePlaybook (2026-10-02)
 A page file may set `"hidePlaybook": true` to leave out the sitewide Free AI Prompts Playbook band above the footer (`templates/layouts/base.njk`). Used by `data/pages/pricing.json`; its variants inherit it.
 
+
+### Founding Clients config (2026-11-08)
+`data/plans.json` `foundingClients`: `spotsTotal`, `spotsLeft` (edited by hand only; nothing in the build or browser changes it) and `banner` (`lead`, `text`, `linkLabel`, `href`) used by the `promo-banner` section.

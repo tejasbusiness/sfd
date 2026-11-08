@@ -20,7 +20,7 @@ Do not position inactive businesses with no market proof as ideal customers. SFD
 
 ## Geographic position
 
-SFD serves non-Indian businesses, initially focusing on the USA, Canada, Australia, New Zealand, Germany and other European markets. Website prices are displayed only in USD.
+SFD serves non-Indian businesses. **Since 2026-11-08 (owner decision) the site targets home service businesses in the US, UK and Canada**; the earlier list (USA, Canada, Australia, New Zealand, Germany and other European markets) is superseded. Website prices are displayed only in USD.
 
 Do not imply that SFD is physically located in the prospect's country. Company and legal information must be transparent. Recommended public wording:
 
@@ -98,3 +98,11 @@ Subscription terms must define domain ownership, source-code rights, content own
 
 SEO, Google Business Profile services, social media, AI, WhatsApp Business API, CRM and automation are upgrades or expansion services. They must not compete equally with the primary website offer in the hero.
 
+
+## Founding Client Program (2026-11-08)
+
+The first 5 home service businesses get Business plan features ($449/month) for $249/month for their first 6 months, plus CRM lead capture and follow-up setup at no extra cost, in exchange for permission to publish a case study with real results, a testimonial after 90 days only if they are happy, and honest feedback. Month-to-month, no activation fee; after 6 months they choose Business or Lite; cancelling ends every obligation, including the testimonial. Page: `/founding-clients/`. The spots left are set by hand in `data/plans.json` (`foundingClients.spotsLeft`).
+
+## CRM and lead follow-up (2026-11-08)
+
+CRM and lead follow-up is part of the Business plan, not a separate service. It replaces "AI & Automation" as a supporting service. The live features are: every website form submission saved as a lead; lead status (new, contacted, quoted, won, lost); notes and follow-up reminders; an email notification for each new lead. Do not describe AI, automation, SMS or missed-call text back until they are built.

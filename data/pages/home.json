@@ -219,6 +219,9 @@
       ]
     },
     {
+      "type": "promo-banner"
+    },
+    {
       "type": "pricing-highlight",
       "heading": "Plans and subscription terms",
       "intro": "Two simple monthly plans and Custom Solutions. The differences are below, with every feature on the pricing page.",

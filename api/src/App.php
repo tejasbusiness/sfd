@@ -382,13 +382,21 @@ final class App
         );
         $id = Db::insertId();
 
-        Mailer::send('website_review_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Audit Report request: {$c['website']}", 'Someone asked for a Free Audit Report. Audit the site and email the findings and recommendations by hand.', [
+        // Visitor-facing wording is "website review" (2026-11-08); route, table and template ids stay as they are.
+        $ownerTo = Env::require('MAIL_OWNER_TO');
+        $label = $c['businessName'] !== null && $c['businessName'] !== '' ? (string) $c['businessName'] : $c['website'];
+        Mailer::send('website_review_owner', $ownerTo, null, "New website review request: {$label}", "Someone asked for a free website review.\nReply within 2 business days with the review video.", [
             'Reference' => $reference, 'Website' => $c['website'], 'Business' => (string) $c['businessName'], 'Email' => $c['email'],
             'Page' => (string) $t['source_page'], 'Campaign' => (string) $t['utm_campaign'],
         ], 'website_review', $id, $c['email']);
-        Mailer::send('website_review_visitor', $c['email'], null, 'We received your Free Audit Report request', 'Thank you for asking SynergyFirst Digital to audit your website. We will look at it and email you a report with practical recommendations.', [
-            'Reference' => $reference, 'Website' => $c['website'],
-        ], 'website_review', $id);
+        // The form collects no name, so the greeting is "Hi there". Replies go to the owner's inbox.
+        Mailer::send('website_review_visitor', $c['email'], null, 'Your free website review request',
+            "Hi there,\n\n"
+            . "Thanks for sending your website: {$c['website']}.\n\n"
+            . "Tejas will review it and send you a short video within 2 business days, showing what's costing you calls and how to fix it.\n\n"
+            . "There's no obligation. If you have questions before then, just reply to this email.\n\n"
+            . "Tejas G.\nCTO, SynergyFirst Digital\nsynergyfirstdigital.com",
+            [], 'website_review', $id, $ownerTo);
 
         Http::json(201, ['ok' => true, 'reference' => $reference]);
     }

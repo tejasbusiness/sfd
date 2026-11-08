@@ -8,6 +8,19 @@
     {% for paragraph in section.body %}
     <p>{{ paragraph }}</p>
     {% endfor %}
+    {% if section.list %}
+    {# Optional bullet list (2026-11-08); reuses the plan-card tick list so every tick looks the same. #}
+    <ul class="pricing-summary__includes content-block__list">
+      {% for item in section.list %}
+      <li>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        {{ item }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     {% if section.pullQuote %}
     <p class="content-block__pull-quote">{{ section.pullQuote }}</p>
     {% endif %}

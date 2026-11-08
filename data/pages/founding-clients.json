@@ -1,0 +1,113 @@
+{
+  "id": "founding-clients",
+  "type": "static",
+  "slug": "founding-clients",
+  "canonicalPath": "/founding-clients/",
+  "seo": {
+    "title": "Founding Client Program | SynergyFirst",
+    "metaDescription": "The first 5 home service businesses get Business plan features at the Lite price for 6 months, in exchange for an honest case study.",
+    "ogTitle": "Founding Client Program | SynergyFirst",
+    "ogDescription": "The first 5 home service businesses get Business plan features at the Lite price for 6 months, in exchange for an honest case study.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Founding Client Program: 5 spots for home service businesses",
+  "breadcrumbs": null,
+  "hidePlaybook": true,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "FOUNDING CLIENT PROGRAM",
+      "subheading": "We’re focusing on home service businesses: garage door, tree services, roofing, plumbing, HVAC, electrical, fencing and remodeling. We’ve built 50+ websites across other industries, but we don’t have home service case studies yet. So we’re offering our first 5 home service clients a better deal in exchange for helping us build that proof.",
+      "spotsCounter": true,
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    },
+    {
+      "type": "content-block",
+      "heading": "What you get",
+      "body": [],
+      "list": [
+        "Business plan features (normally $449/month) for $249/month for your first 6 months",
+        "Up to 10 pages, premium custom design, Google Business Profile management, priority updates",
+        "Lead capture and follow-up setup with our CRM, included at no extra cost for the first 6 months",
+        "A private preview of your new website before you pay anything",
+        "Direct access to Tejas G., our CTO"
+      ]
+    },
+    {
+      "type": "content-block",
+      "tinted": true,
+      "heading": "What we ask in return",
+      "body": [],
+      "list": [
+        "Permission to share your website and real results (calls, form enquiries, rankings) in a case study",
+        "A short video or written testimonial after 90 days, only if you’re happy with the results",
+        "Honest feedback along the way"
+      ]
+    },
+    {
+      "type": "content-block",
+      "heading": "The terms",
+      "body": [],
+      "list": [
+        "Month-to-month, no long-term contract, no activation fee. Cancel anytime.",
+        "After 6 months, you move to the standard Business plan ($449/month) or switch to Lite ($249/month). Your choice.",
+        "If you cancel, you owe us nothing further, including the testimonial.",
+        "After 6 consecutive paid months, the completed website is yours (same as our standard terms)."
+      ]
+    },
+    {
+      "type": "content-block",
+      "tinted": true,
+      "heading": "Who it’s for",
+      "body": [],
+      "list": [
+        "Home service businesses in the US, UK or Canada",
+        "In one of the industries above",
+        "Ready for a new website within the next 30 days"
+      ]
+    },
+    {
+      "type": "faq-split",
+      "eyebrow": "FOUNDING CLIENT FAQ",
+      "heading": "Founding Client questions",
+      "itemIds": [
+        "founding-why-cheaper",
+        "founding-not-happy",
+        "founding-testimonial"
+      ],
+      "cta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      }
+    },
+    {
+      "type": "free-preview-cta",
+      "tone": "brand",
+      "heading": "Want one of the 5 founding spots?",
+      "body": "Start with a private preview of your new website before you pay anything.",
+      "primaryCta": {
+        "label": "Start My Free Website Preview",
+        "href": "/free-preview/"
+      },
+      "secondaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "FAQPage"
+  ],
+  "lastUpdated": "2026-11-08"
+}

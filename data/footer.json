@@ -68,6 +68,10 @@
           "path": "/pricing/"
         },
         {
+          "label": "Founding Clients",
+          "path": "/founding-clients/"
+        },
+        {
           "label": "Contact",
           "path": "/contact/"
         }
@@ -95,8 +99,8 @@
           "path": "/services/digital-marketing-social-media/"
         },
         {
-          "label": "AI & Automation",
-          "path": "/services/ai-automation/"
+          "label": "CRM & Lead Follow-up",
+          "path": "/services/crm-lead-follow-up/"
         },
         {
           "label": "All services",

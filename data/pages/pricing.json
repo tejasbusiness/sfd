@@ -29,6 +29,12 @@
       }
     },
     {
+      "type": "promo-banner",
+      "onlyFor": [
+        "websites"
+      ]
+    },
+    {
       "type": "pricing-summary",
       "intro": "Every plan is billed monthly in USD, with no activation fee and no long-term contract — see exactly what's included below.",
       "note": {
@@ -62,13 +68,6 @@
           "name": "Digital Marketing & Social Media",
           "path": "/pricing/digital-marketing/",
           "href": "/services/digital-marketing-social-media/"
-        },
-        {
-          "id": "ai-automation",
-          "label": "AI & Automation",
-          "name": "AI & Automation",
-          "path": "/pricing/ai-automation/",
-          "href": "/services/ai-automation/"
         }
       ],
       "placeholder": {
@@ -198,7 +197,7 @@
     "WebPage",
     "FAQPage"
   ],
-  "lastUpdated": "2026-10-02",
+  "lastUpdated": "2026-11-08",
   "activeService": "websites",
   "variants": [
     {
@@ -283,36 +282,6 @@
         },
         {
           "label": "Digital Marketing & Social Media",
-          "path": null
-        }
-      ],
-      "schemaTypes": [
-        "WebPage",
-        "BreadcrumbList"
-      ]
-    },
-    {
-      "id": "pricing-ai-automation",
-      "slug": "pricing-ai-automation",
-      "canonicalPath": "/pricing/ai-automation/",
-      "activeService": "ai-automation",
-      "h1": "AI & Automation pricing",
-      "seo": {
-        "title": "AI & Automation Pricing | SynergyFirst Digital",
-        "metaDescription": "AI & Automation pricing from SynergyFirst Digital. Pricing is being updated: book a free 20-minute call and we'll quote for what your business needs.",
-        "ogTitle": "AI & Automation Pricing",
-        "ogDescription": "AI & Automation pricing from SynergyFirst Digital."
-      },
-      "hero": {
-        "subheading": "Systems and AI workflows that save time."
-      },
-      "breadcrumbs": [
-        {
-          "label": "Pricing",
-          "path": "/pricing/"
-        },
-        {
-          "label": "AI & Automation",
           "path": null
         }
       ],

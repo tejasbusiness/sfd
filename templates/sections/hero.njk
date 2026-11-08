@@ -4,6 +4,10 @@
     <h1>{{ page.h1 }}</h1>
     <p class="hero__subheading">{{ section.subheading }}</p>
     {% if section.qualificationNote %}<p class="hero__note">{{ section.qualificationNote }}</p>{% endif %}
+    {% if section.spotsCounter and plans.foundingClients %}
+    {# Hand-set value in data/plans.json (foundingClients.spotsLeft); never changed automatically. #}
+    <p class="hero__spots"><span class="hero__spots-dot" aria-hidden="true"></span><strong>{{ plans.foundingClients.spotsLeft }} of {{ plans.foundingClients.spotsTotal }}</strong> spots left</p>
+    {% endif %}
     <div class="hero__actions">
       <a
         class="button button--primary"

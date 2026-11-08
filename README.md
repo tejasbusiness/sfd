@@ -6,7 +6,7 @@ The new SFD website is not a conventional agency brochure. It presents a product
 
 ## Confirmed direction
 
-- Target geography: USA, Canada, Australia, New Zealand, Germany and other European countries.
+- Target geography: home service businesses in the US, UK and Canada (owner decision 2026-11-08; previously USA, Canada, Australia, New Zealand, Germany and other European countries).
 - Currency: USD only.
 - Primary offer: professionally built and managed websites for a predictable monthly fee.
 - Primary CTA: **Start My Free Website Preview** (the Free Website Preview request).

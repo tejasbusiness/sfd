@@ -68,7 +68,7 @@
     {
       "id": "about-what-we-do",
       "question": "What does SynergyFirst Digital do?",
-      "answer": "SynergyFirst Digital helps local businesses improve their online presence through website strategy, web design and development, local SEO, WordPress maintenance, digital marketing and practical automation solutions."
+      "answer": "SynergyFirst Digital designs, hosts and manages websites for home service businesses, with local SEO, website care, digital marketing and CRM and lead follow-up built around them."
     },
     {
       "id": "about-who-we-work-with",
@@ -78,7 +78,7 @@
     {
       "id": "about-international",
       "question": "Do you work with businesses outside India?",
-      "answer": "Yes. We work remotely with businesses in the USA, Canada, Australia, New Zealand, Germany and other European markets. Our process is designed for clear collaboration across locations and time zones."
+      "answer": "Yes. We work remotely with home service businesses in the US, UK and Canada, and we work US hours. Our process is designed for clear collaboration across locations and time zones."
     },
     {
       "id": "about-existing-or-new",
@@ -204,6 +204,21 @@
       "id": "fencing-trust",
       "question": "What trust information should a fencing, concrete or remodeling website show?",
       "answer": "Anything you can genuinely show: licence and insurance details where they apply, accreditations, warranty terms you offer, reviews and photos of completed projects. Requirements differ by trade and location, so we show only what you confirm and never invent it."
+    },
+    {
+      "id": "founding-why-cheaper",
+      "question": "Why is this cheaper?",
+      "answer": "We have built 50+ websites across other industries, but we don’t have home service case studies yet. In exchange for Business plan features at the Lite price ($249/month) for your first 6 months, we ask for permission to share your website and real results in a case study, and honest feedback along the way."
+    },
+    {
+      "id": "founding-not-happy",
+      "question": "What if I’m not happy?",
+      "answer": "You can cancel anytime. The program is month-to-month with no long-term contract and no activation fee, and if you cancel you owe us nothing further, including the testimonial."
+    },
+    {
+      "id": "founding-testimonial",
+      "question": "Do I have to give a testimonial?",
+      "answer": "Only if you’re happy with the results. We ask for a short video or written testimonial after 90 days. If you cancel, you owe us nothing further, including the testimonial."
     }
   ]
 }

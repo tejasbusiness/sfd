@@ -27,7 +27,7 @@ The persistent header also exposes **Book a Free 20-Minute Call** without overwh
 /services/seo/
 /services/website-care-maintenance/
 /services/digital-marketing-social-media/
-/services/ai-automation/
+/services/crm-lead-follow-up/       (2026-11-08; replaces /services/ai-automation/, which 301s here)
 
 /industries/
 /industries/garage-door-services/   (added 2026-11-02; linked from /industries/ and the Tree Services page since 2026-11-03; not yet from the homepage card or navigation)
@@ -45,7 +45,6 @@ The persistent header also exposes **Book a Free 20-Minute Call** without overwh
 /pricing/seo/
 /pricing/website-care/
 /pricing/digital-marketing/
-/pricing/ai-automation/
 /about/
 
 /resources/
@@ -57,6 +56,7 @@ The persistent header also exposes **Book a Free 20-Minute Call** without overwh
 /resources/blog/{article-slug}/
 
 /contact/
+/founding-clients/                  (2026-11-08)
 /book-a-call/
 /free-preview/
 
@@ -136,3 +136,6 @@ Renamed with single-hop 301s in `data/redirects.json`: `/services/local-seo-goog
 
 ## Industries in navigation again (2026-11-03)
 Supersedes the 2026-09-20 note that the header and footer show no Industries links. The trade landing pages (`/industries/garage-door-services/`, `/industries/tree-services/`) and the `/industries/` index are now linked sitewide: a new **Industries** footer group (Garage Door Services, Tree Services, All Industries), an **Industries** item in the Our Work mega menu and the Our Work group of the mobile More drawer (both to `/industries/`), tiles on the homepage (link-only change to the frozen homepage, authorised by the owner for internal linking), "Industries" cards in the link-card sections of `/services/websites/` and `/websites/`, and the two trade pages link to each other. The five old generic pages stay linked only from `/industries/` and About. A visible breadcrumb trail (Home / parent / current) now renders on every page that defines `breadcrumbs`.
+
+## Founding Clients and CRM (2026-11-08)
+`/founding-clients/` is linked from the footer Pages group (after Pricing) and from slim banners above the plans on the homepage and `/pricing/`. The fifth service is now **CRM & Lead Follow-up** at `/services/crm-lead-follow-up/` (Menu drawer, footer Services, Services hub, related cards). Removed: `/services/ai-automation/` (301 to the CRM page; the older `/services/automation-custom-solutions/` now points there in one hop) and `/pricing/ai-automation/` (301 to `/pricing/`; the Pricing pills are Websites, SEO, Website Care, Digital Marketing).

@@ -1,0 +1,87 @@
+{
+  "id": "service-crm-lead-follow-up",
+  "type": "service",
+  "slug": "crm-lead-follow-up",
+  "canonicalPath": "/services/crm-lead-follow-up/",
+  "seo": {
+    "title": "CRM & Lead Follow-up for Home Service Businesses | SynergyFirst",
+    "metaDescription": "Track every lead from your website in one place, follow up fast, and stop losing jobs to slow replies.",
+    "ogTitle": "CRM & Lead Follow-up for Home Service Businesses | SynergyFirst",
+    "ogDescription": "Track every lead from your website in one place, follow up fast, and stop losing jobs to slow replies.",
+    "ogImage": "/assets/images/og-default.jpg",
+    "robots": "index, follow"
+  },
+  "h1": "Never lose a lead from your website",
+  "breadcrumbs": [
+    {
+      "label": "Services",
+      "path": "/services/"
+    },
+    {
+      "label": "CRM & Lead Follow-up",
+      "path": null
+    }
+  ],
+  "hidePlaybook": true,
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "CRM & LEAD FOLLOW-UP",
+      "subheading": "Most home service businesses don’t lose jobs because of price. They lose them because a lead came in while they were on a job, and nobody followed up in time. Our CRM collects every website enquiry in one place and helps you follow up before the customer calls someone else.",
+      "primaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/",
+        "dialogTarget": "booking-modal"
+      },
+      "secondaryCta": {
+        "label": "See the Founding Client Program",
+        "href": "/founding-clients/"
+      }
+    },
+    {
+      "type": "content-block",
+      "heading": "What it does",
+      "body": [],
+      "list": [
+        "Every website form submission saved as a lead",
+        "Lead status: new, contacted, quoted, won, lost",
+        "Notes and follow-up reminders",
+        "Email notification for each new lead"
+      ]
+    },
+    {
+      "type": "content-block",
+      "tinted": true,
+      "heading": "Who it’s for",
+      "body": [
+        "Home service businesses that get enquiries from their website and want one place to track and follow up on them."
+      ]
+    },
+    {
+      "type": "content-block",
+      "heading": "Pricing",
+      "body": [
+        "The CRM is part of our Business plan ($449/month), not a separate service, so there is no extra charge for it on that plan.",
+        "Founding Clients get Business plan features at the Lite price ($249/month) for their first 6 months, with lead capture and follow-up setup included at no extra cost. Book a call and we’ll walk you through it."
+      ]
+    },
+    {
+      "type": "booking-cta",
+      "tone": "brand",
+      "heading": "Talk to us about following up on every lead",
+      "primaryCta": {
+        "label": "Book a Free 20-Minute Call",
+        "href": "/book-a-call/"
+      },
+      "secondaryCta": {
+        "label": "See the Founding Client Program",
+        "href": "/founding-clients/"
+      }
+    }
+  ],
+  "schemaTypes": [
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "lastUpdated": "2026-11-08"
+}
