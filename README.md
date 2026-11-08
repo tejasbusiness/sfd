@@ -11,7 +11,7 @@ The new SFD website is not a conventional agency brochure. It presents a product
 - Primary offer: professionally built and managed websites for a predictable monthly fee.
 - Primary CTA: **Start My Free Website Preview** (the Free Website Preview request).
 - Immediate CTA: **Book a Free 20-Minute Call**.
-- Lower-intent CTA (homepage): **Free Audit Report** (Free Website Audit).
+- Lower-intent CTA (homepage): **Get My Free Website Review** (Free Website Review band; renamed 2026-11-08 from "Free Audit Report").
 - Secondary CTA: **See How It Works** or **View Websites**, depending on context.
 - Theme: light, premium, modern, conversion-focused.
 - Design inspiration: Numerique for clarity, Lettery Home 2 for editorial personality and restrained Gesto influence for energy.

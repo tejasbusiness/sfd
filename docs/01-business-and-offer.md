@@ -46,7 +46,7 @@ Locked by the owner on 2026-10-02 (homepage final pass):
 
 1. **Start My Free Website Preview**: the primary CTA. Every button that asks for the private preview uses it, and all of them go to the same `/free-preview/` request. Titles and headings may still say "Request Your Free Website Preview".
 2. **Book a Free 20-Minute Call**: the immediate human-contact CTA. Every call button opens the same booking modal, and the call is 20 minutes long.
-3. **Free Audit Report** (Free Website Audit): the lower-intent offer on the homepage. It diagnoses the current website; it never creates a preview.
+3. **Get My Free Website Review** (Free Website Review; was "Free Audit Report" until 2026-11-08): the lower-intent offer on the homepage, a short video review recorded by Tejas. It diagnoses the current website; it never creates a preview.
 3. **See How It Works** — education CTA.
 4. **View Websites** — proof CTA.
 
