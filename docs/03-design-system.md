@@ -222,6 +222,7 @@ Owner instruction: match dovvstudio.com's layout, type, motion and styling while
 
 ## Brand mark and logo lockup (2026-11-08)
 - **Kit:** `brand/synergyfirst-logo-kit/` (committed, not published): the S icon in black, white and purple (SVG and 1000px PNG), square profile pictures (1080px, three colours), the favicon set and a preview sheet. The kit has **no wordmark**: the final one needs the original font.
+- **Archive:** the old PNG logo masters (`SFD-Black-logo.png`, `SFD-White-logo.png`, `SFD-White-logo-footer.png`) are in `brand/archive/`, not published.
 - **Published files:** `assets/images/brand/` holds the three icon SVGs, `sfd-favicon.svg` plus 16, 32, 180 and 512px PNGs, and `sfd-profile-purple-1080.png`.
 - **Lockup (interim):** `templates/partials/logo.njk`, used by the header and the footer bottom bar: the icon as inline SVG in `currentColor` (so it follows the theme with no image filter) followed by the name as live text in Archivo, uppercase: SYNERGY weight 800, FIRST 400, DIGITAL 300. CSS: `.sfd-logo` in `studio-layout.css` (0.95rem in the header, 0.875rem in the footer, 0.8125rem under 400px wide). The visible text is the link's accessible name. Replace it with the final wordmark when that exists.
 - **Colour:** the brand purple in the kit is **#6B4EE6**, used only for the favicon, the schema logo and the profile pictures. The site's own accent tokens (`--color-accent` #5B3FA6 / #A990FF) were not changed; the header and footer lockup is black in light mode and white in dark mode.
