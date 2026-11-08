@@ -21,6 +21,9 @@
 
 /* -------------------------------------------------------- statement hero */
 .hero-statement {
+  /* Headline and star sizes as variables so the stickers can be placed relative to the headline. */
+  --h1: clamp(2.2rem, 0.6rem + 4.2vw, 4.2rem);
+  --star: clamp(6.5rem, 5rem + 4vw, 9rem);
   text-align: center;
   overflow: hidden;
   padding-block: clamp(2rem, 1rem + 3vw, 4rem) clamp(2rem, 1rem + 2vw, 3rem);
@@ -62,7 +65,7 @@
 }
 .hero-statement h1 {
   /* Sized for the 11-word headline (2026-11-08): three lines, buttons above the fold. */
-  font-size: clamp(2.2rem, 0.6rem + 4.2vw, 4.2rem);
+  font-size: var(--h1);
   margin: 0 auto;
   max-width: 24ch;
   color: var(--color-text);
@@ -1737,7 +1740,7 @@ html.motion .sticker.is-dragging {
     text-align: center;
   }
   .hero-statement .sticker--burst {
-    width: clamp(6.5rem, 5rem + 4vw, 9rem);
+    width: var(--star);
   }
   .hero-statement .sticker--1 { top: auto; right: auto; left: 2%; bottom: -1rem; }
   .hero-statement .sticker--2 { top: auto; left: auto; right: 2%; bottom: 3.25rem; --tilt: 4deg; }
@@ -1770,5 +1773,40 @@ html.motion .sticker.is-dragging {
 @media (min-width: 1200px) {
   .hero-statement__sub {
     max-width: clamp(24rem, 36vw, 34rem);
+  }
+}
+
+/* Desktop placement (owner's reference screenshot, 2026-11-08). The headline is about 15.6 times
+   its font size wide and centred, so offsets are in headline-size units (--h1) from the centre:
+   the star sits beside the middle line with its points just touching the first and last lines,
+   "See it before you pay" lines up with the headline's left edge beside the sub-copy, and
+   "50+ websites" sits right of the sub-copy and reaches a little past the headline's right edge.
+   The two pills share a baseline just above the buttons. */
+@media (min-width: 1200px) {
+  .hero-statement .sticker--1 {
+    right: auto;
+    bottom: auto;
+    left: calc(50% - 7.4 * var(--h1) - var(--star));
+    top: calc(4.3rem + 1.7 * var(--h1) - var(--star) / 2);
+  }
+  .hero-statement .sticker--3 {
+    top: auto;
+    right: auto;
+    left: calc(50% - 7.8 * var(--h1));
+    bottom: 3.2rem;
+    --tilt: -4deg;
+  }
+  .hero-statement .sticker--2 {
+    top: auto;
+    right: auto;
+    left: calc(50% + 5.4 * var(--h1));
+    bottom: 3.2rem;
+    --tilt: 4deg;
+  }
+}
+/* Narrow desktops: the headline is narrower, so the left pill would reach the first button; lift it clear. */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .hero-statement .sticker--3 {
+    bottom: 4.25rem;
   }
 }
