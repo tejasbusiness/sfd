@@ -61,7 +61,7 @@ One task or page per session. The homepage is frozen (2026-10-02; reworked by ow
 **End**
 
 1. Run `npm run validate`, `npm run test:validation` and `npm run build:production`.
-2. Check the changed pages at 1440, 1024 and 390px: no horizontal scroll, no dead links, one H1, and the locked CTA labels ("Start My Free Website Preview", "Book a Free 20-Minute Call", "Get My Free Website Review").
+2. Check the changed pages at 1440, 1024, 900 (a 900px footer overflow was found late once) and 390px, and at 768 for layout changes: no horizontal scroll, no dead links, one H1, and the locked CTA labels ("Start My Free Website Preview", "Book a Free 20-Minute Call", "Get My Free Website Review").
 3. Update every affected doc: a dated `docs/10` entry, plus the blueprint, sitemap and navigation docs when relevant.
 4. Update the memory notes with the next task and any open owner decisions.
 5. Commit the code and docs together and push. Deploy only when the owner asks (from PowerShell, not Git Bash; `-Migrate` only when there are new migrations).

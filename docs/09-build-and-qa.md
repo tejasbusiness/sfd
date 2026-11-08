@@ -110,3 +110,11 @@ The website is complete only when content, conversions, direct URLs, metadata, a
 
 ## Internal link checks (2026-11-03)
 `scripts/check-output.js` now also fails the build when a root-relative link in a built page does not reach a built page or file, and when an indexable page (other than the homepage) has no inbound link from any other page. Navigation and footer links were already validated in `validate-data.js`. The check does not yet require a link from page body content (About, Services and the three Resources pages are linked only from the header and footer).
+
+## Responsive QA method (2026-11-08)
+Learned while fixing the hero stickers and the footer overflow; use it for any page that changes layout.
+- **Widths:** check 390, 768, 820, 900, 1024, 1280, 1440 and 1920. 900px matters: it is where a 4-column grid at the 900px breakpoint overflowed, and where tablets in landscape and small browser windows sit. Also test just below and above each breakpoint (999 and 1000, 1199 and 1200).
+- **Sideways scroll:** in a browser, load each page in a same-origin iframe of the target width and compare `document.documentElement.scrollWidth` with the width (the sweep of all 40 sitemap pages at 900px found none after the footer fix). `npm run serve` serves the build; loading pages takes about 3 seconds each, so sweep one width at a time.
+- **Floating or absolutely positioned decoration** (stickers, badges): measure the bounding boxes of every such element against every headline word, the sub-copy, each button, the hero edges and each other, after the entrance animation has finished (an element still scaling in has a zero-size box and gives a false pass). Positions anchored to the bottom of the content (the buttons) stay stable across widths.
+- **Look at it:** a screenshot of the iframe at one phone, one tablet and one desktop width; numbers alone missed a clipped label inside a small star.
+- **Cascade:** `homepage.css` and other page stylesheets load after `studio-layout.css`; if a rule seems ignored, check the later file for the same selector before raising specificity.

@@ -2,20 +2,21 @@
 
 ## Homepage
 
-Title "Managed Websites for Local Service Businesses | SynergyFirst" (2026-11-05). Reworked 2026-11-05 from owner-supplied conversion advice ("real work above the fold, a simpler application, clearer plan differences"). Section order in `data/pages/home.json`:
+Current state (rewritten 2026-11-08; earlier versions are in the dated log in `docs/10`). Title "Websites for Home Service Businesses | SynergyFirst"; H1 "Websites that turn calls into booked jobs for home service businesses." Section order in `data/pages/home.json`:
 
-1. Sticky header with primary and booking CTAs.
-2. `hero-split`: free-preview promise, the two locked CTAs, starting-price context ("Managed website plans from $249/month" plus the commitment terms, both read from `plans.json`), the verified stats, and a **curved carousel** of four real client projects (`section.carousel.ids`: EV World360, The BrandBook Company, Budget Opticals, Siddhant Cinevision; screenshots from `projects.json`). It is a concave CSS 3D ring of eight cards (projects repeated), rotating slowly, paused on hover and static under reduced motion; the ring is decorative (`aria-hidden`) and the caption carries the real links to each case study. The template also still supports a single project (`section.project`) and the old illustrative before/after mock-up (neither set).
-3. (the trust strip was removed 2026-11-05, see below.)
-4. `case-study-grid`: three real client projects (EV World360, The BrandBook Company, Budget Opticals) with a "See all case studies" link.
-5. `testimonials`: one featured real Google review (Aseem Trivedi) as a large scroll-lit quote under a small "In their own words" label, no card grid, no button.
-6. `process-narrative`: how the free preview works.
-7. `industry-links`: the five trade entry points (the `preview-concepts` block was removed 2026-11-05).
+1. Sticky header (logo lockup, theme button, Menu, one preview button).
+2. `hero-split` in statement mode: status pill, the H1, sub-copy "See your new website before you pay. We design, host and manage it for one simple monthly fee.", the two locked CTAs (Start My Free Website Preview, Book a Free 20-Minute Call) and three stickers: "4.8★ Google rating", "50+ websites delivered across industries", "See it before you pay". Stickers float (tilt, bob, drag) on tablet and desktop and are a chip row on phones (docs/03).
+3. `industry-links`: the five trade entry points (garage door, tree, roofing, plumbing/HVAC/electrical, fencing/concrete/remodeling).
+4. `process-narrative`: how the free preview works (its own black panel).
+5. `case-study-grid`: "Work for local and service businesses" (Budget Opticals first, then EV World360, BrandBook, Siddhant Cinevision), "See all case studies".
+6. `testimonials`: the featured New Jersey review (Aseem Trivedi) as a scroll-lit quote.
+7. `client-logos`: "Clients across industries" (marquee).
 8. `feature-bento`: what every managed website includes.
-9. `pricing-highlight`: plan cards plus the subscription conditions (`plans.commitmentTerms`, `plans.buyoutPolicy`).
-10. `founder-note`: the CTO introduction (same text as About).
-11. `faq-split`, then the closing `cta-editorial`.
-12. Footer.
+9. `promo-banner`: the Founding Client Program banner (copy in `plans.foundingClients.banner`).
+10. `pricing-highlight`: plan cards plus the subscription conditions (`plans.commitmentTerms`, `plans.buyoutPolicy`); shares one black panel with the next section.
+11. `founder-note`: "You'll work directly with Tejas G., our CTO", with the Surat / US hours / YouTube line.
+12. `faq-split`, then the closing `cta-editorial`.
+13. The homepage-only Free Website Review band (`footer.websiteReview`, button "Get My Free Website Review"), then the footer.
 
 Removed from the homepage: the "traditional vs managed" `statement` band and `growth-modules` (supporting services must not dilute the website offer; they remain on the services pages). The homepage is visually calmer than other pages: no particle canvas, soft button shadows, and in dark mode no card-border beam and a quieter aurora (`homepage.css`, `motion.js`).
 
