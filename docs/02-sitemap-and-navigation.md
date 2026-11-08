@@ -98,7 +98,7 @@ Mobile recommendation:
 ## Footer groups
 
 - Websites: How It Works, Pricing, Portfolio, Case Studies.
-- Services: the five service pages (Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, AI & Automation).
+- Services: the five service pages (Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, and since 2026-11-08 CRM & Lead Follow-up, which replaced AI & Automation).
 - Resources: Free Tools, Blog, FAQs if introduced.
 - Company: About, Contact, Book a Call.
 - Legal: Privacy, Terms, Subscription Terms, Refund Policy, Cookie Policy (plus the "Cookie settings" button that reopens the consent banner). These are not a column: since 2026-09-20 they sit as a centred horizontal row in the footer bottom bar, above the copyright line (`legalLinks` in `data/footer.json`), leaving four link columns. The Cookie Policy was added 2026-09-20 because EU visitors are a main target.
@@ -129,10 +129,10 @@ The header (mega menu and mobile More drawer) and footer now show **Services** i
 
 ## All service pages share the Websites structure (2026-09-21)
 
-Renamed with single-hop 301s in `data/redirects.json`: `/services/local-seo-google-visibility/` to **`/services/seo/`** (label "SEO") and `/services/automation-custom-solutions/` to **`/services/ai-automation/`** (label "AI & Automation"). Website Care and Digital Marketing keep their slugs and labels. Services are now: Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, AI & Automation. Structure and copy sources are in docs/04.
+Renamed with single-hop 301s in `data/redirects.json`: `/services/local-seo-google-visibility/` to **`/services/seo/`** (label "SEO") and `/services/automation-custom-solutions/` to **`/services/ai-automation/`** (label "AI & Automation"; **superseded 2026-11-08**: that page became `/services/crm-lead-follow-up/` and both old URLs now redirect to it). Website Care and Digital Marketing keep their slugs and labels. Services are now: Websites, SEO, Website Care & WordPress Maintenance, Digital Marketing & Social Media, CRM & Lead Follow-up. Structure and copy sources are in docs/04.
 
 ## Pricing pages per service (2026-10-02)
-`/pricing/` is the Websites pricing page (the main product, so it keeps the shortest URL). Each other service has its own indexable page: `/pricing/seo/`, `/pricing/website-care/`, `/pricing/digital-marketing/`, `/pricing/ai-automation/`, all generated from `data/pages/pricing.json` (`variants`, see docs/05). `/pricing/websites/` 301-redirects to `/pricing/` (`data/redirects.json`). The service pills on these pages are plain links; the "Pricing" header and tab-bar items stay highlighted on every `/pricing/...` page (the tab bar now uses the same prefix match as the header).
+`/pricing/` is the Websites pricing page (the main product, so it keeps the shortest URL). Each other service has its own indexable page: `/pricing/seo/`, `/pricing/website-care/`, `/pricing/digital-marketing/` (and, until 2026-11-08, `/pricing/ai-automation/`, now a 301 to `/pricing/`), all generated from `data/pages/pricing.json` (`variants`, see docs/05). `/pricing/websites/` 301-redirects to `/pricing/` (`data/redirects.json`). The service pills on these pages are plain links; the "Pricing" header and tab-bar items stay highlighted on every `/pricing/...` page (the tab bar now uses the same prefix match as the header).
 
 ## Industries in navigation again (2026-11-03)
 Supersedes the 2026-09-20 note that the header and footer show no Industries links. The trade landing pages (`/industries/garage-door-services/`, `/industries/tree-services/`) and the `/industries/` index are now linked sitewide: a new **Industries** footer group (Garage Door Services, Tree Services, All Industries), an **Industries** item in the Our Work mega menu and the Our Work group of the mobile More drawer (both to `/industries/`), tiles on the homepage (link-only change to the frozen homepage, authorised by the owner for internal linking), "Industries" cards in the link-card sections of `/services/websites/` and `/websites/`, and the two trade pages link to each other. The five old generic pages stay linked only from `/industries/` and About. A visible breadcrumb trail (Home / parent / current) now renders on every page that defines `breadcrumbs`.

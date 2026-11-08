@@ -102,7 +102,7 @@ What each does:
 - `npm install`: only needed on a new PC or after `package.json` changed.
 - `validate`: checks all JSON data. It must end with "Validation passed".
 - `test:validation`: must show `# fail 0`.
-- `build:production`: **deletes `dist/` and `deploy/` first**, then builds the site into `dist/` and regenerates `deploy/nginx-redirects.conf`. It must end with "Build succeeded (mode=production)" and list 37 pages. It fails if a required SEO field or `assets/images/og-default.jpg` is missing.
+- `build:production`: **deletes `dist/` and `deploy/` first**, then builds the site into `dist/` and regenerates `deploy/nginx-redirects.conf`. It must end with "Build succeeded (mode=production)" and list 41 pages (the count changes when pages are added; check the build output, not this number). It fails if a required SEO field or `assets/images/og-default.jpg` is missing.
 
 Quick sanity check that the diagnostic page is not in the production build:
 
@@ -415,8 +415,24 @@ server {
   location = /services/website-design-development { return 301 /services/websites/; }
   location = /services/local-seo-google-visibility/ { return 301 /services/seo/; }
   location = /services/local-seo-google-visibility { return 301 /services/seo/; }
-  location = /services/automation-custom-solutions/ { return 301 /services/ai-automation/; }
-  location = /services/automation-custom-solutions { return 301 /services/ai-automation/; }
+  location = /services/automation-custom-solutions/ { return 301 /services/crm-lead-follow-up/; }
+  location = /services/automation-custom-solutions { return 301 /services/crm-lead-follow-up/; }
+  location = /pricing/websites/ { return 301 /pricing/; }
+  location = /pricing/websites { return 301 /pricing/; }
+  location = /industries/home-services/ { return 301 /industries/; }
+  location = /industries/home-services { return 301 /industries/; }
+  location = /industries/restaurants/ { return 301 /industries/; }
+  location = /industries/restaurants { return 301 /industries/; }
+  location = /industries/healthcare/ { return 301 /industries/; }
+  location = /industries/healthcare { return 301 /industries/; }
+  location = /industries/financial-services/ { return 301 /industries/; }
+  location = /industries/financial-services { return 301 /industries/; }
+  location = /industries/professional-services/ { return 301 /industries/; }
+  location = /industries/professional-services { return 301 /industries/; }
+  location = /services/ai-automation/ { return 301 /services/crm-lead-follow-up/; }
+  location = /services/ai-automation { return 301 /services/crm-lead-follow-up/; }
+  location = /pricing/ai-automation/ { return 301 /pricing/; }
+  location = /pricing/ai-automation { return 301 /pricing/; }
 
   # ---- end of SFD rules ----
 

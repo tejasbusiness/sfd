@@ -34,9 +34,11 @@ Recommended headline direction:
 
 Recommended supporting direction:
 
-> We design, host and manage conversion-focused websites for local service businesses — with no large upfront website cost and one predictable monthly fee.
+> We design, host and manage conversion-focused websites for home service businesses — with no large upfront website cost and one predictable monthly fee.
 
-The homepage targets local service businesses broadly. It must not be written for a single niche (such as roofers or tree services); niche messaging belongs on the industry pages.
+Since 2026-11-08 the homepage headline is "Websites that turn calls into booked jobs for home service businesses." with the subheading "See your new website before you pay. We design, host and manage it for one simple monthly fee." Earlier wording (below) is kept for history.
+
+Until 2026-11-08 the homepage targeted local service businesses broadly. By owner decision it now speaks to **home service businesses** (garage door, tree, roofing, plumbing, HVAC, electrical, fencing and remodeling) as a group and leads with the five industries; it still must not be written for a single trade (such as roofers), and trade messaging belongs on the industry pages. Proof is honest: the 50+ websites delivered were mostly for other industries, so the projects section says so.
 
 Final marketing copy may improve this wording but must preserve the promise.
 

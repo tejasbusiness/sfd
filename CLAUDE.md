@@ -29,7 +29,8 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 - Primary product: monthly managed website subscription.
 - Primary conversion: Free Website Preview application.
 - Immediate conversion: free 20-minute Google Meet call ("Book a Free 20-Minute Call").
-- Supporting services: SEO, Google Business Profile support, AI, WhatsApp, CRM and automation.
+- Supporting services: SEO, Google Business Profile support, Website Care, Digital Marketing and CRM & Lead Follow-up (CRM is included in the Business plan, not sold separately; do not advertise AI, WhatsApp or automation until built).
+- Focus audience: home service businesses in the US, UK and Canada. Founding Client Program (`/founding-clients/`): 5 spots, count set by hand in `data/plans.json`, never automatic, no countdowns.
 - Supporting services must not dilute the website-subscription offer on the homepage.
 
 ## Development behaviour
@@ -48,7 +49,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 
 ## Session rituals
 
-One task or page per session. The homepage is frozen (2026-10-02; reworked by owner instruction 2026-11-05, see `docs/04`): do not change it without a new owner instruction.
+One task or page per session. The homepage is frozen (2026-10-02; reworked by owner instruction 2026-11-05 and again 2026-11-08, see `docs/04`): do not change it without a new owner instruction.
 
 **Start**
 

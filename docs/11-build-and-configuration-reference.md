@@ -17,7 +17,7 @@ The build recognizes three modes via `--mode=<value>` (CLI, takes precedence) or
 | `npm run validate` | Validates `data/` in development mode (TBD = warning). |
 | `npm run validate:production` | Validates `data/` in production mode (TBD = error). |
 | `npm run build` | Validates, then renders `data/pages/*.json` into `dist/` in development mode. |
-| `npm run build:production` | Same, in production mode. Fails today because `data/company.json` still has BLOCKING `TBD` fields — this is correct, expected behaviour, not a bug. |
+| `npm run build:production` | Same, in production mode: TBD placeholders and `noindex` on indexable pages fail it, and it cleans `dist/` first. Passes today (41 pages, 2026-11-08); it is the build `deploy.bat` ships. |
 | `npm run rebuild` | `clean` then `build`. |
 | `npm run clean` | Removes `dist/`. |
 | `npm run test:validation` | Runs the fixture-based validation tests plus the demo-kit tests (palette contrast, prompt rules, generated n8n scripts up to date) in `tests/`. |
@@ -47,8 +47,8 @@ The build fails (non-zero exit) on any validation error, per CLAUDE.md's "fail t
 
 ## Known Phase 1 limitations
 
-- Fonts (Manrope/Inter) are referenced by name in `tokens.css` with system-font fallbacks; no font files are self-hosted yet — licensing/selection is still open per `docs/03-design-system.md`.
-- The `build-check` diagnostic page is not real site content and is excluded from the "no noindex" rule via its `internal-diagnostic` type. It must be deleted (or the exception removed) before Phase 6 launch QA.
+- Fonts: resolved 2026-11-05. Inter and Archivo (variable) are self-hosted in `assets/fonts/` (`assets/css/fonts.css`, docs/03); no request goes to Google.
+- The `build-check` diagnostic page is not real site content and is excluded from the "no noindex" rule via its `internal-diagnostic` type. Production builds leave it out (2026-09-21), so it never ships; remove the exception once the page is deleted.
 - `integrations.public.json` contains `payment.provider: null` as a documented extension point only — no payment provider is integrated or implied.
 
 ## SEO scripts (added 2026-09-20)

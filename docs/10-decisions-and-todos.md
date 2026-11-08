@@ -12,13 +12,15 @@
 - Website-as-a-Service positioning.
 - Free private previews with seven-day expiry.
 - Non-Indian target market.
-- USA, Canada, Australia, New Zealand, Germany and other European markets.
+- Target markets: home service businesses in the US, UK and Canada (owner, 2026-11-08; earlier list was USA, Canada, Australia, New Zealand, Germany and other European markets).
 - USD-only pricing.
 - Public monthly pricing.
 - Primary CTA: Start My Free Website Preview (renamed 2026-11-02 from "Show Me My New Website", after trying "Request My Free Website Preview", which wrapped).
-- Immediate CTA: Book a Free 30-Minute Discovery Call.
+- Immediate CTA: Book a Free 20-Minute Call (30-minute wording replaced 2026-10-02).
+- Lower-intent CTA: Get My Free Website Review (2026-11-08; was "Free Audit Report").
+- Focus: home service businesses; Founding Client Program (5 spots, `/founding-clients/`); CRM & Lead Follow-up included in the Business plan, not sold separately (2026-11-08).
 - Google Meet booking, Calendar event and Google Sheets record.
-- SEO/AI/WhatsApp/automation presented as upgrades.
+- SEO, Website Care, Digital Marketing and CRM & Lead Follow-up presented as supporting services (AI, WhatsApp and automation are not offered until built).
 
 ## BLOCKING before final pricing copy
 
@@ -1118,3 +1120,8 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Verified live:** `/founding-clients/` (200, title, "5 of 5 spots left"), `/services/crm-lead-follow-up/` and `/about/` (200), the homepage banner, no AI pricing pill on `/pricing/`, and the Privacy Policy wording.
 - **Owner action needed:** paste `deploy/nginx-redirects.conf` into the CloudPanel vhost (deploy.md Step 9). Until then `/services/ai-automation/` and `/pricing/ai-automation/` return 404 instead of a 301, and the old `/services/automation-custom-solutions/` rule still points to the removed AI page.
 - **Vhost updated 2026-11-08 (owner), verified by me:** `/services/ai-automation/` (with and without the slash) and `/services/automation-custom-solutions/` return one 301 to `/services/crm-lead-follow-up/`; `/pricing/ai-automation/` returns one 301 to `/pricing/`; the CRM, Pricing and Founding Clients pages return 200. The owner action above is closed.
+
+### Documentation sync (2026-11-08)
+- **Owner instruction:** "update all the docs". Audited every document against what is live (9 deploys, last commit before this 52c683a) and fixed the stale statements: `CLAUDE.md` (supporting services, focus audience and Founding Client rule, homepage-reworked note), `README.md`, `deploy.md` (page count; the vhost example now carries the full current redirect list), `docs/01` (US/UK/Canada, home-service homepage positioning, Founding Client Program and CRM sections), `docs/02` (service list, redirects, pricing pages), `docs/03` (Website Review consent wording), `docs/04` (button label, pricing pills, service pages), `docs/10` (confirmed decisions block: markets, CTAs, focus, supporting services), `docs/11` (build status, fonts, diagnostic page), `docs/13` (amendment saying the visual direction is historical), `docs/14` (migration 011 naming), `docs/15` (status no longer "plan only"), and the historical About prompt (marked historical).
+- **Left as history on purpose:** older dated entries in `docs/10` (they record what was true then, including AI & Automation and "Free Audit Report"), and `docs/07` and `docs/12` (marked superseded by `docs/14`).
+- **Known remaining gaps:** `docs/09` has no 2026-11 launch-QA results (real-phone, Safari, Firefox, Lighthouse are still unchecked); Custom Solutions text in `plans.json` still lists "automation".

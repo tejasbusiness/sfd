@@ -307,6 +307,8 @@ Awaiting your review and explicit approval of this revised direction before any 
 
 ## Amendments since implementation (kept current; supersede the text above)
 
+- **2026-11-05 to 2026-11-08:** the whole visual system was replaced by the monochrome studio theme (docs/03 "Studio theme" and "Studio layout"), and the homepage was reordered niche-first with a home-services headline (docs/04, docs/10). Everything above, including colours, fonts, the hero before/after mock-up and the section list, is historical.
+
 - **Scope:** the dark hero band, footer and link-hover treatments now apply sitewide, not to the homepage only. How It Works, Pricing, Free Preview, Book a Call and every other internal page share the same system.
 - **Credibility (trust) strip:** now a dark brand band (purple-to-deep-ink gradient, faint gold glow at the top, gold hairlines top and bottom). Items are centred, in the heading font, each with a gold-ringed check icon and thin vertical dividers on desktop (no dividers on mobile). Shared by Home and About. Homepage fourth item reads "Serving businesses across the world!"; About keeps its own wording. This is broader than the documented target markets in docs/01; the target-market list is unchanged.
 - **Internal page heroes:** every page except the homepage uses the dark `hero--band` (gradient, gold glow, gold hairline, white title, gold eyebrow, gold primary button, white-outline secondary button). Pages without a hero section get the band with only the H1.

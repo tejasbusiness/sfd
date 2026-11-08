@@ -41,7 +41,7 @@ Rules: numbered files (`NNN_description.sql`), never edit an applied file (its c
 | 008 | `email_outbox` |
 | 009 | Placeholder booking defaults |
 | 010 | Owner-decided hours (two windows, Monday to Friday) |
-| 011 | `website_reviews` (Free Website Audit / "Free Audit Report" requests, homepage) |
+| 011 | `website_reviews` (Free Website Review requests, homepage; named "Free Website Audit" / "Free Audit Report" until 2026-11-08, table name unchanged) |
 | 012 | `preview_applications`: phone, country, city and category nullable; `website` holds the website **or** Google Business Profile URL (simplified Free Preview request) |
 | 013 | `call_duration_minutes` = 20 (free 20-minute call) |
 | 014 | `preview_applications.trade` (nullable, 60 characters): set by industry hero forms, e.g. `Garage Door Services`; empty for the Free Preview page. The columns for phone stay nullable for old rows, but the API now requires a phone for new requests. Deploy with `.\deploy.bat -Migrate` |

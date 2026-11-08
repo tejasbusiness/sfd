@@ -1,6 +1,6 @@
 # Lead-response automation (n8n) and demo previews
 
-**Status:** PLAN ONLY (agreed 2026-11-02). Nothing below is built except the preview host (see "Preview host"). Build it in its own fresh session.
+**Status (updated 2026-11-08):** the repo side is built and live: unified lead forms, the webhook sender with retry queue and cron (migration 015), the design kits and master-prompt template (`demo-kit/`), the preview host, and the owner's crons. The n8n workflow (Telegram alert, Apify research, OpenAI prompt) is built by the owner in n8n from the guide below; Telegram Call/Build/Skip buttons, the Apify Google Maps lookup and demo-expiry automation remain later phases. The sections below keep the original plan wording where it explains the reasoning.
 
 ## Why
 

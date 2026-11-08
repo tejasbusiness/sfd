@@ -1,5 +1,7 @@
 # SynergyFirst Digital — About Page Copy and Claude Implementation Prompt
 
+> **Historical (2026-11-08):** this is the original About-page prompt. The live About page was rewritten for home service businesses in the US, UK and Canada; see `data/pages/about.json`, `docs/04` and `docs/10`.
+
 ## SEO Direction
 
 - **Recommended URL:** `/about/`
