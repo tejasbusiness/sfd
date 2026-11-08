@@ -266,7 +266,7 @@ function initStickerShine() {
 function initStickerDrag() {
   if (!document.documentElement.classList.contains('motion')) return;
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  if (window.matchMedia('(max-width: 1280px)').matches) return; // stickers are a static row there
+  if (window.matchMedia('(max-width: 760px)').matches) return; // stickers are a static chip row on phones
   document.querySelectorAll('.sticker').forEach((el) => {
     const area = el.closest('.hero-statement, .footer-statement');
     if (!area) return;
