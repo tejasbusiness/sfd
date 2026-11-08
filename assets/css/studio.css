@@ -325,7 +325,6 @@ a.card:hover,
 }
 
 /* ------------------------------------------- dark mode corrections */
-:root[data-theme="dark"] .site-header__logo-image,
 :root[data-theme="dark"] .site-footer__wordmark--invert {
   filter: invert(1) brightness(1.1);
 }

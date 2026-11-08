@@ -316,6 +316,8 @@ Awaiting your review and explicit approval of this revised direction before any 
 - **Link hover (footer columns, footer legal row, header top-level links):** colour change plus a thin gold gradient underline that grows from the centre (`scaleX`), on hover and keyboard focus; transitions removed under `prefers-reduced-motion`. Header sub-menu links deliberately keep their original hover. Header text stays deep purple on hover for contrast (gold on the light header fails AA).
 
 
+> **Superseded 2026-11-08:** the header and footer no longer use the PNG wordmark described below. They show the new S icon plus live text (`templates/partials/logo.njk`, docs/03 "Brand mark and logo lockup"). The old text is kept for history.
+
 ## Header logo on tablet and mobile (2026-09-21)
 
 Up to 1399px wide (the centred-logo header, with the bottom tab bar) the header shows the full black wordmark, `assets/images/sfd-logo-black-header.png` (502x90, transparent, about 9 KB), centred at 28px tall. From 1400px (single-row desktop header) it keeps the mark, `sfd-logo-2026.png`, unchanged. Implemented with a `<picture>` whose `<source media="(max-width: 1399px)">` points at the wordmark (`templates/partials/header.njk`). The header-sized file is a downscaled copy of `SFD-Black-logo.png` (6667x1196, 358 KB, kept as the master); if the logo changes, regenerate it at 3x the display size (about 500px wide) with a transparent background.

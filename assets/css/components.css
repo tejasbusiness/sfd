@@ -735,11 +735,6 @@ dialog.more-drawer[open] {
   color: var(--color-text);
   flex-shrink: 0;
 }
-.site-header__logo-image {
-  display: block;
-  height: 34px;
-  width: auto;
-}
 
 .site-header__nav-list {
   list-style: none;
@@ -1055,10 +1050,6 @@ a.site-header__mega-tool:focus-visible {
   .site-header__nav,
   .site-header__actions {
     display: none;
-  }
-  /* The wordmark is about 5.6 times wider than tall, so 28px tall is roughly 156px wide. */
-  .site-header__logo-image {
-    height: 28px;
   }
 }
 

@@ -9,7 +9,10 @@
   {% if page.type != "not-found" %}
   <link rel="canonical" href="{{ site.productionDomain }}{{ page.canonicalPath }}">
   {% endif %}
-  <link rel="icon" type="image/jpeg" href="/assets/images/sfd-512-black.jpeg">
+  <link rel="icon" href="/assets/images/brand/sfd-favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/images/brand/sfd-favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/images/brand/sfd-favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/images/brand/sfd-favicon-180.png">
   <meta name="robots" content="{{ page.seo.robots }}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.seo.ogTitle }}">

@@ -80,7 +80,7 @@
     {# Bottom bar (2026-11-05): logo left, copyright centred, Back to top right. #}
     <div class="site-footer__bottom site-footer__bottom--studio">
       <a class="site-footer__logo" href="/" aria-label="{{ company.tradingName }} home">
-        <img src="/assets/images/sfd-logo-black-header.png" alt="" width="162" height="26" loading="lazy">
+        {% include "partials/logo.njk" %}
       </a>
       <p class="site-footer__copyright">&copy; {{ buildYear }} {{ company.tradingName }}. All rights reserved.</p>
       <a class="site-footer__top-link" href="#main-content">Back to top <span aria-hidden="true">&uarr;</span></a>

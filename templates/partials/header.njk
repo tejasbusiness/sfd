@@ -56,15 +56,8 @@
 <header class="site-header" data-site-header>
   <div class="container site-header__inner">
     <a class="site-header__logo" href="/">
-      {# Tablet and mobile (the centred-logo header, up to 1399px) show the full black
-         wordmark (a header-sized copy of assets/images/SFD-Black-logo.png); desktop keeps the mark. #}
-      <img
-        class="site-header__logo-image"
-        src="/assets/images/sfd-logo-black-header.png"
-        alt="SynergyFirst Digital"
-        width="502"
-        height="90"
-      >
+      {# Icon plus live text (partials/logo.njk); the visible text is the link's accessible name. #}
+      {% include "partials/logo.njk" %}
     </a>
 
     {# Studio layout (2026-11-05): the header carries no navigation row. The full menu

@@ -6,7 +6,7 @@
 
 {% if "Organization" in page.schemaTypes %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","@id":{{ (site.productionDomain + "/#organization") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/sfd-logo-2026.png") | dump | safe }},"email":{{ company.supportEmail | dump | safe }}{% if company.description %},"description":{{ company.description | dump | safe }}{% endif %}}
+{"@context":"https://schema.org","@type":"Organization","@id":{{ (site.productionDomain + "/#organization") | dump | safe }},"name":{{ company.tradingName | dump | safe }},"url":{{ site.productionDomain | dump | safe }},"logo":{{ (site.productionDomain + "/assets/images/brand/sfd-profile-purple-1080.png") | dump | safe }},"email":{{ company.supportEmail | dump | safe }}{% if company.description %},"description":{{ company.description | dump | safe }}{% endif %}}
 </script>
 {% endif %}
 

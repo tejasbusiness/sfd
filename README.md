@@ -36,7 +36,8 @@ The new SFD website is not a conventional agency brochure. It presents a product
 12. `docs/14-database-and-api.md` — MySQL, migrations, PHP API and environment files.
 13. `docs/15-lead-automation.md` — planned n8n lead alerts, demo prompt workflow and the preview host.
 14. `demo-kit/README.md` — design kits, master-prompt template and n8n scripts for the private preview demos.
-15. `deploy.md` — production deployment: the one-command `npm run deploy` (or `deploy.bat`), the manual steps, rollback, troubleshooting and server setup.
+15. `brand/synergyfirst-logo-kit/` — the logo kit (S icon, profile pictures, favicon set; published subset in `assets/images/brand/`, see `docs/03` "Brand mark").
+16. `deploy.md` — production deployment: the one-command `npm run deploy` (or `deploy.bat`), the manual steps, rollback, troubleshooting and server setup.
 
 ## Working rule
 
