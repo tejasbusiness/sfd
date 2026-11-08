@@ -11,7 +11,7 @@
     "ogImage": "/assets/images/og-default.jpg",
     "robots": "index, follow"
   },
-  "h1": "See your <span class=\"text-highlight\">new website</span> before you pay for it.",
+  "h1": "Websites that turn calls into booked jobs for home service businesses.",
   "leadOffer": "website-review",
   "breadcrumbs": null,
   "service": {
@@ -24,7 +24,7 @@
     {
       "type": "hero-split",
       "eyebrow": "WEBSITES FOR LOCAL SERVICE BUSINESSES",
-      "subheading": "We design, host and manage conversion-focused websites for local service businesses — with no large upfront website cost and one predictable monthly fee.",
+      "subheading": "See your new website before you pay. We design, host and manage it for one simple monthly fee.",
       "primaryCta": {
         "label": "Start My Free Website Preview",
         "href": "/free-preview/"
@@ -71,66 +71,12 @@
           "shape": "burst"
         },
         {
-          "label": "50+ websites delivered",
+          "label": "50+ websites delivered across industries",
           "tone": "violet"
         },
         {
           "label": "See it before you pay",
           "tone": "peach"
-        }
-      ]
-    },
-    {
-      "type": "client-logos",
-      "heading": "Trusted by"
-    },
-    {
-      "type": "case-study-grid",
-      "eyebrow": "REAL CLIENT WORK",
-      "heading": "Selected client projects",
-      "intro": "Four recent client projects. Each one started with the business and its customers, then became a website built around them.",
-      "itemIds": [
-        "ev-world360",
-        "brandbook-company",
-        "budget-opticals",
-        "siddhant-cinevision"
-      ],
-      "cta": {
-        "label": "See all case studies",
-        "href": "/websites/case-studies/"
-      }
-    },
-    {
-      "type": "testimonials",
-      "eyebrow": "WHAT CLIENTS SAY",
-      "heading": "In their own words",
-      "featuredId": "aseem-trivedi",
-      "bigQuote": true
-    },
-    {
-      "type": "process-narrative",
-      "heading": "How your free website preview works",
-      "steps": [
-        {
-          "title": "Tell us about your business",
-          "body": "Share your business name, website and a few basic details. We’ll review your current online presence and identify the best way to create a useful preview.",
-          "cta": {
-            "label": "Start My Free Website Preview",
-            "href": "/free-preview/"
-          }
-        },
-        {
-          "title": "We build your private preview",
-          "body": "We use your real business information, services, branding and publicly available content to create a private website preview tailored to your business.",
-          "note": "No payment is required to review it."
-        },
-        {
-          "title": "Review it privately for 7 days",
-          "body": "Explore your preview on a private link for seven days. It isn’t public, and your existing website stays unchanged while you review the new version."
-        },
-        {
-          "title": "Choose a plan or simply walk away",
-          "body": "If you like the preview, choose a monthly plan and we’ll complete, launch and manage the website for you. If it isn’t right for you, the preview expires — with no obligation."
         }
       ]
     },
@@ -179,6 +125,60 @@
         "label": "See all industries",
         "href": "/industries/"
       }
+    },
+    {
+      "type": "process-narrative",
+      "heading": "How your free website preview works",
+      "steps": [
+        {
+          "title": "Tell us about your business",
+          "body": "Share your business name, website and a few basic details. We’ll review your current online presence and identify the best way to create a useful preview.",
+          "cta": {
+            "label": "Start My Free Website Preview",
+            "href": "/free-preview/"
+          }
+        },
+        {
+          "title": "We build your private preview",
+          "body": "We use your real business information, services, branding and publicly available content to create a private website preview tailored to your business.",
+          "note": "No payment is required to review it."
+        },
+        {
+          "title": "Review it privately for 7 days",
+          "body": "Explore your preview on a private link for seven days. It isn’t public, and your existing website stays unchanged while you review the new version."
+        },
+        {
+          "title": "Choose a plan or simply walk away",
+          "body": "If you like the preview, choose a monthly plan and we’ll complete, launch and manage the website for you. If it isn’t right for you, the preview expires — with no obligation."
+        }
+      ]
+    },
+    {
+      "type": "case-study-grid",
+      "eyebrow": "REAL CLIENT WORK",
+      "heading": "Work for local and service businesses",
+      "intro": "Home services is our focus going forward. These are recent projects for other service businesses, built the same way: around the business and how its customers decide.",
+      "itemIds": [
+        "budget-opticals",
+        "ev-world360",
+        "brandbook-company",
+        "siddhant-cinevision"
+      ],
+      "cta": {
+        "label": "See all case studies",
+        "href": "/websites/case-studies/"
+      }
+    },
+    {
+      "type": "testimonials",
+      "eyebrow": "WHAT CLIENTS SAY",
+      "heading": "In their own words",
+      "featuredId": "aseem-trivedi",
+      "bigQuote": true
+    },
+    {
+      "type": "client-logos",
+      "heading": "Clients across industries"
     },
     {
       "type": "feature-bento",
@@ -232,15 +232,22 @@
     {
       "type": "founder-note",
       "eyebrow": "WHO YOU WILL WORK WITH",
-      "heading": "The best digital work starts with understanding the business",
-      "quote": "After spending more than 20 years in the technical field, I have seen tools and trends change repeatedly. What has not changed is what business owners need: honest advice, dependable execution and digital work that creates real value. That is the standard behind SynergyFirst Digital.",
+      "heading": "You’ll work directly with Tejas G., our CTO",
+      "quote": "After more than 25 years in web development, I’ve seen tools and trends change many times. What hasn’t changed is what business owners need: honest advice, dependable work, and a website that brings in customers. That’s the standard behind SynergyFirst Digital.",
       "attribution": {
         "name": "Tejas G.",
         "title": "CTO, SynergyFirst Digital"
       },
       "avatarImage": "/assets/images/tejas-gandhi-dp.png",
       "avatarAlt": "Tejas G.",
-      "avatarInitials": "TG"
+      "avatarInitials": "TG",
+      "note": {
+        "text": "Based in Surat, India. Working US hours. Every Saturday I review a real contractor website on YouTube.",
+        "link": {
+          "label": "Watch the reviews",
+          "href": "https://www.youtube.com/@tejasg-me"
+        }
+      }
     },
     {
       "type": "faq-split",
@@ -282,5 +289,5 @@
     "Service",
     "FAQPage"
   ],
-  "lastUpdated": "2026-11-05"
+  "lastUpdated": "2026-11-08"
 }

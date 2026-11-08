@@ -61,7 +61,8 @@
   color: var(--color-text);
 }
 .hero-statement h1 {
-  font-size: clamp(2.2rem, 0.6rem + 5.6vw, 5.3rem);
+  /* Sized for the 11-word headline (2026-11-08): three lines, buttons above the fold. */
+  font-size: clamp(2.2rem, 0.6rem + 4.2vw, 4.2rem);
   margin: 0 auto;
   max-width: 24ch;
   color: var(--color-text);
@@ -449,8 +450,21 @@ html.motion .page-home .client-logos__track:hover .client-logos__list {
   background: #0a0a0a;
   color: #fff;
 }
+/* Process is its own black panel; plans and the founder note share the second one. */
 .page-home .process-narrative {
+  border-radius: 40px;
+}
+.page-home .pricing-highlight {
   border-radius: 40px 40px 0 0;
+}
+.page-home .founder-note__note {
+  margin: 2rem 0 0;
+  color: rgba(255, 255, 255, 0.62);
+}
+.page-home .founder-note__note a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .page-home .founder-note {
   border-radius: 0 0 40px 40px;
@@ -1434,7 +1448,7 @@ html.motion .sticker.is-dragging {
     white-space: nowrap;
   }
   .hero-statement h1 {
-    font-size: clamp(1.85rem, 8.2vw, 2.4rem);
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
     line-height: 0.96;
   }
   .hero-statement__sub {
@@ -1559,10 +1573,10 @@ html.motion .sticker.is-dragging {
   }
 }
 
-/* ------------- stickers become a chip row up to 1280px (2026-11-05, review) */
+/* ------------- stickers are a chip row at every width (2026-11-08: the longer headline fills the container, so floating stickers always covered letters; was up to 1280px on 2026-11-05) */
 /* Between 761 and 1280px the headline spans most of the width, so floating stickers
    covered its letters. They sit in a row under the buttons instead, as on phones. */
-@media (max-width: 1280px) {
+@media (min-width: 0px) {
   .hero-statement__inner {
     display: flex;
     flex-direction: column;

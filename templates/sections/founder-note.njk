@@ -28,5 +28,8 @@
         </footer>
       </blockquote>
     </div>
+    {% if section.note %}
+    <p class="founder-note__note">{{ section.note.text }}{% if section.note.link %} <a href="{{ section.note.link.href }}" target="_blank" rel="noopener">{{ section.note.link.label }} &rarr;</a>{% endif %}</p>
+    {% endif %}
   </div>
 </section>
