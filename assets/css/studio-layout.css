@@ -905,12 +905,14 @@ html.motion .dock {
 }
 
 /* ------------------------------------------ studio footer columns (2026-11-05) */
+/* The four columns start at 1000px (2026-11-08): at 900 to 990px their content is wider than the
+   viewport and the page scrolled sideways by up to 53px. Below 1000px the columns stack. */
 .site-footer .site-footer__inner > .site-footer__top--studio {
   grid-template-columns: 1fr;
   gap: 0;
   padding: 0;
 }
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .site-footer .site-footer__inner > .site-footer__top--studio {
     grid-template-columns: 1.5fr 1fr 1fr 0.9fr;
   }
@@ -993,7 +995,7 @@ html.motion .dock {
 .site-footer__top-link:hover {
   color: var(--color-text);
 }
-@media (max-width: 899px) {
+@media (max-width: 999px) {
   .site-footer__col {
     padding-inline: 0;
     border-right: 0;
@@ -1023,7 +1025,7 @@ html.motion .dock {
 .site-footer__bottom {
   padding-inline: var(--container-padding);
 }
-@media (max-width: 899px) {
+@media (max-width: 999px) {
   .site-footer__col {
     padding-inline: var(--container-padding);
   }
@@ -1317,7 +1319,7 @@ ul.feature-bento__checklist svg {
 /* --------------- column dividers run edge to edge, hairline to hairline */
 /* The group divider is a border on a group inside a padded column; pull it out by the
    column padding on both sides so it meets the vertical hairlines. */
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .site-footer__col:not(:first-child):not(:last-child) .site-footer__group + .site-footer__group {
     margin-inline: -1.75rem;
     padding-inline: 1.75rem;
@@ -1329,7 +1331,7 @@ ul.feature-bento__checklist svg {
     padding-right: var(--container-padding);
   }
 }
-@media (max-width: 899px) {
+@media (max-width: 999px) {
   .site-footer__col .site-footer__group + .site-footer__group {
     margin-inline: calc(-1 * var(--container-padding));
     padding-inline: var(--container-padding);
