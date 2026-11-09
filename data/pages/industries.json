@@ -29,6 +29,9 @@
       }
     },
     {
+      "type": "promo-banner"
+    },
+    {
       "type": "content-block",
       "eyebrow": "IN SHORT",
       "heading": "What do we build for local service businesses?",

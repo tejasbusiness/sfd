@@ -131,6 +131,7 @@
     <nav aria-label="More">
       <ul class="more-drawer__grid">
         {% for item in navigation.more %}
+        {% if not item.founding or plans.foundingClients.spotsLeft > 0 %}
         <li class="more-drawer__cell{{ ' more-drawer__cell--expandable' if item.children }}">
           {% if item.children %}
           <details class="more-drawer__details">
@@ -163,6 +164,7 @@
           </a>
           {% endif %}
         </li>
+        {% endif %}
         {% endfor %}
       </ul>
     </nav>

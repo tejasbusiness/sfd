@@ -131,3 +131,6 @@ A page file may set `"hidePlaybook": true` to leave out the sitewide Free AI Pro
 
 ### Offer bar (2026-11-09)
 `plans.foundingClients.bar` (`label`, `shortLabel`, `text`, `linkLabel`, `href`, `dismissLabel`) feeds the sticky bar. Page flag `hideOfferBar: true` (set on `founding-clients`, the five legal pages and `not-found`) leaves it out, like `hidePlaybook`. The bar renders only while `spotsLeft > 0`.
+
+### `founding` flag (2026-11-09)
+A `link-cards` item or a `navigation.more` item with `"founding": true` renders only while `plans.foundingClients.spotsLeft > 0`. `hero-split` status accepts `founding: { label, link }`, used while spots are left (the label gets " · N of M spots left" appended from `plans`); at 0 the plain `label` and `link` apply. `promo-banner` renders only while spots are left.

@@ -15,6 +15,9 @@
   "breadcrumbs": null,
   "sections": [
     {
+      "type": "promo-banner"
+    },
+    {
       "type": "free-preview-form",
       "heading": "Tell us about your business",
       "intro": "Tell us where to find your business online. We look at every request first, and when we can create something genuinely useful we build a private preview of your new website. There is no payment and no obligation to continue. It takes about a minute.",

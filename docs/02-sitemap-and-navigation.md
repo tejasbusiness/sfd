@@ -142,3 +142,6 @@ Supersedes the 2026-09-20 note that the header and footer show no Industries lin
 
 ## Sticky offer bar (2026-11-09)
 A sticky Founding Client Program bar sits above the header on every page except `/founding-clients/`, the legal pages and the 404 page, while `plans.foundingClients.spotsLeft` is above 0 (docs/03, docs/10). It links to `/founding-clients/`.
+
+## Founding promotion links (2026-11-09)
+The Menu drawer gained a "Founding Clients" tile (after Free Tools, paired with About Us), flagged `"founding": true` in `data/navigation.json` so it disappears when `spotsLeft` is 0. The footer Pages link stays (it keeps `/founding-clients/` linked from the footer at any count). Banners and cards link to `/founding-clients/` from the homepage, the five trade pages, `/industries/`, `/free-preview/` and `/pricing/`.

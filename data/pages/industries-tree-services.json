@@ -59,6 +59,9 @@
       }
     },
     {
+      "type": "promo-banner"
+    },
+    {
       "type": "content-block",
       "eyebrow": "IN SHORT",
       "heading": "What is a managed website for a tree service company?",
@@ -206,6 +209,13 @@
       "eyebrow": "RELATED",
       "heading": "More ways we can help",
       "items": [
+        {
+          "label": "Founding Client Program",
+          "description": "Business plan features at the Lite price for the first 5 home service businesses.",
+          "href": "/founding-clients/",
+          "founding": true,
+          "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        },
         {
           "label": "Pricing",
           "description": "Simple monthly plans with hosting and support included.",

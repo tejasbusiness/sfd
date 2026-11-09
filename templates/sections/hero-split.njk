@@ -6,9 +6,19 @@
 <section class="section hero-split hero-statement">
   <div class="container hero-statement__inner" data-reveal>
     {% if section.status %}
+    {# While founding spots are left (hand-set in plans.json) the pill shows the Founding Client Program
+       and its count; at 0 it falls back to the plain label and link in the page JSON. #}
+    {% set st = section.status %}
+    {% if st.founding and plans.foundingClients.spotsLeft > 0 %}
+    {% set stLabel = st.founding.label + " · " + plans.foundingClients.spotsLeft + " of " + plans.foundingClients.spotsTotal + " spots left" %}
+    {% set stLink = st.founding.link %}
+    {% else %}
+    {% set stLabel = st.label %}
+    {% set stLink = st.link %}
+    {% endif %}
     <p class="hero-status">
-      <span class="hero-status__dot" aria-hidden="true"></span>{{ section.status.label }}
-      {% if section.status.link %}<span class="hero-status__sep" aria-hidden="true"></span><a href="{{ section.status.link.href }}"{% if section.status.link.dialogTarget %} data-dialog-target="{{ section.status.link.dialogTarget }}"{% endif %}>{{ section.status.link.label }} &rarr;</a>{% endif %}
+      <span class="hero-status__dot" aria-hidden="true"></span>{{ stLabel }}
+      {% if stLink %}<span class="hero-status__sep" aria-hidden="true"></span><a href="{{ stLink.href }}"{% if stLink.dialogTarget %} data-dialog-target="{{ stLink.dialogTarget }}"{% endif %}>{{ stLink.label }} &rarr;</a>{% endif %}
     </p>
     {% endif %}
     <h1 data-weight-field>{{ page.h1 | safe }}</h1>

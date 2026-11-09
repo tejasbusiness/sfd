@@ -5,14 +5,15 @@
 Current state (rewritten 2026-11-08; earlier versions are in the dated log in `docs/10`). Title "Websites for Home Service Businesses | SynergyFirst"; H1 "Websites that turn calls into booked jobs for home service businesses." Section order in `data/pages/home.json`:
 
 1. Sticky header (logo lockup, theme button, Menu, one preview button).
-2. `hero-split` in statement mode: status pill, the H1, sub-copy "See your new website before you pay. We design, host and manage it for one simple monthly fee.", the two locked CTAs (Start My Free Website Preview, Book a Free 20-Minute Call) and three stickers: "4.8★ Google rating", "50+ websites delivered across industries", "See it before you pay". Stickers float (tilt, bob, drag) on tablet and desktop and are a chip row on phones (docs/03).
+2. `hero-split` in statement mode: status pill (since 2026-11-09 "Founding Client Program · 5 of 5 spots left · See details" while spots are left, else "Accepting free preview requests · Book a call"), the H1, sub-copy "See your new website before you pay. We design, host and manage it for one simple monthly fee.", the two locked CTAs (Start My Free Website Preview, Book a Free 20-Minute Call) and three stickers: "4.8★ Google rating", "50+ websites delivered across industries", "See it before you pay". Stickers float (tilt, bob, drag) on tablet and desktop and are a chip row on phones (docs/03).
 3. `industry-links`: the five trade entry points (garage door, tree, roofing, plumbing/HVAC/electrical, fencing/concrete/remodeling).
+3a. `promo-banner`: the Founding Client Program banner, moved here from above the plans on 2026-11-09 (the owner's instruction; it was section 9 and far below the fold). It is no longer above `pricing-highlight`.
 4. `process-narrative`: how the free preview works (its own black panel).
 5. `case-study-grid`: "Work for local and service businesses" (Budget Opticals first, then EV World360, BrandBook, Siddhant Cinevision), "See all case studies".
 6. `testimonials`: the featured New Jersey review (Aseem Trivedi) as a scroll-lit quote.
 7. `client-logos`: "Clients across industries" (marquee).
 8. `feature-bento`: what every managed website includes.
-9. `promo-banner`: the Founding Client Program banner (copy in `plans.foundingClients.banner`).
+9. (moved to position 3a, see above.)
 10. `pricing-highlight`: plan cards plus the subscription conditions (`plans.commitmentTerms`, `plans.buyoutPolicy`); shares one black panel with the next section.
 11. `founder-note`: "You'll work directly with Tejas G., our CTO", with the Surat / US hours / YouTube line.
 12. `faq-split`, then the closing `cta-editorial`.
@@ -212,3 +213,5 @@ Pricing FAQ (2026-10-02): uses the `faq-split` layout, with eyebrow "PRICING FAQ
 **About (2026-11-08).** H1 "About SynergyFirst Digital"; hero line "SynergyFirst Digital designs, hosts and manages websites for home service businesses in the US, UK and Canada."; the Our Story block is now "Why we focus on home service businesses" with the owner's two paragraphs; other sections kept, with automation wording removed and the founder note matching the homepage.
 
 **Founding banner (2026-11-08).** `promo-banner` above `pricing-highlight` on the homepage and above `pricing-summary` on `/pricing/` (`onlyFor: ["websites"]`). Copy in `plans.foundingClients.banner`.
+
+**Founding promotion on other pages (2026-11-09).** `promo-banner` sits straight after the hero form on the five trade pages, after the hero on `/industries/`, and above the form on `/free-preview/`. The five trade pages also lead their "More ways we can help" cards with a Founding Client Program card. All of them render only while `plans.foundingClients.spotsLeft > 0`: `promo-banner` always checks it, `link-cards` items and Menu drawer items carry `"founding": true`, and the homepage hero status carries a `founding` object that replaces the default label and link while spots are left.

@@ -249,6 +249,12 @@
       ]
     },
     {
+      "label": "Founding Clients",
+      "path": "/founding-clients/",
+      "founding": true,
+      "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#6749DA\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3z\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+    },
+    {
       "label": "About Us",
       "path": "/about/",
       "icon": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#6B46C1\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21a8 8 0 0116 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"

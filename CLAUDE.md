@@ -49,7 +49,7 @@ Read `README.md` and every Markdown file inside `docs/` before changing or gener
 
 ## Session rituals
 
-One task or page per session. The homepage is frozen (2026-10-02; reworked by owner instruction 2026-11-05 and again 2026-11-08, see `docs/04`): do not change it without a new owner instruction.
+One task or page per session. The homepage is frozen (2026-10-02; reworked by owner instruction 2026-11-05 and again 2026-11-08, and on 2026-11-09 for the Founding Client pill and banner position only, see `docs/04`): do not change it without a new owner instruction.
 
 **Start**
 

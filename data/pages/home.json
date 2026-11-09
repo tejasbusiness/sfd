@@ -61,6 +61,13 @@
           "label": "Book a call",
           "href": "/book-a-call/",
           "dialogTarget": "booking-modal"
+        },
+        "founding": {
+          "label": "Founding Client Program",
+          "link": {
+            "label": "See details",
+            "href": "/founding-clients/"
+          }
         }
       },
       "stickers": [
@@ -125,6 +132,9 @@
         "label": "See all industries",
         "href": "/industries/"
       }
+    },
+    {
+      "type": "promo-banner"
     },
     {
       "type": "process-narrative",
@@ -217,9 +227,6 @@
           "body": "Your website is designed to load, read and convert smoothly across phones, tablets and desktops — where many local customers search and call from."
         }
       ]
-    },
-    {
-      "type": "promo-banner"
     },
     {
       "type": "pricing-highlight",
