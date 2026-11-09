@@ -139,3 +139,6 @@ Supersedes the 2026-09-20 note that the header and footer show no Industries lin
 
 ## Founding Clients and CRM (2026-11-08)
 `/founding-clients/` is linked from the footer Pages group (after Pricing) and from slim banners above the plans on the homepage and `/pricing/`. The fifth service is now **CRM & Lead Follow-up** at `/services/crm-lead-follow-up/` (Menu drawer, footer Services, Services hub, related cards). Removed: `/services/ai-automation/` (301 to the CRM page; the older `/services/automation-custom-solutions/` now points there in one hop) and `/pricing/ai-automation/` (301 to `/pricing/`; the Pricing pills are Websites, SEO, Website Care, Digital Marketing).
+
+## Sticky offer bar (2026-11-09)
+A sticky Founding Client Program bar sits above the header on every page except `/founding-clients/`, the legal pages and the 404 page, while `plans.foundingClients.spotsLeft` is above 0 (docs/03, docs/10). It links to `/founding-clients/`.

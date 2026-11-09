@@ -1,6 +1,7 @@
 {
   "id": "founding-clients",
   "type": "static",
+  "hideOfferBar": true,
   "slug": "founding-clients",
   "canonicalPath": "/founding-clients/",
   "seo": {

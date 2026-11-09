@@ -1,6 +1,7 @@
 {
   "id": "terms-and-conditions",
   "type": "legal",
+  "hideOfferBar": true,
   "slug": "terms-and-conditions",
   "canonicalPath": "/terms-and-conditions/",
   "seo": {

@@ -128,3 +128,6 @@ A page file may set `"hidePlaybook": true` to leave out the sitewide Free AI Pro
 
 ### Founding Clients config (2026-11-08)
 `data/plans.json` `foundingClients`: `spotsTotal`, `spotsLeft` (edited by hand only; nothing in the build or browser changes it) and `banner` (`lead`, `text`, `linkLabel`, `href`) used by the `promo-banner` section.
+
+### Offer bar (2026-11-09)
+`plans.foundingClients.bar` (`label`, `shortLabel`, `text`, `linkLabel`, `href`, `dismissLabel`) feeds the sticky bar. Page flag `hideOfferBar: true` (set on `founding-clients`, the five legal pages and `not-found`) leaves it out, like `hidePlaybook`. The bar renders only while `spotsLeft > 0`.

@@ -16,6 +16,7 @@ import { initCountrySelects } from './country-select.js';
 import { initLegalToc } from './legal-toc.js';
 import { initCookieConsent } from './cookie-consent.js';
 import { initPricingTabs } from './pricing-tabs.js';
+import { initOfferBar } from './offer-bar.js';
 
 // Several triggers (header button, mobile-nav button, page CTAs) can all open the
 // same sitewide dialog (e.g. #booking-modal) — one controller per dialog, shared.
@@ -86,4 +87,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLegalToc();
   initPricingTabs({ onSwap: (root) => initDialogTriggers(root) });
   initCookieConsent();
+  initOfferBar();
 });

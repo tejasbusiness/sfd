@@ -1737,7 +1737,7 @@ a.link-cards__item {
   }
   .faq--split .faq__intro {
     position: sticky;
-    top: 112px;
+    top: calc(112px + var(--offer-bar-h, 0px));
     align-self: start;
   }
 }
@@ -2587,7 +2587,7 @@ dialog.booking-modal {
   .contact-pin:not([hidden]) {
     display: block;
     position: fixed;
-    top: 80px; /* height of the desktop site header */
+    top: calc(80px + var(--offer-bar-h, 0px)); /* height of the desktop site header plus the offer bar */
     left: 0;
     right: 0;
     z-index: 90;
@@ -3062,7 +3062,7 @@ a.testimonials__rating:hover {
   }
   .legal-doc__toc {
     position: sticky;
-    top: 96px; /* clears the sticky site header, same offset as the split FAQ */
+    top: calc(96px + var(--offer-bar-h, 0px)); /* clears the sticky site header (and the offer bar), same offset as the split FAQ */
   }
 }
 .legal-doc__toc-title {
@@ -3082,7 +3082,7 @@ a.testimonials__rating:hover {
 }
 .legal-doc__clause {
   margin-bottom: var(--space-5);
-  scroll-margin-top: 96px;
+  scroll-margin-top: calc(96px + var(--offer-bar-h, 0px));
 }
 .legal-doc__clause h2 {
   font-size: var(--text-h3);

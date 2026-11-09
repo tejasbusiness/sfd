@@ -1,0 +1,20 @@
+{# Sticky Founding Client offer bar (2026-11-09). Rendered by base.njk only while
+   plans.foundingClients.spotsLeft > 0 and the page does not set hideOfferBar.
+   Copy: plans.foundingClients.bar. The spots shown are the hand-set values, never computed.
+   The dots show the open spots (filled) and the taken ones (hollow). #}
+{% set fc = plans.foundingClients %}
+{% set b = fc.bar %}
+<div class="offer-bar" data-offer-bar data-spots="{{ fc.spotsLeft }}" role="region" aria-label="{{ b.label }}">
+  <div class="offer-bar__inner">
+    <span class="offer-bar__dots" aria-hidden="true">{% for i in range(fc.spotsTotal) %}<span class="offer-bar__dot{{ ' is-open' if i < fc.spotsLeft }}"></span>{% endfor %}</span>
+    <p class="offer-bar__text">
+      <strong class="offer-bar__label"><span class="offer-bar__full">{{ b.label }}</span><span class="offer-bar__short">{{ b.shortLabel }}</span></strong>
+      <span class="offer-bar__long">{{ b.text }}</span>
+      <span class="offer-bar__spots">{{ fc.spotsLeft }} of {{ fc.spotsTotal }} spots left</span>
+    </p>
+    <a class="offer-bar__cta" href="{{ b.href }}">{{ b.linkLabel }} <span aria-hidden="true">&rarr;</span></a>
+    <button type="button" class="offer-bar__close" data-offer-bar-close aria-label="{{ b.dismissLabel }}">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</div>

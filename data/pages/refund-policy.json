@@ -1,6 +1,7 @@
 {
   "id": "refund-policy",
   "type": "legal",
+  "hideOfferBar": true,
   "slug": "refund-policy",
   "canonicalPath": "/refund-policy/",
   "seo": {

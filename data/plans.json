@@ -84,6 +84,14 @@
       "text": "Business plan features at the Lite price for the first 5 home service businesses.",
       "linkLabel": "See details",
       "href": "/founding-clients/"
+    },
+    "bar": {
+      "label": "Founding Client Program",
+      "shortLabel": "Founding Clients",
+      "text": "Business plan features at the Lite price.",
+      "linkLabel": "See details",
+      "href": "/founding-clients/",
+      "dismissLabel": "Dismiss the Founding Client Program bar"
     }
   }
 }

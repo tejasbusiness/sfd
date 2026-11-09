@@ -1559,7 +1559,7 @@ html.motion .sticker.is-dragging {
   }
   .page-home .process-narrative > .container > h2 {
     position: sticky;
-    top: 7rem;
+    top: calc(7rem + var(--offer-bar-h, 0px));
   }
   .page-home .process-narrative__list {
     grid-column: 2;
@@ -1808,5 +1808,169 @@ html.motion .sticker.is-dragging {
 @media (min-width: 1200px) and (max-width: 1399px) {
   .hero-statement .sticker--3 {
     bottom: 4.25rem;
+  }
+}
+
+/* ------------------------------------------------ sticky offer bar (2026-11-09) */
+/* Founding Client bar above the header. Brand purple #6749DA with white text (about 5.9:1 contrast, AA),
+   the same in both themes, because it is a signal, not page chrome. It is sticky at
+   the top; the header sticks directly beneath it. --offer-bar-h is the bar's fixed height
+   and is 0 when the bar is absent or dismissed (html.offer-bar-off), so every sticky offset
+   that clears the header adds it. */
+:root {
+  --offer-bar-h: 2.5rem;
+}
+html.offer-bar-off {
+  --offer-bar-h: 0px;
+}
+html.offer-bar-off .offer-bar {
+  display: none;
+}
+.offer-bar {
+  position: sticky;
+  top: 0;
+  z-index: 101; /* above the sticky header (100), below dialogs and drawers (150) */
+  height: var(--offer-bar-h);
+  background: #6749da;
+  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+}
+.site-header {
+  top: var(--offer-bar-h);
+}
+.offer-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  padding-inline: 2.75rem; /* room for the close button so the content stays centred */
+  position: relative;
+}
+.offer-bar__dots {
+  display: inline-flex;
+  gap: 0.3rem;
+  flex: none;
+}
+.offer-bar__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+}
+.offer-bar__dot.is-open {
+  background: #fff;
+}
+.offer-bar__text {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  color: #fff; /* a global paragraph colour would otherwise grey it */
+}
+.offer-bar__label {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.offer-bar__short {
+  display: none;
+}
+.offer-bar__long::before {
+  content: "\00b7";
+  margin-inline: 0.45rem;
+}
+.offer-bar__spots {
+  margin-inline-start: 0.45rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 100px;
+  background: #fff;
+  color: #6749da;
+  font-weight: 700;
+}
+.offer-bar__cta {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.75rem;
+  padding: 0 0.85rem;
+  border-radius: 100px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+.offer-bar__cta:hover,
+.offer-bar__cta:focus-visible {
+  background: #fff;
+  color: #6749da;
+}
+.offer-bar__cta:focus-visible,
+.offer-bar__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.offer-bar__close {
+  position: absolute;
+  inset-inline-end: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.offer-bar__close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+/* Attention: the first open spot pulses a few times after load, then stops. Motion only. */
+@keyframes offer-bar-ping {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+  70%, 100% { box-shadow: 0 0 0 0.5rem rgba(255, 255, 255, 0); }
+}
+html.motion .offer-bar__dot.is-open:first-child {
+  animation: offer-bar-ping 1.4s ease-out 1.2s 3;
+}
+@media (max-width: 54.99em) {
+  .offer-bar__inner {
+    gap: 0.5rem;
+    padding-inline: 0.75rem 2.5rem;
+  }
+  .offer-bar__dots,
+  .offer-bar__long,
+  .offer-bar__full {
+    display: none;
+  }
+  .offer-bar__short {
+    display: inline;
+  }
+  .offer-bar__spots {
+    margin-inline-start: 0.35rem;
+  }
+  .offer-bar__text {
+    font-size: 0.75rem;
+  }
+  .offer-bar__cta {
+    padding: 0 0.6rem;
+  }
+}
+@media (max-width: 22.5em) {
+  .offer-bar__cta span,
+  .offer-bar__spots {
+    display: none; /* very small phones: name and button only, so nothing overlaps the close button */
   }
 }

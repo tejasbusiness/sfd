@@ -1,6 +1,7 @@
 {
   "id": "subscription-terms",
   "type": "legal",
+  "hideOfferBar": true,
   "slug": "subscription-terms",
   "canonicalPath": "/subscription-terms/",
   "seo": {

@@ -1,6 +1,7 @@
 {
   "id": "privacy-policy",
   "type": "legal",
+  "hideOfferBar": true,
   "slug": "privacy-policy",
   "canonicalPath": "/privacy-policy/",
   "seo": {
@@ -89,7 +90,7 @@
           "heading": "Cookies and analytics",
           "body": [
             "Cookies are small files stored on your device. We use those that are necessary to make this website work and, only if you accept them, analytics or marketing cookies. When you first visit, a banner lets you accept all, reject all or choose by category, and the \"Cookie settings\" link at the bottom of every page lets you change or withdraw your choice at any time. You can also control or delete cookies in your browser settings.",
-            "At present we set only one necessary cookie, which remembers your choice. If you pick a light or dark theme, your browser's local storage remembers that choice; it does not identify you and never leaves your device. To understand how the website performs we count, without cookies, when a \"Start My Free Website Preview\" button is clicked and when a preview form is first used: we store only the step, the page address and the time, never your IP address, a visitor identifier or anything that could identify you. See our <a href=\"/cookie-policy/\">Cookie Policy</a> for the full list and details."
+            "At present we set only one necessary cookie, which remembers your choice. If you pick a light or dark theme, your browser's local storage remembers that choice, and it also remembers if you close the Founding Client Program bar; neither identifies you or leaves your device. To understand how the website performs we count, without cookies, when a \"Start My Free Website Preview\" button is clicked and when a preview form is first used: we store only the step, the page address and the time, never your IP address, a visitor identifier or anything that could identify you. See our <a href=\"/cookie-policy/\">Cookie Policy</a> for the full list and details."
           ]
         },
         {
@@ -162,5 +163,5 @@
   "schemaTypes": [
     "WebPage"
   ],
-  "lastUpdated": "2026-11-08"
+  "lastUpdated": "2026-11-09"
 }

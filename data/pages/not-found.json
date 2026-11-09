@@ -1,6 +1,7 @@
 {
   "id": "not-found",
   "type": "not-found",
+  "hideOfferBar": true,
   "slug": "404",
   "canonicalPath": "/404/",
   "seo": {

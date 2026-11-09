@@ -1,7 +1,12 @@
+{#- Founding Client offer bar: only while spots are left (hand-set in plans.json) and unless the page opts out. -#}
+{%- set showOfferBar = plans.foundingClients and plans.foundingClients.bar and plans.foundingClients.spotsLeft > 0 and not page.hideOfferBar -%}
 <!doctype html>
-<html lang="{{ site.defaultLocale }}">
+<html lang="{{ site.defaultLocale }}"{% if not showOfferBar %} class="offer-bar-off"{% endif %}>
 <head>
   <meta charset="utf-8">
+  {% if showOfferBar %}
+  <script>(function(){try{if(localStorage.getItem("sfd-offer-founding")==="{{ plans.foundingClients.spotsLeft }}")document.documentElement.classList.add("offer-bar-off")}catch(e){}})()</script>
+  {% endif %}
   <script>(function(){try{var p=localStorage.getItem("sfd-theme");p=p==="light"||p==="dark"?p:"system";var d=p==="dark"||(p==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.setAttribute("data-theme",d?"dark":"light");document.documentElement.setAttribute("data-theme-pref",p)}catch(e){}})()</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.seo.title }}</title>
@@ -48,6 +53,7 @@
 </head>
 <body{% if page.id == "home" %} class="page-home"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  {% if showOfferBar %}{% include "partials/offer-bar.njk" %}{% endif %}
   {% include "partials/header.njk" %}
   <main id="main-content">
     {% block content %}{% endblock %}
