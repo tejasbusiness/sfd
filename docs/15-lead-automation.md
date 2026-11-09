@@ -128,3 +128,6 @@ Step 1 notes: the Garage Door hero form now uses `form.mode: "lead"` (hero-form.
 - Whether to add a `robots.txt` to the preview host.
 - Whether the alert channel should later switch to WhatsApp.
 - Where the hero form's former required message goes once it is optional (message stays optional).
+
+## Founding flag in the lead workflow (2026-11-09)
+The `lead.created` payload carries `foundingInterest` (boolean). Owner actions in n8n (the workflow itself is not in this repo): (1) re-paste the regenerated Code-node scripts `demo-kit/n8n/1-prepare-ai-request.js` and `2-build-prompt.js` (script 1 now carries `foundingInterest` forward; script 2 puts "FOUNDING CLIENT SPOT REQUESTED" at the top of the message-2 summary when it is true); (2) edit the Telegram message 1 template to show a line such as "FOUNDING SPOT REQUESTED" when `{{ $json.body.foundingInterest }}` is true. Without step 2 the instant alert does not show the flag, but the owner email and the database do.

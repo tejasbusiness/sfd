@@ -34,8 +34,16 @@ function validate(data) {
   return errors;
 }
 
+// Visitors arriving from /founding-clients/ come with ?offer=founding: tick the optional
+// founding-spot checkbox (it only exists while spots are left). Runs again after a reset.
+function applyFoundingOffer(form) {
+  const box = form.elements.foundingInterest;
+  if (box && new URLSearchParams(window.location.search).get('offer') === 'founding') box.checked = true;
+}
+
 export function initFreePreviewForm(form) {
   if (!form) return;
+  applyFoundingOffer(form);
 
   initPhoneInputs(form);
   initWebsiteInputs(form);
@@ -49,6 +57,7 @@ export function initFreePreviewForm(form) {
 
     const data = readForm(form);
     data.consent = form.elements.consent.checked;
+    data.foundingInterest = !!(form.elements.foundingInterest && form.elements.foundingInterest.checked);
 
     const errors = validate(data);
     showFormErrors(form, errors);
@@ -68,6 +77,7 @@ export function initFreePreviewForm(form) {
         return;
       }
       form.reset();
+      applyFoundingOffer(form);
       showFormErrors(form, {});
       showToast({ title: form.dataset.successTitle, message: form.dataset.successMessage });
     } catch (err) {

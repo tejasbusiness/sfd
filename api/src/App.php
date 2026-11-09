@@ -12,7 +12,7 @@ namespace Sfd;
  *   POST /playbook
  *   POST /website-review
  *   POST /consent           (cookie-banner choice)
- *   POST /events            (anonymous funnel step: cta_click, form_start)
+ *   POST /events            (anonymous funnel step: cta_click, form_start, founding_click)
  */
 final class App
 {
@@ -274,16 +274,18 @@ final class App
         RateLimit::hit('preview_saved');
 
         $c = $v->clean;
+        // Optional checkbox on the Free Preview form (Founding Client Program, 2026-11-09).
+        $founding = ($in['foundingInterest'] ?? false) === true || ($in['foundingInterest'] ?? '') === 'on';
         $t = Validator::tracking($in);
         $consentId = Consent::record('preview', $c['email'], $t['source_page']);
         $reference = 'PV-' . strtoupper(bin2hex(random_bytes(4)));
         // `website` holds the one URL the visitor gave: their website or their Google Business Profile.
         Db::run(
             'INSERT INTO preview_applications (reference, full_name, email, country_code, mobile_number, business_name, website,
-                primary_service, problem, trade, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+                primary_service, problem, trade, founding_interest, consent_id, source_page, utm_source, utm_medium, utm_campaign, utm_term, utm_content, ip_hash, user_agent, is_test)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
             [$reference, $c['fullName'], $c['email'], $c['countryCode'], $c['mobileNumber'], $c['businessName'], $c['website'],
-             $c['primaryService'], $c['problem'], $c['trade'], $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
+             $c['primaryService'], $c['problem'], $c['trade'], $founding ? 1 : 0, $consentId, $t['source_page'], $t['utm_source'], $t['utm_medium'],
              $t['utm_campaign'], $t['utm_term'], $t['utm_content'], Http::ipHash(), Http::userAgent(), Env::isLocal() ? 1 : 0]
         );
         $id = Db::insertId();
@@ -304,6 +306,7 @@ final class App
             'services' => (string) $c['primaryService'],
             'message' => (string) $c['problem'],
             'trade' => (string) $c['trade'],
+            'foundingInterest' => $founding,
             'sourcePage' => (string) $t['source_page'],
             'utm' => [
                 'source' => $t['utm_source'], 'medium' => $t['utm_medium'], 'campaign' => $t['utm_campaign'],
@@ -313,12 +316,16 @@ final class App
             'createdAt' => gmdate('c'),
         ], 'preview', $id);
 
-        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, "New Free Preview request: {$c['businessName']}", 'A business asked to see their new website (Free Website Preview).', [
+        $ownerFields = [
             'Reference' => $reference, 'Name' => $c['fullName'], 'Email' => $c['email'],
             'Phone' => $c['countryCode'] . ' ' . $c['mobileNumber'], 'Trade' => (string) $c['trade'],
             'Business' => $c['businessName'], 'Website or Google Business Profile' => $c['website'],
             'Primary service' => (string) $c['primaryService'], 'Message' => (string) $c['problem'],
-        ], 'preview', $id, $c['email']);
+        ];
+        if ($founding) {
+            $ownerFields = ['Founding Client Program' => 'Yes, wants a founding spot'] + $ownerFields;
+        }
+        Mailer::send('preview_owner', Env::require('MAIL_OWNER_TO'), null, ($founding ? '[Founding] ' : '') . "New Free Preview request: {$c['businessName']}", 'A business asked to see their new website (Free Website Preview).', $ownerFields, 'preview', $id, $c['email']);
         Mailer::send('preview_visitor', $c['email'], $c['fullName'], 'We received your Free Website Preview request', "Hi {$c['fullName']}, thank you for asking to see your new website. We will look at your business and email you at this address. " . self::RESPONSE_TIME, [
             'Reference' => $reference, 'Business' => $c['businessName'],
         ], 'preview', $id);
@@ -422,7 +429,7 @@ final class App
         RateLimit::hit('event');
         $in = Http::body();
         $event = $in['event'] ?? '';
-        if (!in_array($event, ['cta_click', 'form_start'], true)) {
+        if (!in_array($event, ['cta_click', 'form_start', 'founding_click'], true)) {
             Http::json(422, ['ok' => false, 'error' => 'validation']);
         }
         $page = is_string($in['page'] ?? null) ? (string) parse_url($in['page'], PHP_URL_PATH) : '';

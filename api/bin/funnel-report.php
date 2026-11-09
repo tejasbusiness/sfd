@@ -60,3 +60,16 @@ foreach ($steps as $label => $count) {
 $hours = ((int) $leads['minutes']) / 60;
 printf("  %-20s %6.1f\n", 'Production hours', $hours);
 printf("  %-20s %s\n", 'Hours per customer', $steps['Paid subscriptions'] > 0 ? sprintf('%.1f', $hours / $steps['Paid subscriptions']) : 'n/a (no paid customers yet)');
+
+// Founding Client Program (migration 017): link clicks and requests, shown beside the funnel, not in it.
+$foundingLeads = (int) Db::run(
+    'SELECT COUNT(*) FROM preview_applications WHERE is_test = 0 AND founding_interest = 1 AND created_at > (UTC_TIMESTAMP() - INTERVAL ? DAY)',
+    [$days]
+)->fetchColumn();
+echo "
+Founding Client Program, last {$days} days
+";
+printf("  %-20s %6d
+", 'Founding link clicks', $event('founding_click'));
+printf("  %-20s %6d
+", 'Founding requests', $foundingLeads);

@@ -377,6 +377,7 @@ const fileName = 'demo-prompt-' + prev.token + '.md';
 const data = await this.helpers.prepareBinaryData(Buffer.from(prompt, 'utf8'), fileName, 'text/markdown');
 
 const summary = [
+  prev.lead.foundingInterest ? 'FOUNDING CLIENT SPOT REQUESTED' : null,
   'Demo prompt ready: ' + prev.lead.businessName,
   'Kit: ' + kit.label + ' | ' + ai.palette.name + ' | ' + ai.font.name,
   'Upload folder: ' + prev.token,
@@ -384,7 +385,7 @@ const summary = [
   'Expires: ' + values.expiresDisplay,
   'To confirm with the business: ' + missing.length + ' items (listed in the prompt)',
   prev.research && prev.research.ok ? 'Website text was read.' : 'No website text (Google profile link or fetch failed): facts come from the form only.',
-].join('\n');
+].filter(Boolean).join('\n');
 
 return [
   {

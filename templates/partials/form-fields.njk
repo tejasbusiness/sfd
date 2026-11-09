@@ -64,6 +64,16 @@
 </div>
 {% endmacro %}
 
+{# Optional checkbox on the consent styling (2026-11-09): not required, no error line. `checked` sets the default. #}
+{% macro checkbox(id, name, label, checked=false) %}
+<div class="field field--full sfd-form__consent">
+  <label>
+    <input type="checkbox" name="{{ name }}" id="{{ id }}"{% if checked %} checked{% endif %}>
+    <span>{{ label | safe }}</span>
+  </label>
+</div>
+{% endmacro %}
+
 {% macro consent(id, name, label) %}
 <div class="field field--full sfd-form__consent">
   <label>

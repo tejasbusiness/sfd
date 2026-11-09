@@ -23,7 +23,7 @@
       "spotsCounter": true,
       "primaryCta": {
         "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
+        "href": "/free-preview/?offer=founding"
       },
       "secondaryCta": {
         "label": "Book a Free 20-Minute Call",
@@ -87,7 +87,7 @@
       ],
       "cta": {
         "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
+        "href": "/free-preview/?offer=founding"
       }
     },
     {
@@ -97,7 +97,7 @@
       "body": "Start with a private preview of your new website before you pay anything.",
       "primaryCta": {
         "label": "Start My Free Website Preview",
-        "href": "/free-preview/"
+        "href": "/free-preview/?offer=founding"
       },
       "secondaryCta": {
         "label": "Book a Free 20-Minute Call",

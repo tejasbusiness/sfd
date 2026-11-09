@@ -379,6 +379,7 @@ return [
         message: lead.message,
         trade: lead.trade,
         reference: lead.reference,
+        foundingInterest: lead.foundingInterest === true,
       },
       research,
       openaiBody: buildAiRequest({ lead, research, kit, model: OPENAI_MODEL }),

@@ -20,6 +20,8 @@
       {{ fields.phone("fp", countryCodes, countryCodeOptions) }}
       {{ fields.input("fp-business", "businessName", "Business name *", required=true, autocomplete="organization") }}
       {{ fields.input("fp-website", "website", "Website or Google Business Profile URL *", required=true, inputmode="url", autocomplete="url", website=true, hint="No website yet? Paste your Google Business Profile link.") }}
+      {# Optional founding-spot checkbox: only while spots are left; ticked by JS for ?offer=founding. #}
+      {% if section.foundingLabel and plans.foundingClients.spotsLeft > 0 %}{{ fields.checkbox("fp-founding", "foundingInterest", section.foundingLabel) }}{% endif %}
       {{ fields.consent("fp-consent", "consent", section.consentLabel + " *") }}
       <div class="sfd-form__actions field--full">
         <button type="submit" class="button button--primary" data-free-preview-submit>{{ section.submitLabel }}</button>

@@ -300,3 +300,17 @@ test('n8n script 2 builds the prompt file and the Telegram summary', async () =>
   assert.ok(item.json.summary.includes('Steel & Signal'));
   assert.equal(item.json.previewUrl, `https://preview.synergyfirstdigital.com/${prev.token}/`);
 });
+
+test('a founding-spot request is flagged in the Telegram summary and absent otherwise', async () => {
+  const one = new AsyncFunction('$', '$input', fs.readFileSync(path.join(kitDir, 'n8n', '1-prepare-ai-request.js'), 'utf8'));
+  const run2 = new AsyncFunction('$', '$input', fs.readFileSync(path.join(kitDir, 'n8n', '2-build-prompt.js'), 'utf8'));
+  const reply = { choices: [{ message: { content: JSON.stringify({ paletteId: 'steel-signal', fontPairId: 'barlow', services: ['Garage door repair'] }) } }] };
+  const ctx = { helpers: { prepareBinaryData: async (buf, fileName, mime) => ({ fileName, mimeType: mime, size: buf.length, text: buf.toString('utf8') }) } };
+  async function summaryFor(body) {
+    const prev = (await one(() => ({ first: () => ({ json: { body } }) }), { first: () => ({ json: { data: html } }) }))[0].json;
+    return (await run2.call(ctx, () => ({ first: () => ({ json: prev }) }), { first: () => ({ json: reply }) }))[0].json.summary;
+  }
+  assert.ok((await summaryFor({ ...lead, foundingInterest: true })).startsWith('FOUNDING CLIENT SPOT REQUESTED\n'));
+  assert.ok(!(await summaryFor({ ...lead, foundingInterest: false })).includes('FOUNDING'));
+  assert.ok(!(await summaryFor(lead)).includes('FOUNDING'));
+});
