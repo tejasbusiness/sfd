@@ -1212,3 +1212,7 @@ Full plan, flow, contract, design kit, prompt rules and build order: **docs/15-l
 - **Policies:** Cookie Policy and Privacy Policy now name the closed-bar flag next to the theme choice (`lastUpdated` 2026-11-09); both still need the lawyer review.
 - **Not done:** the founding-link click counting in `funnel.js` (the "See details" link goes to `/founding-clients/`, not `/free-preview/`, so the existing funnel does not count it), the Menu item, trade-page banners, homepage pill and banner move, Free Preview banner, and everything in Session 2.
 - **Not checked:** a real phone, Safari, Firefox, dark mode by eye.
+
+### Deploy 2026-11-09 (sixteenth)
+- **Shipped:** commit 0f26616 (sticky Founding Client offer bar, policy wording for the closed-bar flag). `deploy.bat -Yes`: no migrations, no new dependencies, no `.env` upload, nginx redirects unchanged; 41 pages; all 16 live checks passed. `dist.bak` holds the fifteenth deploy.
+- **Verified live:** see the checks run right after the deploy (bar on `/` and `/pricing/`, absent on `/founding-clients/` and `/privacy-policy/`, new CSS and `offer-bar.js` served). Hard-refresh to see it (static files are cached for a day).
